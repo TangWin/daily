@@ -1,0 +1,323 @@
+{
+ "schema_version": 1,
+ "type": "news",
+ "date": "2026-10-16",
+ "day": {
+  "window": "10/15 08:30 – 10/16 08:30 北京时间",
+  "note": "未使用 X 付费 API",
+  "footer": "Ontology、支付、Java SDK 今日无值得报的新内容。",
+  "highlights": [
+   1,
+   2,
+   9
+  ]
+ },
+ "items": [
+  {
+   "id": "news-2026-10-16-01",
+   "date": "2026-10-16",
+   "type": "news",
+   "rank": 1,
+   "title": "Meta 开源 Muse Spark Open",
+   "summary": "816B 总参、激活 42B 的多模态 MoE 模型开源，主打 coding 和长任务 agent。",
+   "url": "https://research.meta.ai/blog/muse-spark-open",
+   "tags": [
+    "模型",
+    "Coding Agent"
+   ],
+   "raw_tags": [
+    "模型",
+    "Coding Agent"
+   ],
+   "score": 587,
+   "score_label": "HN 587",
+   "detail": {
+    "heat": "HN 587",
+    "highlight": true,
+    "event": "Meta 发布并开源 Muse Spark Open：总参数 816B，每次激活 42B，支持多模态和 1M 上下文，重点优化写代码和长时间运行的 agent 任务。权重已上架 Hugging Face，两台 M5 Ultra Mac Studio 用 MLX 就能跑起来。",
+    "why": "这是目前少有的、能在本地硬件上跑的前沿级 coding 模型，私有化部署 coding agent 的门槛又降了一截。",
+    "use": "可以评估它作为本地 coding agent 的底座。算成本时别只看参数量，要把显存/内存、上下文长度带来的开销和实际吞吐一起算。",
+    "links": [
+     {
+      "name": "Meta 博客",
+      "url": "https://research.meta.ai/blog/muse-spark-open"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50107379"
+     },
+     {
+      "name": "Hugging Face",
+      "url": "https://huggingface.co/collections/meta-models/muse-spark-open"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-16-02",
+   "date": "2026-10-16",
+   "type": "news",
+   "rank": 2,
+   "title": "GitLab 官方 MCP 正式发布",
+   "summary": "GitLab 19.5 起官方 MCP Server GA，覆盖所有版本和部署方式。",
+   "url": "https://about.gitlab.com/blog/mcp-server-ga/",
+   "tags": [
+    "MCP",
+    "Coding Agent"
+   ],
+   "raw_tags": [
+    "MCP",
+    "Coding Agent"
+   ],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "heat": "",
+    "highlight": true,
+    "event": "GitLab 官方 MCP Server 随 19.5 正式发布，所有版本、所有部署方式都能用。工具做了合并（如 get_merge_request、get_pipeline），新增代码和流水线相关工具，还能直接启动 Duo Agent 工作流。权限沿用 GitLab 自身的角色体系。",
+    "why": "不用再自己维护第三方 GitLab MCP，权限也和现有角色一致，安全审核更好过。",
+    "use": "用 GitLab 的团队可以把 Claude Code / Codex / Copilot 接到官方 MCP，只开需要的工具组，按最小权限配置。",
+    "links": [
+     {
+      "name": "GitLab 博客",
+      "url": "https://about.gitlab.com/blog/mcp-server-ga/"
+     },
+     {
+      "name": "19.5 发布说明",
+      "url": "https://docs.gitlab.com/releases/19/gitlab-19-5-released/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-16-03",
+   "date": "2026-10-16",
+   "type": "news",
+   "rank": 3,
+   "title": "MCP 统一了，基础设施还没跟上",
+   "summary": "Stack Overflow 博客指出 MCP 缺少认证、网关、可观测等生产配套。",
+   "url": "https://stackoverflow.blog/2026/10/15/mcp-standardized-tools-now-we-need-the-infrastructure-around-them/",
+   "tags": [
+    "MCP",
+    "Context Engineering"
+   ],
+   "raw_tags": [
+    "MCP",
+    "Context Engineering"
+   ],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "heat": "",
+    "highlight": false,
+    "event": "Stack Overflow 博客文章认为，MCP 已经统一了工具协议，但生产环境需要的配套还缺：认证、网关、可观测性、按需发现工具、最小权限。文中提到按需加载仓库上下文可以砍掉约 87% 的上下文。",
+    "why": "多数团队接 MCP 卡的不是协议，而是这些周边能力；按需发现工具也直接影响上下文成本。",
+    "use": "由平台侧统一做 MCP 网关，集中处理鉴权和监控，别让每个团队各接各的。",
+    "links": [
+     {
+      "name": "Stack Overflow 博客",
+      "url": "https://stackoverflow.blog/2026/10/15/mcp-standardized-tools-now-we-need-the-infrastructure-around-them/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-16-04",
+   "date": "2026-10-16",
+   "type": "news",
+   "rank": 4,
+   "title": "Codex CLI 0.163.0",
+   "summary": "回复中途可以改方向，只读工具并行执行。",
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.163.0",
+   "tags": [
+    "Coding Agent",
+    "Harness"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "Harness"
+   ],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "heat": "",
+    "highlight": false,
+    "event": "Codex CLI 0.163.0 发布：模型回复到一半时可以插话改方向；只读工具并行执行；/config 支持搜索；新增 /daemon 用来重启后台进程。",
+    "why": "中途纠偏和并行只读工具都能明显减少等待时间。",
+    "use": "发现 agent 走偏时直接插话纠正，不必等它跑完再重来。",
+    "links": [
+     {
+      "name": "Release",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.163.0"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-16-05",
+   "date": "2026-10-16",
+   "type": "news",
+   "rank": 5,
+   "title": "Copilot CLI 1.0.99",
+   "summary": "支持单次信任目录、链接安装插件和会话级沙箱。",
+   "url": "https://github.com/github/copilot-cli/releases",
+   "tags": [
+    "Coding Agent",
+    "Harness"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "Harness"
+   ],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "heat": "",
+    "highlight": false,
+    "event": "Copilot CLI 1.0.99：新增 --trust-folder，只对本次会话信任某目录；插件可以通过链接安装；新增会话级 /sandbox。",
+    "why": "信任和沙箱粒度更细，临时处理陌生仓库更安全。",
+    "use": "打开不熟悉的仓库时用 --trust-folder 加 /sandbox，不要永久信任。",
+    "links": [
+     {
+      "name": "Releases",
+      "url": "https://github.com/github/copilot-cli/releases"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-16-06",
+   "date": "2026-10-16",
+   "type": "news",
+   "rank": 6,
+   "title": "Claude Code 2.1.301",
+   "summary": "无人值守重试遇到额度上限且重置很久时，直接结束不再干等。",
+   "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.301",
+   "tags": [
+    "Coding Agent",
+    "Harness"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "Harness"
+   ],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "heat": "",
+    "highlight": false,
+    "event": "Claude Code 2.1.301：无人值守模式下重试时，如果撞上用量上限且距离重置还很久，会直接退出，不再一直等待。阈值可用 CLAUDE_CODE_RETRY_WATCHDOG_MAX_USAGE_LIMIT_WAIT_MS 配置。",
+    "why": "CI 或定时任务里跑 Claude Code 时，不会因为额度问题卡住几个小时占着资源。",
+    "use": "在 CI 里设置这个变量，让任务快速失败并报警，而不是悄悄挂起。",
+    "links": [
+     {
+      "name": "Release",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.301"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-16-07",
+   "date": "2026-10-16",
+   "type": "news",
+   "rank": 7,
+   "title": "用 coding agent 逆向硬件",
+   "summary": "GNOME 开发者让 agent 对比两套驱动的 USB 记录来逆向硬件，并开源 hw-harness。",
+   "url": "https://blogs.gnome.org/uraeus/2026/10/15/aiandreverseengineerhardware/",
+   "tags": [
+    "Harness",
+    "支付"
+   ],
+   "raw_tags": [
+    "Harness",
+    "支付"
+   ],
+   "score": 97,
+   "score_label": "HN 97",
+   "detail": {
+    "heat": "HN 97",
+    "highlight": false,
+    "event": "GNOME 开发者让 coding agent 对比厂商驱动和自研驱动产生的 USB 通信记录，逐步找出差异来逆向硬件行为，并把这套工具开源为 hw-harness。",
+    "why": "“双边抓记录、自动对比”给了 agent 一个明确可验证的目标，这是 harness 设计的好例子。",
+    "use": "对于行为有标准但没文档的系统（比如支付网关沙箱），可以同样抓参考实现和自己实现的记录做对比，作为验收标准。",
+    "links": [
+     {
+      "name": "GNOME 博客",
+      "url": "https://blogs.gnome.org/uraeus/2026/10/15/aiandreverseengineerhardware/"
+     },
+     {
+      "name": "hw-harness",
+      "url": "https://github.com/cschalle/hw-harness"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-16-08",
+   "date": "2026-10-16",
+   "type": "news",
+   "rank": 8,
+   "title": "openai-agents-python 0.24.0",
+   "summary": "MCP 工具注解（只读/破坏性/需审批）会传给 agent。",
+   "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.24.0",
+   "tags": [
+    "MCP",
+    "AI Agent"
+   ],
+   "raw_tags": [
+    "MCP",
+    "AI Agent"
+   ],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "heat": "",
+    "highlight": false,
+    "event": "openai-agents-python 0.24.0：MCP 工具上的注解（只读、破坏性、需审批）现在会传递给 agent。",
+    "why": "有了这些标记，就能按工具性质自动定执行规则，不用一个个手写白名单。",
+    "use": "可以设成：只读工具直接执行，破坏性工具必须人工审批。",
+    "links": [
+     {
+      "name": "Release",
+      "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.24.0"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-16-09",
+   "date": "2026-10-16",
+   "type": "news",
+   "rank": 9,
+   "title": "争议：神经网络本来就好理解？",
+   "summary": "Goodfire 主张神经网络内部结构本来就比想象中清晰。",
+   "url": "https://already-clean.goodfire.com/",
+   "tags": [
+    "有争议"
+   ],
+   "raw_tags": [
+    "争议"
+   ],
+   "score": 476,
+   "score_label": "HN 476",
+   "detail": {
+    "heat": "HN 476",
+    "highlight": true,
+    "event": "Goodfire 发文认为，神经网络内部其实本来就是“干净”的、可以理解的，引发 HN 热烈讨论。",
+    "why": "这和可解释性领域的主流看法不太一样，观点有争议，值得看看讨论里的反驳。",
+    "use": "暂时当作行业观点了解即可，不影响日常工作。",
+    "links": [
+     {
+      "name": "Goodfire 原文",
+      "url": "https://already-clean.goodfire.com/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50105647"
+     }
+    ]
+   }
+  }
+ ]
+}

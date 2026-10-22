@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tangwin.github.io/daily/sitemap.xml

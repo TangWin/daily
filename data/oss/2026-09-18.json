@@ -1,0 +1,44 @@
+{
+ "schema_version": 1,
+ "type": "oss",
+ "date": "2026-09-18",
+ "day": {},
+ "items": [
+  {
+   "id": "oss-2026-09-18-01",
+   "date": "2026-09-18",
+   "type": "oss",
+   "rank": 1,
+   "title": "GenericAgent：约 3K 行的自进化电脑操控 Agent",
+   "summary": "Minimal (~3K-line seed) self-evolving computer-use agent — 真实控制浏览器/系统/ADB，并把解决过的任务沉淀成可复用的 Skill/SOP。",
+   "url": "https://github.com/lsdefine/GenericAgent",
+   "tags": [
+    "AI Agent",
+    "Computer Use",
+    "开源"
+   ],
+   "raw_tags": [],
+   "score": 14216,
+   "score_label": "★ 14,216",
+   "detail": {
+    "status": "picked",
+    "repo": "lsdefine/GenericAgent",
+    "homepage": "https://gaagent.ai",
+    "stars": 14216,
+    "forks": 1654,
+    "license": "MIT",
+    "language": "Python",
+    "latest_release": "desktop-portable-v0.2.0（2026-08-24）",
+    "runners_up": [
+     "omnigent-ai/omnigent",
+     "withastro/flue",
+     "PrimeIntellect-ai/prime-agent",
+     "Tencent/BrowserSkill"
+    ],
+    "body_md": "Verified by executor via `gh` + full README fetch. Do not invent beyond this note.\n\n---\n\n## 1. Chosen project\n\n- **Repo:** `lsdefine/GenericAgent`\n- **URL:** https://github.com/lsdefine/GenericAgent\n- **Stars:** ~14,216 ★ (forks ~1,654)\n- **License:** MIT\n- **Language:** Python\n- **Homepage/site:** https://gaagent.ai (README also lists arXiv tech report https://arxiv.org/abs/2604.17091)\n- **Why worth trying today:** Minimal (~3K-line seed) **self-evolving computer-use agent** — real browser/OS/ADB control + skill crystallization — a clear angle vs this week’s agent-harness flood (eve / hermes / deer-flow / headroom).\n\n---\n\n## 2. Problem it solves / who it’s for\n\nDevelopers who want a **local autonomous agent that actually drives the machine** (browser with login sessions preserved, terminal/files, mouse/keyboard/vision, mobile via ADB), and that **gets better over time** by turning solved tasks into reusable Skills/SOPs — without adopting a heavy multi-service harness. Especially attractive if you care about **token efficiency** (README claims &lt;30K context vs 200K–1M peers) and a try-it path that is clone + API key + TUI.\n\n---\n\n## 3. Key capabilities / usage (from FULL README)\n\nRead full bilingual README (~803 lines) from `gh api repos/lsdefine/GenericAgent/readme`.\n\n**Design:** “don’t preload skills, evolve them.” Core ≈ 3K LOC, ~100-line Agent Loop (`agent_loop.py`), **9 atomic tools**.\n\n**Atomic tools:** `code_run`, `file_read`, `file_write`, `file_patch`, `web_scan`, `web_execute_js`, `ask_user`, `update_working_checkpoint`, `start_long_term_update`.\n\n**Memory layers L0–L4:** Meta Rules → Insight Index → Global Facts → Task Skills/SOPs → Session Archive.\n\n**Computer control:** TMWebdriver = real Chrome/Chromium + extension (cookies/login preserved); claims strong bot-detection pass rates in README tables; computer-use / OCR / vision unlocked by *telling the agent* to set them up from SOPs in memory (not by reading long docs).\n\n**Frontends:** TUI (`frontends/tui_v3.py` recommended EN), Streamlit (`launch.pyw`), Desktop portable, IM bots (Telegram/Discord/Lark; CN section also WeChat/QQ/WeCom/DingTalk).\n\n**Models:** Claude / Gemini / Kimi / MiniMax etc. via `mykey.py`.\n\n**Self-evolution:** new task → explore/install/debug → crystallize Skill → recall next time (WeChat read, HN digest, stock monitor, Gmail send examples).\n\n**Extras in README:** Goal / Goal Hive / Morphling / Conductor modes; Datawhale tutorial; Skill Hub (Sophub); community GUIs.\n\n---\n\n## 4. Activity evidence\n\n- **Issues:** Active user bug/feature traffic mid–late Sep 2026 (e.g. #809 open 2026-09-15 session-store mismatch; #808 “缺乏更新功能” open 2026-09-15 with **contributor ZhulongNT reply 2026-09-17 CST-adjacent “git pull 即可”**; #806/#804 model/UI bugs). Older closed threads show owner/contributor engagement (e.g. owner `lsdefine` on #672, 2026-07-14). Caveat: several open bugs lack immediate maintainer replies; ~170 open issues count via API (includes PRs in GitHub’s `open_issues`).\n- **Releases:** Latest GitHub Release **`desktop-portable-v0.2.0`** published **2026-08-24** (Windows/Linux/macOS portable Desktop; unsigned/ad-hoc signing caveats in notes). Project iterates mainly on `main` rather than frequent semver tags for the Python core.\n- **Commits:** Last push **2026-09-14T03:43:01Z** (~2026-09-14 11:43 Asia/Shanghai). Recent themes: constitution/prompt dedupe + remember-tool gates; Force Stop / urllib3 abort; vision backend docs; P2P hub reconnect backoff; TTFT/context window tuning; LLM channel switching. Open PRs still appearing through **2026-09-16** (#812 etc.).\n\n---\n\n## 5. Quick start (1–3 steps)\n\n1. `git clone https://github.com/lsdefine/GenericAgent.git && cd GenericAgent`\n2. `uv venv && uv pip install -e \".[ui]\"` then `cp mykey_template_en.py mykey.py` and fill LLM API key  \n   - Require **Python 3.11 or 3.12** (README: do **not** use 3.14 / pywebview issues)\n3. Launch: `python frontends/tui_v3.py` (TUI) or `python launch.pyw` (Streamlit)  \n   - Optional one-liner installers in README (`ga_install.sh` / `.ps1`); then tell the agent e.g. *“Set up your web automation capability.”* / *“Probe this system and set up your computer-use capability.”*\n\n---\n\n## 6. Risks / caveats\n\n- **Full system control** — runs code, drives browser/OS with user permissions; not a sandbox (similar risk class to coding agents).\n- **Last core commit ~4 days ago** (2026-09-14) — still within 2 weeks, but quieter than omnigent/prime-agent’s daily merge firehose.\n- **Desktop release lag** — portable Desktop tag is Aug 24; for latest behavior prefer `git pull` + Python path.\n- **Windows TUI flaky** — README recommends Git Bash; some open desktop/session bugs (#806, #809).\n- **SOP language** — preinstalled SOPs Chinese-first (agent can rewrite to English on request).\n- **Official channel disclaimer** — only GitHub + gaagent.ai; DintalClaw sole authorized commercial partner.\n\n---\n\n## 7. Runners-up (memory shortlist)\n\n1. **`omnigent-ai/omnigent`** (~10.0k★, Apache-2.0) — meta-harness for Claude Code / Codex / Cursor / Pi; **v0.14.0 @ 2026-09-15**; commits **through 2026-09-18**; very strong activity but **overlaps** this week’s harness theme → keep as next-day candidate if wanting orchestration UX.\n2. **`withastro/flue`** (~8.3k★, Apache-2.0) — “sandbox agent framework”, TypeScript harness; **`@flue/cli@2.0.8` @ 2026-09-16**; commits through **2026-09-17**.  \n   Also strong but harness-adjacent: **`PrimeIntellect-ai/prime-agent`** (~21.0k★, MIT, self-improving RLM; **v0.9.5 @ 2026-09-16**; hyper-active Sep 17 commits) — note **vouched-only issue filing** (community reports auto-closed).  \n   Fresh non-harness watch: **`Tencent/BrowserSkill`** (~4.3k★, MIT, CLI+extension for real logged-in browser; **cli-v0.3.0 @ 2026-09-17**).\n\n**Still avoid (already recommended):** DeusData/codebase-memory-mcp, volcengine/OpenViking, vshulcz/deja-vu, pizza-bot-app/pizza-bot, HKUDS/nanobot, bytedance/deer-flow, vercel/eve, headroomlabs-ai/headroom, NousResearch/hermes-agent.\n\n---\n\n## 8. Verification checklist\n\n- [x] Full README read (English + Chinese sections via API base64 decode, 803 lines)\n- [x] Issues sampled (open Sep list + closed history + issue #808 view; contributor reply 2026-09-17)\n- [x] Releases checked (`gh release list` + `gh release view desktop-portable-v0.2.0`)\n- [x] Commits checked (`gh api .../commits?per_page=8`, last 2026-09-14; themes noted)\n- [x] Shortlist peers refreshed (omnigent, flue, prime-agent) + light expand search; pick chosen for distinct computer-use + self-evolution angle",
+    "source_file": "/workspace/daily-ai-pick-2026-09-18.md",
+    "date_inferred": false
+   }
+  }
+ ]
+}

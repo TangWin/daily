@@ -1,0 +1,347 @@
+{
+ "schema_version": 1,
+ "type": "news",
+ "date": "2026-10-22",
+ "day": {
+  "window": "10/21 08:30 – 10/22 08:30 北京时间",
+  "note": "未使用 X 付费 API",
+  "footer": "Ontology 今天没有值得单列的新内容，跳过。没单列的还有：eMudhra 八张中间 CA 证书的 P-384 私钥只有一个字节（比如就是数字 4），公钥直接反推，Chrome/Firefox 已吊销并移除其根证书（HN 831），有自建证书信任链或代码签名校验的支付系统可以顺手排查；Claude Code 2.1.307 新增 claude_code.safety_event OpenTelemetry 事件，记录每次被权限规则、auto mode、hook 或沙箱拦下的工具调用；Copilot CLI 1.0.102 让子 agent 继承自定义和 MCP 工具的审批设置；Google ADK Java 1.13.0 加了工作流图边构建器和单节点运行；LayerFS（HN 69）给每次 Bash 调用挂一个临时可写工作区并自动提交，面向多 agent 并行开发；Launch HN 的 Alter（HN 52）做 agent 的特权访问管理，按 agent 注入凭证、按参数做默认拒绝策略；Mistral Large 4 公测（1T 总参 / 52B 激活，月底放权重，HN 315）。",
+  "highlights": [
+   1,
+   2,
+   4
+  ]
+ },
+ "items": [
+  {
+   "id": "news-2026-10-22-01",
+   "date": "2026-10-22",
+   "type": "news",
+   "rank": 1,
+   "title": "PHP2Shell 细节公开：AI 帮忙把十年老漏洞变成了未认证 RCE",
+   "summary": "昨天预告的 PHP 安全更新已发布，Wiz 披露两个 CVSS 9.2 漏洞影响 PHP 5.4 以来几乎所有版本，OpenAI 同步推 Patch the Planet，HN 上同时在吵这到底是 AI 的功劳还是营销。",
+   "url": "https://www.wiz.io/blog/php2shell-php-rce",
+   "tags": [
+    "安全",
+    "AI Agent",
+    "有争议"
+   ],
+   "raw_tags": [
+    "安全",
+    "AI Agent",
+    "有争议"
+   ],
+   "score": 961,
+   "score_label": "HN 961 分 / 532 评论",
+   "detail": {
+    "heat": "HN 961 分 / 532 评论",
+    "highlight": true,
+    "event": "PHP 10/21 发布 8.5.12、8.4.27、8.3.36、8.2.35。CVE-2026-109618 是请求在恰好碰到 memory_limit 时留下未初始化的内部数据，Apache mod_php 下默认配置就能在应用代码运行前被未认证请求打成 RCE，PHP-FPM 也经应用代码路径复现；CVE-2026-109619 是致命错误后全局状态指向上一个请求已释放的内存，同一 worker 的下一个请求触发 UAF。Wiz 说底层缺陷存在了十多年，利用链复杂到接近人工研究的极限，前沿模型大幅降低了门槛。PHP 基金会说 OOM 问题 2024 年 Quarkslab 审计时就露过苗头，但当时没找到具体利用路径。OpenAI 同日发布 Patch the Planet，讲 agent 批量挖漏洞后的全球协同披露；Cloudflare 已上 WAF 规则，AWS 发了安全公告，荷兰国家网络安全中心官网一度下线。",
+    "why": "这是继 Heartbleed、Log4Shell 之后又一个「基础设施级」漏洞，而且是第一次被普遍认为由 AI 把利用门槛拉下来的。争议也很有价值：HN 高赞评论引用原始发现者 Calif 的说法，初始发现没用特殊 harness 或未公开模型，主要靠研究者自己对 PHP 漏洞史的理解，认为 OpenAI 在抢功；另有评论直言「我们制造了病，也卖疫苗」。",
+    "use": "先盘点团队里还有没有 PHP 服务（老支付页、WordPress 官网、内部工具），立刻升级，来不及就先上 WAF 规则。更长远的是：AI 让「理论上可利用」变成「实际可利用」的速度变快了，安全评审里被标成低风险、利用条件苛刻的内存类问题，要重新排优先级。",
+    "links": [
+     {
+      "name": "Wiz：PHP2Shell 技术细节",
+      "url": "https://www.wiz.io/blog/php2shell-php-rce"
+     },
+     {
+      "name": "PHP 基金会说明",
+      "url": "https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/"
+     },
+     {
+      "name": "OpenAI Patch the Planet",
+      "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/"
+     },
+     {
+      "name": "HN 讨论（PHP 8.2.35）",
+      "url": "https://news.ycombinator.com/item?id=50180873"
+     },
+     {
+      "name": "HN 讨论（Patch the Planet）",
+      "url": "https://news.ycombinator.com/item?id=50181175"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-22-02",
+   "date": "2026-10-22",
+   "type": "news",
+   "rank": 2,
+   "title": "LiteLLM 第二次在 PyPI 被投毒，同日 Railway 环境变量被盗：攻击者在专门找 AI 推理密钥",
+   "summary": "LiteLLM 1.107.0 的 wheel 被塞了凭证窃取器和每小时回连的后门，Python 进程一启动就跑；Railway 也披露环境变量被读取，称是针对 AI 推理供应商的系列攻击之一。",
+   "url": "https://safedep.io/litellm-pypi-compromise-credential-stealer-backdoor/",
+   "tags": [
+    "安全",
+    "AI Agent"
+   ],
+   "raw_tags": [
+    "安全",
+    "AI Agent",
+    "供应链"
+   ],
+   "score": 422,
+   "score_label": "HN 422 分 / 131 评论",
+   "detail": {
+    "heat": "HN 422 分 / 131 评论",
+    "highlight": true,
+    "event": "SafeDep 分析：1.107.0 的 sdist 里 pyproject.toml 只多了一行 maturin 配置 data = \"cook\"，于是 wheel 往 site-packages 装了 cook.pth、cook.py 和 sitecustomize.py，不用 import litellm 也会在任意 Python 进程启动时执行。它收集 SSH key、云凭证、CI/CD 密钥、AI 工具 token、浏览器密码以及 LiteLLM proxy 数据库里的各家 LLM key，加密发到 www.litellm[.]dev；后台守护进程每小时从一个 GitHub 文件读服务器地址再拉代码执行。tag v1.107.0 指向的提交和发布包对不上，GitHub 上没有任何提交含这些改动。1.106.2、1.107.0rc1/rc2 是干净的，PyPI 已下架。同一天 Railway 说存客户环境变量的系统出现异常访问，部分变量被解密读取，已通知上游推理供应商主动吊销密钥，并暂停全部部署。",
+    "why": "AI 网关和 PaaS 正好是各家模型 API key 最集中的地方，攻击者显然盯上了这一层。HN 评论提到这是 LiteLLM 第二次出事，有人因为 Google ADK 等框架把它拉成传递依赖而躺枪；也有人提议 uv、npm 默认对新版本设 24–48 小时冷却期。",
+    "use": "马上查 lockfile 和镜像里有没有 litellm==1.107.0（包括传递依赖），装过的机器按已失陷处理并轮换所有密钥；用过 Railway 的服务把环境变量全部轮换。流程上可以给 Python/npm 依赖加「发布满 N 小时才允许升级」的规则，并且校验发布包和源码 tag 是否一致，支付和 agent 服务尤其要做。",
+    "links": [
+     {
+      "name": "SafeDep 分析",
+      "url": "https://safedep.io/litellm-pypi-compromise-credential-stealer-backdoor/"
+     },
+     {
+      "name": "Railway 安全披露",
+      "url": "https://blog.railway.com/p/security-disclosure-wednesday-october-21st"
+     },
+     {
+      "name": "HN 讨论（LiteLLM）",
+      "url": "https://news.ycombinator.com/item?id=50181114"
+     },
+     {
+      "name": "HN 讨论（Railway）",
+      "url": "https://news.ycombinator.com/item?id=50188228"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-22-03",
+   "date": "2026-10-22",
+   "type": "news",
+   "rank": 3,
+   "title": "Anthropic 发布 Claude Duet：主动型个人 agent，每天早上给你发简报",
+   "summary": "基于 Opus 5.5 的独立 App 研究预览，连上 6000 多个连接器，自己盯着各个应用、只在需要你时开口，关键动作先等你确认。",
+   "url": "https://claude.com/resources/articles/claude-duet",
+   "tags": [
+    "AI Agent",
+    "新产品",
+    "有争议"
+   ],
+   "raw_tags": [
+    "AI Agent",
+    "新产品",
+    "有争议"
+   ],
+   "score": 300,
+   "score_label": "HN 300 分 / 254 评论",
+   "detail": {
+    "heat": "HN 300 分 / 254 评论",
+    "highlight": false,
+    "event": "Claude Duet 面向专业人士和小企业主，iOS、Android 和 claude.ai 都能用，Pro/Max 用户排队进入，用量和其它 Claude 产品共享。它每天早上推送跨应用的重点简报，白天持续盯着，只在需要时找你；也能接大任务，比如约会议、做仪表盘、做财务预测、搭原型。安全设计方面，凭证处理沿用 Claude Managed Agents 的方案，agent 本身看不到密码和登录 token；动作由 auto mode 分类器审批；另外新加了一个专门防敏感信息外泄的分类器，信用卡号、证件号这类最高敏感级信息直接拒绝外发，健康、个人财务只有在你明确指示时才放行。Stripe 同日宣布把 Link 的 agent 钱包和 Stripe MCP 接进 Duet。",
+    "why": "OpenAI、Meta、SpaceXAI 和 Anthropic 现在都有了常驻型个人 agent，赛道彻底拥挤。HN 的质疑也很集中：硬从各种集成里挖「洞察」容易牵强附会；为什么要单独一个 App、而且锁死在一家模型上；信任门槛还是跨不过去。它公开的安全分层（凭证隔离 + 动作分类器 + 信息外泄分级）倒是很具体。",
+    "use": "如果你在做企业内部的 agent，可以直接参考它的「信息分级外发」做法：把数据分成绝不外发、需明确授权、可自由流转三档，在发送类工具前加一道分类检查，这在支付场景里对卡号、身份证号特别合用。",
+    "links": [
+     {
+      "name": "Anthropic 发布文章",
+      "url": "https://claude.com/resources/articles/claude-duet"
+     },
+     {
+      "name": "产品页",
+      "url": "https://claude.com/product/claude-duet"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50186037"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-22-04",
+   "date": "2026-10-22",
+   "type": "news",
+   "rank": 4,
+   "title": "Stripe 推出 Treasury for agents：agent 可以查余额、付发票、转账、换汇",
+   "summary": "企业可以让 ChatGPT、Claude 等 agent 通过 Stripe MCP 操作自家银行账户，花钱前由人审批，几周内支持给 agent 设消费额度；同日 Link agent 钱包和 Stripe MCP 接入 Claude Duet。",
+   "url": "https://stripe.com/newsroom/news/treasury-for-agents",
+   "tags": [
+    "支付",
+    "AI Agent",
+    "MCP"
+   ],
+   "raw_tags": [
+    "支付系统",
+    "AI Agent",
+    "MCP"
+   ],
+   "score": null,
+   "score_label": "Stripe 官方发布（两篇）",
+   "detail": {
+    "heat": "Stripe 官方发布（两篇）",
+    "highlight": true,
+    "event": "Stripe Treasury for agents 让 agent 在你常用的工具里直接执行财务操作：查余额、付发票、账户间转账、换汇，之后还会支持开卡，消费额度控制「未来几周」上线。官方案例里，一人公司 Kubrio 的创始人用一个 Grok agent 通过 Stripe MCP server 连 Treasury 账户，每天早上汇报余额、新增/取消订阅、失败支付和退款，下一步让它给承包商付款，每笔由创始人审批。另一篇公告里，Claude Duet 接入 Link 的 agent 钱包（每笔购买用户批准后用虚拟卡完成）和 Stripe MCP（开发票、付款链接、管理商品价格、分析收入、退款）。Stripe 称 Link 已为 200 多个个人 agent 提供支付。",
+    "why": "接着昨天 Visa、Mastercard 的动作，Stripe 把 agent 支付从「替用户买东西」推进到了「替企业动账户里的钱」，而且接入方式就是 MCP。授权模型（先准备动作、人工批准、额度限制）正在成为行业默认做法。",
+    "use": "做支付系统的可以对照它的设计，给自家开放给 agent 的接口分层：只读查询、需审批的资金操作、带额度的自动操作，并把审批记录和 agent 身份写进流水；Java 侧可以先用 MCP 把只读的对账、退款查询接口暴露出来试水。",
+    "links": [
+     {
+      "name": "Stripe Treasury for agents",
+      "url": "https://stripe.com/newsroom/news/treasury-for-agents"
+     },
+     {
+      "name": "Stripe × Anthropic：Claude Duet",
+      "url": "https://stripe.com/newsroom/news/anthropic-and-stripe"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-22-05",
+   "date": "2026-10-22",
+   "type": "news",
+   "rank": 5,
+   "title": "Claude API 新版本 2026-10-21：temperature、top_p、top_k 直接返回 400",
+   "summary": "Anthropic 发布新 API 版本和一批大版本 SDK（Java SDK 3.0.0、Python 2.0.0 等），默认发送新版本号，许可证从 MIT 改为 Apache 2.0。",
+   "url": "https://platform.claude.com/docs/en/api/migration-2026-10-21",
+   "tags": [
+    "Java",
+    "Coding Agent",
+    "开发者工具"
+   ],
+   "raw_tags": [
+    "Java",
+    "Coding Agent",
+    "开发工具"
+   ],
+   "score": null,
+   "score_label": "官方 release notes；anthropic-sdk-java 3.0.0 / 3.1.0 当天连发",
+   "detail": {
+    "heat": "官方 release notes；anthropic-sdk-java 3.0.0 / 3.1.0 当天连发",
+    "highlight": false,
+    "event": "新版本里，Messages 和 Batch 请求只要带 temperature、top_p、top_k 就报 400，即使是默认值；文档块直接放在 assistant 消息里、或者在 user 消息的 text 块里带 citations 也会报 400。Admin API 和 Enterprise Analytics API 去掉了一批旧字段名（如 roles 改 role_ids、actor.email 改 actor.email_address）。新 SDK 默认发送 2026-10-21：Python 2.0.0、TypeScript 1.0.0、Go 2.0.0、Java 3.0.0、C# 13.0.0 等，并有与 API 版本无关的破坏性变更。Java SDK 3.1.0 又加了 GraalVM native image 支持，以及用户画像上的 enforcement_status 字段，可以查到你的哪个终端客户被 Anthropic 限制或封禁。Claude Code 2.1.307 新增 /claude-api api-version 命令帮你把代码迁到新版本。",
+    "why": "很多 agent 评测、结构化抽取、对账类任务习惯把 temperature 调低求稳定，升级 SDK 后这类请求会直接失败；官方明说在 Sonnet 4.6 这类还接受非默认值的模型上，降温效果没有替代方案。依赖升级机器人如果自动拉了大版本，线上可能突然报错。",
+    "use": "Java 项目先把 anthropic-java 锁在 2.x，搜一遍代码里的 temperature/topP/topK 和 citations 用法再升级；需要确定性输出的场景，改用结构化输出约束加校验重试，而不是依赖低温度。另外 enforcement_status 适合接进多租户平台的风控面板。",
+    "links": [
+     {
+      "name": "迁移指南",
+      "url": "https://platform.claude.com/docs/en/api/migration-2026-10-21"
+     },
+     {
+      "name": "Claude Platform release notes",
+      "url": "https://platform.claude.com/docs/en/release-notes/overview"
+     },
+     {
+      "name": "anthropic-sdk-java 发布页",
+      "url": "https://github.com/anthropics/anthropic-sdk-java/releases"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-22-06",
+   "date": "2026-10-22",
+   "type": "news",
+   "rank": 6,
+   "title": "Trail of Bits 开源两个 agent 插件：130 个 AI 补丁里查出 21 个回归",
+   "summary": "patching-bugs 负责复现、修复、测试，regression-hunt 专门找补丁引入的回归，初步评估比直接让 Codex「审查回归」少 25% 误报。",
+   "url": "https://blog.trailofbits.com/2026/10/21/your-ai-agent-fixed-the-bug-but-what-else-did-it-change/",
+   "tags": [
+    "Coding Agent",
+    "工程实践",
+    "开源"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "工程实践",
+    "开源"
+   ],
+   "score": 45,
+   "score_label": "HN 45 分；Trail of Bits 官方博客",
+   "detail": {
+    "heat": "HN 45 分；Trail of Bits 官方博客",
+    "highlight": false,
+    "event": "Trail of Bits 和 OpenAI 合作的 Patch the Planet 项目里，他们复查了自己工程师写、已被上游合并的 130 多个补丁，确认 21 个回归：16 个功能、1 个性能、4 个构建/测试，没有一个破坏安全防护。复查方式是 agent 先找疑似回归，再用补丁前后的 PoC 运行确认，最后交给工程师；单次运行 58 个候选里确认 21 个，精度约 36%，且每次运行结果都不一样，噪声很大。由此他们得出两点：写补丁要有固定流程和每次都跑的检查，查回归要有成文的「什么算回归」规则。两个插件基于对已合并补丁和数千个 Codex 会话的分析，维护者可以写入自己项目的安全假设和补丁要求。",
+    "why": "这是少有的公开数据：资深安全团队借助 AI 写的补丁，回归率大约 16%。它把「AI 修 bug 顺手改坏别的东西」量化了，也给出了可复制的流程，而不只是一句「要人工审查」。",
+    "use": "可以照搬到团队的 AI 改码流程：每个 agent 生成的 PR 都跑一次独立的回归检查 agent，要求它对每个疑似回归给出前后对比的可复现用例，没有用例的不算；把「什么算回归」写成项目规则文件放进仓库，支付核心链路尤其值得这样做。",
+    "links": [
+     {
+      "name": "Trail of Bits 博客",
+      "url": "https://blog.trailofbits.com/2026/10/21/your-ai-agent-fixed-the-bug-but-what-else-did-it-change/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50183253"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-22-07",
+   "date": "2026-10-22",
+   "type": "news",
+   "rank": 7,
+   "title": "Anthropic：与其一个个找漏洞，不如让 Claude 帮你缩小攻击面",
+   "summary": "Claude 在 25 个开源项目上做攻击面分析，找出 493 个问题，思路是把不必要暴露的代码挪到认证之后、默认关闭或更深的协议状态里。",
+   "url": "https://www.anthropic.com/research/attack-surface-reduction",
+   "tags": [
+    "Coding Agent",
+    "工程实践",
+    "安全"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "工程实践",
+    "安全"
+   ],
+   "score": 130,
+   "score_label": "HN 130 分 / 85 评论",
+   "detail": {
+    "heat": "HN 130 分 / 85 评论",
+    "highlight": false,
+    "event": "文章认为逐个修漏洞扩展性差，修掉一个严重漏洞也说明不了还剩多少；降低代码可达性则能顺带降低未知漏洞（包括正在被利用的）的严重程度。具体做法是让模型梳理某个部署实际可达的代码，再把不需要暴露的部分加门槛：从认证前移到认证后、从零点击变成一次点击、从默认开启变为显式开启、从协议第一条消息挪到会话状态机更深处。他们用 Claude 跑了 25 个不同语言的项目，发现 493 个问题，并给出开发者如何自己应用的建议。",
+    "why": "和今天的 PHP2Shell 正好互相印证：PHP 漏洞之所以严重，就是因为它在任何应用代码运行前就可达。AI 挖洞越来越快，防守方光靠打补丁跟不上，减少可达面是更划算的方向。",
+    "use": "可以让 coding agent 针对一个服务做一次「可达性盘点」：列出未认证可达的入口、默认开启的特性、反序列化和文件上传路径，逐项判断能否收到认证之后或关掉。Java 支付服务里的 actuator 端点、回调接口、调试开关都是好的起点。",
+    "links": [
+     {
+      "name": "Anthropic 研究文章",
+      "url": "https://www.anthropic.com/research/attack-surface-reduction"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50175779"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-22-08",
+   "date": "2026-10-22",
+   "type": "news",
+   "rank": 8,
+   "title": "GitHub 讲 agent 时代的 Git 基础设施：一半流量已迁到 Azure，最后卡在 25ms 往返",
+   "summary": "agent 带来的指数级 Git 流量逼着 GitHub 边扛增长边迁存储，这篇讲他们如何改造仲裁写入的串行化，把最繁忙的仓库也搬过去。",
+   "url": "https://github.blog/engineering/architecture-optimization/the-bridge-to-agent-scale-git-infrastructure/",
+   "tags": [
+    "工程实践",
+    "Coding Agent"
+   ],
+   "raw_tags": [
+    "工程实践",
+    "Coding Agent",
+    "架构"
+   ],
+   "score": 55,
+   "score_label": "HN 55 分；GitHub Engineering 博客",
+   "detail": {
+    "heat": "HN 55 分；GitHub Engineering 博客",
+    "highlight": false,
+    "event": "GitHub 说 agent 化让 Git 流量指数增长，同时自有数据中心撞上电力和供应链上限，只能「先搬数据、再改架构」。2025 年 8 月第一份仓库副本落到 Azure Central US，如今大多数仓库五个副本里有两个在 Azure，Azure 承担约一半 Git 流量；99.99999% 的仓库已经两地并存，剩下最繁忙的那部分只被跨区 25ms 往返卡住。文章讲了他们如何改变仲裁（quorum）对写入的串行化方式，让这些仓库也能迁移，并为不保存持久状态的副本铺路。",
+    "why": "coding agent 的规模化正在真实地压垮基础设施，这是平台方第一次讲得这么具体。写入串行化、就近路由、存算分离这些做法，对任何高并发写入的系统（包括支付账务）都有参考价值。",
+    "use": "如果团队在评估大规模并行跑 coding agent，要提前考虑 Git 服务端的压力（自建 GitLab/Gitea 尤其如此）；文章里的「先迁数据再改架构」和跨区仲裁写入的取舍，也可以拿来对照支付账务库跨机房改造的方案。",
+    "links": [
+     {
+      "name": "GitHub 博客",
+      "url": "https://github.blog/engineering/architecture-optimization/the-bridge-to-agent-scale-git-infrastructure/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50183344"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "schema_version": 1,
+ "type": "oss",
+ "date": "2026-10-23",
+ "day": {},
+ "items": [
+  {
+   "id": "oss-2026-10-23-01",
+   "date": "2026-10-23",
+   "type": "oss",
+   "rank": 1,
+   "title": "项目名：一句中文标题，说清它是什么",
+   "summary": "一两句中文推荐理由（首页、列表和 RSS 用）。",
+   "url": "https://github.com/OWNER/REPO",
+   "tags": ["Coding Agent", "MCP"],
+   "raw_tags": [],
+   "score": 12345,
+   "score_label": "★ 12,345",
+   "detail": {
+    "status": "picked",
+    "repo": "OWNER/REPO",
+    "homepage": null,
+    "stars": 12345,
+    "forks": 678,
+    "license": "MIT",
+    "language": "TypeScript",
+    "latest_release": "v1.2.0（2026-10-20）",
+    "runners_up": ["other/repo-a", "other/repo-b"],
+    "body_md": "## 为什么今天值得试\n\n- 第一点\n- 第二点\n\n## 怎么上手\n\n1. `npx something`\n2. ……\n\n## 风险与限制\n\n……",
+    "source_file": null,
+    "date_inferred": false
+   }
+  }
+ ]
+}

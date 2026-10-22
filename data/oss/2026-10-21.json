@@ -1,0 +1,39 @@
+{
+ "schema_version": 1,
+ "type": "oss",
+ "date": "2026-10-21",
+ "day": {},
+ "items": [
+  {
+   "id": "oss-2026-10-21-lcu",
+   "date": "2026-10-21",
+   "type": "oss",
+   "rank": null,
+   "title": "LCU：把 Codex 的 computer use 运行时接到你自己的 harness",
+   "summary": "Codex computer use, decoupled from the Codex app. —— 不需要 Codex 登录，把 Codex 原生的电脑操控运行时暴露给你的 harness（仍需本地装有官方 ChatGPT 桌面版）。",
+   "url": "https://github.com/amontlabs/lcu",
+   "tags": [
+    "Coding Agent",
+    "Computer Use"
+   ],
+   "raw_tags": [],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "status": "candidate",
+    "repo": "amontlabs/lcu",
+    "homepage": null,
+    "stars": null,
+    "forks": null,
+    "license": null,
+    "language": null,
+    "latest_release": null,
+    "runners_up": [],
+    "body_md": null,
+    "readme_chars": 9968,
+    "source_file": "/workspace/pick1021/lcu_readme.md",
+    "date_inferred": false
+   }
+  }
+ ]
+}

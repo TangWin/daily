@@ -1,0 +1,40 @@
+{
+ "schema_version": 1,
+ "type": "oss",
+ "date": "2026-10-17",
+ "day": {},
+ "items": [
+  {
+   "id": "oss-2026-10-17-rea",
+   "date": "2026-10-17",
+   "type": "oss",
+   "rank": null,
+   "title": "REA：用一个 MCP 做逆向工程",
+   "summary": "One MCP for reverse engineering across binaries, applications, and runtime behavior. —— npx rea-agents setup。",
+   "url": "https://github.com/morluto/rea",
+   "tags": [
+    "MCP",
+    "安全",
+    "开发者工具"
+   ],
+   "raw_tags": [],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "status": "candidate",
+    "repo": "morluto/rea",
+    "homepage": null,
+    "stars": null,
+    "forks": null,
+    "license": null,
+    "language": null,
+    "latest_release": null,
+    "runners_up": [],
+    "body_md": null,
+    "readme_chars": 22062,
+    "source_file": "/workspace/pick/rea_README.md",
+    "date_inferred": true
+   }
+  }
+ ]
+}

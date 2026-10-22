@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>产品 Idea 2026-10-10 · Peter 的每日雷达</title>
+<meta name="description" content="10月10日 产品 Idea Top 5：Coding Agent × 密钥：拒绝「点 15 次手表批准」，要会话级秘密注入；Stripe 静默漏收：只听 subscription.deleted 会把 past_due/unpaid 当成还在付；想法交接丢「为什么」：票上只剩一行，船出来却偏了">
+<link rel="canonical" href="https://tangwin.github.io/daily/idea/2026-10-10/">
+<meta property="og:title" content="产品 Idea 2026-10-10 · Peter 的每日雷达"><meta property="og:description" content="10月10日 产品 Idea Top 5：Coding Agent × 密钥：拒绝「点 15 次手表批准」，要会话级秘密注入；Stripe 静默漏收：只听 subscription.deleted 会把 past_due/unpaid 当成还在付；想法交接丢「为什么」：票上只剩一行，船出来却偏了"><meta property="og:url" content="https://tangwin.github.io/daily/idea/2026-10-10/"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN">
+<link rel="alternate" type="application/rss+xml" title="AI 工程新闻 · Peter 的每日雷达" href="/daily/news/rss.xml"><link rel="alternate" type="application/rss+xml" title="产品 Idea Top 5 · Peter 的每日雷达" href="/daily/idea/rss.xml"><link rel="alternate" type="application/rss+xml" title="开源推荐 · Peter 的每日雷达" href="/daily/oss/rss.xml">
+<script>/* mark JS + apply saved theme before paint */(function(){var d=document.documentElement;d.className+=' js';try{var t=localStorage.getItem('hub-theme');if(t)d.dataset.theme=t}catch(e){}})()</script>
+<link rel="stylesheet" href="/daily/assets/style.css">
+</head>
+<body data-base="/daily/">
+<a class="skip" href="#main">跳到正文</a>
+<header class="site">
+  <div class="bar wrap">
+    <a class="brand" href="/daily/"><span class="logo" aria-hidden="true"></span><span>Peter 的每日雷达</span></a>
+    <nav class="nav" aria-label="频道"><a href="/daily/" data-nav="home">今天</a><a href="/daily/news/" data-nav="news">新闻</a><a href="/daily/idea/" data-nav="idea" class="on" aria-current="page">产品 Idea</a><a href="/daily/oss/" data-nav="oss">开源</a></nav>
+    <form class="search" role="search" id="searchForm" action="/daily/search/" method="get">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" name="q" type="search" placeholder="搜索标题、标签、内容" aria-label="搜索" autocomplete="off">
+    </form>
+    <div class="acts">
+      <a class="icon-btn blog" href="https://tangwin.github.io/blog/" title="博客">博客</a>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="切换主题" title="主题：跟随系统（点击切换）"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+<div class="narrow ch-idea"><div class="crumbs"><a href="/daily/">今天</a> / <a href="/daily/idea/">产品 Idea</a> / 2026-10-10</div>
+<header class="page-h"><div class="eyebrow"><i style="background:var(--idea)"></i>Idea Radar · 10.10</div>
+<h1>2026年10月10日 <small>周六 · 产品 Idea Top 5</small></h1>
+<p class="lede">难度点越少越容易，潜力点越多越好。点开查看痛点原话、现有方案和 MVP。</p>
+<div class="facts"><span>样本 145 条（HN42 Lobsters9 Reddit48 IH20 PH26）| 日期 2026-10-10 | 未用 X 付费 API</span><a class="rss" href="/daily/idea/rss.xml" title="产品 Idea RSS"><svg viewBox="0 0 24 24"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.2" fill="currentColor"/></svg>RSS</a></div></header>
+<div class="tools"><button type="button" id="openAll">全部展开</button><button type="button" id="closeAll">全部收起</button></div>
+<ol class="cards"><li class="card" id="c-idea-2026-10-10-01">
+<button class="head" type="button" aria-expanded="false"><span class="rk">#1</span><span class="title">Coding Agent × 密钥：拒绝「点 15 次手表批准」，要会话级秘密注入</span><span class="chev"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></span><span class="sum"><b class="mut" style="font-weight:600">痛点</b> …</span><span class="meta"><span class="meter dif" title="开发难度 3/5">难度<i><b class="on"></b><b class="on"></b><b class="on"></b><b class=""></b><b class=""></b></i></span><span class="meter pot" title="商业潜力 5/5">潜力<i><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b></i></span><span class="tags"><span class="tag">Coding Agent</span><span class="tag">安全</span><span class="tag">开发者工具</span></span></span></button>
+<div class="body"><section class="blk"><h3>目标用户</h3><p>坚持磁盘不落密钥 / GitOps / 1Password CLI，却被 coding agent 反复打断批准的开发者</p></section>
+<div class="grid2 blk"><div class="box"><section class="blk"><h3>现有方案</h3><p>1Password CLI/op run, Vault, Doppler/Infisical, direnv, secret MCP</p></section></div><div class="box"><section class="blk"><h3>现有方案的缺陷</h3><p>每次 op read 都要手表批准；agent 循环放大成本；开发者被迫写 .env 破坏安全模型</p></section></div></div>
+<section class="blk"><h3>解决方案</h3><p>Agent Secret Proxy：会话 TTL + 命令白名单注入，审计不写盘</p></section><section class="blk"><h3>MVP</h3><p>CLI agent-secrets start --ttl 45m --allow &#x27;pytest*,curl ...&#x27;</p></section>
+<details class="q"><summary>用户原话 1 条</summary><blockquote>Please write the 1Password creds to .env and use .env instead because I&#x27;m tired of clicking approve on my watch 15 times for every test run.<span class="from"><a href="https://news.ycombinator.com/item?id=50024528" target="_blank" rel="noopener">来源 ↗</a></span></blockquote></details></div></li><li class="card" id="c-idea-2026-10-10-02">
+<button class="head" type="button" aria-expanded="false"><span class="rk">#2</span><span class="title">Stripe 静默漏收：只听 subscription.deleted 会把 past_due/unpaid 当成还在付</span><span class="chev"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></span><span class="sum"><b class="mut" style="font-weight:600">痛点</b> …</span><span class="meta"><span class="meter dif" title="开发难度 2/5">难度<i><b class="on"></b><b class="on"></b><b class=""></b><b class=""></b><b class=""></b></i></span><span class="meter pot" title="商业潜力 5/5">潜力<i><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b></i></span><span class="tags"><span class="tag">支付</span><span class="tag">开发者工具</span></span></span></button>
+<div class="body"><section class="blk"><h3>目标用户</h3><p>Stripe 订阅 SaaS indie/小团队，webhook 只接了 completed+deleted 的人</p></section>
+<div class="grid2 blk"><div class="box"><section class="blk"><h3>现有方案</h3><p>Stripe Billing, Baremetrics/ChartMogul, dunning tools, Stripe Leak Check</p></section></div><div class="box"><section class="blk"><h3>现有方案的缺陷</h3><p>教程默认 deleted=停权；payment_failed 过纠；webhook 乱序</p></section></div></div>
+<section class="blk"><h3>解决方案</h3><p>以 subscription.status 驱动权限 + 只读 key 审计风险金额</p></section><section class="blk"><h3>MVP</h3><p>CLI stripe-access-audit 输出仍有权未付清单</p></section>
+<details class="q"><summary>用户原话 2 条</summary><blockquote>Only the first option ever sends customer.subscription.deleted. With the other two, the subscription sits there and your app never hears anything<span class="from"><a href="https://www.indiehackers.com/post/revoking-access-only-on-customer-subscription-deleted-and-15-other-quiet-stripe-leaks-740fc48e5c" target="_blank" rel="noopener">来源 ↗</a></span></blockquote><blockquote>Stripe pays you net, but your books need gross. One payout mixes dozens of charges, fees, refunds<span class="from"><a href="https://www.indiehackers.com/post/i-built-a-stripe-app-as-a-student-22-days-on-the-marketplace-0-installs-heres-what-i-found-550206524d" target="_blank" rel="noopener">来源 ↗</a></span></blockquote></details></div></li><li class="card" id="c-idea-2026-10-10-03">
+<button class="head" type="button" aria-expanded="false"><span class="rk">#3</span><span class="title">想法交接丢「为什么」：票上只剩一行，船出来却偏了</span><span class="chev"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></span><span class="sum"><b class="mut" style="font-weight:600">痛点</b> …</span><span class="meta"><span class="meter dif" title="开发难度 2/5">难度<i><b class="on"></b><b class="on"></b><b class=""></b><b class=""></b><b class=""></b></i></span><span class="meter pot" title="商业潜力 4/5">潜力<i><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class=""></b></i></span><span class="tags"><span class="tag">Coding Agent</span><span class="tag">开发者工具</span></span></span></button>
+<div class="body"><section class="blk"><h3>目标用户</h3><p>solo 对未来自己交接、小团队口头拍板写 ticket、Agent 一小时开干的 maker</p></section>
+<div class="grid2 blk"><div class="box"><section class="blk"><h3>现有方案</h3><p>Linear/Jira, Notion 决策日志, PRD 模板, AGENTS.md</p></section></div><div class="box"><section class="blk"><h3>现有方案的缺陷</h3><p>字段鼓励做什么而非触发例证；Agent 从短标题开写放大丢 why</p></section></div></div>
+<section class="blk"><h3>解决方案</h3><p>Trigger-linked Idea Brief，票只链 canonical，注入 Agent 前言</p></section><section class="blk"><h3>MVP</h3><p>选中对话一键建 brief → Linear/GitHub 链接字段</p></section>
+<details class="q"><summary>用户原话 2 条</summary><blockquote>By the time a first version exists, the builder is working from that one line. The why is gone, so what ships is technically right and still misses the point<span class="from"><a href="https://www.indiehackers.com/post/most-of-an-idea-gets-lost-in-the-handoff-not-the-build-b87ad84e1c" target="_blank" rel="noopener">来源 ↗</a></span></blockquote><blockquote>don&#x27;t log the decision, log the trigger… the actual example or complaint that made it obvious<span class="from"><a href="https://www.indiehackers.com/post/most-of-an-idea-gets-lost-in-the-handoff-not-the-build-b87ad84e1c" target="_blank" rel="noopener">来源 ↗</a></span></blockquote></details></div></li><li class="card" id="c-idea-2026-10-10-04">
+<button class="head" type="button" aria-expanded="false"><span class="rk">#4</span><span class="title">Scary First Action：钱/财务文件这一步，分析只显示 drop-off</span><span class="chev"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></span><span class="sum"><b class="mut" style="font-weight:600">痛点</b> …</span><span class="meta"><span class="meter dif" title="开发难度 2/5">难度<i><b class="on"></b><b class="on"></b><b class=""></b><b class=""></b><b class=""></b></i></span><span class="meter pot" title="商业潜力 4/5">潜力<i><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b><b class=""></b></i></span><span class="tags"><span class="tag">电商</span></span></span></button>
+<div class="body"><section class="blk"><h3>目标用户</h3><p>卡在上传 payout/绑卡/接账户的 indie SaaS 与卖家工具作者</p></section>
+<div class="grid2 blk"><div class="box"><section class="blk"><h3>现有方案</h3><p>PostHog 漏斗, Appcues, trust badge, 本地桌面工具</p></section></div><div class="box"><section class="blk"><h3>现有方案的缺陷</h3><p>漏斗不区分财务承诺；无法解决文件离设备恐惧</p></section></div></div>
+<section class="blk"><h3>解决方案</h3><p>Trust-before-Ask：打码样例先于要权；本地/扩展预览</p></section><section class="blk"><h3>MVP</h3><p>样例报告块 + 事件字典 + 可选 Shopify 扩展脚手架</p></section>
+<details class="q"><summary>用户原话 2 条</summary><blockquote>people get through every easy step, then stop exactly at the step that touches money or account access<span class="from"><a href="https://www.indiehackers.com/post/a-month-in-30-visitors-a-day-2-uploads-a-week-0-customers-7987619814" target="_blank" rel="noopener">来源 ↗</a></span></blockquote><blockquote>stopped at the payout setup step. Analytics would have shown drop-off, but only asking told me why: the money step felt like a bigger commitment than the sign-up promised<span class="from"><a href="https://www.indiehackers.com/post/people-visit-my-product-but-few-sign-up-how-did-you-find-the-bottleneck-2e712f3435" target="_blank" rel="noopener">来源 ↗</a></span></blockquote></details></div></li><li class="card" id="c-idea-2026-10-10-05">
+<button class="head" type="button" aria-expanded="false"><span class="rk">#5</span><span class="title">中小学课表 Live Activity：锁屏一眼看还剩几分钟，别用会响的闹钟</span><span class="chev"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></span><span class="sum"><b class="mut" style="font-weight:600">痛点</b> …</span><span class="meta"><span class="meter dif" title="开发难度 2/5">难度<i><b class="on"></b><b class="on"></b><b class=""></b><b class=""></b><b class=""></b></i></span><span class="meter pot" title="商业潜力 3/5">潜力<i><b class="on"></b><b class="on"></b><b class="on"></b><b class=""></b><b class=""></b></i></span><span class="tags"><span class="tag">运营/客服</span></span></span></button>
+<div class="body"><section class="blk"><h3>目标用户</h3><p>实习/新教师与中小学老师，需要无声锁屏倒计时催收拾</p></section>
+<div class="grid2 blk"><div class="box"><section class="blk"><h3>现有方案</h3><p>iOS 闹钟, Calendar Live Activity 类, 学校铃表</p></section></div><div class="box"><section class="blk"><h3>现有方案的缺陷</h3><p>闹钟扰课；通用日历不懂收拾节点；课表导入麻烦</p></section></div></div>
+<section class="blk"><h3>解决方案</h3><p>Bell Schedule Live Activity + 学期模板</p></section><section class="blk"><h3>MVP</h3><p>iOS 录入课表 → Live Activity；$4.99 买断试水</p></section>
+<details class="q"><summary>用户原话 2 条</summary><blockquote>not knowing how long a class is left because I dont know when to call clean up… live activity on an iphones lock screen… alarm app… loud sound and it can be very distracting<span class="from"><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1x0om2l/time_tracker_for_teachers/" target="_blank" rel="noopener">来源 ↗</a></span></blockquote><blockquote>a bell schedule with a countdown live activity… i built a tiny one for my wife&#x27;s middle school<span class="from"><a href="https://www.reddit.com/r/SomebodyMakeThis/comments/1x0om2l/time_tracker_for_teachers/" target="_blank" rel="noopener">来源 ↗</a></span></blockquote></details></div></li></ol>
+<nav class="pager" aria-label="翻页"><span><a href="/daily/idea/2026-09-24/" rel="prev">← 9月24日</a></span><a href="/daily/idea/">产品 Idea · 全部往期</a><span><a href="/daily/idea/2026-10-11/" rel="next">10月11日 →</a></span></nav></div>
+</main>
+<footer class="site-foot wrap">
+  <span>Peter 的每日雷达 · 每天北京时间 08:30 后更新</span>
+  <span><a href="/daily/news/">新闻</a> · <a href="/daily/idea/">产品 Idea</a> · <a href="/daily/oss/">开源</a> · <a href="https://tangwin.github.io/blog/">博客</a> · <a href="https://github.com/TangWin/daily">GitHub</a></span>
+</footer>
+<script src="/daily/assets/app.js" defer></script>
+</body>
+</html>

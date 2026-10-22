@@ -1,0 +1,44 @@
+{
+ "schema_version": 1,
+ "type": "oss",
+ "date": "2026-09-16",
+ "day": {},
+ "items": [
+  {
+   "id": "oss-2026-09-16-01",
+   "date": "2026-09-16",
+   "type": "oss",
+   "rank": 1,
+   "title": "Headroom：给 Coding Agent 用的本地上下文压缩层",
+   "summary": "Local-first context-compression layer for coding agents — 在工具输出/日志/RAG/文件进入 LLM 前先压缩（库、代理、headroom wrap、MCP 四种接法），原文本地保留可随时取回。",
+   "url": "https://github.com/headroomlabs-ai/headroom",
+   "tags": [
+    "Coding Agent",
+    "Context Engineering",
+    "MCP",
+    "开发者工具"
+   ],
+   "raw_tags": [],
+   "score": 72341,
+   "score_label": "★ 72,341",
+   "detail": {
+    "status": "picked",
+    "repo": "headroomlabs-ai/headroom",
+    "homepage": "https://docs.headroomlabs.ai/docs",
+    "stars": 72341,
+    "forks": 5541,
+    "license": "Apache-2.0",
+    "language": "Python（另有 TypeScript SDK）",
+    "latest_release": "v0.37.0（2026-08-27）",
+    "runners_up": [
+     "omnigent-ai/omnigent",
+     "withastro/flue",
+     "NousResearch/hermes-agent"
+    ],
+    "body_md": "## Chosen\n- **Repo:** headroomlabs-ai/headroom\n- **URL:** https://github.com/headroomlabs-ai/headroom\n- **Homepage / docs:** https://docs.headroomlabs.ai/docs\n- **One-line why worth trying today:** Local-first context-compression layer for coding agents — shrink tool outputs / logs / RAG / files before they hit the LLM (library, proxy, `headroom wrap`, MCP), with reversible CCR retrieval; complementary to the agent frameworks already recommended this week.\n\n## Snapshot\n- **Stars / forks (approx):** ~72,341 ★ / ~5,541 forks (gh api at research time)\n- **License:** Apache-2.0\n- **Primary language:** Python (also ships TypeScript SDK `headroom-ai` on npm)\n- **Created:** 2026-01-07; still very active on `main`\n- **PyPI / npm latest published:** `headroom-ai` **0.37.0** (both; release dated 2026-08-27)\n\n## Problem it solves / who it's for\nHands-on developers who run Claude Code, Codex, Cursor, Copilot, OpenCode, Goose, etc. daily and burn tokens on repetitive tool dumps, logs, JSON, and RAG chunks. Headroom sits between the agent and the provider: same answers (per their evals), fewer tokens, originals kept locally for on-demand retrieve. Also useful if you juggle several agents and want shared cross-agent memory / failure→doc learning (`headroom learn`).\n\nSkip if you only use one provider’s native compaction, don’t need cross-agent memory, or can’t run a local process/proxy.\n\n## Key capabilities & usage (from full README)\n- **What it compresses:** “tool outputs, logs, RAG chunks, files, and conversation history — before it reaches the LLM.” Compression “runs on your machine; no prompt or file content is sent anywhere to be compressed.”\n- **Surfaces:**\n  - Library: `compress(messages)` (Python / TS)\n  - Proxy: `headroom proxy --port 8787` (zero code changes)\n  - Agent wrap: `headroom wrap claude|codex|grok|copilot|cursor|aider|…` (+ `headroom unwrap`)\n  - MCP: `headroom_compress`, `headroom_retrieve`, `headroom_stats`\n  - Cross-agent memory; `headroom learn` mines failed sessions into `CLAUDE.md` / `AGENTS.md` / etc.\n  - Optional **output token reduction** (verbosity steering + effort routing) via `HEADROOM_OUTPUT_SHAPER=1`\n- **Pipeline (paraphrased):** CacheAligner → ContentRouter → SmartCrusher (JSON) / CodeCompressor (AST) / Kompress-v2-base (text, HF model) → CCR (local originals + retrieve tool). Live-zone compression keeps provider KV-cache prefixes stable.\n- **Claimed savings (README proof table, seeded offline):** e.g. SRE incident log 55,957→24,340 (~57%); code search ~21%; JSON/logs can hit much higher; latency “well under a millisecond” on their benches.\n- **Integrations listed:** Anthropic/OpenAI SDKs, Vercel AI SDK middleware, LiteLLM callback, LangChain, Agno, Strands, ASGI middleware, MCP.\n- **Telemetry caveat (README):** anonymous beacon on by default (ratios/counters/model IDs only; no prompts); disable with `HEADROOM_BEACON=off`, `DO_NOT_TRACK=1`, or `--offline`.\n\n## Activity evidence\n\n### Issues\n- **Counts:** ~323 open issues / ~727 closed issues; ~332 open PRs (search API; `open_issues_count` on repo includes PRs ≈655).\n- **Observations:**\n  1. Recent closed bugs map cleanly to merged PRs on `main` (e.g. #3463 Codex Live `/v1/live` Location loss → PR #3464 merged ~2026-09-13; #3453/#3456 learn/proxy thinking-block fixes closed with matching commits 2026-09-12–13). Responsiveness is PR-driven more than long thread replies.\n  2. Fresh open reports still landing (e.g. #3604 macOS 26 PyTorch MPS crash on embedder load, 2026-09-15; #3595–#3597 Claude Code 2.x / CCR workspace resolver mismatches, 2026-09-15) — real production friction, not spam.\n\n### Latest release\n- **Tag:** `v0.37.0` — **published 2026-08-27** (CST: 2026-08-28 ~05:18 CST)\n- **Notable notes:** session-aware `/v1/compress` sidecar + `/v1/usage` relay; unify proxy/sidecar on one session engine; Copilot enterprise routing; Kimi Code via proxy; MCP Serena reconciliation; various cache/learn fixes.\n- **Gap:** ~**88 commits on `main` since that tag** (proxy, LiteLLM thinking blocks, Codex Live, learn loop detection, CCR perf). PyPI/npm still at 0.37.0 — daily tip users may want git/`--pre` or wait for next cut; stable install path still works.\n\n### Recent commits (cadence & themes)\n- **~70 commits in last ~14 days**; multiple merges on **2026-09-15** (day before / of pick).\n- Themes: proxy gateway `/v1/compress` turn contract; LiteLLM Anthropic thinking / OpenAI-in→Claude-out routing; Codex Live HTTP; tool-search history + signed thinking coordinates; `headroom learn` Grep/Glob/loop-signature fixes; CCR/storage/dashboard perf; release/deps hygiene.\n- Cadence: multi-contributor, roughly daily merge batches — project is iterating hard even without a new tagged release.\n\n## Quick start (from README)\n1. Install CLI: `uv tool install --python 3.13 \"headroom-ai[all]\"` (or `pip install \"headroom-ai[all]\"`). Prefer 3.13 for LiteLLM dollar-savings tile (3.14+ breaks that dependency).\n2. Wrap an agent or start proxy: `headroom wrap claude` **or** `headroom proxy --port 8787` **or** `headroom deploy`.\n3. Verify: `headroom doctor` then `headroom perf` / `headroom dashboard`.\n\nInline Python sketch from README: `from headroom import compress` → `compress(messages, model=\"gpt-4o\")` → pass `result.messages` to the provider client.\n\n## Risks / caveats\n- **Release lag:** tagged/PyPI 0.37.0 is ~3 weeks behind `main`; some Sep fixes (Claude Code 2.x env, CCR headers) may not be in the wheel yet — check open issues #3595–#3597 if wrapping Claude Code 2.x.\n- **Platform friction:** README notes Intel macOS may need Docker until native wheels land; ONNX paths need AVX2 on x86 (falls back otherwise); open #3604 reports MPS abort on macOS 26 during embedder load.\n- **Telemetry default-on** (disable as above).\n- **Savings vary:** prose / already-dense / short chats compress little; payoff is long agent sessions with heavy tool I/O.\n- Large open-PR queue (~332) — vibrant but noisy contribution surface.\n\n## Runners-up (deep-checked, not chosen)\n1. **omnigent-ai/omnigent** — Strongest alternate. Apache-2.0 meta-harness over Claude/Codex/Cursor/Hermes/Pi; **v0.14.0 shipped 2026-09-15**; commits through 2026-09-16. Skipped because this week already featured agent harnesses (eve, deer-flow); Headroom is more complementary. Also alpha + heavy automated triage + large open backlog.\n2. **withastro/flue** — Distinctive TypeScript “agent IS a function” sandbox harness; packages `@flue/*@2.0.7` on 2026-09-15; healthy ~37 open issues. Overlaps too much with yesterday’s vercel/eve-class TS agent framing.\n3. **NousResearch/hermes-agent** — Extremely active (release `v2026.9.14`, commits 2026-09-15); MIT. Issue volume is enormous (~43k open_issues including PRs; issue numbers in 112k range) — harder to recommend as a calm “try this today” pick vs Headroom’s clearer install→savings loop. **Untrivial-ai/agent-orchestrator** (nightlies only, similar multi-harness niche as Omnigent) and **lsdefine/GenericAgent** (last push 2026-09-14, quieter maintainer signal on recent issues) also evaluated and deferred.\n\n## Confidence not already recommended\n**High.** Not in the exclude list (DeusData/codebase-memory-mcp, volcengine/OpenViking, vshulcz/deja-vu, pizza-bot-app/pizza-bot, HKUDS/nanobot, bytedance/deer-flow, vercel/eve). Appears only as a prior shortlist/“可关注” note, never as a daily push.\n\n## Research method (for parent)\n- Full README via `gh api repos/.../readme` (668 lines).\n- `gh api` commits/releases; `gh issue list` open+closed samples; PyPI/npm version check; WebSearch for trending alternatives (flue surfaced as new candidate).",
+    "source_file": "/workspace/daily-ai-pick-2026-09-16.md",
+    "date_inferred": false
+   }
+  }
+ ]
+}

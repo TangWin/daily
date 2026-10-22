@@ -1,0 +1,101 @@
+{
+ "schema_version": 1,
+ "type": "oss",
+ "date": "2026-10-18",
+ "day": {},
+ "items": [
+  {
+   "id": "oss-2026-10-18-openbot",
+   "date": "2026-10-18",
+   "type": "oss",
+   "rank": null,
+   "title": "OpenBot：公司可以自己掌控的 AI 助手模板",
+   "summary": "The AI assistant your company can actually own. —— 跑在自己的基础设施上，通过 AG-UI 接任意 agent 栈；README 自称 Alpha、是模板而非产品。",
+   "url": "https://github.com/CopilotKit/openbot",
+   "tags": [
+    "AI Agent",
+    "开源"
+   ],
+   "raw_tags": [],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "status": "candidate",
+    "repo": "CopilotKit/openbot",
+    "homepage": null,
+    "stars": null,
+    "forks": null,
+    "license": null,
+    "language": null,
+    "latest_release": null,
+    "runners_up": [],
+    "body_md": null,
+    "readme_chars": 33066,
+    "source_file": "/workspace/pick1018/openbot.md",
+    "date_inferred": false
+   }
+  },
+  {
+   "id": "oss-2026-10-18-project-maya",
+   "date": "2026-10-18",
+   "type": "oss",
+   "rank": null,
+   "title": "Project Maya：在自己的 GPU 上跑 321B 的 GLM-5.3-Flash",
+   "summary": "A 321-billion-parameter AI model on your own GPU —— 专为 GLM-5.3-Flash 写的推理引擎，专家在 GPU/内存/SSD 间调度，提供 OpenAI / Anthropic 兼容 API。",
+   "url": "https://github.com/mw00/project-maya",
+   "tags": [
+    "模型",
+    "本地推理"
+   ],
+   "raw_tags": [],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "status": "candidate",
+    "repo": "mw00/project-maya",
+    "homepage": null,
+    "stars": null,
+    "forks": null,
+    "license": null,
+    "language": null,
+    "latest_release": null,
+    "runners_up": [],
+    "body_md": null,
+    "readme_chars": 18267,
+    "source_file": "/workspace/pick1018/maya.md",
+    "date_inferred": false
+   }
+  },
+  {
+   "id": "oss-2026-10-18-universal-modder",
+   "date": "2026-10-18",
+   "type": "oss",
+   "rank": null,
+   "title": "universal-modder：让 AI 编码 agent 给你的 PC 游戏做 mod",
+   "summary": "Skills, tools and a shared knowledge base that let any AI coding agent mod almost any PC game you own. —— 支持 Claude Code、Codex、Gemini CLI、Cursor 等。",
+   "url": "https://github.com/rehan-remade/universal-modder",
+   "tags": [
+    "Coding Agent",
+    "MCP"
+   ],
+   "raw_tags": [],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "status": "candidate",
+    "repo": "rehan-remade/universal-modder",
+    "homepage": null,
+    "stars": null,
+    "forks": null,
+    "license": null,
+    "language": null,
+    "latest_release": null,
+    "runners_up": [],
+    "body_md": null,
+    "readme_chars": 22309,
+    "source_file": "/workspace/pick1018/modder.md",
+    "date_inferred": false
+   }
+  }
+ ]
+}
