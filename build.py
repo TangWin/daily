@@ -324,7 +324,7 @@ def oss_day(h, d):
     if cands:
         lis = "".join(f'<li class="card cand" id="c-{it["id"]}"><div class="repo"><a href="{esc(it["url"])}" target="_blank" rel="noopener">{esc(it["detail"]["repo"])} ↗</a> {oss_status(it)}</div><h3>{esc(it["title"])}</h3><p>{esc(it["summary"])}</p><div class="tags">'
                       + "".join(f'<span class="tag">{esc(t)}</span>' for t in it["tags"]) + ('<span class="tag">日期按文件推断</span>' if it["detail"].get("date_inferred") else "")
-                      + (f'<span class="tag">来源 {esc(it["detail"]["source_file"])}</span>' if it["detail"].get("source_file") else "") + "</div></li>" for it in cands)
+                      + "</div></li>" for it in cands)
         parts.append(f'<div class="notice"><b>这一天只有调研素材。</b>工作目录里只留下了下面这些项目的原始 README，没有找到成稿的推荐理由、Issue/提交核查，也无法确认最终推的是哪一个。</div>\n<ol class="cards">{lis}</ol>')
     return f"""<div class="narrow ch-oss">{crumbs('oss', d)}
 <header class="page-h"><div class="eyebrow"><i style="background:var(--oss)"></i>Daily OSS Pick · {mmdd(d)}</div>
