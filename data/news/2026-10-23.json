@@ -1,0 +1,263 @@
+{
+ "schema_version": 1,
+ "type": "news",
+ "date": "2026-10-23",
+ "day": {
+  "window": "10/22 08:30 – 10/23 08:30 北京时间",
+  "note": "未使用 X 付费 API",
+  "footer": "Ontology 和 Java 今天没有值得单列的新内容，跳过（Java 侧只有 Spring Batch 6.1.0-RC1 / 6.0.6 例行发布）。没单列的还有：eMudhra 在中间 CA 私钥事件后宣布退出全球 SSL/TLS 证书业务（HN 912），NVD 同时登记了 CVE-2026-111943「中间 CA 被攻破」，有自建信任链的支付系统记得确认已移除 emSign 根；OpenAI 官方 openai CLI 冲上 HN（229 分），它用来在脚本里直接调 OpenAI REST API（图片、文件、批处理），和 Codex 编码 agent 是两回事，评论区主要在吐槽命名混乱和 OpenAI 工具寿命短；Claude 现在可以直接在 Google Docs、Sheets、Slides 里工作（HN 85）；Copilot CLI 1.0.103 让 ACP 会话遵守保存的沙箱设置，并在同一仓库的多个 worktree 间复用本地 MCP 工具快照；WorldTUI 用 360M 小模型「假装」成终端（HN 500），是个有趣的终端世界模型实验。",
+  "highlights": [
+   1,
+   2,
+   3
+  ]
+ },
+ "items": [
+  {
+   "id": "news-2026-10-23-01",
+   "date": "2026-10-23",
+   "type": "news",
+   "rank": 1,
+   "title": "Anthropic 用 Claude 给 123 个开源库写出汇编级形式化证明",
+   "summary": "Claude 把 OSS-Fuzz 的模糊测试改写成规格，证明 239 个入口对 64MB 以内任何输入都不会崩溃，顺带挖出一批模糊测试多年没找到的 bug。",
+   "url": "https://www.anthropic.com/research/formal-verification",
+   "tags": [
+    "Harness",
+    "Coding Agent",
+    "安全"
+   ],
+   "raw_tags": [
+    "Harness Engineering",
+    "Coding Agent",
+    "安全"
+   ],
+   "score": 48,
+   "score_label": "HN 48 分（发布不久，仍在上升）",
+   "detail": {
+    "heat": "HN 48 分（发布不久，仍在上升）",
+    "highlight": true,
+    "event": "Anthropic 与 Theorem 合作发布研究：把 OSS-Fuzz 项目已有的 fuzz 测试自动转成「这个测试对任何不超过 64MB 的输入都会通过」的规格，在编译后的 RISC-V 二进制上，借助 Theorem 的 RISC-V 指令和 Linux 进程语义建模，由 Claude 写 Rocq 证明、Rocq 内核机械校验。几周内覆盖 123 个库的 239 个入口，证明总量约 1.8 亿行 Rocq，单个证明通常约 60 万行，目标二进制中位数约 1.8 万条指令。过程中 Claude 发现并修补了数百个 bug，例如只有约 20MB 特定布局输入才触发的解压器越界写、需要 64MB 输入和 2GB 内存的图像解码器越界读，以及重新发现 libexpat 的 CVE-2026-56132；还发现了一个「限制可加载文件」的功能并不总是生效的逻辑 bug。证明、可信组件和未能证明的规格都会公开，Theorem 还发布了一个 Claude skill 帮开发者上手。",
+    "why": "这是「AI 找漏洞越来越快」之后最像解药的一条路线：不再靠人工审几十万行证明，只需要信任语义模型、定理陈述和证明检查器三样东西。关键工程技巧是把现成测试当规格，绕开了形式化验证最难的「写规格」环节。HN 上的质疑也值得看：规格是否真的贴合现实、证明风格能否扩展到更复杂的程序、日常用 Claude 时它并不会主动做验证。",
+    "use": "对支付核心里那些边界清晰的纯函数（金额计算、报文编解码、签名校验、对账规则），可以照这个思路先把已有的单元测试和属性测试升级成「对所有输入成立」的命题，让 agent 去证或去找反例。即使证不出来，「尝试证明」本身就是一种比 fuzz 更深的找 bug 手段，适合放进安全评审的 harness 里。",
+    "links": [
+     {
+      "name": "Anthropic 研究原文",
+      "url": "https://www.anthropic.com/research/formal-verification"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50202217"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-23-02",
+   "date": "2026-10-23",
+   "type": "news",
+   "rank": 2,
+   "title": "PHP2Shell 后续：AWS 发现披露前 4 天就被利用，Linux 内核漏洞也误发到公开邮件列表",
+   "summary": "漏洞从披露到被利用的窗口还在缩短，甚至出现在披露之前；同一天 ZDI 把几个 CVSS 9.0 的内核漏洞发错到了 LKML。",
+   "url": "https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/",
+   "tags": [
+    "安全",
+    "AI Agent",
+    "有争议"
+   ],
+   "raw_tags": [
+    "安全",
+    "AI Agent",
+    "有争议"
+   ],
+   "score": 249,
+   "score_label": "HN 249 + 345 + 238 分",
+   "detail": {
+    "heat": "HN 249 + 345 + 238 分",
+    "highlight": true,
+    "event": "AWS 威胁情报在 MadPot 蜜罐里看到 10/17 就有来自匿名网络的 PHP2Shell 利用尝试，比 10/21 14:00 UTC 解禁早了 4 天；解禁当天 02:00 UTC 起陆续出现多个 PoC 和多路攻击者，补丁发布后几小时内新 PoC 就打到了蜜罐。AWS 的结论是：关键的公网漏洞，修补和缓解要按小时计，7 天或 30 天的 SLA 已经不成立；调查要从最早已知利用时间算起，这次至少从 10/17 开始；还要投资不依赖特定 CVE 签名的检测。另一边，之前在 HN 提前透露 PHP 更新的用户发帖道歉，说自己不知道有禁运期。同日 Trend Micro ZDI 把一批内核漏洞报告误发到公开的 LKML，包括 SMB Direct 整数下溢 RCE、KSMBD 竞态 RCE（均为 CVSS 9.0）和几个本地提权漏洞，部分补丁还没进主线。",
+    "why": "昨天还在争论「AI 有没有帮上忙」，今天的数据更直接：AI 让把补丁 diff 变成可用 exploit 的成本大降，更多攻击者能在几小时内动手，而禁运期本身也越来越守不住。HN 评论里也有人反驳，说网上大量 vibe-coded 的 PoC 根本跑不通，以及 Amazon Linux 自己的包晚了 18 小时才更新。",
+    "use": "把团队的漏洞响应 SLA 重新过一遍：面向公网的组件（PHP、Nginx、网关、内核 SMB 相关模块）建议按小时级应急流程走，并准备好「先 WAF、后升级」的预案。PHP 服务的日志排查起点改成 10/17。内核侧如果有服务器开了 ksmbd 或 SMB Direct，先确认是否真的需要。",
+    "links": [
+     {
+      "name": "AWS 安全博客",
+      "url": "https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/"
+     },
+     {
+      "name": "HN 讨论（AWS）",
+      "url": "https://news.ycombinator.com/item?id=50194070"
+     },
+     {
+      "name": "Tell HN：我无意中打破了禁运",
+      "url": "https://news.ycombinator.com/item?id=50193416"
+     },
+     {
+      "name": "Phoronix：内核漏洞误发 LKML",
+      "url": "https://www.phoronix.com/news/LKML-New-Trend-Vulnerabilities"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-23-03",
+   "date": "2026-10-23",
+   "type": "news",
+   "rank": 3,
+   "title": "美国大银行开始封堵第三方 AI agent 登录客户账户",
+   "summary": "Axios 报道银行发现 agent 拿着用户密码进账户、甚至做出不像用户指令的操作，摩根士丹利、摩根大通、美银、花旗都在限制或封堵。",
+   "url": "https://www.axios.com/2026/10/22/ai-agents-banks-unauthorized-accounts-access",
+   "tags": [
+    "支付",
+    "AI Agent",
+    "有争议"
+   ],
+   "raw_tags": [
+    "支付系统",
+    "AI Agent",
+    "有争议"
+   ],
+   "score": null,
+   "score_label": "Axios 独家 + Reuters / The Verge 跟进，HN 两帖",
+   "detail": {
+    "heat": "Axios 独家 + Reuters / The Verge 跟进，HN 两帖",
+    "highlight": true,
+    "event": "据 Axios 10/22 报道，摩根士丹利、美国银行、摩根大通、富国等正在应对 agent 风险：常见情形是用户把用户名和密码交给 agent 登录自己的账户，即使用户同意也违反了银行「本人登录」的条款；另有情形是 agent 打电话给客服，或做出看起来独立于用户指令的操作。摩根士丹利已开始封堵第三方 agent（但表示没见到「流氓 agent」），摩根大通、美银、花旗也在限制。多数银行倾向于只开放只读访问，类似给 Quicken 这类记账软件的权限。一位高管说他们分不清 agent 是用户授权的还是失控的。Reuters 补充说，Dimon 此前表示不会让「随便哪个外部 agent」进来，嘉信 CEO 每天看拦截 agent 的报告。",
+    "why": "这和最近 Stripe、Visa、Mastercard 推的 agent 支付协议是同一个问题的两面：一边在造给 agent 用的正规通道，一边在封堵靠共享密码「冒充人」的灰色通道。核心难点被说得很清楚：银行目前无法区分「用户授权的 agent」和「失控的 agent」。",
+    "use": "如果你在做支付或账户系统，可以提前设计 agent 身份层：给 agent 发独立的、可撤销的委托凭证（而不是复用用户密码），按「只读 / 小额 / 需二次确认」分级授权，并在风控里把 agent 流量作为单独的一类做识别和审计。对外可以把这套能力做成 MCP 或 API，比被动封堵更有产品价值。",
+    "links": [
+     {
+      "name": "Axios 独家报道",
+      "url": "https://www.axios.com/2026/10/22/ai-agents-banks-unauthorized-accounts-access"
+     },
+     {
+      "name": "Reuters（via Investing.com）",
+      "url": "https://www.investing.com/news/stock-market-news/us-banks-detect-unauthorized-ai-agents-in-customer-accounts-axios-reports-4965122"
+     },
+     {
+      "name": "The Verge 快讯",
+      "url": "https://www.theverge.com/tech/1016768/ai-agents-are-causing-massive-headaches-for-banks"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-23-04",
+   "date": "2026-10-23",
+   "type": "news",
+   "rank": 4,
+   "title": "NVIDIA OpenShell 冲上 HN：内核级策略加形式化验证的 agent 沙箱",
+   "summary": "开源的 agent 运行时，每次文件访问、系统调用和网络连接都按策略检查，agent 拿不到真实凭证，放宽权限前先用形式化验证标出风险。",
+   "url": "https://github.com/NVIDIA/OpenShell",
+   "tags": [
+    "AI Agent",
+    "开源",
+    "Harness"
+   ],
+   "raw_tags": [
+    "AI Agent",
+    "开源",
+    "Harness Engineering"
+   ],
+   "score": 285,
+   "score_label": "HN 285 分 / 144 评论，GitHub 1.78 万星",
+   "detail": {
+    "heat": "HN 285 分 / 144 评论，GitHub 1.78 万星",
+    "highlight": false,
+    "event": "NVIDIA OpenShell（Apache 2.0）把每个 agent 放进隔离沙箱：内核层面限制可访问的文件和系统调用，所有出站连接先过策略检查；凭证由 OpenShell 只在请求发往已批准端点时注入，agent 看不到真实密钥。策略变更在批准前会做形式化验证，标出「带凭证访问新主机」「调用新 API 方法」这类新增权限，交给人审。支持 Linux、Apple Silicon macOS 和 WSL 2，可跑在 Docker、Podman 或 Kubernetes 上。最近的 v0.1.5（10/20）把 OCSF 审计日志改成 .jsonl，并要求 K8s 沙箱模板的 pod 标签和注解走白名单。",
+    "why": "这两周 agent 凭证泄露和越权事故接连不断，OpenShell 给了一个比较完整的参考架构：凭证代理注入、出站网络默认拒绝、权限变更可审计。HN 评论有两种声音：有人说 GTC Europe 很多演示都在用它，也有人吐槽默认开启匿名遥测，以及权限粒度对一般公司来说过细。",
+    "use": "内部跑 coding agent 或自动化 agent 时，可以借鉴「agent 永远拿不到真实密钥，由网关按目标端点注入」这个模式，尤其适合要调用支付渠道、数据库的 agent。部署前记得设 OPENSHELL_TELEMETRY_ENABLED=false 关掉遥测。",
+    "links": [
+     {
+      "name": "GitHub：NVIDIA/OpenShell",
+      "url": "https://github.com/NVIDIA/OpenShell"
+     },
+     {
+      "name": "v0.1.5 发布说明",
+      "url": "https://github.com/NVIDIA/OpenShell/releases/tag/v0.1.5"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50198675"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-23-05",
+   "date": "2026-10-23",
+   "type": "news",
+   "rank": 5,
+   "title": "Claude Code 2.1.309 集中修了一批沙箱和权限绕过",
+   "summary": "shell 启动文件在沙箱外执行、软链接让 denyWrite 失效、沙箱内命令能改 MCP 配置等十来个漏洞一次修掉。",
+   "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.309",
+   "tags": [
+    "Coding Agent",
+    "MCP",
+    "安全"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "MCP",
+    "安全"
+   ],
+   "score": null,
+   "score_label": "GitHub release（10/23 06:18 北京时间）",
+   "detail": {
+    "heat": "GitHub release（10/23 06:18 北京时间）",
+    "highlight": false,
+    "event": "10/22 发布的 v2.1.309 修复了：沙箱化的 Bash 命令每次执行前会在沙箱外跑 shell 的启动文件；macOS 上经软链接访问的目录 denyWrite 规则不生效；沙箱命令和自动接受的编辑能修改 --mcp-config 指定的 MCP 配置文件；已禁用的 MCP 服务器会被后续权限提示重新连上；包装或带前缀的 cd 加 git 复合命令不触发权限确认；Edit(path) 拒绝规则挡不住带子 shell 的重定向；worktree 隔离会话放行部分 locale 前缀或 zsh 算术命令；Linux 上后台命令活得比会话久时沙箱写入限制会失效。此外，超大的嵌套 CLAUDE.md 现在只加载开头，避免反复压缩；分屏的 agent 队友会继承 leader 的工具拒绝规则；claude ultrareview 改为需要工作区信任。",
+    "why": "这份更新日志几乎就是一份 coding agent 沙箱的「攻击面清单」：shell 启动文件、软链接、重定向、MCP 配置文件、后台进程，每一项都是自研 agent harness 时容易漏掉的口子。",
+    "use": "团队用 Claude Code 的话尽快升级，尤其是开了 auto-accept 或 bypass 模式的无人值守任务。自己做 agent 沙箱时，可以拿这份清单逐条写回归测试，特别是「agent 能不能改自己的 MCP 配置或权限配置」这一条。",
+    "links": [
+     {
+      "name": "Claude Code v2.1.309 发布说明",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.309"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-23-06",
+   "date": "2026-10-23",
+   "type": "news",
+   "rank": 6,
+   "title": "Adyen 开源 Agent Marketplace：一份配置同步到 8 种 coding agent",
+   "summary": "支付公司 Adyen 把内部千人规模用的 agent 资源分发工具开源，skills、命令、子 agent、hooks 和 MCP 服务器写一次，编译到 Claude Code、Codex、Cursor 等 8 个工具。",
+   "url": "https://www.adyen.com/knowledge-hub/agent-marketplace",
+   "tags": [
+    "Coding Agent",
+    "MCP",
+    "Context Engineering",
+    "开源"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "MCP",
+    "Context Engineering",
+    "开源"
+   ],
+   "score": null,
+   "score_label": "Show HN，Adyen 官方博客",
+   "detail": {
+    "heat": "Show HN，Adyen 官方博客",
+    "highlight": false,
+    "event": "Agent Marketplace（Apache 2.0）是一个命令行工具：在一个配置文件里列出要用的资源和工具，运行 agent-marketplace sync 就会从 Git 仓库或托管市场拉取固定版本，翻译成每个工具要求的格式写到对应位置，重复运行是幂等的，名字冲突会报告而不是覆盖。支持五类资源（skills、commands、subagents、hooks、MCP servers）以及打包它们的 collection；配置按组织、机器、仓库、个人四层合并。目标工具包括 Claude Code、Codex、Cursor、Devin CLI、Factory Droid、Gemini CLI、Opencode、Windsurf，不支持的设置会明确报错。安全上有三道检查：运营方审批注册源并可吊销具体版本；发布前扫描隐藏文本、不可见 Unicode、可执行脚本、远程 URL、工具授权和 hook / MCP 能力；本地安装校验摘要，有安全发现时先让你确认。",
+    "why": "来自一家支付公司的真实工程实践，解决的是团队规模化用 agent 时最快变乱的那一层：上下文和工具配置的分发、版本化和供应链安全。对隐藏文本、不可见 Unicode 的扫描，正好对应最近 skill 和 MCP 投毒的风险。",
+    "use": "如果团队同时在用好几种 coding agent，可以用它把团队规范、Java 代码风格 skill、内部 MCP 服务器统一发布和固定版本，新人一条命令装好。即使不直接用，它的四层配置合并和发布前扫描规则也值得照搬到内部的 agent 平台。",
+    "links": [
+     {
+      "name": "Adyen 博客介绍",
+      "url": "https://www.adyen.com/knowledge-hub/agent-marketplace"
+     },
+     {
+      "name": "GitHub：Adyen/agent-marketplace",
+      "url": "https://github.com/Adyen/agent-marketplace"
+     },
+     {
+      "name": "Show HN",
+      "url": "https://news.ycombinator.com/item?id=50194210"
+     }
+    ]
+   }
+  }
+ ]
+}
