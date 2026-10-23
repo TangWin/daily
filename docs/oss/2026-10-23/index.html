@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>开源 2026-10-23 · Peter 的每日雷达</title>
+<meta name="description" content="10月23日 开源推荐：agent-memory：让 Claude Code 和 Codex 共用一份本地 Markdown 长期记忆">
+<link rel="canonical" href="https://tangwin.github.io/daily/oss/2026-10-23/">
+<meta property="og:title" content="开源 2026-10-23 · Peter 的每日雷达"><meta property="og:description" content="10月23日 开源推荐：agent-memory：让 Claude Code 和 Codex 共用一份本地 Markdown 长期记忆"><meta property="og:url" content="https://tangwin.github.io/daily/oss/2026-10-23/"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN">
+<link rel="alternate" type="application/rss+xml" title="AI 工程新闻 · Peter 的每日雷达" href="/daily/news/rss.xml"><link rel="alternate" type="application/rss+xml" title="产品 Idea Top 5 · Peter 的每日雷达" href="/daily/idea/rss.xml"><link rel="alternate" type="application/rss+xml" title="开源推荐 · Peter 的每日雷达" href="/daily/oss/rss.xml">
+<script>/* mark JS + apply saved theme before paint */(function(){var d=document.documentElement;d.className+=' js';try{var t=localStorage.getItem('hub-theme');if(t)d.dataset.theme=t}catch(e){}})()</script>
+<link rel="stylesheet" href="/daily/assets/style.css">
+</head>
+<body data-base="/daily/">
+<a class="skip" href="#main">跳到正文</a>
+<header class="site">
+  <div class="bar wrap">
+    <a class="brand" href="/daily/"><span class="logo" aria-hidden="true"></span><span>Peter 的每日雷达</span></a>
+    <nav class="nav" aria-label="频道"><a href="/daily/" data-nav="home">今天</a><a href="/daily/news/" data-nav="news">新闻</a><a href="/daily/idea/" data-nav="idea">产品 Idea</a><a href="/daily/oss/" data-nav="oss" class="on" aria-current="page">开源</a></nav>
+    <form class="search" role="search" id="searchForm" action="/daily/search/" method="get">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" name="q" type="search" placeholder="搜索标题、标签、内容" aria-label="搜索" autocomplete="off">
+    </form>
+    <div class="acts">
+      <a class="icon-btn blog" href="https://tangwin.github.io/blog/" title="博客">博客</a>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="切换主题" title="主题：跟随系统（点击切换）"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+<div class="narrow ch-oss"><div class="crumbs"><a href="/daily/">今天</a> / <a href="/daily/oss/">开源</a> / 2026-10-23</div>
+<header class="page-h"><div class="eyebrow"><i style="background:var(--oss)"></i>Daily OSS Pick · 10.23</div>
+<h1>2026年10月23日 <small>周五 · 开源推荐</small></h1>
+<div class="facts"><a class="rss" href="/daily/oss/rss.xml" title="开源 RSS"><svg viewBox="0 0 24 24"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.2" fill="currentColor"/></svg>RSS</a></div></header>
+<article class="repo-card" id="c-oss-2026-10-23-agent-memory">
+<div class="repo"><a href="https://github.com/tigerless-labs/agent-memory" target="_blank" rel="noopener">tigerless-labs/agent-memory ↗</a> <span class="badge ch-oss">当日推荐</span></div>
+<div class="t">agent-memory：让 Claude Code 和 Codex 共用一份本地 Markdown 长期记忆</div><p>Agent 长期记忆运行时：Markdown 文件为唯一真相、本地 BM25 检索、会话结束自动提炼，Claude Code/Codex 共用一个库，无需 API key。</p>
+<div class="kv"><span class="star"><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg>4,505</span><span class="tag">196 forks</span><span class="tag">MIT</span><span class="tag">Python</span></div>
+<div class="kv"><span class="badge ch-oss">AI Agent</span><span class="badge ch-oss">Coding Agent</span><span class="badge ch-oss">MCP</span><span class="badge ch-oss">Context Engineering</span></div></article>
+<div class="prose"><p><strong>今日推荐：<a href="https://github.com/tigerless-labs/agent-memory" target="_blank" rel="noopener">tigerless-labs/agent-memory</a></strong>。它让 Claude Code、Codex 等 Agent 共用一份本地长期记忆，存成纯 Markdown 文件，不需要任何 API key。北京时间 10 月 23 日凌晨还在合入修复，值得试一试。</p><h3>解决什么问题、适合谁</h3><p>Agent 一关掉会话，就把学到的东西全忘了。它适合同时用好几个编程 Agent、又想让它们记住项目决策和个人偏好的人。记忆都是文件，可以用 grep 搜，也能放进 git 管理。</p><h3>README 里的要点</h3><ul><li>每条记忆就是一个 Markdown 文件，这是唯一的数据来源。SQLite 索引只是缓存，删掉后运行 <code>mem rebuild</code> 就能重建，不丢任何东西，项目里有测试专门保证这一点。</li><li>检索全在本地完成：用 BM25 全文检索，也可以再叠加向量检索。结果只返回文件路径和一句摘要，Agent 需要时再去读大纲或全文。</li><li>会话结束或压缩上下文时，钩子会自动提炼记忆，并先把完整对话归档留底。</li><li>有一个「睡眠」整理环节，会自动合并和更新记忆；删除只会生成提案，等你确认后才执行。用 <code>recall --as-of</code> 还能查某一天当时的记忆状态。</li><li>运行 <code>mem setup --host claude-code</code> 或 <code>--host codex</code> 一键接入，加上 <code>--mcp</code> 也能走 MCP。作者在 LongMemEval 上的对比：用它 52.9%，不用记忆 5.8%（测试范围由作者自选）。</li></ul><h3>近期活跃情况</h3><ul><li>提交：10 月 1 日以来 81 次，主力是 faj-design5260（65 次），最新一次合入在北京时间 10 月 23 日 00:53。</li><li>Issues：开着的只有 6 个。<a href="https://github.com/tigerless-labs/agent-memory/issues/102" target="_blank" rel="noopener">#102</a> 的 <code>as_of</code> 参数会让 MCP 服务崩溃，社区提交的修复已于北京时间 10 月 23 日 00:05 合入；Windows 测试失败（#55）有贡献者在逐类修复。</li><li>Release：还没有正式 Release 或 tag，版本号 0.1.0，未发布到 PyPI。</li></ul><h3>快速上手</h3><ol><li><code>git clone <a href="https://github.com/tigerless-labs/agent-memory.git" target="_blank" rel="noopener">https://github.com/tigerless-labs/agent-memory.git</a> &amp;&amp; cd agent-memory &amp;&amp; uv sync --all-packages</code>，再 <code>export PATH=&quot;$PWD/.venv/bin:$PATH&quot;</code>（需要 Python 3.12+ 和 uv）。</li><li><code>mem init</code>，用 <code>mem record ...</code> 写一条，再 <code>mem recall &quot;...&quot;</code> 找回来。</li><li><code>mem setup --host claude-code</code>（或 <code>codex</code>），看到 <code>status: READY</code> 即接好。</li></ol><h3>注意点</h3><ul><li>纯中文摘要目前会生成空文件名（#20，未修），摘要里带点英文。</li><li>Windows 修复 PR（#58、#61、#62、#97、#99）未合入，先在 Mac 或 Linux 上试。</li><li>基本一人主力维护，有 46 个 PR 在排队。</li><li>接入 Codex 需把记忆库目录加进沙箱可写目录，并确认一次信任钩子。</li></ul></div>
+<nav class="pager" aria-label="翻页"><span><a href="/daily/oss/2026-10-21/" rel="prev">← 10月21日</a></span><a href="/daily/oss/">开源 · 全部往期</a><span></span></nav></div>
+</main>
+<footer class="site-foot wrap">
+  <span>Peter 的每日雷达 · 每天北京时间 08:30 后更新</span>
+  <span><a href="/daily/news/">新闻</a> · <a href="/daily/idea/">产品 Idea</a> · <a href="/daily/oss/">开源</a> · <a href="https://tangwin.github.io/blog/">博客</a> · <a href="https://github.com/TangWin/daily">GitHub</a></span>
+</footer>
+<script src="/daily/assets/app.js" defer></script>
+</body>
+</html>

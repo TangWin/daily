@@ -1,0 +1,40 @@
+{
+ "schema_version": 1,
+ "type": "oss",
+ "date": "2026-10-23",
+ "day": {},
+ "items": [
+  {
+   "id": "oss-2026-10-23-agent-memory",
+   "date": "2026-10-23",
+   "type": "oss",
+   "rank": 1,
+   "title": "agent-memory：让 Claude Code 和 Codex 共用一份本地 Markdown 长期记忆",
+   "summary": "Agent 长期记忆运行时：Markdown 文件为唯一真相、本地 BM25 检索、会话结束自动提炼，Claude Code/Codex 共用一个库，无需 API key。",
+   "url": "https://github.com/tigerless-labs/agent-memory",
+   "tags": [
+    "AI Agent",
+    "Coding Agent",
+    "MCP",
+    "Context Engineering"
+   ],
+   "raw_tags": [],
+   "score": 4505,
+   "score_label": "★ 4505",
+   "detail": {
+    "status": "picked",
+    "repo": "tigerless-labs/agent-memory",
+    "homepage": null,
+    "stars": 4505,
+    "forks": 196,
+    "license": "MIT",
+    "language": "Python",
+    "latest_release": null,
+    "runners_up": [],
+    "body_md": "**今日推荐：[tigerless-labs/agent-memory](https://github.com/tigerless-labs/agent-memory)**。它让 Claude Code、Codex 等 Agent 共用一份本地长期记忆，存成纯 Markdown 文件，不需要任何 API key。北京时间 10 月 23 日凌晨还在合入修复，值得试一试。\n\n### 解决什么问题、适合谁\nAgent 一关掉会话，就把学到的东西全忘了。它适合同时用好几个编程 Agent、又想让它们记住项目决策和个人偏好的人。记忆都是文件，可以用 grep 搜，也能放进 git 管理。\n\n### README 里的要点\n- 每条记忆就是一个 Markdown 文件，这是唯一的数据来源。SQLite 索引只是缓存，删掉后运行 `mem rebuild` 就能重建，不丢任何东西，项目里有测试专门保证这一点。\n- 检索全在本地完成：用 BM25 全文检索，也可以再叠加向量检索。结果只返回文件路径和一句摘要，Agent 需要时再去读大纲或全文。\n- 会话结束或压缩上下文时，钩子会自动提炼记忆，并先把完整对话归档留底。\n- 有一个「睡眠」整理环节，会自动合并和更新记忆；删除只会生成提案，等你确认后才执行。用 `recall --as-of` 还能查某一天当时的记忆状态。\n- 运行 `mem setup --host claude-code` 或 `--host codex` 一键接入，加上 `--mcp` 也能走 MCP。作者在 LongMemEval 上的对比：用它 52.9%，不用记忆 5.8%（测试范围由作者自选）。\n\n### 近期活跃情况\n- 提交：10 月 1 日以来 81 次，主力是 faj-design5260（65 次），最新一次合入在北京时间 10 月 23 日 00:53。\n- Issues：开着的只有 6 个。[#102](https://github.com/tigerless-labs/agent-memory/issues/102) 的 `as_of` 参数会让 MCP 服务崩溃，社区提交的修复已于北京时间 10 月 23 日 00:05 合入；Windows 测试失败（#55）有贡献者在逐类修复。\n- Release：还没有正式 Release 或 tag，版本号 0.1.0，未发布到 PyPI。\n\n### 快速上手\n1. `git clone https://github.com/tigerless-labs/agent-memory.git && cd agent-memory && uv sync --all-packages`，再 `export PATH=\"$PWD/.venv/bin:$PATH\"`（需要 Python 3.12+ 和 uv）。\n2. `mem init`，用 `mem record ...` 写一条，再 `mem recall \"...\"` 找回来。\n3. `mem setup --host claude-code`（或 `codex`），看到 `status: READY` 即接好。\n\n### 注意点\n- 纯中文摘要目前会生成空文件名（#20，未修），摘要里带点英文。\n- Windows 修复 PR（#58、#61、#62、#97、#99）未合入，先在 Mac 或 Linux 上试。\n- 基本一人主力维护，有 46 个 PR 在排队。\n- 接入 Codex 需把记忆库目录加进沙箱可写目录，并确认一次信任钩子。\n",
+    "source_file": null,
+    "date_inferred": false
+   }
+  }
+ ]
+}
