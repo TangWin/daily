@@ -32,9 +32,9 @@
     "安全"
    ],
    "score": 48,
-   "score_label": "HN 48 分（发布不久，仍在上升）",
+   "score_label": "HN 48 分",
    "detail": {
-    "heat": "HN 48 分（发布不久，仍在上升）",
+    "heat": "HN 48 分",
     "highlight": true,
     "event": "Anthropic 与 Theorem 合作发布研究：把 OSS-Fuzz 项目已有的 fuzz 测试自动转成「这个测试对任何不超过 64MB 的输入都会通过」的规格，在编译后的 RISC-V 二进制上，借助 Theorem 的 RISC-V 指令和 Linux 进程语义建模，由 Claude 写 Rocq 证明、Rocq 内核机械校验。几周内覆盖 123 个库的 239 个入口，证明总量约 1.8 亿行 Rocq，单个证明通常约 60 万行，目标二进制中位数约 1.8 万条指令。过程中 Claude 发现并修补了数百个 bug，例如只有约 20MB 特定布局输入才触发的解压器越界写、需要 64MB 输入和 2GB 内存的图像解码器越界读，以及重新发现 libexpat 的 CVE-2026-56132；还发现了一个「限制可加载文件」的功能并不总是生效的逻辑 bug。证明、可信组件和未能证明的规格都会公开，Theorem 还发布了一个 Claude skill 帮开发者上手。",
     "why": "这是「AI 找漏洞越来越快」之后最像解药的一条路线：不再靠人工审几十万行证明，只需要信任语义模型、定理陈述和证明检查器三样东西。关键工程技巧是把现成测试当规格，绕开了形式化验证最难的「写规格」环节。HN 上的质疑也值得看：规格是否真的贴合现实、证明风格能否扩展到更复杂的程序、日常用 Claude 时它并不会主动做验证。",
@@ -116,9 +116,9 @@
     "有争议"
    ],
    "score": null,
-   "score_label": "Axios 独家 + Reuters / The Verge 跟进，HN 两帖",
+   "score_label": "Axios 独家 + Reuters 跟进",
    "detail": {
-    "heat": "Axios 独家 + Reuters / The Verge 跟进，HN 两帖",
+    "heat": "Axios 独家 + Reuters 跟进",
     "highlight": true,
     "event": "据 Axios 10/22 报道，摩根士丹利、美国银行、摩根大通、富国等正在应对 agent 风险：常见情形是用户把用户名和密码交给 agent 登录自己的账户，即使用户同意也违反了银行「本人登录」的条款；另有情形是 agent 打电话给客服，或做出看起来独立于用户指令的操作。摩根士丹利已开始封堵第三方 agent（但表示没见到「流氓 agent」），摩根大通、美银、花旗也在限制。多数银行倾向于只开放只读访问，类似给 Quicken 这类记账软件的权限。一位高管说他们分不清 agent 是用户授权的还是失控的。Reuters 补充说，Dimon 此前表示不会让「随便哪个外部 agent」进来，嘉信 CEO 每天看拦截 agent 的报告。",
     "why": "这和最近 Stripe、Visa、Mastercard 推的 agent 支付协议是同一个问题的两面：一边在造给 agent 用的正规通道，一边在封堵靠共享密码「冒充人」的灰色通道。核心难点被说得很清楚：银行目前无法区分「用户授权的 agent」和「失控的 agent」。",
