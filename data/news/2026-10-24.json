@@ -70,9 +70,9 @@
     "开源"
    ],
    "score": 23,
-   "score_label": "HN 23 + 14 分；OSV 评分 CVSS v4 9.2",
+   "score_label": "HN 23+14 分 · CVSS 9.2",
    "detail": {
-    "heat": "HN 23 + 14 分；OSV 评分 CVSS v4 9.2",
+    "heat": "HN 23+14 分 · CVSS 9.2",
     "highlight": true,
     "event": "Brotli 在 10/21 发布 1.2.1 / 1.1.1 / 1.0.10 修复 CVE-2026-111497（解码器 c/dec/decode.c 越界写，CWE-787），Node.js 同日发 22.23.4 / 24.22.1 / 26.12.1，被称为 Node2Shell；10/22 有研究者在官方未修改的 Node.js 24.22.0 镜像（Linux arm64）上做到了不稳定的代码执行。10/23 Aikido 把它升级为 HTTP2Shell：PyPI 的 Brotli 1.2.1 和 brotlicffi 1.2.1.0 是“静默修复”，发布说明没提 CVE，pip-audit / Dependabot 当时还扫不出来；requests/urllib3、httpx、aiohttp 只要装了 Brotli 就会自动解码响应。Envoy（1.40.0 / 1.39.3 / 1.38.6 / 1.37.8）和 Istio 也已出补丁。Aikido 称该漏洞似乎是 OpenAI 在 2 月发现的，根因修复 2 月就进了 Brotli 源码（commit 0ed4268a），但当时没被当成安全问题、一直没发版。Java 侧：Netty 的可选依赖 Brotli4j 1.23.0 打包原生 Brotli；把内置 Brotli 升到 1.2.1 的 PR #273 已于 10/23 合并，但截至发稿 1.24.0 还没发布，社区已开 issue #275 催版。",
     "why": "这类漏洞最危险的是“双向”：恶意客户端能打服务器，恶意服务器也能打解压其响应的客户端。支付系统里大量出站调用（回调通知、商户 webhook、渠道查询）正好是后一种场景。另外它再次说明，根因修复早进了主干，但没有 CVE、没有发版，下游就等于没修。",
@@ -120,9 +120,9 @@
     "开源"
    ],
    "score": 684,
-   "score_label": "HN 684 分 / 433 评论；AA 评测帖 115 分",
+   "score_label": "HN 684 分 / 433 评论",
    "detail": {
-    "heat": "HN 684 分 / 433 评论；AA 评测帖 115 分",
+    "heat": "HN 684 分 / 433 评论",
     "highlight": true,
     "event": "月之暗面 10/23 发布 Kimi K3.1 Pro 和 2–3 倍速度的 Highspeed 版，已上线 Kimi.ai、Kimi Work、Kimi Code 和 API（kimi-k3.1-pro / kimi-k3.1-pro-highspeed，API 支持零数据保留），完整权重 11 月 4 日前发布。官方数据：Terminal-Bench 4.0（用 Claude Code harness 评测）65.7%，高于 GPT-6 Astra 的 58.2%，略低于 Claude Opus 5.5 的 66.4%；内部长程编码基准 Kimi Code Bench 3.0 从 K3 的 55.95% 升到 61.2%；内部幻觉压力测试里，声明级幻觉率从 23.4% 降到 8.3%。网络安全部分很少见：他们发现网络攻击能力来自中期训练语料和 RL 环境里夹带的安全数据，于是为开源版本把这些数据删掉，内部漏洞利用基准 xdev-bench-hard 的 pass@3 从未删数据时的 90.5% 降到 81.0%，并表示不会发布推进网络能力绝对前沿的开放权重。Artificial Analysis 给出综合指数 55 分，位于帕累托前沿。",
     "why": "开放权重编码模型再次贴近闭源前沿，而且直接拿 Claude Code 当评测 harness，说明“模型可换、harness 不变”已成行业默认。对需要私有化部署的金融团队，这意味着 11 月可能有一个能本地跑的强编码 agent 底座；“删训练数据来压网络能力”的做法则是开源模型安全治理的一个新样本。",
