@@ -1,0 +1,40 @@
+{
+ "schema_version": 1,
+ "type": "oss",
+ "date": "2026-10-25",
+ "day": {},
+ "items": [
+  {
+   "id": "oss-2026-10-25-nanomuse",
+   "date": "2026-10-25",
+   "type": "oss",
+   "rank": 1,
+   "title": "nanoMuse：装在手机、电脑和浏览器上的开源个人 Agent",
+   "summary": "开源版 Muse：能操作手机和电脑、关了 App 也接着干、危险操作前先问，手机说一句电脑去跑；昨天刚发 1.0.6，10 月以来 1400 多次提交。",
+   "url": "https://github.com/nano-muse/nanoMuse",
+   "tags": [
+    "AI Agent",
+    "MCP",
+    "个人助理",
+    "多端"
+   ],
+   "raw_tags": [],
+   "score": 2526,
+   "score_label": "★ 2526",
+   "detail": {
+    "status": "picked",
+    "repo": "nano-muse/nanoMuse",
+    "homepage": "https://nanomuse.cn/",
+    "stars": 2526,
+    "forks": 301,
+    "license": "GPL-3.0",
+    "language": "Swift",
+    "latest_release": "v1.0.6",
+    "runners_up": [],
+    "body_md": "## nanoMuse：一个装在你所有设备上的开源个人 Agent\n\n今天值得试，是因为它把 Meta Muse 那种「替你办事、关了 App 也接着干、会记住你」的个人 Agent 做成了开源版：手机、电脑、浏览器共用一个账号，在手机上说一句，任务可以交给电脑去跑。昨天刚发 1.0.6，节奏是几天一版。\n\n仓库：[nano-muse/nanoMuse](https://github.com/nano-muse/nanoMuse)（GPL-3.0-or-later，Swift 为主，约 2.5k★、301 fork，2026-09-23 北京时间建库；浙大团队，附 arXiv 论文）\n\n### 解决什么 / 适合谁\n- 想要一个不只活在别人云里的个人助理：Agent 跑在你自己的手机、电脑或你自己的服务器上，模型自己选。\n- 适合想研究「手机 + 电脑多端 Agent」怎么做的开发者，也适合想要一个能接飞书、钉钉、企业微信、Telegram 的私人助手的人。\n\n### README 里的关键能力\n- **能动手**：Linux shell、浏览器、MCP 和技能；打开 Hands 后能通过屏幕操作手机 App 和电脑窗口（iOS 系统不允许，所以 iPhone 上没有这项）。\n- **先问再做**：删除、发送、付款前会停下来要你批准，可以选只这一次、本对话或总是；密码和验证码由你自己输入，遇到登录或验证码会交给你。\n- **跨设备**：消息开头写 `@Mac …` 就把任务派到那台电脑，批准请求回到你手上的设备。\n- **持续运行**：定时检查目标、App 关着也能跑的例行任务、每天早上给你写一份 Feed。\n- **记忆可读可改**：人设、关于你的记忆、唤醒时间都是 Markdown 文件。\n- **任意模型**：社区中继给免费额度（1.0.6 起云端只提供 `Qwen/Qwen3.6-27B-FP8` 一个多模态模型，画图和视频要用你自己的服务商）；也可以用 22 家服务商的自有 key（百炼、OpenRouter、OpenAI、Gemini、DeepSeek 等），或已有的 ChatGPT、Claude、Kimi 订阅。\n- **架构**：手机端在 APK 里用 proot 跑 Alpine Linux，桌面端是 DeepSeek Harness 插件；设备通过中继互相派活，对话文本经过中继，文件和截图留在本机。中继可以自建，一台 VPS 大约一小时。\n\n### 近期活跃证据\n- **Release**：已发 47 个版本，最新 [v1.0.6 Beacon](https://github.com/nano-muse/nanoMuse/releases/tag/v1.0.6)（10-24 16:02 北京时间），距 1.0.5 九天，合入 48 个 PR，修了中继登录、运行时断点续跑、桌面重启前确认等问题。\n- **提交**：10-01 起约 1418 次提交、423 个 PR 合入，10-25 凌晨还在合 iOS 多语言和中继修复，方向是全项目逐块体检加多端同步。\n- **Issues**：10-01 起新建 100 个，维护者 lgy0404 回复具体，比如 [#508](https://github.com/nano-muse/nanoMuse/issues/508) 百炼视频模型列表过时，在 1.0.6 改成实时拉取；[#549](https://github.com/nano-muse/nanoMuse/issues/549) 当天由 #550 修好。不过很多修好的 Issue 没关，现在还开着 91 个，其中不少是社区贡献者提的改进建议。\n\n### 快速上手\n1. 先在浏览器里试 [demo.nanomuse.dev](https://demo.nanomuse.dev/)（模拟手机，需要登录）。\n2. 到 [latest release](https://github.com/nano-muse/nanoMuse/releases/latest) 下载桌面版（macOS 第一次右键选「打开」）或 Android APK，用邮箱登录就有免费额度，iPhone 走 TestFlight。\n3. 想数据不出门：在设置里换成自己的 key，或者 `bash scripts/self-host.sh --local` 自建中继。\n\n### 风险 / 注意点\n- 几乎是一个人在推：10-01 起的提交里 lgy0404 占约 91%。\n- 用社区中继时，对话文本会经过开发者的服务器；main 上刚加了「完整保存每轮对话作为账号记录」的改动，敏感内容建议自建中继。\n- Hands 能操作你的手机和电脑，记得管好批准设置；macOS 包没有公证，Windows 需要点「仍要运行」。\n- GPL-3.0 协议，二次分发时要注意；非 Meta 官方项目。\n",
+    "source_file": null,
+    "date_inferred": false
+   }
+  }
+ ]
+}
