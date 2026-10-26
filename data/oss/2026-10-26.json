@@ -1,0 +1,40 @@
+{
+ "schema_version": 1,
+ "type": "oss",
+ "date": "2026-10-26",
+ "day": {},
+ "items": [
+  {
+   "id": "oss-2026-10-26-reason-network",
+   "date": "2026-10-26",
+   "type": "oss",
+   "rank": 1,
+   "title": "Reason Network：让你和队友的编程 Agent 直接互相发消息",
+   "summary": "Claude Code、Codex、Cursor 等 Agent 跨电脑、跨队友端到端加密点对点对话，能互传小文件、请本人弹窗批准；昨天刚发 v0.12.13，issue 基本当天闭环。",
+   "url": "https://github.com/reason-machines/reason-network",
+   "tags": [
+    "AI Agent",
+    "Coding Agent",
+    "MCP",
+    "多 Agent 协作"
+   ],
+   "raw_tags": [],
+   "score": 1238,
+   "score_label": "★ 1238",
+   "detail": {
+    "status": "picked",
+    "repo": "reason-machines/reason-network",
+    "homepage": "https://reasonmachines.com",
+    "stars": 1238,
+    "forks": 106,
+    "license": "MIT OR Apache-2.0",
+    "language": "Rust",
+    "latest_release": "v0.12.13",
+    "runners_up": [],
+    "body_md": "## Reason Network：让你和队友的编程 Agent 直接互相发消息\n\n今天值得试，是因为它解决了一个越来越常见的痛点：你的 Claude Code 想问同事那边 Codex 会话「token 格式改了没」，以前只能你自己去 Slack 转述；装上它，Agent 之间就能端到端加密、点对点地直接对话，还能互传小文件、请对方本人点批准。昨天刚发 v0.12.13，issue 基本当天闭环。\n\n仓库：[reason-machines/reason-network](https://github.com/reason-machines/reason-network)（MIT OR Apache-2.0 双许可，Rust，约 1.2k★、106 fork，2026-10-16 北京时间建库，前身是 Lars Talian 的 tincan）\n\n**解决什么 / 适合谁**：多人、多台电脑同时开着一堆编程 Agent 的团队，或者一个人在笔记本、台式机、云端 VPS 上各跑 Agent、想让它们互相派活和交接的人。\n\n**README 里的关键点**\n- 每台电脑一个小守护进程，所有队友电脑上的 Agent 会话都会显示出来：谁、哪个仓库和分支、忙还是闲、正在干什么（取自会话标题和 todo，Agent 不用额外汇报）。\n- 支持 Claude Code、Codex、Cursor、Gemini CLI、Copilot CLI、Grok CLI、opencode、pi、DeepSeek Harness、ZCode，最新版还接上了 Hermes；Grok Bot、Muse 这类托管助手可以加 MCP 服务器 `https://mcp.reasonmachines.com/mcp`。\n- Agent 拿到 `list_team`、`send_message`、`ask_user`（以及 `check_inbox`）几个工具。Claude Code、Codex、opencode、pi 在会话中途就能收到消息，闲着的会被唤醒；Cursor、Gemini 等在下一步时收到。\n- `ask_user`：队友的 Agent 要你批准某件事时，你的屏幕弹窗让你 Approve/Deny，回答以你本人的身份返回，别人伪造不了。\n- 一条消息最多带 10 个文本文件（单个 256 KB，合计 512 KB），收件方存到 `~/.reason/network/inbox`，不会被执行或自动打开。\n- 连接走 iroh 直连（同一 Wi-Fi 或跨公网），失败才走只能看到密文的中继；可以自建中继（`reason-network relay <url>`），这样不再连任何第三方。对方离线时消息会排队，回来再送达；`reason-network folder ~/personal off` 可以让某些目录的会话不上网络。\n\n**近期活跃证据**\n- Release：已发 26 个版本，最新 [v0.12.13](https://github.com/reason-machines/reason-network/releases/tag/v0.12.13) 于 2026-10-25 18:22（北京时间）发布，加了 Hermes 插件、Gemini 一窗一会话、Windows 上 npm 装的 Codex 收多行消息、可选的连接调试日志。\n- 提交：10 月以来 277 次提交（主力 larstalian 235 次，14 位贡献者），合入 104 个 PR，其中有社区贡献的 Hermes 接入（#119）和「一个任务一个会话」规则（#136）。\n- Issues：共 31 个，已关 25、开放 6。#143（Windows 上 Gemini 会话重复注册）报告后约 1.5 小时维护者定位原因、约 2.5 小时合入修复，第二天随版本发出；#139 离线交接的「持久锚点」提案维护者结合代码和 DESIGN.md 连续回复，讨论质量不错。\n\n**怎么快速上手**\n1. 把这句话贴给你的编程 Agent：`Join the Reason Network: https://reasonmachines.com/network`（或在终端跑 `curl -fsSL https://reasonmachines.com/install.sh | bash -s -- network`）。\n2. 浏览器里用 Google、GitHub、Apple 或邮箱登录 Reason（免费），本机 Agent 会被自动配置；另一台电脑用同一账号再跑一次就进同一个网络。\n3. 在 Agent 里问「who's on the network?」，或者终端 `reason-network who`、`reason-network send 你/某会话 \"...\"` 试一条消息。\n\n**风险和注意点**\n- 需要 Reason 账号，安装是 `curl | bash`，并且会自动更新；介意的话先读 DESIGN.md 再装。\n- 队友能看到你的名字、电脑、各会话在哪个仓库和分支、在干什么，私人目录记得用 `folder ... off` 排除。\n- 默认中继和地址发现分别用 Reason 和 n0 的服务（只见密文），想完全自控要自建中继。\n- 仓库只有 10 天大、基本靠一位主力维护者；iOS 上 Sesame 登录（#117）、Homebrew 安装（#121）等还开着。\n",
+    "source_file": null,
+    "date_inferred": false
+   }
+  }
+ ]
+}
