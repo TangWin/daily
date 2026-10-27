@@ -1,0 +1,378 @@
+{
+ "schema_version": 1,
+ "type": "idea",
+ "date": "2026-10-28",
+ "day": {
+  "sample": "样本：主样本 138 条（HN 42 / Lobsters 2 / Reddit 48 / Indie Hackers 20 / Product Hunt 26），补充 Reddit 深翻页抱怨帖 128 条（18 个子版块 5100 帖中筛出）+ HN 句式评论与 Ask/Show HN 555 条，并读了 3 个 Reddit 线程的评论。Reddit 主列表 19/20（r/SomebodyMakeThis 抓取失败）。未使用任何 X 付费 API。"
+ },
+ "items": [
+  {
+   "id": "idea-2026-10-28-01",
+   "date": "2026-10-28",
+   "type": "idea",
+   "rank": 1,
+   "title": "小服务器扛住 AI 爬虫：自托管 Git、论坛一键分清真人和爬虫，重页面先挡，不用把站搬上 Cloudflare",
+   "summary": "一个装在 nginx/Caddy 前面的小代理加面板：自动修正真实 IP，按 UA、ASN 和行为把请求分成真人、搜索引擎、AI 训练爬虫、漏洞扫描四类；对 Forgejo/Gitea 的 blame、diff、归档下载这类重页面单独限速或挑战；面板显示每类流量占了多少 CPU 和带宽，一键选“只挡 AI 训练爬虫”。",
+   "url": "https://www.reddit.com/r/selfhosted/comments/1xgae5q/",
+   "tags": [
+    "开发者工具",
+    "安全"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "安全/隐私"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "r/selfhosted 一条吐槽 AI 爬虫的帖子拿到 266 条评论、742 赞：发帖人自建的 Forgejo 代码仓库被爬虫打到变慢，停掉 Forgejo 后 nginx 照样被打，8 核 Xeon 一半在处理请求；评论里有人的老论坛一天只有 100–200 个真人，周末却收到 50 万次请求；高赞评论指出爬虫专挑大而重的页面，而很多人的 nginx 连真实 IP 都没记下，根本没法限流。10 月 14 日 Top 5 选过同类选题，今天热度最高，这次聚焦自托管小机器。",
+    "target_users": "在 VPS 或家里服务器上跑 Forgejo、Gitea、论坛、Wiki、博客的个人和小开源项目；不想或不能把流量交给 Cloudflare 的站长。",
+    "quotes": [
+     {
+      "text": "We are (yet again) being DDOS'ed by AI crawlers.",
+      "links": [
+       {
+        "label": "r/selfhosted 原帖（266 条评论）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xgae5q/"
+       }
+      ]
+     },
+     {
+      "text": "Even when Forgejo was stopped, the flow of requests of crawlers was still DDOSing my nginx",
+      "links": [
+       {
+        "label": "r/selfhosted 原帖",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xgae5q/"
+       }
+      ]
+     },
+     {
+      "text": "The AI crawlers tend to ignore instructions and request all the big heavy pages, sometimes en-mass.",
+      "links": [
+       {
+        "label": "r/selfhosted 高赞评论（37 赞）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xgae5q/"
+       }
+      ]
+     },
+     {
+      "text": "an old forum that maybe gets 100-200 actual human visitors a day on a good day, yet over the weekend I was seeing half a million requests per day.",
+      "links": [
+       {
+        "label": "r/selfhosted 评论",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xgae5q/"
+       }
+      ]
+     },
+     {
+      "text": "NGINX logging loopback connection rather than the original remote client. Without the correct IP address you can’t do rate limiting.",
+      "links": [
+       {
+        "label": "r/selfhosted 评论（18 赞）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xgae5q/"
+       }
+      ]
+     }
+    ],
+    "existing": "Cloudflare 代理和 Tunnel、Anubis 这类工作量证明挑战页、robots.txt、fail2ban、手写 nginx 限流规则、用迷宫页喂垃圾给爬虫。",
+    "defects": "Cloudflare 要把 DNS 和流量交出去，自托管用户不情愿；Anubis 等要自己配，容易误伤正常用户和 git clone；robots.txt 被无视；nginx 限流要先修好真实 IP 记录，新手不会；没有一张表告诉你哪个爬虫吃掉了多少 CPU。",
+    "solution": "一个装在 nginx/Caddy 前面的小代理加面板：自动修正真实 IP，按 UA、ASN 和行为把请求分成真人、搜索引擎、AI 训练爬虫、漏洞扫描四类；对 Forgejo/Gitea 的 blame、diff、归档下载这类重页面单独限速或挑战；面板显示每类流量占了多少 CPU 和带宽，一键选“只挡 AI 训练爬虫”。",
+    "mvp": "Docker 一键部署的反向代理，内置 Forgejo/Gitea/Discourse 三套重页面规则和公开的 AI 爬虫名单，附一页流量分类报表；先在 r/selfhosted 和 Forgejo 社区找 20 个站点试用。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-10-28-02",
+   "date": "2026-10-28",
+   "type": "idea",
+   "rank": 2,
+   "title": "小卖家真实利润一处看：Etsy、Stripe、RevenueCat 的账单合在一起，扣掉各种手续费算出每单、每个产品实际赚多少",
+   "summary": "上传各平台导出的 CSV 或只读连接 Stripe、RevenueCat，自动把多行合回一单，按平台拆出手续费、税和退款；填一次成本价就给出每单、每个产品、每个渠道的净利润，并区分一次性收入和经常性收入；每周发一封“这周真正到手多少”。",
+   "url": "https://www.reddit.com/r/SideProject/comments/1xgawll/",
+   "tags": [
+    "支付",
+    "电商",
+    "开发者工具"
+   ],
+   "raw_tags": [
+    "支付/计费",
+    "电商",
+    "开发者工具"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "r/SideProject 有 Etsy 卖家说月度付款 CSV 里一笔销售会拆成 6–8 行（含 VAT、交易费、处理费、上架费），3.5 美元的第一单到手只剩 2.64 美元，花了好久才看懂；r/SaaS 有独立开发者受够了在 Stripe 和 RevenueCat 之间来回切，只为看一眼应用赚了多少，还分不清付款总额和经常性收入；r/startups 有人比了 9 款报价开票工具，5 人团队都嫌贵。",
+    "target_users": "在 Etsy、Shopify、Gumroad、App Store 卖东西的个人卖家；同时用 Stripe 和 RevenueCat 收款的独立开发者；不想上全套记账软件的一人公司。",
+    "quotes": [
+     {
+      "text": "the monthly payment CSV is a long list where every sale becomes 6-8 lines",
+      "links": [
+       {
+        "label": "r/SideProject 原帖",
+        "url": "https://www.reddit.com/r/SideProject/comments/1xgawll/"
+       }
+      ]
+     },
+     {
+      "text": "My first $3.50 sale left me with $2.64 after fees, and it took me a while to see why.",
+      "links": [
+       {
+        "label": "r/SideProject 原帖",
+        "url": "https://www.reddit.com/r/SideProject/comments/1xgawll/"
+       }
+      ]
+     },
+     {
+      "text": "One thing that kept annoying me as an indie developer was having to jump between Stripe and RevenueCat just to get a quick overview of how my apps were doing.",
+      "links": [
+       {
+        "label": "r/SaaS 原帖",
+        "url": "https://www.reddit.com/r/SaaS/comments/1xgb650/"
+       }
+      ]
+     },
+     {
+      "text": "Payment totals and recurring revenue aren't the same thing",
+      "links": [
+       {
+        "label": "r/SaaS 原帖",
+        "url": "https://www.reddit.com/r/SaaS/comments/1xgb650/"
+       }
+      ]
+     },
+     {
+      "text": "Others have those features, but for a team of 5, it's too expensive as an early startup.",
+      "links": [
+       {
+        "label": "r/startups 原帖",
+        "url": "https://www.reddit.com/r/startups/comments/1xfp5gk/"
+       }
+      ]
+     }
+    ],
+    "existing": "Etsy 自带统计、CraftKept 这类 Etsy CSV 工具、Stripe 和 RevenueCat 各自的面板、ChartMogul/Baremetrics、QuickBooks/Xero。",
+    "defects": "平台面板只看自己那份，手续费分散在多行；ChartMogul 等偏 SaaS 订阅指标且收费不低；记账软件太重；没有“扣完所有费用每个产品到底赚多少”的简单视图。",
+    "solution": "上传各平台导出的 CSV 或只读连接 Stripe、RevenueCat，自动把多行合回一单，按平台拆出手续费、税和退款；填一次成本价就给出每单、每个产品、每个渠道的净利润，并区分一次性收入和经常性收入；每周发一封“这周真正到手多少”。",
+    "mvp": "网页工具，先支持 Etsy 付款 CSV、Stripe 和 RevenueCat 导出三种格式，本地解析不存账号，输出净利润表和可导入记账软件的 CSV；免费 1 个平台，多平台合并收月费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-10-28-03",
+   "date": "2026-10-28",
+   "type": "idea",
+   "rank": 3,
+   "title": "海外创业者开美国公司不踩坑：注册代理靠谱度核查、年度申报和税务到期提醒、Apple 开发者账号这类后续开通一步步带",
+   "summary": "一个面向非美国居民的清单加提醒服务：按州和国籍给出注册、EIN、银行、支付、Apple/Google 开发者账号的开通顺序和常见卡点；汇总各注册代理的实际价格和服务，用公开的州政府数据核对代理是否真实在册；按公司成立日期自动排出每年要交的申报和税表，提前提醒。",
+   "url": "https://www.reddit.com/r/startups/comments/1xfza9n/",
+   "tags": [
+    "开发者工具",
+    "支付"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "支付/计费"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "r/startups 三天里至少三帖非美国居民在问开 Delaware/Wyoming LLC 找谁（Northwest、Globafy、Neubase、律所），有人怀疑满屏好评是刷的；HN 有人用 Delaware LLC 申请 Apple 开发者一个多月都没成功，加拿大护照过不了身份验证，七张银行卡付款全被拒；他们要的不只是注册，而是后续每年的申报和税务别漏掉。",
+    "target_users": "美国以外、想用美国公司收款或上架应用的独立开发者和一人公司；已经有美国 LLC 但不清楚年度义务的人。",
+    "quotes": [
+     {
+      "text": "I want a service that isn’t crazy expensive, but is reliable and ensures I’m upto date on all my filing/tax obligations.",
+      "links": [
+       {
+        "label": "r/startups 原帖",
+        "url": "https://www.reddit.com/r/startups/comments/1xfza9n/"
+       }
+      ]
+     },
+     {
+      "text": "the overwhelmingly positive reviews makes me feel like they could be paid reviews?",
+      "links": [
+       {
+        "label": "r/startups 原帖",
+        "url": "https://www.reddit.com/r/startups/comments/1xfza9n/"
+       }
+      ]
+     },
+     {
+      "text": "I’m doing research on the best company to help me with everything I need for my startup (I’m a soloprenuer) regarding opening a LLC in USA.",
+      "links": [
+       {
+        "label": "r/startups 原帖",
+        "url": "https://www.reddit.com/r/startups/comments/1xffh1p/"
+       }
+      ]
+     },
+     {
+      "text": "I've been trying to enroll for Apple Developer for over a month and nothing works.",
+      "links": [
+       {
+        "label": "Hacker News（Ask HN，17 条评论）",
+        "url": "https://news.ycombinator.com/item?id=50237680"
+       }
+      ]
+     },
+     {
+      "text": "when it's time to pay, all my cards get declined. I tried ~7 bank cards",
+      "links": [
+       {
+        "label": "Hacker News（Ask HN）",
+        "url": "https://news.ycombinator.com/item?id=50237680"
+       }
+      ]
+     }
+    ],
+    "existing": "Stripe Atlas、Firstbase、doola、Northwest Registered Agent、各类注册代理和律所；Reddit 帖子和 YouTube 教程。",
+    "defects": "各家只管注册那一步，后续年度报告、特许经营税、5472 表等提醒要自己记；价格和服务范围难横向比；评价真假难辨；Apple 开发者、银行、支付这类开通问题没人带。",
+    "solution": "一个面向非美国居民的清单加提醒服务：按州和国籍给出注册、EIN、银行、支付、Apple/Google 开发者账号的开通顺序和常见卡点；汇总各注册代理的实际价格和服务，用公开的州政府数据核对代理是否真实在册；按公司成立日期自动排出每年要交的申报和税表，提前提醒。",
+    "mvp": "一个免费网页：输入国籍、州和用途，输出开通路线图和年度截止日日历（可订阅到日历），附 10 家注册代理的价格对比；之后加付费的人工代办转介。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-10-28-04",
+   "date": "2026-10-28",
+   "type": "idea",
+   "rank": 4,
+   "title": "做在别人平台上的应用，规则一改就知道：Slack、Shopify、Apple 等平台的接口限制和上架政策变化，按你用到的接口提醒",
+   "summary": "连上你的代码仓库或填写用到的接口和权限范围，持续抓取各平台 changelog、政策页和开发者论坛，只推送影响你用到的接口、权限和上架规则的变化，并写明对安装、配额、审核的具体影响和截止日期。",
+   "url": "https://www.reddit.com/r/SaaS/comments/1xfw91q/",
+   "tags": [
+    "电商",
+    "开发者工具",
+    "支付"
+   ],
+   "raw_tags": [
+    "电商",
+    "开发者工具",
+    "支付/计费"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "r/SaaS 有人上线 Slack 应用后 18 人注册只有 7 人装上，事后才发现 Slack 早就改了规则：不在 Marketplace 的商业应用读历史消息每分钟只能调一次、每次 15 条，现有安装今年 3 月也被限；评论里还提到非管理员装不了、要先拿 10 个工作区才能申请上架；发帖人的结论是先读 changelog 再排路线图。",
+    "target_users": "做 Slack、Shopify、Notion、Chrome 扩展、App Store 应用等平台插件的独立开发者和小团队。",
+    "quotes": [
+     {
+      "text": "I launched a Slack app last week. Not my first product, but my first one inside someone else's platform, and I learned the platform rules the expensive way: from my own funnel.",
+      "links": [
+       {
+        "label": "r/SaaS 原帖",
+        "url": "https://www.reddit.com/r/SaaS/comments/1xfw91q/"
+       }
+      ]
+     },
+     {
+      "text": "a commercial app that isn't in the Slack Marketplace can call `conversations.history` and `conversations.replies` once a minute, 15 messages at a time.",
+      "links": [
+       {
+        "label": "r/SaaS 原帖",
+        "url": "https://www.reddit.com/r/SaaS/comments/1xfw91q/"
+       }
+      ]
+     },
+     {
+      "text": "At least now I read changelogs before roadmaps.",
+      "links": [
+       {
+        "label": "r/SaaS 发帖人回复",
+        "url": "https://www.reddit.com/r/SaaS/comments/1xfw91q/"
+       }
+      ]
+     },
+     {
+      "text": "my friend brought to my notice he wasn't able to add the app to his slack because he's not an admin",
+      "links": [
+       {
+        "label": "r/SaaS 发帖人回复",
+        "url": "https://www.reddit.com/r/SaaS/comments/1xfw91q/"
+       }
+      ]
+     }
+    ],
+    "existing": "各平台的开发者 changelog 和邮件、RSS 订阅、API 监控服务（如 API Status 类）、社区论坛。",
+    "defects": "changelog 量大且和你用不用到的接口混在一起；上架政策、审核规则散在不同页面；没有“这次改动会影响我哪个功能、哪些用户”的对照；往往等漏斗掉了才发现。",
+    "solution": "连上你的代码仓库或填写用到的接口和权限范围，持续抓取各平台 changelog、政策页和开发者论坛，只推送影响你用到的接口、权限和上架规则的变化，并写明对安装、配额、审核的具体影响和截止日期。",
+    "mvp": "先做 Slack 和 Shopify 两个平台：扫描仓库里调用的 API 名，订阅对应 changelog 段落和政策页变动，每周一封影响摘要；免费 1 个平台。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-10-28-05",
+   "date": "2026-10-28",
+   "type": "idea",
+   "rank": 5,
+   "title": "AI 的答案先标新鲜度：过时新闻、改过的事实、晚到的提醒，先说清信息是什么时候的、有没有更新",
+   "summary": "一个浏览器扩展加提醒服务：在 AI 回答旁标出每条来源的发布日期，超过设定天数的标红；“有新发布就告诉我”改由真实的 RSS、官网和发布页触发，不靠模型轮询；定期把 AI 记住的个人事实列出来，让你确认哪些已过期，并可导出带到别的 AI。",
+   "url": "https://www.reddit.com/r/productivity/comments/1xfoc80/",
+   "tags": [
+    "Coding Agent",
+    "支付",
+    "开发者工具"
+   ],
+   "raw_tags": [
+    "Agent/AI编码",
+    "支付/计费",
+    "开发者工具"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "r/productivity 有散户用 Claude 和 Gemini 做研究，问最新的消息却拿到去年 10 月的文章；r/ChatGPT 有付费用户说最近一个月错误多到不敢信，设了“有新发布就提醒我”的任务，结果自己早就知道了它才提醒，但又舍不得走，因为让它记住了健康状况等很多信息；Indie Hackers 上有人指出 AI 记忆里旧的事实不会自己失效，用户搬家后还按旧城市推荐。",
+    "target_users": "用 ChatGPT、Claude、Gemini 查新闻、跟踪发布、做投资或工作研究的人；在 AI 里存了大量个人信息的长期用户；给 AI 产品做记忆功能的开发者。",
+    "quotes": [
+     {
+      "text": "I asked for the latest shock news and gotten articles from last october instead.",
+      "links": [
+       {
+        "label": "r/productivity 原帖",
+        "url": "https://www.reddit.com/r/productivity/comments/1xfoc80/"
+       }
+      ]
+     },
+     {
+      "text": "I’ve set reminders for it to let me know when things are released and I find out way before it alerts me.",
+      "links": [
+       {
+        "label": "r/ChatGPT 原帖（12 条评论）",
+        "url": "https://www.reddit.com/r/ChatGPT/comments/1xgmlwq/"
+       }
+      ]
+     },
+     {
+      "text": "I’m thinking of jumping ship, but I’ve invested so much time asking it to remember things such as health conditions, etc.",
+      "links": [
+       {
+        "label": "r/ChatGPT 原帖",
+        "url": "https://www.reddit.com/r/ChatGPT/comments/1xgmlwq/"
+       }
+      ]
+     },
+     {
+      "text": "A missing memory is easy to notice, an old one that sounds right isn't.",
+      "links": [
+       {
+        "label": "Indie Hackers 帖子（15 条评论）",
+        "url": "https://www.indiehackers.com/post/your-ai-remembers-the-old-answer-how-do-you-handle-facts-that-changed-f3bd095b0c"
+       }
+      ]
+     }
+    ],
+    "existing": "ChatGPT、Gemini 自带搜索和定时任务；Perplexity 带来源；Google Alerts、RSS；各家的记忆管理页。",
+    "defects": "答案很少标明信息日期，旧文章混在“最新”里；定时任务靠模型自己去查，晚且不稳定；记忆只会累加，不会标记“这条可能过期”；换工具时记忆带不走。",
+    "solution": "一个浏览器扩展加提醒服务：在 AI 回答旁标出每条来源的发布日期，超过设定天数的标红；“有新发布就告诉我”改由真实的 RSS、官网和发布页触发，不靠模型轮询；定期把 AI 记住的个人事实列出来，让你确认哪些已过期，并可导出带到别的 AI。",
+    "mvp": "Chrome 扩展：在 ChatGPT、Claude、Gemini 页面识别回答里的链接和日期，给每条来源打上“几天前”的标签；附一个按网址或关键词订阅发布提醒的小服务。",
+    "difficulty": null,
+    "potential": null
+   }
+  }
+ ]
+}
