@@ -1,0 +1,327 @@
+{
+ "schema_version": 1,
+ "type": "news",
+ "date": "2026-10-28",
+ "day": {
+  "window": "10/27 08:30 – 10/28 08:30 北京时间",
+  "note": "未使用 X 付费 API",
+  "footer": "今天 Java 和 Ontology 方向没有新的一手内容，跳过；Java 只有 openai-java 4.94.0（已并入第 6 条），JDK 28 发布日程的评审期 10/29 结束，日程本身之前已写过。没单列的还有：Tailscale 承认 Tailscale SSH 存在多项提权问题，已经能连上的用户在部分配置下可能越权，官方建议先设 TS_SSH_DISABLE_FORWARDING=1 并收紧 SSH 策略，修复版原计划 10/27 发布，我查看时官方更新日志里还没有出现（HN 174 分）；Wiz 更新 PHP2Shell 观察，过去几天公网上可被利用的机器日均数量下降约 67%，一周后仍易受攻击的组织不到最初的 53%，蜜罐里还没看到公开 PoC 完整打通，但 CISA 已将其列入 KEV（HN 181 分）；安全研究者披露 AWS MCP Server 的 aws___run_script Python 沙箱可用 match/case 绕过 AST 检查实现命令执行，AWS 已于 10/23 修复（原文 10/24 发布）；Python 实验性 JIT 将被移除（HN 435 分）；斯坦福多位教授选择退出 Bartz 和解，单独起诉 Anthropic 使用盗版书训练（HN 440 分）。",
+  "highlights": [
+   1,
+   2,
+   3
+  ]
+ },
+ "items": [
+  {
+   "id": "news-2026-10-28-01",
+   "date": "2026-10-28",
+   "type": "news",
+   "rank": 1,
+   "title": "Anthropic 前沿红队公开五条 Claude 写出的完整攻击链：Chrome 一键 RCE、Safari 绕过同源、Linux 零点击拿 root",
+   "summary": "用一个未发布的内部研究模型，在浏览器、操作系统里找漏洞并写出可运行的 exploit；仅 Chrome 就分配了 62 个 CVE，全部为高危或严重。",
+   "url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
+   "tags": [
+    "AI Agent",
+    "Harness",
+    "安全"
+   ],
+   "raw_tags": [
+    "AI Agent",
+    "Harness",
+    "安全"
+   ],
+   "score": 9,
+   "score_label": "Anthropic 官方研究 · HN 9 分（北京时间凌晨发布，讨论刚开始）",
+   "detail": {
+    "heat": "Anthropic 官方研究 · HN 9 分（北京时间凌晨发布，讨论刚开始）",
+    "highlight": true,
+    "event": "Anthropic Frontier Red Team 10/27 发文，介绍过去几个月用内部未发布模型做漏洞研究的五个案例，均已按 90 天协调披露流程报给厂商：1）Chrome：V8 堆破坏 → 突破 V8 内存沙箱并绕过 ASLR → CacheStorage 竞态读取浏览器进程内存 → FedCM 的 use-after-free 在沙箱外执行代码，页面加载几秒内弹出计算器；Google 已在 Chrome 156 前修复并分配 62 个 CVE，其中 13 个沙箱逃逸、21 个可攻破渲染进程。2）Safari：JavaScriptCore 的 UAF 加 Gigacage 外的任意读写，再借沙箱 IPC 读出历史和 cookie，最后改内存里的标志位关掉同源策略，全程不需要任意代码执行，苹果当天确认并已修复。3）Android：在 Pixel 9 上组合三个漏洞，不解锁就能经 USB 导出照片，Google 已修复。4）Windows：通过二进制逆向（Ghidra）发现内核 QUIC 实现的越界读，几个包就能远程让开了 HTTP/3 的服务器重启，CVE-2026-33096。5）Linux：多路径 TCP（MPTCP）监听上的竞态 UAF，远程先泄露内核地址再劫持回调，以 root 执行命令，PoC 约 48 分钟拿到内核指针、再 5 分钟拿到 shell，CVE-2026-98432 已修复并回移到所有维护中的稳定分支。文中说每个案例都是“初始提示之后”由 Claude 完成。",
+    "why": "这篇的价值不在“AI 会找漏洞”，而在它公开了方法：大量扫描 agent 并行跑，按“每个扫描器额外贡献了多少新漏洞”来评估，覆盖率动态跟踪；策略从逐函数覆盖、到目标导向、到“是否违背自身文档的威胁模型”都有；每个确认的发现自动做变体分析，再统一走验证和定级流水线。另一个结论是：清存量只解决一半，另一半是在 PR 阶段拦住新漏洞，Anthropic 为此公开了一个 Claude Code 安全插件。对防守方来说，攻击链从“少数专家团队”变成“模型加少量提示”，补丁窗口会继续变短。",
+    "use": "1）自查服务器有没有对外开放 MPTCP 监听，并确认内核已包含 CVE-2026-98432 的修复；Windows 上开了 HTTP/3 的服务确认已打补丁。2）把“安全扫描 agent”放进 PR 流程，而不是只做季度扫描；可以先试 Anthropic 公开的 Claude Code 安全插件。3）如果在搭自己的代码审计 harness，借鉴它的两点做法：按增量贡献衡量每种扫描策略，所有发现走统一的复现和定级流程，避免误报淹没团队。4）支付系统的威胁模型文档可以直接交给 agent 做“是否有路径违反威胁模型”的审查。",
+    "links": [
+     {
+      "name": "Anthropic 原文",
+      "url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50265205"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-28-02",
+   "date": "2026-10-28",
+   "type": "news",
+   "rank": 2,
+   "title": "热帖：《AI 承诺让我们少干活，我却从没这么累过》——一位技术 VP 用自己的 GitHub 数据说明 agent 带来的是更多工作",
+   "summary": "2026 年到 10/27 已有 2,102 次贡献，超过 2021–2025 任何一整年；8 月 427 次是历史最高月。作者说瓶颈从写代码变成了在多个 agent 之间切换上下文。",
+   "url": "https://oioannou.com/blog/ai-promised-less-work/",
+   "tags": [
+    "Coding Agent",
+    "有争议"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "争议"
+   ],
+   "score": 613,
+   "score_label": "HN 613 分 · 611 条评论",
+   "detail": {
+    "heat": "HN 613 分 · 611 条评论",
+    "highlight": true,
+    "event": "Bold.org 技术 VP Orestis Ioannou 拉取了自己 2019 年以来每月的 GitHub 贡献数据。当首席工程师期间（2022.8–2025.7）月均 114 次，转任 VP 后头几个月月均 111 次；2026 年开始全面用 agent 后，到 10/27 已有 2,102 次，工作日中位数从 2022–2025 年的 3–4 次回到 7 次，单日 24 次以上的“重日”今年已有 16 天（2022–2025 每年只有 1 天），没有任何提交的工作日从每年 40–46 天降到 18 天。他把今年描述成三轮“爆发—倦怠”循环：新模型或新工作流一出现就同时开很多 agent，几周后审查和切换压垮自己，再退回平稳状态。核心观察是：以前一周两三个需要专注的任务，现在是好几个并行 agent，“不是一直需要我，但每个都时不时需要我”，每次回应都要重新装载另一个仓库、另一组决策。同日另一篇热帖《人月神话在 AI 时代》（HN 428 分、303 条评论）给出类似结论：并行加 agent 并不能压缩串行任务，管理开销从管人变成管 agent，“需求不清时加 agent，只会更快得到错误答案”。",
+    "why": "这是今天评论最多的帖子，讨论集中在一个大家都在经历但很少量化的问题：agent 降低了实现成本，于是每个人都给自己加了更多工作，真正稀缺的是人的注意力和审查带宽。数据只是个人样本、贡献数也不等于产出，但“低谷期也不再低”的描述在评论区引起大量共鸣，对团队管理者有直接参考价值。",
+    "use": "1）给自己设一个并行 agent 的上限（比如同时最多 3 个需要人工确认的会话），超过就排队，而不是全开。2）把 agent 需要人决定的点集中到固定时间段批量处理，减少随机打断。3）团队层面别只看提交数和 PR 数，应同时跟踪审查时长、返工率和值班负荷，防止“产出变多、人先垮”。4）启动 agent 之前先把“完成的定义”写清楚，呼应人月神话那篇的结论。",
+    "links": [
+     {
+      "name": "原文",
+      "url": "https://oioannou.com/blog/ai-promised-less-work/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50257325"
+     },
+     {
+      "name": "《人月神话在 AI 时代》",
+      "url": "https://j11g.com/the-mythical-man-month-in-the-age-of-ai"
+     },
+     {
+      "name": "HN 讨论（人月神话）",
+      "url": "https://news.ycombinator.com/item?id=50255298"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-28-03",
+   "date": "2026-10-28",
+   "type": "news",
+   "rank": 3,
+   "title": "给 agent 发短期身份而不是长期密钥：Formal 用 OIDC 让云端 coding agent 只读访问生产库，同日 GitHub Copilot SDK 支持服务端到服务端认证",
+   "summary": "Formal 把每个 Cursor/Devin 云端会话当作独立的工作负载身份，经人在 Slack 上批准后获得限时、限库的只读权限；Copilot 则允许 GitHub App 用短期安装令牌代表组织调用。",
+   "url": "https://www.formal.ai/blog/cloud-agents-oidc-infrastructure/",
+   "tags": [
+    "AI Agent",
+    "Coding Agent",
+    "Harness",
+    "工程实践"
+   ],
+   "raw_tags": [
+    "AI Agent",
+    "Coding Agent",
+    "Harness",
+    "工程实践"
+   ],
+   "score": 14,
+   "score_label": "Formal 博客 HN 14 分 · GitHub Changelog 10/27",
+   "detail": {
+    "heat": "Formal 博客 HN 14 分 · GitHub Changelog 10/27",
+    "highlight": true,
+    "event": "Formal 工程师撰文介绍内部做法：Cursor、Devin 等云端 coding agent 平台本身就是 OIDC 签发方，agent 从环境拿到 JWT，Formal 校验签名和声明（可写 CEL 条件），映射到一个机器身份，并可选把 token 里“谁启动了这个会话”的声明解析成人的身份，写进日志、参与策略判断。典型流程：agent 在 Slack 上向启动它的人说明为什么需要访问、需要多久，批准后权限只绑定到该会话 ID 和指定数据库，生产一律只读；对没有远程 MCP 的工作流编排服务，把一个只读 API key 存在 Formal 里，agent 申请短期访问；在开发环境里 agent 还能经 OIDC 联合到 Azure 开发账号，自己部署 AKS 集群验证改动。作者的结论是 agent 访问应当建模为“临时委托”，而不是又一个持有长期密钥的机器账号。同一天 GitHub 宣布 Copilot 支持服务端到服务端认证（公开预览）：给 GitHub App 授予只读的 Copilot Requests 组织权限，把短期安装令牌传给 Copilot SDK，即可代表组织发请求，用量计到组织并受模型策略和预算约束，组织所有者可随时暂停或卸载。Claude Code 2.1.312 也给 Claude apps 网关加了 oidc.user_id_claim，可以用 Entra ID 的 oid 等声明识别人。",
+    "why": "agent 能不能“自己闭环”（查数据、看真实运行记录、在真实环境验证），关键卡在权限上；而给 agent 长期密钥正是近期一连串 CI/token 泄露事件的根源。这三件事指向同一个方向：agent 有自己的短期工作负载身份，同时带上“谁启动的”这层人类归属，审计和撤销都按会话粒度做。",
+    "use": "1）盘点团队里给 agent 或 CI 用的长期 token，优先替换成 OIDC 联合或 GitHub App 安装令牌。2）支付和账务系统的生产数据只开只读、限时、按会话审批的通道，审批消息里要求 agent 写明用途和时长。3）在审计日志里同时记录“哪个 agent 会话”和“哪个人启动”，事后追责与风控规则都可以用到。4）内部基于 Copilot SDK 的自动化服务，可以从个人 PAT 迁到组织级 GitHub App，避免员工离职或权限变化导致服务中断。",
+    "links": [
+     {
+      "name": "Formal：用 OIDC 而非密钥",
+      "url": "https://www.formal.ai/blog/cloud-agents-oidc-infrastructure/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50261584"
+     },
+     {
+      "name": "GitHub Copilot 服务端认证",
+      "url": "https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-28-04",
+   "date": "2026-10-28",
+   "type": "news",
+   "rank": 4,
+   "title": "MCP TypeScript SDK 高危公告：HTTP 传输不限制请求体大小和 JSON-RPC 批量长度，未认证即可耗尽内存",
+   "summary": "影响 @modelcontextprotocol/sdk 1.10.0–1.30.0 及 2.x 的 server、node、hono 包；修复后超过 4 MiB 返回 413，批量超过 100 条返回 400。",
+   "url": "https://github.com/advisories/GHSA-f897-62hf-6gxq",
+   "tags": [
+    "MCP",
+    "安全"
+   ],
+   "raw_tags": [
+    "MCP",
+    "安全"
+   ],
+   "score": null,
+   "score_label": "GitHub Advisory GHSA-f897-62hf-6gxq · 高危",
+   "detail": {
+    "heat": "GitHub Advisory GHSA-f897-62hf-6gxq · 高危",
+    "highlight": false,
+    "event": "GitHub 于北京时间 10/28 凌晨发布公告 GHSA-f897-62hf-6gxq：受影响版本的 MCP 服务器通过 Streamable HTTP 对外时，不限制 POST 体大小，也不限制一个 JSON-RPC 批量里的消息条数，一个大请求就能耗尽内存，一个超长批量会让服务器无法服务其他人；除非应用在请求进入 SDK 前自己做了认证，否则不需要任何凭证。公告特别指出 express.json() 之类的 body parser 不能防住，因为它不限制批量长度；只用 stdio 的服务器不受影响。修复版本：1.x 升到 @modelcontextprotocol/sdk 1.30.1 及以上；2.x 需把 @modelcontextprotocol/server、@modelcontextprotocol/node 升到 2.1.0，@modelcontextprotocol/hono 升到 2.0.1，装了几个就都要升。新增 maxRequestBodySize 选项，暂时不能升级的可以在反向代理上限制请求体。这是 SDK 层的问题，和 10/26 提到的参考服务器 v2.1.0 的 8 个公告不是同一批。",
+    "why": "越来越多团队把内部 MCP 服务器从 stdio 改成 HTTP 对外，供多个 agent 或客户端共享，这时 SDK 默认值就成了攻击面。一个未认证的大请求就能打挂服务，对支付、风控这类提供工具调用的 MCP 服务来说就是可用性事故。",
+    "use": "1）用 npm ls @modelcontextprotocol/sdk @modelcontextprotocol/server @modelcontextprotocol/node @modelcontextprotocol/hono 查依赖树，按上面的版本升级。2）无论是否升级，在网关或 Nginx 上给 MCP 端点加请求体上限和速率限制，并把认证放在 SDK 之前。3）Java 侧的 MCP 服务虽不受此公告影响，也可以对照检查：是否限制了批量条数和请求体大小。4）如果有客户端需要传大文件，显式调大 maxRequestBodySize，而不是关掉限制。",
+    "links": [
+     {
+      "name": "GitHub Advisory",
+      "url": "https://github.com/advisories/GHSA-f897-62hf-6gxq"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-28-05",
+   "date": "2026-10-28",
+   "type": "news",
+   "rank": 5,
+   "title": "《Here Be Monsters》：agent 写代码之后，系统负责人到底还需要懂什么",
+   "summary": "作者认为“逐行读懂 agent 的代码”和“完全不看代码”都不现实；真正需要的是基础知识、知识广度，以及出事时能随时深挖的能力。",
+   "url": "https://blog.adrq.dev/here-be-monsters-what-do-you-still-need-to-know-when-agents-do-the-work",
+   "tags": [
+    "Coding Agent",
+    "有争议"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "争议"
+   ],
+   "score": 150,
+   "score_label": "HN 150 分 · 77 条评论",
+   "detail": {
+    "heat": "HN 150 分 · 77 条评论",
+    "highlight": false,
+    "event": "作者从一次 CI 失败讲起：SonarQube 报 App.tsx 圈复杂度过高，打开一看，Codex 把 15 个包含业务逻辑的组件各写成一行，逻辑都对，复杂度也是需求带来的，但这是他从没看过的代码。他认为，未来拥有一个系统不再取决于是否亲手写过，而在于“知道得刚好够判断哪里不对，并且愿意在需要时深挖”。他提出三根支柱：基础（数据结构与算法、网络、并发、分布式，用来识别“每深一倍耗时翻四倍”这类安静的故障）、广度（像一张远景海图，知道哪里危险）、即时深度（出事时愿意并且能够潜下去）。他举了自己的例子：agent 编排器的生命周期 bug 让 agent 反复崩溃，agent 自己修了几轮都不行，他想起多年前读 Kubernetes 时看到的“电平触发状态机”，带着 agent 重写了核心架构，此后稳定。他也直言，让新人“理解 agent 写的每一行”或“跟着资深结对”在多数公司都是一厢情愿。",
+    "why": "这篇把“AI 时代工程师怎么培养”从口号落到可操作的能力模型上，和今天另一篇“AI 让人更累”的热帖正好互补：一个讲人力带宽，一个讲判断力从哪里来。评论区对“新人还能不能成长”争论较多。",
+    "use": "1）团队内部 code review 的重点从“逐行看”转向“看结构信号”：复杂度、调用关系、状态机是否清晰、失败路径是否可观测。2）给新人设计“即时深度”练习：拿一个真实线上事故，让他们在不熟悉的模块里定位并写事故报告，agent 可以辅助但结论要自己负责。3）对 agent 写的核心模块（比如支付状态流转、对账），要求有显式的状态机设计文档，出问题时才有“海图”可看。",
+    "links": [
+     {
+      "name": "原文",
+      "url": "https://blog.adrq.dev/here-be-monsters-what-do-you-still-need-to-know-when-agents-do-the-work"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50258868"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-28-06",
+   "date": "2026-10-28",
+   "type": "news",
+   "rank": 6,
+   "title": "Codex CLI 0.165.0 与 Claude Code 2.1.312：Codex 默认开启记忆 v2 并可导入其他 agent 的记忆，Claude Code 限制 hook 并发、不再覆盖只读了开头的大 CLAUDE.md",
+   "summary": "Codex 新增内置 Vertex AI provider、修了一个插件市场 URL 校验漏洞；Claude Code 对 Bedrock/Vertex 上不认识的模型名改用简短系统提示。openai-java 4.94.0 同日加入提示缓存断点 TTL。",
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.165.0",
+   "tags": [
+    "Coding Agent",
+    "Context Engineering",
+    "MCP",
+    "Java"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "Context Engineering",
+    "MCP",
+    "Java"
+   ],
+   "score": null,
+   "score_label": "GitHub Releases · 均为北京时间 10/28 凌晨发布",
+   "detail": {
+    "heat": "GitHub Releases · 均为北京时间 10/28 凌晨发布",
+    "highlight": false,
+    "event": "Codex rust-v0.165.0：内置 Google Cloud Vertex AI provider（model_provider = \"gcp\"）；模型目录加入 GPT-6.1 Terra；对话中途修改推理强度默认开启；新建配置默认使用记忆 v2，并支持导入外部 agent 的记忆；本地响应被丢弃时会取消对应的远程 MCP 工具请求；修复插件市场 URL 校验缺口，此前可能让 Git 连到与白名单校验不同的主机（userinfo 里的反斜杠）；网络代理的 MITM hook 支持 AWS SigV4 签名；MCP SDK 升到 1.32.0。Claude Code v2.1.312：Claude apps 网关新增 oidc.user_id_claim；修复 Claude 只看到子目录里超大 CLAUDE.md、规则文件开头就整体覆盖写入的问题，现在会要求先读完或原地编辑；修复 Bash cd 进更深目录后找不到按目录生效的 skills；prompt 和 agent hook 每个会话（含子 agent）最多并发 24 个；子 agent 的 autoCompactWindow 现在可以调低全局压缩窗口；Bedrock、Vertex、Foundry、Mantle 上遇到不认识的模型名（自定义部署名、推理配置 ARN）改用较短的系统提示，可用 CLAUDE_CODE_SIMPLE_SYSTEM_PROMPT=0 恢复；不再发送 claude_code.safety_event 遥测事件。openai-java v4.94.0：新增提示缓存断点 TTL 选项，支持原生 OkHttp 客户端和拦截器。",
+    "why": "两个工具都在往“记忆”和“上下文边界”上加功夫：Codex 让记忆可以跨 agent 迁移，Claude Code 修的是 agent 只读了一部分上下文就改写整个文件这种典型的上下文工程事故。Bedrock 系统提示的变化会悄悄影响走云渠道的团队的输出质量，值得留意。",
+    "use": "1）通过 Bedrock 或 Vertex 用自定义部署名跑 Claude Code 的，升级后对比一下输出质量，必要时设 CLAUDE_CODE_SIMPLE_SYSTEM_PROMPT=0。2）有大量 hook 的团队配置检查一下是否会触到 24 个的并发上限。3）想在 Codex 和 Claude Code 之间切换的，可以试 Codex 的外部记忆导入，看迁移后的项目约定是否保留。4）Java 服务里用 openai-java 的，可以用新的缓存 TTL 选项给长 system prompt 设合适的缓存时长，并通过 OkHttp 拦截器统一加审计和重试。",
+    "links": [
+     {
+      "name": "Codex 0.165.0",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.165.0"
+     },
+     {
+      "name": "Claude Code 2.1.312",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.312"
+     },
+     {
+      "name": "openai-java 4.94.0",
+      "url": "https://github.com/openai/openai-java/releases/tag/v4.94.0"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-28-07",
+   "date": "2026-10-28",
+   "type": "news",
+   "rank": 7,
+   "title": "苹果让 Keynote、Pages、Numbers 原生支持 MCP：外部 agent 可读取、编辑文档并执行自动化操作",
+   "summary": "随 Apple Creator Studio 更新发布，需要 macOS 27，11 月上架；Keynote 还推出基于 JSON 的开放格式 .keyx，方便工具和 agent 直接读取。",
+   "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+   "tags": [
+    "MCP",
+    "AI Agent"
+   ],
+   "raw_tags": [
+    "MCP",
+    "AI Agent"
+   ],
+   "score": 3,
+   "score_label": "Apple 官方新闻稿 · The Verge 报道 · HN 3 分",
+   "detail": {
+    "heat": "Apple 官方新闻稿 · The Verge 报道 · HN 3 分",
+    "highlight": false,
+    "event": "苹果 10/27 发布 Apple Creator Studio 更新：Keynote、Pages、Numbers 加入基于苹果自有模型和 OpenAI 模型的助手（beta，仅美国英语），同时新增 MCP 支持，官方说法是“让外部 AI agent 和工具能直接在 Keynote、Pages、Numbers 里读取内容、执行编辑和自动化操作”；MCP 功能要求 macOS 27 及以上，目前仅限 Mac。Keynote 同时推出新的开放文件格式 Keynote Interchange Format（.keyx），苹果描述为基于 JSON、可供外部工具、开发者工作流和 AI agent 读取。更新将于 11 月作为免费更新向现有订阅用户推送。",
+    "why": "这是苹果第一方办公软件对 MCP 的正式支持，意味着 MCP 已经从开发者工具扩展到大众办公软件；配合开放的 .keyx 格式，agent 生成和修改演示文稿不再需要逆向私有格式。HN 上关注度不高，但对做 agent 产品的人是个容易漏掉的信号。",
+    "use": "1）团队里用 Mac 的，可以在 11 月更新后让 Claude Code 或其他 MCP 客户端直接生成周报、复盘用的 Keynote/Numbers，省掉导出导入。2）自己做 MCP 服务器的，可以观察苹果的工具设计（读、改、执行动作的粒度）作为参考。3）关注 .keyx 的规范是否公开，如果是，可以在报表流水线里直接生成。",
+    "links": [
+     {
+      "name": "Apple 新闻稿",
+      "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/"
+     },
+     {
+      "name": "The Verge",
+      "url": "https://www.theverge.com/tech/1019373/apple-pages-keynote-numbers-ai-chatbot-update"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-10-28-08",
+   "date": "2026-10-28",
+   "type": "news",
+   "rank": 8,
+   "title": "支付侧两条：PayPal 财报会上说消费者 agent 和商户 agent 要互相验证“真人能付款、真商户有货”；韩国 Hecto 金融与 t54 合作给 agent 支付加 KYA",
+   "summary": "PayPal 正与 Meta 等 AI 公司合作接入个人 agent；Hecto 计划在自研 AI 支付平台上做“了解你的 agent”，并在执行前判断交易是否符合用户意图。",
+   "url": "https://www.pymnts.com/news/artificial-intelligence/2026/paypal-advances-ai-plans-bnpl-payment-volume-rises-25percent/",
+   "tags": [
+    "支付",
+    "AI Agent"
+   ],
+   "raw_tags": [
+    "支付",
+    "AI Agent"
+   ],
+   "score": null,
+   "score_label": "PYMNTS 财报会报道 · Digital Today / Blockster",
+   "detail": {
+    "heat": "PYMNTS 财报会报道 · Digital Today / Blockster",
+    "highlight": false,
+    "event": "PayPal 10/27 第三季度财报电话会上，CEO Enrique Lores 回答分析师提问时说：“消费者的 agent 向商户的 agent 购买时，双方都必须验证这是一个能付款的真实消费者、一个真有商品的真实商户”，并提到正与 Meta 及其他 AI 公司合作，把 PayPal 接入个人 agent。PayPal 内部 AI 客服今年已处理超过 2,400 万次联系；同期裁员 2,000 多人、砍掉三层组织。财务上营收增长 2% 至 85.8 亿美元，总支付量 4,871 亿美元（+6%），BNPL 支付量 +25%，全球线上品牌结账量按固定汇率仅增 1%。同一天，韩国支付公司 Hecto Financial 与 t54 签署合作备忘录：先在 Hecto 正在开发的 AI 支付平台上应用 KYA（Know Your Agent），验证 agent 的身份、委托权限和交易是否合理；再讨论在支付执行前评估 agent 发起的交易是否符合用户意图和授权范围，以及 x402 和稳定币的使用。Hecto 此前已加入 x402 生态，6 月完成了基于 Google AP2 规范的 agent 支付 PoC。",
+    "why": "两条都说明 agent 支付的重点正在从“能不能付”转向“谁在付、有没有被授权、和用户意图是否一致”。PayPal 把双向验证放到财报会上讲，说明大型钱包已在为 agent 流量设计风控；KYA 加“执行前意图校验”则是支付系统里可以落地的具体控制点。两者都还在合作或探索阶段，没有公开技术细节。",
+    "use": "1）在支付网关的风控链路里，为 agent 发起的交易单独打标，记录 agent 身份、委托人、授权范围和授权时间。2）设计“执行前意图校验”环节：把 agent 提交的订单和用户原始指令、限额规则做一致性检查，不一致就转人工确认。3）商户侧也要能证明“真实商户、真实库存”，可以考虑在商品和报价 API 里加签名或可验证的商户凭证，供买方 agent 校验。",
+    "links": [
+     {
+      "name": "PYMNTS：PayPal 财报会",
+      "url": "https://www.pymnts.com/news/artificial-intelligence/2026/paypal-advances-ai-plans-bnpl-payment-volume-rises-25percent/"
+     },
+     {
+      "name": "Digital Today：Hecto × t54",
+      "url": "https://www.digitaltoday.co.kr/en/view/119743/hecto-financial-signs-mou-with-t54-on-ai-agent-payment-risk-management"
+     }
+    ]
+   }
+  }
+ ]
+}
