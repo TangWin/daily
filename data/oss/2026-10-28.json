@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-10-28",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-10-28-learnharness",
+      "date": "2026-10-28",
+      "type": "oss",
+      "rank": 1,
+      "title": "LearnHarness：先测出你懂到哪，再一步步带你学会难东西的学习 Agent",
+      "summary": "测底、规划、讲解、练习一条龙，配持久知识图谱和自带 Key 的 30+ 模型；作者几乎天天发版，今早刚出 v0.3.9。",
+      "url": "https://github.com/amosblomqvist/learnharness",
+      "tags": [
+        "AI Agent",
+        "学习",
+        "桌面应用"
+      ],
+      "raw_tags": [],
+      "score": 3140,
+      "score_label": "★ 3140",
+      "detail": {
+        "status": "picked",
+        "repo": "amosblomqvist/learnharness",
+        "homepage": "https://learnharness.ai",
+        "stars": 3140,
+        "forks": 512,
+        "license": "AGPL-3.0",
+        "language": "TypeScript",
+        "latest_release": "v0.3.9",
+        "runners_up": [],
+        "body_md": "**LearnHarness：让 AI Agent 先摸清你懂到哪，再一步步带你学会难的东西**\n\n今天值得试，是因为它不是又一个「问答聊天」，而是一个把测底、规划、讲解、练习串成闭环的学习 Agent 桌面 app。今早（北京时间 10-28 06:55）刚发 v0.3.9，作者几乎天天发版。\n\n仓库：[amosblomqvist/learnharness](https://github.com/amosblomqvist/learnharness)\n\n**解决什么 / 适合谁**\n想自学一块硬骨头（数学、算法、论文、新技术栈）却总停在「看懂了但不会用」的人。它先找出你的理解在哪断掉，再从那里搭到目标。\n\n**README 里的要点**\n- 四步：先测（Measure，看你的回答、信心和思路）、再规划（依赖图，可查看，会随你的表现调整）、再讲（预测、讲解、检查，误解先修好再往上搭）、再练（换着花样出题，不提示该用哪条知识）。\n- 「Think out loud」思考框：可以打字或语音口述自己的推理，Agent 据此判断，而不是只看对错。\n- 持久知识图谱：学过的东西存成命题和推理链，带回源会话的链接，可导入笔记，下次讲课和出题直接用。\n- 自带 Key，支持 30+ 模型提供方（OpenAI、Anthropic、Google、DeepSeek、OpenRouter 等），有实时花费表；聊天、图谱、设置和 Key 都存本机，系统提示词可见可改。\n- 可后台查资料、生成可视化讲解和交互演示；语音输入走 Deepgram（需要自己的 Key）。\n\n**近期活跃证据**\n- Release：10-17 起已发 8 个版本，最新 v0.3.9 修了会话恢复、失败回复重试、长题显示、压缩摘要重放，并加了语音识别语言选择，还列出了已知限制。\n- 提交：总计约 808 次提交，10-01 起 284 次；10-27 一天就合了一串社区 PR（作者把贡献者提交保留后在本地整合再发版）。\n- Issues：共 154 个，开放 119 个，几乎全是最近一周新开的功能请求和 bug（本地模型、移动端同步、Bedrock 等）；维护者在最近 60 条评论里占 22 条，回复积极，#231/#238 语言问题当天随版本修掉。\n\n**快速上手**\n1. 去 [learnharness.ai](https://learnharness.ai) 或 Releases 下载（macOS 已签名公证，Windows 安装包、Linux AppImage/.deb）。\n2. 在设置里填一个模型 Key、选好模型。\n3. 新建会话，写下你想弄懂的目标（例如「搞懂 Transformer 的注意力为什么要除以根号 d」），先让它测底再开讲。\n\n**风险和注意点**\n- 协议是 AGPL-3.0；几乎全是作者一人提交（808 次里 774 次），开放 PR 有 75 个积压。\n- 暂不支持本地模型/自定义 OpenAI 兼容端点（#225、#229 等仍开放）；OpenRouter 优先级计费显示减半（#232）。\n- Linux AppImage 有 FUSE 启动问题（#84），自动更新后桌面启动器可能指向旧文件打不开（#242）；Windows 安装包未签名。\n- 「本地存储」不等于离线：讲课内容会发给你配置的模型提供方，Token 花费要留意。\n\n站点：[每日雷达](https://tangwin.github.io/daily/)\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
