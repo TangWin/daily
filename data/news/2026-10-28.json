@@ -32,9 +32,9 @@
     "安全"
    ],
    "score": 9,
-   "score_label": "Anthropic 官方研究 · HN 9 分（北京时间凌晨发布，讨论刚开始）",
+   "score_label": "Anthropic 官方 · HN 9 分（刚发布）",
    "detail": {
-    "heat": "Anthropic 官方研究 · HN 9 分（北京时间凌晨发布，讨论刚开始）",
+    "heat": "Anthropic 官方 · HN 9 分（刚发布）",
     "highlight": true,
     "event": "Anthropic Frontier Red Team 10/27 发文，介绍过去几个月用内部未发布模型做漏洞研究的五个案例，均已按 90 天协调披露流程报给厂商：1）Chrome：V8 堆破坏 → 突破 V8 内存沙箱并绕过 ASLR → CacheStorage 竞态读取浏览器进程内存 → FedCM 的 use-after-free 在沙箱外执行代码，页面加载几秒内弹出计算器；Google 已在 Chrome 156 前修复并分配 62 个 CVE，其中 13 个沙箱逃逸、21 个可攻破渲染进程。2）Safari：JavaScriptCore 的 UAF 加 Gigacage 外的任意读写，再借沙箱 IPC 读出历史和 cookie，最后改内存里的标志位关掉同源策略，全程不需要任意代码执行，苹果当天确认并已修复。3）Android：在 Pixel 9 上组合三个漏洞，不解锁就能经 USB 导出照片，Google 已修复。4）Windows：通过二进制逆向（Ghidra）发现内核 QUIC 实现的越界读，几个包就能远程让开了 HTTP/3 的服务器重启，CVE-2026-33096。5）Linux：多路径 TCP（MPTCP）监听上的竞态 UAF，远程先泄露内核地址再劫持回调，以 root 执行命令，PoC 约 48 分钟拿到内核指针、再 5 分钟拿到 shell，CVE-2026-98432 已修复并回移到所有维护中的稳定分支。文中说每个案例都是“初始提示之后”由 Claude 完成。",
     "why": "这篇的价值不在“AI 会找漏洞”，而在它公开了方法：大量扫描 agent 并行跑，按“每个扫描器额外贡献了多少新漏洞”来评估，覆盖率动态跟踪；策略从逐函数覆盖、到目标导向、到“是否违背自身文档的威胁模型”都有；每个确认的发现自动做变体分析，再统一走验证和定级流水线。另一个结论是：清存量只解决一半，另一半是在 PR 阶段拦住新漏洞，Anthropic 为此公开了一个 Claude Code 安全插件。对防守方来说，攻击链从“少数专家团队”变成“模型加少量提示”，补丁窗口会继续变短。",
@@ -116,9 +116,9 @@
     "工程实践"
    ],
    "score": 14,
-   "score_label": "Formal 博客 HN 14 分 · GitHub Changelog 10/27",
+   "score_label": "HN 14 分 · GitHub 官方更新",
    "detail": {
-    "heat": "Formal 博客 HN 14 分 · GitHub Changelog 10/27",
+    "heat": "HN 14 分 · GitHub 官方更新",
     "highlight": true,
     "event": "Formal 工程师撰文介绍内部做法：Cursor、Devin 等云端 coding agent 平台本身就是 OIDC 签发方，agent 从环境拿到 JWT，Formal 校验签名和声明（可写 CEL 条件），映射到一个机器身份，并可选把 token 里“谁启动了这个会话”的声明解析成人的身份，写进日志、参与策略判断。典型流程：agent 在 Slack 上向启动它的人说明为什么需要访问、需要多久，批准后权限只绑定到该会话 ID 和指定数据库，生产一律只读；对没有远程 MCP 的工作流编排服务，把一个只读 API key 存在 Formal 里，agent 申请短期访问；在开发环境里 agent 还能经 OIDC 联合到 Azure 开发账号，自己部署 AKS 集群验证改动。作者的结论是 agent 访问应当建模为“临时委托”，而不是又一个持有长期密钥的机器账号。同一天 GitHub 宣布 Copilot 支持服务端到服务端认证（公开预览）：给 GitHub App 授予只读的 Copilot Requests 组织权限，把短期安装令牌传给 Copilot SDK，即可代表组织发请求，用量计到组织并受模型策略和预算约束，组织所有者可随时暂停或卸载。Claude Code 2.1.312 也给 Claude apps 网关加了 oidc.user_id_claim，可以用 Entra ID 的 oid 等声明识别人。",
     "why": "agent 能不能“自己闭环”（查数据、看真实运行记录、在真实环境验证），关键卡在权限上；而给 agent 长期密钥正是近期一连串 CI/token 泄露事件的根源。这三件事指向同一个方向：agent 有自己的短期工作负载身份，同时带上“谁启动的”这层人类归属，审计和撤销都按会话粒度做。",
@@ -228,9 +228,9 @@
     "Java"
    ],
    "score": null,
-   "score_label": "GitHub Releases · 均为北京时间 10/28 凌晨发布",
+   "score_label": "GitHub Releases · 10/28 凌晨",
    "detail": {
-    "heat": "GitHub Releases · 均为北京时间 10/28 凌晨发布",
+    "heat": "GitHub Releases · 10/28 凌晨",
     "highlight": false,
     "event": "Codex rust-v0.165.0：内置 Google Cloud Vertex AI provider（model_provider = \"gcp\"）；模型目录加入 GPT-6.1 Terra；对话中途修改推理强度默认开启；新建配置默认使用记忆 v2，并支持导入外部 agent 的记忆；本地响应被丢弃时会取消对应的远程 MCP 工具请求；修复插件市场 URL 校验缺口，此前可能让 Git 连到与白名单校验不同的主机（userinfo 里的反斜杠）；网络代理的 MITM hook 支持 AWS SigV4 签名；MCP SDK 升到 1.32.0。Claude Code v2.1.312：Claude apps 网关新增 oidc.user_id_claim；修复 Claude 只看到子目录里超大 CLAUDE.md、规则文件开头就整体覆盖写入的问题，现在会要求先读完或原地编辑；修复 Bash cd 进更深目录后找不到按目录生效的 skills；prompt 和 agent hook 每个会话（含子 agent）最多并发 24 个；子 agent 的 autoCompactWindow 现在可以调低全局压缩窗口；Bedrock、Vertex、Foundry、Mantle 上遇到不认识的模型名（自定义部署名、推理配置 ARN）改用较短的系统提示，可用 CLAUDE_CODE_SIMPLE_SYSTEM_PROMPT=0 恢复；不再发送 claude_code.safety_event 遥测事件。openai-java v4.94.0：新增提示缓存断点 TTL 选项，支持原生 OkHttp 客户端和拦截器。",
     "why": "两个工具都在往“记忆”和“上下文边界”上加功夫：Codex 让记忆可以跨 agent 迁移，Claude Code 修的是 agent 只读了一部分上下文就改写整个文件这种典型的上下文工程事故。Bedrock 系统提示的变化会悄悄影响走云渠道的团队的输出质量，值得留意。",
@@ -268,9 +268,9 @@
     "AI Agent"
    ],
    "score": 3,
-   "score_label": "Apple 官方新闻稿 · The Verge 报道 · HN 3 分",
+   "score_label": "Apple 官方 · The Verge · HN 3 分",
    "detail": {
-    "heat": "Apple 官方新闻稿 · The Verge 报道 · HN 3 分",
+    "heat": "Apple 官方 · The Verge · HN 3 分",
     "highlight": false,
     "event": "苹果 10/27 发布 Apple Creator Studio 更新：Keynote、Pages、Numbers 加入基于苹果自有模型和 OpenAI 模型的助手（beta，仅美国英语），同时新增 MCP 支持，官方说法是“让外部 AI agent 和工具能直接在 Keynote、Pages、Numbers 里读取内容、执行编辑和自动化操作”；MCP 功能要求 macOS 27 及以上，目前仅限 Mac。Keynote 同时推出新的开放文件格式 Keynote Interchange Format（.keyx），苹果描述为基于 JSON、可供外部工具、开发者工作流和 AI agent 读取。更新将于 11 月作为免费更新向现有订阅用户推送。",
     "why": "这是苹果第一方办公软件对 MCP 的正式支持，意味着 MCP 已经从开发者工具扩展到大众办公软件；配合开放的 .keyx 格式，agent 生成和修改演示文稿不再需要逆向私有格式。HN 上关注度不高，但对做 agent 产品的人是个容易漏掉的信号。",
@@ -304,9 +304,9 @@
     "AI Agent"
    ],
    "score": null,
-   "score_label": "PYMNTS 财报会报道 · Digital Today / Blockster",
+   "score_label": "PayPal 财报会 · PYMNTS",
    "detail": {
-    "heat": "PYMNTS 财报会报道 · Digital Today / Blockster",
+    "heat": "PayPal 财报会 · PYMNTS",
     "highlight": false,
     "event": "PayPal 10/27 第三季度财报电话会上，CEO Enrique Lores 回答分析师提问时说：“消费者的 agent 向商户的 agent 购买时，双方都必须验证这是一个能付款的真实消费者、一个真有商品的真实商户”，并提到正与 Meta 及其他 AI 公司合作，把 PayPal 接入个人 agent。PayPal 内部 AI 客服今年已处理超过 2,400 万次联系；同期裁员 2,000 多人、砍掉三层组织。财务上营收增长 2% 至 85.8 亿美元，总支付量 4,871 亿美元（+6%），BNPL 支付量 +25%，全球线上品牌结账量按固定汇率仅增 1%。同一天，韩国支付公司 Hecto Financial 与 t54 签署合作备忘录：先在 Hecto 正在开发的 AI 支付平台上应用 KYA（Know Your Agent），验证 agent 的身份、委托权限和交易是否合理；再讨论在支付执行前评估 agent 发起的交易是否符合用户意图和授权范围，以及 x402 和稳定币的使用。Hecto 此前已加入 x402 生态，6 月完成了基于 Google AP2 规范的 agent 支付 PoC。",
     "why": "两条都说明 agent 支付的重点正在从“能不能付”转向“谁在付、有没有被授权、和用户意图是否一致”。PayPal 把双向验证放到财报会上讲，说明大型钱包已在为 agent 流量设计风控；KYA 加“执行前意图校验”则是支付系统里可以落地的具体控制点。两者都还在合作或探索阶段，没有公开技术细节。",
