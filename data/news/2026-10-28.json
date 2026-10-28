@@ -5,7 +5,7 @@
  "day": {
   "window": "10/27 08:30 – 10/28 08:30 北京时间",
   "note": "未使用 X 付费 API",
-  "footer": "今天 Java 和 Ontology 方向没有新的一手内容，跳过；Java 只有 openai-java 4.94.0（已并入第 6 条），JDK 28 发布日程的评审期 10/29 结束，日程本身之前已写过。没单列的还有：Tailscale 承认 Tailscale SSH 存在多项提权问题，已经能连上的用户在部分配置下可能越权，官方建议先设 TS_SSH_DISABLE_FORWARDING=1 并收紧 SSH 策略，修复版原计划 10/27 发布，我查看时官方更新日志里还没有出现（HN 174 分）；Wiz 更新 PHP2Shell 观察，过去几天公网上可被利用的机器日均数量下降约 67%，一周后仍易受攻击的组织不到最初的 53%，蜜罐里还没看到公开 PoC 完整打通，但 CISA 已将其列入 KEV（HN 181 分）；安全研究者披露 AWS MCP Server 的 aws___run_script Python 沙箱可用 match/case 绕过 AST 检查实现命令执行，AWS 已于 10/23 修复（原文 10/24 发布）；Python 实验性 JIT 将被移除（HN 435 分）；斯坦福多位教授选择退出 Bartz 和解，单独起诉 Anthropic 使用盗版书训练（HN 440 分）。",
+  "footer": "今天 Java 和 Ontology 方向没有新的一手内容，跳过；Java 只有 openai-java 4.94.0（已并入第 6 条），JDK 28 发布日程的评审期 10/29 结束，日程本身之前已写过。没单列的还有：Tailscale 承认 Tailscale SSH 存在多项提权问题，已经能连上的用户在部分配置下可能越权，官方建议先设 TS_SSH_DISABLE_FORWARDING=1 并收紧 SSH 策略，修复版原计划 10/27 发布，我查看时官方更新日志里还没有出现（HN 174 分）；Wiz 更新 PHP2Shell 观察，过去几天公网上可被利用的机器日均数量下降约 67%，一周后仍易受攻击的组织不到最初的 53%，蜜罐里还没看到公开 PoC 完整打通，但 CISA 已将其列入 KEV（HN 181 分）；安全研究者披露 AWS MCP Server 的 aws___run_script Python 沙箱可用 match/case 绕过 AST 检查实现命令执行，AWS 已于 10/23 修复（原文 10/24 发布）；Python 实验性 JIT 将被移除（HN 435 分）；斯坦福教授 Tobias Wolff、Chang-rae Lee 退出 Bartz 和解，单独起诉 Anthropic 使用盗版书训练（HN 440 分）。",
   "highlights": [
    1,
    2,
