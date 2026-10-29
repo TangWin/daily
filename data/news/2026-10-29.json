@@ -30,9 +30,9 @@
     "Harness"
    ],
    "score": null,
-   "score_label": "GitHub / VS Code 官方 · Universe 当天十余条更新",
+   "score_label": "GitHub 官方 · Universe",
    "detail": {
-    "heat": "GitHub / VS Code 官方 · Universe 当天十余条更新",
+    "heat": "GitHub 官方 · Universe",
     "highlight": true,
     "event": "10/28 GitHub Universe 当天，VS Code 1.144 和 GitHub changelog 同时发布了一批 agent 能力：1）Agent Host：独立进程托管 agent 会话，关掉客户端也不中断；配套发布 Agent Host Protocol（AHP）v1.0，是一个基于 websocket 的开放协议，官方提供六种语言的库，任何 UI 都可以接入同一个 agent 会话，VS Code、Copilot CLI、Copilot App、github.com 之间可以无缝接续。2）VS Code 里的 agent 默认改用 Copilot harness（和 Copilot Code Review、CLI、云端会话同一套），也可以切换成 Claude Code 或 OpenAI Codex 的 harness，仍用 Copilot 订阅计费。3）云端自动化（Preview）：按计划或按 issue/PR 事件在 GitHub 基础设施上跑，电脑关机也能运行，可限制可用工具、加过滤条件。4）Agent Merge 集成进 PR 页面：在合并框里点 Watch and fix，Copilot 会在云端开发环境里自动修复失败的 Actions 和合并冲突，可与 auto-merge 组合。5）Copilot Fusion 正式可用：每次请求自动选模型、推理强度和执行模式（难题会让一个模型起草、其他模型评审），按实际用到的每个模型分别计费，11/30 前付费计划打七折。6）“模型对比”可以把同一个 prompt 同时跑在多个模型和 harness 上做横向比较；另有实验性的电脑操作和“辅助授权”（工具调用通过风险检查就自动批准）。",
     "why": "这次最值得注意的是 harness 被当成了可替换的组件、会话被协议化：IDE 只是一个客户端，agent 的运行时和状态归 Agent Host 管。这和 LSP 当年把语言能力从编辑器里拆出来的思路一样，意味着以后“自建 agent + 接现成 UI”或“现成 agent + 自建 UI”的成本会大幅下降。Agent Merge 和云端自动化则说明，修 CI、解冲突这类“最后一公里”工作正在被平台默认接管。",
@@ -72,9 +72,9 @@
     "MCP"
    ],
    "score": 1028,
-   "score_label": "HN 1028 分 · 376 条评论（今日 AI/开发相关第一）",
+   "score_label": "HN 1028 分 · 376 条评论",
    "detail": {
-    "heat": "HN 1028 分 · 376 条评论（今日 AI/开发相关第一）",
+    "heat": "HN 1028 分 · 376 条评论",
     "highlight": true,
     "event": "10/20 eMudhra 披露其八个中间 CA 的私钥可以从公开证书中推出。社区站点 10/28 发文：苹果 10/17 已收到通知，到 10/28 macOS 自带的 git、curl、python3 仍信任这些证书；10/26 发布的 macOS 27.2 不但没修，还撤销了用户手动删根证书的临时修复。页面给了自查命令（git ls-remote 一个测试仓库，报证书错误就是安全的）和端到端演示：用 -c http.curloptResolve 把 github.com 指向测试服务器，能用 eMudhra 中间 CA 签发的 github.com 证书成功 clone。Safari 等基于系统网络框架的应用已受保护。同一天 MCP 官方参考服务器发布 v2.2.0，首段专门说明证书问题：TypeScript 服务器依赖 Node.js 运行时校验证书，需 Node 24.22.1 / 26.12.1 及以上（engines 字段不会拦旧版本）；mcp-server-fetch 依赖 certifi，需要 2026.10.23 或更新。",
     "why": "这件事和 10/25 写过的 Oracle Java 安全告警（JDK 移除 eMudhra 相关根证书）是同一个事件。今天的新信息是：真正的缺口在开发者工具链和 CI 机器上，而不在浏览器。macOS runner 上的 git 拉到的代码可能被替换，这是直接的供应链风险；系统更新还可能把修复悄悄回滚。",
@@ -160,9 +160,9 @@
     "Coding Agent"
    ],
    "score": null,
-   "score_label": "GitHub 官方 changelog · Universe 当天",
+   "score_label": "GitHub 官方 · Universe",
    "detail": {
-    "heat": "GitHub 官方 changelog · Universe 当天",
+    "heat": "GitHub 官方 · Universe",
     "highlight": false,
     "event": "同在 10/28：1）GitHub 验证过的 MCP 服务器（称为 connectors）进入公开预览，首批 26 个服务，包括 Slack、Figma、Notion、Sentry、Linear、Atlassian Rovo、Cloudflare、Vercel、Work IQ；不用自己找服务器、本地安装或管理凭据，连接一次即可在所有 Copilot 客户端和云端会话使用。Business/Enterprise 需要管理员开启 Editor preview features 策略，用了 MCP 白名单的还要把这些服务器加进去。2）“GitHub intelligence”上下文层：Copilot Memory 在付费计划正式可用，可记住个人偏好和仓库约定（比如正确的测试命令），会话会自动生成和整理记忆；官方称公开预览中用到记忆的 Copilot CLI 会话，93% 更符合开发者偏好、42% 工作流程更高效。另有“Dreaming”保持上下文更新，以及跨仓库代码搜索。3）计费变化：通过 GitHub/微软客户团队的企业，GitHub Enterprise 每个授权用户都包含 Copilot，不再管座位数，只管企业 AI 用量预算；预算耗尽时补全仍可用，Chat、代码评审和云端会话会停。",
     "why": "MCP 的痛点一直是“找服务器、配登录、每个工具重复一遍”。GitHub 把它做成平台级托管连接，加上平台级记忆，上下文工程的重心就从“每个人手写配置”转向“平台统一治理”：谁能连什么、记忆存什么、预算怎么算。对企业来说，计费从按座位变成按用量预算，成本管理方式也要跟着改。",
@@ -240,9 +240,9 @@
     "Harness"
    ],
    "score": null,
-   "score_label": "GitHub Release · 10/29 00:54 北京时间",
+   "score_label": "GitHub Release",
    "detail": {
-    "heat": "GitHub Release · 10/29 00:54 北京时间",
+    "heat": "GitHub Release",
     "highlight": false,
     "event": "LangChain4j 1.23.0 发布，重点：1）Confidence Cascade 模式（PR #6765）：按成本从低到高串联多个 agent，每个回答由决策模型给出“完全解决请求”的概率，达到阈值即返回，最后一层不打分；可以写一句话的验收标准；planner 把当前层级存为执行状态，等待人工或崩溃后从该层恢复，子 agent 变化时会明确报错而不是跑错层。2）决策 agent 和多家决策模型（含 Ollama、OpenAI 图片输入）。3）langchain4j-test 新增 LLM 裁判：judge.assertThat(answer).given(question).basedOnContents(sources).satisfies(\"说明了取消费用\", \"没有承诺退款\")，返回每条标准的判定和裁判消耗的 token。4）可观测性：一次 AI Service 调用的所有事件汇总成 AiServiceInvocationSummaryEvent；agent 的 token 统计会计入工具循环里的每次模型调用；流式取消后不再有回调。",
     "why": "Java 生态里，agent 的“成本分级路由”和“LLM 测试断言”第一次以框架内置能力出现，而且考虑了可恢复执行。这两件事恰好是把 agent 放进生产时最先遇到的问题：大部分请求不需要最贵的模型，而回答类输出没法用 equals 测。",
@@ -316,9 +316,9 @@
     "AI Agent"
    ],
    "score": null,
-   "score_label": "The Stack 10/28 报道 · Visa 财报电话会",
+   "score_label": "Visa 财报会 · The Stack",
    "detail": {
-    "heat": "The Stack 10/28 报道 · Visa 财报电话会",
+    "heat": "Visa 财报会 · The Stack",
     "highlight": false,
     "event": "Visa 在周二（美国时间）的财报电话会上表示，约 50 家已上线的 AI 合作方（包括 Shopify、Stripe、Anthropic、OpenAI、微软）预计在未来几个月翻倍。CEO Ryan McInerney 说 agentic commerce 已经到来，但放到 2027 财年的四个季度看，相对 Visa 的业务规模“仍然很小”，消费者使用数量还很早期；Visa 认为 B2B 交易，尤其是自动付发票，会最先产生真正的商业量。Visa 没有披露 2810 亿笔年交易中有多少由 agent 发起。相关背景：10/20 Visa 与 BILL、Billtrust 上线首个实盘试点，让获批的 agent 通过供应商门户端到端完成已批准的发票付款，依托 Visa Trusted Agent Protocol。",
     "why": "这是卡组织在财报这种正式场合给出的“降温”信号：消费者端的 agent 购物还没起量，最先落地的是规则清晰、已预批的企业付款。这和此前 PayPal 强调“双方 agent 互相验证”、各家都先做 agent 身份认证（KYA）的方向一致：先解决“这个 agent 是谁、被授权做什么”，再谈规模。",
