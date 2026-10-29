@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-10-29",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-10-29-lampline",
+      "date": "2026-10-29",
+      "type": "oss",
+      "rank": 1,
+      "title": "Lampline：自建 AI 电话客服，并让 AI 来电者打真电话给它打分",
+      "summary": "不填 API key 就能本地跑的开源语音 Agent 平台，搭建、Claude Code 技能、真实电话测评一条龙，今早刚发 v0.4.1。",
+      "url": "https://github.com/C4rohan/Lampline",
+      "tags": [
+        "AI Agent",
+        "开发者工具",
+        "语音 Agent",
+        "自托管"
+      ],
+      "raw_tags": [],
+      "score": 480,
+      "score_label": "★ 480",
+      "detail": {
+        "status": "picked",
+        "repo": "C4rohan/Lampline",
+        "homepage": null,
+        "stars": 480,
+        "forks": 57,
+        "license": "Apache-2.0",
+        "language": "Python",
+        "latest_release": "v0.4.1",
+        "runners_up": [],
+        "body_md": "**Lampline：在自己电脑上搭 AI 电话客服，再让 AI 假扮来电者打真电话给它打分**\n\n今天值得试：语音 Agent 最难的是「测」，Lampline 把搭建、测试、打分串成一套能自建的开源工具，不填任何 API key 就能本地跑起来。今早（北京时间 10-29 07:58）刚发 v0.4.1。\n\n仓库：[C4rohan/Lampline](https://github.com/C4rohan/Lampline)\n\n**解决什么 / 适合谁**\n想做电话客服、预约、IVR 这类语音 Agent 的开发者，或者手上有 Dialogflow CX / CX Agent Studio 机器人、嫌按通话付费太贵想搬到自己服务器上的团队。\n\n**README 里的关键能力**\n- 一条命令起服务：`--free` 模式用 Ollama 里的 Qwen3 4B 加本地 Moonshine 听写、Kokoro 发声，无需账号和 key（首次下载约 3 GB）；有 key 可切 Claude、OpenAI、Gemini、DeepSeek、Grok 等约 20 家。\n- 拖拽式编排器，LLM 步骤和照稿念的脚本页面能混在一个 Agent 里，测试台会随通话高亮当前步骤；支持 HTTP 和 MCP 工具、自带数据表和本地文档检索。\n- Evals 测评：AI「测试来电者」通过真实电话线（Google Voice 加浏览器扩展，免费）拨给任何有号码的语音 Agent，可加噪音、口音、插话、停顿，再按你写的检查项逐条打分，还给出 p95 响应时间。\n- 「从失败中改进」：把测试用例当文字对话跑，只改检查失败的那几步提示词，通过数更多且不破坏原有通过项才保留，改前改后给你审。\n- Agent 即代码：每个 Agent 是一个 `agent.yaml` 加若干 Markdown 提示词，`vk lint` / `vk test` 在终端里校验；自带 Claude Code 插件和 4 个技能（搭建、修复、测 Dialogflow、上线前审查），Cursor / Codex 读 `AGENTS.md`。\n- 可导入导出 Dialogflow CX 和 CX Agent Studio；电话走 Twilio、Telnyx 或经 jambonz 接任意 SIP 中继。默认无遥测、只监听 localhost、每个请求都要 key。\n\n**近期活跃证据**\n- 提交：2026-10-19 建库，默认分支约 135 次提交，10-15 起近 100 次，今早 08:21（北京时间）还在合 PR，刚加了 voice-agent-fixer 和 dialogflow-tester 两个技能。\n- Release：10 天内 v0.3.0、v0.4.0、v0.4.1 三个版本；v0.4.1 带来「从失败用例改进 Agent」，并修了正则性能和代码扫描告警。\n- Issues：目前开放的 6 个都是作者自己拆的路线图任务，外部贡献者来认领（如 #34、#65）都当天得到回复和具体指引；已合入 70 多个 PR，CI 覆盖 CLI、引擎、Docker 和密钥扫描。\n\n**快速上手**\n1. 装好 Docker（Compose v2），`git clone https://github.com/C4rohan/lampline && cd lampline`\n2. `scripts/docker-up.sh --free`，打开终端打印出的 `http://localhost:7860/#/?key=…` 链接\n3. 用自带模板或 `vk templates install front-desk` 建一个前台 Agent，在测试台对话，再试 Evals 打一通测评电话\n\n**风险 / 注意**\n- 基本是作者 Rohan Salvi 一人主力（约 125 次提交），社区刚起步，480★。\n- Google Cloud 一键部署、各类呼叫中心接入、无人值守 Twilio 测评都还是「即将推出」。\n- 免费 Evals 依赖 Google Voice 且需你亲手按拨号，只能打自己有权测试的号码；本地 4B 模型回复较慢较简单。\n- Mac 上 Docker 里的 Ollama 用不上 GPU，README 建议原生跑 `scripts/engine-up.sh --free`。",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
