@@ -1,0 +1,114 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-10-31",
+ "day": {
+  "digest": "Matt Pocock 吐槽 Skills 规范“太烂了”，并在回复中举例：手动触发的 skill 放在句子中间就无法调用；他推测 Claude Code 因为会真正执行 skill 内容而对调用方式更谨慎。",
+  "by_source": {
+   "mattpocockuk": "吐槽 Skills 规范，并讨论 skill 在提示词中位置不同导致无法调用的问题。"
+  },
+  "updated_at": "2026-10-31T08:15:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2116284173539242250",
+   "date": "2026-10-31",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116284173539242250",
+   "url": "https://x.com/mattpocockuk/status/2116284173539242250",
+   "posted_at": "2026-10-31T05:40+08:00",
+   "kind": "reply",
+   "text": "Yah I think because Claude Code actually executes stuff inside skills, so they have to be more careful with how you invoke them",
+   "article_title": null,
+   "reply_to": {
+    "handle": "rodrgds",
+    "post_id": "2116283623330689421",
+    "url": "https://x.com/rodrgds/status/2116283623330689421",
+    "text": "I mean kinda does? It mentions the specific SYNTAX is up to you. But yeah it could say that skills should be explicitly triggered in the middle of messages I guess. But I feel like the crucial part of the spec is just their definitions and where to find them. Otherwise I think it should be pretty much left out for the developers of the harness. Maybe CC has a reason not to allow for this?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "嗯，我觉得是因为 Claude Code 真的会执行 skill 里的东西，所以他们在“怎么调用 skill”这件事上必须更谨慎",
+   "analysis": {
+    "summary": "Rodrigo Dias 认为规范其实说了具体语法由各家决定，关键是 skill 的定义和位置，其余应留给 harness 开发者，并猜 Claude Code 可能有不允许句中触发的理由。他回复：大概是因为 Claude Code 会真正执行 skill 里的内容，所以在调用方式上要更小心。",
+    "points": [
+     "对方观点：规范主要定义 skill 是什么、放在哪，触发语法交给 harness 实现",
+     "对方猜测 Claude Code 不允许在消息中间触发 skill 可能有原因",
+     "他的解释：Claude Code 会实际执行 skill 内的内容，因此对调用更谨慎"
+    ],
+    "why": "这是他的推测，不是官方说法。它点出了一个取舍：skill 能执行操作，触发越宽松越方便，但也越容易误触发，安全与易用之间需要平衡。",
+    "tags": [
+     "Skills",
+     "Claude Code",
+     "Agent 安全"
+    ]
+   }
+  },
+  {
+   "id": "x-2116258076017701143",
+   "date": "2026-10-31",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116258076017701143",
+   "url": "https://x.com/mattpocockuk/status/2116258076017701143",
+   "posted_at": "2026-10-31T03:56+08:00",
+   "kind": "reply",
+   "text": "Yes, and it sucks that models can't invoke these skills if I position them slightly wrongly in the prompt\n\n\"/grill-me /software-factory\" works\n\n\"/grill-me about my /software-factory\" doesn't",
+   "article_title": null,
+   "reply_to": {
+    "handle": "cleverhoods",
+    "post_id": "2116246807738991087",
+    "url": "https://x.com/cleverhoods/status/2116246807738991087",
+    "text": "wasn't the \"disable-model-invocation: true\" deliberate in both skills?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "是的，而且很糟心的是：只要我在提示词里把这些 skill 的位置放得稍微不对，模型就没法调用它们\n\n\"/grill-me /software-factory\" 可以\n\n\"/grill-me about my /software-factory\" 就不行",
+   "analysis": {
+    "summary": "有人问：两个 skill 里设置 \"disable-model-invocation: true\" 是不是故意的？他回复说是，并抱怨 skill 在提示词里的位置稍有不同就无法被调用。",
+    "points": [
+     "对方提到两个 skill 都设置了 disable-model-invocation: true，他确认是有意为之",
+     "他举例：连续写 \"/grill-me /software-factory\" 能触发",
+     "但把 skill 名放在句子中间，如 \"/grill-me about my /software-factory\"，就不能触发"
+    ],
+    "why": "这是他主帖“skills 规范太烂”的具体例子：手动触发的 skill 对书写位置非常敏感。对写 skill、设计斜杠命令的人来说，是个实用的坑点提醒。",
+    "tags": [
+     "Skills",
+     "Agent 工程",
+     "提示词"
+    ]
+   }
+  },
+  {
+   "id": "x-2116240284870684737",
+   "date": "2026-10-31",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116240284870684737",
+   "url": "https://x.com/mattpocockuk/status/2116240284870684737",
+   "posted_at": "2026-10-31T02:46+08:00",
+   "kind": "post",
+   "text": "The skills spec is so broken",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "Skills 规范实在太烂了",
+   "analysis": {
+    "summary": "Matt Pocock 发了一句吐槽：Skills 规范（skills spec）“太烂了”，附带一张配图/链接，正文只有这一句。",
+    "points": [
+     "他认为 Skills 规范存在严重问题",
+     "帖子正文没有展开具体是哪里有问题；附件内容未采集到，不做推断",
+     "从同一天他在评论区的回复看，他的不满与“模型调用 skill 的方式”有关"
+    ],
+    "why": "这是作者的观点而非数据。帖子本身信息量有限，但结合后续回复，可以看出他在实际使用 Claude Code 的 skills 时遇到了调用规则上的痛点，值得关注 skills 规范的后续演进。",
+    "tags": [
+     "Skills",
+     "Agent 工程",
+     "Claude Code"
+    ]
+   }
+  }
+ ]
+}
