@@ -3,14 +3,141 @@
  "type": "x",
  "date": "2026-10-30",
  "day": {
-  "digest": "Matt Pocock 围绕“agent 生成的 PR 格式趋同”展开讨论：这格式来自他的 /pr 技能，他用 Opus 5.5 知识截止在 6 月、技能 9 月才发布，排除了“已进模型权重”的猜测，并指出全局安装就等于在用技能。Karpathy 则吐槽超加工食品。",
+  "digest": "Matt Pocock 今天先讨论了 agent 生成的 PR 格式趋同（来自他的 /pr 技能而非训练数据），晚些时候宣布新课程拍完、新增随视频滚动的 Session 记录面板，称正经历最疯狂的发布周并开放 AMA，还就 grill 会话流程给出“用耗时做有无对比”的建议。Karpathy 吐槽超加工食品。",
   "by_source": {
-   "mattpocockuk": "/pr 技能导致 PR 格式趋同，而不是训练数据。",
+   "mattpocockuk": "/pr 技能导致 PR 格式趋同；新课程拍完并加了 Session 面板，正处发布周。",
    "karpathy": "吐槽超加工零食的配料。"
   },
-  "updated_at": "2026-10-30T16:20:00+09:00"
+  "updated_at": "2026-10-30T20:05:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2116122548199161966",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116122548199161966",
+   "url": "https://x.com/mattpocockuk/status/2116122548199161966",
+   "posted_at": "2026-10-30T18:58+08:00",
+   "kind": "post",
+   "text": "Currently experiencing the maddest launch week of my professional career\n\nAMA",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "正在经历我职业生涯中最疯狂的一次发布周\n\nAMA",
+   "analysis": {
+    "summary": "Matt 说自己正经历职业生涯中最疯狂的发布周，并开放 AMA（有问必答）。",
+    "points": [
+     "本周是他所说的职业生涯中最忙乱的发布周",
+     "开放 AMA，邀请大家提问"
+    ],
+    "why": "结合同日关于新课程完成拍摄的帖子，可能与课程发布有关，但帖子本身没有说明发布的具体内容。",
+    "tags": [
+     "产品发布",
+     "AMA"
+    ]
+   }
+  },
+  {
+   "id": "x-2116103904232357932",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116103904232357932",
+   "url": "https://x.com/mattpocockuk/status/2116103904232357932",
+   "posted_at": "2026-10-30T17:44+08:00",
+   "kind": "reply",
+   "text": "Got to use my drama degree for something\n\nMight as well be to justify some questionable fashion choices",
+   "article_title": null,
+   "reply_to": {
+    "handle": "JaeTask",
+    "post_id": "2116101653573063017",
+    "url": "https://x.com/JaeTask/status/2116101653573063017",
+    "text": "Diggin the roll-neck Matt."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "总得让我的戏剧学位派上点用场\n\n拿来为一些可疑的穿搭选择找理由也不错",
+   "analysis": {
+    "summary": "有人夸 Matt 视频里的高领毛衣，Matt 自嘲说总得让自己的戏剧学位派上用场，哪怕是为可疑的穿搭找理由。",
+    "points": [
+     "回复对象称赞他的高领毛衣",
+     "Matt 提到自己有戏剧学位（自嘲）"
+    ],
+    "why": "纯社交玩笑回复，信息量很低。",
+    "tags": [
+     "闲聊"
+    ]
+   }
+  },
+  {
+   "id": "x-2116097915685052636",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116097915685052636",
+   "url": "https://x.com/mattpocockuk/status/2116097915685052636",
+   "posted_at": "2026-10-30T17:20+08:00",
+   "kind": "post",
+   "text": "My new course is filmed, but we're not done shipping\n\nAdded this \"Session\" panel, which has the full transcript of the session I'm walking through\n\nIt auto-scrolls with the video, and lets you pop out to second-screen it\n\nMakes it feel like we're coding together",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我的新课程已经拍完了，但我们还没停止发布新东西\n\n加了这个“Session”面板，里面有我正在逐步讲解的那个会话的完整文字记录\n\n它会随视频自动滚动，还能弹出到第二块屏幕上看\n\n让人感觉像是我们在一起写代码",
+   "analysis": {
+    "summary": "Matt 宣布新课程已拍摄完成，并展示了课程页面新增的“Session”面板：显示所讲解会话的完整记录，随视频自动滚动，可弹出到副屏。",
+    "points": [
+     "新课程拍摄完成，但仍在持续上线新功能",
+     "新增“Session”面板，展示讲解会话的完整文字记录",
+     "面板随视频自动滚动",
+     "支持弹出到第二块屏幕",
+     "附有一张配图（未采集图片内容）"
+    ],
+    "why": "课程体验上的产品细节：把 agent 会话记录和视频同步，方便边看边对照。帖子未说明课程名称和上线时间，不做推断。",
+    "tags": [
+     "课程",
+     "产品发布",
+     "AI 编程"
+    ]
+   }
+  },
+  {
+   "id": "x-2116078869279027424",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116078869279027424",
+   "url": "https://x.com/mattpocockuk/status/2116078869279027424",
+   "posted_at": "2026-10-30T16:04+08:00",
+   "kind": "reply",
+   "text": "IMO I would compare with and without, with your time spent as the main metric",
+   "article_title": null,
+   "reply_to": {
+    "handle": "maydinunlu",
+    "post_id": "2116072316186796145",
+    "url": "https://x.com/maydinunlu/status/2116072316186796145",
+    "text": "Hi @mattpocockuk, whenever a decision gets revised during a grill session, I have all the final decisions reviewed again at the end. My goal is to keep everything consistent overall, but naturally that means a much longer grill session. What are your thoughts on this?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "在我看来，我会对比一下用和不用的情况，把你花费的时间作为主要指标",
+   "analysis": {
+    "summary": "有人问：grill 会话中途修改了某个决定时，他会在结尾把所有最终决定再审一遍以保持一致，但这会让会话变长很多，Matt 怎么看？Matt 建议做“有/无”对比，以花费的时间作为主要衡量指标。",
+    "points": [
+     "提问者的做法：决定被修改后，在 grill 会话结尾重新审查全部最终决定",
+     "代价是会话明显变长",
+     "Matt 的建议：对比有和没有这一步的效果，主要看自己花了多少时间"
+    ],
+    "why": "一个务实的评估思路：流程步骤是否值得保留，用实际耗时做 A/B 对比来判断，而不是凭感觉。这是他的个人建议，不是实测数据。",
+    "tags": [
+     "Agent 工程",
+     "grill-me",
+     "工作流"
+    ]
+   }
+  },
   {
    "id": "x-2115858724984426857",
    "date": "2026-10-30",
