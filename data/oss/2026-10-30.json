@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-10-30",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-10-30-survival-llm",
+      "date": "2026-10-30",
+      "type": "oss",
+      "rank": 1,
+      "title": "Survival LLM：断网也能用的本地 AI 应急助手，每个回答都标出处",
+      "summary": "本地模型加 150 万篇离线急救/生存资料库，双击安装、断网可用、自动核对出处，6 天发了 10 个版本，今早刚发 v0.4.1。",
+      "url": "https://github.com/anonnerdfrenzy/survival-llm",
+      "tags": [
+        "模型",
+        "RAG",
+        "本地部署"
+      ],
+      "raw_tags": [],
+      "score": 770,
+      "score_label": "★ 770",
+      "detail": {
+        "status": "picked",
+        "repo": "anonnerdfrenzy/survival-llm",
+        "homepage": "https://brangus.io/survival-llm",
+        "stars": 770,
+        "forks": 65,
+        "license": "MIT",
+        "language": "Python",
+        "latest_release": "v0.4.1",
+        "runners_up": [],
+        "body_md": "**Survival LLM：断网也能用的本地 AI 助手 + 150 万篇离线急救/生存资料库，每个回答都标出处**\n\n今天值得试：这是「本地模型 + 离线 RAG」做成普通人双击就能装的成品，而且作者把模型评测、编造出处的检查都公开了。10-25 建库，6 天发了 10 个版本，今早（北京时间 10-30 06:21）刚发 v0.4.1。\n\n仓库：[anonnerdfrenzy/survival-llm](https://github.com/anonnerdfrenzy/survival-llm)\n\n**解决什么 / 适合谁**\n停电、断网、野外时问「冰箱里的食物还能放多久」「烧伤怎么处理」「怎么净化水」，它从本机资料库里查到原文再回答。适合想要一个完全离线、隐私的家用 AI 应急助手的人，也适合想学离线 RAG 怎么做成产品的开发者。\n\n**README 里的关键点**\n- 全本地：Ollama 跑模型，问题不出本机；装好后可以拔网线用。\n- 资料库约 150 万篇（精简版约 50 万篇）：维基百科热门约 93 万篇、WikiMed、MedlinePlus、CDC、FEMA、美军生存与急救手册、USDA 罐装指南、wikiHow、iFixit 等。\n- 每个回答列出读过的文章，点开能看到被引用的段落和授权；模型自己编的「Sources」行会被应用核对，提到没打开过的来源就替换成真实读过的文章列表。\n- 可以拖入自己的 PDF、Word、EPUB（比如发电机说明书、家里的用药清单）一起检索；会记住你说过的事（比如家人过敏），可撤销、可关闭。\n- 按内存推荐模型：128 GB Mac 用 Nemotron 3.5 Super，32–96 GB Mac 用 Qwen3.8 27B，32 GB 以上 Windows 用 Nemotron 3.5 Lightning，16 GB 用 Granite 4.2 8B；8 GB 只能搜库。\n- 公开了评测：22 道停电/急救题，盲评准确率 Nemotron Super 86%、Qwen3.8 27B 80%；Granite 3B 因给出危险建议被剔除。\n- 技术上很朴素：SQLite FTS5/BM25 检索约 1500 字的段落，官方来源加权，几个工具函数（search_library / read_article / show_article），除 Ollama、pywebview、pypdf 外基本是 Python 标准库。\n\n**近期活跃证据**\n- Issues：共 17 个 Issue/PR，大部分作者当天回复并修掉，例如 #17（Windows 缺 WebView2 打不开设置）今天在 0.4.1 修复，#4、#9（切换资料库、换存放位置）已在 0.4.0 上线；作者明确拒绝了接 OpenAI 接口的 PR #5，坚持纯离线。\n- Release：v0.4.0 加了一屏完成安装、断点续传、切换/移动资料库，并重建资料库去掉约 2700 个重复页面；v0.4.1 修 Windows 首次启动。\n- 提交：建库 6 天共 34 次提交，作者 31 次、社区贡献者 3 次，方向集中在安装体验、检索去重和记忆功能。\n\n**怎么快速上手**\n1. 在有网时从 [Releases](https://github.com/anonnerdfrenzy/survival-llm/releases) 下载 Mac（Apple Silicon、macOS 14+）或 Windows 压缩包。\n2. 打开应用，在一屏里选资料库（先选 1.3 GB 的 Essentials 试）和推荐模型，点 Download。\n3. 断网后问一句「停电时冰箱里的食物多久要扔」，点开回答下的来源看原文。开发者也可以 `python3 app/server.py --browser` 从源码跑。\n\n**风险和注意点**\n- 没有 Linux 版：社区 PR #3、#11 都在，作者说没法测试暂不合并。\n- 体积大：完整资料库 8.7 GB，模型 6–80 GB；16 GB 机器上的 Granite 8B 准确率只有 55%，内存越小越不可靠。\n- Mac 版未经 Apple 公证，首次要在「隐私与安全性」里手动放行；会自动检查更新（每天取一个小文件）。\n- 单人主力项目；医疗/安全类答案仍可能出错，务必点开来源核对。\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
