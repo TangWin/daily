@@ -44,7 +44,8 @@ CallDynamicTool namespace=x toolName=get_posts_by_ids   write_to_file=true
 ```bash
 python3 scripts/x_prepare.py /tmp/x_raw.json <第2步所有结果文件路径...>
 ```
-它会：只保留配置里的作者、跳过纯转推、跳过 data/x 里已有的帖子、跳过只有表情/链接的帖子、用长帖全文、展开链接、
+它会：只保留配置里的作者、跳过纯转推、跳过 data/x 里已有的帖子、跳过只有表情/链接的帖子、
+**丢弃低价值短回复**（规则见 `scripts/x_common.py: low_value_reply`：kind=reply，去掉 @提及和链接后不足 40 个字符，且没有链接、媒体、引用——例如 “Yes, exactly”、“lol”、致谢、纯表情；原创和引用帖不论长短都保留）、用长帖全文、展开链接、
 标出 kind（post/quote/reply）和被回复/被引用的帖子（reply_to / quoted）、按北京时间算出日期。
 输出 `0 new post(s)` → **结束，不发布**。
 

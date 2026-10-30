@@ -3,45 +3,13 @@
  "type": "x",
  "date": "2026-10-02",
  "day": {
-  "digest": "Karpathy 推荐“陆地还是水域”评测：只用文本给 LLM 经纬度，问 16,200 次就能画出世界地图，他强调这完全来自文本预测；另有两条社交回复。",
+  "digest": "Karpathy 推荐“陆地还是水域”评测：只用文本给 LLM 经纬度，问 16,200 次就能画出世界地图，他强调这完全来自文本预测。",
   "by_source": {
    "karpathy": "“陆地还是水域”评测，展示 LLM 从纯文本中学到的地理知识。"
   },
   "updated_at": "2026-10-30T16:20:00+09:00"
  },
  "items": [
-  {
-   "id": "x-2105913472295063841",
-   "date": "2026-10-02",
-   "type": "x",
-   "source": "karpathy",
-   "post_id": "2105913472295063841",
-   "url": "https://x.com/karpathy/status/2105913472295063841",
-   "posted_at": "2026-10-02T14:51+08:00",
-   "kind": "reply",
-   "text": "Extremely sorry to disappoint Clifford",
-   "article_title": null,
-   "reply_to": {
-    "handle": "CorvusCrypto",
-    "post_id": "2105912257049776311",
-    "url": "https://x.com/CorvusCrypto/status/2105912257049776311",
-    "text": "I did not have \"Karpathy becoming an aggregator of techniques seen on Twitter half a year ago\" on my bingo card. What happened, he used to be literally the edge."
-   },
-   "quoted": null,
-   "links": [],
-   "translation_zh": "非常抱歉让 Clifford 失望了",
-   "analysis": {
-    "summary": "有人吐槽 Karpathy “变成了半年前推特技巧的搬运工，他以前可是最前沿的”，Karpathy 以一句“非常抱歉让 Clifford 失望了”回应。",
-    "points": [
-     "原帖批评他分享的内容不够新",
-     "Karpathy 用自嘲/调侃的方式回应，没有展开争论"
-    ],
-    "why": "背景是他近期一条走红帖子引发“老手觉得不新鲜”的讨论，见下方 10.05 他对此的完整看法。",
-    "tags": [
-     "社区讨论"
-    ]
-   }
-  },
   {
    "id": "x-2105912048668590090",
    "date": "2026-10-02",
@@ -108,39 +76,6 @@
      "LLM 评测",
      "世界知识",
      "Claude"
-    ]
-   }
-  },
-  {
-   "id": "x-2105826090724077598",
-   "date": "2026-10-02",
-   "type": "x",
-   "source": "karpathy",
-   "post_id": "2105826090724077598",
-   "url": "https://x.com/karpathy/status/2105826090724077598",
-   "posted_at": "2026-10-02T09:03+08:00",
-   "kind": "reply",
-   "text": "Looks incredible!!!",
-   "article_title": null,
-   "reply_to": {
-    "handle": "AtelierMissor_",
-    "post_id": "2105817441792049314",
-    "url": "https://x.com/AtelierMissor_/status/2105817441792049314",
-    "text": "The statue of Prometheus is finally finished.\n\nIt was cast in Paris, crossed the Atlantic, and was assembled at Starbase. It took us 100 days to go from nothing to this.\n\nPeople of the West, we have lived through an era devoid of dreams, devoid of destiny.\n\nBut the time has come to reclaim our dream of antiquity.\n\nIn a few months, we will start building a new city. It will be the most magnificent city in all of history.\n\nAfter all, the great dream of the West has always been to rebuild Rome.\n\nCome walk beside us in this endeavor. The world is waiting."
-   },
-   "quoted": null,
-   "links": [],
-   "translation_zh": "看起来太棒了！！！",
-   "analysis": {
-    "summary": "Karpathy 回复 @AtelierMissor_ 发布的普罗米修斯雕像完工照片，称赞“看起来太棒了”。",
-    "points": [
-     "原帖称雕像在巴黎铸造、跨越大西洋运到 Starbase 组装，从零到完成用了 100 天",
-     "原帖还宣称几个月后要开始建造一座新城市",
-     "Karpathy 只做了简短称赞，没有评论原帖的其他主张"
-    ],
-    "why": "社交性回复，信息量很低；仅说明他关注 Starbase 一带的项目。",
-    "tags": [
-     "社交互动"
     ]
    }
   }

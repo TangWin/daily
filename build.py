@@ -123,7 +123,7 @@ def page(title, body, nav, desc="AI 工程新闻、产品 Idea、开源推荐，
 {body}
 </main>
 <footer class="site-foot wrap">
-  <span>{BRAND} · 每天北京时间 08:30 后更新</span>
+  <span>{BRAND} · 新闻 08:30、产品 Idea 07:00、开源 10:00 每日更新（北京时间）· 信源每天多次更新</span>
   <span><a href="{u_ch('news')}">新闻</a> · <a href="{u_ch('idea')}">产品 Idea</a> · <a href="{u_ch('oss')}">开源</a> · <a href="https://tangwin.github.io/blog/">博客</a> · <a href="https://github.com/TangWin/daily">GitHub</a></span>
 </footer>
 <script src="{BASE}assets/app.js" defer></script>

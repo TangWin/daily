@@ -26,3 +26,11 @@ def last_seen():
         for it in json.load(open(f, encoding="utf-8"))["items"]:
             if int(it["post_id"]) > int(out.get(it["source"], "0")): out[it["source"]] = it["post_id"]
     return out
+
+def low_value_reply(kind, text, links=None, quoted=None, has_media=False, min_chars=40):
+    """Drop rule for short acknowledgement replies ('Yes, exactly', 'lol', thanks, emoji-only).
+    Only replies are ever dropped; posts and quotes are kept regardless of length."""
+    import re
+    if kind != "reply" or links or quoted or has_media: return False
+    core = re.sub(r"https?://\S+|@\w+", "", text or "").strip()
+    return len(core) < min_chars

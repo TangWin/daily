@@ -12,39 +12,6 @@
  },
  "items": [
   {
-   "id": "x-2115890094322462967",
-   "date": "2026-10-30",
-   "type": "x",
-   "source": "mattpocockuk",
-   "post_id": "2115890094322462967",
-   "url": "https://x.com/mattpocockuk/status/2115890094322462967",
-   "posted_at": "2026-10-30T03:34+08:00",
-   "kind": "reply",
-   "text": "It's a really good phrase",
-   "article_title": null,
-   "reply_to": {
-    "handle": "RecurseWord",
-    "post_id": "2115889359589355804",
-    "url": "https://x.com/RecurseWord/status/2115889359589355804",
-    "text": "This skill has made me hate the phrase two way door."
-   },
-   "quoted": null,
-   "links": [],
-   "translation_zh": "这是个非常好的说法",
-   "analysis": {
-    "summary": "有人说这个技能让他讨厌“双向门”（two way door）这个说法，Matt 回应这是个很好的说法。",
-    "points": [
-     "“双向门”指可逆、可以轻松回退的决策",
-     "说明他的某个技能会频繁使用这一术语"
-    ],
-    "why": "信息量较低；可看出他的技能偏好用“可逆/不可逆决策”框架来评估改动。",
-    "tags": [
-     "Skills",
-     "社区讨论"
-    ]
-   }
-  },
-  {
    "id": "x-2115858724984426857",
    "date": "2026-10-30",
    "type": "x",
@@ -217,40 +184,6 @@
     "tags": [
      "超加工食品",
      "生活"
-    ]
-   }
-  },
-  {
-   "id": "x-2115843892503269656",
-   "date": "2026-10-30",
-   "type": "x",
-   "source": "mattpocockuk",
-   "post_id": "2115843892503269656",
-   "url": "https://x.com/mattpocockuk/status/2115843892503269656",
-   "posted_at": "2026-10-30T00:31+08:00",
-   "kind": "reply",
-   "text": "What an easy, lazy comment to make",
-   "article_title": null,
-   "reply_to": {
-    "handle": "antoineg",
-    "post_id": "2115843280071999584",
-    "url": "https://x.com/antoineg/status/2115843280071999584",
-    "text": "If you have to ban core functions of a framework maybe it's time to use another one."
-   },
-   "quoted": null,
-   "links": [],
-   "translation_zh": "这评论真是又轻松又偷懒",
-   "analysis": {
-    "summary": "有人说“如果你得禁用一个框架的核心功能，也许该换个框架了”，Matt 回怼这是“轻松又偷懒的评论”。",
-    "points": [
-     "争论点：禁用框架核心功能 vs 换框架",
-     "Matt 不认同“换框架”这种简单结论",
-     "被讨论的具体框架和功能在采集的上下文中没有出现"
-    ],
-    "why": "反映他一贯的立场：在现有技术栈里加约束（规则/检查）往往比换框架更现实。上下文不完整，不宜过度解读。",
-    "tags": [
-     "社区讨论",
-     "工程实践"
     ]
    }
   }
