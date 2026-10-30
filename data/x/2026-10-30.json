@@ -3,14 +3,320 @@
  "type": "x",
  "date": "2026-10-30",
  "day": {
-  "digest": "Matt Pocock 今天先讨论了 agent 生成的 PR 格式趋同（来自他的 /pr 技能而非训练数据），晚些时候宣布新课程拍完、新增随视频滚动的 Session 记录面板，称正经历最疯狂的发布周并开放 AMA，还就 grill 会话流程给出“用耗时做有无对比”的建议。Karpathy 吐槽超加工食品。",
+  "digest": "Matt Pocock 今天先讨论了 /pr 技能导致 PR 格式趋同，随后揭晓发布周主角是 Software Factories for Real Engineers 课程，在 AMA 中谈了技能免费、课程变现、按“双向门自动合并、单向门人工审查”的 AI 代码审查思路，还让 agent 给 Pixel Watch 做语音助手。Dan Koe 认为 AI 时代唯一的竞争对手是自己的头脑；Karpathy 吐槽超加工食品。",
   "by_source": {
-   "mattpocockuk": "/pr 技能导致 PR 格式趋同；新课程拍完并加了 Session 面板，正处发布周。",
-   "karpathy": "吐槽超加工零食的配料。"
+   "mattpocockuk": "发布新课 Software Factories for Real Engineers 并在 AMA 中谈变现与 AI 代码审查分级。",
+   "karpathy": "吐槽超加工零食的配料。",
+   "thedankoe": "AI 放大了分心，真正的竞争对手是自己的头脑。"
   },
-  "updated_at": "2026-10-30T20:05:00+09:00"
+  "updated_at": "2026-10-31T00:15:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2116176908886909039",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116176908886909039",
+   "url": "https://x.com/mattpocockuk/status/2116176908886909039",
+   "posted_at": "2026-10-30T22:34+08:00",
+   "kind": "reply",
+   "text": "The crash course? Nope, I'm keeping it up to date",
+   "article_title": null,
+   "reply_to": {
+    "handle": "thewebmansa",
+    "post_id": "2116175415291077040",
+    "url": "https://x.com/thewebmansa/status/2116175415291077040",
+    "text": "I didnt even finish your real ai engineering course yet, and I learnt a lot would you day the course is now outdated ?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "速成课吗？没有，我一直在保持更新",
+   "analysis": {
+    "summary": "有人说还没学完他的“real ai engineering”课程就已收获很多，问那门课现在是否过时了；Matt 回复说速成课没有过时，他一直在更新。",
+    "points": [
+     "他的速成课会持续更新",
+     "不会因新课发布而过时"
+    ],
+    "why": "对已购课程用户的说明，信息量较低。",
+    "tags": [
+     "课程"
+    ]
+   }
+  },
+  {
+   "id": "x-2116172513801863211",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116172513801863211",
+   "url": "https://x.com/mattpocockuk/status/2116172513801863211",
+   "posted_at": "2026-10-30T22:16+08:00",
+   "kind": "post",
+   "text": "My agent is making me a custom Voice Assistant app for my Pixel Watch so I can send recordings directly to my agents.\n\nThe /pr skill is SO NICE for capturing visual changes without needing to QA it.\n\nI love AI",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我的 agent 正在给我做一个 Pixel Watch 上的定制语音助手应用，这样我就能把录音直接发给我的 agents。\n\n/pr 技能在不需要 QA 的情况下捕捉视觉变化，真的太好用了。\n\n我爱 AI",
+   "analysis": {
+    "summary": "Matt 说他的 agent 正在为他的 Pixel Watch 开发一个定制语音助手应用，用来把录音直接发给 agents；并称赞 /pr 技能能捕捉视觉变化、省去 QA。",
+    "points": [
+     "让 agent 开发 Pixel Watch 上的定制语音助手应用",
+     "用途：把语音录音直接发送给他的 agents",
+     "/pr 技能能记录视觉变化，不必手动 QA",
+     "附有一个链接/媒体（未采集内容）"
+    ],
+    "why": "展示了用 agent 给自己做个人工具的用法，以及 /pr 技能在 UI 改动上的价值。“不需要 QA”是他的使用感受。",
+    "tags": [
+     "Agent 工程",
+     "Skills",
+     "个人工具"
+    ]
+   }
+  },
+  {
+   "id": "x-2116156997712195646",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2116156997712195646",
+   "url": "https://x.com/thedankoe/status/2116156997712195646",
+   "posted_at": "2026-10-30T21:15+08:00",
+   "kind": "post",
+   "text": "AI made it so anyone can build anything, but everyone was already distracted, so AI just made it 10x worse. Your competition was non existent to begin with, and your only real competition is your own mind.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "AI 让任何人都能构建任何东西，但大家本来就已经心不在焉了，所以 AI 只是让情况糟糕了 10 倍。你的竞争对手一开始就不存在，你唯一真正的竞争对手是你自己的头脑。",
+   "analysis": {
+    "summary": "Dan Koe 认为 AI 降低了构建门槛，但人们本就注意力涣散，AI 让分心更严重；所以外部竞争本就不存在，真正的对手是自己的头脑。",
+    "points": [
+     "AI 让任何人都能做出任何东西",
+     "人们本已注意力分散，AI 让这种情况加剧（“10 倍”是修辞）",
+     "外部竞争几乎不存在",
+     "真正的竞争对手是自己的心智"
+    ],
+    "why": "典型的 Dan Koe 式个人成长观点：在 AI 时代，专注力和自律才是稀缺资源。属观点，没有数据支撑。",
+    "tags": [
+     "个人成长",
+     "专注力",
+     "AI"
+    ]
+   }
+  },
+  {
+   "id": "x-2116134077896225052",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116134077896225052",
+   "url": "https://x.com/mattpocockuk/status/2116134077896225052",
+   "posted_at": "2026-10-30T19:44+08:00",
+   "kind": "reply",
+   "text": "I think the end goal should be:\n\n1. Every two-way door gets automerged\n2. Every one-way door gets checked by a human\n\nApologies for introducing some nuance",
+   "article_title": null,
+   "reply_to": {
+    "handle": "Mnapps169004",
+    "post_id": "2116132684401352809",
+    "url": "https://x.com/Mnapps169004/status/2116132684401352809",
+    "text": "Still none of them say that you shouldn't review AI generared code"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我认为最终目标应该是：\n\n1. 每扇双向门都自动合并\n2. 每扇单向门都由人来检查\n\n抱歉引入了一点细微差别",
+   "analysis": {
+    "summary": "有人说（他们列举的几位）仍然没人主张不必审查 AI 生成的代码，Matt 回复：最终目标应该是可逆的改动（双向门）自动合并，不可逆的改动（单向门）由人检查。",
+    "points": [
+     "双向门（可逆决策）的改动应自动合并",
+     "单向门（不可逆决策）的改动应由人检查",
+     "结尾“抱歉引入一点细微差别”是调侃讨论中非黑即白的立场"
+    ],
+    "why": "给“AI 代码要不要人审”提供了一个按风险分级的框架，而不是一刀切。这是他的观点；上下文只采集到被回复的一条，完整讨论未采集。",
+    "tags": [
+     "代码审查",
+     "Agent 工程",
+     "AI 编程"
+    ]
+   }
+  },
+  {
+   "id": "x-2116129180630851627",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116129180630851627",
+   "url": "https://x.com/mattpocockuk/status/2116129180630851627",
+   "posted_at": "2026-10-30T19:24+08:00",
+   "kind": "reply",
+   "text": "It's a mindset, not a skillset\n\nI.e. if you care about not only what you ship, but the process behind shipping",
+   "article_title": null,
+   "reply_to": {
+    "handle": "trizo_za",
+    "post_id": "2116128245875708320",
+    "url": "https://x.com/trizo_za/status/2116128245875708320",
+    "text": "How do I know if I'm a real engineer? serious question"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "这是一种心态，而不是一套技能\n\n也就是说，你不只在乎你交付了什么，还在乎交付背后的过程",
+   "analysis": {
+    "summary": "有人认真问“怎么知道自己是不是一个真正的工程师”（对应课程名里的 Real Engineers），Matt 说这是心态而不是技能：既在乎交付的结果，也在乎交付的过程。",
+    "points": [
+     "“真正的工程师”是心态问题，不是技能问题",
+     "标准：不仅关心交付了什么，还关心交付背后的过程"
+    ],
+    "why": "点明了他课程定位里“Real Engineers”的含义：重视工程流程，而不只是让 AI 产出代码。这是他的观点。",
+    "tags": [
+     "工程文化",
+     "AI 编程"
+    ]
+   }
+  },
+  {
+   "id": "x-2116128368374452251",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116128368374452251",
+   "url": "https://x.com/mattpocockuk/status/2116128368374452251",
+   "posted_at": "2026-10-30T19:21+08:00",
+   "kind": "reply",
+   "text": "Folks have been buying my crash course for a while. This course builds on top of that, so I'm selling to an existing audience. That always helps.\n\nPlus my audience has grown a bonkers amount in the last few months. So it's a proportionally bonkers launch to the hypergrowth I've been seeing.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "alperortac",
+    "post_id": "2116124304014246219",
+    "url": "https://x.com/alperortac/status/2116124304014246219",
+    "text": "What makes it different from other launches?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "大家买我的速成课已经有一段时间了。这门课是在那门课基础上进一步展开的，所以我是在向现有受众卖课。这总是有帮助的。\n\n另外，我的受众在过去几个月里增长得离谱。所以这次发布的火爆程度，和我一直看到的超高速增长是成正比的。",
+   "analysis": {
+    "summary": "有人问这次发布和其他发布有什么不同，Matt 解释：新课建立在已经卖了一段时间的速成课之上，面向现有受众；加上过去几个月受众暴涨，所以发布也相应火爆。",
+    "points": [
+     "新课是在他原有速成课基础上的进阶",
+     "卖给已有受众，转化更容易",
+     "过去几个月受众增长非常快（他的说法，未给出具体数字）",
+     "他认为发布的火爆程度与受众增长成正比"
+    ],
+    "why": "创作者发布产品的经验：先有入门产品和受众，再推进阶产品。增长“离谱”是他的主观描述，没有数据。",
+    "tags": [
+     "产品发布",
+     "创作者经济",
+     "课程"
+    ]
+   }
+  },
+  {
+   "id": "x-2116127740806250965",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116127740806250965",
+   "url": "https://x.com/mattpocockuk/status/2116127740806250965",
+   "posted_at": "2026-10-30T19:19+08:00",
+   "kind": "reply",
+   "text": "I sell courses on how to use the skills professionally",
+   "article_title": null,
+   "reply_to": {
+    "handle": "themayukhbasu",
+    "post_id": "2116127145944891865",
+    "url": "https://x.com/themayukhbasu/status/2116127145944891865",
+    "text": "How do you make money from your skills when your skills are available for free?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我卖的是教人如何专业地使用这些技能的课程",
+   "analysis": {
+    "summary": "有人问：你的技能都免费公开，你怎么靠它赚钱？Matt 回复说他卖的是教人专业使用这些技能的课程。",
+    "points": [
+     "他的 skills 本身免费提供",
+     "变现方式是课程：教人专业地使用这些技能"
+    ],
+    "why": "一个典型的开源 + 教育变现模式：工具免费引流，课程收费。",
+    "tags": [
+     "Skills",
+     "商业模式",
+     "课程"
+    ]
+   }
+  },
+  {
+   "id": "x-2116127841976979654",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116127841976979654",
+   "url": "https://x.com/mattpocockuk/status/2116127841976979654",
+   "posted_at": "2026-10-30T19:19+08:00",
+   "kind": "reply",
+   "text": "Nope, I rely on user feedback and adjust accordingly",
+   "article_title": null,
+   "reply_to": {
+    "handle": "kartikb753",
+    "post_id": "2116124521669243258",
+    "url": "https://x.com/kartikb753/status/2116124521669243258",
+    "text": "after the codex subagent fix, do you now test each skill against every harness separately, or does one version still hold up across claude code and codex?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "没有，我靠用户反馈，然后相应调整",
+   "analysis": {
+    "summary": "有人问：修复 Codex 子代理问题之后，他是否会把每个技能在每个 harness 上分别测试，还是一个版本同时适用于 Claude Code 和 Codex？Matt 说没有分别测试，而是靠用户反馈来调整。",
+    "points": [
+     "他不会在每个 harness 上分别测试每个技能",
+     "依赖用户反馈来发现问题并调整",
+     "提问中提到 Codex 子代理问题已修复（提问者的说法）"
+    ],
+    "why": "说明他维护跨 Claude Code 和 Codex 的技能时，主要靠用户反馈而不是系统化测试。",
+    "tags": [
+     "Skills",
+     "Agent 工程",
+     "Codex"
+    ]
+   }
+  },
+  {
+   "id": "x-2116123835854377174",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116123835854377174",
+   "url": "https://x.com/mattpocockuk/status/2116123835854377174",
+   "posted_at": "2026-10-30T19:03+08:00",
+   "kind": "reply",
+   "text": "This beast:\n\nhttps://www.aihero.dev/cohorts/software-factories-for-real-engineers-xdy1m",
+   "article_title": null,
+   "reply_to": {
+    "handle": "buildwithhassan",
+    "post_id": "2116123057891004919",
+    "url": "https://x.com/buildwithhassan/status/2116123057891004919",
+    "text": "what are you launching?"
+   },
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://www.aihero.dev/cohorts/software-factories-for-real-engineers-xdy1m",
+     "title": "Software Factories for Real Engineers"
+    }
+   ],
+   "translation_zh": "这个大家伙：\n\nhttps://www.aihero.dev/cohorts/software-factories-for-real-engineers-xdy1m",
+   "analysis": {
+    "summary": "有人问 Matt 在发布什么，他回复“这个大家伙”，并附上 AI Hero 上的课程页面链接。",
+    "points": [
+     "链接标题：Software Factories for Real Engineers",
+     "链接路径显示这是一个 cohort（班期制）课程"
+    ],
+    "why": "揭晓了他本周“发布周”的主角是一门名为 Software Factories for Real Engineers 的课程；帖子未说明课程内容和价格，不做推断。",
+    "tags": [
+     "课程",
+     "产品发布"
+    ]
+   }
+  },
   {
    "id": "x-2116122548199161966",
    "date": "2026-10-30",
