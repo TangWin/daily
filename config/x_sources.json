@@ -1,0 +1,10 @@
+{
+ "schema_version": 1,
+ "refresh_hours": 4,
+ "kinds": ["post", "quote", "reply"],
+ "sources": [
+  {"handle": "karpathy", "user_id": "33836629", "name": "Andrej Karpathy", "bio": "LLM 研究者与教育者", "avatar": "https://pbs.twimg.com/profile_images/1296667294148382721/9Pr6XrPB_400x400.jpg"},
+  {"handle": "mattpocockuk", "user_id": "346640777", "name": "Matt Pocock", "bio": "Total TypeScript / AI Hero 作者，教开发者用 AI 写代码", "avatar": "https://pbs.twimg.com/profile_images/1666460461884211204/SmBm505D_400x400.jpg"},
+  {"handle": "thedankoe", "user_id": "256523056", "name": "Dan Koe", "bio": "创作者、写作者，做创作者工具 Eden（@edendotso）", "avatar": "https://pbs.twimg.com/profile_images/1845856303174037504/Q7ZZqVFa_400x400.jpg"}
+ ]
+}

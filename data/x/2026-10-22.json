@@ -1,0 +1,47 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-10-22",
+ "day": {
+  "digest": "Dan Koe 感谢 Eden 工作坊的参加者。",
+  "by_source": {
+   "thedankoe": "Eden 工作坊后的致谢回复。"
+  },
+  "updated_at": "2026-10-30T16:20:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2113059567798210696",
+   "date": "2026-10-22",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2113059567798210696",
+   "url": "https://x.com/thedankoe/status/2113059567798210696",
+   "posted_at": "2026-10-22T08:07+08:00",
+   "kind": "reply",
+   "text": "Thank you for coming sir🫡",
+   "article_title": null,
+   "reply_to": {
+    "handle": "byjoni_",
+    "post_id": "2112781260221194422",
+    "url": "https://x.com/byjoni_/status/2112781260221194422",
+    "text": "One of the best workshops I’ve ever attended. The @edendotso community is goated.\n\nThanks @thedankoe."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "谢谢你来参加，先生🫡",
+   "analysis": {
+    "summary": "一位参加者称赞 Eden 的工作坊和社区，Dan Koe 回复感谢对方参加。",
+    "points": [
+     "说明 Eden 近期举办过线下/线上工作坊",
+     "社交性回复"
+    ],
+    "why": "信息量很低。",
+    "tags": [
+     "社交互动",
+     "Eden"
+    ]
+   }
+  }
+ ]
+}

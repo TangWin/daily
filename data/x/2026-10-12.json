@@ -1,0 +1,53 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-10-12",
+ "day": {
+  "digest": "Karpathy 长文：LLM 能力认知的鸿沟在扩大，呈“漏斗”分层（几乎没用过 → 免费版 → 数学/代码专业重度用户 → 内部前沿系统），由问题规模、能力参差和使用权限共同驱动。",
+  "by_source": {
+   "karpathy": "LLM 能力认知“漏斗”：大众、普通专业人士和前沿用户看到的是完全不同的 AI。"
+  },
+  "updated_at": "2026-10-30T16:20:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2109361546505966046",
+   "date": "2026-10-12",
+   "type": "x",
+   "source": "karpathy",
+   "post_id": "2109361546505966046",
+   "url": "https://x.com/karpathy/status/2109361546505966046",
+   "posted_at": "2026-10-12T03:12+08:00",
+   "kind": "quote",
+   "text": "Dusting off this tweet from April because this gap in shared understanding of LLM capability is *widening*. It's now less \"two groups of people speaking past each other\" and more a sharp funnel.\n\n- Napkin math somewhere around 6B people (~75% of the population) have barely come in contact with LLMs at all.\n- Around 1-2B (~20%) are casual and infrequent users of free-tier ChatGPT-like products. This group sees derpy chatbots and treats them a bit like a better Google search, a writing aid, or etc. Maybe an agent tries to book you a flight. I have non-tech friends who (reasonably, imo) say they have not much use for it at all. Even many professionals outside of math&code are in this tier. For example, execs and many other functions spend a lot of their time talking to other people, so while they understand what is happening intellectually, it is still second-hand and a bit abstract.\n- Now we get to professional use of frontier-grade LLMs in math&code. Somewhere around 20M people (0.2%) see first-hand that large, complex projects that used to take them weeks/months can now be completed by agents with a prompt. Building apps, copying apps, translating apps, decompiling apps from binaries... This has all happened very quickly and recently - less than 1 year ago, I was writing code manually by hand, typing memorized computer code commands into a code editor character by character, occasionally pressing Tab to autocomplete a little chunk of code.\n- And finally we get to the ~5,000 people (~0.00006%) with access to frontier-grade systems internally. The external world has seen the preview. It looks like swarms of thousands of agents collaborating over weeks on software mega projects: minting zero days, running cyber attacks and defenses at machine speeds, discovering new science, advancing the frontier of mathematics. Things that would have taken top professionals in the industry years of work. Meanwhile, human review and comprehension are starting to fall behind. For example, people are still involved in the \"archeology\" of the OpenAI-HF incident from many months ago. Mathematicians may be poring over the 722 manuscripts on frontier mathematics for a while.\n\nThe funnel is driven by a combination of factors:\n1. The impact scales with ambition, problem size, and horizon. A question with a paragraph answer barely stresses the system. You need a reservoir of big, difficult problems that you really care about. This aspect drives the consumer / professional dimension of the funnel.\n2. The jaggedness of the system (which I have written about a lot separately). Capability peaks in domains that are digital, verifiable and economically valuable. This is because LLM capability emerges from reinforcement learning on verifiable rewards on a curated environment mixture driven by revenue potential. This aspect primarily drives the area (e.g. math&code) dimension of the funnel.\n3. Access. Free-tier, paid-tier, internal.\n\nSo this is the weirdness of the moment. The general public has mostly not interacted with these systems. When they have, it looks like a derpy chatbot. The majority of professionals still see only a modest uplift. And a small sliver of professionals are experiencing the vertigo of the curve going vertical. And it is all happening at the same time.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": {
+    "handle": "karpathy",
+    "post_id": "2042334451611693415",
+    "url": "https://x.com/karpathy/status/2042334451611693415",
+    "text": "Judging by my tl there is a growing gap in understanding of AI capability.\n\nThe first issue I think is around recency and tier of use. I think a lot of people tried the free tier of ChatGPT somewhere  last year and allowed it to inform their views on AI a little too much. This is a group of reactions laughing at various quirks of the models, hallucinations, etc. Yes I also saw the viral videos of OpenAI's Advanced Voice mode fumbling simple queries like \"should I drive or walk to the carwash\". The thing is that these free and old/deprecated models don't reflect the capability in the latest rou…"
+   },
+   "links": [],
+   "translation_zh": "把 4 月份的这条推文翻出来，因为这种对 LLM 能力的共同认知鸿沟正在*扩大*。现在与其说是“两群人各说各话”，不如说是一个陡峭的漏斗。\n\n- 粗略估算，大约 60 亿人（约 75% 的人口）几乎没接触过 LLM。\n- 大约 10–20 亿人（约 20%）是免费版 ChatGPT 类产品的偶尔、随意用户。这群人看到的是笨笨的聊天机器人，把它当作更好的 Google 搜索、写作助手之类。也许某个 agent 会试着帮你订机票。我有些非技术朋友说（在我看来也合理）他们基本用不上它。甚至很多数学和代码以外领域的专业人士也处于这一层。比如高管和许多其他职能的人大量时间在和人沟通，所以尽管他们在理智上明白正在发生什么，那仍是二手的、有点抽象的。\n- 再往下是在数学和代码领域专业使用前沿级 LLM 的人。大约 2000 万人（0.2%）亲眼看到，以前要花他们数周/数月的大型复杂项目，现在 agent 凭一个 prompt 就能完成。构建应用、复制应用、翻译应用、从二进制反编译应用……这一切都发生得非常快、非常近——不到 1 年前，我还在手写代码，在编辑器里一个字符一个字符地敲记住的命令，偶尔按 Tab 自动补全一小段。\n- 最后是大约 5,000 人（约 0.00006%），他们能在内部使用前沿级系统。外部世界看到了预告：看起来像是成千上万个 agent 组成的集群，花数周协作完成软件巨型项目：挖掘零日漏洞、以机器速度进行网络攻防、发现新科学、推进数学前沿。这些事情原本要行业顶尖专业人士花数年。与此同时，人类的审查和理解开始跟不上。例如，人们至今还在对几个月前的 OpenAI-HF 事件做“考古”。数学家们可能还要花很长时间研读那 722 份前沿数学手稿。\n\n这个漏斗由几个因素共同驱动：\n1. 影响随野心、问题规模和时间跨度而放大。一个一段话就能回答的问题几乎不会给系统带来压力。你需要一池你真正在乎的大而难的问题。这一点驱动了漏斗的消费者/专业人士维度。\n2. 系统的“参差不齐”（我另外写过很多）。能力在数字化、可验证、有经济价值的领域达到峰值。这是因为 LLM 的能力来自在可验证奖励上做强化学习，而训练环境的组合是按营收潜力挑选的。这一点主要驱动漏斗的领域维度（如数学和代码）。\n3. 使用权限。免费版、付费版、内部。\n\n这就是当下的怪异之处。大众大多没接触过这些系统；接触过的，看到的是一个笨笨的聊天机器人。多数专业人士只看到有限的提升。而一小撮专业人士正在经历曲线陡然变垂直的眩晕感。这一切都在同时发生。",
+   "analysis": {
+    "summary": "Karpathy 重提 4 月的旧帖，认为大众对 LLM 能力的认知鸿沟在扩大，并用“漏斗”分层：约 60 亿人几乎没用过，10–20 亿人只用免费版聊天机器人，约 2000 万人在数学/代码中用前沿模型完成大项目，约 5000 人能用内部前沿系统。",
+    "points": [
+     "四层漏斗（均为他自己的粗略估算）：75% 未接触 / 20% 免费版偶尔用 / 0.2% 数学代码专业重度用 / 约 5000 人用内部系统",
+     "驱动因素一：影响随问题的野心、规模和时间跨度放大",
+     "驱动因素二：能力“参差不齐”，在数字化、可验证、有经济价值的领域最强，源于可验证奖励上的强化学习",
+     "驱动因素三：使用权限（免费、付费、内部）",
+     "他自述不到 1 年前还在手写代码",
+     "人类的审查和理解开始跟不上，如对 OpenAI-HF 事件的持续“考古”"
+    ],
+    "why": "这是理解“为什么大家对 AI 的判断差距这么大”的一个清晰框架；对做产品和写内容的人，意味着同一能力在不同层级的人眼里价值截然不同。帖中数字是他本人的“napkin math”，不是统计数据。",
+    "tags": [
+     "AI 能力认知",
+     "强化学习",
+     "Coding Agent",
+     "观点"
+    ]
+   }
+  }
+ ]
+}

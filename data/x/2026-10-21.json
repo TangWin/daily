@@ -1,0 +1,88 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-10-21",
+ "day": {
+  "digest": "Dan Koe 发布长文《网红已死，体验时代到来》；Karpathy 调侃 GPT-6.1-Sol 推理轨迹难以读懂，呼应他“RL 做对了思维链就不说英语”的旧观点。",
+  "by_source": {
+   "thedankoe": "长文《网红已死，体验时代到来》。",
+   "karpathy": "思维链不再可读，“RL 确实起作用了”。"
+  },
+  "updated_at": "2026-10-30T16:20:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2112763753754485205",
+   "date": "2026-10-21",
+   "type": "x",
+   "source": "karpathy",
+   "post_id": "2112763753754485205",
+   "url": "https://x.com/karpathy/status/2112763753754485205",
+   "posted_at": "2026-10-21T12:31+08:00",
+   "kind": "reply",
+   "text": "Yeah I’d say the RL is working now all right",
+   "article_title": null,
+   "reply_to": {
+    "handle": "scaling01",
+    "post_id": "2112707058558771558",
+    "url": "https://x.com/scaling01/status/2112707058558771558",
+    "text": "GPT-6.1-Sol reasoning traces\n\ntotally legible, nothing to worry about"
+   },
+   "quoted": {
+    "handle": "karpathy",
+    "post_id": "1835561952258723930",
+    "url": "https://x.com/karpathy/status/1835561952258723930",
+    "text": "You can tell the RL is done properly when the models cease to speak English in their chain of thought"
+   },
+   "links": [],
+   "translation_zh": "是啊，我得说现在 RL 确实起作用了",
+   "analysis": {
+    "summary": "@scaling01 讽刺地发了 GPT-6.1-Sol 的推理过程截图，称其“完全可读，没什么好担心的”；Karpathy 引用自己 2024 年的旧帖“当模型的思维链不再说英语时，就说明 RL 做对了”，回复“RL 确实起作用了”。",
+    "points": [
+     "原帖暗示 GPT-6.1-Sol 的推理轨迹已难以被人读懂",
+     "Karpathy 的旧帖观点：RL 做到位后，思维链会偏离人类语言",
+     "本帖是半开玩笑地呼应这一预言"
+    ],
+    "why": "涉及思维链可读性/可监督性的问题：如果推理轨迹不再是人类可读的语言，基于读思维链的安全监控会变难。",
+    "tags": [
+     "强化学习",
+     "思维链",
+     "AI 安全"
+    ]
+   }
+  },
+  {
+   "id": "x-2112586533610156368",
+   "date": "2026-10-21",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2112586533610156368",
+   "url": "https://x.com/thedankoe/status/2112586533610156368",
+   "posted_at": "2026-10-21T00:47+08:00",
+   "kind": "post",
+   "text": "",
+   "article_title": "The influencer is dead. The Age of Experience is here.",
+   "reply_to": null,
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://x.com/i/article/2112585623521685504",
+     "title": null
+    }
+   ],
+   "translation_zh": "X 长文：《网红已死，体验时代到来》",
+   "analysis": {
+    "summary": "Dan Koe 发布了一篇 X 长文，标题为《The influencer is dead. The Age of Experience is here.》（网红已死，体验时代到来）。",
+    "points": [
+     "这条帖子本身只有长文链接",
+     "接口只返回了标题，正文内容未采集，这里不做推断"
+    ],
+    "why": "从标题看延续了他关于创作者经济转向的系列观点，具体论点需点开原文阅读。",
+    "tags": [
+     "创作者经济",
+     "长文"
+    ]
+   }
+  }
+ ]
+}

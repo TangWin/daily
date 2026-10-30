@@ -1,0 +1,43 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-10-25",
+ "day": {
+  "digest": "Dan Koe：向往“不工作”往往只是厌倦了讨厌的工作，值得花几年找到让自己有能量的工作。",
+  "by_source": {
+   "thedankoe": "找到让你有能量的工作，比躺平更能提升生活质量。"
+  },
+  "updated_at": "2026-10-30T16:20:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2114027336421032268",
+   "date": "2026-10-25",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2114027336421032268",
+   "url": "https://x.com/thedankoe/status/2114027336421032268",
+   "posted_at": "2026-10-25T00:12+08:00",
+   "kind": "post",
+   "text": "Most people who dream of a quiet life without work are just exhausted from work they hate. The reason you get bored on vacation after a week is that you are meant to move, pursue something exciting, and engage your body and mind in something useful. Do whatever it takes to find work that energizes you. It may take years, but it will have the most meaningful effect on your quality of life.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "大多数梦想过上不工作的安静生活的人，只是被他们讨厌的工作耗尽了。你度假一周后就会感到无聊，原因是你天生就该行动、追求令人兴奋的事情，让身体和头脑投入到有用的事情中。不惜一切代价找到让你充满能量的工作。这可能需要几年，但它会对你的生活质量产生最有意义的影响。",
+   "analysis": {
+    "summary": "Dan Koe 认为向往“不工作的安静生活”通常只是被讨厌的工作耗尽，人天生需要投入有意义的事；值得花几年找到让自己有能量的工作。",
+    "points": [
+     "想躺平往往是因为讨厌现在的工作",
+     "度假一周就无聊，说明人需要有追求",
+     "寻找让人有能量的工作可能需要数年"
+    ],
+    "why": "个人成长类观点，没有数据支撑，可作为职业选择的反思提示。",
+    "tags": [
+     "个人成长",
+     "工作"
+    ]
+   }
+  }
+ ]
+}

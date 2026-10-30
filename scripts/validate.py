@@ -66,8 +66,28 @@ def check_item(f, typ, date, it, k, seen):
             if d.get("runners_up") is not None and not str_list(d.get("runners_up")): err(f, f"{p}.detail.runners_up must be list of strings")
             if d.get("homepage") is not None and not is_url(d.get("homepage")): err(f, f"{p}.detail.homepage must be http(s) or null")
 
+def check_x_file(f, base, seen):
+    from x_common import load_config
+    from import_x import problems_for
+    handles = {s["handle"] for s in load_config()["sources"]}
+    try: doc = json.load(open(f, encoding="utf-8"))
+    except Exception as e: return err(f, f"BAD JSON: {e}")
+    if doc.get("schema_version") != 1 or doc.get("type") != "x" or doc.get("date") != base: err(f, "schema_version/type/date header wrong (need 1 / 'x' / file date)")
+    if not is_str((doc.get("day") or {}).get("digest")): err(f, "day.digest required")
+    items = doc.get("items")
+    if not isinstance(items, list) or not items: return err(f, "items must be a non-empty list")
+    for k, it in enumerate(items):
+        if not isinstance(it, dict): err(f, f"items[{k}] not an object"); continue
+        if it.get("id") != f"x-{it.get('post_id')}" or it["id"] in seen: err(f, f"items[{k}].id must be unique 'x-<post_id>'")
+        seen.add(it.get("id"))
+        if it.get("date") != base: err(f, f"items[{k}].date != file date")
+        if it.get("url") != f"https://x.com/{it.get('source')}/status/{it.get('post_id')}": err(f, f"items[{k}].url must be https://x.com/<source>/status/<post_id>")
+        if not is_str(it.get("posted_at")): err(f, f"items[{k}].posted_at required")
+        for m in problems_for({**it, "created_at": it.get("posted_at")}, handles): err(f, f"items[{k}] {m}")
+
 def check_file(f, seen):
     typ = os.path.basename(os.path.dirname(f)); base = os.path.basename(f)[:-5]
+    if typ == "x" and DATE.match(base): return check_x_file(f, base, seen)
     if typ not in TYPES: return err(f, f"unknown channel dir '{typ}'")
     if not DATE.match(base): return err(f, "file name must be YYYY-MM-DD.json")
     try:

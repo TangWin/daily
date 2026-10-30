@@ -1,0 +1,258 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-10-30",
+ "day": {
+  "digest": "Matt Pocock 围绕“agent 生成的 PR 格式趋同”展开讨论：这格式来自他的 /pr 技能，他用 Opus 5.5 知识截止在 6 月、技能 9 月才发布，排除了“已进模型权重”的猜测，并指出全局安装就等于在用技能。Karpathy 则吐槽超加工食品。",
+  "by_source": {
+   "mattpocockuk": "/pr 技能导致 PR 格式趋同，而不是训练数据。",
+   "karpathy": "吐槽超加工零食的配料。"
+  },
+  "updated_at": "2026-10-30T16:20:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2115890094322462967",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2115890094322462967",
+   "url": "https://x.com/mattpocockuk/status/2115890094322462967",
+   "posted_at": "2026-10-30T03:34+08:00",
+   "kind": "reply",
+   "text": "It's a really good phrase",
+   "article_title": null,
+   "reply_to": {
+    "handle": "RecurseWord",
+    "post_id": "2115889359589355804",
+    "url": "https://x.com/RecurseWord/status/2115889359589355804",
+    "text": "This skill has made me hate the phrase two way door."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "这是个非常好的说法",
+   "analysis": {
+    "summary": "有人说这个技能让他讨厌“双向门”（two way door）这个说法，Matt 回应这是个很好的说法。",
+    "points": [
+     "“双向门”指可逆、可以轻松回退的决策",
+     "说明他的某个技能会频繁使用这一术语"
+    ],
+    "why": "信息量较低；可看出他的技能偏好用“可逆/不可逆决策”框架来评估改动。",
+    "tags": [
+     "Skills",
+     "社区讨论"
+    ]
+   }
+  },
+  {
+   "id": "x-2115858724984426857",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2115858724984426857",
+   "url": "https://x.com/mattpocockuk/status/2115858724984426857",
+   "posted_at": "2026-10-30T01:30+08:00",
+   "kind": "reply",
+   "text": "I mean, you are using skills if you have it installed globally",
+   "article_title": null,
+   "reply_to": {
+    "handle": "droidgilliland",
+    "post_id": "2115858328156877257",
+    "url": "https://x.com/droidgilliland/status/2115858328156877257",
+    "text": "noticed pr's taking this format without explicitly using skills (but have /pr installed globally) with opus 5.5"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我是说，如果你全局安装了它，那你就是在用技能",
+   "analysis": {
+    "summary": "有人说没显式调用技能、PR 也变成了这种格式（但全局装了 /pr，用的 Opus 5.5），Matt 指出全局安装本身就等于在用技能。",
+    "points": [
+     "全局安装的技能会被 agent 自动加载/调用",
+     "这解释了“没显式用”却出现同样格式的现象"
+    ],
+    "why": "提醒：全局技能会悄悄影响 agent 的所有输出，排查 agent 行为时要先看装了哪些技能。",
+    "tags": [
+     "Skills",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2115858622630506506",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2115858622630506506",
+   "url": "https://x.com/mattpocockuk/status/2115858622630506506",
+   "posted_at": "2026-10-30T01:29+08:00",
+   "kind": "reply",
+   "text": "Opus 5.5 cutoff is June, this skill didn't exist until September. I doubt it",
+   "article_title": null,
+   "reply_to": {
+    "handle": "RaghavKoch19380",
+    "post_id": "2115857395478061295",
+    "url": "https://x.com/RaghavKoch19380/status/2115857395478061295",
+    "text": "i mean they train on the skills that people use which is why they get obsolete with the next model, and as popular your skills are it would have happened sooner than with others"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "Opus 5.5 的知识截止是 6 月，这个技能 9 月才出现。我表示怀疑",
+   "analysis": {
+    "summary": "有人认为模型会用大家常用的技能来训练，所以流行技能很快会被下一代模型吸收；Matt 回应 Opus 5.5 的知识截止是 6 月，而 /pr 技能 9 月才有，所以不太可能。",
+    "points": [
+     "他所称的 Opus 5.5 知识截止时间：6 月",
+     "/pr 技能 9 月才发布",
+     "因此 PR 格式趋同不太可能来自训练数据"
+    ],
+    "why": "一个用时间线排除假设的简单推理；PR 格式趋同更可能是因为用户全局安装了该技能（见下一条）。",
+    "tags": [
+     "Skills",
+     "训练数据",
+     "Opus 5.5"
+    ]
+   }
+  },
+  {
+   "id": "x-2115855541285122189",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2115855541285122189",
+   "url": "https://x.com/mattpocockuk/status/2115855541285122189",
+   "posted_at": "2026-10-30T01:17+08:00",
+   "kind": "quote",
+   "text": "Don't tell me /pr is in the model weights already",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": {
+    "handle": "0x15f",
+    "post_id": "2115820820870070417",
+    "url": "https://x.com/0x15f/status/2115820820870070417",
+    "text": "The agents seem to have mutually agreed on a new PR format and I really like it"
+   },
+   "links": [],
+   "translation_zh": "别告诉我 /pr 已经在模型权重里了",
+   "analysis": {
+    "summary": "Matt 引用“agent 们似乎一致采用了新 PR 格式”的帖子，开玩笑说“别告诉我 /pr 已经被训练进模型权重了”。",
+    "points": [
+     "引用的帖子观察到 agent 生成的 PR 格式趋同",
+     "Matt 怀疑（玩笑）是他的 /pr 技能被模型学走了",
+     "下方回复中他自己否定了这种可能"
+    ],
+    "why": "引出一个有趣的问题：流行的提示词/技能是否会进入下一代模型的训练数据。",
+    "tags": [
+     "Skills",
+     "训练数据",
+     "代码审查"
+    ]
+   }
+  },
+  {
+   "id": "x-2115855301169606912",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2115855301169606912",
+   "url": "https://x.com/mattpocockuk/status/2115855301169606912",
+   "posted_at": "2026-10-30T01:16+08:00",
+   "kind": "reply",
+   "text": "Oh hai\n\nhttps://www.aihero.dev/skills-pr",
+   "article_title": null,
+   "reply_to": {
+    "handle": "0x15f",
+    "post_id": "2115820820870070417",
+    "url": "https://x.com/0x15f/status/2115820820870070417",
+    "text": "The agents seem to have mutually agreed on a new PR format and I really like it"
+   },
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://www.aihero.dev/skills-pr",
+     "title": "The /pr Skill"
+    }
+   ],
+   "translation_zh": "嗨～\n\nhttps://www.aihero.dev/skills-pr",
+   "analysis": {
+    "summary": "有人说各个 agent 似乎“自发地”采用了一种新的 PR 格式，Matt 回复“嗨～”并附上他的 /pr 技能页面，暗示这格式来自他的技能。",
+    "points": [
+     "链接：AI Hero 网站上的 /pr Skill 介绍页",
+     "暗示该 PR 格式出自他的 /pr 技能"
+    ],
+    "why": "说明他的 skills 已被一部分开发者广泛安装使用，影响到了 agent 产出的 PR 风格。",
+    "tags": [
+     "Skills",
+     "Agent 工程",
+     "代码审查"
+    ]
+   }
+  },
+  {
+   "id": "x-2115848784664252756",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "karpathy",
+   "post_id": "2115848784664252756",
+   "url": "https://x.com/karpathy/status/2115848784664252756",
+   "posted_at": "2026-10-30T00:50+08:00",
+   "kind": "reply",
+   "text": "Truly hideous stuff. Quickly converging to the perfect form of infinitely shelf stable commodity paste of refined sugar / corn starch, fully hydrogenated palm oil and defatted soy protein, in a shell of synthetic flavors and dyes for the illusion of what you’re eating.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "TipOfTheBanana",
+    "post_id": "2115414232183488831",
+    "url": "https://x.com/TipOfTheBanana/status/2115414232183488831",
+    "text": "Reese's Pieces have no chocolate in them. The peanuts had their oil pressed out and a cheaper fat put back in.\n\nSugar is first, then partially defatted peanuts, then hydrogenated palm kernel and soybean oil, then corn syrup solids. Everything after that is 2% or less, and it's the dyes, the glaze, some vanillin and a little milk. There's no cocoa anywhere.\n\nPartially defatted just means the peanuts went through a press. The peanut oil comes out one side and gets sold as peanut oil. What's left is a dry peanut flour, and that's what the center is made from, because flour holds a shape in a pann…"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "真是可怕的东西。正迅速趋近于一种完美形态：由精制糖/玉米淀粉、完全氢化棕榈油和脱脂大豆蛋白组成的、保质期无限长的大宗商品糊，外面裹着一层合成香精和色素，制造你在吃什么东西的错觉。",
+   "analysis": {
+    "summary": "有人拆解 Reese's Pieces 的配料（没有巧克力、花生被榨过油换成更便宜的脂肪），Karpathy 回复批评这类食品正变成“保质期无限的工业糊状物 + 合成香精色素外壳”。",
+    "points": [
+     "原帖：糖排第一，其次是部分脱脂花生、氢化棕榈仁油和大豆油、玉米糖浆固体",
+     "Karpathy 认为这类食品在向廉价、耐储存的大宗原料糊收敛",
+     "外层的香精和色素只是制造“好吃的错觉”"
+    ],
+    "why": "与 AI 无关，是他对超加工食品的个人看法。注意：原帖说的是部分脱脂花生和氢化棕榈仁油，Karpathy 的“脱脂大豆蛋白、完全氢化棕榈油”是概括性的讽刺描述。",
+    "tags": [
+     "超加工食品",
+     "生活"
+    ]
+   }
+  },
+  {
+   "id": "x-2115843892503269656",
+   "date": "2026-10-30",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2115843892503269656",
+   "url": "https://x.com/mattpocockuk/status/2115843892503269656",
+   "posted_at": "2026-10-30T00:31+08:00",
+   "kind": "reply",
+   "text": "What an easy, lazy comment to make",
+   "article_title": null,
+   "reply_to": {
+    "handle": "antoineg",
+    "post_id": "2115843280071999584",
+    "url": "https://x.com/antoineg/status/2115843280071999584",
+    "text": "If you have to ban core functions of a framework maybe it's time to use another one."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "这评论真是又轻松又偷懒",
+   "analysis": {
+    "summary": "有人说“如果你得禁用一个框架的核心功能，也许该换个框架了”，Matt 回怼这是“轻松又偷懒的评论”。",
+    "points": [
+     "争论点：禁用框架核心功能 vs 换框架",
+     "Matt 不认同“换框架”这种简单结论",
+     "被讨论的具体框架和功能在采集的上下文中没有出现"
+    ],
+    "why": "反映他一贯的立场：在现有技术栈里加约束（规则/检查）往往比换框架更现实。上下文不完整，不宜过度解读。",
+    "tags": [
+     "社区讨论",
+     "工程实践"
+    ]
+   }
+  }
+ ]
+}

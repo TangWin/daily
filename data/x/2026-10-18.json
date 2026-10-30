@@ -1,0 +1,82 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-10-18",
+ "day": {
+  "digest": "Dan Koe 建议每天早上留 1 小时无干扰写作，并推荐无需账号的 Eden 免费配图工具。",
+  "by_source": {
+   "thedankoe": "每天早上 1 小时无干扰写作；Eden 免费配图工具。"
+  },
+  "updated_at": "2026-10-30T16:20:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2111808270591537381",
+   "date": "2026-10-18",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2111808270591537381",
+   "url": "https://x.com/thedankoe/status/2111808270591537381",
+   "posted_at": "2026-10-18T21:15+08:00",
+   "kind": "post",
+   "text": "If you want to start writing, the greatest thing you can do is block off 1 hour every morning and stick to it. Absolutely no exposure to other opinions or distractions (social media, messages, phone). You need space for creative ideas and modern life is great at taking that from you.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "如果你想开始写作，你能做的最好的事情就是每天早上留出 1 小时并坚持下去。绝对不接触他人的观点或干扰（社交媒体、消息、手机）。你需要为创意留出空间，而现代生活很擅长把它从你身边夺走。",
+   "analysis": {
+    "summary": "Dan Koe 建议想开始写作的人每天早上固定留 1 小时，期间完全隔绝社交媒体、消息和手机。",
+    "points": [
+     "每天早上固定 1 小时",
+     "不接触他人观点和任何干扰",
+     "目的：为创意留出空间"
+    ],
+    "why": "一条简单可执行的写作习惯建议。",
+    "tags": [
+     "写作",
+     "习惯",
+     "个人成长"
+    ]
+   }
+  },
+  {
+   "id": "x-2111794674025603545",
+   "date": "2026-10-18",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2111794674025603545",
+   "url": "https://x.com/thedankoe/status/2111794674025603545",
+   "posted_at": "2026-10-18T20:21+08:00",
+   "kind": "reply",
+   "text": "And you don't even need an eden account ;)\n\nhttps://eden.so/tools/post-image-generator/",
+   "article_title": null,
+   "reply_to": {
+    "handle": "Shriinaath",
+    "post_id": "2111724496558453046",
+    "url": "https://x.com/Shriinaath/status/2111724496558453046",
+    "text": "OMG! I was paying $14 per month for an AI tool that generated carousels and tweet‑style posts.\n\nI just discovered that I can do the same with @edendotso, absolutely free!"
+   },
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://eden.so/tools/post-image-generator/",
+     "title": "Post image generator (free, no watermark) | Eden"
+    }
+   ],
+   "translation_zh": "而且你甚至不需要 Eden 账号 ;)\n\nhttps://eden.so/tools/post-image-generator/",
+   "analysis": {
+    "summary": "有用户说用 Eden 免费做出了以前每月付 14 美元的图文卡片，Dan Koe 补充：这个工具甚至不需要 Eden 账号，并附上链接。",
+    "points": [
+     "工具：Eden 的帖子配图生成器（链接标题称免费、无水印）",
+     "无需注册即可使用"
+    ],
+    "why": "一个可以直接试用的免费社媒配图工具；同时也是 Dan Koe 为自家产品做的推广。",
+    "tags": [
+     "Eden",
+     "创作者工具"
+    ]
+   }
+  }
+ ]
+}

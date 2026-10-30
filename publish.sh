@@ -45,7 +45,7 @@ python3 build.py || die "build failed"
 python3 scripts/linkcheck.py docs || die "link check failed"
 [ "$MODE" = dry ] && { echo "[publish] dry run ok — docs/ rebuilt, nothing committed"; exit 0; }
 
-git add -- data docs
+git add -- data docs config
 if git diff --cached --quiet; then echo "[publish] no changes — nothing to commit"; else
   CHANGED="$(git diff --cached --name-only -- data | sed -E 's#^data/([a-z]+)/([0-9-]+)\.json$#\1/\2#' | sort -u | paste -sd' ' -)"
   [ -n "$MSG" ] || MSG="Publish ${CHANGED:-site rebuild} ($(date '+%F %H:%M') CST)"

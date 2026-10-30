@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build Peter 的每日雷达 (https://tangwin.github.io/daily/) into docs/.
 
-Reads data/{news,idea,oss}/YYYY-MM-DD.json (see SCHEMA.md), writes static HTML for every page
+Reads data/{news,idea,oss,x}/YYYY-MM-DD.json + config/x_sources.json (see SCHEMA.md), writes static HTML for every page
 (content works without JS; assets/app.js only adds filtering, search, theme and card toggling),
 RSS feeds per channel, sitemap.xml, search index. Output is deterministic for the same data + date.
 
@@ -87,7 +87,7 @@ def ext(u, label):
     return f'<a href="{esc(u)}" target="_blank" rel="noopener">{label}</a>'
 
 def page(title, body, nav, desc="AI 工程新闻、产品 Idea、开源推荐，每天一页。", canonical=BASE, extra_head=""):
-    navs = [("home", u_home(), "今天"), ("news", u_ch("news"), "新闻"), ("idea", u_ch("idea"), "产品 Idea"), ("oss", u_ch("oss"), "开源")]
+    navs = [("home", u_home(), "今天"), ("news", u_ch("news"), "新闻"), ("idea", u_ch("idea"), "产品 Idea"), ("oss", u_ch("oss"), "开源"), ("x", u_ch("x"), "信源")]
     nav_html = "".join(f'<a href="{h}" data-nav="{k}"{" class=\"on\" aria-current=\"page\"" if k == nav else ""}>{n}</a>' for k, h, n in navs)
     feeds = "".join(f'<link rel="alternate" type="application/rss+xml" title="{CH[t]["full"]} · {BRAND}" href="{u_rss(t)}">' for t in CH)
     return f"""<!doctype html>
@@ -340,6 +340,84 @@ def search_page():
 def not_found():
     return f'<div class="page-h"><h1>页面不存在</h1><p class="lede">这个地址没有内容。去 <a href="{BASE}">今天</a>，或者看 <a href="{u_ch("news")}">新闻</a> · <a href="{u_ch("idea")}">产品 Idea</a> · <a href="{u_ch("oss")}">开源</a>。</p></div>'
 
+# ---------------- 信源 (X sources) ----------------
+XCFG = os.path.join(ROOT, "config", "x_sources.json")
+XKIND = {"post": "原创", "quote": "引用", "reply": "回复"}
+
+def load_x(data_dir):
+    days = []
+    for f in sorted(glob.glob(os.path.join(data_dir, "x", "????-??-??.json")), reverse=True):
+        doc = json.load(open(f, encoding="utf-8")); days.append(doc)
+    return days
+
+def x_avatar(s, cls="av"):
+    img = f'<img src="{BASE}assets/x/{esc(s["handle"])}.jpg" alt="" loading="lazy" onerror="this.remove()">' if os.path.exists(os.path.join(ROOT, "assets", "x", s["handle"] + ".jpg")) else ""
+    return f'<span class="{cls}" data-i="{esc(s["name"][:1])}">{img}</span>'
+
+def x_text(t):
+    t = esc(t)
+    t = re.sub(r"(https?://[^\s<]+)", lambda m: f'<a href="{m.group(1)}" target="_blank" rel="noopener">{m.group(1)}</a>', t)
+    return t.replace("\n", "<br>")
+
+def x_post(it, src):
+    s = src[it["source"]]; t = it["posted_at"][11:16]
+    ctx = ""
+    for key, label in (("reply_to", "回复"), ("quoted", "引用")):
+        r = it.get(key)
+        if r:
+            who = f'@{esc(r["handle"])}' if r.get("handle") else "一条帖子"
+            ctx += f'<div class="xctx"><span class="mut">{label} <a href="{esc(r["url"])}" target="_blank" rel="noopener">{who}</a></span>' + (f'<p lang="en">{x_text(r["text"])}</p>' if r.get("text") else "") + "</div>"
+    body = it.get("text") or ""
+    if it.get("article_title"): body = (f"[X Article] {it['article_title']}" + ("\n\n" + body if body else ""))
+    a = it["analysis"]
+    return f"""<article class="post" data-src="{esc(it['source'])}" id="p-{esc(it['post_id'])}">
+<div class="ph">{x_avatar(s)}<b>{esc(s['name'])}</b><span class="mono mut">@{esc(it['source'])} · {t}</span><span class="badge kind k-{esc(it['kind'])}">{XKIND[it['kind']]}</span><span class="sp"></span><a class="xlink" href="{esc(it['url'])}" target="_blank" rel="noopener">在 X 查看 ↗</a></div>
+{ctx}<div class="xsec orig"><div class="xl">原文</div><blockquote lang="en">{x_text(body)}</blockquote></div>
+<div class="xsec tr"><div class="xl">中文翻译</div><p>{x_text(it['translation_zh'])}</p></div>
+<div class="xsec ai"><div class="xl">中文解读</div><p class="sum">{esc(a['summary'])}</p><ul>{''.join(f"<li>{esc(x)}</li>" for x in a['points'])}</ul><p class="why"><b>为什么重要</b>{esc(a['why'])}</p>{tags_html(a['tags'])}</div>
+</article>"""
+
+def x_page(days, cfg):
+    src = {s["handle"]: s for s in cfg["sources"]}
+    items = [i for d in days for i in d["items"] if i["source"] in src]
+    cnt = {h: sum(1 for i in items if i["source"] == h) for h in src}
+    latest_by = {}
+    for d in days:  # newest first
+        for h, v in (d["day"].get("by_source") or {}).items(): latest_by.setdefault(h, (d["date"], v))
+    cards = "".join(f'<button type="button" class="src-card" data-src="{h}">{x_avatar(s)}<span class="who"><b>{esc(s["name"])}</b><span class="mono mut">@{h}</span></span><span class="n">{cnt[h]} 条</span><span class="bio">{esc(s.get("bio", ""))}</span>'
+                    + (f'<span class="dg"><span class="mono mut">{mmdd(latest_by[h][0])}</span> {esc(latest_by[h][1])}</span>' if h in latest_by else "") + "</button>" for h, s in src.items())
+    chips = f'<button type="button" class="chip on" data-f="all">全部 <i>{len(items)}</i></button>' + "".join(f'<button type="button" class="chip" data-f="{h}">@{h} <i>{cnt[h]}</i></button>' for h in src)
+    tl = ""
+    for d in days:
+        its = [i for i in d["items"] if i["source"] in src]
+        if not its: continue
+        x, wk = dparts(d["date"])
+        tl += f'<section class="xday" id="d-{d["date"]}"><h3 class="xday-h"><span class="mono">{mmdd(d["date"])}</span> {wk}</h3><p class="day-dg">{esc(d["day"].get("digest", ""))}</p>' + "".join(x_post(i, src) for i in its) + "</section>"
+    upd = max((d["day"].get("updated_at") or "" for d in days), default="")
+    try: upd = dt.datetime.fromisoformat(upd).astimezone(TZ).strftime("%m.%d %H:%M")
+    except Exception: upd = ""
+    top = days[0] if days else None
+    digest = (f'<section class="block digest"><div class="block-h"><span class="dot"></span><h2>今日摘要</h2><span class="cnt">{cn(top["date"])}</span></div><p>{esc(top["day"].get("digest", ""))}</p></section>') if top else ""
+    return f"""<div class="page-h"><div><div class="eyebrow"><i></i>SOURCES</div>
+<h1>信源 <small>关注的 X 账号 · 原文 + 中文翻译 + 解读</small></h1>
+<p class="lede">{len(src)} 个信源 · {len(items)} 条 · 每 {cfg.get('refresh_hours', 4)} 小时更新{' · 最近更新 ' + upd + '（北京时间）' if upd else ''}</p></div></div>
+{digest}
+<div class="src-grid">{cards}</div>
+<div class="filters" role="toolbar" aria-label="按信源筛选">{chips}</div>
+<div class="timeline">{tl or '<p class="empty">还没有数据。</p>'}</div>
+<script>
+(function(){{
+function f(v){{document.querySelectorAll('.chip').forEach(function(c){{c.classList.toggle('on',c.dataset.f===v)}});
+document.querySelectorAll('.src-card').forEach(function(c){{c.classList.toggle('on',c.dataset.src===v)}});
+document.querySelectorAll('.post').forEach(function(p){{p.hidden=v!=='all'&&p.dataset.src!==v}});
+document.querySelectorAll('.xday').forEach(function(s){{s.hidden=!s.querySelector('.post:not([hidden])')}});
+try{{history.replaceState(null,'',v==='all'?location.pathname:'?src='+v)}}catch(e){{}}}}
+document.querySelectorAll('.chip').forEach(function(c){{c.onclick=function(){{f(c.dataset.f)}}}});
+document.querySelectorAll('.src-card').forEach(function(c){{c.onclick=function(){{f(c.classList.contains('on')?'all':c.dataset.src)}}}});
+var q=new URLSearchParams(location.search).get('src');if(q&&document.querySelector('.chip[data-f="'+q+'"]'))f(q);
+}})();
+</script>"""
+
 # ---------------- feeds / index ----------------
 def rss(h, t, limit=60):
     def pub(d):
@@ -404,6 +482,9 @@ def main():
             desc = f"{cn(d)} {CH[t]['full']}：" + "；".join(i["title"] for i in its[:3])
             write(out, f"{t}/{d}/index.html", page(f"{CH[t]['name']} {d} · {BRAND}", R(h, d), t, desc=desc[:160], canonical=u_day(t, d)))
             pages.append(u_day(t, d))
+    xcfg = json.load(open(XCFG, encoding="utf-8")); xdays = load_x(a.data)
+    write(out, "x/index.html", page(f"信源 · {BRAND}", x_page(xdays, xcfg), "x", desc="关注的 X 账号：Karpathy、Matt Pocock、Dan Koe 的帖子原文、中文翻译与解读，每 4 小时更新。", canonical=u_ch("x"), extra_head=f'\n<link rel="stylesheet" href="{BASE}assets/x.css">'))
+    pages.append(u_ch("x"))
     write(out, "search/index.html", page(f"搜索 · {BRAND}", search_page(), "", canonical=u_search(), extra_head='\n<meta name="robots" content="noindex">'))
     write(out, "search/index.json", search_index(h))
     write(out, "404.html", page(f"页面不存在 · {BRAND}", not_found(), "", canonical=BASE).replace('<link rel="canonical"', '<meta name="robots" content="noindex"><link rel="canonical"'))
@@ -412,9 +493,10 @@ def main():
     write(out, "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n")
     write(out, ".nojekyll", "")
     os.makedirs(os.path.join(out, "assets"))
-    for f in ("style.css", "app.js"): shutil.copy(os.path.join(ROOT, "assets", f), os.path.join(out, "assets", f))
+    for f in ("style.css", "app.js", "x.css"): shutil.copy(os.path.join(ROOT, "assets", f), os.path.join(out, "assets", f))
+    if os.path.isdir(os.path.join(ROOT, "assets", "x")): shutil.copytree(os.path.join(ROOT, "assets", "x"), os.path.join(out, "assets", "x"))
     n = {t: (len(h.dates(t)), len(h.by_type(t))) for t in CH}
-    print(f"[build] today={a.today} " + " ".join(f"{t}={n[t][0]}d/{n[t][1]}i" for t in CH) + f" pages={len(pages) + 1} -> {os.path.relpath(out, ROOT)}/")
+    print(f"[build] today={a.today} " + " ".join(f"{t}={n[t][0]}d/{n[t][1]}i" for t in CH) + f" x={len(xdays)}d/{sum(len(d['items']) for d in xdays)}i pages={len(pages) + 1} -> {os.path.relpath(out, ROOT)}/")
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,148 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-10-29",
+ "day": {
+  "digest": "Matt Pocock 合并了 implement-spec 技能的 PR（每个工单一个新子 agent），调侃“用一个形容词修了 bug”，并回答了 Software Factories 课程价格和 /wayfinder 的问题。",
+  "by_source": {
+   "mattpocockuk": "implement-spec 技能更新；课程问答。"
+  },
+  "updated_at": "2026-10-30T16:20:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2115815146194923546",
+   "date": "2026-10-29",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2115815146194923546",
+   "url": "https://x.com/mattpocockuk/status/2115815146194923546",
+   "posted_at": "2026-10-29T22:36+08:00",
+   "kind": "reply",
+   "text": "Obviously, but I would say that's implied",
+   "article_title": null,
+   "reply_to": {
+    "handle": "josip_sadek",
+    "post_id": "2115808259634303007",
+    "url": "https://x.com/josip_sadek/status/2115808259634303007",
+    "text": "I think it is valid comment. Do not trust everything on the internet!"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "显然，不过我会说这是不言自明的",
+   "analysis": {
+    "summary": "有人回复 Matt（并 @ 了 adam_bobowski 和 GergelyOrosz）说“这是合理的评论，别全信网上的东西”，Matt 回应“显然，但我认为这是默认的前提”。",
+    "points": [
+     "讨论的原始话题在采集的上下文中看不到",
+     "Matt 同意不应全信网上信息，但认为无需特别强调"
+    ],
+    "why": "上下文不完整，信息量有限。",
+    "tags": [
+     "社区讨论"
+    ]
+   }
+  },
+  {
+   "id": "x-2115811907357536605",
+   "date": "2026-10-29",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2115811907357536605",
+   "url": "https://x.com/mattpocockuk/status/2115811907357536605",
+   "posted_at": "2026-10-29T22:24+08:00",
+   "kind": "reply",
+   "text": "Yes, exactly",
+   "article_title": null,
+   "reply_to": {
+    "handle": "shaundavis_com",
+    "post_id": "2115788101851247076",
+    "url": "https://x.com/shaundavis_com/status/2115788101851247076",
+    "text": "Quick clarification on Software Factories pricing:\n\nIf I buy the AI Coding Crash Course ($299) and then the Software Factories cohort at the early-bird $906, does the Crash Course credit stack so the net cost for both is effectively $906?\n\nJust want to confirm before the early-bird ends. \n\nCheers!"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "是的，正是这样",
+   "analysis": {
+    "summary": "有人确认：先买 AI Coding Crash Course（299 美元），再以早鸟价 906 美元买 Software Factories 课程，是否等于两门共付 906 美元；Matt 回复“是的，正是这样”。",
+    "points": [
+     "Crash Course 的费用可抵扣 Software Factories 早鸟价",
+     "两者合计实际支付 906 美元（据提问者的描述，Matt 确认）"
+    ],
+    "why": "如果你打算买他的 Software Factories 课程，这是一个价格细节确认。",
+    "tags": [
+     "课程",
+     "AI 编程"
+    ]
+   }
+  },
+  {
+   "id": "x-2115811969446064267",
+   "date": "2026-10-29",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2115811969446064267",
+   "url": "https://x.com/mattpocockuk/status/2115811969446064267",
+   "posted_at": "2026-10-29T22:24+08:00",
+   "kind": "reply",
+   "text": "Absolutely, we cover /wayfinder",
+   "article_title": null,
+   "reply_to": {
+    "handle": "jayakavuru",
+    "post_id": "2115768810083115119",
+    "url": "https://x.com/jayakavuru/status/2115768810083115119",
+    "text": "a software factory still needs a clear spec of what good looks like. is that part of a course?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "当然，我们会讲 /wayfinder",
+   "analysis": {
+    "summary": "有人问“软件工厂仍需要清楚定义什么是好的 spec，课程里讲吗？”，Matt 回复会讲 /wayfinder。",
+    "points": [
+     "Software Factories 课程涵盖 spec 相关内容",
+     "/wayfinder 是他的一个技能"
+    ],
+    "why": "说明他的“软件工厂”方法论把写清楚 spec 作为前置环节。",
+    "tags": [
+     "课程",
+     "Spec",
+     "Skills"
+    ]
+   }
+  },
+  {
+   "id": "x-2115756445862134157",
+   "date": "2026-10-29",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2115756445862134157",
+   "url": "https://x.com/mattpocockuk/status/2115756445862134157",
+   "posted_at": "2026-10-29T18:43+08:00",
+   "kind": "post",
+   "text": "This is the most 2026 PR I've ever merged\n\nLiterally fixed a bug with an adjective\n\nhttps://github.com/mattpocock/skills/pull/1342",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://github.com/mattpocock/skills/pull/1342",
+     "title": "implement-spec: a fresh implementer subagent per ticket by mattpocock · Pull Request #1342 · mattpocock/skills"
+    }
+   ],
+   "translation_zh": "这是我合并过的最“2026”的 PR\n\n真的是用一个形容词修好了一个 bug\n\nhttps://github.com/mattpocock/skills/pull/1342",
+   "analysis": {
+    "summary": "Matt Pocock 合并了 skills 仓库的一个 PR（implement-spec：每个工单用一个全新的实现者子 agent），调侃这个 bug 是靠改一个形容词修好的。",
+    "points": [
+     "PR #1342：implement-spec 技能改为每个 ticket 启动一个新的 implementer 子 agent",
+     "“用形容词修 bug”指改的是给 agent 的提示词措辞，而不是代码",
+     "帖子未说明具体改了哪个词"
+    ],
+    "why": "体现了 agent 技能开发的现状：行为 bug 常常出在提示词措辞上；“每个工单一个新子 agent”也是避免上下文污染的常见做法。",
+    "tags": [
+     "Agent 工程",
+     "Skills",
+     "提示词"
+    ]
+   }
+  }
+ ]
+}

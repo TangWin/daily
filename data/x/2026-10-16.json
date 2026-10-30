@@ -1,0 +1,44 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-10-16",
+ "day": {
+  "digest": "Dan Koe：作品再好，没人知道也不会成功，营销是创作者成功的大头。",
+  "by_source": {
+   "thedankoe": "创作者讨厌营销，但营销决定成败。"
+  },
+  "updated_at": "2026-10-30T16:20:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2111083500430295493",
+   "date": "2026-10-16",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2111083500430295493",
+   "url": "https://x.com/thedankoe/status/2111083500430295493",
+   "posted_at": "2026-10-16T21:15+08:00",
+   "kind": "post",
+   "text": "You can spend 5 years, working harder than anyone else, writing the best book in the world, but if nobody knows about it, then you will not be a successful author.\n\nThis is the downfall of most creatives. They hate marketing, but marketing is 80% of their success.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "你可以花 5 年时间，比任何人都努力，写出世界上最好的书，但如果没人知道它，你就不会是一个成功的作者。\n\n这是大多数创作者的败笔。他们讨厌营销，但营销占他们成功的 80%。",
+   "analysis": {
+    "summary": "Dan Koe 认为作品再好，没人知道也不会成功；创作者讨厌营销，但营销占成功的 80%。",
+    "points": [
+     "好作品 ≠ 成功，需要被看见",
+     "大多数创作者的问题是排斥营销",
+     "“80%”是他的主观比例，不是数据"
+    ],
+    "why": "对独立开发者同样适用：产品做完只是开始，分发和曝光往往才是瓶颈。",
+    "tags": [
+     "创作者经济",
+     "营销",
+     "观点"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-10-10",
+ "day": {
+  "digest": "Karpathy 回忆读博时只坚持回复一位会读论文、问技术问题的记者。",
+  "by_source": {
+   "karpathy": "回忆：认真做功课的记者极少见。"
+  },
+  "updated_at": "2026-10-30T16:20:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2108727132918841657",
+   "date": "2026-10-10",
+   "type": "x",
+   "source": "karpathy",
+   "post_id": "2108727132918841657",
+   "url": "https://x.com/karpathy/status/2108727132918841657",
+   "posted_at": "2026-10-10T09:11+08:00",
+   "kind": "reply",
+   "text": "I had some amount of journalistic inbound way back as a PhD student but the only person I consistently replied to was Jack because he actually put in effort, read academic papers and asked good technical questions and I have not really seen that before (or since).",
+   "article_title": null,
+   "reply_to": {
+    "handle": "TheStalwart",
+    "post_id": "2108626086544162999",
+    "url": "https://x.com/TheStalwart/status/2108626086544162999",
+    "text": "Yeah I should have paid closer attention"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我读博时就收到过一些记者的联系，但我唯一一直回复的人是 Jack，因为他真的下了功夫，读了学术论文，还问出了好的技术问题，这种情况我在那之前（以及之后）都没怎么见过。",
+   "analysis": {
+    "summary": "Karpathy 回复 @TheStalwart，回忆读博时收到过记者联系，但只持续回复一位叫 Jack 的记者，因为对方会读论文、问出好的技术问题。",
+    "points": [
+     "读博期间就有媒体找他",
+     "他只坚持回复认真做功课的那位记者",
+     "他认为这种做功课的记者此前此后都很少见"
+    ],
+    "why": "一条回忆性回复，侧面说明技术人愿意回应的是真正做过功课的提问。原帖上下文有限，具体所指的报道未在帖中说明。",
+    "tags": [
+     "回忆",
+     "媒体"
+    ]
+   }
+  }
+ ]
+}

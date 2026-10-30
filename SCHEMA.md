@@ -69,3 +69,42 @@ Markdown 渲染支持：`##`/`###` 标题、`-` 列表、`1.` 列表、`**粗体
 
 - `python3 scripts/import_news.py DATE` — `/workspace/briefing/data/DATE.json`（newsBot 原格式）→ `data/news/DATE.json`
 - `python3 scripts/import_idea.py DATE` — `/workspace/idea-mining-DATE/top5.{json,md}` → `data/idea/DATE.json`（解析器与旧 idea-radar/build.py 相同）
+
+## 信源频道（data/x/YYYY-MM-DD.json）
+
+独立页面 `/daily/x/`（导航“信源”），**不进首页、不进搜索、没有 RSS**。信源固定在 `config/x_sources.json`
+（`handle`、`user_id`、`name`、`bio`、`avatar`；头像文件在 `assets/x/<handle>.jpg`，缺失时显示首字母）。
+日期 = 帖子发布时间换算到 Asia/Shanghai。文件由 `scripts/import_x.py` 写入，不要手改；流程见 `RUNBOOK_X.md`。
+
+```json
+{
+  "schema_version": 1, "type": "x", "date": "2026-10-30",
+  "day": {
+    "digest": "当日整体中文摘要（必填）",
+    "by_source": {"mattpocockuk": "该信源当日一句话"},
+    "updated_at": "ISO 时间"
+  },
+  "items": [{
+    "id": "x-2115855541285122189",          // x-<post_id>，全站唯一
+    "date": "2026-10-30", "type": "x",
+    "source": "mattpocockuk",                // 必须在 config 里
+    "post_id": "2115855541285122189",
+    "url": "https://x.com/mattpocockuk/status/2115855541285122189",   // 必须是这个格式
+    "posted_at": "2026-10-30T01:17+08:00",
+    "kind": "post | quote | reply",          // 纯转推不收
+    "text": "英文原文（t.co 已展开，回复去掉开头的 @）",
+    "article_title": null,                    // X 长文标题（若是长文）
+    "reply_to": {"handle": "0x15f", "post_id": "…", "url": "…", "text": "被回复帖原文（截断 600 字）"} ,  // kind=reply 必填
+    "quoted":   {"handle": "…", "post_id": "…", "url": "…", "text": "…"},                               // kind=quote 必填
+    "links": [{"url": "https://…", "title": "…"}],
+    "translation_zh": "完整、忠实的中文翻译（必填）",
+    "analysis": {
+      "summary": "中文摘要（必填，回复要交代上下文）",
+      "points": ["要点 1–6 条"],
+      "why": "为什么重要 / 解读（必填，信息量低就直说）",
+      "tags": ["1–4 个标签"]
+    }
+  }]
+}
+```
+`scripts/validate.py` 同样校验这些规则。采集状态（每个信源 last_seen_id）在 `state/x_state.json`（不入库；丢了会从 data/x 自动推出）。

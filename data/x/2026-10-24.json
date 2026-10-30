@@ -1,0 +1,47 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-10-24",
+ "day": {
+  "digest": "Dan Koe 预告与 @bhalligan 的播客，对方引用了他“AI 会让笨的人更笨、聪明的人更聪明”的话。",
+  "by_source": {
+   "thedankoe": "播客预告；“AI 放大差距”观点被引用。"
+  },
+  "updated_at": "2026-10-30T16:20:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2113693176238325778",
+   "date": "2026-10-24",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2113693176238325778",
+   "url": "https://x.com/thedankoe/status/2113693176238325778",
+   "posted_at": "2026-10-24T02:04+08:00",
+   "kind": "reply",
+   "text": "Excited for our pod!",
+   "article_title": null,
+   "reply_to": {
+    "handle": "bhalligan",
+    "post_id": "2113690882339938526",
+    "url": "https://x.com/bhalligan/status/2113690882339938526",
+    "text": "“AI is going to make dumb people dumber and smart people smarter.” \n- @thedankoe"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "很期待我们的播客！",
+   "analysis": {
+    "summary": "@bhalligan 引用 Dan Koe 的话“AI 会让笨的人更笨、聪明的人更聪明”，Dan Koe 回复期待两人的播客。",
+    "points": [
+     "被引用的观点：AI 会放大人与人之间的差距",
+     "两人将一起录播客（未给出时间）"
+    ],
+    "why": "被引用的那句话是 Dan Koe 一贯的观点浓缩；本条本身只是预告互动。",
+    "tags": [
+     "AI 与个人",
+     "播客"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-10-05",
+ "day": {
+  "digest": "Karpathy 解释为什么“老技巧”还会走红：如今关注 AI 的人 99% 以上入门不到一年。",
+  "by_source": {
+   "karpathy": "如今 AI 受众绝大多数是一年内的新人，这让“AI 恐龙”们困惑。"
+  },
+  "updated_at": "2026-10-30T16:20:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2106806571321966793",
+   "date": "2026-10-05",
+   "type": "x",
+   "source": "karpathy",
+   "post_id": "2106806571321966793",
+   "url": "https://x.com/karpathy/status/2106806571321966793",
+   "posted_at": "2026-10-05T02:00+08:00",
+   "kind": "reply",
+   "text": "My mental model for what is happening is that 99%+ of people who are now paying attention have been onboarded to anything related to AI in <1 year. This is very confusing to the AI dinosaurs (anyone in AI for pre 2026. Or even, gasp, pre 2012).",
+   "article_title": null,
+   "reply_to": {
+    "handle": "omarsar0",
+    "post_id": "2106801689495826520",
+    "url": "https://x.com/omarsar0/status/2106801689495826520",
+    "text": "50K likes on this!?\n\nMost of what Karpthy has shared is things we have been doing for over a year. \n\nNo surprises, as many replies are highlighting.\n\nBut I still think this raises an interesting discussion. \n\nIs there a universal interface/langauge that allows more seamless communication between agents and humans?\n\nI believe there is. And I think that is what @karpathy is suggesting we think about. \n\nRight now, ideas are all scattered. \n\nAs some of you know, I have been early on LLM Wikis, Artifacts, AI-generated visual explainers, dynamic interactives, etc. \n\nOver the past couple of months, I…"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我对正在发生的事情的心智模型是：现在开始关注 AI 的人当中，99% 以上是在不到 1 年内才接触到任何与 AI 相关的东西的。这让“AI 恐龙”们（2026 年之前就在 AI 领域的人，甚至——天哪——2012 年之前的）非常困惑。",
+   "analysis": {
+    "summary": "@omarsar0 说 Karpathy 分享的大多是业内已做了一年多的东西，Karpathy 回应：如今关注 AI 的人 99% 以上入门不到一年，这让老一代 AI 从业者很困惑。",
+    "points": [
+     "他的判断：绝大多数关注者都是一年内的新人",
+     "“AI 恐龙”指 2026 年前、甚至 2012 年前入行的人",
+     "这解释了为什么“老技巧”仍会大量走红"
+    ],
+    "why": "提醒内容创作者和产品人：受众基数在快速换代，面向新人的基础解释仍然有巨大需求。",
+    "tags": [
+     "AI 普及",
+     "社区讨论"
+    ]
+   }
+  }
+ ]
+}
