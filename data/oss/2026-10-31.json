@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-10-31",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-10-31-kapitsa",
+      "date": "2026-10-31",
+      "type": "oss",
+      "rank": 1,
+      "title": "Kapitsa：Mac 本地大模型推理引擎，一条命令让 Claude Code / Codex 跑在本地模型上",
+      "summary": "M1 起的 Apple 芯片 Mac 都能用，自研 KFlash 树形猜测解码，自测 38 组里 32 组解码最快，两周发了 35 个版本、维护者修 bug 以小时计。",
+      "url": "https://github.com/nace-ai/kapitsa",
+      "tags": [
+        "模型",
+        "Coding Agent",
+        "本地部署",
+        "推理"
+      ],
+      "raw_tags": [],
+      "score": 565,
+      "score_label": "★ 565",
+      "detail": {
+        "status": "picked",
+        "repo": "nace-ai/kapitsa",
+        "homepage": "https://x.com/kapitsaserve",
+        "stars": 565,
+        "forks": 85,
+        "license": "Apache-2.0",
+        "language": "C++",
+        "latest_release": "v0.2.25",
+        "runners_up": [],
+        "body_md": "**Kapitsa：Mac 上跑本地大模型给编程 Agent 用的推理引擎，一条命令起 Claude Code / Codex / opencode / pi**\n\n今天值得试：它把「本地模型 + 编程 Agent」做成了一条命令，README 里 38 组「模型×Mac」对比测试有 32 组解码最快（作者自测，对比 MLX、Ollama、llama.cpp、Splash 等 9 个引擎）。10-16 建库，已发 35 个版本，最新 v0.2.25 是北京时间 10-30 21:32 发的。\n\n仓库：[nace-ai/kapitsa](https://github.com/nace-ai/kapitsa)\n\n**解决什么 / 适合谁**\n想在自己的 Apple 芯片 Mac 上离线跑 Qwen、Nemotron 这类模型，接上 Claude Code、Codex 等编程 Agent，不想付 API 费、也不想让代码出本机的人。M1 及以上、macOS 14+ 都能用，16GB 的 Mac 也有能跑的模型。（10-13 推过的 Splash 只支持两族模型、要 M3 起步，这个覆盖更广。）\n\n**README 里的要点**\n- `kapitsa claude` / `codex` / `opencode` / `pi`：直接用本地模型启动这些 Agent，只改这一次运行的配置，不动你自己的配置文件。\n- `kapitsa serve` 在 `127.0.0.1:8000` 同时提供 OpenAI（chat/responses）和 Anthropic（messages）接口，支持流式、工具调用、JSON schema 输出，还带聊天网页。\n- 解码用自家的 KFlash：草稿模型一次猜一棵候选树、大模型一次性验证，号称输出跟普通解码完全一样，只是更快；Qwen3.6-35B-A3B 在 M5 Max 上 339 tok/s。\n- 180B 的 Qwen3.8-Flash-Next 能在 48GB Mac 上跑（专家权重从 SSD 流式读）；`--disk-cache` 让重启后的长对话续聊几乎秒开。\n- `kapitsa doctor` 告诉你这台 Mac 能跑哪些模型；`kapitsa bench compare` 拿你装过的其他引擎跑同一测试；`kapitsa import` 能吃 LM Studio / Ollama 下的 GGUF；多台 Mac 可以互相转发或分层跑一个模型。\n\n**近期活跃证据**\n- Issues：共 36 个，只剩 7 个开着；#803（pi 里输出被截到上下文的 1/4）不到一天就修好关闭；#253/#822 用户报 M1 Max 上 Agent 多轮会话缓存失效变慢，维护者找到原因（Qwen3.6 模板的 preserve_thinking），修复 PR #820 北京时间 10-31 凌晨已合入 main，还没进正式版。\n- Release：35 个版本，10-26 到 10-30 发了 8 个；v0.2.25 加了 Clover-35B 扩散模型、进程内 C SDK、修了 pi 截断。\n- 提交：总计约 959 次，10-24 起 284 次，主力 alisher-amantay（172）和 fearampgreed（62），共 43 位贡献者，已合入 369 个 PR，最近一次提交在今早。\n\n**快速上手**\n1. `brew install nace-ai/tap/kapitsa`\n2. `kapitsa doctor` 看你的 Mac 适合哪个模型（16–24GB 用 `--model 9b` 或 `4b`）\n3. `kapitsa claude --model 35b`（或 `codex` / `opencode` / `pi`），首次会下载模型\n\n**风险 / 注意**\n- 只支持 Apple 芯片 Mac，没有 Linux / Windows；部分模型只读文字不读图。\n- 速度数据基本是团队自测，不少提交注明「Not verified on a GPU」，迭代快、版本几乎天天变，稳定性要自己掂量。\n- 模型动辄十几到上百 GB，先看好磁盘；M1 系列上长上下文的优势会缩小（#822、#296 仍开着）。\n- 内部打包了 Splash 的补丁版（`--engine splash`），跟 Splash 是竞争又依赖的关系。\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>开源 2026-10-31 · Peter 的每日雷达</title>
+<meta name="description" content="10月31日 开源推荐：Kapitsa：Mac 本地大模型推理引擎，一条命令让 Claude Code / Codex 跑在本地模型上">
+<link rel="canonical" href="https://tangwin.github.io/daily/oss/2026-10-31/">
+<meta property="og:title" content="开源 2026-10-31 · Peter 的每日雷达"><meta property="og:description" content="10月31日 开源推荐：Kapitsa：Mac 本地大模型推理引擎，一条命令让 Claude Code / Codex 跑在本地模型上"><meta property="og:url" content="https://tangwin.github.io/daily/oss/2026-10-31/"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN">
+<link rel="alternate" type="application/rss+xml" title="AI 工程新闻 · Peter 的每日雷达" href="/daily/news/rss.xml"><link rel="alternate" type="application/rss+xml" title="产品 Idea Top 5 · Peter 的每日雷达" href="/daily/idea/rss.xml"><link rel="alternate" type="application/rss+xml" title="开源推荐 · Peter 的每日雷达" href="/daily/oss/rss.xml">
+<script>/* mark JS + apply saved theme before paint */(function(){var d=document.documentElement;d.className+=' js';try{var t=localStorage.getItem('hub-theme');if(t)d.dataset.theme=t}catch(e){}})()</script>
+<link rel="stylesheet" href="/daily/assets/style.css">
+</head>
+<body data-base="/daily/">
+<a class="skip" href="#main">跳到正文</a>
+<header class="site">
+  <div class="bar wrap">
+    <a class="brand" href="/daily/"><span class="logo" aria-hidden="true"></span><span>Peter 的每日雷达</span></a>
+    <nav class="nav" aria-label="频道"><a href="/daily/" data-nav="home">今天</a><a href="/daily/news/" data-nav="news">新闻</a><a href="/daily/idea/" data-nav="idea">产品 Idea</a><a href="/daily/oss/" data-nav="oss" class="on" aria-current="page">开源</a><a href="/daily/x/" data-nav="x">信源</a></nav>
+    <form class="search" role="search" id="searchForm" action="/daily/search/" method="get">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" name="q" type="search" placeholder="搜索标题、标签、内容" aria-label="搜索" autocomplete="off">
+    </form>
+    <div class="acts">
+      <a class="icon-btn blog" href="https://tangwin.github.io/blog/" title="博客">博客</a>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="切换主题" title="主题：跟随系统（点击切换）"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+<div class="narrow ch-oss"><div class="crumbs"><a href="/daily/">今天</a> / <a href="/daily/oss/">开源</a> / 2026-10-31</div>
+<header class="page-h"><div class="eyebrow"><i style="background:var(--oss)"></i>Daily OSS Pick · 10.31</div>
+<h1>2026年10月31日 <small>周六 · 开源推荐</small></h1>
+<div class="facts"><a class="rss" href="/daily/oss/rss.xml" title="开源 RSS"><svg viewBox="0 0 24 24"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.2" fill="currentColor"/></svg>RSS</a></div></header>
+<article class="repo-card" id="c-oss-2026-10-31-kapitsa">
+<div class="repo"><a href="https://github.com/nace-ai/kapitsa" target="_blank" rel="noopener">nace-ai/kapitsa ↗</a> <span class="badge ch-oss">当日推荐</span></div>
+<div class="t">Kapitsa：Mac 本地大模型推理引擎，一条命令让 Claude Code / Codex 跑在本地模型上</div><p>M1 起的 Apple 芯片 Mac 都能用，自研 KFlash 树形猜测解码，自测 38 组里 32 组解码最快，两周发了 35 个版本、维护者修 bug 以小时计。</p>
+<div class="kv"><span class="star"><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg>565</span><span class="tag">85 forks</span><span class="tag">Apache-2.0</span><span class="tag">C++</span><span class="tag">最新发布 v0.2.25</span><a class="tag" href="https://x.com/kapitsaserve" target="_blank" rel="noopener">主页 ↗</a></div>
+<div class="kv"><span class="badge ch-oss">模型</span><span class="badge ch-oss">Coding Agent</span><span class="badge ch-oss">本地部署</span><span class="badge ch-oss">推理</span></div></article>
+<div class="prose"><p><strong>Kapitsa：Mac 上跑本地大模型给编程 Agent 用的推理引擎，一条命令起 Claude Code / Codex / opencode / pi</strong></p><p>今天值得试：它把「本地模型 + 编程 Agent」做成了一条命令，README 里 38 组「模型×Mac」对比测试有 32 组解码最快（作者自测，对比 MLX、Ollama、llama.cpp、Splash 等 9 个引擎）。10-16 建库，已发 35 个版本，最新 v0.2.25 是北京时间 10-30 21:32 发的。</p><p>仓库：<a href="https://github.com/nace-ai/kapitsa" target="_blank" rel="noopener">nace-ai/kapitsa</a></p><p><strong>解决什么 / 适合谁</strong></p><p>想在自己的 Apple 芯片 Mac 上离线跑 Qwen、Nemotron 这类模型，接上 Claude Code、Codex 等编程 Agent，不想付 API 费、也不想让代码出本机的人。M1 及以上、macOS 14+ 都能用，16GB 的 Mac 也有能跑的模型。（10-13 推过的 Splash 只支持两族模型、要 M3 起步，这个覆盖更广。）</p><p><strong>README 里的要点</strong></p><ul><li><code>kapitsa claude</code> / <code>codex</code> / <code>opencode</code> / <code>pi</code>：直接用本地模型启动这些 Agent，只改这一次运行的配置，不动你自己的配置文件。</li><li><code>kapitsa serve</code> 在 <code>127.0.0.1:8000</code> 同时提供 OpenAI（chat/responses）和 Anthropic（messages）接口，支持流式、工具调用、JSON schema 输出，还带聊天网页。</li><li>解码用自家的 KFlash：草稿模型一次猜一棵候选树、大模型一次性验证，号称输出跟普通解码完全一样，只是更快；Qwen3.6-35B-A3B 在 M5 Max 上 339 tok/s。</li><li>180B 的 Qwen3.8-Flash-Next 能在 48GB Mac 上跑（专家权重从 SSD 流式读）；<code>--disk-cache</code> 让重启后的长对话续聊几乎秒开。</li><li><code>kapitsa doctor</code> 告诉你这台 Mac 能跑哪些模型；<code>kapitsa bench compare</code> 拿你装过的其他引擎跑同一测试；<code>kapitsa import</code> 能吃 LM Studio / Ollama 下的 GGUF；多台 Mac 可以互相转发或分层跑一个模型。</li></ul><p><strong>近期活跃证据</strong></p><ul><li>Issues：共 36 个，只剩 7 个开着；#803（pi 里输出被截到上下文的 1/4）不到一天就修好关闭；#253/#822 用户报 M1 Max 上 Agent 多轮会话缓存失效变慢，维护者找到原因（Qwen3.6 模板的 preserve_thinking），修复 PR #820 北京时间 10-31 凌晨已合入 main，还没进正式版。</li><li>Release：35 个版本，10-26 到 10-30 发了 8 个；v0.2.25 加了 Clover-35B 扩散模型、进程内 C SDK、修了 pi 截断。</li><li>提交：总计约 959 次，10-24 起 284 次，主力 alisher-amantay（172）和 fearampgreed（62），共 43 位贡献者，已合入 369 个 PR，最近一次提交在今早。</li></ul><p><strong>快速上手</strong></p><ol><li><code>brew install nace-ai/tap/kapitsa</code></li><li><code>kapitsa doctor</code> 看你的 Mac 适合哪个模型（16–24GB 用 <code>--model 9b</code> 或 <code>4b</code>）</li><li><code>kapitsa claude --model 35b</code>（或 <code>codex</code> / <code>opencode</code> / <code>pi</code>），首次会下载模型</li></ol><p><strong>风险 / 注意</strong></p><ul><li>只支持 Apple 芯片 Mac，没有 Linux / Windows；部分模型只读文字不读图。</li><li>速度数据基本是团队自测，不少提交注明「Not verified on a GPU」，迭代快、版本几乎天天变，稳定性要自己掂量。</li><li>模型动辄十几到上百 GB，先看好磁盘；M1 系列上长上下文的优势会缩小（#822、#296 仍开着）。</li><li>内部打包了 Splash 的补丁版（<code>--engine splash</code>），跟 Splash 是竞争又依赖的关系。</li></ul></div>
+<nav class="pager" aria-label="翻页"><span><a href="/daily/oss/2026-10-30/" rel="prev">← 10月30日</a></span><a href="/daily/oss/">开源 · 全部往期</a><span></span></nav></div>
+</main>
+<footer class="site-foot wrap">
+  <span>Peter 的每日雷达 · 新闻 08:30、产品 Idea 07:00、开源 10:00 每日更新（北京时间）· 信源每天多次更新</span>
+  <span><a href="/daily/news/">新闻</a> · <a href="/daily/idea/">产品 Idea</a> · <a href="/daily/oss/">开源</a> · <a href="https://tangwin.github.io/blog/">博客</a> · <a href="https://github.com/TangWin/daily">GitHub</a></span>
+</footer>
+<script src="/daily/assets/app.js" defer></script>
+</body>
+</html>
