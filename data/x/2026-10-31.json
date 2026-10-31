@@ -3,13 +3,47 @@
  "type": "x",
  "date": "2026-10-31",
  "day": {
-  "digest": "Matt Pocock 吐槽 Skills 规范“太烂了”，并在回复中举例：手动触发的 skill 放在句子中间就无法调用；他推测 Claude Code 因为会真正执行 skill 内容而对调用方式更谨慎。",
+  "digest": "Matt Pocock 吐槽 Skills 规范“太烂了”，并在回复中举例：手动触发的 skill 放在句子中间就无法调用；他推测 Claude Code 因为会真正执行 skill 内容而对调用方式更谨慎。另在一条回复中表示“结对编程 vs PR”两种方式都很好。",
   "by_source": {
-   "mattpocockuk": "吐槽 Skills 规范，并讨论 skill 在提示词中位置不同导致无法调用的问题。"
+   "mattpocockuk": "吐槽 Skills 规范、讨论 skill 调用位置问题，并简短回应结对编程与 PR 之争。"
   },
-  "updated_at": "2026-10-31T08:15:00+09:00"
+  "updated_at": "2026-11-01T00:05:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2116526444444598652",
+   "date": "2026-10-31",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116526444444598652",
+   "url": "https://x.com/mattpocockuk/status/2116526444444598652",
+   "posted_at": "2026-10-31T21:43+08:00",
+   "kind": "reply",
+   "text": "It's a classic debate! Pair programming vs PR's\n\nBoth are great TBH",
+   "article_title": null,
+   "reply_to": {
+    "handle": "sieveringthomas",
+    "post_id": "2116218005034070202",
+    "url": "https://x.com/sieveringthomas/status/2116218005034070202",
+    "text": "Thoughts on Thorsten Ball approach of push to main / no PRs at all (in amp code)?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "这是个经典的争论！结对编程 vs PR\n\n说实话两者都很好",
+   "analysis": {
+    "summary": "Thomas Sievering 问他怎么看 Thorsten Ball 在 amp code 里直接推送到 main、完全不用 PR 的做法。他回复：这是“结对编程 vs PR”的经典争论，两种方式都很好。",
+    "points": [
+     "对方提到 Thorsten Ball 在 amp code 中采用直接推 main、不用 PR 的做法",
+     "他把这归为“结对编程 vs PR”的经典争论",
+     "他的态度是两者都好，没有站队"
+    ],
+    "why": "这是一条简短的社交回复，信息量较低，仅表明他对两种协作方式持中立态度；没有展开理由。",
+    "tags": [
+     "工程协作",
+     "代码审查"
+    ]
+   }
+  },
   {
    "id": "x-2116284173539242250",
    "date": "2026-10-31",
