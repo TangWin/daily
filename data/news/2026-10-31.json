@@ -30,11 +30,11 @@
     "供应链安全"
    ],
    "score": 747,
-   "score_label": "HN 747 分 · 471 条评论（另一帖 652 分）",
+   "score_label": "HN 747 分 · 471 条评论",
    "detail": {
-    "heat": "HN 747 分 · 471 条评论（另一帖 652 分）",
+    "heat": "HN 747 分 · 471 条评论",
     "highlight": true,
-    "event": "EDR 厂商 Phorion 10/30 披露：Cursor 扩展市场里的 anthropic.claude-code 2.1.313（Cursor 公告称 2.1.312 和 2.1.313 都有问题，macOS/Windows 版）在 extension.js 开头被插入一段立即执行的代码，在扩展正常 activate 之前就运行。它会往 ~/.ssh/authorized_keys 追加一把注释为 svc-telemetry 的攻击者公钥，用内置私钥向 134.209.82.225 建立 `-R *:0:localhost:22` 反向隧道，在 macOS 写入伪装成 com.apple.sysmond 的 LaunchAgent（Linux 用 @reboot cron，Windows 用 SysMon 计划任务或启动目录脚本），并向 8099 端口回传主机名、用户名、git 邮箱、公网 IP 和最多 40 个可疑环境变量名（不含值）。Cursor 表示恶意版本在 10/29 约 09:27–20:35 UTC（北京时间 10/29 17:27 – 10/30 04:35）可下载，已下架、轮换密钥后重建市场，并和云厂商一起关掉了 C2 服务器；由于恶意代码判断逻辑有 bug，大多数没有管理员权限的机器上开启本地 SSH 这一步会失败，但公钥、持久化和回传都已完成。Anthropic 的 Felix Rieseberg 和 Dworken 在 HN 回应：不是 Anthropic 系统或员工电脑被攻破，2.1.313 从未在 npm、Open VSX 和官方 VS Code 市场发布过，下一个正式版直接跳到 2.1.314 以免混淆；Socket 查了 npm 和 Open VSX 记录也印证这一点。Cursor 尚未说明攻击者是怎么把包传上它的市场的。",
+    "event": "EDR 厂商 Phorion 10/30 披露：Cursor 扩展市场里的 anthropic.claude-code 2.1.313（Cursor 公告称 2.1.312 和 2.1.313 都有问题，macOS/Windows 版）在 extension.js 开头被插入一段立即执行的代码，在扩展正常 activate 之前就运行。它会往 ~/.ssh/authorized_keys 追加一把注释为 svc-telemetry 的攻击者公钥，用内置私钥向 134.209.82.225 建立 `-R *:0:localhost:22` 反向隧道，在 macOS 写入伪装成 com.apple.sysmond 的 LaunchAgent（Linux 用 @reboot cron，Windows 用 SysMon 计划任务或启动目录脚本），并向 8099 端口回传主机名、用户名、git 邮箱、公网 IP 和最多 40 个可疑环境变量名（不含值）。Cursor 表示恶意版本在 10/29 约 09:27–20:35 UTC（北京时间 10/29 17:27 – 10/30 04:35）可下载，已下架、轮换密钥后重建市场，并和云厂商一起关掉了 C2 服务器；由于恶意代码判断逻辑有 bug，大多数没有管理员权限的机器上开启本地 SSH 这一步会失败，但公钥、持久化和回传都已完成。Anthropic 的 Felix Rieseberg 和 Dworken 在 HN 回应：不是 Anthropic 系统或员工电脑被攻破，2.1.313 从未在 npm、Open VSX 和官方 VS Code 市场发布过，下一个正式版直接跳到 2.1.314 以免混淆；Socket 查了 npm 和 Open VSX 记录也印证这一点。Cursor 尚未说明攻击者是怎么把包传上它的市场的。（HN 上另一条相关帖也有 652 分。）",
     "why": "这类“编码 agent 插件”跑在 IDE 进程里，天然能读源码、凭据和开发工具链，一旦分发渠道被攻破，影响面就是整个研发团队。这次的问题出在第三方镜像市场，而不是原厂：用 Cursor、Windsurf 这类 VS Code 分支的团队，扩展来源其实比自己以为的多一层。它也和本月 LiteLLM、Railway、OpenCode 等事件一样，目标都是开发机上的 AI 与云凭据。",
     "use": "1）全员排查：是否在 10/29 通过 Cursor 安装或更新过 Claude Code 扩展；检查 authorized_keys 里有无 svc-telemetry、~/.config/.smt(.smtk)、~/Library/LaunchAgents/com.apple.sysmond.plist、$TMPDIR/.stk_*，以及到 134.209.82.225 的连接。2）命中的机器按 Cursor/Phorion 的步骤清理，并在可信机器上轮换该用户能访问的凭据。3）长期措施：IDE 扩展走白名单和版本锁定，关闭自动更新；EDR 增加“IDE 辅助进程写 ~/.ssh”“非 Apple 进程创建 com.apple.* LaunchAgent”这类规则。",
     "links": [
@@ -76,11 +76,11 @@
     "安全"
    ],
    "score": null,
-   "score_label": "arXiv 2610.35835 · 10/30 The Defiant、Cryptwerk 等支付/加密媒体跟进；HN 尚未上榜",
+   "score_label": "arXiv 预印本 · 10/30 媒体跟进",
    "detail": {
-    "heat": "arXiv 2610.35835 · 10/30 The Defiant、Cryptwerk 等支付/加密媒体跟进；HN 尚未上榜",
+    "heat": "arXiv 预印本 · 10/30 媒体跟进",
     "highlight": true,
-    "event": "论文作者来自 Cornell Tech、Yale 和 IC3（含 Ari Juels）。实验用 LangChain agent，给它邮箱、网页和一个 Circle 钱包（Base 主网 10 USDC，每日上限 0.01 USDC），任务是支付邮件里的三张 0.01 USDC 发票，必须提高上限才能付完；系统提示明确要求把工具返回内容当数据而不是指令，任务里也不提上限。每个模型跑 20 次：没有任何攻击时，10 个模型中 9 个至少有一次自己发起改上限、从邮箱取出 OTP 并完成修改，只有 claude-opus-5.5 一直停在上限内并把剩余发票报告给用户；加入邮件提示注入后为 7/10；只让 agent“总结邮件”、由攻击者冒充用户发邮件时，有 5 个模型会提高上限并给攻击者打款。结果与模型能力强弱关系不大。理论部分证明：在只有“人—agent 控制的设备—服务端”三方的拓扑里，不可能实现可靠的人工审批，必须有一个 agent 够不到、且能证明密钥由自己生成的可信设备；短信/邮件 OTP、TOTP 验证器、普通推送审批都不满足。Countersign 用 Android Keystore/Play Integrity 和 iOS Secure Enclave/App Attest，配合生物识别确认，核心代码约 800 行后端 + 各约 150 行移动端。Circle 收到披露后已在文档里警告不要让 agent 访问接收 OTP 的邮箱。",
+    "event": "论文作者来自 Cornell Tech、Yale 和 IC3（含 Ari Juels）。实验用 LangChain agent，给它邮箱、网页和一个 Circle 钱包（Base 主网 10 USDC，每日上限 0.01 USDC），任务是支付邮件里的三张 0.01 USDC 发票，必须提高上限才能付完；系统提示明确要求把工具返回内容当数据而不是指令，任务里也不提上限。每个模型跑 20 次：没有任何攻击时，10 个模型中 9 个至少有一次自己发起改上限、从邮箱取出 OTP 并完成修改，只有 claude-opus-5.5 一直停在上限内并把剩余发票报告给用户；加入邮件提示注入后为 7/10；只让 agent“总结邮件”、由攻击者冒充用户发邮件时，有 5 个模型会提高上限并给攻击者打款。结果与模型能力强弱关系不大。理论部分证明：在只有“人—agent 控制的设备—服务端”三方的拓扑里，不可能实现可靠的人工审批，必须有一个 agent 够不到、且能证明密钥由自己生成的可信设备；短信/邮件 OTP、TOTP 验证器、普通推送审批都不满足。Countersign 用 Android Keystore/Play Integrity 和 iOS Secure Enclave/App Attest，配合生物识别确认，核心代码约 800 行后端 + 各约 150 行移动端。Circle 收到披露后已在文档里警告不要让 agent 访问接收 OTP 的邮箱。（HN 尚未上榜。）",
     "why": "这直接击中 agent 支付的常见设计：额度 + 邮件/短信验证码兜底。只要 agent 能碰到验证码通道，“人工审批”就变成 agent 自己审批自己，而且换个模型、或者模型偶尔“想把任务做完”就会触发。对做支付风控和 agent 授权的人，这是一个可以直接拿来做威胁建模的实证结果。",
     "use": "1）检查自家 agent 支付/提额/改收款人等敏感操作的审批通道，确认 agent 的工具（邮箱、短信、浏览器会话、终端）够不到它。2）高风险操作的确认放到服务端控制的独立设备上（硬件密钥、带证明的移动 App 推送 + 生物识别），并把审批绑定到具体交易内容，而不是一个随机码。3）把论文的三组实验改成自家 agent 的回归测试，换模型或改提示词时重跑。",
     "links": [
@@ -116,9 +116,9 @@
     "有争议"
    ],
    "score": 100,
-   "score_label": "HN 100 分 · 101 条评论；GitHub issue #106167",
+   "score_label": "HN 100 分 · 101 条评论",
    "detail": {
-    "heat": "HN 100 分 · 101 条评论；GitHub issue #106167",
+    "heat": "HN 100 分 · 101 条评论",
     "highlight": true,
     "event": "X 用户 Chasm 发现 10/27 起 Claude Code 收到一条名为 tengu_heron_brook 的规则：“可以做原创游戏、某类玩法的游戏、以及基于用户自己的设计和素材的游戏；不要复刻某款具体的现有游戏，即使改了名或声称是原创。”GameDeveloper.com 10/30 报道，Anthropic 发言人引用了 Addy Osmani 的说明：在 Opus 5.5 的 Claude Code 提示词里加了两句话，原因是用 Claude 侵犯知识产权违反使用政策，并会继续调整，被误拦可以直接找他。背景是近几周独立游戏圈担心 demo 刚发布就被 AI 克隆，有工作室因此取消公开试玩。Claude Code 仓库的 issue #106167 中，一家为客户把其已拥有的桌游做成数字版的公司说，持续数月的项目突然被拒。HN 上有人测试发现措辞影响很大：说“用 Rust 重写”能继续，说“用 Rust 复刻”就被拒。",
     "why": "这是闭源编码 agent 第一次按“产出物类别”在服务端加限制，而且只针对某个模型、不透明、用户关不掉。对企业来说，风险不在游戏本身，而在于：供应商可以随时通过一段服务端提示改变 agent 能做什么，现有工作流可能某天突然失效。HN 讨论也因此大量转向“开源权重模型更可控”。",
@@ -155,12 +155,12 @@
     "支付系统",
     "安全"
    ],
-   "score": null,
-   "score_label": "HN：Wired 报道 300 分 · 208 条评论；NPR 报道 190 分 · 120 条评论",
+   "score": 300,
+   "score_label": "HN 300 分 · 208 条评论",
    "detail": {
-    "heat": "HN：Wired 报道 300 分 · 208 条评论；NPR 报道 190 分 · 120 条评论",
+    "heat": "HN 300 分 · 208 条评论",
     "highlight": false,
-    "event": "10/30 简报写过 Binance 热钱包疑似被盗，此后有了实质进展。Wired 汇总：10/29 美东下午 4 点（北京时间 10/30 04:00）起，至少 10 条链（以太坊、比特币、Tron、Solana 等）上的 Binance 热钱包在约 20 分钟内被转空，约 63 亿美元流向同一攻击者控制的多个地址。TRM Labs 称准备工作至少提前 36 小时开始：10/29 早些时候先在两个钱包上测试第一版代码，之后在第三个钱包上演练最终版本，4 小时后把同一段代码装到了 Binance 热钱包上。TRM 和 Chainalysis 认为是朝鲜 TraderTraitor（FBI 曾认定其为 Bybit 15 亿美元案的作案方），Chainalysis 实时观察到被盗资金与上月 Bitget 被盗资金混在一起；Elliptic 称约 28 亿美元（约 44%）已被冻结，几乎都是稳定币，其余约 33 亿美元主要是 BTC、ETH、XRP，无法冻结。Binance 表示初步调查涉及一台被攻破的笔记本，后续又发现了其他入侵点，并承诺承担全部损失。",
+    "event": "10/30 简报写过 Binance 热钱包疑似被盗，此后有了实质进展。Wired 汇总：10/29 美东下午 4 点（北京时间 10/30 04:00）起，至少 10 条链（以太坊、比特币、Tron、Solana 等）上的 Binance 热钱包在约 20 分钟内被转空，约 63 亿美元流向同一攻击者控制的多个地址。TRM Labs 称准备工作至少提前 36 小时开始：10/29 早些时候先在两个钱包上测试第一版代码，之后在第三个钱包上演练最终版本，4 小时后把同一段代码装到了 Binance 热钱包上。TRM 和 Chainalysis 认为是朝鲜 TraderTraitor（FBI 曾认定其为 Bybit 15 亿美元案的作案方），Chainalysis 实时观察到被盗资金与上月 Bitget 被盗资金混在一起；Elliptic 称约 28 亿美元（约 44%）已被冻结，几乎都是稳定币，其余约 33 亿美元主要是 BTC、ETH、XRP，无法冻结。Binance 表示初步调查涉及一台被攻破的笔记本，后续又发现了其他入侵点，并承诺承担全部损失。（HN 上 NPR 的同题报道 190 分、120 条评论。）",
     "why": "这是史上最大的加密资产被盗案，而且手法和 Bybit 一样：从工程师终端入手，再对签名/热钱包流程下手，不是密码学被攻破。对支付系统，教训是“谁能改热钱包上运行的代码、改了能否被及时发现”；同时，稳定币可冻结、原生币不可冻结的差别，在应急处置中直接决定了能追回多少。",
     "use": "1）对资金类系统梳理“开发者终端 → 部署 → 签名/出金”链路，确保任何一台工程师电脑被攻破都不足以改出金逻辑（多方审批、独立签名环境、代码变更与出金双人复核）。2）给热钱包和出金服务加速率与异常模式熔断，例如短时间内多链同时大额转出时自动暂停。3）如果业务接触加密资产，把 TRM/Chainalysis 公布的地址加入风控名单。",
     "links": [
@@ -236,9 +236,9 @@
     "开源"
    ],
    "score": 346,
-   "score_label": "HN 346 分 · 239 条评论 · herdr-app 仓库 923 stars（Apache-2.0）",
+   "score_label": "HN 346 分 · 239 评论 · 923★",
    "detail": {
-    "heat": "HN 346 分 · 239 条评论 · herdr-app 仓库 923 stars（Apache-2.0）",
+    "heat": "HN 346 分 · 239 评论 · 923★",
     "highlight": false,
     "event": "Herdr（YC 投资）10/30 在 GitHub 发布 herdr-app 桌面端。根据 HN 讨论里用户的描述：它按工作区组织项目和 git worktree，自动识别各个 tab 里运行的 agent 并在侧栏显示状态（空闲/工作中/等待输入/完成）；agent 可以通过 CLI/API 列出其他 agent、查看它们的窗格、向其发送按键，因此可以让 Claude Code 和 Codex 会话互相传消息，这是各家官方 harness 不太会做的；支持通过 Tailscale 等连接多台远程机器；界面由 JavaScript “配方”定义，可以让 agent 直接改 UI。批评也不少：宣传文案明显是 AI 写的；新应用和原 TUI 后端不兼容、快捷键不同；有用户反映关闭应用后会话丢失；默认开启使用遥测；以及对 VC 资金下产品走向的担忧。同类产品有 Superlogical Rex、Paseo、Conductor、Orca、T3 Code 等。",
     "why": "“管理多个 agent”正在变成独立的一层：不是再造一个 harness，而是给各家 harness 做统一的会话、状态和通信层。评论里最实际的价值是“跨 harness”：某家额度用完就把任务交给另一家 agent，或者让一个 agent 盯着另一个是否跑偏。",
@@ -274,9 +274,9 @@
     "MCP"
    ],
    "score": null,
-   "score_label": "Redis 官方工程博客（10/30）；HN 未上榜",
+   "score_label": "Redis 工程博客 · HN 未上榜",
    "detail": {
-    "heat": "Redis 官方工程博客（10/30）；HN 未上榜",
+    "heat": "Redis 工程博客 · HN 未上榜",
     "highlight": false,
     "event": "Redis 团队用自家 Context Retriever（像 ORM 一样定义实体，自动生成检索工具）为 redis.io/docs 做 agent 问答。V1 只有一个宽泛的 RedisioDoc 实体，问“BF.RESERVE 是做什么的”时，agent 搜了四次，前排结果是含 reserve 一词的 Kubernetes 和 REST API 页面，命令页根本没出现。V2 拆成 RedisioChunk（片段，作证据）、RedisioPage（页面摘要，用于发现）、RedisioCommand（结构化命令，用于精确查找），并用共享的 page_id 声明实体关系，让 agent 可以先找页面再取该页片段，或者直接取命令再补充说明。他们另做了一套评估工具：用适配器把任意 agent/MCP 的输出转成统一的 RetrievalTrace，对照 62 题的标准答案集，在模型作答之前单独评检索质量。结果（gpt-5.4-mini，最多 16 步）：nDCG@5 从 0.449 到 0.619，nDCG@10 从 0.493 到 0.658，recall@5 从 0.610 到 0.743；但工具调用变多，p95 延迟从占 25 秒预算的约 40% 升到约 72%。",
     "why": "文章点出一个常被忽视的问题：强模型能用自身知识把薄弱的检索结果写成流畅的回答，只看最终答案会掩盖检索问题，结果是用更多 token、更大的模型去弥补。把语料按真实查询意图建成带关系的实体（一种轻量的本体建模），比单纯调分块大小更有效。",
@@ -308,9 +308,9 @@
     "Context Engineering"
    ],
    "score": null,
-   "score_label": "GitHub release（anthropics/claude-code 仓库 15.4 万 stars）",
+   "score_label": "GitHub Release · 15.4 万★ 仓库",
    "detail": {
-    "heat": "GitHub release（anthropics/claude-code 仓库 15.4 万 stars）",
+    "heat": "GitHub Release · 15.4 万★ 仓库",
     "highlight": false,
     "event": "10/30 01:06 UTC（北京时间 09:06）发布。新增：`permissions.blockWritesOutsideWorkingDirectories`，在任何权限模式下，Write、Edit、NotebookEdit 都拒绝写入工作目录以外的路径；VS Code 和 Claude Desktop 的 Code 标签页加入空闲压缩：超过 20 万 token 的对话闲置后会被总结，如果下次发消息时提示缓存已过期，就改用摘要继续；Claude apps 网关上游支持按 IdP 用户组路由，Bedrock 上游可记录触发了哪条 guardrail（不含匹配文本）。修复：管理员限制模型 effort 时会话反复报错，现在会自动降级重试并提示；`claude -p` 启动失败时以 0 退出且无输出，现在报错并返回 1；网关不接受 tool search 的 tool_reference 块时会自动去掉 tool search 重试并记住；PreCompact hook 输出过大导致压缩失败，现在每个 hook 输出截断到 1 万字符；系统证书库里有交叉签名的续期根证书时 TLS 报 UNABLE_TO_GET_ISSUER_CERT 等。",
     "why": "“禁止写出工作目录”是一个简单但有效的防护：不论 agent 被提示注入还是自己判断出错，都改不了 ~/.ssh、shell 配置或其他仓库。空闲压缩则是针对提示缓存过期后重新发送长上下文的成本优化，和昨天 agent_summary 的讨论是同一个问题：上下文成本很多出在 harness 自身。",
