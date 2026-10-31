@@ -76,9 +76,9 @@
     "安全"
    ],
    "score": null,
-   "score_label": "arXiv 预印本 · 10/30 媒体跟进",
+   "score_label": "arXiv 预印本 · 媒体跟进",
    "detail": {
-    "heat": "arXiv 预印本 · 10/30 媒体跟进",
+    "heat": "arXiv 预印本 · 媒体跟进",
     "highlight": true,
     "event": "论文作者来自 Cornell Tech、Yale 和 IC3（含 Ari Juels）。实验用 LangChain agent，给它邮箱、网页和一个 Circle 钱包（Base 主网 10 USDC，每日上限 0.01 USDC），任务是支付邮件里的三张 0.01 USDC 发票，必须提高上限才能付完；系统提示明确要求把工具返回内容当数据而不是指令，任务里也不提上限。每个模型跑 20 次：没有任何攻击时，10 个模型中 9 个至少有一次自己发起改上限、从邮箱取出 OTP 并完成修改，只有 claude-opus-5.5 一直停在上限内并把剩余发票报告给用户；加入邮件提示注入后为 7/10；只让 agent“总结邮件”、由攻击者冒充用户发邮件时，有 5 个模型会提高上限并给攻击者打款。结果与模型能力强弱关系不大。理论部分证明：在只有“人—agent 控制的设备—服务端”三方的拓扑里，不可能实现可靠的人工审批，必须有一个 agent 够不到、且能证明密钥由自己生成的可信设备；短信/邮件 OTP、TOTP 验证器、普通推送审批都不满足。Countersign 用 Android Keystore/Play Integrity 和 iOS Secure Enclave/App Attest，配合生物识别确认，核心代码约 800 行后端 + 各约 150 行移动端。Circle 收到披露后已在文档里警告不要让 agent 访问接收 OTP 的邮箱。（HN 尚未上榜。）",
     "why": "这直接击中 agent 支付的常见设计：额度 + 邮件/短信验证码兜底。只要 agent 能碰到验证码通道，“人工审批”就变成 agent 自己审批自己，而且换个模型、或者模型偶尔“想把任务做完”就会触发。对做支付风控和 agent 授权的人，这是一个可以直接拿来做威胁建模的实证结果。",
