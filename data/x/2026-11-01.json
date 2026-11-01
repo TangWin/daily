@@ -3,13 +3,45 @@
  "type": "x",
  "date": "2026-11-01",
  "day": {
-  "digest": "Matt Pocock 公布 Sandcastle v1 的重塑方向：定位为搭建“软件工厂”的工具，支持多种 harness 和 Sandbox 提供商，并把他的每个 skill 变成可调用的 Agent() 函数，正在征求反馈。",
+  "digest": "Matt Pocock 公布 Sandcastle v1 的重塑方向，把 skills 变成可调用的 Agent() 并征求反馈；Dan Koe 把创作者分为网红、个人品牌和匠人三类，号召做匠人。",
   "by_source": {
-   "mattpocockuk": "发布 Sandcastle v1 的产品介绍草案，把 skills 变成可调用的 Agent() 并接入自有基础设施。"
+   "mattpocockuk": "发布 Sandcastle v1 的产品介绍草案，把 skills 变成可调用的 Agent() 并接入自有基础设施。",
+   "thedankoe": "对比网红、个人品牌与匠人的创作动机，主张做以作品质量为核心的匠人。"
   },
-  "updated_at": "2026-11-01T20:10:00+09:00"
+  "updated_at": "2026-11-02T08:10:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2116921689426583713",
+   "date": "2026-11-01",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2116921689426583713",
+   "url": "https://x.com/thedankoe/status/2116921689426583713",
+   "posted_at": "2026-11-01T23:53+08:00",
+   "kind": "post",
+   "text": "An influencer is incentivized by attention, so their content must be optimized to be consumed and forgotten (cheap dopamine).\n\nA personal brand is incentivized by money, so their content must be optimized to move you down their sales funnel.\n\nAn artisan is incentivized by the satisfaction that comes from the quality of their work. They need attention and money, but for the sole purpose of spending more time on work they enjoy and the impact it has.\n\nBecome an artisan.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "网红（influencer）的动力来自注意力，所以他们的内容必须被优化成“看完即忘”的东西（廉价多巴胺）。\n\n个人品牌的动力来自金钱，所以他们的内容必须被优化成把你一步步推进他们的销售漏斗。\n\n匠人（artisan）的动力来自作品质量带来的满足感。他们也需要注意力和金钱，但唯一的目的，是能把更多时间花在自己喜欢的工作及其带来的影响上。\n\n做一个匠人。",
+   "analysis": {
+    "summary": "Dan Koe 把内容创作者分成三类：追求注意力的网红、追求金钱的个人品牌、追求作品质量的匠人，并号召大家做匠人。",
+    "points": [
+     "网红靠注意力驱动，内容被优化成“看完即忘”的廉价多巴胺",
+     "个人品牌靠金钱驱动，内容为销售漏斗服务",
+     "匠人靠作品质量带来的满足感驱动，注意力和金钱只是为了能多做喜欢的工作",
+     "结论：做一个匠人"
+    ],
+    "why": "这是作者对创作动机的个人观点，而非数据结论；延续了他一贯的“以作品和长期价值为核心”的创作者经济主张。",
+    "tags": [
+     "创作者经济",
+     "个人品牌",
+     "内容创作"
+    ]
+   }
+  },
   {
    "id": "x-2116805878187794740",
    "date": "2026-11-01",

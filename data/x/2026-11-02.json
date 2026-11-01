@@ -1,0 +1,358 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-02",
+ "day": {
+  "digest": "Karpathy 发布周末项目 HackerTube，用 Claude 从 4300 万条 HN 评论中筛出 6,454 个推荐视频，全程约 2 小时由 Agent 完成；Matt Pocock 吐槽 X 上 AI 回复泛滥，并提出类 Redux 的单一状态源可能更适合 Agent。",
+  "by_source": {
+   "karpathy": "发布 HackerTube 并解释数据过滤流程，顺带怀念 arxiv sanity、推荐 alphaXiv。",
+   "mattpocockuk": "吐槽 AI 机器人回复、计划休网一个月，并讨论 Redux 式单一状态加 Effect 系统对 Agent 的意义。"
+  },
+  "updated_at": "2026-11-02T08:10:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2116989261551436046",
+   "date": "2026-11-02",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116989261551436046",
+   "url": "https://x.com/mattpocockuk/status/2116989261551436046",
+   "posted_at": "2026-11-02T04:22+08:00",
+   "kind": "reply",
+   "text": "The inevitable problem is that state always lives in multiple places - i.e. the URL, the server.\n\nSo you need an Effect system that works with that too.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2116988157933560144",
+    "url": "https://x.com/mattpocockuk/status/2116988157933560144",
+    "text": "Maybe Redux, or a Redux-like framework needs a comeback\n\nHaving state in ONLY ONE PLACE sounds pretty beneficial to agents\n\nI.e. restrict the decision space, only allow one way of doing things"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "不可避免的问题是，状态总是存在于多个地方——比如 URL、服务器。\n\n所以你还需要一个也能处理这些的 Effect 系统。",
+   "analysis": {
+    "summary": "他接着自己的 Redux 设想补充：状态不可避免地分散在 URL、服务器等多处，所以还需要能处理这些的 Effect 系统。",
+    "points": [
+     "状态天然分布在多处，如 URL 和服务器",
+     "单一 store 不够，还需要能统一处理这些的 Effect 系统"
+    ],
+    "why": "对上一条设想的自我修正，指出单一状态源在实际应用中的局限；Effect 在这里可能指副作用管理体系或 Effect 库，原文未明确。",
+    "tags": [
+     "前端架构",
+     "状态管理",
+     "Effect"
+    ]
+   }
+  },
+  {
+   "id": "x-2116988157933560144",
+   "date": "2026-11-02",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116988157933560144",
+   "url": "https://x.com/mattpocockuk/status/2116988157933560144",
+   "posted_at": "2026-11-02T04:18+08:00",
+   "kind": "post",
+   "text": "Maybe Redux, or a Redux-like framework needs a comeback\n\nHaving state in ONLY ONE PLACE sounds pretty beneficial to agents\n\nI.e. restrict the decision space, only allow one way of doing things",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "也许 Redux，或者类 Redux 的框架需要复兴了\n\n把状态只放在一个地方，听起来对 Agent 很有好处\n\n也就是说：限制决策空间，只允许一种做事方式",
+   "analysis": {
+    "summary": "Matt Pocock 提出 Redux 式“单一状态源”框架可能该回归，因为限制决策空间、只允许一种做法对 AI Agent 写代码有利。",
+    "points": [
+     "设想 Redux 或类 Redux 框架回归",
+     "状态只放在一个地方，对 Agent 有好处",
+     "核心思路：限制决策空间，只保留一种做事方式"
+    ],
+    "why": "这是关于“为 Agent 设计代码架构”的观点：约束越强、路径越唯一，Agent 越不容易出错。属于个人设想，尚无实践数据。",
+    "tags": [
+     "Agent 工程",
+     "前端架构",
+     "状态管理"
+    ]
+   }
+  },
+  {
+   "id": "x-2116980174667583602",
+   "date": "2026-11-02",
+   "type": "x",
+   "source": "karpathy",
+   "post_id": "2116980174667583602",
+   "url": "https://x.com/karpathy/status/2116980174667583602",
+   "posted_at": "2026-11-02T03:46+08:00",
+   "kind": "reply",
+   "text": "\"Hi Claude good morning how are you I'm great thx build me a YouTube-style site but restricted to videos that have been repeatedly recommended on HN over the years pls. Don't make any mistakes.\"",
+   "article_title": null,
+   "reply_to": {
+    "handle": "davegoldblatt",
+    "post_id": "2116976131538821152",
+    "url": "https://x.com/davegoldblatt/status/2116976131538821152",
+    "text": "Open Source?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "“嗨 Claude 早上好，你好吗，我很好谢谢，帮我做一个 YouTube 风格的网站，但只收录这些年在 HN 上被反复推荐的视频，拜托了。不要犯任何错误。”",
+   "analysis": {
+    "summary": "有人问 HackerTube 是否开源，Karpathy 用一段调侃式的“提示词”回应，暗示用一句话让 Claude 就能做出来。",
+    "points": [
+     "对方问“Open Source?”",
+     "他回了一段玩笑式的 Claude 提示词，描述要做的网站",
+     "言下之意：重点不在代码，而在于自己让 AI 做一个；此前他提到公开了数据 zip"
+    ],
+    "why": "玩笑式回复，信息量较低；但体现了他“代码可以随时重新生成”的态度。并未明确说明是否开源代码。",
+    "tags": [
+     "Vibe Coding",
+     "幽默"
+    ]
+   }
+  },
+  {
+   "id": "x-2116979365242429721",
+   "date": "2026-11-02",
+   "type": "x",
+   "source": "karpathy",
+   "post_id": "2116979365242429721",
+   "url": "https://x.com/karpathy/status/2116979365242429721",
+   "posted_at": "2026-11-02T03:43+08:00",
+   "kind": "reply",
+   "text": "Same... I had to bring it down (RIP) because it was just too much work to maintain, it would have been a lot easier today. But today there's also https://www.alphaxiv.org, which I like & use and is in the same spirit.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "RagavanThurair",
+    "post_id": "2116957700739268666",
+    "url": "https://x.com/RagavanThurair/status/2116957700739268666",
+    "text": "Miss the old arxiv sanity"
+   },
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://www.alphaxiv.org",
+     "title": "alphaXiv"
+    }
+   ],
+   "translation_zh": "我也是……我不得不把它关掉了（RIP），因为维护起来工作量太大，换到今天会容易得多。不过现在也有 https://www.alphaxiv.org ，我很喜欢也在用，精神上是一脉相承的。",
+   "analysis": {
+    "summary": "有人怀念旧的 arxiv sanity，Karpathy 说自己也怀念，当年因维护太累而关停，今天做会容易很多，并推荐了同类产品 alphaXiv。",
+    "points": [
+     "arxiv sanity 是 Karpathy 早年做的论文工具，因维护成本太高被关停",
+     "他认为以今天的工具重做会容易得多",
+     "推荐 alphaXiv（https://www.alphaxiv.org），他本人在用"
+    ],
+    "why": "呼应 HackerTube 帖的主题：AI 编程大幅降低了个人项目的维护门槛；对 alphaXiv 的推荐是个人偏好。",
+    "tags": [
+     "论文工具",
+     "个人项目"
+    ]
+   }
+  },
+  {
+   "id": "x-2116970707867566106",
+   "date": "2026-11-02",
+   "type": "x",
+   "source": "karpathy",
+   "post_id": "2116970707867566106",
+   "url": "https://x.com/karpathy/status/2116970707867566106",
+   "posted_at": "2026-11-02T03:08+08:00",
+   "kind": "reply",
+   "text": "Oh tbc Claude filtered it down a lot: urls, regexes, dropping spam, only the remainder was dispatched to Sonnet with a CC Workflow (so it uses the sub tokens). You can see surviving comments under videos, the comments that recommend videos seem to be of nice & helpful character.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "eyadnour",
+    "post_id": "2116959158826320083",
+    "url": "https://x.com/eyadnour/status/2116959158826320083",
+    "text": "I feel really sorry for the agent that had to read 43 million HN comments. It must be traumatized beyond repair. Nobody deserves that much \"well, actually\""
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "哦，说清楚一点：Claude 先大幅过滤了一遍：URL、正则、去掉垃圾内容，只有剩下的部分才通过一个 CC Workflow 分发给 Sonnet（这样用的是订阅额度的 token）。你可以在视频下面看到保留下来的评论，那些推荐视频的评论似乎都挺友善、乐于助人的。",
+   "analysis": {
+    "summary": "有人调侃让 Agent 读 4300 万条 HN 评论太残忍，Karpathy 解释其实先用 URL、正则和去垃圾做了大幅过滤，只有剩余部分才经 Claude Code Workflow 交给 Sonnet 处理。",
+    "points": [
+     "对方调侃读 4300 万条 HN 评论的 Agent 会“受创伤”",
+     "实际流程：先由 Claude 用 URL 提取、正则、去垃圾大幅过滤",
+     "剩余部分通过 CC Workflow 分发给 Sonnet，消耗的是订阅额度",
+     "保留下来的推荐评论会显示在视频下方，整体友善有帮助"
+    ],
+    "why": "补充了 HackerTube 的数据处理细节：先用便宜的规则过滤，再把少量数据交给模型，是控制成本的实用做法。",
+    "tags": [
+     "Agent 工程",
+     "数据处理",
+     "Claude Code"
+    ]
+   }
+  },
+  {
+   "id": "x-2116957135661945283",
+   "date": "2026-11-02",
+   "type": "x",
+   "source": "karpathy",
+   "post_id": "2116957135661945283",
+   "url": "https://x.com/karpathy/status/2116957135661945283",
+   "posted_at": "2026-11-02T02:14+08:00",
+   "kind": "post",
+   "text": "Weekend hack: HackerTube. I was annoyed with YouTube's recommendations so I had Claude filter down 43M comments over 20 years of HN to 6,454 videos that keep being recommended. *Significantly* better viewing experience, ~2 hours with Opus 5.5:\nhttps://hackertube.org/\n\n- Excellent recs without any logins (state is kept in local browser session)\n- Thumbnail is a representative frame from middle of the video instead of the super duper A/B test hyper-optimized user uploads\n- Underlying data from the comment analysis as one zip file, point your Claude at it and ask for your own version\n- HackerTube Longs ✊\n\nA bit more on the process:\nI use Claude Code (desktop app for Mac), Opus 5.5 on Medium effort as my default. I only talk to Claude and have it do everything, the only \"manual work\" I helped with in tandem was in the browser (reminiscent of MenuGen): 1) I had to create some kind of API key from Google Cloud UI to query YouTube for video metadata, 2) I booted up a VPS box for serving and 3) I bought the domain name. Once the box was up I gave Claude the IP and told it update, secure, harden, deploy and optimize the code, and it did the whole thing.\n\nMany awesome projects that would have normally taken weeks/months even can now be few-shotted for breakfast. What else are we not thinking of.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://hackertube.org/",
+     "title": null
+    }
+   ],
+   "translation_zh": "周末小项目：HackerTube。我受够了 YouTube 的推荐，于是让 Claude 把 HN 20 年来的 4300 万条评论筛到了 6,454 个被反复推荐的视频。观看体验*显著*更好，用 Opus 5.5 大约花了 2 小时：\nhttps://hackertube.org/\n\n- 推荐质量很好，且无需任何登录（状态保存在本地浏览器会话里）\n- 缩略图是视频中段的一帧代表性画面，而不是那些经过超级 A/B 测试、极度优化的用户上传封面\n- 评论分析的底层数据打包成一个 zip 文件，把你的 Claude 指向它，让它做一个你自己的版本\n- HackerTube Longs ✊\n\n再说说过程：\n我用 Claude Code（Mac 桌面应用），默认用 Opus 5.5 的 Medium effort。我只跟 Claude 对话，让它做所有事，我唯一配合做的“手工活”都在浏览器里（让人想起 MenuGen）：1）我得在 Google Cloud 界面上创建某种 API key，用来查询 YouTube 的视频元数据；2）我开了一台 VPS 用于部署服务；3）我买了域名。机器起来后，我把 IP 给了 Claude，让它更新、加固安全、部署并优化代码，它把整件事都做完了。\n\n很多原本要花几周甚至几个月的很棒的项目，现在早饭时间就能 few-shot 出来。还有什么是我们还没想到的。",
+   "analysis": {
+    "summary": "Karpathy 发布周末项目 HackerTube：让 Claude 从 HN 20 年 4300 万条评论里筛出 6,454 个被反复推荐的视频，做成免登录的视频站，全程由 Claude Code + Opus 5.5 在约 2 小时内完成。",
+    "points": [
+     "数据：HN 20 年、4300 万条评论，筛出 6,454 个被反复推荐的视频",
+     "免登录，状态保存在本地浏览器；缩略图取视频中段一帧而非优化过的封面",
+     "公开评论分析数据 zip，鼓励别人让 Claude 做自己的版本",
+     "工具：Claude Code 桌面版，Opus 5.5 Medium effort，约 2 小时",
+     "人工只做了三件事：创建 Google Cloud API key、开 VPS、买域名；部署、加固、优化都由 Claude 完成",
+     "观点：过去要几周到几个月的项目现在“早饭时间”就能做出来"
+    ],
+    "why": "一线研究者亲自演示“只跟 Agent 对话、人只做浏览器里的少量操作”的端到端开发方式，并给出具体分工；“几周变早饭”是作者的观点而非测量数据。",
+    "tags": [
+     "Agent 工程",
+     "Claude Code",
+     "Vibe Coding",
+     "Hacker News"
+    ]
+   }
+  },
+  {
+   "id": "x-2116933675862372410",
+   "date": "2026-11-02",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116933675862372410",
+   "url": "https://x.com/mattpocockuk/status/2116933675862372410",
+   "posted_at": "2026-11-02T00:41+08:00",
+   "kind": "reply",
+   "text": "Honestly might be easier to just make an allowlist rather than a denylist",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2116933487592923297",
+    "url": "https://x.com/mattpocockuk/status/2116933487592923297",
+    "text": "Whack a mole"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "说实话，做一个允许名单（allowlist）可能比做屏蔽名单（denylist）更容易",
+   "analysis": {
+    "summary": "在自己“打地鼠”（Whack a mole）的回复下，Matt Pocock 补充：与其屏蔽机器人，不如只放行可信账号。",
+    "points": [
+     "上一条回复他形容应对机器人像“打地鼠”",
+     "他认为用 allowlist（只放行可信者）可能比 denylist（逐个屏蔽）更省事"
+    ],
+    "why": "围绕 AI 机器人回复问题的延伸讨论；allowlist 优于 denylist 是常见的安全思路，这里是他的个人看法。",
+    "tags": [
+     "机器人",
+     "社交平台"
+    ]
+   }
+  },
+  {
+   "id": "x-2116926942112797140",
+   "date": "2026-11-02",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116926942112797140",
+   "url": "https://x.com/mattpocockuk/status/2116926942112797140",
+   "posted_at": "2026-11-02T00:14+08:00",
+   "kind": "reply",
+   "text": "If there were only 46 of them it would be very very easy",
+   "article_title": null,
+   "reply_to": {
+    "handle": "Nateemerson",
+    "post_id": "2116926800941232448",
+    "url": "https://x.com/Nateemerson/status/2116926800941232448",
+    "text": "Have you seen this?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "如果只有 46 个，那就非常非常容易了",
+   "analysis": {
+    "summary": "有人问他“你看过这个吗？”（未采集到所附内容），Matt Pocock 回复说如果只有 46 个就会非常容易。",
+    "points": [
+     "回复对象只写了“Have you seen this?”，附带内容未采集到",
+     "他回应“如果只有 46 个就非常容易”，推测与识别/屏蔽机器人账号有关，但上下文不全"
+    ],
+    "why": "上下文不完整，信息量很低；不对“46”具体指什么做推断。",
+    "tags": [
+     "机器人",
+     "社交平台"
+    ]
+   }
+  },
+  {
+   "id": "x-2116925681649193036",
+   "date": "2026-11-02",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116925681649193036",
+   "url": "https://x.com/mattpocockuk/status/2116925681649193036",
+   "posted_at": "2026-11-02T00:09+08:00",
+   "kind": "reply",
+   "text": "My plan when my second child comes along is to take a full month off this platform\n\nIt'll be interesting to see how much I genuinely miss it, after daily checking every day since 2018",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2116925366669312413",
+    "url": "https://x.com/mattpocockuk/status/2116925366669312413",
+    "text": "AI replies on this platform are astonishingly bad\n\nI don't check my notifications how I used to - excited by interesting discussions, like a conference hallway track\n\nInstead, I search for profile pictures of people I know aren't bots\n\nThey are getting harder and harder to spot"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我的计划是，等第二个孩子出生后，完全离开这个平台一个月\n\n自 2018 年以来我每天都会上来看，到时候看看我究竟会有多想念它，应该挺有意思的",
+   "analysis": {
+    "summary": "在吐槽 AI 回复的帖子下，Matt Pocock 补充说第二个孩子出生后他打算离开 X 整整一个月，看看自己会不会真的想念。",
+    "points": [
+     "计划在第二个孩子出生后离开 X 一个月",
+     "自 2018 年起他每天都会看 X",
+     "想借此检验自己对平台的真实依赖程度"
+    ],
+    "why": "个人生活动态，技术信息量很低；可视为他对平台质量下降的一种回应。",
+    "tags": [
+     "个人动态",
+     "社交平台"
+    ]
+   }
+  },
+  {
+   "id": "x-2116925366669312413",
+   "date": "2026-11-02",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116925366669312413",
+   "url": "https://x.com/mattpocockuk/status/2116925366669312413",
+   "posted_at": "2026-11-02T00:08+08:00",
+   "kind": "post",
+   "text": "AI replies on this platform are astonishingly bad\n\nI don't check my notifications how I used to - excited by interesting discussions, like a conference hallway track\n\nInstead, I search for profile pictures of people I know aren't bots\n\nThey are getting harder and harder to spot",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "这个平台上的 AI 回复烂得惊人\n\n我不再像以前那样看通知了——以前是满怀期待地看有趣的讨论，就像大会走廊里的闲聊\n\n现在我会去找那些我确定不是机器人的人的头像\n\n它们越来越难分辨了",
+   "analysis": {
+    "summary": "Matt Pocock 抱怨 X 上的 AI 自动回复质量极差，他现在只能靠认头像找真人，而机器人越来越难分辨。",
+    "points": [
+     "X 上的 AI 回复质量“烂得惊人”",
+     "他不再像过去那样把通知区当作有价值的讨论场",
+     "现在靠识别熟人头像来挑出真人回复",
+     "机器人回复越来越难识别"
+    ],
+    "why": "反映了一线技术博主对 AI 生成内容污染社交平台讨论的直接感受；属于个人体验，不是统计数据。",
+    "tags": [
+     "AI 内容",
+     "社交平台",
+     "机器人"
+    ]
+   }
+  }
+ ]
+}
