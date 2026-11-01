@@ -1,0 +1,339 @@
+{
+ "schema_version": 1,
+ "type": "news",
+ "date": "2026-11-01",
+ "day": {
+  "window": "10/31 08:30 – 11/01 08:30 北京时间",
+  "note": "未使用 X 付费 API",
+  "footer": "Java 方向今天主要是 InfoQ 汇总的 Spring AI 2.1.0-RC1；JDK 28 仍是早期访问，没有新的一手发布。Ontology 方向当天没有值得单列的内容。没单列的还有：OpenAI 本轮融资据 WSJ 称未达 300 亿美元目标的一半（HN 181 分）；Anthropic IPO 后或获高垃圾债评级（HN 99 分）；Bunny CDN 因上游 Gcore 亚美尼亚节点被入侵，已轮换托管 TLS 证书并建议客户自管证书也重签（HN 221 分）；Linode 同步发了安全通告（HN 194 分）；Scribd 向用户分批通知安全事件，涉及邮箱与卡号后四位等支付相关字段（HN 335 分）；MCP Registry v1.8.7 增加预生成 listing JSON 但默认关闭；MCP 企业托管授权文档新增 12 家支持 ID-JAG 的厂商表；Microsoft Agent Framework Python 1.24.0 发布时间略早于本时间窗（10/31 05:52 北京），昨天 footer 已提过；Natural Direct、Shopify Shop Pay for agents 的一手发布也更早，今天只有二手跟进。",
+  "highlights": [
+   1,
+   2,
+   3
+  ]
+ },
+ "items": [
+  {
+   "id": "news-2026-11-01-01",
+   "date": "2026-11-01",
+   "type": "news",
+   "rank": 1,
+   "title": "Prospero：Chris Wellons 用 C++/Dear ImGui 写的轻量编码 harness，强调「永不永久等待」和进程树一起死",
+   "summary": "作者嫌现有 harness 大多是 web 栈、吃内存，自己做了一个约少两个数量级资源的开源方案：MCP、子 agent、远程无头引擎、桌面视觉控制都有。",
+   "url": "https://nullprogram.com/blog/2026/10/31/",
+   "tags": [
+    "Harness",
+    "Coding Agent",
+    "MCP",
+    "开源"
+   ],
+   "raw_tags": [
+    "Harness Engineering",
+    "Coding Agent",
+    "MCP",
+    "开源"
+   ],
+   "score": 180,
+   "score_label": "HN 180 分 · 118 条评论 · GitHub 83★",
+   "detail": {
+    "heat": "HN 180 分 · 118 条评论 · GitHub 83★",
+    "highlight": true,
+    "event": "nullprogram.com 的 Chris Wellons（skeeto）10/31 发文介绍 Prospero。核心观点：编码 harness 本质上是 curl 粘合 popen()，不该占几 GB 内存。它用 Dear ImGui 做对接界面、被动渲染（没事就不刷 GPU），配置是可 include URL 的 INI。设计原则包括：每个操作都有截止时间——你不在就超时拒绝权限，agent 得自己想办法；网络请求有超时和 watchdog；同步超时的 shell 会升成异步后台任务并定期叫醒 agent；整棵进程树一起停，避免残留构建进程互相干扰。还支持 MCP、Git worktree 子 agent、Web 搜索、会话 fork，以及把无头副本部署到 SSH/WSL 主机做远程控制（Professional 版内嵌多架构引擎，甚至能在 WinXP 上跑）。社区版在 GitHub（Unlicense），无内建远程引擎；Professional 付费无 DRM 更新。作者明确说权限系统拦不住恶意 agent，真正隔离得靠容器或树莓派。",
+    "why": "这是少有的从「系统资源与可靠性」而不是「模型能力」出发重构 harness 的长文：永不挂死、进程清理、被动渲染、fuzz 时不被 OOM killer 误杀——都是实际跑长任务会踩的坑。也直接对照了 Herdr、Claude Code、Codex 这类重前端方案的取舍。",
+    "use": "1）如果团队在本地跑 llama.cpp / 自建端点，可当对照实现读它的超时与进程树策略。2）自己写 harness 时把「永不永久等待」和「超时升异步」写成默认，减少一夜醒来发现挂在一次权限弹窗上。3）评估 MCP 接入时看它如何把工具循环做薄，而不是先上 Electron。",
+    "links": [
+     {
+      "name": "Prospero 博文",
+      "url": "https://nullprogram.com/blog/2026/10/31/"
+     },
+     {
+      "name": "GitHub skeeto/prospero",
+      "url": "https://github.com/skeeto/prospero"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50315226"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-01-02",
+   "date": "2026-11-01",
+   "type": "news",
+   "rank": 2,
+   "title": "Parameter 披露：ChatGPT 公开分享链接可越出 Preview 沙箱，在受害者已登录会话里执行任意 JS",
+   "summary": "攻击者发一条带恶意 HTML Preview + MathLive 图的公开分享，对方一点开就能读私密对话并调认证 API；OpenAI 10/26 已修，定级 P1，赏金 5000 美元。",
+   "url": "https://www.parameter.ai/labs/we-found-a-gap-at-openai",
+   "tags": [
+    "AI Agent",
+    "供应链安全",
+    "支付"
+   ],
+   "raw_tags": [
+    "AI Agent",
+    "供应链安全",
+    "支付系统"
+   ],
+   "score": 299,
+   "score_label": "HN 299 分 · 148 条评论",
+   "detail": {
+    "heat": "HN 299 分 · 148 条评论",
+    "highlight": true,
+    "event": "Parameter Labs 10/28 公开（HN 10/31 热传）：ChatGPT 的 HTML Preview 跑在隔离源，但同页上的交互图会加载 MathLive，并在主站 chatgpt.com 上安装不校验来源的 postMessage 监听。Preview 可伪造 MathLive 的 virtual-keyboard 消息，把含 HTML 的键盘布局写进主文档的 innerHTML；再用无 sandbox 的 srcdoc iframe 拿到 chatgpt.com 身份，借助 CSP 放行的 YouTube oEmbed JSONP 绕过脚本限制，最终在受害者已登录会话里执行任意代码。确认能枚举对话列表、拉取从未分享过的私密对话并外传。受害者只需打开分享链接，不必装 App 或粘贴代码。OpenAI 10/26 修复并定 P1；报告称总赏金 5000 美元，HN 上多人觉得对账号接管偏低。",
+    "why": "「分享一下对话」这种产品功能一旦和第三方组件、宽松 postMessage、CSP 例外叠在一起，就变成一键会话劫持。任何带 Preview/沙箱画布的 agent 产品都值得对照：隔离源是否真的隔离、消息是否验 origin、CSP 是否留下 JSONP 口子。",
+    "use": "1）自研 agent 聊天若有代码预览或图表组件，审计 postMessage 是否校验 origin，以及 innerHTML 路径。2）企业若用 ChatGPT 处理敏感工单，确认员工是否在 10/26 前点过陌生分享链，并轮换相关会话里的密钥。3）安全评审把「分享页 = 攻击面」写进检查清单，赏金量级也可对照自家漏洞奖励是否覆盖账号接管。",
+    "links": [
+     {
+      "name": "Parameter 技术报告",
+      "url": "https://www.parameter.ai/labs/we-found-a-gap-at-openai"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50314699"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-01-03",
+   "date": "2026-11-01",
+   "type": "news",
+   "rank": 3,
+   "title": "Cisco Talos：VOLTA 窃密木马把赃物打包后交给 LLM，按「值多少钱」给受害者排序",
+   "summary": "偷完浏览器密码、钱包、会话后，在受害者机器上调 OpenRouter（默认 Claude Opus 4.6，失败再 Kimi→Gemini）写目标评估；没有攻击者自有基础设施。",
+   "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+   "tags": [
+    "AI Agent",
+    "Context Engineering"
+   ],
+   "raw_tags": [
+    "AI Agent",
+    "Context Engineering"
+   ],
+   "score": 229,
+   "score_label": "HN 229 分 · 126 条评论 · Talos 报告",
+   "detail": {
+    "heat": "HN 229 分 · 126 条评论 · Talos 报告",
+    "highlight": true,
+    "event": "Cisco Talos 10/31 发布 VOLTA-AUTODOXER 分析。该 Windows 自删除窃密程序在收割凭据、Cookie、卡号、加密货币种子、Discord/Telegram/Steam 会话、云密钥、Wi-Fi、截图之后，用盗来的会话继续 enrichment（搜 Gmail 收据确认住址、拉 UberEats/DoorDash 订单、给 Roblox 资产估价等），写成 Identity_Report，再 POST 到 OpenRouter，系统提示要求扮演「法医情报分析师」，输出「WHAT THEY'RE WORTH」分级与「THEIR OPSEC」。默认模型 anthropic/claude-opus-4.6，拒绝则 moonshotai/kimi-k2 → google/gemini-2.5-flash；温度 0.2。模板化 builder 模式暗示可售卖定制二进制；端点全是第三方，无攻击者自有 C2。Talos 将其归为用模型做「工作量转移」：把需要持续人肉研判的环节换成一次推理。",
+    "why": "恶意软件开始把 LLM 当分析师而不是写代码助手；多模型拒绝回退链说明攻击者已按护栏工程化。也提醒：OpenRouter 类聚合端点、被盗会话二次 enrichment、以及「结构化证据包 + 排序提示词」都会成为犯罪工具包标配。",
+    "use": "1）终端防护关注异常的 OpenRouter/chat completions 出口与 Chrome --headless 拉起（Talos 建议限制非开发者进程开 headless）。2）做 agent 安全红队时，可对照「多模型拒绝回退」设计检测特征。3）若公司允许员工机器访问模型聚合 API，把 VOLTA 这类事后分析流量纳入威胁情报。",
+    "links": [
+     {
+      "name": "Talos 报告",
+      "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50316531"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-01-04",
+   "date": "2026-11-01",
+   "type": "news",
+   "rank": 4,
+   "title": "Agentcard 上线 opencommerce：一个 buy tool 对接约 5026 家店，按成交额收 1%",
+   "summary": "自称「商业版 OpenRouter」；定价 Standard 1% 成交费，暖路径约 9 秒下单。发布紧挨 Mastercard CEO「一次性虚拟卡只是过渡」表态。",
+   "url": "https://fourweekmba.com/ai-agentcard-puts-5026-stores-behind-one-ai-agent-buy-tool/",
+   "tags": [
+    "支付",
+    "AI Agent"
+   ],
+   "raw_tags": [
+    "支付系统",
+    "AI Agent"
+   ],
+   "score": null,
+   "score_label": "行业报道 · 10/31 上线",
+   "detail": {
+    "heat": "行业报道 · 10/31 上线",
+    "highlight": false,
+    "event": "支付创业公司 Agentcard 于 10/31（周五）推出 opencommerce：给 agent 一个统一购买工具，覆盖约 5026 家在线商店（宣传点名 DoorDash、Amazon 与多数 Shopify 店）。Standard 计划对每笔成交订单收 1%；支付走 Agentcard，Stripe Link 与 Shop「即将支持」。站点称暖路由约 9 秒、冷启动约 2 分 40 秒。开发者把 buy tool 挂到 agent（示例用 Claude + AI SDK）：搜索、加购、确认、请求付款批准、回传进度。监控表展示各店搜索到结账延迟。公开材料未说明是否已获各商家正式授权、走虚拟卡还是网络令牌，也无成交量数据。时间点上，正好在 Mastercard CEO 财报会上称 agent 支付中的一次性虚拟卡「不是长期方案」之后一天。",
+    "why": "agent 支付正在从「发卡网络表态」进入「聚合结账层」：谁能把多店搜索+结账收成一个工具，谁就卡住开发者默认路径。1% 成交费也给「自建 vs 买聚合」算账提供了锚点，并与 Stripe 虚拟卡、Shop Pay 网络令牌两条路线形成对照。",
+    "use": "1）做购物/采购 agent 时可拿它当基准：统一 buy tool + 成交抽成 vs 直连 Visa/Mastercard agentic token。2）评估时要求对方说明商户授权方式与凭证形态（VCN 还是网络令牌），避免合规灰区。3）对照 Mastercard「令牌化长期方案」看自己的产品路线该押哪边。",
+    "links": [
+     {
+      "name": "FourWeekMBA 报道",
+      "url": "https://fourweekmba.com/ai-agentcard-puts-5026-stores-behind-one-ai-agent-buy-tool/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-01-05",
+   "date": "2026-11-01",
+   "type": "news",
+   "rank": 5,
+   "title": "Google 称 Android MCP（AppFunctions）进入 beta：App 可把函数暴露给 Gemini 等 agent",
+   "summary": "手机上的「本地 MCP 服务器」模式；需 Android 16+，Jetpack 库仍是 alpha，Gemini 对接仍是私人预览。",
+   "url": "https://pasqualepillitteri.it/en/news/28959/android-mcp-appfunctions-beta-google-ai-agents",
+   "tags": [
+    "MCP",
+    "AI Agent"
+   ],
+   "raw_tags": [
+    "MCP",
+    "AI Agent"
+   ],
+   "score": null,
+   "score_label": "Google for Developers 10/31 宣布",
+   "detail": {
+    "heat": "Google for Developers 10/31 宣布",
+    "highlight": false,
+    "event": "10/31 Google for Developers India 账号发帖称 Android MCP「正式进入 beta」。App 通过 AppFunctions 把 Kotlin 函数标成 `@AppFunction`，经 KSP 生成 schema 供系统索引；调用方需 `EXECUTE_APP_FUNCTIONS` 权限，可以是系统助手、其他 App 或自选 agent。官方质量指南把 App 比作 Android MCP server、每个 AppFunction 比作工具，强调可读命名、少暴露过量个人数据。硬性条件：Android 16+、compileSdk 36；AppFunctions Jetpack 库公开 alpha；与 Gemini 的集成仍是 Early Access 私人预览，报名不保证开通。文档部分页面仍写 experimental preview，和「beta」话术不完全一致，接口仍可能变。",
+    "why": "继 WebMCP 之后，MCP 形态的工具暴露从浏览器进到操作系统：agent 不必模拟点击，直接调声明过的能力。对做 Android 客户端或「手机侧 agent」的团队，这是平台级分发面；也说明 MCP 正在被大厂拆成 Web / OS / 云 多条落地。",
+    "use": "1）Android 业务 App 可先把「创建笔记 / 搜图 / 记账」等无 UI 动作标成 AppFunction，为日后系统 agent 调用做准备。2）权限与隐私评审按 Google 指南砍掉会带出完整聊天记录一类的参数。3）在 Gemini EAP 未放开前，先用自有 agent 调 AppFunctions 做联调，不要按生产 SLA 承诺。",
+    "links": [
+     {
+      "name": "报道与要点整理",
+      "url": "https://pasqualepillitteri.it/en/news/28959/android-mcp-appfunctions-beta-google-ai-agents"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-01-06",
+   "date": "2026-11-01",
+   "type": "news",
+   "rank": 6,
+   "title": "Claude Code 2.1.316：关掉 ultrathink、网关共享组预算、子 agent 独立 effort，并修退出后残留 shell",
+   "summary": "跳过问题版本号后的又一次 harness/企业网关小版本；Opus 4.8 fast mode 将于 11/30 移除，需迁到 Opus 5.5。",
+   "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.316",
+   "tags": [
+    "Coding Agent",
+    "Harness"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "Harness Engineering"
+   ],
+   "score": null,
+   "score_label": "GitHub Release · 15 万★+ 仓库",
+   "detail": {
+    "heat": "GitHub Release · 15 万★+ 仓库",
+    "highlight": false,
+    "event": "Anthropic 于 10/31 01:01 UTC（北京时间 09:01）发布 v2.1.316。新增：`CLAUDE_CODE_DISABLE_ULTRATHINK`；Claude apps 网关 pooled group budgets（组员共享月度预算，叠在个人限额上）；`CLAUDE_CODE_SUBAGENT_EFFORT` 给未另行指定的子 agent 设 effort；网关 `managed.policy_mode: layered` 合并所有匹配策略；Bedrock 上游 `guardrail.input_tagging`；`CLAUDE_CODE_DISABLE_LOOPED_CROSS_CERT_DROP` 保留环状交叉证书。弃用：Opus 4.8 的 fast mode 自 10/30 起弃用，11/30 移除后请求直接报错不回退。修复重点：自身退出时 macOS/Linux 上残留的 shell；Bash 别名换行与 `SHELLOPTS` 导致脚本只跑第一条；`--restricted` 会话被 Read allow 规则带出工作目录外上传；子 agent 被后台任务唤醒后错误切回主模型等。",
+    "why": "企业侧最实用的是组共享预算和 layered 策略；开发者侧「退出清进程」和「受限会话不外泄文件」直接对应昨天 Prospero 也在谈的 stray process / 权限边界问题。Opus 4.8 fast mode 死线则是排期事项。",
+    "use": "1）用 Claude apps 网关的团队在 admin API 上设 `pooled_budget`，避免组内有人打满、其他人没事干。2）升级后回归：杀进程后是否还有 agent 拉起的构建；`--restricted` 是否还会上传白名单 Read 扫到的外目录文件。3）依赖 Opus 4.8 fast mode 的流水线在 11/30 前迁到 Opus 5.5。",
+    "links": [
+     {
+      "name": "v2.1.316 Release Notes",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.316"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-01-07",
+   "date": "2026-11-01",
+   "type": "news",
+   "rank": 7,
+   "title": "GPT-5.6 Sol 在 Codex + 游戏管理器下，13.5 小时游戏时间打通和平模式 Factorio 并发射火箭",
+   "summary": "用 Python 库约束「够得着 / 战争迷雾」等人机限制；后期要靠手动搬运补生产链缺口，作者当作观察模型能力的可解释测试床。",
+   "url": "https://ryanmadden.net/gpt-56-beats-factorio/",
+   "tags": [
+    "Coding Agent",
+    "Harness",
+    "AI Agent"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "Harness Engineering",
+    "AI Agent"
+   ],
+   "score": 153,
+   "score_label": "HN 153 分 · 168 条评论",
+   "detail": {
+    "heat": "HN 153 分 · 168 条评论",
+    "highlight": false,
+    "event": "Ryan Madden 发文：用 GPT-5.6 Sol（Codex、低 thinking）在自写游戏管理器下完成和平模式 Factorio，游戏内约 13.5 小时发射火箭。库用 Python（上一次是 Bash），强制与 GUI 玩家相同的触及距离与 fog of war。生产统计标注了科研里程碑；原计划蓝瓶后停，因表现超预期继续。作者坦承后期扩展失败，模型靠反复人工式搬运物资「糊」过断链才发射成功；相对 GPT-5.5「几乎不会用传送带」已有进步。他认为 Factorio 自治通关是讨论模型行为的直观媒介，计划再测其他模型与非和平模式。",
+    "why": "这不是游戏新闻，而是 harness + 工具约束下的长程 agent 案例：同一套「程序化操作 + 人机同权限制」可迁移到内部仿真环境。评论区也把它和「agent 编程是否真在创造」对照——工厂布局怪异但能跑。",
+    "use": "1）设计长程 agent 评测时，可借鉴「领域库强制真实约束 + 全程生产指标」而不是只看最终成功/失败。2）观察「后期靠搬运补洞」这类失败模式，用来写自己的回归用例（连接性、扩展规划）。3）若用 Codex/Claude Code 跑仿真，优先把动作空间收成小库，而不是裸 shell 点像素。",
+    "links": [
+     {
+      "name": "Ryan Madden 博文",
+      "url": "https://ryanmadden.net/gpt-56-beats-factorio/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50318871"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-01-08",
+   "date": "2026-11-01",
+   "type": "news",
+   "rank": 8,
+   "title": "Spring AI 2.1.0-RC1：用 SessionService 替换 ChatMemory，助手消息支持有序 parts",
+   "summary": "InfoQ 汇总的 10/19 当周 Spring 首批 RC 之一；和 Boot 4.2、Framework 7.1 等 17 个项目一起进入 RC。",
+   "url": "https://www.infoq.com/news/2026/10/spring-news-roundup-oct19-2026/",
+   "tags": [
+    "Java",
+    "AI Agent",
+    "Context Engineering"
+   ],
+   "raw_tags": [
+    "Java",
+    "AI Agent",
+    "Context Engineering"
+   ],
+   "score": null,
+   "score_label": "InfoQ 10/31 周报",
+   "detail": {
+    "heat": "InfoQ 10/31 周报",
+    "highlight": false,
+    "event": "InfoQ 10/31 发布 Spring 新闻综述：10/19 当周 Spring 团队为 17 个项目发出首个 RC，其中包括 Spring AI 2.1.0-RC1。该 RC 的主要 API 变化是新增 `SessionService`（创建/查找会话），取代现已弃用的 `ChatMemory`；`OpenAiChatModel` 与 `DeepSeekChatModel` 能按每个 choice 的有序 message parts 组装助手消息。同批还有 Spring Boot 4.2.0-RC1、Framework 7.1.0-RC1 等。这是本时间窗内 Java/AI 方向最具体的一手版本动态。",
+    "why": "ChatMemory → SessionService 说明 Spring AI 把「会话」提升成一等服务而不是附带记忆接口；有序 parts 则对齐多模态/多段助手回复的主流 API 形状，对 Java 企业栈接 agent 有直接迁移成本。",
+    "use": "1）已用 Spring AI ChatMemory 的项目对照 RC 迁移指南改到 SessionService，避免 GA 时踩弃用删除。2）接 OpenAI/DeepSeek 多段助手消息时改用有序 parts 构建，减少自定义拼接。3）若计划跟 Boot 4.2 / Framework 7.1，把 Spring AI 2.1 放进同一波 RC 验证。",
+    "links": [
+     {
+      "name": "InfoQ Spring Roundup",
+      "url": "https://www.infoq.com/news/2026/10/spring-news-roundup-oct19-2026/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-01-09",
+   "date": "2026-11-01",
+   "type": "news",
+   "rank": 9,
+   "title": "CVE-2026-98432：Linux IPv4 TCP 握手 UAF，CVSS 9.8；Anthropic 称 Claude 写出需 MPTCP 监听的远程 root PoC",
+   "summary": "影响自 4.4 起未打补丁内核；Go 默认开 multipath TCP 监听使利用面比乍看更大。Ubuntu/RHEL 截至 10/31 仍无修复包。",
+   "url": "https://atlasum.net/blog/cve-2026-98432-linux-ipv4-tcp-uaf",
+   "tags": [
+    "Coding Agent",
+    "供应链安全"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "供应链安全"
+   ],
+   "score": 291,
+   "score_label": "HN 291 分 · 141 条评论",
+   "detail": {
+    "heat": "HN 291 分 · 141 条评论",
+    "highlight": false,
+    "event": "Atlas 等跟踪页在 10/31 更新：CVE-2026-98432 为 IPv4 TCP 握手期间 inet 选项 UAF，内核 CNA 与 Red Hat 均评 Critical CVSS 9.8。稳定内核 10/11–15 已合入修复（如 6.1.190、6.6.159、6.12.113 等）。截至 10/31 下午，Ubuntu 各版本 tracker 仍 Vulnerable，RHEL 8/9/10 受影响但无修复；Debian/Amazon Linux/部分 SUSE 已有包。报告人 Anthropic 的 Xinyang Ge；Anthropic 称 Claude 为其写出具有 multipath TCP 监听的服务器上的远程 root 利用（未公开）。Go Security Team 指出 Go 程序默认打开 MPTCP 监听，使「需要 MPTCP」的前提比最初估计更常见。临时缓解包括丢弃带 IPv4 options 的 TCP 包、禁用不用的 MPTCP、优先给有 MPTCP 监听的主机打补丁。",
+    "why": "和本月 Anthropic 红队公开 Claude 写漏洞利用链同一脉络：编码 agent 已能产出内核级利用。运维侧则是「发行版补丁滞后 + Go 默认 MPTCP」放大窗口；跑 agent/网关的 Linux 机尤其要盘点。",
+    "use": "1）立刻查发行版 tracker，能升内核就升并重启；Ubuntu/RHEL 主机先上 nftables 缓解并关掉非必要 MPTCP。2）盘点用 Go 写的 agent 网关、MCP 服务器是否在默认 MPTCP 监听上暴露。3）安全团队可把「模型辅助利用」纳入漏洞响应 SLA 假设，缩短「细节公开到大规模利用」的预期窗口。",
+    "links": [
+     {
+      "name": "Atlas 跟踪文",
+      "url": "https://atlasum.net/blog/cve-2026-98432-linux-ipv4-tcp-uaf"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50319143"
+     }
+    ]
+   }
+  }
+ ]
+}
