@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-11-01",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-11-01-mika",
+      "date": "2026-11-01",
+      "type": "oss",
+      "rank": 1,
+      "title": "Mika：安卓手机上的开源 AI 助理，一句话替你在后台操作 App 和网页",
+      "summary": "不靠 App 接口、看屏幕点按钮，在隐藏的后台屏上办事不占你的手机；无服务器、自带 Key 或登录 ChatGPT/xAI，三天发了 29 个版本、作者回 issue 很快。",
+      "url": "https://github.com/wangzan101/Mika",
+      "tags": [
+        "AI Agent",
+        "手机",
+        "自动化"
+      ],
+      "raw_tags": [],
+      "score": 2802,
+      "score_label": "★ 2802",
+      "detail": {
+        "status": "picked",
+        "repo": "wangzan101/Mika",
+        "homepage": null,
+        "stars": 2802,
+        "forks": 448,
+        "license": "Apache-2.0",
+        "language": "Kotlin",
+        "latest_release": "v0.1.28",
+        "runners_up": [],
+        "body_md": "**Mika：装在安卓手机上的开源 AI 助理，一句话替你操作 App 和网页，而且在后台虚拟屏上干活、不占你的屏幕**\n\n今天值得试：手机端「能真把事办成」的开源 Agent 很少，Mika 不靠任何 App 接口，看屏幕点按钮，所以微信、小红书、淘宝类 App 都能用。北京时间 10-29 晚上首个公开版，三天发了 29 个版本，最新 v0.1.28 是今早 09:56 发的。\n\n仓库：[wangzan101/Mika](https://github.com/wangzan101/Mika)\n\n**解决什么 / 适合谁**\n想让 AI 替自己在手机上跑腿的人：读完一个微信群聊天记录做总结、按条件挑商品加购物车、给招聘方批量打招呼、定时查天气只在下雨时提醒。也适合想研究「手机 GUI Agent」怎么落地的开发者，代码全开源（Apache-2.0，Kotlin）。\n\n**README 里的要点**\n- 在一块隐藏的后台屏幕上开 App、点、输入、滑动，你照常用手机；点小窗可以实时看它在干嘛。\n- 没有 Mika 服务器：用你自己的模型 Key（DeepSeek、通义、Kimi、智谱、OpenAI、Anthropic、Gemini、xAI、Ollama/LM Studio 等预设，也能填任意 OpenAI 兼容地址），或直接登录 ChatGPT Plus/Pro、xAI、OpenRouter 账号。Key 和记忆在手机上加密存放。\n- 默认「询问模式」：只有下单付款前问你，其他直接做；登录、验证码、支付页交给你。也可切到全自动。\n- 内置浏览器、对当前屏幕提问（双击悬浮胶囊）、定时和条件任务、任务中途插话纠正、每个对话一个 arm64 Linux 沙箱跑 Python/Node。\n- 办成的任务会自动沉淀成技能，下次更快；内置了微信、小红书、BOSS 直聘、抖音、B 站、Gmail、Amazon 等 20 多个 App/网站的使用知识，没列到的也能用。\n- 电脑上的 AI 工具可以通过 CLI + Skill 或 MCP 给手机上的 Mika 派活。\n\n**近期活跃证据**\n- Issues：三天里开了 40 多个，18 个已关；大多是各品牌机型兼容性报告，作者回复很快也很具体，比如 #84「建技能其实没存下」当天找到原因、在 v0.1.27 修好；#39 有用户在开发者选项误开「16KB 页面大小」导致手机被清数据，v0.1.23 已在引导里加了醒目警告。\n- Release：29 个版本，几乎每隔几小时一版；v0.1.28 新增按住说话、悬浮胶囊语音派活、可选语音转文字模型。\n- 提交：共 251 次，作者 wangzan101 占 206 次，另有 10 多位贡献者；最近一次提交就在今早，方向是语音输入、思考强度设置、文档和多语言 README。\n\n**快速上手**\n1. 从 [Releases](https://github.com/wangzan101/Mika/releases/latest) 下载 APK 装到 Android 11+ 手机（要操作 App 需 Android 12+，推荐 14+）。\n2. 设置 › 模型 里填一个 Key，或者登录 ChatGPT / xAI / OpenRouter 账号；只聊天和上网到这一步就够了。\n3. 要让它操作 App，跟着「设置手机操作」向导配对一次无线调试，然后试一句「明早 9:40 和 10:00 各设一个闹钟」。\n\n**风险 / 注意点**\n- 还很早期（v0.1.x），单人主力开发；兼容性问题不少，三星 S10+ 授权被拒（#98）、一加 ColorOS 无障碍被停用（#83）、MuMu 模拟器建不了虚拟屏（#55）都还开着，Android 10 装不了。\n- 配置时要进开发者选项，只动 Mika 提到的开关，看到要求清除数据或恢复出厂的提示就点取消。\n- 屏幕内容会发给你选的模型服务商；自动操作第三方 App 可能违反其服务条款，重要的事用询问模式并自己核对。\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
