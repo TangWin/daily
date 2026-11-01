@@ -1,0 +1,48 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-01",
+ "day": {
+  "digest": "Matt Pocock 公布 Sandcastle v1 的重塑方向：定位为搭建“软件工厂”的工具，支持多种 harness 和 Sandbox 提供商，并把他的每个 skill 变成可调用的 Agent() 函数，正在征求反馈。",
+  "by_source": {
+   "mattpocockuk": "发布 Sandcastle v1 的产品介绍草案，把 skills 变成可调用的 Agent() 并接入自有基础设施。"
+  },
+  "updated_at": "2026-11-01T20:10:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2116805878187794740",
+   "date": "2026-11-01",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2116805878187794740",
+   "url": "https://x.com/mattpocockuk/status/2116805878187794740",
+   "posted_at": "2026-11-01T16:13+08:00",
+   "kind": "post",
+   "text": "Putting in a ton of work into Sandcastle v1. Going to reshape it a lot.\n\nHow does this sound as a pitch:\n\n- Sandcastle helps you build your software factory\n- Use our 6 built-in harnesses (Claude Code, Codex, etc) or your own\n- Integrates with all the top Sandbox providers (Daytona, Vercel, E2B, etc)\n- Ships with templates to work with Inngest/Trigger.dev for a durable factory\n- Support for HITL (over Slack and Discord) as well as AFK runs\n\nAnd one more thing...\n\n- Every skill in my repo becomes an Agent(), a function you can invoke to get that workflow\n- CodeReview(), ImplementSpec(), Retro(), ImproveCodebaseArchitecture()\n\nSo effectively, you just plug my skills into infrastructure you provision, into services you already use.\n\nA software factory running on your infra with opinionated, mattpocock/skills-based defaults but infinitely extensible.\n\nWDYT?",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我正在为 Sandcastle v1 投入大量精力，打算对它做很大的重塑。\n\n这个产品介绍听起来怎么样：\n\n- Sandcastle 帮你搭建自己的软件工厂\n- 使用我们内置的 6 种 harness（Claude Code、Codex 等），或者用你自己的\n- 与所有主流 Sandbox 提供商集成（Daytona、Vercel、E2B 等）\n- 自带模板，可配合 Inngest/Trigger.dev 打造一个持久化（durable）的工厂\n- 支持 HITL（人在回路，通过 Slack 和 Discord），也支持 AFK（无人值守）运行\n\n还有一件事……\n\n- 我仓库里的每个 skill 都会变成一个 Agent()，也就是一个可以调用、用来执行该工作流的函数\n- CodeReview()、ImplementSpec()、Retro()、ImproveCodebaseArchitecture()\n\n所以实际上，你只需把我的 skills 接入你自己配置的基础设施、接入你已经在用的服务。\n\n一个运行在你自己基础设施上的软件工厂，默认采用有主见的、基于 mattpocock/skills 的配置，但可以无限扩展。\n\n你们觉得怎么样？",
+   "analysis": {
+    "summary": "Matt Pocock 公布 Sandcastle v1 的重塑方向并征求反馈：把它定位为“帮你搭建软件工厂”的工具，并把他仓库里的每个 skill 变成可调用的 Agent() 函数。",
+    "points": [
+     "Sandcastle v1 将大幅重塑，定位为帮助用户搭建“软件工厂”。",
+     "内置 6 种 harness（如 Claude Code、Codex），也可接入自定义 harness。",
+     "集成主流 Sandbox 提供商（Daytona、Vercel、E2B 等），并提供配合 Inngest/Trigger.dev 的持久化模板。",
+     "支持通过 Slack、Discord 的人在回路（HITL）以及无人值守（AFK）运行。",
+     "mattpocock/skills 仓库里的每个 skill 变成可调用的 Agent()，例如 CodeReview()、ImplementSpec()、Retro()、ImproveCodebaseArchitecture()。",
+     "主打运行在用户自有基础设施上、默认有主见但可无限扩展。"
+    ],
+    "why": "这是把 Agent Skills 从“提示词/工作流文档”推进到“可编程调用的函数 + 可部署基础设施”的一次产品化尝试，反映出 Agent 工程正从单次对话走向可编排的自动化流水线。注意这只是征求意见的产品介绍草案，功能细节和发布时间帖子里没有说明。",
+    "tags": [
+     "Agent 工程",
+     "Skills",
+     "软件工厂",
+     "开发者工具"
+    ]
+   }
+  }
+ ]
+}
