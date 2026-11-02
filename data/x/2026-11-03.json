@@ -1,0 +1,75 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-03",
+ "day": {
+  "digest": "Matt Pocock 分享自己趁空闲在搭一个直播平台，并感慨理解一个功能的“语言”就能理解这个功能。",
+  "by_source": {
+   "mattpocockuk": "自嘲在做直播平台，并补充“懂功能的语言就懂功能”的感想。"
+  },
+  "updated_at": "2026-11-03T08:05:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2117368426813329777",
+   "date": "2026-11-03",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117368426813329777",
+   "url": "https://x.com/mattpocockuk/status/2117368426813329777",
+   "posted_at": "2026-11-03T05:29+08:00",
+   "kind": "reply",
+   "text": "Never ceases to amaze me how when you understand the language of a feature, you understand the feature",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2117359735007748127",
+    "url": "https://x.com/mattpocockuk/status/2117359735007748127",
+    "text": "Got a bit of free time today so I've been building a streaming platform\n\nWhy do I do this to myself"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "一次又一次让我惊叹的是：当你理解了一个功能的“语言”，你就理解了这个功能",
+   "analysis": {
+    "summary": "他在自己“搭直播平台”那条帖子下补充感想：一旦弄懂了某个功能所用的语言（术语/概念），就能理解这个功能本身。",
+    "points": [
+     "这是对自己前一条帖子（在做直播平台）的跟帖",
+     "观点：理解一个功能的术语和概念，就等于理解了这个功能"
+    ],
+    "why": "这是作者的个人体会而非数据，和他一贯强调的“先统一领域语言/术语”思路一致；帖子没有说明具体指直播平台中的哪个功能，上下文不全。",
+    "tags": [
+     "软件设计",
+     "领域语言"
+    ]
+   }
+  },
+  {
+   "id": "x-2117359735007748127",
+   "date": "2026-11-03",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117359735007748127",
+   "url": "https://x.com/mattpocockuk/status/2117359735007748127",
+   "posted_at": "2026-11-03T04:54+08:00",
+   "kind": "post",
+   "text": "Got a bit of free time today so I've been building a streaming platform\n\nWhy do I do this to myself",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "今天有点空闲时间，所以我一直在做一个直播平台\n\n我为什么要这样折磨自己",
+   "analysis": {
+    "summary": "Matt Pocock 说他趁今天有空在自己搭一个直播（streaming）平台，并自嘲为何要折腾自己。",
+    "points": [
+     "他利用空闲时间在自建一个直播平台",
+     "帖子用自嘲语气，没有透露技术栈、用途或进度"
+    ],
+    "why": "这是一条随手分享的近况，信息量有限；只能看出他在动手做一个直播平台的项目，具体细节帖子里没有说明，不做推断。",
+    "tags": [
+     "个人项目",
+     "直播"
+    ]
+   }
+  }
+ ]
+}
