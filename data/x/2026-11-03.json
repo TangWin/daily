@@ -3,14 +3,231 @@
  "type": "x",
  "date": "2026-11-03",
  "day": {
-  "digest": "Matt Pocock 白天分享在做直播平台、自述每月只用 £180 的 CC Ultra；晚间又谈到只要模型是 SOTA 就不必追换模型，重在改进 Agent 环境，并提出“单领域长期编排器 + 沙箱软件工厂”的组合设想及靠 wiki 外化记忆的做法。Karpathy 称赞开源扩展 Honest Thumbnails，并示范用一句话让 Claude Code 做出同类扩展。",
+  "digest": "Matt Pocock 白天分享在做直播平台、自述每月只用 £180 的 CC Ultra；晚间谈到只要模型够 SOTA 就不追新模型、专注改进 Agent 环境，提出“单领域长期编排器 + 沙箱软件工厂”设想和靠 wiki 外化记忆的做法，并分享有人写论文评估他的 /retro skill，强调要验证改动是否真的有效。Karpathy 称赞开源扩展 Honest Thumbnails，并示范用一句话让 Claude Code 做出同类扩展。",
   "by_source": {
-   "mattpocockuk": "从做直播平台、£180/月 CC Ultra，聊到不追模型、专注改进环境，以及单领域长期 Agent 加软件工厂、用 wiki 积累记忆的工作流设想。",
+   "mattpocockuk": "从做直播平台、不追模型专注改进环境、长期 Agent 加 wiki 记忆的工作流，聊到有人发论文评估他的 /retro skill，以及“对改动本身也要复盘”和长期可观测性。",
    "karpathy": "称赞 Honest Thumbnails 缩略图扩展，并给出可直接交给 Claude Code 的一句话需求。"
   },
-  "updated_at": "2026-11-03T20:10:00+09:00"
+  "updated_at": "2026-11-03T23:09:43+08:00"
  },
  "items": [
+  {
+   "id": "x-2117595712682594388",
+   "date": "2026-11-03",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117595712682594388",
+   "url": "https://x.com/mattpocockuk/status/2117595712682594388",
+   "posted_at": "2026-11-03T20:32+08:00",
+   "kind": "reply",
+   "text": "@BenjieMalinao",
+   "article_title": null,
+   "reply_to": {
+    "handle": "BenjieMalinao",
+    "post_id": "2117594951710286279",
+    "url": "https://x.com/BenjieMalinao/status/2117594951710286279",
+    "text": "this is pretty close to what I run every day. one long lived thread per job handing work off to sandboxed agents. the thing that bit me was memory, if the orchestrator forgets what it already decided it re-asks you the same stuff every morning"
+   },
+   "quoted": {
+    "handle": "mattpocockuk",
+    "post_id": "2117571010660581804",
+    "url": "https://x.com/mattpocockuk/status/2117571010660581804",
+    "text": "Each agent builds up a wiki over time so I can drop the conversation history and switch harnesses as required\n\nPlus, each one knows about my skill pack and can run /implement-spec or /retro as needed"
+   },
+   "links": [],
+   "translation_zh": "@BenjieMalinao",
+   "analysis": {
+    "summary": "@BenjieMalinao 说自己每天也用类似做法（每个任务一个长期线程，把工作交给沙箱 Agent），踩过的坑是记忆：编排器忘了已做的决定，就会每天早上重复问同样的问题。Matt 没有写文字，只引用了自己早先的帖子：每个 Agent 会逐步积累 wiki，因而可以丢弃对话历史、切换 harness。",
+    "points": [
+     "对方的痛点：编排器记不住已做的决定，会反复询问",
+     "Matt 以引用自己旧帖的方式回应",
+     "被引用帖：每个 Agent 随时间积累 wiki，可丢弃对话历史并按需切换 harness",
+     "被引用帖还提到每个 Agent 都了解他的 skill pack，可运行 /implement-spec 或 /retro"
+    ],
+    "why": "本身没有新内容，但等于给出他对“长期 Agent 记忆问题”的答案：把记忆外化到 wiki。",
+    "tags": [
+     "Agent 工程",
+     "记忆管理"
+    ]
+   }
+  },
+  {
+   "id": "x-2117590024971542700",
+   "date": "2026-11-03",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117590024971542700",
+   "url": "https://x.com/mattpocockuk/status/2117590024971542700",
+   "posted_at": "2026-11-03T20:09+08:00",
+   "kind": "reply",
+   "text": "Ish, I think on a running system that's observability over time\n\nAnd also keeping track of which bugs were prevented over time",
+   "article_title": null,
+   "reply_to": {
+    "handle": "oviava",
+    "post_id": "2117589753428148638",
+    "url": "https://x.com/oviava/status/2117589753428148638",
+    "text": "That's just evals"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "算是吧，我觉得在一个运行中的系统上，那是随时间推移的可观测性\n\n另外还要追踪随着时间推移，哪些 bug 被避免了",
+   "analysis": {
+    "summary": "有人评论 Matt 的“对 /retro 再做 /retro”说“这不就是 evals 嘛”。Matt 回复：差不多，但在运行中的系统上，更像是长期的可观测性，还要追踪哪些 bug 被提前避免了。",
+    "points": [
+     "对方认为这就是 evals（评测）",
+     "Matt 部分同意",
+     "他认为在运行中的系统上，这更像长期可观测性",
+     "还需要记录哪些 bug 随时间被避免"
+    ],
+    "why": "区分了一次性评测与持续观测：评估 Agent 工作流改动的效果，需要在真实运行中长期跟踪。这是他的观点，帖子未给出具体实现。",
+    "tags": [
+     "可观测性",
+     "Evals",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2117589185825829324",
+   "date": "2026-11-03",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117589185825829324",
+   "url": "https://x.com/mattpocockuk/status/2117589185825829324",
+   "posted_at": "2026-11-03T20:06+08:00",
+   "kind": "reply",
+   "text": "\"Harness self-evolution requires more than generating and implementing changes: it needs ways to establish whether a change helps on later tasks and to revise or remove changes that do not.\"\n\nIn other words, we need to /retro whether our /retro changes actually made a difference",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2117588845864575397",
+    "url": "https://x.com/mattpocockuk/status/2117588845864575397",
+    "text": "This might be the greatest issue report in history\n\nSome folks wrote a paper about my /retro skill assessing its effectiveness\n\nIncredible"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "“Harness 的自我进化不只需要生成并实施改动：还需要有办法确认某个改动是否对后续任务有帮助，并修改或移除那些没有帮助的改动。”\n\n换句话说，我们需要用 /retro 来复盘我们由 /retro 带来的改动是否真的起了作用",
+   "analysis": {
+    "summary": "Matt 在论文分享帖下引用了论文中的一句话：harness 的自我进化需要能判断改动是否对后续任务有帮助，并修正或移除无效改动。他总结为：要用 /retro 去复盘 /retro 产生的改动是否真的有效。",
+    "points": [
+     "引用论文观点：只生成和实施改动不够",
+     "还需要验证改动是否对后续任务有帮助",
+     "无效的改动应被修改或移除",
+     "Matt 的概括：对 /retro 的改动本身也要再做 /retro"
+    ],
+    "why": "指出自我改进型 Agent 工作流的关键缺口：缺少对改动效果的验证和回收机制。引号内是论文原话，后半句是 Matt 的解读。",
+    "tags": [
+     "Skills",
+     "自我改进",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2117588845864575397",
+   "date": "2026-11-03",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117588845864575397",
+   "url": "https://x.com/mattpocockuk/status/2117588845864575397",
+   "posted_at": "2026-11-03T20:04+08:00",
+   "kind": "post",
+   "text": "This might be the greatest issue report in history\n\nSome folks wrote a paper about my /retro skill assessing its effectiveness\n\nIncredible\n\nhttps://arxiv.org/pdf/2610.34938",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://arxiv.org/pdf/2610.34938",
+     "title": null
+    }
+   ],
+   "translation_zh": "这可能是史上最棒的 issue 报告了\n\n有人写了一篇论文，评估我的 /retro skill 的有效性\n\n太不可思议了\n\nhttps://arxiv.org/pdf/2610.34938",
+   "analysis": {
+    "summary": "Matt 分享说，有人专门写了一篇论文（arXiv 链接）来评估他的 /retro skill 的效果，他戏称这是“史上最棒的 issue 报告”。",
+    "points": [
+     "有研究者发表论文评估 Matt 的 /retro skill 的有效性",
+     "论文链接为 arXiv 2610.34938",
+     "Matt 把这篇论文调侃为“史上最棒的 issue 报告”"
+    ],
+    "why": "一个社区 skill 被学术论文专门评估，说明 Agent skill/复盘类做法开始被认真研究。论文正文未采集，具体结论不做推断；从他的跟帖看，论文涉及“改动是否真的有帮助”的问题。",
+    "tags": [
+     "Skills",
+     "论文",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2117575353115803658",
+   "date": "2026-11-03",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117575353115803658",
+   "url": "https://x.com/mattpocockuk/status/2117575353115803658",
+   "posted_at": "2026-11-03T19:11+08:00",
+   "kind": "reply",
+   "text": "By ignoring most of the model release noise, I hopefully end up caring about more durable things than which model is SOTA this week.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2117575163952963658",
+    "url": "https://x.com/mattpocockuk/status/2117575163952963658",
+    "text": "No - I'm saying that while the prevailing sentiment was that Opus 4.7-5 were bad models, I found them OK and still considered them \"SOTA enough\"."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "通过忽略大部分模型发布的噪音，我希望最终关心的是比“这周哪个模型是 SOTA”更持久的东西。",
+   "analysis": {
+    "summary": "在上一条澄清之后，Matt 补充说：他刻意忽略大多数模型发布的喧嚣，希望把注意力放在比“本周哪个模型最强”更持久的事情上。",
+    "points": [
+     "他有意忽略大部分模型发布带来的噪音",
+     "目标是关注更持久的东西，而不是每周的 SOTA 排名"
+    ],
+    "why": "这是他“改进环境而非追模型”观点的简洁表述，属于个人方法论，不是数据结论。",
+    "tags": [
+     "模型选择",
+     "Agent 工程",
+     "观点"
+    ]
+   }
+  },
+  {
+   "id": "x-2117575163952963658",
+   "date": "2026-11-03",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117575163952963658",
+   "url": "https://x.com/mattpocockuk/status/2117575163952963658",
+   "posted_at": "2026-11-03T19:10+08:00",
+   "kind": "reply",
+   "text": "No - I'm saying that while the prevailing sentiment was that Opus 4.7-5 were bad models, I found them OK and still considered them \"SOTA enough\".",
+   "article_title": null,
+   "reply_to": {
+    "handle": "MNeverOff",
+    "post_id": "2117574468394799257",
+    "url": "https://x.com/MNeverOff/status/2117574468394799257",
+    "text": "Sorry, is the latter part of your statement meant to pass judgment on how I formed my opinion? Or am I misunderstanding?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "不是——我是说，虽然当时的主流看法是 Opus 4.7–5 是糟糕的模型，但我觉得它们还行，仍然算是“够 SOTA 了”。",
+   "analysis": {
+    "summary": "@MNeverOff 问 Matt 前一条回复是不是在评判自己形成观点的方式。Matt 澄清说不是：他的意思是，尽管当时普遍认为 Opus 4.7–5 不好，他自己觉得还行，仍算“够 SOTA”。",
+    "points": [
+     "对方误以为 Matt 在评判自己的判断方式",
+     "Matt 澄清并无此意",
+     "他表示当时主流看法认为 Opus 4.7–5 是差模型",
+     "他个人觉得这些模型还可以，仍“够 SOTA”"
+    ],
+    "why": "延续他“只要够 SOTA 就不追模型”的立场。对 Opus 4.7–5 的评价是他的个人体验，不是评测数据。",
+    "tags": [
+     "模型选择",
+     "Claude",
+     "观点"
+    ]
+   }
+  },
   {
    "id": "x-2117571010660581804",
    "date": "2026-11-03",
