@@ -3,14 +3,49 @@
  "type": "x",
  "date": "2026-11-03",
  "day": {
-  "digest": "Matt Pocock 分享自己趁空闲在搭一个直播平台，并感慨理解一个功能的“语言”就能理解这个功能；Karpathy 称赞开源扩展 Honest Thumbnails，并示范用一句话让 Claude Code 做出同类扩展。",
+  "digest": "Matt Pocock 分享自己趁空闲在搭一个直播平台，并回应网友称自己只用每月 £180 的 CC Ultra；Karpathy 称赞开源扩展 Honest Thumbnails，并示范用一句话让 Claude Code 做出同类扩展。",
   "by_source": {
-   "mattpocockuk": "自嘲在做直播平台，并补充“懂功能的语言就懂功能”的感想。",
+   "mattpocockuk": "自嘲在做直播平台，补充“懂功能的语言就懂功能”的感想，并回应网友说自己每月只用 £180 的 CC Ultra。",
    "karpathy": "称赞 Honest Thumbnails 缩略图扩展，并给出可直接交给 Claude Code 的一句话需求。"
   },
-  "updated_at": "2026-11-03T12:10:00+09:00"
+  "updated_at": "2026-11-03T16:10:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2117503565887574143",
+   "date": "2026-11-03",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117503565887574143",
+   "url": "https://x.com/mattpocockuk/status/2117503565887574143",
+   "posted_at": "2026-11-03T14:26+08:00",
+   "kind": "reply",
+   "text": "I have £180/month of CC Ultra, that's it",
+   "article_title": null,
+   "reply_to": {
+    "handle": "itsindishere",
+    "post_id": "2117463247951450549",
+    "url": "https://x.com/itsindishere/status/2117463247951450549",
+    "text": "Dw u got ALOT of tokens. We dont."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我每月就 £180 的 CC Ultra，仅此而已",
+   "analysis": {
+    "summary": "有人引用 Matt 自己搭直播平台的帖子说“别担心，你有很多 token，我们没有”，Matt 回复说他每月只有 £180 的 CC Ultra 订阅，仅此而已。",
+    "points": [
+     "对方认为 Matt 能折腾大项目是因为 token 额度充足",
+     "Matt 回应自己只用每月 £180 的 CC Ultra 订阅",
+     "“CC”从上下文看应指 Claude Code，帖子未明说"
+    ],
+    "why": "信息量较低的社交回复，但透露了 Matt 自述的 AI 编程订阅开销（每月 £180），说明他的个人项目是在普通付费档位内完成的；这是他本人的说法，非公开数据。",
+    "tags": [
+     "AI 编程",
+     "Claude Code",
+     "成本"
+    ]
+   }
+  },
   {
    "id": "x-2117431189074330032",
    "date": "2026-11-03",
