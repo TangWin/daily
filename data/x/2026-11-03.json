@@ -3,13 +3,50 @@
  "type": "x",
  "date": "2026-11-03",
  "day": {
-  "digest": "Matt Pocock 分享自己趁空闲在搭一个直播平台，并感慨理解一个功能的“语言”就能理解这个功能。",
+  "digest": "Matt Pocock 分享自己趁空闲在搭一个直播平台，并感慨理解一个功能的“语言”就能理解这个功能；Karpathy 称赞开源扩展 Honest Thumbnails，并示范用一句话让 Claude Code 做出同类扩展。",
   "by_source": {
-   "mattpocockuk": "自嘲在做直播平台，并补充“懂功能的语言就懂功能”的感想。"
+   "mattpocockuk": "自嘲在做直播平台，并补充“懂功能的语言就懂功能”的感想。",
+   "karpathy": "称赞 Honest Thumbnails 缩略图扩展，并给出可直接交给 Claude Code 的一句话需求。"
   },
-  "updated_at": "2026-11-03T08:05:00+09:00"
+  "updated_at": "2026-11-03T12:10:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2117431189074330032",
+   "date": "2026-11-03",
+   "type": "x",
+   "source": "karpathy",
+   "post_id": "2117431189074330032",
+   "url": "https://x.com/karpathy/status/2117431189074330032",
+   "posted_at": "2026-11-03T09:38+08:00",
+   "kind": "reply",
+   "text": "Yeah this is really good. Btw you can also just tell your Claude Code \"Create and deploy an extension for my browser that shows YouTube thumbnails from halfway of the video instead of the user-uploaded version. Include a toggle between the two\", works great",
+   "article_title": null,
+   "reply_to": {
+    "handle": "pondorasti",
+    "post_id": "2117321609665261667",
+    "url": "https://x.com/pondorasti/status/2117321609665261667",
+    "text": "Introducing Honest Thumbnails\n\nA Chrome Extension to unslop YouTube thumbnails with stills from the video. Brings back the early 2010s vibe of Youtube where not everything was about clickbait.\n\nWhile looking into how @karpathy's HackerTube works, I learnt that YouTube has a CDN that provides still frames from the following chunks ¼, ½, ¾ of each video.\n\nSo as you can imagine, it was only a matter of time until Claude turned this into a Chrome Extension. Honestly, it took me longer to make the icon than it took Claude to write the code.\n\nOpen Source and MIT. Fork it, steal it, do whatever your …"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "是的，这个做得真不错。顺便说一句，你也可以直接告诉你的 Claude Code：“Create and deploy an extension for my browser that shows YouTube thumbnails from halfway of the video instead of the user-uploaded version. Include a toggle between the two”（为我的浏览器创建并部署一个扩展，显示视频中间位置的 YouTube 缩略图，而不是用户上传的版本，并加一个在两者之间切换的开关），效果很好",
+   "analysis": {
+    "summary": "@pondorasti 发布了开源 Chrome 扩展 Honest Thumbnails，用视频里的截帧替换 YouTube 的“标题党”缩略图（灵感来自 Karpathy 的 HackerTube）。Karpathy 回复称赞，并说也可以直接用一句话让 Claude Code 生成并部署这样的扩展。",
+    "points": [
+     "被回复的帖子：Honest Thumbnails 利用 YouTube CDN 提供的视频 ¼、½、¾ 处截帧来替换缩略图，开源、MIT 协议，代码由 Claude 写成",
+     "Karpathy 认为这个扩展做得很好",
+     "他给出一段可直接交给 Claude Code 的需求描述：显示视频中点截帧作为缩略图，并可在原缩略图和截帧之间切换",
+     "他称这种做法“效果很好”"
+    ],
+    "why": "这体现了 Karpathy 一贯的观点：很多小工具不必去找现成的，直接用一句自然语言让编程 Agent 生成即可。“效果很好”是他的个人体验，不是测评数据。",
+    "tags": [
+     "Agent 编程",
+     "Claude Code",
+     "浏览器扩展"
+    ]
+   }
+  },
   {
    "id": "x-2117368426813329777",
    "date": "2026-11-03",
