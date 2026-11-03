@@ -1,0 +1,439 @@
+{
+ "schema_version": 1,
+ "type": "idea",
+ "date": "2026-11-04",
+ "day": {
+  "sample": "样本：主样本 139 条（HN 42 / Lobsters 3 / Reddit 48 / Indie Hackers 20 / Product Hunt 26），补充 Reddit 深翻页抱怨帖 145 条（18 个子版块 5200 帖中筛出）+ HN 句式评论与 Ask/Show HN 548 条，并读了 8 个 HN 线程和 3 个 Reddit 帖子的评论。Reddit 主列表 20/20、extras 8/8、深翻页 18/18 全成功。未使用任何 X 付费 API。"
+ },
+ "items": [
+  {
+   "id": "idea-2026-11-04-01",
+   "date": "2026-11-04",
+   "type": "idea",
+   "rank": 1,
+   "title": "AI 数据开关守门员：你关掉的“用我的数据训练”被悄悄改回、开发工具偷偷装上 AI 插件或开始上传数据时，第一时间告诉你",
+   "summary": "一个浏览器扩展加本地小程序：登录状态下定期读取各 AI 服务和开发工具的数据共享、训练、记忆等设置，存一份快照，发现被改回或出现新开关就提醒，并给出一键改回的链接；本地程序盯住开发工具的插件目录和出站请求，发现新装的 AI 插件、或开始向陌生域名上传大量请求数据时提示你确认；每月给出一张“我的数据现在给了谁”的清单。",
+   "url": "https://news.ycombinator.com/item?id=50353530",
+   "tags": [
+    "Coding Agent",
+    "开发者工具",
+    "安全"
+   ],
+   "raw_tags": [
+    "Agent/AI编码",
+    "开发者工具",
+    "安全/隐私"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 上“OpenAI 似乎在悄悄重新开启 Codex 对话的模型训练”有 412 分、131 条评论；“Postman 静默自动安装 AI 插件并试图共享全部 API 数据”有 904 分、284 条评论；“Claude Code 把你的邮箱加进提示词，模型又把它发给网站”也上了 35 分。用户明明关过开关，过一阵发现又开了；设置页里冒出新的“允许传输、记录”选项也没人通知；有人说只能开高级账号安全来强制关掉数据共享，但规则也在变。个人订阅用户签不了零数据保留合同，只能靠自己定期去点设置页。",
+    "target_users": "用 Codex、Claude Code、Cursor、Postman 等工具处理公司代码和接口数据的开发者；要对客户数据负责的外包团队和小公司技术负责人；对隐私敏感、但没时间天天检查设置的个人用户。",
+    "quotes": [
+     {
+      "text": "I still think it's an ethical issue for the model providers to silently reenable training after people have explicitly opted out",
+      "links": [
+       {
+        "label": "Hacker News 评论（OpenAI 悄悄重新开启 Codex 训练，412 分）",
+        "url": "https://news.ycombinator.com/item?id=50353530"
+       }
+      ]
+     },
+     {
+      "text": "Or my other favorite move, the quiet new little guy in settings. E.g. \"Allow ABC to transmit, log, and track your every move? ON\" Hey, when did this little guy get here!",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50354311"
+       }
+      ]
+     },
+     {
+      "text": "Turn on advanced account security. You should be doing this anyways (requires hardware keys). But it also locks data sharing off.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50353526"
+       }
+      ]
+     },
+     {
+      "text": "May be the coding agents should build a layer when they don't leak any IP, treat them like environment variables, which must be handled deterministically.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50353408"
+       }
+      ]
+     },
+     {
+      "text": "Postman silently auto-installs AI plugins and attempts to share all API data",
+      "links": [
+       {
+        "label": "Hacker News 帖子（904 分，284 条评论）",
+        "url": "https://news.ycombinator.com/item?id=50354960"
+       }
+      ]
+     },
+     {
+      "text": "Tell HN: Claude Code adds your email to the prompt, the LLM sends it to websites",
+      "links": [
+       {
+        "label": "Hacker News 帖子",
+        "url": "https://news.ycombinator.com/item?id=50286306"
+       }
+      ]
+     }
+    ],
+    "existing": "各家自己的隐私设置页（ChatGPT 数据控制、Claude 隐私设置等）；企业版的零数据保留协议；Little Snitch、LuLu 等出站流量防火墙；Nightfall 等企业数据防泄漏（DLP）工具。",
+    "defects": "设置页只显示当前状态，改了不会通知你，更不会记录是谁、什么时候改的；出站防火墙只看到“连了哪个域名”，看不懂“上传的是不是我的代码和接口数据”；企业 DLP 太贵太重，个人订阅用户和小团队用不上；没有一处能同时看到多个 AI 工具、多个账号的数据共享状态。",
+    "solution": "一个浏览器扩展加本地小程序：登录状态下定期读取各 AI 服务和开发工具的数据共享、训练、记忆等设置，存一份快照，发现被改回或出现新开关就提醒，并给出一键改回的链接；本地程序盯住开发工具的插件目录和出站请求，发现新装的 AI 插件、或开始向陌生域名上传大量请求数据时提示你确认；每月给出一张“我的数据现在给了谁”的清单。",
+    "mvp": "Chrome 扩展：先支持 ChatGPT/Codex、Claude、Cursor、Postman 四家，每天检查一次相关设置页并对比上次快照，有变化就弹通知和发邮件；附一个 macOS 命令行脚本，列出 Postman、VS Code 等工具新增的插件。免费个人版，团队版按人收费并提供变更记录。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-04-02",
+   "date": "2026-11-04",
+   "type": "idea",
+   "rank": 2,
+   "title": "API 请求集合搬家：把 Postman 里的集合、环境变量和密钥一次搬到 Bruno 或 Git 里的纯文本文件，测试和业务同事也能照常用",
+   "summary": "一个开源命令行加网页工具：用 Postman API 导出整个工作区，把集合、环境、密钥引用和脚本转换成开放格式的纯文本文件，同时生成 Bruno、.http 和 OpenCollection 三种版本；密钥不写进文件，改为引用本地密钥管理器；列出云端仍存的密钥和环境，提示你去轮换和删除；再生成一个只读网页，让测试和业务同事不用装任何软件就能浏览和试调接口。",
+   "url": "https://news.ycombinator.com/item?id=50355265",
+   "tags": [
+    "开发者工具",
+    "安全"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "安全/隐私"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "同一个 904 分的 Postman 帖子里，大量评论在问“该搬到哪、怎么搬”：Postman 从轻量工具变成强制登录、推销和 AI 功能的大杂烩；Insomnia 8.0 以后也要求注册云账号；很多人搬到了 Bruno、Yaak 或编辑器里的 .http 文件。但搬不动的是团队：业务分析、测试和非技术同事只认 Postman 集合，公司还买了 10 到 20 个席位；有的客户已经把 Postman 列入 IT 黑名单，交付时不让用。大家还担心下一个工具也会走同样的路。",
+    "target_users": "在用 Postman 团队版、想退出的小团队和外包公司；被客户安全规定禁止使用 Postman 的交付团队；需要把 API 文档和请求交给测试、业务同事的后端开发者。",
+    "quotes": [
+     {
+      "text": "Insomnia 8.0 and above requires an account on their servers to use. The stated reason was that this makes it easier to advertise to you. No thanks.",
+      "links": [
+       {
+        "label": "Hacker News 评论（Postman 帖，904 分）",
+        "url": "https://news.ycombinator.com/item?id=50355265"
+       }
+      ]
+     },
+     {
+      "text": "Insomnia _has_ a problem, since it forces you to create a cloud account with them. Bruno [1] is the current better alternative to Insomnia.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50355903"
+       }
+      ]
+     },
+     {
+      "text": "I do know business analysts, testers, non-technical people asking me for postman collections. Postman became de-facto standard for businesses. Even though devs have ditched it.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50359020"
+       }
+      ]
+     },
+     {
+      "text": "We're using Postman at work (I think we have a subscription for 10 or 20 users)... each time I'm so confused of between the collections, environment, vaults, variables... Also if you have an alternative that's easier to",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50357980"
+       }
+      ]
+     },
+     {
+      "text": "Nowadays Portman is forbidden for project delivery, unless the customer development team also uses it.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50355938"
+       }
+      ]
+     },
+     {
+      "text": "+1 for Bruno, it's simple and great. They offer a paid version though, so I'm always afraid it's going to enshittify in the future, just like Postman and then Insomnia did.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50355887"
+       }
+      ]
+     }
+    ],
+    "existing": "Bruno、Yaak、Hoppscotch、Insomnia 等替代客户端；Bruno 自带的 Postman 集合导入；开放格式 OpenCollection；VS Code / JetBrains 的 .http 文件。",
+    "defects": "导入只搬请求本身，环境变量、密钥库、前后置脚本和团队共享设置常常丢失或要手改；搬完后非技术同事不会用 Git，团队协作断了；没有人帮你检查 Postman 云端还留着哪些密钥和数据；换到新工具后，也没有办法保证哪天它变味时还能再搬走。",
+    "solution": "一个开源命令行加网页工具：用 Postman API 导出整个工作区，把集合、环境、密钥引用和脚本转换成开放格式的纯文本文件，同时生成 Bruno、.http 和 OpenCollection 三种版本；密钥不写进文件，改为引用本地密钥管理器；列出云端仍存的密钥和环境，提示你去轮换和删除；再生成一个只读网页，让测试和业务同事不用装任何软件就能浏览和试调接口。",
+    "mvp": "命令行工具：输入 Postman API Key，导出一个工作区为 Bruno 目录和 .http 文件，生成“没搬过来的东西”清单（脚本、密钥、监控等）；附一个静态网页预览器。开源免费，团队托管预览和权限管理收费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-04-03",
+   "date": "2026-11-04",
+   "type": "idea",
+   "rank": 3,
+   "title": "座机停用前的家庭检查：帮子女确认老人家里的电话、紧急呼叫器和报警器换线后还能用，停电时也能打出去",
+   "summary": "一个面向子女的“座机切换检查”服务：用一张问卷加一次视频通话，帮你清点老人家里所有依赖电话线的设备（电话、报警吊坠、烟雾和防盗报警、电梯电话、助听电话），逐个给出切换后能否继续使用和需要换的配件；按家里的光猫和路由器型号推荐合适的备用电源并送上门；切换后每周自动拨一次测试电话、每月模拟一次停电，失败就提醒子女。",
+   "url": "https://news.ycombinator.com/item?id=50327640",
+   "tags": [
+    "个人/生活"
+   ],
+   "raw_tags": [
+    "个人/生活"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 帖子“英国座机 100 天后全面停用，不再延期”有 178 分、164 条评论。大家担心的不是电话本身，而是：传统座机靠电话局供电，停电也能打急救电话，换成光纤和路由器后家里停电电话就断；英国新光猫早就不带备用电池，路由器也大多没有；98 岁的老人根本不知道自己用的是哪种线路；有人收到一堆设备和信件，说已经切换了，实际却没切；农村地区手机信号进不了屋。芬兰、加州也在发生同样的事。",
+    "target_users": "父母或祖父母独居、家里还用座机的成年子女；照顾多位老人的社工、养老机构和上门护理公司；在英国、澳洲、北美等座机即将或正在停用地区的家庭。",
+    "quotes": [
+     {
+      "text": "My 98yo grandmother has had the “same” phone service (with the same phone number) for decades. She’s completely unaware of the infrastructure it runs on.",
+      "links": [
+       {
+        "label": "Hacker News 评论（英国座机 100 天后停用，178 分）",
+        "url": "https://news.ycombinator.com/item?id=50327640"
+       }
+      ]
+     },
+     {
+      "text": "The biggest problems is power.  The phone company power the POTS line — you can even make an emergency call from an abandoned building with no electrical service",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50327677"
+       }
+      ]
+     },
+     {
+      "text": "You wont have a battery. In the UK they stopped providing a battery backup when they switched to the newer ONT quite a while ago, and routers typically do not include one either.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50327789"
+       }
+      ]
+     },
+     {
+      "text": "My (pensioner) mother lives in a very rural area... The main issue is that a) no mobile network works indoors; and b) uptime is crap",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50329433"
+       }
+      ]
+     },
+     {
+      "text": "We were supposed to be switched to digital several times, been sent a pile of hubs and extender devices and have had several letters about the switchover date.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50328724"
+       }
+      ]
+     },
+     {
+      "text": "I think a solution to this is mandate providers provide a cellular interface for households for emergency response, with battery backup.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50327867"
+       }
+      ]
+     }
+    ],
+    "existing": "运营商的切换通知和上门安装；运营商自己的数字座机适配器和应急设备；通用 UPS 和路由器备用电源；紧急呼叫器（报警吊坠）厂商的升级服务。",
+    "defects": "运营商只负责“线路切过去”，不管家里报警吊坠、电梯电话、安防报警器等设备还能不能用；没人告诉子女“停电时会怎样”，备用电源要自己研究型号；老人不会自查，子女不在身边；切换日期一改再改，信件说切了其实没切。",
+    "solution": "一个面向子女的“座机切换检查”服务：用一张问卷加一次视频通话，帮你清点老人家里所有依赖电话线的设备（电话、报警吊坠、烟雾和防盗报警、电梯电话、助听电话），逐个给出切换后能否继续使用和需要换的配件；按家里的光猫和路由器型号推荐合适的备用电源并送上门；切换后每周自动拨一次测试电话、每月模拟一次停电，失败就提醒子女。",
+    "mvp": "英国先做：网页问卷生成“设备清单与风险报告”，附可下单的备用电源套装和上门安装预约；提供每周自动测试呼叫服务（按月收费），失败时短信通知子女。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-04-04",
+   "date": "2026-11-04",
+   "type": "idea",
+   "rank": 4,
+   "title": "小团队和家庭的离线冷备份向导：选对二手磁带机、写入后自动校验、定期读回检查，备份真的能恢复",
+   "summary": "一个“冷备份向导”：先问清数据量、预算和恢复时限，推荐方案（二手 LTO 磁带、蓝光、云深度归档或组合）和具体硬件型号与价格区间；配套开源软件负责按目录写入、写后校验、生成离线可读的目录清单；每月自动抽取若干文件做读回或取回测试，生成“哪些备份能恢复”的报告，到期提醒你换带或迁移到新一代。",
+   "url": "https://news.ycombinator.com/item?id=50353644",
+   "tags": [
+    "个人/生活",
+    "开发者工具",
+    "支付"
+   ],
+   "raw_tags": [
+    "个人/生活",
+    "开发者工具",
+    "支付/计费"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 帖子“富士胶片因 AI 带动存档需求，磁带产量提高 5 倍”有 344 分、136 条评论。大家算得很清楚：磁带每 TB 只要 5 到 10 美元，远比蓝光 M-Disk 便宜；但新驱动器要 2.5 万美元，eBay 上便宜的 LTO-7 很多是“仅供拆件”；新标准向下兼容从两代缩到一代；压缩和加密在不同驱动器上表现不一样；有人做过演练才发现增量备份根本恢复不了，因为从没做过读回测试。用云端深度归档的人也问：“不打算恢复，怎么知道备份是好的？”",
+    "target_users": "有几十 TB 照片、视频、项目资料的家庭用户和自建服务器玩家；摄影工作室、视频团队和小型设计公司；想防勒索病毒、需要一份离线副本的小公司。",
+    "quotes": [
+     {
+      "text": "I've ran drills with companies which concluded that the incremental backups couldn't be restored due to some data corruption issue (no readback test was ever done).",
+      "links": [
+       {
+        "label": "Hacker News 评论（富士胶片磁带扩产，344 分）",
+        "url": "https://news.ycombinator.com/item?id=50353644"
+       }
+      ]
+     },
+     {
+      "text": "You got me briefly excited, but the only LTO-7 drives on eBay under $1000 are listed as parts-only.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50354325"
+       }
+      ]
+     },
+     {
+      "text": "LTO used to be guaranteed compatible two generations back... With newer standards, they've cut that to one generation.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50354031"
+       }
+      ]
+     },
+     {
+      "text": "If I don't plan to restore from it, how do I know the archive is a valid backup?",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50358467"
+       }
+      ]
+     },
+     {
+      "text": "A few years back I got an HP LTO-5 drive for $85. Plus, having your backups on used hardware _instills_ the importance of proper backup hygiene like nothing else!",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50358360"
+       }
+      ]
+     },
+     {
+      "text": "I run the *arr stack on my NAS and like the lazy bad admin I was, didn't backup the configuration files / databases etc. and proceeded to have to set this all up again when my NAS died.",
+      "links": [
+       {
+        "label": "Show HN: Backuparr",
+        "url": "https://news.ycombinator.com/item?id=50355512"
+       }
+      ]
+     }
+    ],
+    "existing": "Bacula、Bareos、Veeam 等企业备份软件；LTFS 磁带文件系统；restic、rustic、Borg 加云端深度归档（如 S3 Glacier Deep Archive）；NAS 自带的备份套件；磁带机租赁服务。",
+    "defects": "企业软件配置复杂，面向有专人维护的机房；二手驱动器好坏、兼容哪代磁带、要配什么接口卡，全靠自己在论坛里查；写完不读回、恢复没演练，出事才知道坏了；云归档便宜但取回贵，很少有人定期抽查。",
+    "solution": "一个“冷备份向导”：先问清数据量、预算和恢复时限，推荐方案（二手 LTO 磁带、蓝光、云深度归档或组合）和具体硬件型号与价格区间；配套开源软件负责按目录写入、写后校验、生成离线可读的目录清单；每月自动抽取若干文件做读回或取回测试，生成“哪些备份能恢复”的报告，到期提醒你换带或迁移到新一代。",
+    "mvp": "一个网页选型向导加一个命令行工具：支持 LTFS 磁带和 restic 云归档两种目标，写入后自动做校验，并每月随机抽 1% 文件做恢复测试，失败发邮件。软件开源，卖选型咨询和“抽检报告”订阅。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-04-05",
+   "date": "2026-11-04",
+   "type": "idea",
+   "rank": 5,
+   "title": "安全硬件买前查一查：加密 U 盘、加密硬盘等产品有没有被拆解验证过，谁家出过事，开源加密怎么配一套更稳的",
+   "summary": "一个安全存储设备“体检库”：每款产品一页，汇总认证情况、公开的拆解和漏洞报告、厂商历史事件，用红黄绿三色说明“加密是否真的发生、密钥在哪、丢了能否恢复”；按场景（出差带资料、交给客户、合规要求）推荐具体型号；同时提供一个给普通人的“普通 U 盘加开源加密”一键配置工具，打包好恢复密钥的保存方法。",
+   "url": "https://news.ycombinator.com/item?id=50326381",
+   "tags": [
+    "安全",
+    "电商",
+    "Mac/桌面"
+   ],
+   "raw_tags": [
+    "安全/隐私",
+    "电商",
+    "Mac/桌面工具"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 帖子“联想的‘加密’指纹 U 盘只是个装在壳里的未加密 SD 卡”有 576 分、177 条评论。用户的困惑很实际：有人因为政府规定必须用这类产品，自己却不信任；有人所在行业只能买贵 8 倍的认证产品；大家说“没看过拆解之前不信”，但拆解报告散落在各处，普通人找不到；硬盘自带加密到底有没有真的加密，用户根本无法验证；有人建议直接用 VeraCrypt 或 BitLocker，但对不懂技术的同事来说“像去火星”。",
+    "target_users": "需要带着敏感资料出门的律师、医生、会计和记者；要给员工采购加密存储设备的小公司 IT 和采购；受行业规定约束、必须使用认证设备的政府和医疗供应商。",
+    "quotes": [
+     {
+      "text": "I've been required to use similar products due to government regulations. Personally I never trusted them",
+      "links": [
+       {
+        "label": "Hacker News 评论（联想“加密”U 盘，576 分）",
+        "url": "https://news.ycombinator.com/item?id=50326381"
+       }
+      ]
+     },
+     {
+      "text": "We have to use the ones that cost 8x more than regular ones  and are certified by something that our industry approves.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50326917"
+       }
+      ]
+     },
+     {
+      "text": "Didn't expect something this crazy but I will not trust stuff like this until I've seen a teardown.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50326441"
+       }
+      ]
+     },
+     {
+      "text": "But the idea of being able to use “free software cryptography on top” may as well be a trip to Mars.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50326443"
+       }
+      ]
+     },
+     {
+      "text": "With transparent encryption in SATA drives, you can't. You have to trust the pinky promise that the vendor indeed did something to your data, and it doesn't just sit there.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50337777"
+       }
+      ]
+     },
+     {
+      "text": "This is a great survey of the internals of Ironkey devices... You shouldn't trust that these things are secure.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50331295"
+       }
+      ]
+     }
+    ],
+    "existing": "FIPS 140、Common Criteria 等认证目录；厂商官网宣传；零散的安全研究博客和拆解论文；VeraCrypt、BitLocker、LUKS 等软件加密。",
+    "defects": "认证目录只说“过没过认证”，不说实际拆解结果和出过的事；研究和拆解报告分散、全是英文技术细节，采购看不懂；电商评测只看速度和外观；软件加密配置门槛高，没有给非技术同事的一键方案。",
+    "solution": "一个安全存储设备“体检库”：每款产品一页，汇总认证情况、公开的拆解和漏洞报告、厂商历史事件，用红黄绿三色说明“加密是否真的发生、密钥在哪、丢了能否恢复”；按场景（出差带资料、交给客户、合规要求）推荐具体型号；同时提供一个给普通人的“普通 U 盘加开源加密”一键配置工具，打包好恢复密钥的保存方法。",
+    "mvp": "先收录 50 款热门加密 U 盘和移动硬盘，人工整理公开资料并打分，做成可搜索网页；配一个 Windows/macOS 一键工具，把普通 U 盘格式化为 VeraCrypt 加密盘并生成恢复说明 PDF。网站靠联盟链接和企业采购咨询收费。",
+    "difficulty": null,
+    "potential": null
+   }
+  }
+ ]
+}
