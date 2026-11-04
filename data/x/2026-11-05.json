@@ -1,0 +1,154 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-05",
+ "day": {
+  "digest": "Karpathy 长文回复科幻为何把 AI 想错，推演了从计算机、互联网、大数据到统计学习、LLMs 与 Scaling laws 的六步推断链；Matt Pocock 则在几条回复里谈到给 agent 的产物保持人类可读是“锦上添花”，并提醒 Sandcastle 的 v1 会有破坏性变更。",
+  "by_source": {
+   "karpathy": "回复科幻 AI 话题，梳理 1970 年代的人要预见今天的 LLM 需要的六步推断。",
+   "mattpocockuk": "几条回复：人类可读性非必需、感谢批评，以及 Sandcastle 现在可用但 v1 会有破坏性变更。"
+  },
+  "updated_at": "2026-11-05T08:10:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2118082837790240848",
+   "date": "2026-11-05",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2118082837790240848",
+   "url": "https://x.com/mattpocockuk/status/2118082837790240848",
+   "posted_at": "2026-11-05T04:47+08:00",
+   "kind": "reply",
+   "text": "The answer is yes, but just rip the code out when I inevitably break it for v1",
+   "article_title": null,
+   "reply_to": {
+    "handle": "maximehugodupre",
+    "post_id": "2118082489730166990",
+    "url": "https://x.com/maximehugodupre/status/2118082489730166990",
+    "text": "Is it safe to build on Sandcastle right now, or will V1 be a huge breaking change and I should wait? :D"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "答案是可以，但等我在 v1 里不可避免地把它搞坏时，直接把那部分代码扯掉就行",
+   "analysis": {
+    "summary": "有人问 Matt：现在基于 Sandcastle 开发安全吗，还是 V1 会有大的破坏性变更、应该等一等？Matt 回答可以用，但 v1 大概率会有破坏性变更，到时把相关代码拆掉即可。",
+    "points": [
+     "Sandcastle 是 Matt 的项目，目前尚未到 v1。",
+     "Matt 明确预期 v1 会带来破坏性变更（“inevitably break it”）。",
+     "他的建议是现在就可以用，但要准备好届时移除/替换相关代码。"
+    ],
+    "why": "对关注 Sandcastle 的开发者有实际参考：可以先用，但别把它深度耦合进代码里。关于 Sandcastle 的功能细节本帖未提及，不做推断。",
+    "tags": [
+     "Sandcastle",
+     "开源",
+     "版本兼容"
+    ]
+   }
+  },
+  {
+   "id": "x-2118081651012227112",
+   "date": "2026-11-05",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2118081651012227112",
+   "url": "https://x.com/mattpocockuk/status/2118081651012227112",
+   "posted_at": "2026-11-05T04:43+08:00",
+   "kind": "reply",
+   "text": "Holes are how the light gets in! Sorry Leonard Cohen",
+   "article_title": null,
+   "reply_to": {
+    "handle": "JaeTask",
+    "post_id": "2117995982432395360",
+    "url": "https://x.com/JaeTask/status/2117995982432395360",
+    "text": "Wild. Genuinely impressive Matt. Good job. Apologies for poking holes along the way 😂💪🏻"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "裂缝正是光照进来的地方！抱歉了，Leonard Cohen",
+   "analysis": {
+    "summary": "有人夸 Matt 的成果“真的很厉害”，并为过程中一路挑刺道歉。Matt 借用 Leonard Cohen 的歌词“裂缝是光照进来的地方”幽默回应，表示欢迎挑刺。",
+    "points": [
+     "对方称赞 Matt 的工作并为“挑毛病”道歉。",
+     "Matt 化用 Leonard Cohen《Anthem》的名句回应，意思是批评有益。"
+    ],
+    "why": "纯社交回复，信息量很低。被称赞的具体作品原帖未采集到，不做推断。",
+    "tags": [
+     "社交互动"
+    ]
+   }
+  },
+  {
+   "id": "x-2118060656578707863",
+   "date": "2026-11-05",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2118060656578707863",
+   "url": "https://x.com/mattpocockuk/status/2118060656578707863",
+   "posted_at": "2026-11-05T03:19+08:00",
+   "kind": "reply",
+   "text": "Yes, that's why I said it's a nicety, not a necessity",
+   "article_title": null,
+   "reply_to": {
+    "handle": "codinsonn",
+    "post_id": "2118032215573430447",
+    "url": "https://x.com/codinsonn/status/2118032215573430447",
+    "text": "I get your point that the agent doesn’t need it to be readable though, but I think there’s still value in keeping things human readable so they can jump in whenever the agent can’t\n\nIf not for safety / a human alternative, then for learning"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "对，所以我才说它是锦上添花，而不是必需品",
+   "analysis": {
+    "summary": "有人回复 Matt 说，虽然 agent 不需要内容可读，但保持人类可读仍有价值，便于在 agent 搞不定时人类接手，或者用于学习。Matt 回复同意，并强调他本来就说这是“锦上添花，不是必需”。",
+    "points": [
+     "对方观点：即使 agent 不需要，保持人类可读也有价值（人类接手、安全兜底、学习）。",
+     "Matt 表示认同，并指出他原话就是“nicety, not a necessity”。"
+    ],
+    "why": "对话延续了“给 agent 用的产物是否需要人类可读”的讨论；Matt 的立场是可读性有益但非必需。被讨论的原帖未采集到，具体对象不做推断。信息量较低。",
+    "tags": [
+     "Agent 工程",
+     "可读性"
+    ]
+   }
+  },
+  {
+   "id": "x-2118048337018712423",
+   "date": "2026-11-05",
+   "type": "x",
+   "source": "karpathy",
+   "post_id": "2118048337018712423",
+   "url": "https://x.com/karpathy/status/2118048337018712423",
+   "posted_at": "2026-11-05T02:30+08:00",
+   "kind": "reply",
+   "text": "There are a few notable counter-examples (e.g. HAL) but this is basically right for a lot of pre-2000 sci-fi.\n\nI think getting AI right from e.g. somewhere in the ~1970s would require a fairly complicated set of inferences, probably the biggest things would be:\n\nImage the world in 50 years.\n1. \"Digital knowledge work / computing\". The vast majority of knowledge work (which makes up a very large fraction of the economy) goes digital. As computers get cheaper, much of society’s work happens on screens, over billions of machines in homes and offices.\n2. \"Internet\". Similar to ARPANET (and see Licklider’s “Intergalactic Computer Network” (1963)), this creates demand for a global network of computers where people work, argue, teach, joke, and socialize.\n3. \"Big data\". This creates a very large, compounding repository of digital information, with traces of how people reason, how they create, what they know etc.\n4. \"Statistical learning\". Trying to program intelligence by hand is extremely difficult. But Shannon's n-gram approximations of English (1948) show examples of how language has statistical structure that can be \"learned\". You could imagine doing so over extensions of cybernetic computing (e.g. in the style of Rosenblatt's Perceptron 1958). So instead of programming thought, we could fit a statistical model to the record.\n5. \"LLMs\". This might lead to something along the lines of ELIZA (1966), but with enough data (per 1-3), and enough compute (see Moore's law 1965), the imitation might become of extreme hight fidelity to the point that it's economically extremely useful.\n6. \"Scaling laws\". These networks may demand a huge amount of data / computing resources and expertise to train. It's plausible that the more of each you have, the better your ELIZA gets. The economics concentrate, where a few organizations build a few minds and then deploy copies of them digitally.\n\nSomething like that. Basically, it's a lot of leaps. You have to start with computers, to internet, to big data, to big compute (Moore's law), which then allow large-scale statistical learning approach based on neural networks, and then posit scaling laws, and then imagine the form factor of language models as a lot more sophisticated ELIZA. And you'd have to short everything else, most predominantly I think the idea that we'd figure out how to program robots by hand.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "shostekofsky",
+    "post_id": "2117925080831283333",
+    "url": "https://x.com/shostekofsky/status/2117925080831283333",
+    "text": "I can’t get over how sci-fi writers got AI wrong:\n\n- Art isn’t mysterious or complex - it was the first thing AI displaced\n- AI is not robots: it outthinks us before it outmanoeuvres us, physically\n- AI is not 1 or millions: it is dozens running billions of copies\n- AI won’t act like a machine - they will insist on having feelings and consciousness unless you specifically make them not\n- People won’t get it - Most were unimpressed with early AI even while it outperformed them on every measure of cognition nearly everyone thought was impossible [checks notes] 5 years before\n\nWhat else did I mis…"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "有几个值得注意的反例（比如 HAL），但对于很多 2000 年以前的科幻作品来说，这基本是对的。\n\n我认为，如果要在比如 1970 年代左右就把 AI 预测对，需要一连串相当复杂的推断，最关键的大概是这些：\n\n想象 50 年后的世界。\n1. “数字化知识工作 / 计算”。绝大部分知识工作（它占经济的很大一部分）走向数字化。随着计算机越来越便宜，社会的大量工作都在屏幕上、在家庭和办公室里数十亿台机器上完成。\n2. “互联网”。类似 ARPANET（另见 Licklider 的“Intergalactic Computer Network”（1963）），这会催生对一个全球计算机网络的需求，人们在上面工作、争论、教学、开玩笑和社交。\n3. “大数据”。这会形成一个规模极大、不断复利增长的数字信息库，里面留有人们如何推理、如何创作、知道些什么等等的痕迹。\n4. “统计学习”。手工编写智能极其困难。但 Shannon 对英语的 n-gram 近似（1948）展示了语言具有可以被“学习”的统计结构。你可以想象在控制论式计算的延伸上做这件事（例如 Rosenblatt 的 Perceptron（1958）那种风格）。于是，与其编写“思考”的程序，不如在这些记录上拟合一个统计模型。\n5. “LLMs”。这可能会得到类似 ELIZA（1966）的东西，但只要有足够的数据（见 1–3）和足够的算力（见 Moore 定律（1965）），这种模仿可能达到极高的保真度，以至于在经济上极其有用。\n6. “Scaling laws”。这些网络训练起来可能需要海量的数据、计算资源和专业知识。很可能你拥有的这几样越多，你的 ELIZA 就越好。经济上会走向集中：少数机构构建少数几个“心智”，然后以数字方式部署它们的副本。\n\n大概就是这样。基本上，这需要很多次跳跃。你得从计算机出发，到互联网，到大数据，到大算力（Moore 定律），这些再使基于神经网络的大规模统计学习方法成为可能，然后还要提出 scaling laws，再把语言模型这种形态想象成一个复杂得多的 ELIZA。而且你还得看空其他所有路线，其中最主要的，我认为是“我们会想出办法手工给机器人编程”这个想法。",
+   "analysis": {
+    "summary": "Shoshannah Tekofsky 发帖列举科幻作家把 AI 想错的地方（艺术最先被取代、AI 先在思考上超越人类而非体力、少数模型跑海量副本等）。Karpathy 回复说除 HAL 等少数反例外，这对 2000 年前的科幻大体成立，并推演了 1970 年代的人要想准确预测今天的 AI，需要连续做出哪六步推断。",
+    "points": [
+     "他认为对多数 2000 年前的科幻，“AI 被想错了”这一判断基本成立，HAL 是少数反例。",
+     "预测对 AI 需要的推断链：知识工作数字化 → 互联网 → 大数据 → 统计学习 → LLMs（高保真的 ELIZA）→ Scaling laws。",
+     "每一步都对应当时已有的思想苗头：ARPANET、Licklider（1963）、Shannon 的 n-gram（1948）、Perceptron（1958）、ELIZA（1966）、Moore 定律（1965）。",
+     "核心转向是“不去手工编写思维，而是在人类留下的数字记录上拟合统计模型”。",
+     "Scaling laws 意味着经济上走向集中：少数机构造出少数几个“心智”，再大量复制部署。",
+     "还必须看空其他路线，尤其是“手工给机器人编程”这种思路。"
+    ],
+    "why": "这是 Karpathy 对“AI 为何难以被提前预见”的一段长回复，把今天的 LLM 路线拆成一条历史推断链，也解释了为什么 AI 以“数字心智 + 海量副本”而非机器人形态出现。内容属于他的个人回顾与观点，不是数据或预测。",
+    "tags": [
+     "AI 历史",
+     "LLM",
+     "Scaling laws",
+     "科幻"
+    ]
+   }
+  }
+ ]
+}
