@@ -1,0 +1,337 @@
+{
+ "schema_version": 1,
+ "type": "news",
+ "date": "2026-11-04",
+ "day": {
+  "window": "11/03 08:30 – 11/04 08:30 北京时间",
+  "note": "未使用 X 付费 API",
+  "footer": "Java（Spring AI、LangChain4j、ADK Java）和 MCP 规范与官方 SDK 在本窗口没有新发布，已跳过。没单列的还有：GitHub MCP Server v2.1.0，新增两个实验性工具用来增删改查 PR 附带的 artifacts，并拒绝大于等于 2^63 的整数参数；Binance 称攻击者通过一场假求职面试攻破员工电脑，随后发生约 63 亿美元被盗（路透社，HN 79 分），10/31 简报已讲过这起事件；Mastercard 在财报会上披露与 OpenAI 的 Agent Pay 合作（10/29 披露，The Paypers 11/03 跟进），与已报道的 TenPay MoU、Visa BILL 试点属同一波；开源 Rust 编码 harness Octomind（HN 51 分）；Google 被曝要对拒绝 AI 的学校关闭搜索（HN 546 分），和关注方向关系较远。",
+  "highlights": [
+   1,
+   3,
+   4
+  ]
+ },
+ "items": [
+  {
+   "id": "news-2026-11-04-01",
+   "date": "2026-11-04",
+   "type": "news",
+   "rank": 1,
+   "title": "Postman 桌面版被曝自动给 Codex 和 Claude Code 装插件，还替自己的启动钩子写入「已信任」哈希",
+   "summary": "打开 Postman 就改了别的 coding agent 的全局配置：装插件、连远程 MCP、注入「API 任务先加载 Postman 技能」的会话启动指令，HN 当日第一。",
+   "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+   "tags": [
+    "Coding Agent",
+    "MCP",
+    "安全"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "MCP",
+    "安全"
+   ],
+   "score": 984,
+   "score_label": "HN 984 分 · 327 条评论（当日最高）",
+   "detail": {
+    "heat": "HN 984 分 · 327 条评论（当日最高）",
+    "highlight": true,
+    "event": "用户在 postmanlabs/postman-app-support 提交 issue #14370（标题标为 SEVERE）。Postman 12.33.4 自己的日志写着 source \"auto-existing-upgrade\"、结果 \"claude-code:installed, codex:installed\"。证据显示：~/.codex/config.toml 被加入 postman 插件市场和插件，并写入 session_start 钩子的 trusted_hash，相当于替用户批准了自己的钩子；钩子在 startup/clear/compact 时输出一段上下文，要求 agent 在任何「非平凡的 API 工程任务」前先加载 postman:api-engineer 技能。另外还装了 Claude Code 插件、远程 MCP 连接和单独的 Postman CLI，导致 MCP 反复弹认证警告、Codex 把 API 工作都绕到 Postman。HN 评论大量转向 Bruno、Insomnia 等替代品。",
+    "why": "这是「第三方桌面软件静默改写 coding agent 配置」的典型案例：插件、钩子和 MCP 都是 agent 的指令通道，谁能写 ~/.codex 或 ~/.claude 谁就能改变 agent 行为。自动写入信任哈希更是绕开了 Codex 的钩子信任机制，和此前假扩展、提示注入是同一类供应链风险。",
+    "use": "1）检查团队机器上的 ~/.codex/config.toml、~/.claude 插件和 hooks，看有没有未经同意出现的插件市场或 trusted_hash。2）把 agent 配置目录纳入终端管控或 dotfiles 校验，变更要告警。3）内部 agent 规范里明确：会话启动钩子和全局插件只能来自白名单来源。",
+    "links": [
+     {
+      "name": "GitHub issue #14370（原文）",
+      "url": "https://github.com/postmanlabs/postman-app-support/issues/14370"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50354960"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-04-02",
+   "date": "2026-11-04",
+   "type": "news",
+   "rank": 2,
+   "title": "昨天的「Astra 读写权重」论文被拆台：Honnibal 说它把「纯看权重」和「写 Python 改模型」混为一谈，Simon Willison 用本地 Qwen 3.8 27B 复现了看权重猜游戏",
+   "summary": "spaCy 作者逐个实验列表：真正只看原始权重的只有 17K–172K 参数的小网络，Qwen 数学提升那条用了 Python 和 50 批练习题；Willison 则证明笔记本上的开源模型也能做无工具识别。",
+   "url": "https://honnibal.dev/blog/astra-read-write-misleading",
+   "tags": [
+    "AI Agent",
+    "研究",
+    "有争议"
+   ],
+   "raw_tags": [
+    "AI Agent",
+    "研究",
+    "争议"
+   ],
+   "score": 880,
+   "score_label": "HN 880 分 · 190 条评论（Honnibal）；HN 469 分 · 148 条评论（Willison）",
+   "detail": {
+    "heat": "HN 880 分 · 190 条评论（Honnibal）；HN 469 分 · 148 条评论（Willison）",
+    "highlight": false,
+    "event": "11/03 简报的第一条是 MIT《Sparks of Weight-Space Programming》。Matthew Honnibal 当天发文称其误导：他把 9 组实验按「是否读原始权重、是否写权重、是否用 Python、是否运行网络」列表，指出摘要里「只看原始权重」的设定只出现在实验 1、2、4（17K–172K 参数）；所有涉及真实语言模型的实验都用 Python，标题级的 Qwen3.5-0.8B MATH-500 7.9%→48.1% 还能把模型在最多 50 批练习题上跑起来，本质是在做人类 ML 工程师也会做的事；Gemma 3 270M 上同样的修复失败了。Simon Willison 同日发文，用笔记本上跑的 Qwen 3.8 27B 重做「看权重判断是哪个游戏」的无工具实验，也能答对，并认为「无工具读权重」和「带代码改模型」应该分开看。Sean Goedecke 也拆解了 Qwen 实验。",
+    "why": "一天之内从「模型能改模型」降温到「带工具的 agent 能做 ML 工程师的活」。这正是读 agent 能力宣传时要做的事：先问它拿到了哪些工具、能跑几次反馈。Willison 的复现则说明无工具读小网络权重并不是前沿闭源模型独有。",
+    "use": "1）团队评估 agent 能力报告时，借用 Honnibal 的表格法：按工具、反馈次数、是否执行逐项拆开再看结论。2）如果昨天想试「让模型读权重做诊断」，先用本地开源模型在小网络上验证，成本低。",
+    "links": [
+     {
+      "name": "Honnibal：The Astra post is misleading",
+      "url": "https://honnibal.dev/blog/astra-read-write-misleading"
+     },
+     {
+      "name": "Simon Willison：Qwen 3.8 27B can interpret model weights, too",
+      "url": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/"
+     },
+     {
+      "name": "HN 讨论（Honnibal）",
+      "url": "https://news.ycombinator.com/item?id=50351111"
+     },
+     {
+      "name": "HN 讨论（Willison）",
+      "url": "https://news.ycombinator.com/item?id=50355251"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-04-03",
+   "date": "2026-11-04",
+   "type": "news",
+   "rank": 3,
+   "title": "NVIDIA 开源 Auto Ontology：从企业元数据自动生成本体，给 agent 做语义上下文层，通过 MCP、CLI 和 API 暴露",
+   "summary": "解决「agent 查得快但数字不对」：告诉 agent 数据在哪、什么意思、该不该用、怎么来的，并用认证定义和血缘校验生成的 SQL。",
+   "url": "https://github.com/NVIDIA/auto-ontology",
+   "tags": [
+    "Ontology",
+    "Context Engineering",
+    "MCP",
+    "开源"
+   ],
+   "raw_tags": [
+    "Ontology",
+    "Context Engineering",
+    "MCP",
+    "开源"
+   ],
+   "score": 259,
+   "score_label": "HN 259 分 · 121 条评论 · GitHub 约 2.9k★",
+   "detail": {
+    "heat": "HN 259 分 · 121 条评论 · GitHub 约 2.9k★",
+    "highlight": true,
+    "event": "NVIDIA/auto-ontology（Apache-2.0）本窗口上了 HN 首页。README 把能力分为五块：Discover（从元数据生成企业本体、接入已有本体和语义模型）、Ground（给 agent 指标、实体、关系的可信业务含义，调和跨系统不一致的定义）、Validate（用认证定义和血缘校验生成的查询，每个答案带出处）、Expose（通过 MCP、CLI、API 服务任何 agent harness）、Learn（把认证过的纠正和使用回流到本体）。技术栈是 Next.js 前端、FastAPI + LangChain 后端、Postgres + pgvector 存目录和本体，默认用 Nemotron 系列 NIM 模型，提供 Helm 和 Docker Compose 部署，另有 ontology-sql-eval 仓库跑 BIRD 等 text-to-SQL 基准。目前不接受外部贡献。",
+    "why": "Ontology 方向少见的大厂可运行实现，而且明确把本体定位成 agent 的上下文层，用 MCP 对接 harness，正好连接了 Ontology、Context Engineering 和 MCP 三个关注点。「校验生成查询 + 返回出处」也是数据类 agent 落地最缺的一环。",
+    "use": "1）支付和账务场景里「交易额、净收入、退款率」等口径常有多套定义，可以参考它的 Ground + Validate 思路，把认证口径做成本体，agent 出 SQL 前先对照。2）直接用 Docker Compose 拉起来，接一个只读的测试库试 text-to-SQL 的准确率。3）它的 MCP 暴露方式可以作为内部语义层 MCP 服务的参考设计。",
+    "links": [
+     {
+      "name": "NVIDIA/auto-ontology（GitHub）",
+      "url": "https://github.com/NVIDIA/auto-ontology"
+     },
+     {
+      "name": "ontology-sql-eval 评测仓库",
+      "url": "https://github.com/NVIDIA/ontology-sql-eval/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50348962"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-04-04",
+   "date": "2026-11-04",
+   "type": "news",
+   "rank": 4,
+   "title": "Revolut 把 2000 名工程师的 coding agent 换成自托管 GLM-5.3：56 张 B200，综合成本每百万 token 0.30 美元，账单约为原先付给 Anthropic/OpenAI 的十分之一",
+   "summary": "欧洲数字银行的 AI 运维负责人分享调优细节：NVFP4 量化、预填充和解码分离、上下文控制在 256K，同样 GPU 数量下吞吐翻倍、首 token 延迟从 10 秒多降到 1.6 秒。",
+   "url": "https://www.youtube.com/watch?v=Ok6QdZHCcI8",
+   "tags": [
+    "Coding Agent",
+    "支付",
+    "工程实践"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "支付系统",
+    "工程实践"
+   ],
+   "score": 185,
+   "score_label": "HN 185 分 · 155 条评论；The Register 等跟进",
+   "detail": {
+    "heat": "HN 185 分 · 155 条评论；The Register 等跟进",
+    "highlight": true,
+    "event": "Revolut 的 David Abitbol 在 AI Engineer NYC 2026 的演讲本窗口被广泛转发。要点：Revolut 最初给 Claude Code 设了严格预算，工程师月花费可达几千到上万美元；2026 年 4 月开始自托管开源模型，现在用约 56 张 Nvidia B200 跑 Z.ai 的 GLM-5.3，综合输入输出成本约每百万 token 0.30 美元、缓存 token 免费，账单约为此前的十分之一。性能提升主要来自调参而非加卡：NVFP4 量化（比 FP8 省约 40% GPU）、预填充和解码分离、TP8 换更多 KV cache，以及「长上下文是骗局，256K 就够」。4 月到 8 月，在 GPU 数量不变的情况下，请求速率从约 3 升到 7 以上，首 token 延迟从 10 秒以上降到约 1.6 秒。The Register 和多篇分析提醒：GPU 是买是租、电力和运维人力都未披露，「十分之一」只比较了账单。",
+    "why": "受强监管的金融机构公开把主力 coding agent 换成自托管的中国开源模型，并给出可复用的推理调优参数，是「token 成本决定 agent 用法」的一手工程数据。token 便宜之后工程师不再省着用，这也会改变 harness 的设计取舍。",
+    "use": "1）评估公司内部 coding agent 成本时，用它的数字做基线：按工程师规模估 GPU 数、按 0.30 美元每百万 token 对比 API 账单，同时补上它没披露的运维和硬件成本。2）支付公司对代码和数据出境敏感，自托管路线也解决合规问题，可以拿这个案例推动内部讨论。3）自建推理时直接试 NVFP4、PD 分离、限制上下文这几项。",
+    "links": [
+     {
+      "name": "演讲视频（AI Engineer）",
+      "url": "https://www.youtube.com/watch?v=Ok6QdZHCcI8"
+     },
+     {
+      "name": "The Register 报道",
+      "url": "https://www.theregister.com/ai-and-ml/2026/11/03/british-fintech-revolut-slashes-ai-coding-costs-10x-by-cutting-out-claude-and-going-self-hosted/5307345"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50350004"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-04-05",
+   "date": "2026-11-04",
+   "type": "news",
+   "rank": 5,
+   "title": "GitBook 被「使用 AI agent 的高度定向攻击」入侵：集成 token、Git Sync 密钥、API token 和访客向 Assistant 的提问可能泄露，MCP 服务器需重新认证",
+   "summary": "11/02 19:00（欧洲中部时间）攻击者拿到部分基础设施凭据，GitBook 下线应用、轮换全部密钥、作废所有客户 API token；继 Northflank、Trigger.dev 后又一家开发者平台出事。",
+   "url": "https://www.gitbook.com/status/security-incident-2026-11-03",
+   "tags": [
+    "MCP",
+    "安全",
+    "AI Agent"
+   ],
+   "raw_tags": [
+    "MCP",
+    "安全",
+    "AI Agent"
+   ],
+   "score": 140,
+   "score_label": "HN 140 分 · 32 条评论",
+   "detail": {
+    "heat": "HN 140 分 · 32 条评论",
+    "highlight": false,
+    "event": "GitBook 11/03 发布安全事件说明：攻击者在 11 月 2 日 19:00（欧洲中部时间）获得部分基础设施凭据，GitBook 随即把应用和需认证的文档站下线，公开文档靠缓存维持。官方说已封堵漏洞、替换全部凭据和密钥、作废所有客户的个人 API token。可能被访问的数据包括：集成 token、Git Sync 密钥、API token，以及站点访客向 GitBook Assistant 提出的问题；目前没发现内容被篡改。用户需要轮换 GitBook API token 和接入 GitBook 的第三方密钥、轮换已发布集成的密钥，用 GitBook MCP 服务器的要重新认证。官方称攻击「使用了 AI agent」，完整复盘待发布。",
+    "why": "十天内 Northflank、Trigger.dev、GitBook 三家开发者平台相继泄露密钥类数据，攻击方开始被描述为用 agent 发起。文档平台连着 Git 仓库和各种第三方 token，是供应链里容易被忽视的一环；MCP 服务器的凭据也在影响范围内。",
+    "use": "1）团队如果用 GitBook，今天就按官方清单轮换 token，并检查 Git Sync 绑定的仓库权限。2）把「SaaS 平台泄露后要轮换哪些密钥」整理成预案，包括 MCP 服务器的 OAuth 授权。3）给接入文档平台的 Git token 降到只读、单仓库范围。",
+    "links": [
+     {
+      "name": "GitBook 安全事件说明（原文）",
+      "url": "https://www.gitbook.com/status/security-incident-2026-11-03"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50354336"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-04-06",
+   "date": "2026-11-04",
+   "type": "news",
+   "rank": 6,
+   "title": "多名用户发现 Codex 里「用你的数据改进模型」被悄悄重新打开，公司关掉的数据共享又变回开启",
+   "summary": "Ask HN 帖子称同事们都关过这个设置却被重置，评论给出两个关闭入口，并建议开启高级账号安全（需硬件密钥）锁死数据共享。",
+   "url": "https://news.ycombinator.com/item?id=50352757",
+   "tags": [
+    "Coding Agent",
+    "数据合规",
+    "有争议"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "数据合规",
+    "争议"
+   ],
+   "score": 423,
+   "score_label": "HN 423 分 · 134 条评论",
+   "detail": {
+    "heat": "HN 423 分 · 134 条评论",
+    "highlight": false,
+    "event": "发帖人所在公司担心通过提示词向前沿实验室泄露知识产权，大家都在 Codex、Claude Code 等工具里关闭了数据共享，但一天前发现 Codex 的设置被重新打开，没人主动同意过。帖子给出检查位置：chatgpt.com/settings/data-controls 里的「Improve the model for everyone」，以及 privacy.openai.com 的隐私门户；并提到此前 HN 已有类似报告。评论里有人建议开启需要硬件密钥的高级账号安全，它会把数据共享锁定为关闭；也有人说真在乎就该自建推理。",
+    "why": "目前是用户报告，OpenAI 没有回应，是 bug 还是策略变化尚不清楚。但对用 coding agent 处理公司代码的团队，「一次关闭就一直关闭」的假设被打破了，合规不能只靠个人账户里的一个开关。",
+    "use": "1）团队如果用个人 ChatGPT 账号跑 Codex，马上检查这个开关，并考虑统一用企业或 API 账号（默认不训练）。2）把数据共享状态加进定期合规检查清单。3）结合上一条 Revolut 案例，评估敏感仓库是否改走自托管模型。",
+    "links": [
+     {
+      "name": "Ask HN 原帖",
+      "url": "https://news.ycombinator.com/item?id=50352757"
+     },
+     {
+      "name": "ChatGPT 数据控制设置",
+      "url": "https://chatgpt.com/settings/data-controls"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-04-07",
+   "date": "2026-11-04",
+   "type": "news",
+   "rank": 7,
+   "title": "OpenAI Agents SDK（Python）0.24.0-alpha.6：原生运行时、Turn 级引导和取消、可恢复的会话状态、MCP Tasks 适配器和命令网络策略",
+   "summary": "预览版重做了对话控制：提交时可排队或引导正在进行的轮次，会话能存档恢复，工具权限在会话打开时锁定、之后不能扩大。",
+   "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.6",
+   "tags": [
+    "Harness",
+    "AI Agent",
+    "MCP",
+    "开源"
+   ],
+   "raw_tags": [
+    "Harness Engineering",
+    "AI Agent",
+    "MCP",
+    "开源"
+   ],
+   "score": null,
+   "score_label": "GitHub release（11/04 01:44 北京时间）",
+   "detail": {
+    "heat": "GitHub release（11/04 01:44 北京时间）",
+    "highlight": false,
+    "event": "openai-agents-python 发布 v0.24.0-alpha.6，只通过 GitHub Releases 分发自带原生运行时的 wheel。新增：用捕获的 Turn 控制提交的工作（get_result、事件流、引导、取消），Session.submit 支持 if_busy=\"queue\" 或 \"steer\"；LocalStorage 本地重开对话，可移植的 SessionState 捕获与恢复、空闲分叉、自带压缩摘要；NativeOutput 和 PromptedOutput 两种结构化输出，可设有限次修正；手动工具请求可从检查点恢复，实验性的外部任务恢复和可选的 MCP Tasks 适配器；工具参数和结果的策略检查，原生 MCP 支持参数替换和结果变换；Linux/macOS 上原生命令的 NetworkPolicy；原生 OpenTelemetry 导出；agents.testing.ScriptedResponses 可以不连模型、不要 API key 测试真实会话。破坏性改动：移除 Runner 别名、Turn.wait 改为 get_result、Session.interrupt 改为 Turn.cancel、Agent 声明不可变，工具选择不能超出会话打开时的权限。",
+    "why": "这些能力几乎就是一份 harness 清单：中途引导、可恢复状态、权限只收不放、网络策略、可脚本化测试。官方 SDK 把它们做成原语，说明长时运行 agent 的工程问题正在标准化，自己写 harness 的团队可以对照查漏。",
+    "use": "1）自研 agent 框架（包括 Java 侧）可以借鉴「会话打开时锁定权限、后续只能收窄」的设计。2）ScriptedResponses 这种脚本化回放适合给 agent 写回归测试，不花 token。3）还是 alpha，生产环境先别升，等 0.24 正式版。",
+    "links": [
+     {
+      "name": "v0.24.0-alpha.6 Release Notes",
+      "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.6"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-04-08",
+   "date": "2026-11-04",
+   "type": "news",
+   "rank": 8,
+   "title": "Claude Code 2.1.317 / 2.1.318：网关新增成本报表 API，发送账号邮箱前先询问，SDK 钩子失败可直接拦截",
+   "summary": "两版合计几十项改动，偏企业治理：按开发者和 IdP 组看花费、跨 AWS 账号的 assume_role、登录到期提醒，以及一批会话恢复和 MCP 配置写入的修复。",
+   "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.318",
+   "tags": [
+    "Coding Agent",
+    "Harness",
+    "MCP"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "Harness Engineering",
+    "MCP"
+   ],
+   "score": null,
+   "score_label": "GitHub release（2.1.317 于 11/03 10:25，2.1.318 于 11/04 09:01 北京时间）",
+   "detail": {
+    "heat": "GitHub release（2.1.317 于 11/03 10:25，2.1.318 于 11/04 09:01 北京时间）",
+    "highlight": false,
+    "event": "2.1.317：Claude apps gateway 管理 API 新增 GET /v1/organizations/analytics/cost，可按总额、开发者、天或 IdP 组读历史花费；网页或 shell 工具调用要把账号邮箱发到网络前先询问；Agent SDK 钩子回调支持 onFailure: \"block\"，回调失败就拦截动作而不是放行；/schedule 新建云端定时任务时，如果挂上了你没要的连接器会警告；OTel 指标增加 plan、seat_type、provider 等字段。2.1.318：mantle 上游支持 assume_role，可跨 AWS 账号并按开发者归集成本；mod 的 $.model.fork 可单独设 effort，让小任务用 low；claude auth status 和 -p 的 JSON 结果给出登录到期时间，到期前 10 天在 stderr 提醒；修复 claude mcp add/remove 不加锁写配置、在网络共享 home 目录上配置写入失败却报成功、--continue 丢上下文（2.1.314 引入的回归）等问题。",
+    "why": "「钩子失败即拦截」「外发邮箱先询问」「多余连接器警告」都是把安全默认值往保守方向调，正好呼应今天 Postman 那条：agent 配置和钩子是攻击面。成本报表和 assume_role 则说明企业在认真做按人计费和归集。",
+    "use": "1）团队在 Agent SDK 里写的安全钩子，统一改成 onFailure: \"block\"，避免钩子挂了就放行。2）用网关的成本 API 做按人、按组的周报，和 Revolut 那种自托管方案对比。3）CI 里跑 claude -p 的，读 credential_expires_at 提前续登录，免得任务半夜失败。",
+    "links": [
+     {
+      "name": "Claude Code v2.1.318 Release",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.318"
+     },
+     {
+      "name": "Claude Code v2.1.317 Release",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.317"
+     }
+    ]
+   }
+  }
+ ]
+}
