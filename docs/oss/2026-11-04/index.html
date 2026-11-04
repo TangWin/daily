@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>开源 2026-11-04 · Peter 的每日雷达</title>
+<meta name="description" content="11月4日 开源推荐：Craft Anything：让 AI 研究任意网站/App/游戏，再帮你造一个自己的版本">
+<link rel="canonical" href="https://tangwin.github.io/daily/oss/2026-11-04/">
+<meta property="og:title" content="开源 2026-11-04 · Peter 的每日雷达"><meta property="og:description" content="11月4日 开源推荐：Craft Anything：让 AI 研究任意网站/App/游戏，再帮你造一个自己的版本"><meta property="og:url" content="https://tangwin.github.io/daily/oss/2026-11-04/"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN">
+<link rel="alternate" type="application/rss+xml" title="AI 工程新闻 · Peter 的每日雷达" href="/daily/news/rss.xml"><link rel="alternate" type="application/rss+xml" title="产品 Idea Top 5 · Peter 的每日雷达" href="/daily/idea/rss.xml"><link rel="alternate" type="application/rss+xml" title="开源推荐 · Peter 的每日雷达" href="/daily/oss/rss.xml">
+<script>/* mark JS + apply saved theme before paint */(function(){var d=document.documentElement;d.className+=' js';try{var t=localStorage.getItem('hub-theme');if(t)d.dataset.theme=t}catch(e){}})()</script>
+<link rel="stylesheet" href="/daily/assets/style.css">
+</head>
+<body data-base="/daily/">
+<a class="skip" href="#main">跳到正文</a>
+<header class="site">
+  <div class="bar wrap">
+    <a class="brand" href="/daily/"><span class="logo" aria-hidden="true"></span><span>Peter 的每日雷达</span></a>
+    <nav class="nav" aria-label="频道"><a href="/daily/" data-nav="home">今天</a><a href="/daily/news/" data-nav="news">新闻</a><a href="/daily/idea/" data-nav="idea">产品 Idea</a><a href="/daily/oss/" data-nav="oss" class="on" aria-current="page">开源</a><a href="/daily/x/" data-nav="x">信源</a></nav>
+    <form class="search" role="search" id="searchForm" action="/daily/search/" method="get">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" name="q" type="search" placeholder="搜索标题、标签、内容" aria-label="搜索" autocomplete="off">
+    </form>
+    <div class="acts">
+      <a class="icon-btn blog" href="https://tangwin.github.io/blog/" title="博客">博客</a>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="切换主题" title="主题：跟随系统（点击切换）"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+<div class="narrow ch-oss"><div class="crumbs"><a href="/daily/">今天</a> / <a href="/daily/oss/">开源</a> / 2026-11-04</div>
+<header class="page-h"><div class="eyebrow"><i style="background:var(--oss)"></i>Daily OSS Pick · 11.04</div>
+<h1>2026年11月4日 <small>周三 · 开源推荐</small></h1>
+<div class="facts"><a class="rss" href="/daily/oss/rss.xml" title="开源 RSS"><svg viewBox="0 0 24 24"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.2" fill="currentColor"/></svg>RSS</a></div></header>
+<article class="repo-card" id="c-oss-2026-11-04-craft-anything">
+<div class="repo"><a href="https://github.com/storytold/craft-anything" target="_blank" rel="noopener">storytold/craft-anything ↗</a> <span class="badge ch-oss">当日推荐</span></div>
+<div class="t">Craft Anything：让 AI 研究任意网站/App/游戏，再帮你造一个自己的版本</div><p>纯 Rust 开源的「看懂再重建」工具：研究原版、调你的 Claude Code 搭新项目、和原版逐页对比修正，320 个工具全可当 CLI/MCP 用；四天 8600 星，今早仍在密集合 PR。</p>
+<div class="kv"><span class="star"><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg>8,622</span><span class="tag">1,434 forks</span><span class="tag">MIT OR Apache-2.0</span><span class="tag">Rust</span><span class="tag">最新发布 v0.3.0</span><a class="tag" href="https://getartcraft.com/apps/craft-anything" target="_blank" rel="noopener">主页 ↗</a></div>
+<div class="kv"><span class="badge ch-oss">Coding Agent</span><span class="badge ch-oss">MCP</span><span class="badge ch-oss">开发者工具</span><span class="badge ch-oss">逆向工程</span></div></article>
+<div class="prose"><p><strong>Craft Anything：看懂任意网站、App 或游戏是怎么做的，再让 AI 帮你做一个自己的版本</strong></p><p>今天值得试：这是 ArtCraft 团队 10-31 才开源的纯 Rust 桌面应用，四天涨到 8600 多星。你给它一个网址（或 App、游戏），说一句「Recreate this website」，它先用真正的检查工具研究原版，再调用你电脑上的 Claude Code 搭一个新项目，然后拿新版和原版逐页对比、继续修，直到足够像。北京时间 11-03 凌晨刚发 v0.3.0，今天早上还在密集合 PR。</p><p>仓库：<a href="https://github.com/storytold/craft-anything" target="_blank" rel="noopener">storytold/craft-anything</a> · <a href="https://getartcraft.com/apps/craft-anything" target="_blank" rel="noopener">官网介绍</a></p><p><strong>解决什么 / 适合谁</strong></p><p>想「照着某个网站或小游戏做一个自己的」但不想手抄的人；做竞品研究、想弄清一个程序到底怎么跑的开发者；以及想给自己的 Agent 接一套逆向/检查工具的人。双许可证 MIT 或 Apache-2.0。</p><p><strong>README 里的要点</strong></p><ul><li>四步流程：研究（Study）→ 构建（Build）→ 对比检查（Check）→ 完成（Ready）。网站会在三种屏幕宽度下和原版比对并给出相似度；需要你拿主意时弹出问题卡和审批卡。</li><li>两种模式：默认「Clean room」只看外观（截图、可见文字、实测布局、颜色字体间距），不读原版代码和页面源码；「Deep」模式会读程序代码和文件（内置反汇编/反编译，装了 Ghidra 也会用），仅供个人使用。</li><li>构建靠你本机的编码 Agent：优先支持 Claude Code（直接调用你自己的 <code>claude</code> 和登录），也能接 Copilot CLI 及 Gemini CLI、opencode、goose 等 ACP Agent；问答分析可用 Anthropic、OpenAI、OpenRouter 或本地 OpenAI 兼容服务。作者坦言 Codex 适配和多数 ACP Agent 还没实测。</li><li>320 个工具，每个既是 CLI 命令又是 MCP 工具：<code>craft-anything-cli mcp</code> 就能挂到任意 MCP 客户端，<code>craft-anything-cli rebuild &lt;网址&gt; &quot;需求&quot;</code> 不开界面也能整套重建。</li><li>底层是纯 Rust 逆向引擎，覆盖原生程序、.NET、Java、安卓、苹果、Electron、网站、固件、抓包、数据库和游戏文件；游戏可重建到 Unity、Unreal、Godot。</li><li>有 Windows/macOS（已签名公证）/Linux/FreeBSD 安装包，还有浏览器版文件查看器。</li></ul><p><strong>近期活跃证据</strong></p><ul><li>Issues：建库四天已有约 309 个，开放约 116 个；有机器人先做分诊和关联，很多 bug 当天就有 PR 修掉（例如 11-03 报的老 Mac Metal 版本打不开窗口，今早已合修复）。开放的多是 Gemini CLI 构建死循环、Token 消耗偏大、OpenCode 集成等问题。</li><li>Release：共 3 个版本，v0.1.0（11-01 00:16）、v0.2.0、v0.3.0（11-03 01:58，均为北京时间）；v0.3.0 合入了一大批社区修复，加了法语和日语界面。</li><li>提交：约 320 次提交、45 位贡献者，主力 bflatastic 110 次；11-02 当天 127 次，今早（北京时间 11-04 上午）仍在连续合并 PR，89 个 PR 已合入。</li></ul><p><strong>怎么快速上手</strong></p><ol><li>在 <a href="https://github.com/storytold/craft-anything/releases/latest" target="_blank" rel="noopener">Releases</a> 下对应系统的安装包（或从源码 <code>cargo run --release -p craft-anything</code>，需要 Rust 1.97+）。</li><li>确认本机已装并登录 Claude Code，运行 <code>craft-anything-cli doctor</code> 看缺什么。</li><li>打开 Make 页，选「网站」，填一个你自己的站点地址，写「Recreate this website」，保持 Clean room 模式，点 Start。</li></ol><p><strong>风险 / 注意</strong></p><ul><li>官方标注 early alpha：除 Claude Code 外的构建路径大多没实测，有人反馈 Gemini CLI 下构建卡死循环。</li><li>会大量消耗你编码 Agent 的额度（Issue #731 反映三轮提示就到上限），先拿小站点试。</li><li>只对你拥有或有权研究的软件用；Deep 模式读取他人代码可能涉及法律和服务条款问题。项目说明不绕过 DRM、登录或反作弊。</li><li>项目四天内热度暴涨，Issue 里也混有垃圾帖，稳定性需要再观察几周。</li></ul></div>
+<nav class="pager" aria-label="翻页"><span><a href="/daily/oss/2026-11-03/" rel="prev">← 11月3日</a></span><a href="/daily/oss/">开源 · 全部往期</a><span></span></nav></div>
+</main>
+<footer class="site-foot wrap">
+  <span>Peter 的每日雷达 · 新闻 08:30、产品 Idea 07:00、开源 10:00 每日更新（北京时间）· 信源每天多次更新</span>
+  <span><a href="/daily/news/">新闻</a> · <a href="/daily/idea/">产品 Idea</a> · <a href="/daily/oss/">开源</a> · <a href="https://tangwin.github.io/blog/">博客</a> · <a href="https://github.com/TangWin/daily">GitHub</a></span>
+</footer>
+<script src="/daily/assets/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-11-04",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-11-04-craft-anything",
+      "date": "2026-11-04",
+      "type": "oss",
+      "rank": 1,
+      "title": "Craft Anything：让 AI 研究任意网站/App/游戏，再帮你造一个自己的版本",
+      "summary": "纯 Rust 开源的「看懂再重建」工具：研究原版、调你的 Claude Code 搭新项目、和原版逐页对比修正，320 个工具全可当 CLI/MCP 用；四天 8600 星，今早仍在密集合 PR。",
+      "url": "https://github.com/storytold/craft-anything",
+      "tags": [
+        "Coding Agent",
+        "MCP",
+        "开发者工具",
+        "逆向工程"
+      ],
+      "raw_tags": [],
+      "score": 8622,
+      "score_label": "★ 8622",
+      "detail": {
+        "status": "picked",
+        "repo": "storytold/craft-anything",
+        "homepage": "https://getartcraft.com/apps/craft-anything",
+        "stars": 8622,
+        "forks": 1434,
+        "license": "MIT OR Apache-2.0",
+        "language": "Rust",
+        "latest_release": "v0.3.0",
+        "runners_up": [],
+        "body_md": "**Craft Anything：看懂任意网站、App 或游戏是怎么做的，再让 AI 帮你做一个自己的版本**\n\n今天值得试：这是 ArtCraft 团队 10-31 才开源的纯 Rust 桌面应用，四天涨到 8600 多星。你给它一个网址（或 App、游戏），说一句「Recreate this website」，它先用真正的检查工具研究原版，再调用你电脑上的 Claude Code 搭一个新项目，然后拿新版和原版逐页对比、继续修，直到足够像。北京时间 11-03 凌晨刚发 v0.3.0，今天早上还在密集合 PR。\n\n仓库：[storytold/craft-anything](https://github.com/storytold/craft-anything) · [官网介绍](https://getartcraft.com/apps/craft-anything)\n\n**解决什么 / 适合谁**\n想「照着某个网站或小游戏做一个自己的」但不想手抄的人；做竞品研究、想弄清一个程序到底怎么跑的开发者；以及想给自己的 Agent 接一套逆向/检查工具的人。双许可证 MIT 或 Apache-2.0。\n\n**README 里的要点**\n- 四步流程：研究（Study）→ 构建（Build）→ 对比检查（Check）→ 完成（Ready）。网站会在三种屏幕宽度下和原版比对并给出相似度；需要你拿主意时弹出问题卡和审批卡。\n- 两种模式：默认「Clean room」只看外观（截图、可见文字、实测布局、颜色字体间距），不读原版代码和页面源码；「Deep」模式会读程序代码和文件（内置反汇编/反编译，装了 Ghidra 也会用），仅供个人使用。\n- 构建靠你本机的编码 Agent：优先支持 Claude Code（直接调用你自己的 `claude` 和登录），也能接 Copilot CLI 及 Gemini CLI、opencode、goose 等 ACP Agent；问答分析可用 Anthropic、OpenAI、OpenRouter 或本地 OpenAI 兼容服务。作者坦言 Codex 适配和多数 ACP Agent 还没实测。\n- 320 个工具，每个既是 CLI 命令又是 MCP 工具：`craft-anything-cli mcp` 就能挂到任意 MCP 客户端，`craft-anything-cli rebuild <网址> \"需求\"` 不开界面也能整套重建。\n- 底层是纯 Rust 逆向引擎，覆盖原生程序、.NET、Java、安卓、苹果、Electron、网站、固件、抓包、数据库和游戏文件；游戏可重建到 Unity、Unreal、Godot。\n- 有 Windows/macOS（已签名公证）/Linux/FreeBSD 安装包，还有浏览器版文件查看器。\n\n**近期活跃证据**\n- Issues：建库四天已有约 309 个，开放约 116 个；有机器人先做分诊和关联，很多 bug 当天就有 PR 修掉（例如 11-03 报的老 Mac Metal 版本打不开窗口，今早已合修复）。开放的多是 Gemini CLI 构建死循环、Token 消耗偏大、OpenCode 集成等问题。\n- Release：共 3 个版本，v0.1.0（11-01 00:16）、v0.2.0、v0.3.0（11-03 01:58，均为北京时间）；v0.3.0 合入了一大批社区修复，加了法语和日语界面。\n- 提交：约 320 次提交、45 位贡献者，主力 bflatastic 110 次；11-02 当天 127 次，今早（北京时间 11-04 上午）仍在连续合并 PR，89 个 PR 已合入。\n\n**怎么快速上手**\n1. 在 [Releases](https://github.com/storytold/craft-anything/releases/latest) 下对应系统的安装包（或从源码 `cargo run --release -p craft-anything`，需要 Rust 1.97+）。\n2. 确认本机已装并登录 Claude Code，运行 `craft-anything-cli doctor` 看缺什么。\n3. 打开 Make 页，选「网站」，填一个你自己的站点地址，写「Recreate this website」，保持 Clean room 模式，点 Start。\n\n**风险 / 注意**\n- 官方标注 early alpha：除 Claude Code 外的构建路径大多没实测，有人反馈 Gemini CLI 下构建卡死循环。\n- 会大量消耗你编码 Agent 的额度（Issue #731 反映三轮提示就到上限），先拿小站点试。\n- 只对你拥有或有权研究的软件用；Deep 模式读取他人代码可能涉及法律和服务条款问题。项目说明不绕过 DRM、登录或反作弊。\n- 项目四天内热度暴涨，Issue 里也混有垃圾帖，稳定性需要再观察几周。\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
