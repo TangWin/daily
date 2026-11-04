@@ -3,14 +3,387 @@
  "type": "x",
  "date": "2026-11-04",
  "day": {
-  "digest": "Dan Koe 发布长文《2027 年最赚钱的 AI 生意》，主张借助 AI 成为自己或他人的“一人创意团队”（文中大量推广自家 Eden）；Matt Pocock 推荐 Warp 的 Zach Lloyd 关于“软件工厂”的演讲，称其与他认可的最佳实践完全一致。",
+  "digest": "Dan Koe 发布长文《2027 年最赚钱的 AI 生意》，主张借助 AI 成为“一人创意团队”（文中大量推广自家 Eden）；Matt Pocock 推荐 Zach Lloyd 关于“软件工厂”的演讲，并发长帖主张 agent 时代代码的“可读性”应让位于“可验证性”，引发大量讨论；他还称 skills 仓库即将成为 star 最多的 skills 仓库，并考虑把 skills 发布到 npm。",
   "by_source": {
    "thedankoe": "长文：用 AI 做“一人创意团队”，为自己或客户做品牌与内容。",
-   "mattpocockuk": "推荐 Zach Lloyd 关于“软件工厂”的演讲并附上链接。"
+   "mattpocockuk": "推荐“软件工厂”演讲；发长帖称对 agent 而言可读性即可验证性，并在回复中讨论注释、人类审查与 skills 分发。"
   },
-  "updated_at": "2026-11-04T20:05:00+09:00"
+  "updated_at": "2026-11-05T00:15:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2117980688058343700",
+   "date": "2026-11-04",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117980688058343700",
+   "url": "https://x.com/mattpocockuk/status/2117980688058343700",
+   "posted_at": "2026-11-04T22:02+08:00",
+   "kind": "reply",
+   "text": "Yep, humans need to review every one-way door PR that goes out\n\nSome industries have more one-way doors than others\n\nIt helps if you have users",
+   "article_title": null,
+   "reply_to": {
+    "handle": "PyrosAI",
+    "post_id": "2117978861946208524",
+    "url": "https://x.com/PyrosAI/status/2117978861946208524",
+    "text": "bro still in \"human needs to read code\" time. Or still in the \"skills are still usefull pls buy the courses about them\" time. not sure."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "是的，每一个“单向门”（不可逆）的 PR 发出去之前，都需要人类审查\n\n有些行业的单向门比其他行业多\n\n如果你有用户，这会有帮助",
+   "analysis": {
+    "summary": "有人嘲讽他还停留在“人类需要读代码”的时代、还在卖 skills 课程；他回复称每个不可逆（单向门）的 PR 都需要人类审查，有的行业这类改动更多。",
+    "points": [
+     "@PyrosAI 讽刺他仍认为人需要读代码，或是在推销 skills 课程",
+     "Matt 认为所有“单向门”（不可逆）PR 都需要人类审查",
+     "有些行业的不可逆改动比其他行业多",
+     "“It helps if you have users”——讽刺对方大概没有真实用户"
+    ],
+    "why": "补充了他立场的边界：并非完全不需要人看代码，而是人类审查集中在不可逆的高风险改动上。属于观点。",
+    "tags": [
+     "Agent 工程",
+     "代码审查"
+    ]
+   }
+  },
+  {
+   "id": "x-2117974703809896795",
+   "date": "2026-11-04",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117974703809896795",
+   "url": "https://x.com/mattpocockuk/status/2117974703809896795",
+   "posted_at": "2026-11-04T21:38+08:00",
+   "kind": "reply",
+   "text": "Any chance you could read my post again and get back to me?",
+   "article_title": null,
+   "reply_to": {
+    "handle": "pureppl",
+    "post_id": "2117974213114101920",
+    "url": "https://x.com/pureppl/status/2117974213114101920",
+    "text": "'readable' as in 'to phrase it this way also points out to valuable context'\n\nAnd sorry, but faster processing does not imply that agents define 'readable' different. If so, how?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "你能不能再读一遍我的帖子，然后再回复我？",
+   "analysis": {
+    "summary": "@pureppl 认为处理更快并不意味着 agent 对“可读”的定义不同，并问“如果不同，怎么不同”；Matt 回复请对方再读一遍他的帖子。",
+    "points": [
+     "@pureppl 质疑：处理速度快不代表 agent 对“可读”的定义不同",
+     "Matt 没有展开解释，只请对方重读原帖"
+    ],
+    "why": "纯社交回复，信息量很低；答案在他的原帖里（对 agent 而言可读即可验证）。",
+    "tags": [
+     "社交互动"
+    ]
+   }
+  },
+  {
+   "id": "x-2117974152095183275",
+   "date": "2026-11-04",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117974152095183275",
+   "url": "https://x.com/mattpocockuk/status/2117974152095183275",
+   "posted_at": "2026-11-04T21:36+08:00",
+   "kind": "quote",
+   "text": "Note here how understanding software fundamentals still matter.\n\nWe stand on the shoulders of giants.\n\nBut while we stood, the world changed around us.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": {
+    "handle": "mattpocockuk",
+    "post_id": "2117953152376799498",
+    "url": "https://x.com/mattpocockuk/status/2117953152376799498",
+    "text": "We need to reconsider our priors on code readability.\n\nHumans, compared to agents, are pretty slow at understanding large quantities of text. So in the old days, readability was important so the human could efficiently grok what was going on.\n\nSo readability now comes down to:\n\n1. Can a human, if needed, jump in and understand the code\n2. Does the code use the same domain language as the human describing the code?\n\n1 helps with observability and the occasional spot checks you need to do on important PR's. 2 helps the agent translate the words you use into code changes.\n\nIn other words, readabi…"
+   },
+   "links": [],
+   "translation_zh": "注意，理解软件基础依然很重要。\n\n我们站在巨人的肩膀上。\n\n但在我们站着的时候，世界已经在身边变了。",
+   "analysis": {
+    "summary": "Matt 引用自己关于代码可读性的长帖，强调软件基础知识依然重要，但世界已经变化。",
+    "points": [
+     "引用的是他自己“重新审视代码可读性”的长帖",
+     "他强调理解软件基础依然重要",
+     "“站在巨人肩膀上，但世界在我们身边变了”——暗示旧有的最佳实践需要更新"
+    ],
+    "why": "这是对原帖的补充态度：他并不否定基础知识，而是认为环境变了、观念需要更新。属于观点，信息量较低。",
+    "tags": [
+     "Agent 工程",
+     "软件基础",
+     "观点"
+    ]
+   }
+  },
+  {
+   "id": "x-2117973548199285010",
+   "date": "2026-11-04",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117973548199285010",
+   "url": "https://x.com/mattpocockuk/status/2117973548199285010",
+   "posted_at": "2026-11-04T21:33+08:00",
+   "kind": "reply",
+   "text": "Factories can still just npx skills add them, that's fine to me",
+   "article_title": null,
+   "reply_to": {
+    "handle": "AlemTuzlak",
+    "post_id": "2117965661217362395",
+    "url": "https://x.com/AlemTuzlak/status/2117965661217362395",
+    "text": "Plus with TanStack AI we allow you to create typesafe mcp servers so your users could do something like mcp.resource(\"skill-name-is-typesafe\"). That makes the DX on npm nice but not outside of it though"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "工厂照样可以直接 npx skills add 它们，这在我看来没问题",
+   "analysis": {
+    "summary": "@AlemTuzlak 提到 TanStack AI 可以创建类型安全的 MCP 服务器，在 npm 上分发 skills 体验会很好；Matt 回复说软件工厂也可以直接用 npx skills add 安装 skills，他觉得这样就够了。",
+    "points": [
+     "@AlemTuzlak：TanStack AI 支持创建类型安全的 MCP 服务器，可以用类似 mcp.resource(\"skill-name-is-typesafe\") 的方式调用",
+     "对方认为这让 npm 上的开发体验很好，但 npm 之外则不然",
+     "Matt 认为工厂直接用 npx skills add 安装即可"
+    ],
+    "why": "补充了他“把 skills 发到 npm”这一设想的讨论：发布到 npm 不是唯一途径。信息量较低。",
+    "tags": [
+     "Skills",
+     "npm",
+     "MCP"
+    ]
+   }
+  },
+  {
+   "id": "x-2117972392651706780",
+   "date": "2026-11-04",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117972392651706780",
+   "url": "https://x.com/mattpocockuk/status/2117972392651706780",
+   "posted_at": "2026-11-04T21:29+08:00",
+   "kind": "reply",
+   "text": "> I don’t actually disagree with Matt.\n\nHoly shit, from you that is extraordinary praise\n\nAlso, I agree - you need to observe this.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "TheLarkInn",
+    "post_id": "2117971146490671305",
+    "url": "https://x.com/TheLarkInn/status/2117971146490671305",
+    "text": "I don’t actually disagree with Matt.\n\nHowever until I see the comprehensive evals, I won’t believe it. \n\nMy largest piece of work right now is dramatic refactors across codebases, and no ergonomic substitutions will be acceptable until I can prove removing them is paramount."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "> 我其实并不反对 Matt。\n\n天哪，这话从你嘴里说出来简直是天大的褒奖\n\n另外，我同意——你需要观察这一点。",
+   "analysis": {
+    "summary": "@TheLarkInn 表示并不反对 Matt 的观点，但在看到全面评测之前不会相信；Matt 回复称这是莫大的褒奖，并同意需要去观察验证。",
+    "points": [
+     "@TheLarkInn 说自己并不反对 Matt，但要看到完整的评测（evals）才会相信",
+     "对方目前主要在做跨代码库的大规模重构，在证明有必要之前不会接受去掉可读性方面的写法",
+     "Matt 视其表态为极高的称赞",
+     "Matt 同意需要观察（验证）这一点"
+    ],
+    "why": "体现了对他“可读性让位于可验证性”观点的审慎回应：业内人士要求评测数据支撑，Matt 也承认这需要观察。信息量偏低，但说明该观点尚无数据证明。",
+    "tags": [
+     "Agent 工程",
+     "评测",
+     "社交互动"
+    ]
+   }
+  },
+  {
+   "id": "x-2117955294752043234",
+   "date": "2026-11-04",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117955294752043234",
+   "url": "https://x.com/mattpocockuk/status/2117955294752043234",
+   "posted_at": "2026-11-04T20:21+08:00",
+   "kind": "reply",
+   "text": "What the fuck do you mean \"I'd keep\", you're not my subeditor",
+   "article_title": null,
+   "reply_to": {
+    "handle": "giacomomasseron",
+    "post_id": "2117954774150595036",
+    "url": "https://x.com/giacomomasseron/status/2117954774150595036",
+    "text": "the domain language point is the one i'd keep. agents guess way better when the names match what you said in the prompt"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "你说“我会保留”是什么鬼意思，你又不是我的副编辑",
+   "analysis": {
+    "summary": "有人评论说“领域语言那一点是我会保留的”，他半开玩笑地怼回去：你又不是我的副编辑。",
+    "points": [
+     "@giacomomasseron 认为领域语言一点最值得保留，因为名称与提示词一致时 agent 猜得更准",
+     "他用粗口调侃对方的措辞，称对方不是他的副编辑"
+    ],
+    "why": "纯社交回复，语气调侃，信息量很低。",
+    "tags": [
+     "社交互动"
+    ]
+   }
+  },
+  {
+   "id": "x-2117955132537327896",
+   "date": "2026-11-04",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117955132537327896",
+   "url": "https://x.com/mattpocockuk/status/2117955132537327896",
+   "posted_at": "2026-11-04T20:20+08:00",
+   "kind": "reply",
+   "text": "Could you elaborate? Agents can process code faster than humans, so 'readable' doesn't mean the same to them.\n\nI do think that the agents need to be aligned with the humans on domain language in variable/function names etc. But that's rehashing my points above.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "codinsonn",
+    "post_id": "2117954614897017210",
+    "url": "https://x.com/codinsonn/status/2117954614897017210",
+    "text": "Wouldn’t readable for humans also mean readable for Agents?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "能展开说说吗？agent 处理代码比人类快，所以“可读”对它们来说意思不一样。\n\n我确实认为 agent 需要在变量/函数名等方面和人类在领域语言上保持一致。不过这就是在重复我上面的观点了。",
+   "analysis": {
+    "summary": "有人问“对人类可读不也就意味着对 agent 可读吗？”，他请对方展开，并重申：agent 处理代码更快，“可读”对它们含义不同，但命名上要与人类共享领域语言。",
+    "points": [
+     "@codinsonn 质疑：对人可读是否也意味着对 agent 可读",
+     "他认为 agent 处理代码更快，“可读”的含义因此不同",
+     "他同意 agent 需要在变量/函数命名上与人类的领域语言保持一致"
+    ],
+    "why": "是对长帖的补充澄清，信息与原帖重复，没有新论据。",
+    "tags": [
+     "Agent 工程",
+     "代码可读性"
+    ]
+   }
+  },
+  {
+   "id": "x-2117954669112918283",
+   "date": "2026-11-04",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117954669112918283",
+   "url": "https://x.com/mattpocockuk/status/2117954669112918283",
+   "posted_at": "2026-11-04T20:18+08:00",
+   "kind": "reply",
+   "text": "We should think of them as context injectors. I.e. they are steering files that happen to live next to the code they steer.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "KarifYuval",
+    "post_id": "2117954146233901240",
+    "url": "https://x.com/KarifYuval/status/2117954146233901240",
+    "text": "Great take Matt, what are your opinions on code comments?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我们应该把它们看作上下文注入器。也就是说，它们是恰好放在其所引导的代码旁边的引导文件（steering files）。",
+   "analysis": {
+    "summary": "有人问他怎么看代码注释，他回复：应把注释看作“上下文注入器”，是放在代码旁边、用来引导 agent 的文件。",
+    "points": [
+     "提问者：@KarifYuval 问他对代码注释的看法",
+     "他认为注释是上下文注入器（context injectors）",
+     "注释相当于紧挨着被引导代码的 steering files"
+    ],
+    "why": "延续他关于代码可读性的长帖：在 agent 时代，注释的价值在于给 agent 提供上下文和引导，而不只是给人看。属于观点。",
+    "tags": [
+     "Agent 工程",
+     "代码注释"
+    ]
+   }
+  },
+  {
+   "id": "x-2117953152376799498",
+   "date": "2026-11-04",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117953152376799498",
+   "url": "https://x.com/mattpocockuk/status/2117953152376799498",
+   "posted_at": "2026-11-04T20:12+08:00",
+   "kind": "post",
+   "text": "We need to reconsider our priors on code readability.\n\nHumans, compared to agents, are pretty slow at understanding large quantities of text. So in the old days, readability was important so the human could efficiently grok what was going on.\n\nSo readability now comes down to:\n\n1. Can a human, if needed, jump in and understand the code\n2. Does the code use the same domain language as the human describing the code?\n\n1 helps with observability and the occasional spot checks you need to do on important PR's. 2 helps the agent translate the words you use into code changes.\n\nIn other words, readability is now a nicety, not a necessity.\n\nThe way agents 'read' code is different - good agents are all about gathering data about how the code works. They'll prod around with it, execute parts of it.\n\nSo 'readability' to agents really means 'verifiability'. How easy it is to mess about with that code to see it working.\n\nLet's take this scenario:\n\n- You have a huge module in your codebase that uses all sorts of complex performance tricks\n- It has 100% test coverage\n\nA talented human would need an hour or two to get comfortable working in that module.\n\nAn agent needs zero time. They verify it with the tests, poke about a bit, and they're good to go.\n\nThe takeaways:\n\n- When judging a module (or a codebase), don't think about how easy the code is to read\n- Instead, think about how easy it is to verify\n- Design your codebase so modules can be tested and verified independently\n- Feel free to sacrifice a bit of readability for performance\n- Cyclomatic complexity and function size don't matter to agents",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我们需要重新审视关于代码可读性的固有观念。\n\n和 agent 相比，人类理解大量文本的速度相当慢。所以在过去，可读性很重要，这样人类才能高效地弄明白代码在干什么。\n\n所以现在可读性归结为：\n\n1. 必要时，人类能否插手并看懂代码\n2. 代码是否使用了和人类描述它时相同的领域语言？\n\n第 1 点有助于可观测性，以及对重要 PR 偶尔需要做的抽查。第 2 点帮助 agent 把你说的话转化成代码改动。\n\n换句话说，可读性现在是锦上添花，而不是必需品。\n\nagent “阅读”代码的方式不同——好的 agent 关键在于收集代码如何运作的数据。它们会到处戳一戳，执行其中一部分。\n\n所以对 agent 来说，“可读性”其实意味着“可验证性”：摆弄这段代码、看它跑起来有多容易。\n\n来看这个场景：\n\n- 你的代码库里有个巨大的模块，用了各种复杂的性能技巧\n- 它有 100% 的测试覆盖率\n\n一个有才华的人类需要一两个小时才能在这个模块里得心应手。\n\nagent 需要零时间。它们用测试验证一下，四处摸一摸，就可以上手了。\n\n要点：\n\n- 评判一个模块（或代码库）时，别考虑代码有多容易读\n- 而是考虑它有多容易验证\n- 把代码库设计成模块可以被独立测试和验证\n- 可以为了性能牺牲一点可读性\n- 圈复杂度和函数大小对 agent 来说不重要",
+   "analysis": {
+    "summary": "Matt Pocock 主张在 agent 时代重新看待代码可读性：对 agent 而言“可读性”实际是“可验证性”，评判代码应看它是否容易被测试和验证，而不是是否容易读。",
+    "points": [
+     "过去强调可读性是因为人类理解大量文本很慢",
+     "如今可读性只剩两点：人类必要时能看懂（用于可观测性和重要 PR 抽查）；代码使用与人类描述一致的领域语言（帮助 agent 把需求转成改动）",
+     "他认为可读性已从必需品变成锦上添花",
+     "agent 通过执行、试探代码来理解它，因此“可读”对 agent 等于“可验证”",
+     "举例：复杂但 100% 测试覆盖的模块，人类要一两个小时上手，agent 几乎即刻可用",
+     "建议：模块要能独立测试验证；可为性能牺牲一些可读性；圈复杂度和函数大小对 agent 不重要"
+    ],
+    "why": "这是作者的观点而非实验结论，引发了不少讨论（有人表示要看到完整评测才会相信）。对 Agent 工程实践有参考价值：把投入从“让代码好读”转向“让代码好测、好验证”，同时保留统一的领域语言。",
+    "tags": [
+     "Agent 工程",
+     "代码可读性",
+     "测试",
+     "观点"
+    ]
+   }
+  },
+  {
+   "id": "x-2117948553381515721",
+   "date": "2026-11-04",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117948553381515721",
+   "url": "https://x.com/mattpocockuk/status/2117948553381515721",
+   "posted_at": "2026-11-04T19:54+08:00",
+   "kind": "post",
+   "text": "Thinking about shipping a version of my skills to npm/other registries to allow you to use them in software factories.\n\nThis lets me make them dynamic per agent, and also lets you pin to the version you like.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "在考虑把我的 skills 发一个版本到 npm/其他包注册表，好让你们在软件工厂（software factories）里使用它们。\n\n这样我可以让它们针对不同 agent 动态变化，你们也可以锁定到自己喜欢的版本。",
+   "analysis": {
+    "summary": "Matt Pocock 在考虑把自己的 skills 发布到 npm 等包注册表，方便在“软件工厂”中使用。",
+    "points": [
+     "计划（仍在考虑中）把 skills 发布到 npm 或其他注册表",
+     "目的是让大家能在软件工厂里使用这些 skills",
+     "好处一：他可以让 skills 针对不同 agent 动态变化",
+     "好处二：使用者可以锁定版本"
+    ],
+    "why": "这只是一个想法，并未宣布上线。它反映出 skills 正被当作可版本化、可分发的依赖来管理；后续他回复称工厂也可以直接用 npx skills add 安装，所以并不一定非走 npm。",
+    "tags": [
+     "Skills",
+     "npm",
+     "软件工厂"
+    ]
+   }
+  },
+  {
+   "id": "x-2117947025354539286",
+   "date": "2026-11-04",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117947025354539286",
+   "url": "https://x.com/mattpocockuk/status/2117947025354539286",
+   "posted_at": "2026-11-04T19:48+08:00",
+   "kind": "post",
+   "text": "15 stars until we become the most-starred skills repo in the world...\n\n...and the 13th most starred repo of all time.\n\nhttps://github.com/mattpocock/skills",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://github.com/mattpocock/skills",
+     "title": "GitHub - mattpocock/skills: Skills for Real Engineers. Straight from my .agents directory."
+    }
+   ],
+   "translation_zh": "再拿 15 颗星，我们就会成为全世界 star 最多的 skills 仓库……\n\n……也是有史以来 star 数第 13 多的仓库。\n\nhttps://github.com/mattpocock/skills",
+   "analysis": {
+    "summary": "Matt Pocock 说他的 skills 仓库（mattpocock/skills）只差 15 颗 star 就会成为全世界 star 最多的 skills 仓库，同时也将成为 GitHub 有史以来 star 数第 13 多的仓库。",
+    "points": [
+     "仓库链接为 github.com/mattpocock/skills，标题是“Skills for Real Engineers. Straight from my .agents directory.”",
+     "他称再拿 15 颗星即成为 star 最多的 skills 仓库",
+     "并称届时将是有史以来 star 数第 13 多的仓库"
+    ],
+    "why": "排名是作者自己的说法，帖子没有给出比较依据。可以作为观察 Agent Skills 生态热度的一个信号；他随后回复“We did it”，表示目标已达成（该回复因过短未单独收录）。",
+    "tags": [
+     "Skills",
+     "开源",
+     "GitHub"
+    ]
+   }
+  },
   {
    "id": "x-2117931117701455996",
    "date": "2026-11-04",
