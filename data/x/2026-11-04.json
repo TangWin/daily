@@ -3,13 +3,83 @@
  "type": "x",
  "date": "2026-11-04",
  "day": {
-  "digest": "Dan Koe 发布长文《2027 年最赚钱的 AI 生意》，主张获取注意力是最值钱的技能，建议借助 AI 成为自己或他人的“一人创意团队”，并给出品牌访谈、内容地图和免费试写获客的流程（文中大量推广自家 Eden）。",
+  "digest": "Dan Koe 发布长文《2027 年最赚钱的 AI 生意》，主张借助 AI 成为自己或他人的“一人创意团队”（文中大量推广自家 Eden）；Matt Pocock 推荐 Warp 的 Zach Lloyd 关于“软件工厂”的演讲，称其与他认可的最佳实践完全一致。",
   "by_source": {
-   "thedankoe": "长文：用 AI 做“一人创意团队”，为自己或客户做品牌与内容。"
+   "thedankoe": "长文：用 AI 做“一人创意团队”，为自己或客户做品牌与内容。",
+   "mattpocockuk": "推荐 Zach Lloyd 关于“软件工厂”的演讲并附上链接。"
   },
-  "updated_at": "2026-11-04T08:15:00+09:00"
+  "updated_at": "2026-11-04T20:05:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2117931117701455996",
+   "date": "2026-11-04",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117931117701455996",
+   "url": "https://x.com/mattpocockuk/status/2117931117701455996",
+   "posted_at": "2026-11-04T18:45+08:00",
+   "kind": "reply",
+   "text": "The talk:\n\nhttps://www.youtube.com/watch?v=tUPPVhBBcoM",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2117930875287679098",
+    "url": "https://x.com/mattpocockuk/status/2117930875287679098",
+    "text": "Adding @zachlloydtweets to my \"must follow\" list\n\nFantastic talk on software factories, aligns exactly with what I think best practices are these days"
+   },
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://www.youtube.com/watch?v=tUPPVhBBcoM",
+     "title": "Software Engineering Is Becoming Factory Engineering — Zach Lloyd, Warp"
+    }
+   ],
+   "translation_zh": "演讲在这里：\n\nhttps://www.youtube.com/watch?v=tUPPVhBBcoM",
+   "analysis": {
+    "summary": "他在自己推荐 Zach Lloyd 演讲的帖子下回复，补上了演讲的 YouTube 链接。",
+    "points": [
+     "给出演讲的 YouTube 链接",
+     "链接标题为《Software Engineering Is Becoming Factory Engineering — Zach Lloyd, Warp》（软件工程正在变成工厂工程）"
+    ],
+    "why": "信息量主要在链接本身：从标题看，演讲来自 Warp 的 Zach Lloyd，主题是软件工程向“工厂工程”转变。未采集到演讲内容，不做推断。",
+    "tags": [
+     "软件工厂",
+     "视频"
+    ]
+   }
+  },
+  {
+   "id": "x-2117930875287679098",
+   "date": "2026-11-04",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2117930875287679098",
+   "url": "https://x.com/mattpocockuk/status/2117930875287679098",
+   "posted_at": "2026-11-04T18:44+08:00",
+   "kind": "post",
+   "text": "Adding @zachlloydtweets to my \"must follow\" list\n\nFantastic talk on software factories, aligns exactly with what I think best practices are these days",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "把 @zachlloydtweets 加进我的“必关注”名单\n\n一场关于软件工厂（software factories）的精彩演讲，和我眼下认为的最佳实践完全一致",
+   "analysis": {
+    "summary": "Matt Pocock 推荐 Zach Lloyd（@zachlloydtweets）的一场关于“软件工厂”的演讲，说它和自己当前认可的最佳实践完全一致，并把对方列入“必关注”名单。",
+    "points": [
+     "把 @zachlloydtweets 加入他的“必关注”名单",
+     "称这是一场关于软件工厂（software factories）的精彩演讲",
+     "认为演讲内容与他眼下认为的最佳实践完全一致",
+     "演讲链接在他随后的回复里给出"
+    ],
+    "why": "这是一条推荐帖，本身不包含演讲的具体论点；价值在于 Matt Pocock 公开背书了“软件工厂”这一 AI 辅助开发思路，可作为了解他当前工程观的线索。演讲具体讲了什么，帖子里没有，这里不做推断。",
+    "tags": [
+     "Agent 工程",
+     "软件工厂",
+     "推荐"
+    ]
+   }
+  },
   {
    "id": "x-2117664712532123680",
    "date": "2026-11-04",
