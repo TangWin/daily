@@ -1,0 +1,441 @@
+{
+ "schema_version": 1,
+ "type": "idea",
+ "date": "2026-11-05",
+ "day": {
+  "sample": "样本：主样本 143 条（HN 42 / Lobsters 7 / Reddit 48 / Indie Hackers 20 / Product Hunt 26），补充 Reddit 深翻页抱怨帖 133 条（18 个子版块 5200 帖中筛出）+ HN 句式评论与 Ask/Show HN 562 条，另按热度补抓近 40 小时 HN 高分帖，并读了 13 个 HN 线程和 3 个 Reddit 帖子的评论。Reddit 主列表 20/20、extras 8/8、深翻页 18/18 全成功。未使用任何 X 付费 API。"
+ },
+ "items": [
+  {
+   "id": "idea-2026-11-05-01",
+   "date": "2026-11-05",
+   "type": "idea",
+   "rank": 1,
+   "title": "面试作业安全箱：陌生公司发来的编程题、会议链接和安装包，一键丢进用完即毁的云端电脑里跑，顺便查查这家公司和招聘人是不是真的",
+   "summary": "一个面向求职者的网页服务：把面试题仓库链接、压缩包或会议链接贴进来，自动在一台全新、不连你任何账号的云端电脑里打开，你在浏览器里写代码、开会，结束后整台机器销毁；运行前先扫一遍仓库里的安装脚本、隐藏的下载命令和混淆代码，用大白话标出可疑之处；同时核对招聘人资料、公司域名注册时间、官网招聘页是否有这个职位，给出风险提示。",
+   "url": "https://news.ycombinator.com/item?id=50366903",
+   "tags": [
+    "个人/生活",
+    "安全",
+    "Coding Agent"
+   ],
+   "raw_tags": [
+    "个人/生活",
+    "安全/隐私",
+    "Agent/AI编码"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 帖子“朝鲜假面试导致 Binance 63 亿美元被盗”有 541 分、324 条评论，同题另一帖也有 92 分。攻击者冒充招聘方，聊几句就催候选人下载“编程作业”或“防作弊程序”，工程师在工作电脑上一跑就中招。评论里很多人说自己 2023 年起就不断遇到这类假面试，LinkedIn 上假公司、假招聘人举报一百次也没人管；有人专门用一台刷了新系统的旧电脑面试，但也有人说“只有公司配的那台电脑”，不知道找工作时该怎么保护自己。",
+    "target_users": "正在找工作的程序员，尤其是区块链、金融、安全方向容易被盯上的工程师；只有公司电脑、没有个人电脑的求职者；担心员工在工作电脑上做外部面试题的公司安全团队。",
+    "quotes": [
+     {
+      "text": "I have been getting these since early 2023, still, most of them are simple to spot, the other side typically has video turned off, asks a bit about your experience and just nods without digging, they are in a hurry to send you their coding challenge.",
+      "links": [
+       {
+        "label": "Hacker News 评论（朝鲜假面试致 Binance 被盗，541 分）",
+        "url": "https://news.ycombinator.com/item?id=50366903"
+       }
+      ]
+     },
+     {
+      "text": "A very recent one wanted me to download an executable which was to \"stop me from cheating\"",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50367512"
+       }
+      ]
+     },
+     {
+      "text": "If she hadn't done it on her work laptop, her personal would have been pwned anyway. It's not clear to me how to protect oneself while also looking for work.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50367452"
+       }
+      ]
+     },
+     {
+      "text": "I don't even use my home PC for interviews, but instead use a refurbed laptop with a clean OS install.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50367531"
+       }
+      ]
+     },
+     {
+      "text": "I was #opentowork on LinkedIn and got approached multiple times with fake companies and interviews.  LinkedIn is not doing enough to combat this.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50365953"
+       }
+      ]
+     },
+     {
+      "text": "I do know people who no longer have a personal computer, and use exclusively their work-issued computer.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50366330"
+       }
+      ]
+     }
+    ],
+    "existing": "自己装虚拟机或 Docker 跑代码；GitHub Codespaces 等云端开发环境；VirusTotal 在线查文件；LinkedIn 认证徽章；企业终端安全软件。",
+    "defects": "虚拟机和容器要自己配，网络和磁盘隔离稍不注意就白搭，求职者没时间研究；云端开发环境默认连着你的 GitHub 账号和密钥；VirusTotal 查不出“npm install 时偷偷执行的脚本”这类问题；没有工具帮你判断“这家公司、这个招聘人是不是真的”；企业安全软件只管拦截，不给员工一个合规的去处。",
+    "solution": "一个面向求职者的网页服务：把面试题仓库链接、压缩包或会议链接贴进来，自动在一台全新、不连你任何账号的云端电脑里打开，你在浏览器里写代码、开会，结束后整台机器销毁；运行前先扫一遍仓库里的安装脚本、隐藏的下载命令和混淆代码，用大白话标出可疑之处；同时核对招聘人资料、公司域名注册时间、官网招聘页是否有这个职位，给出风险提示。",
+    "mvp": "浏览器插件加网页：支持 GitHub 仓库和 zip 包，一键开一台 2 小时的一次性云端 Linux 桌面，预装常用语言环境；自动列出 package.json、setup.py 等里的安装脚本和外联地址；按次收费或求职季包月，同时卖给企业作为“员工外部面试专用环境”。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-05-02",
+   "date": "2026-11-05",
+   "type": "idea",
+   "rank": 2,
+   "title": "家里网络被偷偷当代理了吗：查出电视盒子、智能设备和免费 App 是否在把你的宽带卖给别人用",
+   "summary": "一个家用小盒子或手机 App 加路由器插件：自动识别家里每台设备，按设备记录半夜和不使用时的流量、连接数和对外地址，对照已知住宅代理组件和服务商的特征库，标出“这台电视盒子在给别人当代理”；每天检查你家公网 IP 是否被各大信誉库标为代理或机器人；给出处理建议（断网、换设备、恢复出厂），并一键生成给宽带公司或网站申诉解封的说明。",
+   "url": "https://news.ycombinator.com/item?id=50371805",
+   "tags": [
+    "个人/生活"
+   ],
+   "raw_tags": [
+    "个人/生活"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 帖子“白宫网络里检测到住宅代理”有 402 分、111 条评论。住宅代理就是把普通家庭的网络出口卖给别人用，通常来自“免费看电视”的盒子、带后门的智能设备和夹带代理组件的免费 App。评论里有人才知道商场里卖的“免费有线电视”盒子在拿你的网络做代理；有人的普通宽带 IP 被网站当成机器人，连 Costco 官网都进不去；网站主说被这类网络刷到每秒 100 多次请求。最多人问的是：我家怎么查、怎么防？",
+    "target_users": "家里装了安卓电视盒子、便宜摄像头和各种智能设备的普通家庭；经常被网站弹验证、被封 IP 却不知道原因的宽带用户；帮父母和亲戚打理网络的“家里懂电脑的人”。",
+    "quotes": [
+     {
+      "text": "How would one detect this on their home network and protect themselves from?",
+      "links": [
+       {
+        "label": "Hacker News 评论（白宫网络检测到住宅代理，402 分）",
+        "url": "https://news.ycombinator.com/item?id=50371805"
+       }
+      ]
+     },
+     {
+      "text": "Out of curiosity, how would I check my own device for a residential proxy?",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50371905"
+       }
+      ]
+     },
+     {
+      "text": "I have seen these at mall kiosks advertising \"free cable\", and today I learned they are proxying from your home network.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50371663"
+       }
+      ]
+     },
+     {
+      "text": "Check network traffic from smart devices would be a good start. If your TV does gigabytes of traffic in the night when you don’t use it, it most likely is acting as a residential proxy.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50371878"
+       }
+      ]
+     },
+     {
+      "text": "sometimes I get flagged IP's from Comcast and can't visit sites like costco.com despite not doing any questionable stuff on my network.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50371643"
+       }
+      ]
+     },
+     {
+      "text": "On a server that used to get below 1k HTTP requests a day, I've had several cases of mass scraping from these botnets exceeding 100req/s.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50371962"
+       }
+      ]
+     }
+    ],
+    "existing": "查 IP 信誉的网站（如 ipinfo、文中提到的 layer3intel）；Pi-hole、AdGuard Home 等家庭 DNS 过滤；Firewalla 等家用防火墙硬件；路由器自带的流量统计。",
+    "defects": "查 IP 的网站只能告诉你“你的 IP 被标记了”，说不出是家里哪台设备；DNS 过滤和防火墙要懂网络才会配，看到一堆域名也不知道哪些是代理；路由器流量统计粒度粗，看不出“电视半夜在跑几个 G”；没有人告诉你中招后该扔哪台设备、怎么跟宽带公司解释。",
+    "solution": "一个家用小盒子或手机 App 加路由器插件：自动识别家里每台设备，按设备记录半夜和不使用时的流量、连接数和对外地址，对照已知住宅代理组件和服务商的特征库，标出“这台电视盒子在给别人当代理”；每天检查你家公网 IP 是否被各大信誉库标为代理或机器人；给出处理建议（断网、换设备、恢复出厂），并一键生成给宽带公司或网站申诉解封的说明。",
+    "mvp": "先做一个免费网页检测：输入或自动读取公网 IP，查多家信誉库并解释结果；付费版是支持常见路由器（OpenWrt、华硕、UniFi）的流量分析插件，按设备列出夜间异常流量并比对代理特征库，异常时推送通知。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-05-03",
+   "date": "2026-11-05",
+   "type": "idea",
+   "rank": 3,
+   "title": "装 Linux 前先查一查：这台笔记本、显卡和扩展坞在 Linux 上到底能跑多快、哪些功能会缺，由真实用户实测说话",
+   "summary": "一个以实测为核心的 Linux 硬件评分站：用户装一个开源小工具，一键跑显卡频率、本地模型推理速度、休眠唤醒、外接屏幕、指纹和摄像头等检查，并与同机型 Windows 数据对比，结果按机型、内核版本和驱动版本汇总成“能跑几成、缺什么、怎么补”；扩展坞和显卡坞单列一类，标明芯片方案和是否依赖私有驱动；关注的机型有新驱动或新问题时提醒你。",
+   "url": "https://news.ycombinator.com/item?id=50363569",
+   "tags": [
+    "安全",
+    "开发者工具",
+    "电商"
+   ],
+   "raw_tags": [
+    "安全/隐私",
+    "开发者工具",
+    "电商"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 帖子“Nvidia RTX Spark 加密固件让 Linux 推理速度只剩 35%”有 569 分、265 条评论：同一台笔记本在 Windows 上显卡能跑到 2GHz 以上，在 Linux 上被锁在约 780MHz，插着电比不插电还慢，因为功耗表被加密、只有 Windows 驱动能读。另一帖“Synaptics 疑似用法律威胁封杀开源 DisplayLink 驱动”有 193 分、91 条评论，用户抱怨这类扩展坞驱动每天崩溃、日志加密没法排查、要反复重启驱动才认屏幕。有人说“本来想买一台，现在不敢了”，也有人说“买最新的硬件，在 Linux 上总有些功能不能用”。",
+    "target_users": "想在笔记本或小主机上跑本地大模型的开发者；用 Linux 办公、需要外接多屏的程序员和公司 IT；准备给团队批量采购 Linux 开发机的小公司。",
+    "quotes": [
+     {
+      "text": "Wtf is Nvidia doing?! I was considering buying one, but now?",
+      "links": [
+       {
+        "label": "Hacker News 评论（Nvidia RTX Spark Linux 降速，569 分）",
+        "url": "https://news.ycombinator.com/item?id=50363569"
+       }
+      ]
+     },
+     {
+      "text": "This is unfortunately the normal release cycle for Linux, especially with Nvidia. If you buy the latest and greatest, some features just aren't available.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50365552"
+       }
+      ]
+     },
+     {
+      "text": "As someone who went down the rabbit hole of local AI, there is so much exhausting debugging already. Even if this is \"just\" another step you have to find, it's toxic.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50363911"
+       }
+      ]
+     },
+     {
+      "text": "I had lots of issues with displaylink on a Mac. (Daily crash on the first video call of the day for some reason) Does the support care? No. Can I debug using the logs? No - THEY'RE ENCRYPTED!",
+      "links": [
+       {
+        "label": "Hacker News 评论（Synaptics 封杀开源 DisplayLink 驱动，193 分）",
+        "url": "https://news.ycombinator.com/item?id=50364488"
+       }
+      ]
+     },
+     {
+      "text": "I often need to restart the driver/toolbox to get it to recognise my startech dock.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50370778"
+       }
+      ]
+     },
+     {
+      "text": "The alternative is basically to stick to hardware that has native hardware support for however many displays you need.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50369162"
+       }
+      ]
+     }
+    ],
+    "existing": "各发行版的硬件兼容列表（Ubuntu Certified 等）；Arch Wiki 的机型页面；linux-hardware.org 的硬件探测数据库；论坛和 Reddit 上的零散实测帖；System76、Framework 等预装 Linux 的厂商。",
+    "defects": "官方认证列表机型少、更新慢，只说“能启动”，不说性能打几折、哪些功能缺；Arch Wiki 写给老手，新机型往往没有页面；硬件数据库只有“识别到了什么设备”，没有跑分和使用体验；论坛帖子散乱，过两个内核版本就失效；买之前没人告诉你扩展坞要哪种芯片才不用装私有驱动。",
+    "solution": "一个以实测为核心的 Linux 硬件评分站：用户装一个开源小工具，一键跑显卡频率、本地模型推理速度、休眠唤醒、外接屏幕、指纹和摄像头等检查，并与同机型 Windows 数据对比，结果按机型、内核版本和驱动版本汇总成“能跑几成、缺什么、怎么补”；扩展坞和显卡坞单列一类，标明芯片方案和是否依赖私有驱动；关注的机型有新驱动或新问题时提醒你。",
+    "mvp": "先覆盖 30 款热门 AI 笔记本、小主机和 20 款扩展坞：命令行工具跑 5 项核心测试并匿名上传；网站按机型展示 Linux 对比 Windows 的性能比例和问题清单；靠联盟链接和给企业采购出具兼容报告收费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-05-04",
+   "date": "2026-11-05",
+   "type": "idea",
+   "rank": 4,
+   "title": "自建书库的一站式阅读器：电子书、漫画和有声书的进度、划线笔记在手机、平板和 Kindle 之间同步，全放在自己的服务器上",
+   "summary": "一个开源的同步服务加多端阅读器：同步服务用 Docker 一键装在自己的 NAS 上，统一保存电子书、漫画和有声书的进度、划线和笔记，兼容 KOReader 和 Kobo 的同步协议，让越狱 Kindle 也能接入；阅读器自动对齐同一本书的文字和音频，开车听到哪、回家就从那一页接着看；内置常见自建书库的连接检测，连不上时告诉你哪里配错了；漫画支持自动分格阅读。",
+   "url": "https://www.reddit.com/r/selfhosted/comments/1xnrt3j/im_on_a_mission_to_create_the_best_self_hosted/19s507cqqxo9s/",
+   "tags": [
+    "开发者工具",
+    "个人/生活",
+    "支付"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "个人/生活",
+    "支付/计费"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "r/selfhosted 上一个“做 Kindle 和 Apple Books 的自建替代品”帖子一天内 60 条评论。评论里大家要的不是又一个好看的阅读器，而是“打通”：有人因为 Readest 想在本地自建同步必须买订阅而放弃；有人同时用电子书、有声书和越狱 Kindle 的进度同步三个工具，说“不能把三个 App 合成一个，我就没理由换”；还有人卡在 Komga、Kavita 等自建书库通过 OPDS 连接后看不到书；漫画读者离不开 Kindle 的分格阅读；也有人担心个人开发者的 App 半年后没人维护。",
+    "target_users": "用 Calibre、Kavita、Komga、Audiobookshelf 自建书库的读者；同时读电子书和听有声书、想在两者之间接着看的人；有越狱 Kindle 或 Kobo、想摆脱亚马逊的阅读爱好者。",
+    "quotes": [
+     {
+      "text": "I stopped using Readest because there’s no easy way to set up local sync - you have to buy a subscription",
+      "links": [
+       {
+        "label": "Reddit r/selfhosted 评论（自建 Kindle 替代品，60 条评论）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xnrt3j/im_on_a_mission_to_create_the_best_self_hosted/19s507cqqxo9s/"
+       }
+      ]
+     },
+     {
+      "text": "This would be cool if it could add in my whispersync storybook stack and audiobookself and work with Bookbridge (for jailbroken kindle/kobo progress sysc)  If I can't turn my 3 apps into one I don't really have a reason to change",
+      "links": [
+       {
+        "label": "Reddit r/selfhosted 评论",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xnrt3j/im_on_a_mission_to_create_the_best_self_hosted/19s4w0zoejtpe/"
+       }
+      ]
+     },
+     {
+      "text": "The connection works and Athene correctly displays my manga series, but when I open a series, the folder appears empty.",
+      "links": [
+       {
+        "label": "Reddit r/selfhosted 评论",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xnrt3j/im_on_a_mission_to_create_the_best_self_hosted/19s57na35e3ol/"
+       }
+      ]
+     },
+     {
+      "text": "The one thing that keeps me coming back to Kindle for comics is Panel View.",
+      "links": [
+       {
+        "label": "Reddit r/selfhosted 评论",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xnrt3j/im_on_a_mission_to_create_the_best_self_hosted/19s4wzeqcuexs/"
+       }
+      ]
+     },
+     {
+      "text": "KOReader rules, i has so many features. Best thing about it, it can connect to personal OPDS server. I just drop a book in a directory and I can read it on kindle without sending email and without usb connection.",
+      "links": [
+       {
+        "label": "Reddit r/selfhosted 评论",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xnrt3j/im_on_a_mission_to_create_the_best_self_hosted/19s4xrijjok6a/"
+       }
+      ]
+     },
+     {
+      "text": "Okay, but VLC is also open source, so it isn't entirely dependent on the continued efforts of a single maintainer",
+      "links": [
+       {
+        "label": "Reddit r/selfhosted 评论",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xnrt3j/im_on_a_mission_to_create_the_best_self_hosted/19s4xb9x67dpe/"
+       }
+      ]
+     }
+    ],
+    "existing": "KOReader、Readest、Librera、Moon+ Reader 等阅读器；Calibre-Web、Kavita、Komga 等自建书库；Audiobookshelf 有声书服务器；亚马逊 Whispersync；Storyteller 等电子书与有声书对齐工具。",
+    "defects": "每个工具只管一段：书库管存书，阅读器管看书，有声书服务器管听书，进度和笔记各存各的；自建同步要么收费要么要自己折腾；OPDS 各家实现不一致，连上了也常常显示不出书；电子书和有声书之间“读到哪就从哪听”只有亚马逊做得好；单人开发的 App 停更风险高。",
+    "solution": "一个开源的同步服务加多端阅读器：同步服务用 Docker 一键装在自己的 NAS 上，统一保存电子书、漫画和有声书的进度、划线和笔记，兼容 KOReader 和 Kobo 的同步协议，让越狱 Kindle 也能接入；阅读器自动对齐同一本书的文字和音频，开车听到哪、回家就从那一页接着看；内置常见自建书库的连接检测，连不上时告诉你哪里配错了；漫画支持自动分格阅读。",
+    "mvp": "先做同步服务：支持 Calibre-Web、Kavita、Audiobookshelf 三个书库和 KOReader 协议，能在手机 App、KOReader 和网页之间同步进度与划线；再加“电子书和有声书对齐”功能。核心开源免费，托管同步和高级对齐按年收费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-05-05",
+   "date": "2026-11-05",
+   "type": "idea",
+   "rank": 5,
+   "title": "不给答案的编程陪练：AI 只追问、提示和出题，逼你自己写出来，再把你真正学会的东西记下来",
+   "summary": "一个编辑器插件加网页：在你自己的项目里，AI 只能指出问题、追问思路、给分级提示，不直接改你的代码；从你的项目里自动挑出适合练习的地方出题（比如“这里可以用并发改写，你来试试”）；记录每个概念你是自己完成、看提示完成还是看答案完成，按遗忘曲线安排复习小题；老师版可以设定作业只允许“提示模式”，并看到学生的思考过程而不是只看结果。",
+   "url": "https://news.ycombinator.com/item?id=50353964",
+   "tags": [
+    "Coding Agent",
+    "开发者工具",
+    "语言学习"
+   ],
+   "raw_tags": [
+    "Agent/AI编码",
+    "开发者工具",
+    "语言学习"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 帖子“AI 正在毁掉我的计算机学位”有 125 分、112 条评论，评论认为问题出在老师用 AI 备课、学生用 AI 交作业，大家都学不到东西；有老师说学生早就不用搜索引擎，直接问 AI，连 AI 给的来源都不点开看；有人担心“哪天不能用 AI 了，你还剩下什么”。r/learnprogramming 上有人想找“像 Duolingo 那样学编程”的免费工具，但又不要体力值和付费墙，评论则说背单词式的学法不适合编程。也有人分享了自己的办法：让 Claude 找出可以练手的地方，但不给解法。",
+    "target_users": "计算机专业学生和编程自学者；想让学生用 AI 但不想让 AI 代写的老师和训练营；想学新语言、新框架又怕被 AI 养懒的在职开发者。",
+    "quotes": [
+     {
+      "text": "I taught my Claude to teach me new skills, where I wanted to understand its work deeper.  Specifically, I wanted to learn coccinelle semantic patching, so I told it to find potential places to apply it but withhold the solutions from me.",
+      "links": [
+       {
+        "label": "Hacker News 评论（AI 正在毁掉我的 CS 学位，125 分）",
+        "url": "https://news.ycombinator.com/item?id=50353964"
+       }
+      ]
+     },
+     {
+      "text": "It's not that it's forbidden fruit, but it's akin to asking your mom for every answer on your 3rd grade homework. You get the correct answer and learn nothing.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50354219"
+       }
+      ]
+     },
+     {
+      "text": "I’m hearing this more and more from both students and teachers. It seems like everyone in education is frustrated and can’t figure out how to use AI for education productively yet.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50353822"
+       }
+      ]
+     },
+     {
+      "text": "I wonder  how you'd do without your AI augmentation if you find yourself not being able to use it for whatever reason. I wonder what you retained when the AI is not working...",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50353956"
+       }
+      ]
+     },
+     {
+      "text": "Based on the last couple years as a teacher, they've already stopped using Google in favor of AI.  AI even helpfully now provides links to real sources they won't bother to open to ensure actually exist",
+      "links": [
+       {
+        "label": "Hacker News 评论（Google 对拒绝 AI 的学校关闭搜索，659 分）",
+        "url": "https://news.ycombinator.com/item?id=50360466"
+       }
+      ]
+     },
+     {
+      "text": "I really want to avoid software where you get two lessons and then have to pay, or where you have a certain number of lives or energy points and then have to stop.",
+      "links": [
+       {
+        "label": "Reddit r/learnprogramming 帖子",
+        "url": "https://www.reddit.com/r/learnprogramming/comments/1xnr2qa/is_there_any_software_similar_to_duolingo_but/"
+       }
+      ]
+     }
+    ],
+    "existing": "ChatGPT 学习模式、Claude 学习模式、可汗学院 Khanmigo 等“苏格拉底式”AI 辅导；boot.dev、Mimo、Exercism、rustlings 等编程练习平台；GitHub Copilot 等编程助手。",
+    "defects": "通用聊天里的学习模式一句“直接告诉我”就破功，也不知道你写过什么、卡在哪；练习平台题目固定，和你手上真实的项目无关；编程助手默认就是帮你写完；没有工具记录“哪些概念我是真的自己写出来过”，复习和老师检查都无从下手。",
+    "solution": "一个编辑器插件加网页：在你自己的项目里，AI 只能指出问题、追问思路、给分级提示，不直接改你的代码；从你的项目里自动挑出适合练习的地方出题（比如“这里可以用并发改写，你来试试”）；记录每个概念你是自己完成、看提示完成还是看答案完成，按遗忘曲线安排复习小题；老师版可以设定作业只允许“提示模式”，并看到学生的思考过程而不是只看结果。",
+    "mvp": "VS Code 插件：开启“陪练模式”后，AI 回答被限制为提问和三级提示，代码改动必须由你自己敲；每天从你最近的提交里出 3 道小题；网页上显示“已掌握概念”清单。个人免费，高级模型和学校、训练营版收费。",
+    "difficulty": null,
+    "potential": null
+   }
+  }
+ ]
+}
