@@ -1,0 +1,80 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-06",
+ "day": {
+  "digest": "Dan Koe 谈行动心理：怕平庸应压过怕出丑，否则人会因第一版尴尬而原地踏步数十年。Matt Pocock 在抽象讨论中澄清——抽象的价值在于让 agents 写代码更高效，而非（对方所猜的）读起来更高效。",
+  "by_source": {
+   "thedankoe": "动员帖：恐惧权衡——怕平庸死去要压过怕出丑，否则第一版尴尬会困住人几十年。",
+   "mattpocockuk": "回复澄清抽象动机：不是方便 agents 读，而是让 agents 写更高效。"
+  },
+  "updated_at": "2026-11-06T08:10:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2118456610133594509",
+   "date": "2026-11-06",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2118456610133594509",
+   "url": "https://x.com/mattpocockuk/status/2118456610133594509",
+   "posted_at": "2026-11-06T05:33+08:00",
+   "kind": "reply",
+   "text": "No, because abstractions make code more efficient to write for agents.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "pureppl",
+    "post_id": "2118317188138373378",
+    "url": "https://x.com/pureppl/status/2118317188138373378",
+    "text": "Because abstractions make it more efficient to read for agents, right?\nMakes me think about Readable Code again... not as a prim. goal, but as a inevitable outcome.\n\nBTW: I really don't want to troll you, Matt. I have genuine questions and I always hope that you have a nice day."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "不，因为抽象让代码对 agents 来说写起来更高效。",
+   "analysis": {
+    "summary": "有人问「抽象是为了让 agents 读起来更高效吧？」Matt 纠正：不是读，而是写——抽象让 agents 写代码更高效。",
+    "points": [
+     "对方把抽象的价值归因于「方便 agents 阅读」",
+     "Matt 否定该归因，强调抽象提升的是 agents 的写作效率",
+     "延续其近期「agent 时代代码观」讨论（可读性 vs 可写/可验证）"
+    ],
+    "why": "短回复但点明立场：在 agent 编程语境里，抽象的首要收益是生成/编写效率，而非人类可读性叙事的延伸。上下文是对方接续其可读性讨论；本帖本身信息量有限，价值在澄清动机。",
+    "tags": [
+     "Agent 工程",
+     "抽象",
+     "代码可读性"
+    ]
+   }
+  },
+  {
+   "id": "x-2118387157794496581",
+   "date": "2026-11-06",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2118387157794496581",
+   "url": "https://x.com/thedankoe/status/2118387157794496581",
+   "posted_at": "2026-11-06T00:57+08:00",
+   "kind": "post",
+   "text": "You have to reach the point where your fear of dying mediocre outweighs your fear of looking like an idiot. The first version of anything you do will be embarrassing, that should be obvious, but too many people let that thought keep them the same for decades on end.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "你必须走到这一步：对平庸死去的恐惧，超过了对自己看起来像白痴的恐惧。你做的任何事，第一版都会很尴尬——这本该是显而易见的，但太多人让这个念头把自己困在原地几十年。",
+   "analysis": {
+    "summary": "Dan Koe 谈行动的心理门槛：要让「怕平庸地过完一生」压过「怕出丑」，否则人会因第一版必然尴尬而几十年原地踏步。",
+    "points": [
+     "关键心态切换：对平庸死去的恐惧应大于对看起来像白痴的恐惧",
+     "第一版必然尴尬是常态，不是意外",
+     "很多人被「怕出丑」锁住，几十年维持现状"
+    ],
+    "why": "典型创作者经济动员帖：把启动阻力从能力问题 reframing 成恐惧权衡。信息是观点而非方法清单；对正在拖延起步的读者有激励作用，但对「如何做出更好的第一版」没有具体建议。",
+    "tags": [
+     "创作者经济",
+     "心态",
+     "行动力"
+    ]
+   }
+  }
+ ]
+}
