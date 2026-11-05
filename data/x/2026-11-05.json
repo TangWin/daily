@@ -3,14 +3,148 @@
  "type": "x",
  "date": "2026-11-05",
  "day": {
-  "digest": "Karpathy 长文回复科幻为何把 AI 想错，推演从计算机到 Scaling laws 的六步推断链。Matt Pocock 继续谈 agent 时代的代码观：人类可读性降为锦上添花、可验证性更重要；回应 CRAP 分数时只保留覆盖率一侧，并拒绝「干脆生成汇编」——抽象对 token 效率与可靠性仍关键；另有一条关于 grilling（追问对齐）如何训练共同理解的短思。",
+  "digest": "Karpathy 长文回复科幻为何把 AI 想错，推演从计算机到 Scaling laws 的六步推断链。Matt Pocock 继续谈 agent 时代代码观：人类可读性降为锦上添花、可验证性更重要；回应 CRAP 时只保留覆盖率一侧，并拒绝「干脆生成汇编」——抽象对 token 效率与可靠性仍关键；补充 grilling 对齐练习的反思。晚间再推「今日 prompt」——逼问改动如何完全可验证；与 Robert Penner 讨论「fully」边界与 Bend/形式化验证，并回应 Uncle Bob 的 CC 配额：自己更抽查模块接缝与调用签名。",
   "by_source": {
    "karpathy": "回复科幻 AI 话题，梳理 1970 年代的人要预见今天的 LLM 需要的六步推断。",
-   "mattpocockuk": "延续可读性/可验证性讨论（CRAP、拒绝汇编极端论），补充 grilling 对齐练习的反思，以及早前关于 Sandcastle 与人类可读性的回复。"
+   "mattpocockuk": "延续可读性/可验证性主线（CRAP、拒绝汇编极端论、grilling）；新增「完全可验证」prompt，与 Robert Penner 谈验证边界与 Bend，与 Uncle Bob 谈抽查应看模块接缝与调用形状。"
   },
-  "updated_at": "2026-11-05T20:04:29+09:00"
+  "updated_at": "2026-11-06T00:13:34+09:00"
  },
  "items": [
+  {
+   "id": "x-2118342030183035086",
+   "date": "2026-11-05",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2118342030183035086",
+   "url": "https://x.com/mattpocockuk/status/2118342030183035086",
+   "posted_at": "2026-11-05T21:57+08:00",
+   "kind": "reply",
+   "text": "Mmmm nice to hear another positive review of Bend from you\n\nI totally agree on how important formal verification is",
+   "article_title": null,
+   "reply_to": {
+    "handle": "robertpenner",
+    "post_id": "2118336558101127409",
+    "url": "https://x.com/robertpenner/status/2118336558101127409",
+    "text": "I want to prove positive laws for entire ranges of inputs, with mathematical certainty. \n\nI've been migrating core TypeScript logic to Bend 2 implementation + laws + proofs. It feels exhilarating, seeing it snap into place."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "嗯，又听到你对 Bend 的正面评价，挺好的。\n\n我完全同意形式化验证有多重要。",
+   "analysis": {
+    "summary": "Robert Penner 说正把核心 TypeScript 逻辑迁到 Bend 2，并配上定律与证明，以数学确定性覆盖整段输入域；Matt 欢迎他对 Bend 的又一次正面评价，并强调自己认同形式化验证的重要性。",
+    "points": [
+     "对方目标：对整段输入范围证明「正向定律」，要数学确定性。",
+     "对方做法：核心 TS 逻辑 → Bend 2 实现 + laws + proofs。",
+     "Matt：认可 Bend 反馈；明确同意形式化验证很重要（承接「fully verifiable」线）。"
+    ],
+    "why": "把当日「可验证」讨论推到形式化验证一端；短社交肯定 + 立场表态，技术细节主要在对方帖里。Bend 具体能力以对方描述为准，未在此帖展开。",
+    "tags": [
+     "形式化验证",
+     "Bend",
+     "可验证性"
+    ]
+   }
+  },
+  {
+   "id": "x-2118334593904562485",
+   "date": "2026-11-05",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2118334593904562485",
+   "url": "https://x.com/mattpocockuk/status/2118334593904562485",
+   "posted_at": "2026-11-05T21:28+08:00",
+   "kind": "reply",
+   "text": "Seems like a reasonable take\n\nThough for me my spot checking will likely not be looking at the implementations of modules, but the seams between them and making sure they make sense.\n\nI.e. more like call signatures/shape checking",
+   "article_title": null,
+   "reply_to": {
+    "handle": "unclebobmartin",
+    "post_id": "2118334137727668612",
+    "url": "https://x.com/unclebobmartin/status/2118334137727668612",
+    "text": "I have seen agents get lost in badly tangled code. The symptom is as old as programming. A change here breaks an assumption over there in an endless loop. \n\nMy working hypothesis is that humans do best with smallish functions (ie CC<=4) because we have such painfully small and unreliable short term memories. Agents have much larger and more reliable short term memories and so can tolerate larger functions. \n\nBut there is still a limit. We’ve all seen agents hallucinate due to context window pollution. \n\nSo I set the CC limit for agents at 10. They seem to deal with that without a lot of trouble. And I see no benefit for increasing that limit since I assume that larger limits make the code harder for me to spot check."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "听起来是个合理的看法。\n\n不过对我来说，抽查大概不会盯模块内部实现，而是看模块之间的接缝，确认它们说得通。\n\n也就是说，更像在检查调用签名 / 形状。",
+   "analysis": {
+    "summary": "Uncle Bob 主张给人设 CC≤4、给 agent 设 CC≤10，以便人类还能抽查；Matt 认同方向，但说自己抽查更看模块接缝与调用签名/形状，而不是模块内部实现。",
+    "points": [
+     "Uncle Bob：纠缠代码会让 agent 改东坏西；人类适合小函数（CC≤4），agent 短期记忆更大可放宽到约 CC=10，再大则人类难抽查且易污染上下文。",
+     "Matt：整体觉得合理。",
+     "Matt 的抽查重点：模块之间的 seams（接缝），尤其是 call signatures / shape，而不是模块内部实现细节。"
+    ],
+    "why": "把「人类如何审查 agent 产出」从圈复杂度配额，转到接口与边界形状——和类型系统、契约测试的思路更近。双方都是工作假设/个人做法，不是对照实验结论。",
+    "tags": [
+     "Agent 工程",
+     "代码审查",
+     "复杂度"
+    ]
+   }
+  },
+  {
+   "id": "x-2118333651549348180",
+   "date": "2026-11-05",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2118333651549348180",
+   "url": "https://x.com/mattpocockuk/status/2118333651549348180",
+   "posted_at": "2026-11-05T21:24+08:00",
+   "kind": "reply",
+   "text": "That's the question I want the agent stressing about",
+   "article_title": null,
+   "reply_to": {
+    "handle": "robertpenner",
+    "post_id": "2118327397627899938",
+    "url": "https://x.com/robertpenner/status/2118327397627899938",
+    "text": "\"Fully verifiable, eh?\"\n\nShort of formal verification, how full is \"fully\"?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "这正是我希望 agent 为之纠结的那个问题。",
+   "analysis": {
+    "summary": "Robert Penner 追问「完全可验证」在缺少形式化验证时到底有多「完全」；Matt 答：这正是他希望 agent 自己去纠结、去操心的问题。",
+    "points": [
+     "对方点出「fully」的模糊边界：除了形式化验证，验证到什么程度算够？",
+     "Matt 不给硬定义，而是把边界问题交给 agent 去压力测试。",
+     "承接他「今日 prompt」帖：可验证性本身就是 agent 该焦虑的核心约束。"
+    ],
+    "why": "短回复，信息量中等：说明作者刻意把「验证充分性」留作开放问题，逼 agent 自行权衡，而不是给人一张清单。属观点。",
+    "tags": [
+     "Agent 工程",
+     "可验证性"
+    ]
+   }
+  },
+  {
+   "id": "x-2118313863917564136",
+   "date": "2026-11-05",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2118313863917564136",
+   "url": "https://x.com/mattpocockuk/status/2118313863917564136",
+   "posted_at": "2026-11-05T20:05+08:00",
+   "kind": "post",
+   "text": "Prompt of the day is a simple one:\n\n\"How do we make this change fully verifiable?\"\n\nMakes the agent bend over backwards to verify all its changes. Signing up for real services, clicking through the frontend. Quality goes through the roof.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "今日提示词很简单：\n\n「我们怎么让这次改动完全可验证？」\n\n这会逼着 agent 使出浑身解数去验证它的所有改动：注册真实服务、点一遍前端。质量会直线上升。",
+   "analysis": {
+    "summary": "Matt 分享当日实用 prompt：逼问「如何让这次改动完全可验证」，让 agent 主动做真实注册、前端点击等端到端验证，从而显著抬高质量。",
+    "points": [
+     "核心一句话：How do we make this change fully verifiable?",
+     "预期行为：agent 会为验证「折腰」——真实服务注册、前端点穿等，而不只是口头说测过了。",
+     "作者观察：这样写，交付质量会明显上去（个人经验，非对照实验）。"
+    ],
+    "why": "把「可验证性」直接写进指令，是 agent 工程里低成本、可复用的杠杆；和 Matt 近期强调可验证性优先于人类可读性的主线一致。",
+    "tags": [
+     "Agent 工程",
+     "可验证性",
+     "Prompt"
+    ]
+   }
+  },
   {
    "id": "x-2118297332383191142",
    "date": "2026-11-05",
