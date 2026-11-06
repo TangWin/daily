@@ -5,7 +5,7 @@
  "day": {
   "window": "11/05 08:30 – 11/06 08:30 北京时间",
   "note": "未使用 X 付费 API",
-  "footer": "Ontology 今日无值得单列的内容。支付系统只有钱包筛查 MCP 等低互动帖，已跳过。MCP Explained（HN 233 分）互动高但评论多认为偏 AI 生成「好莱坞 UX」，MCP vs CLI 争论也非新观点，未单列。官方 MCP reference servers v2.3.0（filesystem --read-only、fetch --allowed-hosts、git_merge）发布于 11/05 05:28 北京时间，落在昨日窗口内且昨日 footer 写了「MCP 官方规范与 SDK 无新发布」——实际漏报，今天补一句：升级官方 filesystem/fetch/git 包可拿到最小权限开关。未单列的还有：swarm-tax 多 agent 对照实验（正文 10/26）、6 月旧的多 agent 架构文、Tencent Hy4 二次报道、Hackintosh 用 AI 复活、LLMBrake 按客户封顶 API 花费（互动很低）。",
+  "footer": "Ontology 今日无值得单列的内容。支付系统只有钱包筛查 MCP 等低互动帖，已跳过。MCP Explained（HN 233 分）互动高但评论多认为偏 AI 生成，MCP vs CLI 争论也非新观点，未单列。官方 MCP reference servers v2.3.0（filesystem --read-only、fetch --allowed-hosts、git_merge）发布于 11/05 05:28 北京，落在昨日窗口且昨日漏报——升级官方 filesystem/fetch/git 包可拿最小权限开关。《A thousand fewer paths to root》发于昨日窗口边缘、昨日未报，已与今日 GPT-6 Cyber 合并为一条。未单列：METR 对 Anthropic AI R&D 加速评估（实质强但 HN 仅十余赞）、Stacks Project 全量 Lean 形式化、swarm-tax 多 agent 对照（正文 10/26）、Surge harness 榜（落在昨日）、Tencent Hy4 二次报道、LLMBrake。",
   "highlights": [
    1,
    2,
@@ -98,6 +98,52 @@
    "date": "2026-11-06",
    "type": "news",
    "rank": 3,
+   "title": "GPT-6 Cyber 上线：一次流水线验证 1724 个 Linux 漏洞、做出 948 个可用 LPE，API 花了约 121 万美元",
+   "summary": "Scout→Analyst→动态验证→ExploitDev→补丁+人工审的五段 harness；同文结论是更强模型反而该减编排，以及「只验证结果不够，还要验证攻击路径」。",
+   "url": "https://openai.com/index/introducing-gpt-6-cyber/",
+   "tags": [
+    "Harness",
+    "Coding Agent",
+    "安全"
+   ],
+   "raw_tags": [
+    "Harness Engineering",
+    "Coding Agent",
+    "安全"
+   ],
+   "score": 470,
+   "score_label": "「千条通往 root 的路」HN 470+ 分 · 350+ 条评论；GPT-6 Cyber 产品帖跟进",
+   "detail": {
+    "heat": "「千条通往 root 的路」HN 470+ 分 · 350+ 条评论；GPT-6 Cyber 产品帖跟进",
+    "highlight": true,
+    "event": "OpenAI 11/05 发布 GPT-6 Cyber（Daybreak Red 限定），ExploitGym 48.5%（相对 GPT-5.6 Cyber 的 32.1% 提升约 51%），honeypot 越权评估无部署提示时 99.93%、有提示时 100% 不打出范围服务；已用于 Linux 948 个 LPE、Firefox 81 个此前未知高危（Mozilla 已开始合补丁）。更完整的工程叙述在 11/04 博客《A thousand fewer paths to root》（落在昨日窗口边缘、昨日未报，今日与产品一并补）：五段流水线 Scout 收窄到约 7% 代码 → Analyst 产出 2308 条候选 → 隔离 VM+KASAN 动态复现 1724 → ExploitDev 做出 948 个可用 LPE（约 $1279/个）并生成候选补丁；中途发现 20/200「成功」其实用了另一个 0-day，于是加了「路径校验」；另一次实验表明给弱模型塞 103 条利用技巧库能把成功率从 76% 拉到 89%，换到更强模型后轻编排反而更好、加技巧库只多 1.5 点。准备度框架将网络安全能力标到 Critical。",
+    "why": "这是目前最硬的「生产级安全 agent harness」公开账本：分段、放弃条件、路径校验、随模型变强减脚手架——直接对应我们自己做 coding/安全 agent 时该投编排还是投底座的问题。",
+    "use": "1）安全研究 agent 做成可独立重启的阶段流水线，给 ExploitDev 设「一小时无进展就停」之类的硬放弃条件。2）验收不只看「拿到 root / 测试绿了」，还要独立证明用的是指定那条漏洞路径。3）底座升级后重跑同一 harness 的对照实验，别默认旧脚手架仍然划算；沙箱仍按 Firecracker/gVisor 做纵深，因为「未打补丁的低权限账号 ≈ root」已被他们当成近期默认威胁模型。",
+    "links": [
+     {
+      "name": "Introducing GPT-6 Cyber",
+      "url": "https://openai.com/index/introducing-gpt-6-cyber/"
+     },
+     {
+      "name": "A thousand fewer paths to root",
+      "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/"
+     },
+     {
+      "name": "HN：千条通往 root",
+      "url": "https://news.ycombinator.com/item?id=50372929"
+     },
+     {
+      "name": "HN：GPT-6 Cyber",
+      "url": "https://news.ycombinator.com/item?id=50381590"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-06-04",
+   "date": "2026-11-06",
+   "type": "news",
+   "rank": 4,
    "title": "Spring AI 2.1.0-RC2：正式引入 DecisionModel，并接上 MCP 2026-07-28 修订",
    "summary": "用结构化「是/否、多选、量表」决策替代让聊天模型自由发挥再解析；DecisionToolIndex 可据此选工具；同时补上现代 MCP 服务端与工具参数流式增量。",
    "url": "https://github.com/spring-projects/spring-ai/releases/tag/v2.1.0-RC2",
@@ -115,7 +161,7 @@
    "score_label": "GitHub Release（11/05）",
    "detail": {
     "heat": "GitHub Release（11/05）",
-    "highlight": true,
+    "highlight": false,
     "event": "spring-projects/spring-ai 发布 v2.1.0-RC2。核心是 DecisionModel API：面向有限结果集的分类/护栏/业务判断，支持 YesNo、Choice、Score 三类问题，返回概率供阈值决策；文档推荐 Ollama 上的 d1-omni 等决策模型，也可接 OpenAI、System One。生态内已接 DecisionDocumentReranker/Filter（RAG）和 DecisionToolIndex（工具搜索：判断哪个工具能处理请求，或没有适用工具）。同版还增加 MCP 2026-07-28（modern）服务端支持、工具调用参数 delta 流式、OllamaDecisionModel、SystemOneDecisionModel，以及 Anthropic Java SDK 升到 3.4.0。",
     "why": "Java 团队终于有一等公民的「结构化决策」抽象：护栏、分流、工具选择不必再解析聊天模型的散文。叠上 modern MCP，Spring 栈做企业 agent 更完整。",
     "use": "1）把「是否注入 / 是否相关 / 该派哪个工具」从 ChatClient 里拆到 DecisionModel，用概率阈值而不是正则抠 yes。2）评估升到 2.1.0-RC2 时一起验证 MCP 服务端是否按 2026-07-28 修订暴露注解。3）支付、客服分流等有限选项场景优先试 DecisionModel，成本和延迟通常低于通用聊天模型。",
@@ -132,10 +178,10 @@
    }
   },
   {
-   "id": "news-2026-11-06-04",
+   "id": "news-2026-11-06-05",
    "date": "2026-11-06",
    "type": "news",
-   "rank": 4,
+   "rank": 5,
    "title": "微软开源思路的 PDD Kit：用形式化规格拴住 coding agent，而不是逐行审生成代码",
    "summary": "在 Chopin 里把意图收成 Verus 规格，证明 agent 写的 Rust 对所有输入满足规格；证不到的边界用测试标成「证据而非证明」。",
    "url": "https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/",
@@ -170,10 +216,10 @@
    }
   },
   {
-   "id": "news-2026-11-06-05",
+   "id": "news-2026-11-06-06",
    "date": "2026-11-06",
    "type": "news",
-   "rank": 5,
+   "rank": 6,
    "title": "Thinking Machines 发布 Inkling 2 Small：594B/激活 17B，主打长程 agentic coding，权重下周拟 Apache 2.0",
    "summary": "在多种 harness 与上下文压缩策略上做 RL；先上 Tinker 闭源推理与微调，称安全测评后开源权重。",
    "url": "https://thinkingmachines.ai/news/inkling-2-small/",
@@ -208,10 +254,10 @@
    }
   },
   {
-   "id": "news-2026-11-06-06",
+   "id": "news-2026-11-06-07",
    "date": "2026-11-06",
    "type": "news",
-   "rank": 6,
+   "rank": 7,
    "title": "Launch HN：Rivet——用 Actor + S3 分层存储编排 agent，号称比一人一个沙箱轻两个数量级",
    "summary": "开源可自托管的 Durable Objects 替代：内存态 + SQLite，写入先落多 AZ SSD 再批量上 S3；主张 harness 跑在沙箱外。",
    "url": "https://news.ycombinator.com/item?id=50381687",
@@ -250,10 +296,10 @@
    }
   },
   {
-   "id": "news-2026-11-06-07",
+   "id": "news-2026-11-06-08",
    "date": "2026-11-06",
    "type": "news",
-   "rank": 7,
+   "rank": 8,
    "title": "Show HN：Stroq——本地审计 coding agent「读了什么→跑了什么→密钥有没有出去」",
    "summary": "只读本机 Claude Code / Codex / Cursor 会话，无遥测；init 后用 hook 在危险命令执行前拦截或询问。",
    "url": "https://github.com/AGGIB/Stroq",
@@ -292,10 +338,10 @@
    }
   },
   {
-   "id": "news-2026-11-06-08",
+   "id": "news-2026-11-06-09",
    "date": "2026-11-06",
    "type": "news",
-   "rank": 8,
+   "rank": 9,
    "title": "百度开源 ERNIE 5.5 Flash Base：280B/激活 14B 的预训练终点权重，面向继续训 agent",
    "summary": "33.5T token 预训练后、未经 mid/post-training 的 checkpoint；混合稀疏注意力 + Multi-Router Latent MoE，HF 已上。",
    "url": "https://ernie.baidu.com/release/ernie-5-5-flash-base/",
