@@ -1,0 +1,445 @@
+{
+ "schema_version": 1,
+ "type": "idea",
+ "date": "2026-11-07",
+ "day": {
+  "sample": "样本：主清单 141（HN42 Lobsters5 Reddit48 IH20 PH26） + Reddit 深翻页抱怨 92（5100 帖） + HN 句式评论/Ask/Show 576；未使用 X 付费 API。"
+ },
+ "items": [
+  {
+   "id": "idea-2026-11-07-01",
+   "date": "2026-11-07",
+   "type": "idea",
+   "rank": 1,
+   "title": "付费也不许只自己看：Gemini 聊天一开历史就进训练，对照各家给「可回顾但不进模」开关",
+   "summary": "一个「AI 对话隐私对照台」：按厂商×个人/企业档，一页写清「历史是否可回顾」「是否默认进训练」「能否只回顾不进模」「人工审范围」「手机助手是否绑历史」。浏览器扩展在 Gemini/ChatGPT/Claude 输入框旁显示当前会话的真实策略灯，一键切临时聊、或把要点存进你自己的本地库再关云端历史；Pixel/助手场景给出「哪些能力会被历史开关砖掉」的实测清单。",
+   "url": "https://news.ycombinator.com/item?id=50363461",
+   "tags": [
+    "Coding Agent",
+    "安全",
+    "个人/生活"
+   ],
+   "raw_tags": [
+    "Agent/AI编码",
+    "安全/隐私",
+    "个人/生活"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 帖「Tell HN: Gemini trains on chat history, even for subscribers」有 723 分、约 195 条评论。作者对照官方说明：个人 Google AI 订阅只要 Keep Activity / 聊天历史开着，对话就可用于训练生成式模型，且有子集会被人工审；想退出只能关历史或只用临时聊天。评论里有人写明「You cannot opt out, except by using only temporary chats」——要自己能翻旧对话，就不能退出训练/人工审；还有 Pixel 用户关了历史后，语音设的提醒第二天被拒，助手要求必须打开聊天历史才肯干活。有人指出 Workspace 企业档才更接近「有历史、不训练」，个人档没有对等选项。",
+    "target_users": "付费使用 Gemini / Google AI 又不愿对话进训练的个人用户；Pixel 上既要助手又要隐私的人；给家人或同事选「哪家可以回顾聊天又不进模」的采购/IT；同时用多家聊天机器人、想一张表看清开关的人。",
+    "quotes": [
+     {
+      "text": "If you have a personal Google AI subscription, all your saved chat history in Gemini can be used for training and there is no way to opt out unless you turn off chat history or use temporary chat sessions. These chat transcripts may even be read by human reviewers.",
+      "links": [
+       {
+        "label": "Hacker News 帖子（Gemini 训练聊天历史，723 分）",
+        "url": "https://news.ycombinator.com/item?id=50363461"
+       }
+      ]
+     },
+     {
+      "text": "You cannot opt out, except by using only temporary chats. You cannot keep your chat histories visible to yourself only. If you want to access your previous chats, you cannot opt out of human review and training models on your chats.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50365094"
+       }
+      ]
+     },
+     {
+      "text": "What's worse is if you have a Pixel phone then Gemini is completely useless without enabling this setting. I had it switched off: \"Hey Google, remind me at 7pm\" ... Next day: \"I can't do anything with your phone unless you enable chat history.\" WTAF!",
+      "links": [
+       {
+        "label": "Hacker News 评论（Pixel 用户）",
+        "url": "https://news.ycombinator.com/item?id=50364314"
+       }
+      ]
+     },
+     {
+      "text": "They should offer history + not training (every other big AI company is offering that). The only way to get that currently is to use Gemini in Google Workspace.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50367745"
+       }
+      ]
+     },
+     {
+      "text": "that's why i don't use gemini for anything serious or personal. if you want persistant memory you should enable keep activity, but keeping activity allows google to use your chats.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50364266"
+       }
+      ]
+     },
+     {
+      "text": "I kept paying for the subscription for a year and a half, but I think I will stop now, as I feel that the added value is very small in comparison to Claude Code or just using openrouter open models.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50365422"
+       }
+      ]
+     }
+    ],
+    "existing": "各家设置里的「聊天历史 / 临时聊天 / 训练开关」；Google Workspace 企业条款；本地模型与 OpenRouter；自行导出后再关历史。",
+    "defects": "个人档把「能回顾」和「不进训练」绑死，没有第三方对照表；官方帮助页分散，普通人读完仍不知道 Pixel 助手会不会被砖；导出流程慢，关历史等于失忆；没有工具在发敏感内容前按厂商策略拦截或改走临时会话。",
+    "solution": "一个「AI 对话隐私对照台」：按厂商×个人/企业档，一页写清「历史是否可回顾」「是否默认进训练」「能否只回顾不进模」「人工审范围」「手机助手是否绑历史」。浏览器扩展在 Gemini/ChatGPT/Claude 输入框旁显示当前会话的真实策略灯，一键切临时聊、或把要点存进你自己的本地库再关云端历史；Pixel/助手场景给出「哪些能力会被历史开关砖掉」的实测清单。",
+    "mvp": "先做静态对照站 + Chrome 扩展：覆盖 Gemini 个人/Workspace、ChatGPT、Claude 三家的历史与训练开关，扩展只读页面状态并提示；众包 Pixel 助手绑定案例。对照站免费，团队策略模板和本地对话库同步收费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-07-02",
+   "date": "2026-11-07",
+   "type": "idea",
+   "rank": 2,
+   "title": "请求有没有被代发：API 客户端出站审计，Postman 式静默代理一眼识破",
+   "summary": "一个「API 客户端出站审计」小工具：对 Postman/Bruno/Yaak 等进程做本机 DNS/连接观察，识别「目标主机之外的第三方代发」并高亮请求头里的敏感字段是否出过境；附带可信客户端对照表（本地直连、可选云同步、已知遥测）；提供 collection 转换时的「运行时承诺」声明模板，让 SaaS 文档写明「请用本地直连客户端」。",
+   "url": "https://news.ycombinator.com/item?id=50360947",
+   "tags": [
+    "开发者工具",
+    "Mac/桌面",
+    "安全"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "Mac/桌面工具",
+    "安全/隐私"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN「Tell HN: Don't use Postman, they proxy your info without your permission」约 108 分。作者更新客户端后发现：本机以为直接 POST 到自己的服务器，实际先打到 Postman 内部再转发；另一条相关长帖上千分。评论里有人说几乎每个对接过的 SaaS 都塞 Postman collection，却没意识到桌面端会代发；有人挖完确认后直接告别 Postman，也有人转向 Yaak/Hurl/HTTPie/Bruno 并提醒 Bruno 也曾有过遥测争议。这和「把 collection 搬出 Postman」不是同一痛——这次是信任模型被偷偷改成中间人。",
+    "target_users": "还在用图形化 API 客户端碰预发/生产令牌的开发者与测试；给客户发 collection 的 SaaS 团队；安全/合规要证明「调试流量不经第三方」的人。",
+    "quotes": [
+     {
+      "text": "When you send a POST request to your server, you think you're sending the information to YOUR server, right? That was the default behaviour - as it should be. After updating the Postman client, I noticed Postman also sends the request to their internal servers, which then sends your server the actual request (proxying).",
+      "links": [
+       {
+        "label": "Hacker News 帖子（Postman 静默代发，108 分）",
+        "url": "https://news.ycombinator.com/item?id=50360947"
+       }
+      ]
+     },
+     {
+      "text": "Please don't use Postman for anything sensitive. It's borderline spyware, especially when you didn't consent to this behavior.",
+      "links": [
+       {
+        "label": "Hacker News 帖子正文",
+        "url": "https://news.ycombinator.com/item?id=50360947"
+       }
+      ]
+     },
+     {
+      "text": "Absolutely abysmal situation. Postman has lost my trust.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50367621"
+       }
+      ]
+     },
+     {
+      "text": "Almost every SAAS I've worked with this year has used Postman or offered a Postman collection, so a bit surprised this isn't more widely appreciated.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50378296"
+       }
+      ]
+     },
+     {
+      "text": "I've been pretty happy with Yaak for a couple of years... It was also pretty easy to export my Postman stuff and import it directly into Yaak. I've heard about issues with telemetry in Bruno, which apparently still phones home regardless of",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50384793"
+       }
+      ]
+     },
+     {
+      "text": "hell no, just did some digging after reading this, unfortunately you are right. Goodbyes to Postman",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50384552"
+       }
+      ]
+     }
+    ],
+    "existing": "Wireshark/mitmproxy 手工抓包；Little Snitch/LuLu 出站防火墙；Bruno/Yaak/Insomnia/HTTPie/Hurl 等替代客户端；公司代理策略。",
+    "defects": "普通人不会为每次试请求开抓包；防火墙只告诉你「连了陌生域名」，说不清是「功能必需」还是「代发了 Authorization」；替代客户端良莠不齐，缺少一张持续更新的「是否本地直连 / 是否强制登录云端」对照；collection 分发方很少声明运行时信任边界。",
+    "solution": "一个「API 客户端出站审计」小工具：对 Postman/Bruno/Yaak 等进程做本机 DNS/连接观察，识别「目标主机之外的第三方代发」并高亮请求头里的敏感字段是否出过境；附带可信客户端对照表（本地直连、可选云同步、已知遥测）；提供 collection 转换时的「运行时承诺」声明模板，让 SaaS 文档写明「请用本地直连客户端」。",
+    "mvp": "macOS/Linux CLI：附着常见 API 客户端进程，跑一组探测请求，输出是否出现厂商域名代发与敏感头外泄；网页放对照表。个人免费，CI 里「禁止代发客户端」检查和企业报告收费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-07-03",
+   "date": "2026-11-07",
+   "type": "idea",
+   "rank": 3,
+   "title": "打开文件夹前先扫：npm 安装脚本、.vscode/tasks 和密钥读取，克隆即安检",
+   "summary": "「克隆即安检」门禁：git clone 包装成 scan-then-open——先只读扫描 package.json scripts、.vscode/tasks、pre-commit、launchd/systemd 碎片、读取 ~/.ssh 与云凭证的代码路径，给出红黄绿；绿才允许用 IDE 打开，黄则强制禁用 tasks 与 ignore-scripts 并在菜单栏常驻；可选一键丢进临时虚拟机。与 agent 命令审计打通：同一套「敏感动作」规则覆盖安装脚本和 agent 终端。",
+   "url": "https://news.ycombinator.com/item?id=50397436",
+   "tags": [
+    "开发者工具",
+    "安全",
+    "Coding Agent"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "安全/隐私",
+    "Agent/AI编码"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Show HN「CloneGuard」约 25 分：作者被假招聘在通话里要求跑 take-home，跑了一次后才让 AI 解释代码，发现是偷 SSH 和 AWS 密钥的窃贼。他强调载荷常常不是应用本身，而是 npm install 脚本或一打开文件夹就跑的 .vscode/tasks.json。工具做成只读 Go 单二进制，从不执行项目代码。评论有人震惊「打开文件夹就 autorun」还活着，也有人主张更该投资隔离环境——但「先扫一眼再决定是否打开」仍是空档。这和「在沙箱里跑作业」互补：一个是开门前的静态安检，一个是开门后的隔离。",
+    "target_users": "收 take-home、试开源 demo、或从陌生链接 git clone 的求职者与开发者；给新人发「先扫再开」规范的安全团队；害怕 .vscode/tasks 和 postinstall 的 macOS/Linux 用户。",
+    "quotes": [
+     {
+      "text": "I built CloneGuard after a fake recruiter had me run a “take-home” codebase on a call. I ran it once, stopped it, and later asked an AI tool to explain the code. It was a stealer going after SSH and AWS keys.",
+      "links": [
+       {
+        "label": "Hacker News 评论（CloneGuard 作者说明）",
+        "url": "https://news.ycombinator.com/item?id=50397436"
+       }
+      ]
+     },
+     {
+      "text": "In these attacks the payload is often not the app itself. It’s an npm install script or a .vscode/tasks.json task that runs the moment you open the folder.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50397436"
+       }
+      ]
+     },
+     {
+      "text": "WTF. Is that really a thing? autorun.inf called, it wants their method back.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50398284"
+       }
+      ]
+     },
+     {
+      "text": "How about we don't run code we do not trust. ... Also, to people making interviewees run untrusted code, give a 3rd party desktop access",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50398227"
+       }
+      ]
+     },
+     {
+      "text": "I've built project that helps to protect your computer from dangerous commands that your ai agent might execute. Have you noticed how often dont even check what our agents are actually running?",
+      "links": [
+       {
+        "label": "Hacker News（Stroq，agent 命令审计，89 分，相邻需求）",
+        "url": "https://news.ycombinator.com/item?id=50380839"
+       }
+      ]
+     },
+     {
+      "text": "feature suggestion: background daemon that continuously scans and alerts in a menubar app when a positive match is found",
+      "links": [
+       {
+        "label": "Hacker News 评论（持续扫描/菜单栏告警）",
+        "url": "https://news.ycombinator.com/item?id=50381327"
+       }
+      ]
+     }
+    ],
+    "existing": "CloneGuard 等静态规则扫描；容器/虚拟机里跑作业；VS Code 工作区信任提示；npm 的 ignore-scripts；Agent 命令审计类工具（Stroq）。",
+    "defects": "工作区信任一键点过就没了；默认仍可能跑 postinstall；多数人 clone 后直接用 IDE 打开，不会先 grep tasks.json；沙箱方案重，面试通话场景来不及；规则扫描与「打开即执行」之间缺少一键门禁。",
+    "solution": "「克隆即安检」门禁：git clone 包装成 scan-then-open——先只读扫描 package.json scripts、.vscode/tasks、pre-commit、launchd/systemd 碎片、读取 ~/.ssh 与云凭证的代码路径，给出红黄绿；绿才允许用 IDE 打开，黄则强制禁用 tasks 与 ignore-scripts 并在菜单栏常驻；可选一键丢进临时虚拟机。与 agent 命令审计打通：同一套「敏感动作」规则覆盖安装脚本和 agent 终端。",
+    "mvp": "CLI + VS Code/Cursor 插件：打开未知工作区前强制出报告，默认禁用 tasks 与 postinstall；内置 30 条高危规则。个人免费，团队策略与 CI「禁止未扫描产物」收费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-07-04",
+   "date": "2026-11-07",
+   "type": "idea",
+   "rank": 4,
+   "title": "AI 帮非程序员搭内部工具：一到存数据和登录就踩坑，先给公司安全护栏清单",
+   "summary": "「业务自建小工具护栏」：在 Claude/Cursor 旁挂公司策略包——一问数据是否含客户 PII/财务，二问是否要多人登录，三问是否已有 SharePoint/工单系统可复用；命中红线就改写提示词，迫使方案走 IT 模板（隔离 VM、公司 IdP、禁止个人 Supabase），并自动生成给安全团队的一页评审包（数据流、存储位置、访问者）。个人版提供通用清单，企业版对接现有低代码白名单。",
+   "url": "https://www.reddit.com/r/ClaudeAI/comments/1xoo1pf/im_an_accountant_and_somehow_claude_has_me_building/",
+   "tags": [
+    "Coding Agent",
+    "安全",
+    "运营/客服"
+   ],
+   "raw_tags": [
+    "Agent/AI编码",
+    "安全/隐私",
+    "运营/客服"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "r/ClaudeAI 有会计发帖：厌倦每月追客户交同一批材料，用 Claude 搭了个内部小应用跟踪谁交了、谁缺、该催谁；做到「要存数据、让同事登录」时，Claude 一直推 Supabase，还发现有官方连接器和社区 skill。本人明确写「nervous about relying on something I don't really understand, especially when we're dealing with financial information」。置顶评论连问管理层知不知道、有没有安全/基建评审；系统工程师说看完冒冷汗，劝先找 IT 开隔离环境，别把财务 PII 塞进个人搞的 BaaS；也有人直接说这是影子 IT。",
+    "target_users": "用 Claude/ChatGPT 在公司里「顺便」做小工具的业务人员（财务、运营、HR）；被业务影子 IT 追着跑的 IT/安全；想给 AI 编程工具加「公司默认护栏」的管理员。",
+    "quotes": [
+     {
+      "text": "This started because I was tired of chasing clients for the same documents every month. I figured I'd try building a little internal app... Now I've hit the part where I need to save information and let a few coworkers log in and Claude keeps suggesting Supabase for this.",
+      "links": [
+       {
+        "label": "Reddit r/ClaudeAI 帖子（52 条评论）",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1xoo1pf/im_an_accountant_and_somehow_claude_has_me_building/"
+       }
+      ]
+     },
+     {
+      "text": "I'm still a bit nervous about relying on something I don't really understand, especially when we're dealing with financial information.",
+      "links": [
+       {
+        "label": "Reddit r/ClaudeAI 帖子正文",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1xoo1pf/im_an_accountant_and_somehow_claude_has_me_building/"
+       }
+      ]
+     },
+     {
+      "text": "Does your team know you’re building this? Does management know... Does your company have any sort of security team/infrastructure team that can review your project?",
+      "links": [
+       {
+        "label": "Reddit r/ClaudeAI 高赞评论（131 分）",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1xoo1pf/im_an_accountant_and_somehow_claude_has_me_building/"
+       }
+      ]
+     },
+     {
+      "text": "As a systems engineer you just gave me fucking cold sweats. I pray for your IT team. I wouldn't use supabase even for a personal fun project. I highly recommend asking your IT team to set up a virtual environment for you to test in.",
+      "links": [
+       {
+        "label": "Reddit r/ClaudeAI 评论（46 分）",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1xoo1pf/im_an_accountant_and_somehow_claude_has_me_building/"
+       }
+      ]
+     },
+     {
+      "text": "sure let's setup shadow IT for financial documents why not",
+      "links": [
+       {
+        "label": "Reddit r/ClaudeAI 评论",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1xoo1pf/im_an_accountant_and_somehow_claude_has_me_building/"
+       }
+      ]
+     },
+     {
+      "text": "This is something you should just be making in excel and sharing through sharepoints after talking to your manager about pii and data security.",
+      "links": [
+       {
+        "label": "Reddit r/ClaudeAI 评论",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1xoo1pf/im_an_accountant_and_somehow_claude_has_me_building/"
+       }
+      ]
+     }
+    ],
+    "existing": "IT 工单与架构评审；SharePoint/Excel/Airtable 等现成低代码；企业 ChatGPT/Claude 的数据区域；各云的合规落地页。",
+    "defects": "通用 AI 编程助手默认往「最快能跑的公有 BaaS」推，不问数据分级；业务人员没有「什么时候必须停下来找 IT」的检查表；IT 往往在已经存了客户财务数据之后才知道；缺少把对话需求翻译成「批准的栈 / 禁止的栈」的中间层。",
+    "solution": "「业务自建小工具护栏」：在 Claude/Cursor 旁挂公司策略包——一问数据是否含客户 PII/财务，二问是否要多人登录，三问是否已有 SharePoint/工单系统可复用；命中红线就改写提示词，迫使方案走 IT 模板（隔离 VM、公司 IdP、禁止个人 Supabase），并自动生成给安全团队的一页评审包（数据流、存储位置、访问者）。个人版提供通用清单，企业版对接现有低代码白名单。",
+    "mvp": "先做公开检查清单生成器 + Claude Project/自定义 GPT 指令包：输入「我在做什么工具」，输出红线、推荐改用的公司常见替代、给 IT 的邮件草稿。清单免费，企业白名单策略包收费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-07-05",
+   "date": "2026-11-07",
+   "type": "idea",
+   "rank": 5,
+   "title": "Stripe Connect 自买自卖雷达：盗卡充值、秒提现、平台零告警时先冻再赔",
+   "summary": "面向 Connect 小平台的「自买自卖雷达」：接入账户与支付事件，画买/卖/提现图，对同设备、同税号、同银行账户、短时闭环交易打分；高风险自动延迟提现或冻结算，并推送可读事件线（谁创建谁、哪张卡、何时提现）。附「Connect 上线检查表」：最小 KYC、提现冷却、新卖家限额、异常卡国别。",
+   "url": "https://news.ycombinator.com/item?id=50398646",
+   "tags": [
+    "支付",
+    "开发者工具",
+    "电商"
+   ],
+   "raw_tags": [
+    "支付/计费",
+    "开发者工具",
+    "电商"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Tell HN「Be Careful with Stripe Connect」：做了 15 年、帮客户做过约 70 个 Stripe 项目的开发者，刚被骗子经 Connect 通路抽走约 $4.5k——用盗卡在平台上自买自卖，再从卖家账户提现；作者称整体结构并不松，但事发极快。Stripe 支持只落到菲律宾一线，称商家须全额承担，不减免手续费与争议，且事发当时没有有效告警。评论确认手法就是「买卖两边账户 + 盗卡支付 + 提现 + 原支付退单」。Indie 和小型平台往往抄 Connect 快速上线，风控却还停在「看一眼 Dashboard」。",
+    "target_users": "用 Stripe Connect 做市场/双边平台的小型创始人与外包开发；第一次接 Connect 的 indie hacker；代客户接支付、怕连坐赔付的代理商。",
+    "quotes": [
+     {
+      "text": "TLDR - stripe made it easy for fraudsters to syphon $4,500 through our stripe account and withdraw all of it - and they expect us to cover everything and have offered absolutely zero help.",
+      "links": [
+       {
+        "label": "Hacker News 帖子（Stripe Connect 警告）",
+        "url": "https://news.ycombinator.com/item?id=50398646"
+       }
+      ]
+     },
+     {
+      "text": "fraudsters were able to route $4.5k worth of charges through our stripe account and withdrew all of the funds... They told us we are fully responsible even though they gave us no alerts or warnings the issue was happening.",
+      "links": [
+       {
+        "label": "Hacker News 帖子正文",
+        "url": "https://news.ycombinator.com/item?id=50398646"
+       }
+      ]
+     },
+     {
+      "text": "Can you explain exactly what they did... They created both selling and buying accounts on your platform, bought from themselves, withdrew from their selling accounts, and charged back the original payments?",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50399194"
+       }
+      ]
+     },
+     {
+      "text": "yup! - exactly - except a lot of the cards they used were stollen and belonged to random people.",
+      "links": [
+       {
+        "label": "Hacker News 评论（作者确认）",
+        "url": "https://news.ycombinator.com/item?id=50399297"
+       }
+      ]
+     },
+     {
+      "text": "I've been building on top of stripe for 15 years and have made about 70 products for clients using stripe.",
+      "links": [
+       {
+        "label": "Hacker News 帖子正文",
+        "url": "https://news.ycombinator.com/item?id=50398646"
+       }
+      ]
+     },
+     {
+      "text": "Stripe support has been very surprising - you only get to speak to folks in the Philippines and they are of absolutely zero help.",
+      "links": [
+       {
+        "label": "Hacker News 帖子正文",
+        "url": "https://news.ycombinator.com/item?id=50398646"
+       }
+      ]
+     }
+    ],
+    "existing": "Stripe Radar / 规则；Dashboard 手工盯提现；自建对账脚本；专业风控中台（对小平台过重）。",
+    "defects": "Radar 偏卡组欺诈，对「平台内买卖同谋 + 快速提现」的 Connect 拓扑不够开箱即用；小团队没有「关联账户图」；告警往往在提现完成、退单打来之后；文档教你怎么接 Express，很少给「上线第一周必开的冻结策略」。",
+    "solution": "面向 Connect 小平台的「自买自卖雷达」：接入账户与支付事件，画买/卖/提现图，对同设备、同税号、同银行账户、短时闭环交易打分；高风险自动延迟提现或冻结算，并推送可读事件线（谁创建谁、哪张卡、何时提现）。附「Connect 上线检查表」：最小 KYC、提现冷却、新卖家限额、异常卡国别。",
+    "mvp": "Stripe webhook 接收器 + 简易关联图 + 三条默认规则（新卖家 48h 提现冷却、买卖指纹重叠告警、单日提现突增）。开源核心规则，托管告警与工单收费。",
+    "difficulty": null,
+    "potential": null
+   }
+  }
+ ]
+}
