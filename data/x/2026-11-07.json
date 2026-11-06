@@ -1,0 +1,82 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-07",
+ "day": {
+  "digest": "Matt 回应「Opus 5.5 一键做出完美落地页」的说法：指出 400px 下菜单坏了，并强调落地页远不能代表人们用 React 实际在做的复杂度。",
+  "by_source": {
+   "mattpocockuk": "质疑「一键完美落地页」：窄屏菜单有问题；落地页也不代表 React 应用的真实范围。"
+  },
+  "updated_at": "2026-11-07T08:08:22+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2118799307188977725",
+   "date": "2026-11-07",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2118799307188977725",
+   "url": "https://x.com/mattpocockuk/status/2118799307188977725",
+   "posted_at": "2026-11-07T04:14+08:00",
+   "kind": "reply",
+   "text": "But also, this is a freaking landing page - do you really think this is the extent of what people are doing with React?",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2118798892137619673",
+    "url": "https://x.com/mattpocockuk/status/2118798892137619673",
+    "text": "Menu is broken on 400px width"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "再说了，这他妈就是个落地页——你真觉得人们用 React 做的东西就到这程度？",
+   "analysis": {
+    "summary": "接上条对「完美落地页」的质疑后，Matt 进一步说：这只是个落地页，远不能代表人们用 React 实际在做的复杂度。",
+    "points": [
+     "把讨论对象定性为 landing page，与真实 React 应用复杂度拉开距离。",
+     "用反问暗示：用生成落地页的成败去概括「模型/工具能否替代 React 理解」是不恰当的。"
+    ],
+    "why": "延续他近期「理解 React 比以往更重要」的立场：用简单营销页当样本，会低估真实工程场景，从而误判 AI 一键交付的边界。语气偏硬，仍属观点而非数据。",
+    "tags": [
+     "React",
+     "AI 写代码",
+     "工程复杂度"
+    ]
+   }
+  },
+  {
+   "id": "x-2118798892137619673",
+   "date": "2026-11-07",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2118798892137619673",
+   "url": "https://x.com/mattpocockuk/status/2118798892137619673",
+   "posted_at": "2026-11-07T04:13+08:00",
+   "kind": "reply",
+   "text": "Menu is broken on 400px width",
+   "article_title": null,
+   "reply_to": {
+    "handle": "sankalpgotbaned",
+    "post_id": "2118791442105786683",
+    "url": "https://x.com/sankalpgotbaned/status/2118791442105786683",
+    "text": "I used to think that\nBut Opus 5.5 just one shot this from a no technical details prompt\n\n and its perfect, looks perfect, works perfect, and scores perfect on \n\nOpus 5.5 is a big change. Need problems it struggles at (Apart from cost)"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "菜单在 400px 宽度下是坏的。",
+   "analysis": {
+    "summary": "有人声称 Claude Opus 5.5 无需技术细节提示就能一次性做出「完美」落地页；Matt 回复指出该页在 400px 宽度下菜单是坏的。",
+    "points": [
+     "对方用 Opus 5.5 从无技术细节 prompt 一键生成落地页，并称观感、功能和评分都「完美」。",
+     "Matt 具体指出窄屏（400px）下菜单存在问题，用反例质疑「完美」说法。"
+    ],
+    "why": "这是对「模型一键出完美前端」叙事的现场纠偏：用可复现的响应式缺陷，提醒评价生成结果要看真实交互与小屏表现，不能只看宽屏截图或自动化分数。信息量中等，偏短评。",
+    "tags": [
+     "AI 写代码",
+     "前端质量",
+     "响应式"
+    ]
+   }
+  }
+ ]
+}
