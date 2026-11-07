@@ -1,0 +1,416 @@
+{
+ "schema_version": 1,
+ "type": "idea",
+ "date": "2026-11-08",
+ "day": {
+  "sample": "样本：主清单 144（HN42 Lobsters8 Reddit48 IH20 PH26） + Reddit 深翻页抱怨 174（5200 帖） + HN 句式评论/Ask/Show 573；未使用 X 付费 API。"
+ },
+ "items": [
+  {
+   "id": "idea-2026-11-08-01",
+   "date": "2026-11-08",
+   "type": "idea",
+   "rank": 1,
+   "title": "网站被挂马没人通知你：做网站版 Have I Been Pwned，查得到、联系得上、修完能解封",
+   "summary": "一个「网站被挂马通知中心」：站长免费认领域名（DNS TXT 验证）并留下真实联络方式，研究者/扫描商通过 API 提交带证据的发现，平台去重、验证后通知到人；未认领站点公开可查（只列状态与修复指引，不公开利用细节）。认领后附送轻量外链脚本监控（第三方 JS 哈希变化、新出现的外发域名），修复后一键生成「已修复证据包」并引导去 Safe Browsing、主流杀软、浏览器各自的解封入口。",
+   "url": "https://news.ycombinator.com/item?id=50397172",
+   "tags": [
+    "安全",
+    "开发者工具",
+    "电商"
+   ],
+   "raw_tags": [
+    "安全/隐私",
+    "开发者工具",
+    "电商"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Scott Helme 帖「We know 15,579 websites are infected. how do we tell them?」在 HN 179 分、148 条评论。他们的爬虫发现上万个网站加载了被篡改的第三方脚本（盗卡、挖矿、赌博弹窗），却找不到站长：security.txt 普及率低，WHOIS 被隐私代理挡住，邮件和私信绝大多数没回音，负责任披露的人力根本扩不上去。评论里连问「网站版 Have I Been Pwned 在哪」；也有人提醒另一头的痛：站点一旦进浏览器/杀软黑名单，修好了也不知道找谁解封。还有小店主被指出网站全是恶意弹窗时说「所有网站都长这样」，维护人是 Upwork 上找的外包。",
+    "target_users": "小企业/个人站长（WordPress、外包建站、Shopify 外挂脚本）；替多家客户托管站点的代理商和主机商；做大规模扫描、想把发现交到站长手里的安全研究者和厂商；被误拉黑、急着解封的运维。",
+    "quotes": [
+     {
+      "text": "Is there no \"have I been powned\" for websites?",
+      "links": [
+       {
+        "label": "Hacker News 评论（挂马站点帖，179 分）",
+        "url": "https://news.ycombinator.com/item?id=50397172"
+       }
+      ]
+     },
+     {
+      "text": "Instead, this is a database, useful to check for website owners to see if their site is listed inside. This would be an idea very similar to haveibeenpwned.com, which is immensely helpful.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50396850"
+       }
+      ]
+     },
+     {
+      "text": "The process of responsible disclosure consumes a lot of resources, use of security.txt is low, and the vast majority of our emails and messages go unanswered. It's simply not possible for us to scale this up.",
+      "links": [
+       {
+        "label": "Hacker News 评论（引用原文）",
+        "url": "https://news.ycombinator.com/item?id=50397126"
+       }
+      ]
+     },
+     {
+      "text": "I showed them that their website was completely owned, crypto-miners ,malware, gambling pop-ups the works. When I showed and asked who maintains her site, she said it regard to the malware, \"All sites look like this\"",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50398750"
+       }
+      ]
+     },
+     {
+      "text": "You notice that Firefox gives a warning, you find the issue, remove the malicious dependency and roll out the new version. Now what? Who do you talk to to get unblocked? I run a site that's on blocklists.",
+      "links": [
+       {
+        "label": "Hacker News 评论（被拉黑站长）",
+        "url": "https://news.ycombinator.com/item?id=50399042"
+       }
+      ]
+     },
+     {
+      "text": "I've been occasionally sniffing around for something that I could use to monitor the JS of outbound traffic and give me a heads-up if it smells like one of the sites is delivering something it shouldn't be, but I haven't found a tool for this that I like yet.",
+      "links": [
+       {
+        "label": "Hacker News 评论（托管多站 WordPress 的人）",
+        "url": "https://news.ycombinator.com/item?id=50396785"
+       }
+      ]
+     }
+    ],
+    "existing": "Google Safe Browsing / 浏览器红页；VirusTotal、Sucuri SiteCheck 等单次扫描；Report URI、c/side 等 CSP/脚本监控（面向已接入的企业客户）；security.txt；WHOIS 隐私代理转发邮件",
+    "defects": "扫描器只能「我主动来查」，没有「别人发现了我的站被挂马时能找到我」的通道；黑名单只罚不通知，修好后各家解封流程分散；security.txt 和 WHOIS 实际联系不到人；企业级脚本监控对小站太贵太重，外包维护的小店主根本不知道该装什么。",
+    "solution": "一个「网站被挂马通知中心」：站长免费认领域名（DNS TXT 验证）并留下真实联络方式，研究者/扫描商通过 API 提交带证据的发现，平台去重、验证后通知到人；未认领站点公开可查（只列状态与修复指引，不公开利用细节）。认领后附送轻量外链脚本监控（第三方 JS 哈希变化、新出现的外发域名），修复后一键生成「已修复证据包」并引导去 Safe Browsing、主流杀软、浏览器各自的解封入口。",
+    "mvp": "先做域名认领 + 研究者提交 API + 邮件/Slack 通知三件套，导入一批公开的挂马脚本特征做被动查询页；监控部分只做「每日抓首页与结账页的外链脚本列表并比对差异」。免费给站长，向主机商/建站代理按托管域名数收费，向扫描厂商收批量通知 API 费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-08-02",
+   "date": "2026-11-08",
+   "type": "idea",
+   "rank": 2,
+   "title": "你的点餐站被克隆了吗：盯住反向代理仿站和冒名搜索广告，替小品牌先拉警报",
+   "summary": "一个面向小品牌的「仿站雷达」：在真站页面埋一段极小的信标（检测当前域名与 referrer、给代理请求打水印），发现页面在陌生域名下被渲染就告警；同时每天跑错拼域名注册监控 + Google 广告透明中心查询（按品牌名），把可疑广告、域名、截图汇总成一键投诉包（Google Ads 商标/欺诈投诉、注册商 abuse、Safe Browsing）。点餐 SaaS 可集成为「结账会话未到达支付商」比例异常告警。",
+   "url": "https://news.ycombinator.com/item?id=50398075",
+   "tags": [
+    "支付",
+    "运营/客服",
+    "开发者工具"
+   ],
+   "raw_tags": [
+    "支付/计费",
+    "运营/客服",
+    "开发者工具"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 帖「Restaurant Delivery Payment-Skimming Campaign」164 分、94 条评论：骗子用错拼域名把真餐厅的点餐网站整站反向代理过去，只把结账换成自己的盗卡页面，再买 Google 搜索广告排到真站上面。文章统计数月里至少 47 条相关搜索广告、46 个广告账户。评论里有人说自家公司「每天都接到点了骗子广告的客户投诉电话」；也有人问原站能不能从日志和来源里看出来，文章本身建议品牌方盯「自己的站被别的域名加载」和「从未走到真实支付商的结账会话」——但小餐厅和连锁加盟店没有这样的 IT。",
+    "target_users": "有自营线上点餐/下单页的连锁餐饮、加盟店与小零售品牌；给餐厅做点餐系统的 SaaS（Toast、ChowNow 类集成商）；被冒名广告抢流量的老牌小企业；接到大量「被骗」客服电话的客服团队。",
+    "quotes": [
+     {
+      "text": "This affects the company I work for, who gets called every single day with customer complaints from people who clicked the scam link from a search ad when looking for our site. Our site has existed for over a decade.",
+      "links": [
+       {
+        "label": "Hacker News 评论（受害公司员工）",
+        "url": "https://news.ycombinator.com/item?id=50398075"
+       }
+      ]
+     },
+     {
+      "text": "Brands and their ordering providers that watch for their site loading under someone else's domain, or for checkout sessions that never reach the real payment provider, are well placed to catch these sites early.  It can be detected if the IT folks look in the right places.",
+      "links": [
+       {
+        "label": "Hacker News 评论（引用原文建议）",
+        "url": "https://news.ycombinator.com/item?id=50398433"
+       }
+      ]
+     },
+     {
+      "text": "The evil site is acting as a reverse HTTP proxy: When you do a `GET evilsite/foo`, to compose its response the server first does a `GET targetsite/foo`, mutates the response however it likes, and passes it along to you.",
+      "links": [
+       {
+        "label": "Hacker News 评论（解释仿站原理）",
+        "url": "https://news.ycombinator.com/item?id=50400170"
+       }
+      ]
+     },
+     {
+      "text": "Couldn't the original website owner just look at the logs and see where most of the requests are coming from? And also the referrers would be a dead giveaway, right? That's assuming someone is looking at the `access.log` file occasionally.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50399189"
+       }
+      ]
+     },
+     {
+      "text": "Hmm, how do you even protect against this one?",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50397760"
+       }
+      ]
+     }
+    ],
+    "existing": "大品牌用的品牌保护/仿冒监控服务（Bolster、ZeroFox、Netcraft 等）；Google Ads 商标投诉；自查 access.log；域名错拼监控工具（dnstwist）",
+    "defects": "品牌保护服务按企业年费卖，小品牌、加盟店买不起；dnstwist 只看域名注册，看不出「是不是在反向代理我」；广告透明中心要手动搜；日志里的代理请求混在正常流量里没人看；点餐 SaaS 不把「结账没到我的支付商」当告警。",
+    "solution": "一个面向小品牌的「仿站雷达」：在真站页面埋一段极小的信标（检测当前域名与 referrer、给代理请求打水印），发现页面在陌生域名下被渲染就告警；同时每天跑错拼域名注册监控 + Google 广告透明中心查询（按品牌名），把可疑广告、域名、截图汇总成一键投诉包（Google Ads 商标/欺诈投诉、注册商 abuse、Safe Browsing）。点餐 SaaS 可集成为「结账会话未到达支付商」比例异常告警。",
+    "mvp": "一个 JS 信标 + 错拼域名每日扫描 + 广告透明中心查询 + 邮件告警与投诉模板，先找 10 家有自营点餐页的连锁餐厅试点；按品牌每月低价订阅，向点餐 SaaS 卖白标集成。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-08-03",
+   "date": "2026-11-08",
+   "type": "idea",
+   "rank": 3,
+   "title": "去谷歌手机还能不能用银行：GrapheneOS/LineageOS 银行与支付 App 兼容性雷达，变卦前先提醒",
+   "summary": "一个「去谷歌系统银行兼容雷达」：按国家×银行×系统×功能维护一张带时间线的兼容表，数据来自用户一键上报（附 App 版本、系统版本、Play Integrity 结果）和自动抓取的 App 版本更新；关注的银行一旦出现「新版本开始拦截」报告就推送提醒，并给出退路（网页版、读卡器、政府数字签名 App、换哪家银行）和写给银行/监管的投诉模板。",
+   "url": "https://news.ycombinator.com/item?id=50390616",
+   "tags": [
+    "个人/生活",
+    "支付",
+    "安全"
+   ],
+   "raw_tags": [
+    "个人/生活",
+    "支付/计费",
+    "安全/隐私"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 帖「Dutch 'idealist' bank ASN blocks non-Google Android, including GrapheneOS」645 分、423 条评论：ASN 银行（可能受 Wero 支付要求驱动）开始用 Google Play Integrity 拦截非谷歌认证系统。评论里有人抽屉里专门放一台翻新 iPhone 只为开银行 App；有人说就因为这个放弃了 GrapheneOS；有人的银行 App 能开但关掉生物识别、降低限额；还有人连该怎么跟银行技术人员说清这件事都不知道。现有的兼容报告只是一个 GitHub issue 列表，靠用户自报。",
+    "target_users": "欧洲（荷兰、德国等）用 GrapheneOS / LineageOS / /e/OS 的隐私用户；正在考虑刷机或买 Motorola GrapheneOS 机型、想先确认银行能不能用的人；需要多家银行账户的个体户；去谷歌手机的经销商与社区维护者。",
+    "quotes": [
+     {
+      "text": "I have an refurbished iphone sleeping most of the time in my desk drawer, used only for banking apps.",
+      "links": [
+       {
+        "label": "Hacker News 评论（ASN 封 GrapheneOS 帖，645 分）",
+        "url": "https://news.ycombinator.com/item?id=50390616"
+       }
+      ]
+     },
+     {
+      "text": "This is mostly why I stopped messing around with rooted Android and GrapheneOS. I like using banking apps (mostly for transfers at shared meals) and have no desire to carry two phones.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50398356"
+       }
+      ]
+     },
+     {
+      "text": "My bank app works on GrapheneOS but checks play integrity and disables biometrics and lowers limits.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50390672"
+       }
+      ]
+     },
+     {
+      "text": "I really hope this doesn't mean other Dutch banks will follow suit. It's already quite impossible to actually contact someone at the bank who can understand the issue if it's on the technical side. I have no idea how I would even start to broach this topic with ABN Amro.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50390751"
+       }
+      ]
+     },
+     {
+      "text": "The worst part is: you can't escape them. You need to have a bank account to live a life outside the woods. I have multiple bank accounts, because I am a solopreneur, yet all of them are weird in their own ways",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50393073"
+       }
+      ]
+     }
+    ],
+    "existing": "PrivSec-dev/banking-apps-compat-report（GitHub issue 自报）；GrapheneOS 官方 banking-apps 说明；论坛帖；备用 iPhone / 网页版网银",
+    "defects": "自报列表没有版本号和时间线，看不出「上个版本还能用、这周开始封」；没有按国家/银行/功能（登录、转账、NFC 支付、Wero/iDEAL、生物识别）拆开；App 更新后变卦没有任何提醒；不告诉你有没有网页版或硬件令牌之类的退路，也没有给银行写投诉的模板。",
+    "solution": "一个「去谷歌系统银行兼容雷达」：按国家×银行×系统×功能维护一张带时间线的兼容表，数据来自用户一键上报（附 App 版本、系统版本、Play Integrity 结果）和自动抓取的 App 版本更新；关注的银行一旦出现「新版本开始拦截」报告就推送提醒，并给出退路（网页版、读卡器、政府数字签名 App、换哪家银行）和写给银行/监管的投诉模板。",
+    "mvp": "先覆盖荷兰、德国、英国 Top 30 银行和 Wero/iDEAL，网页表格 + RSS/邮件提醒 + 一个 F-Droid 上的上报小工具（读取本机 Integrity 结果与 App 版本）；靠捐赠/赞助起步，后续向去谷歌手机经销商和隐私手机品牌卖「出厂兼容报告」。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-08-04",
+   "date": "2026-11-08",
+   "type": "idea",
+   "rank": 4,
+   "title": "薪资区间是真是假：英国强制招聘写工资后，给求职者的「区间可信度」打分和面试前核价",
+   "summary": "一个「招聘薪资可信度」浏览器插件 + 网站：在 LinkedIn/Indeed/Otta 等职位页旁显示区间宽度评分（上下限比值、和同城同级岗位中位数对比）、这家公司历史上报的 offer 落在区间哪一段、平均回复率与面试轮数；求职者匿名上报「广告区间 vs 实际 offer」和是否收到拒信。雇主端提供新规自查与「诚实区间」徽章，用诚信换候选人质量。",
+   "url": "https://news.ycombinator.com/item?id=50389414",
+   "tags": [
+    "个人/生活",
+    "开发者工具"
+   ],
+   "raw_tags": [
+    "个人/生活",
+    "开发者工具"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 帖「Britain to make salary disclosure in job ads mandatory」611 分、453 条评论。大家欢迎这项规定，但最担心的是被绕过：评论举例美国已有类似法律的州，大公司照样挂「$100,000–$200,000」再藏一个内部真实区间；有人问会不会限制区间上下限差距，防止「£20,000 到 £100,000」；英国开发者抱怨有的公司给高级开发 £30–35k，却拖到多轮面试后才谈钱，求职者请假面了三轮才发现期望差太远；还有人希望连「拒信」也强制回复。",
+    "target_users": "英国（以及欧盟薪酬透明指令 2026 落地后的欧洲）求职者，尤其是软件工程师；不想被宽区间糊弄、要在第一轮前核价的人；想证明自己区间写得诚实、以此吸引候选人的中小雇主；需要按新规自查招聘广告的 HR 与猎头。",
+    "quotes": [
+     {
+      "text": "Do they say something about the min and max in the range being no more than X% apart? To prevent scenarios like \"between £20,000 and £100,000\".",
+      "links": [
+       {
+        "label": "Hacker News 评论（英国薪资披露帖，611 分）",
+        "url": "https://news.ycombinator.com/item?id=50389414"
+       }
+      ]
+     },
+     {
+      "text": "Right, we have these laws in my state but they are almost completely useless because of that. Most large companies will post ranges like $100,000 - $200,000, and have a secret internal \"real\" range that they won't share with you.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50394980"
+       }
+      ]
+     },
+     {
+      "text": "Some companies in UK pay senior devs £30-35k. And some companies won't discuss that until v late in the process, while importing US-style multiround interviews. It's pretty silly when people get 3 rounds in, take time off work for the interviews, then find out their expectations are so far apart.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50389555"
+       }
+      ]
+     },
+     {
+      "text": "I've always asked, and then get the generic \"for the ideal candidate we are prepared to go very high\", which I tactfully point out as the BS it is",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50391115"
+       }
+      ]
+     },
+     {
+      "text": "Can we also make it mandatory to reply to a job application, even just an automated \"sorry, your application has been rejected\", so you know whether to keep considering that job?",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50389503"
+       }
+      ]
+     }
+    ],
+    "existing": "Glassdoor、Levels.fyi（偏大厂、偏美国）；LinkedIn/Indeed 的薪资筛选；美国各州薪资透明法下的职位板；猎头口头透露区间",
+    "defects": "职位板只显示广告写的区间，不评价它宽不宽、真不真；Levels.fyi 对英国中小公司和非大厂岗位覆盖很薄；没有把「广告区间」和「最终 offer」对上的数据；求职者无法在投递前知道这家公司历史上的 offer 落在区间哪一段，也看不到它回不回拒信。",
+    "solution": "一个「招聘薪资可信度」浏览器插件 + 网站：在 LinkedIn/Indeed/Otta 等职位页旁显示区间宽度评分（上下限比值、和同城同级岗位中位数对比）、这家公司历史上报的 offer 落在区间哪一段、平均回复率与面试轮数；求职者匿名上报「广告区间 vs 实际 offer」和是否收到拒信。雇主端提供新规自查与「诚实区间」徽章，用诚信换候选人质量。",
+    "mvp": "先抓取英国科技岗职位广告的薪资字段做宽度评分和同城对比，插件只读显示；配一个匿名 offer 上报表，冷启动从 HN/Reddit UK 开发者社区收集。求职者免费，雇主徽章与 HR 合规自查按岗位收费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-08-05",
+   "date": "2026-11-08",
+   "type": "idea",
+   "rank": 5,
+   "title": "AI 语伴的错题本：每次新开对话不再从零，自动记下你反复犯的三个错并按时回考",
+   "summary": "一个「AI 语伴错题本」：浏览器扩展/MCP 连接器挂在你常用的 Claude/ChatGPT 上，自动从每次纠错里抽取「错误类型 + 原句 + 改正」，归并成规则级的高频错误榜（如 de/het），按间隔重复在下次开聊时自动注入 3–5 道回考题；每周给出「每百词错误率」「新错误 vs 老错误」趋势图，并标出 AI 前后矛盾的纠正，提示去查教材。",
+   "url": "https://www.reddit.com/r/languagelearning/comments/1xommmr/how_do_you_keep_track_of_your_mistakesprogress/",
+   "tags": [
+    "Coding Agent",
+    "语言学习",
+    "开发者工具"
+   ],
+   "raw_tags": [
+    "Agent/AI编码",
+    "语言学习",
+    "开发者工具"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "r/languagelearning 帖：一位学荷兰语的人每天早上拿 Claude 当家教，让它出题或改作文，但「每次聊天都从零开始」，对话太长又被要求新开，上下文全丢；试过记忆功能（记得住个人信息、记不住错误）、每次手动粘贴学习文档（有用但烦）、把高频错误写进自定义指令（很快过时）。后来手动记了一个月日志，发现大部分错误其实就是三个规则（de/het、动词第二位、形容词 -e），只有记录才让这件事变得可见。同期 r/duolingo 有人连续打卡 900 天仍几乎不会说葡萄牙语，被评论指出 streak 不代表水平。",
+    "target_users": "把 ChatGPT/Claude/Gemini 当语言家教的自学者（A2–B2 阶段最多）；对 Duolingo 打卡失去信心、想要可量化进步的人；需要给学生布置 AI 对话练习、又想看到错误趋势的语言老师；准备移民语言考试（如荷兰 inburgering）的人。",
+    "quotes": [
+     {
+      "text": "The problem is that every chat starts from zero. Or the chat gets so long that it tells me to start a new one, and all the context is gone. I don't remember my progress or my mistakes that well myself, so that hurts.",
+      "links": [
+       {
+        "label": "Reddit r/languagelearning 帖子正文",
+        "url": "https://www.reddit.com/r/languagelearning/comments/1xommmr/how_do_you_keep_track_of_your_mistakesprogress/"
+       }
+      ]
+     },
+     {
+      "text": "The memory feature. It remembers facts about me, but not my mistakes.",
+      "links": [
+       {
+        "label": "Reddit r/languagelearning 帖子正文（已尝试的办法）",
+        "url": "https://www.reddit.com/r/languagelearning/comments/1xommmr/how_do_you_keep_track_of_your_mistakesprogress/"
+       }
+      ]
+     },
+     {
+      "text": "What I found when I did log everything for a month is that three patterns were most of it (de/het, verb-second, adjective -e), all rules I could recite. So the useful memory isn't 'every mistake', it's 'the three things you keep doing'",
+      "links": [
+       {
+        "label": "Reddit r/languagelearning 评论",
+        "url": "https://www.reddit.com/r/languagelearning/comments/1xommmr/how_do_you_keep_track_of_your_mistakesprogress/19s7wma9bipdt/"
+       }
+      ]
+     },
+     {
+      "text": "One additional thing you can do is asking a summary of your mistakes at the end of each chat, with the date, and add that to a txt file.",
+      "links": [
+       {
+        "label": "Reddit r/languagelearning 评论（手工替代方案）",
+        "url": "https://www.reddit.com/r/languagelearning/comments/1xommmr/how_do_you_keep_track_of_your_mistakesprogress/19s6w8bvvl6o1/"
+       }
+      ]
+     },
+     {
+      "text": "I recently did a streak for 44 Days of 1 hour a day speaking every day, and at the end, was able to use this technique to show that my production had increased (19.2%), my error rate per 100 words had decreased (-15.5%)",
+      "links": [
+       {
+        "label": "Reddit r/languagelearning 评论",
+        "url": "https://www.reddit.com/r/languagelearning/comments/1xommmr/how_do_you_keep_track_of_your_mistakesprogress/19s8arzeoifpe/"
+       }
+      ]
+     },
+     {
+      "text": "if i'm being honest, i'm getting tired of duolingo. i have a 900 day streak yet i can still barely speak Portuguese.",
+      "links": [
+       {
+        "label": "Reddit r/duolingo 帖子正文",
+        "url": "https://www.reddit.com/r/duolingo/comments/1xoxpby/im_getting_tired_of_duolingo/"
+       }
+      ]
+     }
+    ],
+    "existing": "ChatGPT/Claude 记忆与项目功能；手工错题文档、交接 .md 文件；Duolingo/Babbel 等课程 App；Anki 卡片；专门的 AI 语伴 App（Speak、Praktika 等）",
+    "defects": "通用聊天的记忆存的是「你是谁」，不是「你错在哪」，也不会按间隔重复回考；手工文档要自己粘贴、很快过时；课程 App 的打卡和分数跟真实输出能力脱节；AI 语伴 App 把你锁在自家模型和课程里，不能接你已经在用的 Claude/ChatGPT。",
+    "solution": "一个「AI 语伴错题本」：浏览器扩展/MCP 连接器挂在你常用的 Claude/ChatGPT 上，自动从每次纠错里抽取「错误类型 + 原句 + 改正」，归并成规则级的高频错误榜（如 de/het），按间隔重复在下次开聊时自动注入 3–5 道回考题；每周给出「每百词错误率」「新错误 vs 老错误」趋势图，并标出 AI 前后矛盾的纠正，提示去查教材。",
+    "mvp": "Chrome 扩展 + 本地存储：识别聊天页中的纠错块（用小模型或规则抽取），生成错题表和开聊前要粘贴的「今日回考提示词」；先支持荷兰语、西班牙语、英语三门。免费版本地记录，订阅版提供跨设备同步、趋势报告和老师查看学生面板。",
+    "difficulty": null,
+    "potential": null
+   }
+  }
+ ]
+}
