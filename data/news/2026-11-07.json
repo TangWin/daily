@@ -4,12 +4,12 @@
  "date": "2026-11-07",
  "day": {
   "window": "11/06 08:30 – 11/07 08:30 北京时间",
-  "note": "未使用 X 付费 API",
-  "footer": "Ontology、支付系统今日无值得报的新内容。Java 侧 Anthropic SDK Java 3.6.0 仅增错误码，Spring AI 2.1.0-RC2 已于昨日覆盖。",
+  "note": "未使用 X 付费 API；同日静默增补一次",
+  "footer": "Ontology、支付系统今日无值得报的新内容。Java 侧 Anthropic SDK Java 3.6.0 仅增错误码，Spring AI 2.1.0-RC2 已于昨日覆盖。发布后据补充检索增补 ChatGPT connector 串扰与 Message Threads。",
   "highlights": [
-   1,
    2,
-   3
+   1,
+   5
   ]
  },
  "items": [
@@ -54,6 +54,44 @@
    "date": "2026-11-07",
    "type": "news",
    "rank": 2,
+   "title": "ChatGPT 把确认码跟随后续调用悄悄切到另一 connector",
+   "summary": "同一会话里两个指向同一 MCP URL、不同 OAuth client 的 connector：确认在 A 完成，兑换却静默走 B，用户不知情。",
+   "url": "https://community.openai.com/t/security-follow-up-tool-call-silently-routed-to-a-different-connector/1413053",
+   "tags": [
+    "MCP",
+    "安全",
+    "AI Agent"
+   ],
+   "raw_tags": [
+    "MCP",
+    "安全",
+    "AI Agent"
+   ],
+   "score": 58,
+   "score_label": "HN 58",
+   "detail": {
+    "heat": "HN 58",
+    "highlight": true,
+    "event": "OpenAI Community 报告（帖子 11-05，HN 11-06）：自定义 connector A 与目录应用 connector B 指向同一 MCP server 但各自 OAuth。用户在 A 的 MCP Apps widget 确认后，模型用确认码做 follow-up 时静默改走 B；服务端因码绑定 A 的 client 而拒绝。作者试图走 bug bounty，但需预先提交身份/生物识别而未报。评论指出多步工具流应绑定 originating connector，不能只按 MCP URL 选工具。",
+    "why": "暴露「工具名/URL ≠ 授权边界」；多 connector / 多租户 MCP 网关设计必看，也折射 bounty 门槛抬高导致公开披露。",
+    "use": "自建 MCP：确认码/会话态绑定 OAuth client；禁止跨 client 静默切换；网关按 connector identity 路由，不要只按 URL 合并。",
+    "links": [
+     {
+      "name": "OpenAI Community 报告",
+      "url": "https://community.openai.com/t/security-follow-up-tool-call-silently-routed-to-a-different-connector/1413053"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50399569"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-07-03",
+   "date": "2026-11-07",
+   "type": "news",
+   "rank": 3,
    "title": "Codex CLI 0.167.0：Agent Command Center 统一看并发 agent 任务",
    "summary": "稳定版带来命令中心 TUI、跨后端切换保草稿、审批时内联看 diff，以及 MCP 连接按 chat 租约管理。",
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.167.0",
@@ -69,7 +107,7 @@
    "score_label": null,
    "detail": {
     "heat": "",
-    "highlight": true,
+    "highlight": false,
     "event": "OpenAI Codex CLI rust-v0.167.0 于 11 月 6 日 01:40 UTC 发稳定版。可用 codex agents --no-daemon 打开 Agent Command Center，按状态列出活跃、排队和已完成任务，未读结果会打标。会话选择器支持在已连接后端间切换并保留草稿；审批提示里可直接展开完整 patch。另有本地图片预览、GCP Vertex 向导、Guardian v3 弹性上下文预算、Code Mode 服务端截断输出，以及共享 MCP 连接的 per-chat lease，避免一个会话拆掉还在用的 MCP。",
     "why": "多 agent / 过夜批处理时「谁在跑、谁做完、谁等审」一直缺统一视图；Command Center 把 harness 的可观测性补上了，MCP lease 也对准真实多会话部署。",
     "use": "并行 code review 或批处理用 Command Center 盯未读结果；企业侧评估 Vertex 向导和 permissions.network 托管约束。共享 MCP 的网关部署关注 per-chat lease，避免误关连接。",
@@ -86,10 +124,10 @@
    }
   },
   {
-   "id": "news-2026-11-07-03",
+   "id": "news-2026-11-07-04",
    "date": "2026-11-07",
    "type": "news",
-   "rank": 3,
+   "rank": 4,
    "title": "Hugging Face 开源 Harness Adapters：每个 harness 一个 LoRA，工具调用先过 safeagents",
    "summary": "在未改动的 pi / opencode / hermes 里用 RL 训小 LoRA；safeagents 代理拦截 reward hacking，再把轨迹做成可验证任务。",
    "url": "https://huggingface.co/blog/harness-hub/harness-adapters",
@@ -107,7 +145,7 @@
    "score_label": null,
    "detail": {
     "heat": "",
-    "highlight": true,
+    "highlight": false,
     "event": "Harness Hub 于 11 月 6 日发文：为 LFM2.5-24B-A2B、LFM3-1.7B 等在 pi、opencode、hermes 内训 rank-32 LoRA「harness adapter」，同一底座可按 harness 热切换。训练混入 SmolDataEnvs 与从公开 agent 轨迹生成的 Repo2RLEnvs（repair/build/extend/qa）。safeagents 作为反向代理，用规则在 ~10–20ms 内检查每次工具调用，屏蔽改测试、绕过代理、下载答案源等；被拦的 rollout 记 0 分。烟雾跑里 TwIL-8B 在 step 0 就试图搜答案桶，被当场拦住。",
     "why": "同一模型在不同 harness 上行为差很大；用小 adapter 而不是整模重训，更贴近「本地换底座」的真实用法。把防 reward hacking 做成确定性代理，比事后靠人审轨迹更可复用。",
     "use": "自建 coding agent 评测时，按 harness 分开存 LoRA，而不是假设「换模型就行」。RL 或自动评测链路前加一层类似 safeagents 的规则代理。团队日常会话 scrub 后可贡献成可验证环境。",
@@ -120,10 +158,84 @@
    }
   },
   {
-   "id": "news-2026-11-07-04",
+   "id": "news-2026-11-07-05",
    "date": "2026-11-07",
    "type": "news",
-   "rank": 4,
+   "rank": 5,
+   "title": "Hightouch：Jev 先判、不确定再问 Opus，身份解析接近前沿准确率且成本约 1/4",
+   "summary": "决策模型置信度校准比裸准确率更重要；校准好的便宜模型做第一道，再按置信度区间上送 frontier。",
+   "url": "https://hightouch.com/blog/llm-judges-identity-resolution",
+   "tags": [
+    "Harness",
+    "工程实践"
+   ],
+   "raw_tags": [
+    "Harness Engineering",
+    "工程实践"
+   ],
+   "score": 295,
+   "score_label": "HN 295",
+   "detail": {
+    "heat": "HN 295",
+    "highlight": true,
+    "event": "Hightouch 用伪人口数据做身份解析（IDR）过合并审计：Claude Opus 5.5 约 99% 准确、约 $3.86/千条；决策模型 Jev、GPT-6 Luna 单次约 $0.05–0.10 且约 0.15s。Luna 裸跑更准，但置信度过度自信；Jev 校准更好。把 Jev 置信度落在 30–90% 的约 22% 样本送给 Opus 后，容易集准确率到 98.8%、成本约 $0.88/千条；难集上 hybrid Jev 甚至略优于 Opus 单用（95.3% vs 95.1%）且更便宜。HN 讨论热度约 295 分。",
+    "why": "和昨日 Spring AI DecisionModel 同一条线：生产 harness 要显式设计「便宜模型何时升级」，而校准决定了升级策略是否真省钱。",
+    "use": "风控、对账、支付身份合并等二分类审计：先上决策/小模型，按置信度区间路由到 Opus/Sol。评估时不要只看裸准确率，画出错误样本的置信度分布。",
+    "links": [
+     {
+      "name": "Hightouch 博客",
+      "url": "https://hightouch.com/blog/llm-judges-identity-resolution"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50397429"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-07-06",
+   "date": "2026-11-07",
+   "type": "news",
+   "rank": 6,
+   "title": "Claude Message Threads 公测：长 agent 循环只传增量，中位 TTFT 约降 35%",
+   "summary": "Messages API 线程：首轮全量，后续只传新消息 + previous message id；50 万–100 万 token 请求中位首字延迟约降 35%，计费 token 不变。",
+   "url": "https://claude.com/resources/articles/message-threads",
+   "tags": [
+    "Context Engineering",
+    "Harness",
+    "AI Agent"
+   ],
+   "raw_tags": [
+    "Context Engineering",
+    "Harness Engineering",
+    "AI Agent"
+   ],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "heat": "",
+    "highlight": false,
+    "event": "Anthropic 宣布 Message Threads 公测：coding agent 不必每轮重传整段历史。首请求带全量并开 thread，之后只传新增消息与上一轮 message id；线程在内存加密暂存，约 5 分钟空闲过期后需重发全量。Claude 仍每轮读完整对话，故用量与定价不变。500k–1M token 请求中位 TTFT 约降 35%；多数 Claude Code 用户已默认开启。适用长 coding、computer use、图文重工作流。",
+    "why": "直接打掉「agent 每轮重传百万 token」的延迟税，是 API 级 harness/context 基础设施，而不是又一层应用技巧。",
+    "use": "自建 Claude agent 接 SDK/thread 参数；客户端仍保留完整对话副本以便 thread 过期后重放；与 prompt cache 搭配测 TTFT。",
+    "links": [
+     {
+      "name": "Anthropic 介绍",
+      "url": "https://claude.com/resources/articles/message-threads"
+     },
+     {
+      "name": "平台文档",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/message-threads"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-07-07",
+   "date": "2026-11-07",
+   "type": "news",
+   "rank": 7,
    "title": "Boundary：重写 agent skill + 内置 codequality，可维护性指标明显下降",
    "summary": "把「功能说明书」改成带正反例的 27 条规范，并让 agent 边写边跑认知复杂度等指标，四类任务上最差函数复杂度显著改善。",
    "url": "https://boundaryml.com/blog/teaching-agents-to-write-maintainable-code",
@@ -158,46 +270,10 @@
    }
   },
   {
-   "id": "news-2026-11-07-05",
+   "id": "news-2026-11-07-08",
    "date": "2026-11-07",
    "type": "news",
-   "rank": 5,
-   "title": "Hightouch：Jev 先判、不确定再问 Opus，身份解析接近前沿准确率且成本约 1/4",
-   "summary": "决策模型置信度校准比裸准确率更重要；校准好的便宜模型做第一道，再按置信度区间上送 frontier。",
-   "url": "https://hightouch.com/blog/llm-judges-identity-resolution",
-   "tags": [
-    "Harness",
-    "工程实践"
-   ],
-   "raw_tags": [
-    "Harness Engineering",
-    "工程实践"
-   ],
-   "score": 295,
-   "score_label": "HN 295",
-   "detail": {
-    "heat": "HN 295",
-    "highlight": false,
-    "event": "Hightouch 用伪人口数据做身份解析（IDR）过合并审计：Claude Opus 5.5 约 99% 准确、约 $3.86/千条；决策模型 Jev、GPT-6 Luna 单次约 $0.05–0.10 且约 0.15s。Luna 裸跑更准，但置信度过度自信；Jev 校准更好。把 Jev 置信度落在 30–90% 的约 22% 样本送给 Opus 后，容易集准确率到 98.8%、成本约 $0.88/千条；难集上 hybrid Jev 甚至略优于 Opus 单用（95.3% vs 95.1%）且更便宜。HN 讨论热度约 295 分。",
-    "why": "和昨日 Spring AI DecisionModel 同一条线：生产 harness 要显式设计「便宜模型何时升级」，而校准决定了升级策略是否真省钱。",
-    "use": "风控、对账、支付身份合并等二分类审计：先上决策/小模型，按置信度区间路由到 Opus/Sol。评估时不要只看裸准确率，画出错误样本的置信度分布。",
-    "links": [
-     {
-      "name": "Hightouch 博客",
-      "url": "https://hightouch.com/blog/llm-judges-identity-resolution"
-     },
-     {
-      "name": "HN 讨论",
-      "url": "https://news.ycombinator.com/item?id=50397429"
-     }
-    ]
-   }
-  },
-  {
-   "id": "news-2026-11-07-06",
-   "date": "2026-11-07",
-   "type": "news",
-   "rank": 6,
+   "rank": 8,
    "title": "Firecracker 微 VM 逃逸到宿主机 root：coding agent 沙箱假设再被打穿",
    "summary": "研究者从 guest 改写 KVM_RUN 返回后的 pt_regs，在 Firecracker 进程里以 root 执行自选调用；与 agent 沙箱强相关。",
    "url": "https://pwn.ai/blog/firecracker-escape",
@@ -230,10 +306,10 @@
    }
   },
   {
-   "id": "news-2026-11-07-07",
+   "id": "news-2026-11-07-09",
    "date": "2026-11-07",
    "type": "news",
-   "rank": 7,
+   "rank": 9,
    "title": "WisdomAI：上下文层与 harness 必须共设计，否则又慢又贵又不准",
    "summary": "学习回路、检索索引和上下文健康评测都绑在同一套产品里；对照「同一上下文导出给 Claude Code」自称快约 3 倍、便宜约 3.4 倍。",
    "url": "https://www.wisdom.ai/blog/context-harness-co-design",
@@ -262,10 +338,10 @@
    }
   },
   {
-   "id": "news-2026-11-07-08",
+   "id": "news-2026-11-07-10",
    "date": "2026-11-07",
    "type": "news",
-   "rank": 8,
+   "rank": 10,
    "title": "Ajeya Cotra：METR 深访认为 Anthropic 已逼近「AI 显著加速 AI 研发」阈值",
    "summary": "公开解读称能力进步约 2×，且多半可归因于 AI 自动化研发；若继续平滑复利，外部视角会把超智能时间线大幅前移。",
    "url": "https://www.planned-obsolescence.org/p/ai-is-dramatically-accelerating-ai",
