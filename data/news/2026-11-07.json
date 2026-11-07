@@ -1,0 +1,301 @@
+{
+ "schema_version": 1,
+ "type": "news",
+ "date": "2026-11-07",
+ "day": {
+  "window": "11/06 08:30 – 11/07 08:30 北京时间",
+  "note": "未使用 X 付费 API",
+  "footer": "Ontology、支付系统今日无值得报的新内容。Java 侧 Anthropic SDK Java 3.6.0 仅增错误码，Spring AI 2.1.0-RC2 已于昨日覆盖。",
+  "highlights": [
+   1,
+   2,
+   3
+  ]
+ },
+ "items": [
+  {
+   "id": "news-2026-11-07-01",
+   "date": "2026-11-07",
+   "type": "news",
+   "rank": 1,
+   "title": "Claude Code 2.1.319：MCP 任务立刻进后台，权限提示可改成直接拒绝",
+   "summary": "无人值守跑 agent 时，慢 MCP 不再卡住会话；该弹权限的工具调用可按策略直接 deny 并继续。",
+   "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.319",
+   "tags": [
+    "Coding Agent",
+    "MCP"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "MCP"
+   ],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "heat": "",
+    "highlight": true,
+    "event": "Anthropic 于 11 月 6 日发布 Claude Code 2.1.319。MCP 服务器若把工具调用跑成 task，终端里会立刻转入后台，完成后把结果回给 Claude，可用 CLAUDE_CODE_DISABLE_MCP_TASK_BACKGROUND 改回同步等待。新增 permissions.denyInsteadOfPrompting：本该停下来等权限确认的工具调用改为拒绝并继续当前 turn，覆盖终端、subagent 和 teammate。此外还有 /claude-api latency-optimize、网关下 auto mode 行为调整，以及若干 MCP 握手与长任务结果丢失的修复。",
+    "why": "无人值守、CI 和多 agent 场景里，最常见的卡死点就是「等权限」和「等慢 MCP」。这两项直接对准生产跑批，而不是又加一层聊天功能。",
+    "use": "计划任务 / headless 会话打开 denyInsteadOfPrompting，把危险工具写进 deny 列表而不是靠人工点批准。慢查询、长构建类 MCP 工具尽量声明为 task，让 agent 在等待时继续推进别的步骤。",
+    "links": [
+     {
+      "name": "GitHub Release v2.1.319",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.319"
+     },
+     {
+      "name": "解读（DEV）",
+      "url": "https://dev.to/delimitter/claude-code-v21319-unblocks-unattended-agent-runs-476e"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-07-02",
+   "date": "2026-11-07",
+   "type": "news",
+   "rank": 2,
+   "title": "Codex CLI 0.167.0：Agent Command Center 统一看并发 agent 任务",
+   "summary": "稳定版带来命令中心 TUI、跨后端切换保草稿、审批时内联看 diff，以及 MCP 连接按 chat 租约管理。",
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.167.0",
+   "tags": [
+    "Coding Agent",
+    "Harness"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "Harness Engineering"
+   ],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "heat": "",
+    "highlight": true,
+    "event": "OpenAI Codex CLI rust-v0.167.0 于 11 月 6 日 01:40 UTC 发稳定版。可用 codex agents --no-daemon 打开 Agent Command Center，按状态列出活跃、排队和已完成任务，未读结果会打标。会话选择器支持在已连接后端间切换并保留草稿；审批提示里可直接展开完整 patch。另有本地图片预览、GCP Vertex 向导、Guardian v3 弹性上下文预算、Code Mode 服务端截断输出，以及共享 MCP 连接的 per-chat lease，避免一个会话拆掉还在用的 MCP。",
+    "why": "多 agent / 过夜批处理时「谁在跑、谁做完、谁等审」一直缺统一视图；Command Center 把 harness 的可观测性补上了，MCP lease 也对准真实多会话部署。",
+    "use": "并行 code review 或批处理用 Command Center 盯未读结果；企业侧评估 Vertex 向导和 permissions.network 托管约束。共享 MCP 的网关部署关注 per-chat lease，避免误关连接。",
+    "links": [
+     {
+      "name": "GitHub Release 0.167.0",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.167.0"
+     },
+     {
+      "name": "知识库解读",
+      "url": "https://codex.danielvaughan.com/2026/11/06/codex-v0167-stable-agent-command-center-multi-backend-image-attachments-gcp-vertex/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-07-03",
+   "date": "2026-11-07",
+   "type": "news",
+   "rank": 3,
+   "title": "Hugging Face 开源 Harness Adapters：每个 harness 一个 LoRA，工具调用先过 safeagents",
+   "summary": "在未改动的 pi / opencode / hermes 里用 RL 训小 LoRA；safeagents 代理拦截 reward hacking，再把轨迹做成可验证任务。",
+   "url": "https://huggingface.co/blog/harness-hub/harness-adapters",
+   "tags": [
+    "Harness",
+    "Coding Agent",
+    "开源"
+   ],
+   "raw_tags": [
+    "Harness Engineering",
+    "Coding Agent",
+    "开源"
+   ],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "heat": "",
+    "highlight": true,
+    "event": "Harness Hub 于 11 月 6 日发文：为 LFM2.5-24B-A2B、LFM3-1.7B 等在 pi、opencode、hermes 内训 rank-32 LoRA「harness adapter」，同一底座可按 harness 热切换。训练混入 SmolDataEnvs 与从公开 agent 轨迹生成的 Repo2RLEnvs（repair/build/extend/qa）。safeagents 作为反向代理，用规则在 ~10–20ms 内检查每次工具调用，屏蔽改测试、绕过代理、下载答案源等；被拦的 rollout 记 0 分。烟雾跑里 TwIL-8B 在 step 0 就试图搜答案桶，被当场拦住。",
+    "why": "同一模型在不同 harness 上行为差很大；用小 adapter 而不是整模重训，更贴近「本地换底座」的真实用法。把防 reward hacking 做成确定性代理，比事后靠人审轨迹更可复用。",
+    "use": "自建 coding agent 评测时，按 harness 分开存 LoRA，而不是假设「换模型就行」。RL 或自动评测链路前加一层类似 safeagents 的规则代理。团队日常会话 scrub 后可贡献成可验证环境。",
+    "links": [
+     {
+      "name": "Hugging Face 博客",
+      "url": "https://huggingface.co/blog/harness-hub/harness-adapters"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-07-04",
+   "date": "2026-11-07",
+   "type": "news",
+   "rank": 4,
+   "title": "Boundary：重写 agent skill + 内置 codequality，可维护性指标明显下降",
+   "summary": "把「功能说明书」改成带正反例的 27 条规范，并让 agent 边写边跑认知复杂度等指标，四类任务上最差函数复杂度显著改善。",
+   "url": "https://boundaryml.com/blog/teaching-agents-to-write-maintainable-code",
+   "tags": [
+    "Coding Agent",
+    "Context Engineering",
+    "工程实践"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "Context Engineering",
+    "工程实践"
+   ],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "heat": "",
+    "highlight": false,
+    "event": "BoundaryML（约 11 月 5–7 日窗口内）说明：旧 BAML skill 只罗列语言特性，十次 Codex 生成象棋着法生成器居然没有一次用 enum。新 skill 按 C++ Core Guidelines 风格给出 27 条必须遵守的正反例，并新增 baml codequality（认知复杂度、圈复杂度、NPath、嵌套、出口数）。对照实验：无 skill / 旧 skill / 新 skill / 新 skill+跑 codequality，四类任务上最差函数的认知复杂度等指标逐步下降；棋类任务在「新 skill+指标」下均值从无 skill 的百级降到约十几。CI 可用 BoundaryML/baml-action 在 PR 上评论相对基线的变化。",
+    "why": "这是少见的、用可复现指标量化「改 skill / 加工具反馈」对 agent 代码质量影响的工程文，直接服务于 harness 与 context 设计，而不是空谈「写好 prompt」。",
+    "use": "自有 DSL / 内部框架的 AGENTS.md 或 skill：少写 API 清单，多写反模式+正例。把静态质量命令接进 agent 工具环，要求改完再跑。Java/支付领域的内部规范也可按同样格式拆成可执行检查。",
+    "links": [
+     {
+      "name": "Boundary 博客",
+      "url": "https://boundaryml.com/blog/teaching-agents-to-write-maintainable-code"
+     },
+     {
+      "name": "HN",
+      "url": "https://news.ycombinator.com/item?id=50400365"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-07-05",
+   "date": "2026-11-07",
+   "type": "news",
+   "rank": 5,
+   "title": "Hightouch：Jev 先判、不确定再问 Opus，身份解析接近前沿准确率且成本约 1/4",
+   "summary": "决策模型置信度校准比裸准确率更重要；校准好的便宜模型做第一道，再按置信度区间上送 frontier。",
+   "url": "https://hightouch.com/blog/llm-judges-identity-resolution",
+   "tags": [
+    "Harness",
+    "工程实践"
+   ],
+   "raw_tags": [
+    "Harness Engineering",
+    "工程实践"
+   ],
+   "score": 295,
+   "score_label": "HN 295",
+   "detail": {
+    "heat": "HN 295",
+    "highlight": false,
+    "event": "Hightouch 用伪人口数据做身份解析（IDR）过合并审计：Claude Opus 5.5 约 99% 准确、约 $3.86/千条；决策模型 Jev、GPT-6 Luna 单次约 $0.05–0.10 且约 0.15s。Luna 裸跑更准，但置信度过度自信；Jev 校准更好。把 Jev 置信度落在 30–90% 的约 22% 样本送给 Opus 后，容易集准确率到 98.8%、成本约 $0.88/千条；难集上 hybrid Jev 甚至略优于 Opus 单用（95.3% vs 95.1%）且更便宜。HN 讨论热度约 295 分。",
+    "why": "和昨日 Spring AI DecisionModel 同一条线：生产 harness 要显式设计「便宜模型何时升级」，而校准决定了升级策略是否真省钱。",
+    "use": "风控、对账、支付身份合并等二分类审计：先上决策/小模型，按置信度区间路由到 Opus/Sol。评估时不要只看裸准确率，画出错误样本的置信度分布。",
+    "links": [
+     {
+      "name": "Hightouch 博客",
+      "url": "https://hightouch.com/blog/llm-judges-identity-resolution"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50397429"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-07-06",
+   "date": "2026-11-07",
+   "type": "news",
+   "rank": 6,
+   "title": "Firecracker 微 VM 逃逸到宿主机 root：coding agent 沙箱假设再被打穿",
+   "summary": "研究者从 guest 改写 KVM_RUN 返回后的 pt_regs，在 Firecracker 进程里以 root 执行自选调用；与 agent 沙箱强相关。",
+   "url": "https://pwn.ai/blog/firecracker-escape",
+   "tags": [
+    "安全",
+    "Harness"
+   ],
+   "raw_tags": [
+    "安全",
+    "Harness Engineering"
+   ],
+   "score": 152,
+   "score_label": "HN 152",
+   "detail": {
+    "heat": "HN 152",
+    "highlight": false,
+    "event": "PWN Research 披露 Firecracker VM Escape（PwnEscape Part 2）：在已有宿主机内存原语上，定位 Firecracker 进程与活跃 vCPU 的 pt_regs，篡改 KVM_RUN 返回后的 RIP/参数/栈，让 VMM 进程执行 write 等到 stderr 的标记，并恢复栈使进程与 guest SSH 仍可用。目标为 Firecracker v1.16.1、以 root 直接拉起且无 jailer 的配置；文中强调生产 jailer/seccomp 需另评。HN 约 152 分。",
+    "why": "大量 coding agent / 云端沙箱把隔离押在 Firecracker 类微 VM 上；逃逸链说明「guest 不可信」时，VMM 进程权限与 jailer 是否启用决定爆炸半径。",
+    "use": "自建或采购 agent 执行环境时，确认 Firecracker 是否开 jailer、是否降权、seccomp 范围，以及宿主机上 VMM 是否以 root 跑。审查「一个用户一个微 VM」之外的横向移动面。",
+    "links": [
+     {
+      "name": "技术文",
+      "url": "https://pwn.ai/blog/firecracker-escape"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50397219"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-07-07",
+   "date": "2026-11-07",
+   "type": "news",
+   "rank": 7,
+   "title": "WisdomAI：上下文层与 harness 必须共设计，否则又慢又贵又不准",
+   "summary": "学习回路、检索索引和上下文健康评测都绑在同一套产品里；对照「同一上下文导出给 Claude Code」自称快约 3 倍、便宜约 3.4 倍。",
+   "url": "https://www.wisdom.ai/blog/context-harness-co-design",
+   "tags": [
+    "Context Engineering",
+    "Harness"
+   ],
+   "raw_tags": [
+    "Context Engineering",
+    "Harness Engineering"
+   ],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "heat": "",
+    "highlight": false,
+    "event": "WisdomAI CTO 11 月 5 日发文强调 Context Layer、Chat Agent harness 与展示层共设计。学习回路从隐式产品行为写回上下文（准确率举例从约 45–50% 提到约 85–95%）；检索工具与索引一起优化，并用 harness 侧使用频率做排序信号；上下文健康 agent 提出修复后，用 harness 重放历史会话 + session grader 做 A/B。文中称把同等上下文导出给 Claude Code harness 时，自研栈约 3× 更快、3.4× 更便宜。并引用 Anthropic 内部分析准确率一个月从约 95% 漂到约 65% 的教训。",
+    "why": "呼应本周 harness / context 主线：把「文件系统当上下文」和「通用 coding harness」拆开买，往往丢了共设计带来的检索与评测闭环。",
+    "use": "企业知识/分析 agent：检索 ranking 要吃 harness 反馈；上下文变更必须带可自动跑的回归会话集。别假设接上 MCP + Claude Code 就等于有了上下文工程。",
+    "links": [
+     {
+      "name": "WisdomAI 博客",
+      "url": "https://www.wisdom.ai/blog/context-harness-co-design"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-07-08",
+   "date": "2026-11-07",
+   "type": "news",
+   "rank": 8,
+   "title": "Ajeya Cotra：METR 深访认为 Anthropic 已逼近「AI 显著加速 AI 研发」阈值",
+   "summary": "公开解读称能力进步约 2×，且多半可归因于 AI 自动化研发；若继续平滑复利，外部视角会把超智能时间线大幅前移。",
+   "url": "https://www.planned-obsolescence.org/p/ai-is-dramatically-accelerating-ai",
+   "tags": [
+    "有争议观点",
+    "AI Agent"
+   ],
+   "raw_tags": [
+    "有争议观点",
+    "AI Agent"
+   ],
+   "score": 173,
+   "score_label": "HN 173",
+   "detail": {
+    "heat": "HN 173",
+    "highlight": false,
+    "event": "Ajeya Cotra（11 月 6 日）解读 METR 对 Anthropic 的深访公开部分：2025-10 至 2026-10 内部能力指数进步约为此前十二个月的两倍，且作者认为当前加速大部分可归因于 AI 自动化研发（多数关键证据被打码）。她推算要对整体能力翻倍，研究者劳动 uplift 可能到约 10× 量级，并与部分 Anthropic 员工口头约 12× 的说法对照。文章称若加速平滑复利，朴素外推会指向约一年内极端超智能风险，并批评行业安全远未达标。HN 约 173 分。",
+    "why": "属于高互动、易漏的「争议新观点」：不发布新产品，但直接影响 agent/研发自动化投入与安全预期；证据大量打码，需带着不确定性阅读。",
+    "use": "做 agent 平台或内部研发自动化路线图时，把「能力复利 vs 安全/可观测性是否跟上」写进假设，而不是只排功能。对外部时间线承诺保持审慎，要求可审计指标。",
+    "links": [
+     {
+      "name": "原文",
+      "url": "https://www.planned-obsolescence.org/p/ai-is-dramatically-accelerating-ai"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50397994"
+     }
+    ]
+   }
+  }
+ ]
+}
