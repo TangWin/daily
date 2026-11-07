@@ -3,13 +3,44 @@
  "type": "x",
  "date": "2026-11-07",
  "day": {
-  "digest": "Matt 今天围绕“AI 时代还要不要懂 React”连发几条回复：先指出号称 Opus 5.5 一键做出的“完美”落地页在 400px 下菜单坏了、落地页也不代表 React 的真实复杂度；之后又回应 Thariq，认为要把 agent 约束在正常路径上，就得先懂“地图”。",
+  "digest": "Matt 今天先围绕“AI 时代还要不要懂 React”连发几条回复：指出号称 Opus 5.5 一键做出的“完美”落地页在 400px 下菜单坏了、落地页不代表 React 的真实复杂度，并回应 Thariq 说要约束 agent 走正路就得先懂“地图”。晚上他感谢 Thoughtworks 把他的 mattpocock/skills 收进技术雷达 Trial 环。",
   "by_source": {
-   "mattpocockuk": "质疑“一键完美落地页”，并强调想约束 agent 走正路，开发者得先理解整体结构。"
+   "mattpocockuk": "质疑“一键完美落地页”、强调开发者要懂整体结构，并分享 mattpocock/skills 入选 Thoughtworks 技术雷达。"
   },
-  "updated_at": "2026-11-07T20:06:00+09:00"
+  "updated_at": "2026-11-08T00:10:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2119067549438542226",
+   "date": "2026-11-07",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2119067549438542226",
+   "url": "https://x.com/mattpocockuk/status/2119067549438542226",
+   "posted_at": "2026-11-07T22:00+08:00",
+   "kind": "post",
+   "text": "Thanks @thoughtworks!\n\nMarkdown files in the Thoughtworks Technology Radar, who'd have thunk",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "谢谢 @thoughtworks！\n\nThoughtworks 技术雷达（Technology Radar）里居然出现了 Markdown 文件，谁能想到呢",
+   "analysis": {
+    "summary": "Matt 感谢 Thoughtworks：他的 mattpocock/skills 被收录进 Thoughtworks 技术雷达（配图显示为 2026 年 11 月 4 日发布、处于“Trial”环），他调侃一堆 Markdown 文件也能上技术雷达。",
+    "points": [
+     "配图截取的雷达条目把 mattpocock/skills（“Skills For Real Engineers”）放在 Trial 环，描述为面向 agentic 软件工程的 agent skills 合集。",
+     "雷达评价这些 skill 提供建议性工作流，但刻意做得小、易改、可组合，对团队把可靠的工程实践用到 agentic coding、以及用 AI 分析需求与假设（如 grilling）有帮助。",
+     "雷达同时提醒不要未经评估就整套采用 skill 库（称为 agent skill cognitive surrender），但认为这些轻量 skill 值得一看。",
+     "Matt 的调侃点在于：这些 skill 本质上只是 Markdown 文件。"
+    ],
+    "why": "Thoughtworks 技术雷达是业界常被参考的技术选型风向标，把一个以 Markdown 写成的 agent skills 合集列入 Trial，说明“用小而可组合的 skill 约束 AI 编码流程”这一做法开始被主流咨询机构认可；雷达也附带了不要盲目整套照搬的提醒。帖子本身信息主要来自配图。",
+    "tags": [
+     "Skills",
+     "Agent 工程",
+     "技术雷达"
+    ]
+   }
+  },
   {
    "id": "x-2118971776680308946",
    "date": "2026-11-07",
