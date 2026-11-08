@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-11-08",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-11-08-browse",
+      "date": "2026-11-08",
+      "type": "oss",
+      "rank": 1,
+      "title": "browse：让 AI Agent 用你自己的浏览器，登录和 2FA 交还给你",
+      "summary": "opencode 团队出品的 MCP 服务器 + Chromium 扩展，Claude Code/Codex/Cursor 一条命令接入，在你已登录的 Chrome 里开后台标签干活；今早刚发 v0.0.15，安全设计扎实。",
+      "url": "https://github.com/anomalyco/browse",
+      "tags": [
+        "AI Agent",
+        "MCP",
+        "开发者工具",
+        "浏览器自动化"
+      ],
+      "raw_tags": [],
+      "score": 251,
+      "score_label": "★ 251",
+      "detail": {
+        "status": "picked",
+        "repo": "anomalyco/browse",
+        "homepage": null,
+        "stars": 251,
+        "forks": 13,
+        "license": "MIT",
+        "language": "TypeScript",
+        "latest_release": "v0.0.15",
+        "runners_up": [
+          "modelflare-ai/AnyModelBot",
+          "JosssphZhou/poki",
+          "Sandflow-ai/sand3d"
+        ],
+        "body_md": "## browse：让 AI Agent 直接用你自己的浏览器（你的标签页、登录态和扩展）\n\n**为什么今天值得试：** 出自 opencode 背后的 Anomaly 团队，10 月 27 日开源；北京时间今天 08:10 刚发 v0.0.15，一夜合了十几个 PR。它不另开无头浏览器，而是让 Claude Code / Codex / Cursor / opencode 在你平时用的 Chrome 里开后台标签页干活，碰到登录、2FA、付款再把标签页交还给你。对「Agent 总卡在登录墙」的人，是今天最实用的一个。\n\n仓库：[anomalyco/browse](https://github.com/anomalyco/browse)\n\n### 它解决什么问题 / 适合谁\n\n常见的浏览器 Agent 要么开一个干净的无头浏览器（没登录、容易被风控），要么要你把 Cookie 交出去。browse 是「一个 MCP 服务器 + 一个 Chromium 扩展」：Agent 通过本机中继在你真实的浏览器里用 Playwright 操作，你的登录和扩展原样可用，但 Agent 只能碰它自己开的或你主动借给它的标签页。\n\n适合：已经在用 Claude Code、Codex、Cursor、opencode、VS Code Copilot、Gemini 等 MCP 客户端，想让 Agent 帮你查后台、填表、抓接口、录屏复现 bug 的开发者。支持 Chrome、Edge、Brave、Arc、Vivaldi、Opera、Chromium 等。\n\n### 从 README 读到的要点\n\n- **安装一条命令：** `curl -fsSL https://opencode.ai/browse/install | bash`（Windows 用 PowerShell 脚本，或 `npx @opencode/browse install`，需 Node 22.19+）。安装器自动检测你装了哪些 Agent 并写入 MCP 配置，再打开 Chrome 应用商店装扩展并自动配对，无需注册登录。\n- **后台标签页 + 交接：** Agent 的标签页折叠成一个「Agents」分组不打扰你，不能把窗口抢到前台；需要人时页面上出现小卡片，你做完点 **Continue**，Agent 接着干。点工具栏按钮可把你当前标签借给 Agent，再点一下收回。\n- **工具不少：** `execute` 跑 Playwright 代码、命名会话（重启后保留）、`network` 抓包成脱敏 HAR、`recording` 录 MP4/WebM、`flight_recorder` 保留最近一分钟视频方便出错后回看、`secrets` 让 Agent 只在指定网站输入密码而看不到值。\n- **安全设计认真：** 中继只监听 127.0.0.1 且要令牌；每个浏览器配对后有独立密钥，每次连接 HMAC 互验；Agent 代码跑在去掉 Node API 的受限环境里；Cookie 只能读本会话页面的；可用 `--allow-origin` 给会话加域名白名单。README 也直说受限环境不是安全边界，要把 Agent 代码当成你本人在跑。\n- **远程也行：** opencode 跑在另一台机器时，可 `browse set hostname 0.0.0.0` 让扩展经 Tailscale 等连过去。\n\n### 近期活跃证据\n\n- **Issues：** 约 28 个 Issue、开放约 5 个（Firefox 支持、无头模式、wss 中继等功能请求）；Vivaldi 卡死、Linux 截图空白、CDP 文件路径绕过等问题基本当天修好关闭。README 写明不收 PR，提 Issue 由他们的 Agent 快速处理。\n- **Release：** 共 9 个版本，最新 v0.0.15@2026-11-08 08:10（北京时间），修了脚本报错拖垮中继、Vivaldi 挂起、后台截图空白、Windows 配对等；v0.0.14 起改为从自家发布服务下载并校验 SHA-256，附 `gh attestation` 验证方法。\n- **提交：** 约 390 次提交，主力 R44VC0RP（约 191）和 thdxr（约 162），共 5 位人类贡献者；北京时间今天早上 08:26 还在合安装完整性校验的 PR，方向集中在稳定性与安全加固。\n\n### 怎么快速上手\n\n1. 运行 `curl -fsSL https://opencode.ai/browse/install | bash`，在列表里勾选你用的 Agent（如 Claude Code、Codex、Cursor）。\n2. 按提示在浏览器里装上 browse 扩展，等它自动配对；`browse status` 看连接，`browse doctor` 查安装。\n3. 让 Agent 试一句：「打开 news.ycombinator.com 告诉我头条」，再试一个需要你登录的后台页面，看它怎么把登录交还给你。\n\n### 风险与注意\n\n- **它驱动的是你已登录的浏览器：** 网页或邮件里的内容可能诱导 Agent 乱操作；重要网站建议给会话加域名白名单，2FA 尽量自己做，不要存 TOTP 种子。\n- **很早期：** 版本号还是 0.0.x，一天几个版本，自动更新默认开启（可在设置里改成「只提醒」或 `OPENCODE_BROWSER_AUTO_UPDATE=off`）。\n- **不完全隐身：** 浏览器会显示「正在调试此浏览器」条，部分站点仍可能识别出自动化；遇到人机验证它不会替你破解，而是交给你。\n- **仅 Chromium 系：** 暂不支持 Firefox / Safari；不接受外部 PR。\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
