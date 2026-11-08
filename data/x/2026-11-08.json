@@ -3,14 +3,84 @@
  "type": "x",
  "date": "2026-11-08",
  "day": {
-  "digest": "Karpathy 把 Tristan Hume 的 YouTube 频道榜单用 Claude Code 几分钟做成了视频浏览站 TristanTube；Matt Pocock 则在一串回复里讨论 Claude Code 在上下文快满时的异常行为和自动压缩的时机问题。",
+  "digest": "Karpathy 把 Tristan Hume 的 YouTube 频道榜单用 Claude Code 几分钟做成了视频浏览站 TristanTube；Matt Pocock 则在一串回复里讨论 Claude Code 的上下文行为与自动压缩时机，并称抓包后发现请求里没有上下文管理信息，另透露 Sandcastle v1 任务可返回结构化输出。",
   "by_source": {
    "karpathy": "发布 TristanTube（4.7 万个硬核视频 + TV 模式），并复述了生成它的简短提示词。",
-   "mattpocockuk": "追问 T3 Code + Claude Code 的上下文注入现象，分享手动控制压缩时机的经验，并声援 Kent C. Dodds 的一条帖子。"
+   "mattpocockuk": "讨论 Claude Code 的上下文注入与压缩时机，代理请求后称模型看不到上下文用量，介绍 Sandcastle v1 的结构化输出，并声援 Kent C. Dodds 的一条帖子。"
   },
-  "updated_at": "2026-11-08T08:15:00+09:00"
+  "updated_at": "2026-11-08T20:06:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2119364855090352312",
+   "date": "2026-11-08",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2119364855090352312",
+   "url": "https://x.com/mattpocockuk/status/2119364855090352312",
+   "posted_at": "2026-11-08T17:42+08:00",
+   "kind": "reply",
+   "text": "Absolutely, tasks in Sandcastle v1 can return structured output so you can make decisions",
+   "article_title": null,
+   "reply_to": {
+    "handle": "DigitalAnalog9",
+    "post_id": "2119364194382258649",
+    "url": "https://x.com/DigitalAnalog9/status/2119364194382258649",
+    "text": "- would each agent default to the same model/reasoning ?  or given the available models, could to-spec or to-tickets make a call ?  I guess would depend on whether user is on claude, codex, etc ?\nAnd should we hang on from starting with Sandcastle until you're done?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "当然，Sandcastle v1 里的任务可以返回结构化输出，这样你就能据此做决策",
+   "analysis": {
+    "summary": "Dan Hibbert 问每个 agent 是否默认用同一个模型/推理强度、to-spec 或 to-tickets 能否自己选模型，以及要不要等 Matt 做完再开始用 Sandcastle；Matt 回复说 Sandcastle v1 的任务可以返回结构化输出，供你据此做决策。",
+    "points": [
+     "提问涉及多 agent 的模型选择和推理强度，以及 to-spec / to-tickets 能否自行决定",
+     "Matt 表示 Sandcastle v1 中的任务可以返回结构化输出",
+     "结构化输出可以用来在流程中做决策"
+    ],
+    "why": "透露了 Sandcastle v1 的一个能力：任务返回结构化输出，便于在编排中做分支判断。回复没有直接回答模型选择和是否该等待的问题。",
+    "tags": [
+     "Sandcastle",
+     "Agent 工程",
+     "编排"
+    ]
+   }
+  },
+  {
+   "id": "x-2119361365311701350",
+   "date": "2026-11-08",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2119361365311701350",
+   "url": "https://x.com/mattpocockuk/status/2119361365311701350",
+   "posted_at": "2026-11-08T17:28+08:00",
+   "kind": "reply",
+   "text": "It can't - I've proxied the request so I can see everything that's sent and there's nothing about context management",
+   "article_title": null,
+   "reply_to": {
+    "handle": "RonitChidara",
+    "post_id": "2119309975956992319",
+    "url": "https://x.com/RonitChidara/status/2119309975956992319",
+    "text": "Claude Code, afair, could see its context usage in my experience too. In fact, I now have my ongoing work to trigger handoff to a new session once context usage hits 40%"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "它看不到——我把请求代理了一遍，所以能看到发出去的所有内容，里面没有任何关于上下文管理的信息",
+   "analysis": {
+    "summary": "Ronit 说 Claude Code 据他经验也能看到自己的上下文用量，他还会在用量到 40% 时触发交接到新会话；Matt 回复说它看不到，他代理了请求、检查了发出的全部内容，里面没有任何上下文管理相关信息。",
+    "points": [
+     "Ronit 认为 Claude Code 能感知上下文用量，并在用量达到 40% 时让工作交接到新会话",
+     "Matt 称自己代理（proxy）了请求，能看到发送的全部内容",
+     "Matt 表示请求里没有关于上下文管理的内容，所以模型看不到用量"
+    ],
+    "why": "这是对今天早些时候“harness 是否向模型注入上下文信息”讨论的一个实测回答：至少在 Matt 检查的请求里，Claude Code 没有把上下文用量传给模型。结论基于他自己的抓包，适用范围（版本、T3 Code 等前端）帖子里没有说明。",
+    "tags": [
+     "Claude Code",
+     "上下文工程",
+     "Agent 工程"
+    ]
+   }
+  },
   {
    "id": "x-2119183806427004933",
    "date": "2026-11-08",
