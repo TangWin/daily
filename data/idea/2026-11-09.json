@@ -1,0 +1,389 @@
+{
+ "schema_version": 1,
+ "type": "idea",
+ "date": "2026-11-09",
+ "day": {
+  "sample": "样本：主清单 143（HN42 Lobsters7 Reddit48 IH20 PH26） + Reddit 深翻页抱怨 164（5200 帖） + HN 句式评论/Ask/Show 574；未使用 X 付费 API。"
+ },
+ "items": [
+  {
+   "id": "idea-2026-11-09-01",
+   "date": "2026-11-09",
+   "type": "idea",
+   "rank": 1,
+   "title": "接口字段被悄悄改了：给外包开发和集成商的 Webhook 变更报警，顺手生成可计费的变更单",
+   "summary": "一个轻量的「Webhook 数据结构哨兵」：作为转发代理或 SDK 接在入站 Webhook/出站 API 前，自动从真实流量学习每个端点的结构（字段、类型、必填），一旦出现改名、类型变化、缺键就即时告警，并给出「最早出现时间、示例对比、受影响的下游流程」。同时一键生成面向客户的「范围外变更报告」：证据截图、差异对比、修复耗时，可直接导出成变更单或附到发票。",
+   "url": "https://www.indiehackers.com/post/how-many-unbilled-hours-do-silent-api-webhook-breaking-changes-cost-your-client-projects-4WGLCi8ZZweBQe7F6Jm9",
+   "tags": [
+    "开发者工具",
+    "支付",
+    "电商"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "支付/计费",
+    "电商"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Indie Hackers 帖直指自由职业开发和集成公司的「隐形利润杀手」：客户或第三方服务悄悄改了 Webhook/API 的数据结构（字段改名、类型变了、少了个键），线上自动化直接坏掉，开发者花 2–4 小时翻原始 JSON 日志定位、修补，客户却默认这是「合同范围内的日常维护」，工时收不回来。另一位刚上线自由职业工作台的作者在发布周被用户问：客户在聊天里同意的额外工作，能不能追溯到他的批准和修改后的发票？答案是不能，各环节都能做，但串不起来。",
+    "target_users": "给多个客户维护 Zapier/n8n/自写集成的自由职业开发者；做 Shopify、CRM、支付回调对接的小型集成代理商；按维护包月收费、经常被「这算范围内吗」卡住的外包团队。",
+    "quotes": [
+     {
+      "text": "A client (or third-party service) subtly alters their payload/data structure—renaming a field, changing a data type, or dropping a key. Suddenly, a production workflow or automated trigger breaks.",
+      "links": [
+       {
+        "label": "Indie Hackers 帖（Silent Webhook & API Payload Drift）",
+        "url": "https://www.indiehackers.com/post/how-many-unbilled-hours-do-silent-api-webhook-breaking-changes-cost-your-client-projects-4WGLCi8ZZweBQe7F6Jm9"
+       }
+      ]
+     },
+     {
+      "text": "you've spent 2 to 4 hours digging through raw JSON logs, isolating the breaking change, and patching the integration—only for the client to assume this is \"routine maintenance covered under scope.\"",
+      "links": [
+       {
+        "label": "Indie Hackers 帖",
+        "url": "https://www.indiehackers.com/post/how-many-unbilled-hours-do-silent-api-webhook-breaking-changes-cost-your-client-projects-4WGLCi8ZZweBQe7F6Jm9"
+       }
+      ]
+     },
+     {
+      "text": "If a client agrees to extra work in chat, can I trace that to their approval and the revised invoice? The honest answer was no. You could do each piece, but nothing tied them together.",
+      "links": [
+       {
+        "label": "Indie Hackers 帖（Freveo 作者，发布周用户提问）",
+        "url": "https://www.indiehackers.com/post/a-launch-week-question-turned-into-my-biggest-feature-shipped-it-the-same-week-e0TE2IWro0v176lgxlDz"
+       }
+      ]
+     }
+    ],
+    "existing": "Postman/Insomnia 契约测试、Pact 等消费者驱动契约测试；Hookdeck、Svix 等 Webhook 网关；Sentry 等错误监控；HoneyBook、Bonsai 等自由职业发票工具",
+    "defects": "契约测试需要双方配合、写在 CI 里，第三方或客户系统不会配合；Webhook 网关管投递与重试，不比对数据结构变化；错误监控只告诉你「坏了」，不告诉你「谁改了什么、何时开始」；发票工具和技术证据完全分开，变更单要手写。",
+    "solution": "一个轻量的「Webhook 数据结构哨兵」：作为转发代理或 SDK 接在入站 Webhook/出站 API 前，自动从真实流量学习每个端点的结构（字段、类型、必填），一旦出现改名、类型变化、缺键就即时告警，并给出「最早出现时间、示例对比、受影响的下游流程」。同时一键生成面向客户的「范围外变更报告」：证据截图、差异对比、修复耗时，可直接导出成变更单或附到发票。",
+    "mvp": "先支持 Stripe/Shopify/HubSpot 等常见 Webhook 和任意 JSON 端点：托管转发 URL + 结构学习 + 邮件/Slack 告警 + PDF 变更报告。按监控端点数月付，面向自由职业者定低价，代理商按客户数收费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-09-02",
+   "date": "2026-11-09",
+   "type": "idea",
+   "rank": 2,
+   "title": "家里服务器谁在敲门：一屏看清访问、拦截和风险，分享给朋友前先做安全体检",
+   "summary": "一个装在家庭服务器旁的轻量「门口看板」：只读接入现有反向代理（Nginx Proxy Manager、Caddy、Traefik）与 Fail2ban/CrowdSec 日志，用大白话展示「今天谁来过、访问了哪些服务、哪些是扫描器、哪些是真的家人朋友」，日志默认放内存、只保留摘要，避免磨盘。附「分享前体检」向导：检查暴露端口、默认密码、Tailscale ACL 是否只放行指定服务，给出可复制的修正配置。",
+   "url": "https://www.reddit.com/r/selfhosted/comments/1xot0il/removed_by_moderator/",
+   "tags": [
+    "开发者工具",
+    "安全",
+    "个人/生活"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "安全/隐私",
+    "个人/生活"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "r/selfhosted 这几天连续出现同类求助：有人用反向代理加 Fail2ban，看得到 IP 被拦，却「几乎看不到服务器上到底发生了什么」，想要一个开箱即用、不必自己拼 Grafana 的总览；有人自建 API 被大量探测请求轰炸，换上 BunkerWeb+CrowdSec 后 NAS 机械盘一直在响；有人想把 Jellyfin、游戏服务器分享给朋友，同事警告 Tailscale 共享机器等于给人开了进家庭网络的后门，他坦言「互联网让我害怕」，又不想让这个爱好吃掉全部时间。也有开发者「厌倦了手动拼 WAF、CrowdSec、限流和 SSO 还祈祷它们能和平共处」，自己做了一体化代理。",
+    "target_users": "跑 Jellyfin/Immich/Nextcloud 等服务的家庭服务器和 NAS 用户；想把服务分享给家人朋友的新手自托管者；在家里或小 VPS 上暴露几个服务的独立开发者。",
+    "quotes": [
+     {
+      "text": "I can see that Fail2ban is blocking certain IPs, but I have very little visibility into what's actually happening on my server.",
+      "links": [
+       {
+        "label": "r/selfhosted 帖（14 条评论）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xot0il/removed_by_moderator/"
+       }
+      ]
+     },
+     {
+      "text": "Ideally, something with a nice web UI that works out of the box, without having to manually configure and export everything into Grafana.",
+      "links": [
+       {
+        "label": "r/selfhosted 帖",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xot0il/removed_by_moderator/"
+       }
+      ]
+     },
+     {
+      "text": "Recentely I've noticed in my selfhosted selfmade API a lot, and I mean, a lot of GET calls trying to penetrate it.",
+      "links": [
+       {
+        "label": "r/selfhosted 帖",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xp86iv/removed_by_moderator/"
+       }
+      ]
+     },
+     {
+      "text": "he said that’s a horrible idea since sharing a Tailscale machine gives people full access to my machine, and they can use that as a back door to get into my home network.",
+      "links": [
+       {
+        "label": "r/selfhosted 帖（18 条评论）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xp2mev/removed_by_moderator/"
+       }
+      ]
+     },
+     {
+      "text": "I’m gonna be honest the internet terrifies me.",
+      "links": [
+       {
+        "label": "r/selfhosted 帖",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xp2mev/removed_by_moderator/"
+       }
+      ]
+     },
+     {
+      "text": "I was tired of bolting on a separate WAF, a CrowdSec setup, a rate limiter and an SSO layer by hand and praying they played nice together.",
+      "links": [
+       {
+        "label": "r/selfhosted 帖（Arenet 作者）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xomoog/i_built_arenet_a_selfhosted_reverse_proxy_with/"
+       }
+      ]
+     }
+    ],
+    "existing": "Grafana+Loki+Prometheus 自建面板；CrowdSec 控制台；GoAccess 日志分析；Uptime Kuma；BunkerWeb、Arenet 等一体化代理；Tailscale ACL",
+    "defects": "监控栈要自己拼、自己维护，新手门槛高；CrowdSec/Fail2ban 只给拦截结果，不解释「这意味着什么、我要不要担心」；日志写盘频繁，NAS 机械盘吃不消；Tailscale ACL 写法对新手不直观，没有「分享前检查」；一体化代理要求整体替换现有反代。",
+    "solution": "一个装在家庭服务器旁的轻量「门口看板」：只读接入现有反向代理（Nginx Proxy Manager、Caddy、Traefik）与 Fail2ban/CrowdSec 日志，用大白话展示「今天谁来过、访问了哪些服务、哪些是扫描器、哪些是真的家人朋友」，日志默认放内存、只保留摘要，避免磨盘。附「分享前体检」向导：检查暴露端口、默认密码、Tailscale ACL 是否只放行指定服务，给出可复制的修正配置。",
+    "mvp": "一个 Docker 容器：解析 NPM/Caddy 访问日志 + Fail2ban 记录，出一页日报（访客、扫描、可疑事件）和每周邮件；体检先做端口扫描、常见服务默认凭据检查和 Tailscale ACL 模板生成。开源免费，高级告警和多机器付费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-09-03",
+   "date": "2026-11-09",
+   "type": "idea",
+   "rank": 3,
+   "title": "AI 写的代码很漂亮，但不是我要的：术语锁和意图核对，让智能体动手前先对齐",
+   "summary": "一个插在智能体工作流里的「意图核对层」：从规格和代码中抽出项目术语表（领域词、函数名、不变量，如「每格一个离散高度」），智能体每次产出计划或改动时自动检查：是否引入未定义的新术语或同义替换、是否触碰已声明的不变量、做了哪些未经确认的假设。发现冲突就在动手前生成「请你选一个」的澄清问题，改完后输出「需求→实现→假设」对照表，而不只是文件列表。",
+   "url": "https://www.reddit.com/r/ChatGPTCoding/comments/1xo93qw/my_biggest_and_really_the_only_problem_with/",
+   "tags": [
+    "开发者工具",
+    "Coding Agent"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "Agent/AI编码"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "r/ChatGPTCoding 一位用 AI 做 RimWorld 类游戏的开发者，花数小时和智能体写规格、逐行审了两遍，结果智能体在寻路里把「每格只有一个离散高度」理解成了水下坡道需要连续插值，而且没有问一句；他说最大的问题不是代码烂，而是「漂亮的代码做了我从没想要的事」。r/ClaudeAI 有人抱怨模型把代码里定死的术语（morph）随手换成同义词（reshape），导致下一个接手计划的智能体理解成别的东西。另有人反映智能体只汇报「编辑失败了，是我的错」却不真正改文件；HN 上有人说模型事后承认「我只是假设了」。",
+    "target_users": "用 Claude Code、Codex、Cursor 做中大型项目的独立开发者；多智能体接力（规划→实现→审查）的团队；写规格驱动开发（OpenSpec、Spec Kit 等）的工程师。",
+    "quotes": [
+     {
+      "text": "Not because the code is bad, but because it's often beautiful code that does something I never intended.",
+      "links": [
+       {
+        "label": "r/ChatGPTCoding 帖（17 条评论）",
+        "url": "https://www.reddit.com/r/ChatGPTCoding/comments/1xo93qw/my_biggest_and_really_the_only_problem_with/"
+       }
+      ]
+     },
+     {
+      "text": "But the agent interpreted one requirement in a way that conflicted with my intended interpretation of another. And it didn't ask for clarification.",
+      "links": [
+       {
+        "label": "r/ChatGPTCoding 帖",
+        "url": "https://www.reddit.com/r/ChatGPTCoding/comments/1xo93qw/my_biggest_and_really_the_only_problem_with/"
+       }
+      ]
+     },
+     {
+      "text": "No, Claude, you cannot just substitute \"morph the routine\" with \"reshape the routine\" because only Morph is in the code while reshape could literally be anything.",
+      "links": [
+       {
+        "label": "r/ClaudeAI 帖（Sick of semantic substitution）",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1xqp2l0/sick_of_semantic_substitution/"
+       }
+      ]
+     },
+     {
+      "text": "occasionally cause it to write a wrong plan that gets interpreted in a different way by the next agent picking up the plan.",
+      "links": [
+       {
+        "label": "r/ClaudeAI 帖",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1xqp2l0/sick_of_semantic_substitution/"
+       }
+      ]
+     },
+     {
+      "text": "ask what went wrong, and the model hits me with something like “sorry i didn’t do that, gave up when x happened” and then I ask if x actually happened and the response is like “oops no I just assumed.”",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50347674"
+       }
+      ]
+     },
+     {
+      "text": "I understood what the agent was supposed to do (because I prompted it lol) but not what the agent actually did",
+      "links": [
+       {
+        "label": "r/ChatGPTCoding 帖",
+        "url": "https://www.reddit.com/r/ChatGPTCoding/comments/1xp8rle/i_created_a_skill_that_makes_any_agent_start_its/"
+       }
+      ]
+     }
+    ],
+    "existing": "OpenSpec、Spec Kit 等规格驱动工具；CLAUDE.md/AGENTS.md 规则文件；代码审查机器人（CodeRabbit 等）；变更摘要类技能（如 codechart）",
+    "defects": "规格写得再细也有遗漏，工具不会主动找出「两条需求之间的冲突解释」；规则文件里的术语表靠模型自觉遵守，没有校验；审查机器人看代码质量，不对照原始意图；变更摘要只说改了哪些文件，不说「对哪条需求做了什么假设」。",
+    "solution": "一个插在智能体工作流里的「意图核对层」：从规格和代码中抽出项目术语表（领域词、函数名、不变量，如「每格一个离散高度」），智能体每次产出计划或改动时自动检查：是否引入未定义的新术语或同义替换、是否触碰已声明的不变量、做了哪些未经确认的假设。发现冲突就在动手前生成「请你选一个」的澄清问题，改完后输出「需求→实现→假设」对照表，而不只是文件列表。",
+    "mvp": "一个 MCP 服务器加 CLI：读取 specs/ 与 AGENTS.md 生成术语与不变量清单；在计划阶段和 git diff 阶段各跑一次校验，输出同义替换告警、不变量触碰告警和假设清单。开源核心，团队版做多智能体接力时的共享术语库。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-09-04",
+   "date": "2026-11-09",
+   "type": "idea",
+   "rank": 4,
+   "title": "「证明你是人类」误伤了多少真人：给网站主的反爬验证体检，查出配错的挑战和被挡的正常访客",
+   "summary": "一个「反爬验证误伤体检」服务：从多个地区、真实浏览器配置（含隐私浏览器、移动网络、VPN、读屏器）定期访问站点关键页面，记录哪些路径触发了挑战、通过耗时与失败率；结合站点日志估算「挑战页放弃率」，给出按路径调整建议（文档和 RSS 放行、结账页加强、对已知正当爬虫和包管理器设白名单），并检查是否满足无障碍要求。",
+   "url": "https://news.ycombinator.com/item?id=50355959",
+   "tags": [
+    "安全",
+    "开发者工具",
+    "增长/转化"
+   ],
+   "raw_tags": [
+    "安全/隐私",
+    "开发者工具",
+    "增长/转化"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 帖「Getting hit with \"Prove you are a human\" at every other website」85 分、52 条评论：发帖人说点开 HN 上的链接，每隔一个网站就要解谜题、点复选框、选人行横道，已经累到不想再点。评论里有人认为 Anubis 这类工作量证明对正常人代价不大，但做「数字考古」需要连点几十个链接的人估计约三成挑战配置不当；有人说遇到 Anubis 之后干脆改用聊天机器人搜索，因为它比自己打开网页还快；旅行时还会叠加国家封锁和强制登录墙。对网站主来说，被挡掉的真人读者和下降的转化往往看不见。",
+    "target_users": "为了抵御 AI 爬虫而上了 Cloudflare 挑战、Anubis、reCAPTCHA 的博客、文档站、开源项目和中小电商；关心可访问性（WCAG）的公共机构网站；被软件包构建、RSS 阅读器等正常自动化访问误伤的开源基础设施维护者。",
+    "quotes": [
+     {
+      "text": "every other one of them requires me to solve some fking puzzle or click on a checkbox or some other bullshit.",
+      "links": [
+       {
+        "label": "Hacker News 帖（85 分，52 条评论）",
+        "url": "https://news.ycombinator.com/item?id=50355959"
+       }
+      ]
+     },
+     {
+      "text": "I am tired and sick of it. I dont even bother anym",
+      "links": [
+       {
+        "label": "Hacker News 帖原文",
+        "url": "https://news.ycombinator.com/item?id=50355959"
+       }
+      ]
+     },
+     {
+      "text": "Do it 20 times in the search for one article, and encounter at least a 30% misconfiguration rate (inappropriately high challenge value), and it does begin to bear out.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50359445"
+       }
+      ]
+     },
+     {
+      "text": "I did not use chatbot for search until Anubis, Cloudflare and recaptcha are so prevalent that chatbot literally parses through the pages faster than I can open any one of them",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50356942"
+       }
+      ]
+     },
+     {
+      "text": "It's even worse when you are traveling cause then you run into country-blocks on websites and videos on top of all of that",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50356069"
+       }
+      ]
+     }
+    ],
+    "existing": "Cloudflare Bot Management/Turnstile 后台统计；Anubis 配置文件；reCAPTCHA 管理后台；网站分析工具（Plausible、GA）",
+    "defects": "各家后台只报告「拦了多少机器人」，不报告「挡了多少真人、在哪类访客上挑战过度」；挑战强度凭感觉设置，没有按页面、地区、设备的对照；分析工具在挑战页之前看不到流量，被劝退的读者根本不会出现在报表里；RSS、包管理器等正当自动化缺少白名单建议。",
+    "solution": "一个「反爬验证误伤体检」服务：从多个地区、真实浏览器配置（含隐私浏览器、移动网络、VPN、读屏器）定期访问站点关键页面，记录哪些路径触发了挑战、通过耗时与失败率；结合站点日志估算「挑战页放弃率」，给出按路径调整建议（文档和 RSS 放行、结账页加强、对已知正当爬虫和包管理器设白名单），并检查是否满足无障碍要求。",
+    "mvp": "输入域名即可跑一次免费体检：5 个地区 × 4 种浏览器画像，输出触发挑战的页面清单、平均耗时和失败截图；付费版每日巡检、对接 Cloudflare/Anubis 配置给出可直接粘贴的规则。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-09-05",
+   "date": "2026-11-09",
+   "type": "idea",
+   "rank": 5,
+   "title": "不会写代码的 HR 也能批量发生日祝福：按表格自动出卡，没邮箱的按规则转给主管，周报自动汇总",
+   "summary": "一个面向非技术人员的「员工关怀自动寄送」工具：上传或连接员工表（姓名、生日、部门、邮箱、主管），用模板批量生成个性化卡片；用可视化规则设置投递路径（有邮箱发本人，没有发主管，查不到发部门负责人，同一收件人自动合并），每周自动生成「本周/周末生日」全员公告。支持入职周年、退休、节日等其他日期。",
+   "url": "https://www.reddit.com/r/learnprogramming/comments/1xmvvyx/how_can_i_automate_birthday_emails_for_2000/",
+   "tags": [
+    "开发者工具",
+    "运营/客服",
+    "Coding Agent"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "运营/客服",
+    "Agent/AI编码"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "r/learnprogramming 一位不会编程的员工求助（38 条评论）：每周要给 2000 多名员工发生日祝福，逐个在 Canva 做卡、查部门、查邮箱、查主管；运营部等没有个人邮箱的员工要把卡发给主管，查不到邮箱的要发给部门负责人，同一主管名下的多张卡最好合并成一封；还要每周给全员发「本周生日」和「周末生日」两张名单。r/SaaS 另一帖在验证「替人记住纪念日、提前订花」的服务，说明「重要日期 + 个性化内容 + 自动送达」这类需求反复出现。",
+    "target_users": "中大型机构（医院、学校、工厂、政府单位）的 HR 与内部沟通专员；有大量一线员工但没有企业邮箱的组织；负责员工关怀、周年纪念、入职周年的行政人员。",
+    "quotes": [
+     {
+      "text": "At my job, I have to send birthday greetings to more than 2,000 employees. For each person, I make a card with their name and send it to their personal email.",
+      "links": [
+       {
+        "label": "r/learnprogramming 帖（38 条评论）",
+        "url": "https://www.reddit.com/r/learnprogramming/comments/1xmvvyx/how_can_i_automate_birthday_emails_for_2000/"
+       }
+      ]
+     },
+     {
+      "text": "The tricky part is that some employees don’t have an individual email address. When that happens, I need to send their card to their department’s supervisor.",
+      "links": [
+       {
+        "label": "r/learnprogramming 帖",
+        "url": "https://www.reddit.com/r/learnprogramming/comments/1xmvvyx/how_can_i_automate_birthday_emails_for_2000/"
+       }
+      ]
+     },
+     {
+      "text": "Right now, I look up birthdays, departments, emails, and supervisors manually, and I create the cards one by one in Canva. It’s taking too much time.",
+      "links": [
+       {
+        "label": "r/learnprogramming 帖",
+        "url": "https://www.reddit.com/r/learnprogramming/comments/1xmvvyx/how_can_i_automate_birthday_emails_for_2000/"
+       }
+      ]
+     },
+     {
+      "text": "Is “forgetting dates” a real enough pain to pay for, or is a calendar reminder enough?",
+      "links": [
+       {
+        "label": "r/SaaS 帖（纪念日订花验证）",
+        "url": "https://www.reddit.com/r/SaaS/comments/1xp4g1r/not_selling_anything_just_validating_an_idea/"
+       }
+      ]
+     }
+    ],
+    "existing": "Outlook/Gmail 邮件合并；Canva 批量创建；Power Automate、Zapier；HR 系统（BambooHR、Workday）的生日提醒；Bonusly、Kudos 等员工认可平台",
+    "defects": "邮件合并做不了「没邮箱就转主管、同一主管合并成一封」这种路由规则；Canva 批量出图和发送是两套工具；Power Automate 需要会搭流程；HR 系统的生日提醒只通知 HR 自己，不生成卡片；员工认可平台按人头收费，对没有电脑的一线员工无效。",
+    "solution": "一个面向非技术人员的「员工关怀自动寄送」工具：上传或连接员工表（姓名、生日、部门、邮箱、主管），用模板批量生成个性化卡片；用可视化规则设置投递路径（有邮箱发本人，没有发主管，查不到发部门负责人，同一收件人自动合并），每周自动生成「本周/周末生日」全员公告。支持入职周年、退休、节日等其他日期。",
+    "mvp": "Google Sheets/Excel 上传 + 3 套卡片模板 + 路由规则向导 + 通过用户自己的 Outlook/Gmail 发送 + 每周公告；先免费支持 200 人以内，按员工规模年付。",
+    "difficulty": null,
+    "potential": null
+   }
+  }
+ ]
+}
