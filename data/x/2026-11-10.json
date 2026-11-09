@@ -1,0 +1,181 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-10",
+ "day": {
+  "digest": "Matt Pocock 分享了让 agent 拷问需求时“先讲问题、再谈方案”的技巧，并在讨论中延伸到提示词里的限定语与语音听写；另外他同意“要敢于否定 agent 的糟糕输出”，并补充应把纠正固化成 lint 规则。",
+  "by_source": {
+   "mattpocockuk": "讲 grilling 技巧：先描述问题而非方案；赞同否定 agent 烂输出并主张加 lint 规则；提到自己用语音听写、订阅了 Wispr Flow。"
+  },
+  "updated_at": "2026-11-10T08:05:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2119892609048916293",
+   "date": "2026-11-10",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2119892609048916293",
+   "url": "https://x.com/mattpocockuk/status/2119892609048916293",
+   "posted_at": "2026-11-10T04:39+08:00",
+   "kind": "reply",
+   "text": "Nice, I went with \"buy\" and just got a Wispr Flow sub",
+   "article_title": null,
+   "reply_to": {
+    "handle": "tenignull",
+    "post_id": "2119892268001665091",
+    "url": "https://x.com/tenignull/status/2119892268001665091",
+    "text": "oh dude i built my own local thingy, its honestly amazing cuz i can very easily keep all the audio, transcripts, corrections, and actually get massive data on how i prompt because i just yap sm in voice"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "不错，我选了“买”，刚订阅了 Wispr Flow",
+   "analysis": {
+    "summary": "tenignull 说他自己做了一个本地语音听写工具，能保留音频、转录和修正记录来分析自己的提示习惯；Matt 回复说自己选择“买”而不是自建，刚订阅了 Wispr Flow。",
+    "points": [
+     "tenignull 自建了本地语音听写工具，可留存音频、转录和修正数据",
+     "Matt 选择直接购买，订阅了 Wispr Flow（一款语音听写工具）"
+    ],
+    "why": "主要是社交性回复，透露了 Matt 当前使用的语音听写工具是 Wispr Flow。",
+    "tags": [
+     "语音输入",
+     "工具"
+    ]
+   }
+  },
+  {
+   "id": "x-2119891959493853455",
+   "date": "2026-11-10",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2119891959493853455",
+   "url": "https://x.com/mattpocockuk/status/2119891959493853455",
+   "posted_at": "2026-11-10T04:36+08:00",
+   "kind": "reply",
+   "text": "I use dictation so my prompts are full of these naturally",
+   "article_title": null,
+   "reply_to": {
+    "handle": "tenignull",
+    "post_id": "2119891695836037219",
+    "url": "https://x.com/tenignull/status/2119891695836037219",
+    "text": "hedging: perhaps; my hypothesis is; im assuming; <stuff>, or not?\n\ndifferentials: is it cause a, cause b, cause c, none of these, some combination of these and/or others i havent considered\n\nif theyre shit as examples i could have opus go through my transcripts or sth to find sth better idk, lemme know i guess"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我用语音听写，所以我的提示词里天然就充满了这些东西",
+   "analysis": {
+    "summary": "tenignull 举例解释了 hedges（如“也许”“我的假设是”“或者不是？”）和 differentials（是原因 a、b、c，还是都不是、或者组合）；Matt 回复说他用语音听写，提示词里自然就有很多这类表达。",
+    "points": [
+     "tenignull 给出 hedges 与 differentials 的具体例子",
+     "Matt 说自己用语音听写写提示词",
+     "语音输入让提示词自然带有更多限定和备选解释"
+    ],
+    "why": "侧面说明 Matt 的工作方式：用语音口述提示词。属于个人习惯分享，信息量有限。",
+    "tags": [
+     "提示词",
+     "语音输入"
+    ]
+   }
+  },
+  {
+   "id": "x-2119891047840919932",
+   "date": "2026-11-10",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2119891047840919932",
+   "url": "https://x.com/mattpocockuk/status/2119891047840919932",
+   "posted_at": "2026-11-10T04:33+08:00",
+   "kind": "quote",
+   "text": "Agree, with a modification:\n\n\"wtf is this crap, no, not like this. not ever again. new lint rule\"",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": {
+    "handle": "badlogicgames",
+    "post_id": "2119842382023680391",
+    "url": "https://x.com/badlogicgames/status/2119842382023680391",
+    "text": "the most import skill in 2026 is still being able to tell your agents \"wtf is this crap, no, not like this\"\n\nif you stop doing that, you're basically fucked, despite what some devfluencers would like you to think."
+   },
+   "links": [],
+   "translation_zh": "同意，但我要改一下：\n\n“这什么破玩意儿，不对，不是这样。以后再也不许这样。加条新的 lint 规则”",
+   "analysis": {
+    "summary": "Mario Zechner（@badlogicgames）说 2026 年最重要的技能仍是能对 agent 说“这什么破玩意儿，不是这样”；Matt 表示同意，并补充：还要顺手加一条 lint 规则，让同样的问题不再出现。",
+    "points": [
+     "被引用帖观点：敢于直接否定 agent 的糟糕输出仍是最重要的技能，放弃这一点就完了",
+     "Matt 的补充：不只是否定，还要把它固化成新的 lint 规则",
+     "思路是把一次性的纠正变成自动化的长期约束"
+    ],
+    "why": "点出了用 agent 写代码时的一个实用做法：把人工审查中发现的问题沉淀成 lint 等自动检查，而不是每次重复纠正。属于观点表达。",
+    "tags": [
+     "Agent 工程",
+     "代码质量",
+     "Lint"
+    ]
+   }
+  },
+  {
+   "id": "x-2119889286866870350",
+   "date": "2026-11-10",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2119889286866870350",
+   "url": "https://x.com/mattpocockuk/status/2119889286866870350",
+   "posted_at": "2026-11-10T04:26+08:00",
+   "kind": "reply",
+   "text": "What do you mean by hedges/differentials? Got an example?",
+   "article_title": null,
+   "reply_to": {
+    "handle": "tenignull",
+    "post_id": "2119888775681654819",
+    "url": "https://x.com/tenignull/status/2119888775681654819",
+    "text": "idk matt, i think the framing of the problem itself can anchor, which is why i try to include as many hedges and differentials as i can in my prompts, how do you feel about that, they come rly naturally to me bc of neuropharm as well, that was basically my job all those yrs, coming up with a billion different plausible explanations, its transferring rly well"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "你说的 hedges/differentials（含糊限定/鉴别诊断）是什么意思？能举个例子吗？",
+   "analysis": {
+    "summary": "tenignull 回复说，问题的表述本身也会形成锚定，所以他在提示词里尽量加入各种限定语和多种可能解释（源于他做神经药理的习惯）；Matt 追问这具体指什么、能否举例。",
+    "points": [
+     "tenignull 认为“描述问题”的方式本身也可能锚定 agent",
+     "他的做法是在提示词里加入大量 hedges（限定语）和 differentials（多种备选解释）",
+     "Matt 请他解释并举例"
+    ],
+    "why": "本身是追问，信息量不大，但引出了对 Matt“先讲问题”技巧的一个补充视角：问题表述也可能带偏 agent。",
+    "tags": [
+     "提示词",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2119888414736859356",
+   "date": "2026-11-10",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2119888414736859356",
+   "url": "https://x.com/mattpocockuk/status/2119888414736859356",
+   "posted_at": "2026-11-10T04:22+08:00",
+   "kind": "post",
+   "text": "One tip to improve your grilling\n\nInstead of talking about the 'what', try explaining more of the 'why'.\n\nBAD: \"I want to build an analytics panel for admins with graphs and filters\"\n\nGOOD: \"Admins can't currently see an overview of the important data in the app\"\n\nIf you start by explaining your proposed solution, the agent will stick to it. It'll assume all the important stuff is settled, and just grill you on implementation.\n\nBut if you describe the problem, you'll give the agent license to be more creative.\n\nYou'll end up with a much deeper, better conversation.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "一个让你的“拷问”（grilling）更有效的小技巧\n\n别光讲“做什么”，多解释“为什么”。\n\n不好的说法：“我想给管理员做一个带图表和筛选器的分析面板”\n\n好的说法：“管理员目前没法看到应用里重要数据的概览”\n\n如果你一上来就讲你设想的解决方案，agent 就会死守着它。它会默认所有重要的事都已经定了，只会就实现细节来拷问你。\n\n但如果你描述的是问题本身，你就给了 agent 更有创造力的空间。\n\n最后你会得到一场更深入、更好的对话。",
+   "analysis": {
+    "summary": "Matt Pocock 分享一个让 agent 对你进行“拷问式”需求对齐时更有效的技巧：先讲问题和原因，而不是直接给出方案。",
+    "points": [
+     "让 agent 拷问你时，多讲“为什么”，少讲“做什么”",
+     "反例：直接说要做“带图表和筛选器的管理员分析面板”；正例：说明“管理员看不到重要数据的概览”",
+     "先给方案，agent 会认定关键决策已定，只追问实现细节",
+     "先描述问题，agent 才有空间提出更有创造性的方案，对话也更深入"
+    ],
+    "why": "这是 Matt 推广的 grilling 工作流的实用补充：提示词里先摆问题而非方案，能避免 agent 被你的预设方案锚定。属于作者的经验观点，未附具体数据。",
+    "tags": [
+     "Agent 工程",
+     "提示词",
+     "需求澄清"
+    ]
+   }
+  }
+ ]
+}
