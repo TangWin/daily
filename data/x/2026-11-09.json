@@ -3,14 +3,50 @@
  "type": "x",
  "date": "2026-11-09",
  "day": {
-  "digest": "Dan Koe 发表了关于不必担心改变耗时、专注做有意义之事的观点；Karpathy 回复了一条奥尼尔圆筒概念图帖子，表示想造几个。",
+  "digest": "今天 Karpathy 回复了一条关于 X 上 AI 机器人泛滥的帖子，分享了读取中等规模账号引用推文评论的筛选技巧。",
   "by_source": {
    "thedankoe": "认为改变处境不必在意耗时，关键是做有意义的事。",
-   "karpathy": "回复称某奥尼尔圆筒图很美，希望造几个。"
+   "karpathy": "回复称账号越大评论越糟，建议看 ~10K 粉丝账号的引用推文评论。"
   },
-  "updated_at": "2026-11-09T08:10:00+09:00"
+  "updated_at": "2026-11-09T12:08:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2119569027937063405",
+   "date": "2026-11-09",
+   "type": "x",
+   "source": "karpathy",
+   "post_id": "2119569027937063405",
+   "url": "https://x.com/karpathy/status/2119569027937063405",
+   "posted_at": "2026-11-09T07:13+08:00",
+   "kind": "reply",
+   "text": "It gets really bad with account size. The one trick I found is to read the comments of the quote tweets, ideally of accounts that are in the sweet spot of ~10K followers.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "nicbstme",
+    "post_id": "2119480198102237473",
+    "url": "https://x.com/nicbstme/status/2119480198102237473",
+    "text": "I love X but ai bots are destroying the platform. I rarely look at comments anymore."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "账号规模越大，情况越糟。我发现的一个办法是：去看引用推文下面的评论，最好是那些粉丝数在 ~10K 左右“甜蜜区间”的账号。",
+   "analysis": {
+    "summary": "有人（Nicolas Bustamante）说 AI 机器人正在毁掉 X，他已很少看评论；Karpathy 回复说账号越大越严重，并分享了他筛选有用评论的技巧。",
+    "points": [
+     "原帖观点：AI 机器人在破坏平台，原作者很少再看评论",
+     "Karpathy：问题随账号规模变严重",
+     "他的技巧：读引用推文下的评论",
+     "最好选粉丝约 10K 的账号的引用推文"
+    ],
+    "why": "这是 Karpathy 的个人经验之谈，不是数据；帖子未说明为何 ~10K 粉丝账号的评论质量更高，不做推断。",
+    "tags": [
+     "社交平台",
+     "AI 机器人",
+     "信息筛选"
+    ]
+   }
+  },
   {
    "id": "x-2119565104530505955",
    "date": "2026-11-09",
