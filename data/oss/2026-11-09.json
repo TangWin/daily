@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-11-09",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-11-09-pinky",
+      "date": "2026-11-09",
+      "type": "oss",
+      "rank": 1,
+      "title": "Pinky：让任何 AI Agent 操作你的 iPhone 或安卓手机，危险操作由你点头",
+      "summary": "RSSHub 作者 DIYgod 的新作，电脑上一个 MCP 网关让 Claude Code/Codex/Cursor 操作真实手机，付款等风险步骤由网关拦住等你批准；开源两天 681 次提交、42 个版本，今早刚发新版。",
+      "url": "https://github.com/DIYgod/pinky",
+      "tags": [
+        "AI Agent",
+        "MCP",
+        "开发者工具",
+        "安全",
+        "手机自动化"
+      ],
+      "raw_tags": [],
+      "score": 870,
+      "score_label": "★ 870",
+      "detail": {
+        "status": "picked",
+        "repo": "DIYgod/pinky",
+        "homepage": null,
+        "stars": 870,
+        "forks": 69,
+        "license": "Apache-2.0",
+        "language": "Go",
+        "latest_release": "v2026.1109.9",
+        "runners_up": [
+          "modelflare-ai/AnyModelBot",
+          "synchopate/llama-modchip",
+          "jmanico/grim-prompter"
+        ],
+        "body_md": "## Pinky：让任何 AI Agent 操作你的 iPhone 或安卓手机，危险操作由你点头\n\n**为什么今天值得试：** RSSHub 作者 DIYgod 的新项目，北京时间 11 月 7 日凌晨开源，两天多就有 681 次提交、42 个版本，今早 10:04 刚发 v2026.1109.9。它不是又一个「手机里的 Agent」，而是电脑上的一个网关：Claude Code、Codex、Cursor 等通过 MCP 操作真实手机，付款、发消息这类风险步骤由网关拦住等你点「允许」，Agent 没法自己批准自己。\n\n仓库：[DIYgod/pinky](https://github.com/DIYgod/pinky)\n\n### 它解决什么问题 / 适合谁\n\n想让 Agent 帮你在手机上点外卖、回消息、整理相册，又怕它被屏幕上的文字诱导乱付款。Pinky 跑在 macOS / Windows / Linux 上，同时支持 Android 10–17 和 iOS 17.4 以上的 iPhone / iPad，你在电脑上实时看投屏、审批、随时接管，每次运行都有录屏和步骤记录。\n\n适合：已经在用 MCP 客户端的开发者，想做手机端自动化、App 测试，或者想让 Agent 跨电脑和手机干活的人。它不带模型，思考全靠你自己的 Agent。\n\n### 从 README 读到的要点\n\n- **一键接 Agent：** 设置 › Agents 里点 Connect，自动把 Pinky 加进 Claude Code、Claude Desktop、Codex、Cursor、VS Code、Gemini CLI 等的 MCP 配置，并装好给 Agent 读的 SKILL.md；手动接入就是 `claude mcp add --scope user pinky -- pinkyctl mcp`，远程 Agent 可走 HTTP。\n- **审批在网关里执行：** 默认付款、交易、转账要你点允许，可在「安全」里加上发送、下单、删除、打电话、装应用等，甚至每一步都问；60 秒没回应就算拒绝。按钮识别覆盖 10 种语言。\n- **默认屏蔽敏感应用：** 银行、钱包、密码管理器对 Agent 不可见，Agent 不能往密码和验证码框里输入，屏幕上的一次性验证码会被打码成「••••••」。\n- **手机还是你的：** Android 13 以上 Agent 在隐藏的第二块屏幕上操作，手机本身可以锁屏；点投屏或摸手机就暂停 Agent，全局快捷键一键全停。可以把手机 PIN 存在电脑钥匙串里，用 Touch ID / Windows Hello 确认解锁，Agent 看不到 PIN。\n- **轻量原生：** 一个 Go 二进制，界面不是 Electron，下载 16–22 MB，Mac 上空闲约 70 MB 内存；Android 伴侣 App 让读屏从约 2 秒降到约 70 毫秒；配合 Tailscale 手机出门也能连。\n\n### 近期活跃证据\n\n- **Issues：** 11 个 Issue 开放 10 个，都是开源后一两天内提的（连不上手机、iPad 点击、Tailscale 模式等）。DIYgod 基本一小时内中文或英文回复；「识别不了应用分身」的 Issue 当晚就定位原因，今早已提交支持应用分身的代码。另有 13 个社区 PR，已合并 Linux 上找 Wi-Fi iPhone、日语界面等。\n- **Release：** 共 42 个版本，按日期加序号命名，最新 v2026.1109.9 发布于北京时间 2026-11-09 10:04，让投屏外框随横竖屏旋转；更新说明中英双语。\n- **提交：** 681 次提交，DIYgod 本人 671 次，另有 5 位贡献者；北京时间今早 10 点前后还在连发修复（审批交接竞态、发现设备轮流、macOS 13 最低版本说明）。\n\n### 怎么快速上手\n\n1. Mac 上 `brew install --cask diygod/tap/pinky`，Windows / Linux 从 [最新 Release](https://github.com/DIYgod/pinky/releases/latest) 下载安装包。\n2. 没手机可先跑演示：`/Applications/Pinky.app/Contents/MacOS/Pinky --fake` 带两部脚本化假手机，能体验付款审批、银行应用屏蔽、密码框拦截。\n3. 真手机：安卓打开 USB 调试插上线，按「添加手机」提示装伴侣 App；在设置 › Agents 里连上 Claude Code，让它试一句「打开信息，告诉 Sam 我会晚到」。\n\n### 风险与注意\n\n- **pre-alpha：** README 自己说有些功能还在等真人验证；iOS 27 以下的 iPhone 还没在真机上试过，iPhone 在 Windows 上也未测试，一天发十几个版本且默认自动更新。\n- **安卓需开 USB 调试：** 部分银行 App 会因此警告或拒绝运行；伴侣 App 的无障碍服务只在任务期间开启，但这期间东南亚等地的银行 App 会拒绝登录。让 Agent 用微信、抖音等可能违反其条款。\n- **会跑命令的 Agent 可以绕过 Pinky：** 它能直接用 adb 碰手机、跳过审批规则，README 建议把这类 Agent 放沙箱，或把手机插在另一台电脑上走 HTTP 连接。\n- **iPhone 准备：** 需要 Xcode 带的开发者磁盘映像（或从第三方镜像下载）；iOS 17.4–26 还要自己用 Apple ID 签 WebDriverAgent，免费账号每 7 天要重装。默认上传匿名使用统计，可在隐私设置或用 `DO_NOT_TRACK=1` 关闭。\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
