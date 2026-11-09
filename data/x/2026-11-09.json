@@ -3,14 +3,45 @@
  "type": "x",
  "date": "2026-11-09",
  "day": {
-  "digest": "今天 Karpathy 回复了一条关于 X 上 AI 机器人泛滥的帖子，分享了读取中等规模账号引用推文评论的筛选技巧。",
+  "digest": "今天 Karpathy 回复了关于 X 上 AI 机器人泛滥的帖子，分享了筛选评论的技巧；Dan Koe 谈改变处境不必在意耗时；Matt Pocock 宣布今年最后一期课程开课。",
   "by_source": {
    "thedankoe": "认为改变处境不必在意耗时，关键是做有意义的事。",
-   "karpathy": "回复称账号越大评论越糟，建议看 ~10K 粉丝账号的引用推文评论。"
+   "karpathy": "回复称账号越大评论越糟，建议看 ~10K 粉丝账号的引用推文评论。",
+   "mattpocockuk": "宣布今年最后一期课程今天开课，含大量全新内容。"
   },
-  "updated_at": "2026-11-09T12:08:00+09:00"
+  "updated_at": "2026-11-09T20:10:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2119742312976642488",
+   "date": "2026-11-09",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2119742312976642488",
+   "url": "https://x.com/mattpocockuk/status/2119742312976642488",
+   "posted_at": "2026-11-09T18:42+08:00",
+   "kind": "post",
+   "text": "Last cohort of the year starting today. A huge chunk of all-new material. \n\nAlways exciting, always electrifying, always slightly terrifying.\n\nFor folks who bought a ticket, enjoy ❤️",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "今年最后一期课程今天开课。有一大块全新的内容。\n\n每次都很兴奋，每次都很带劲，每次也都有点让人紧张。\n\n买了票的朋友们，好好享受 ❤️",
+   "analysis": {
+    "summary": "Matt Pocock 宣布他今年最后一期课程（cohort）今天开课，并称其中有大量全新内容。",
+    "points": [
+     "今年最后一期 cohort 今天开始",
+     "包含一大块全新材料",
+     "他形容开课“兴奋、带劲、也有点紧张”",
+     "向已购票学员致意"
+    ],
+    "why": "这是课程开课的公告，帖子没说明课程名称和具体新增了什么内容，不做推断；对关注他教学内容的人来说，说明近期可能会有新材料出现。",
+    "tags": [
+     "课程",
+     "开发者教育"
+    ]
+   }
+  },
   {
    "id": "x-2119569027937063405",
    "date": "2026-11-09",
