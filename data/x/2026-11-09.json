@@ -3,15 +3,47 @@
  "type": "x",
  "date": "2026-11-09",
  "day": {
-  "digest": "今天 Karpathy 回复了关于 X 上 AI 机器人泛滥的帖子，分享了筛选评论的技巧；Dan Koe 谈改变处境不必在意耗时；Matt Pocock 宣布今年最后一期课程开课。",
+  "digest": "今天 Karpathy 回复了关于 X 上 AI 机器人泛滥的帖子，分享了筛选评论的技巧；Dan Koe 谈改变处境不必在意耗时；Matt Pocock 宣布今年最后一期课程开课，并为“Software Factory”一词辩护，认为它代表团队从用 agent 做产品转向搭建让 agent 做产品的自动化。",
   "by_source": {
    "thedankoe": "认为改变处境不必在意耗时，关键是做有意义的事。",
    "karpathy": "回复称账号越大评论越糟，建议看 ~10K 粉丝账号的引用推文评论。",
-   "mattpocockuk": "宣布今年最后一期课程今天开课，含大量全新内容。"
+   "mattpocockuk": "宣布今年最后一期课程开课，并为“Software Factory”一词辩护，称它指向 agent 工程上移一层的真实变化。"
   },
-  "updated_at": "2026-11-09T20:10:00+09:00"
+  "updated_at": "2026-11-10T00:10:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2119748545691402733",
+   "date": "2026-11-09",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2119748545691402733",
+   "url": "https://x.com/mattpocockuk/status/2119748545691402733",
+   "posted_at": "2026-11-09T19:06+08:00",
+   "kind": "post",
+   "text": "Just wanted to defend the term \"Software Factory\" for a second.\n\nFirst, the caveats:\n\nIt's bullshit. It sounds fancier than it really is.\n\nIt's a bandwagon. People are using it to get you and their VC's hyped.\n\nBut it's also referring to a real change.\n\nEarlier this year, most SOTA teams were using agents to work on the product. Shipping features, fixing bugs.\n\nBut now, they're building automations to help agents work on the product for them. They've moved up a layer.\n\nWhat do we call the thing they're building? Loops? Workflows? Some other generic label?\n\n\"Software Factory\" is as good a term as any other.\n\n- \"We're not working on the product, we're working on the factory that builds the product.\"\n- \"We're not product engineers, we're factory engineers.\"\n\nI like it. I'll continue using it.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "想替“Software Factory（软件工厂）”这个词说句话。\n\n先说几点保留意见：\n\n它是扯淡。听起来比实际更花哨。\n\n它是在跟风。人们用它来让你和他们的 VC 兴奋起来。\n\n但它也确实指向一个真实的变化。\n\n今年早些时候，大多数 SOTA 团队都在用 agent 做产品本身：交付功能、修 bug。\n\n但现在，他们在构建自动化，让 agent 替他们去做产品。他们往上走了一层。\n\n那他们在构建的东西该叫什么？Loops？Workflows？还是别的什么泛泛的标签？\n\n“Software Factory”和其他任何词一样好用。\n\n- “我们不是在做产品，我们是在做那个生产产品的工厂。”\n- “我们不是产品工程师，我们是工厂工程师。”\n\n我喜欢这个说法。我会继续用它。",
+   "analysis": {
+    "summary": "Matt Pocock 为“Software Factory”一词辩护：他承认这个词有炒作成分，但认为它描述了一个真实变化——顶尖团队从用 agent 做产品，转向构建让 agent 自动做产品的自动化。",
+    "points": [
+     "他承认这个词听起来夸大、带有跟风和吸引 VC 的成分",
+     "今年早些时候，SOTA 团队多是直接用 agent 交付功能、修 bug",
+     "现在这些团队在构建让 agent 替他们做产品的自动化，相当于上移了一层",
+     "他认为 Loops、Workflows 等词同样泛泛，“Software Factory”不比它们差",
+     "提出“工厂工程师而非产品工程师”的说法，并表示会继续使用"
+    ],
+    "why": "这是作者的观点，不是数据；但它点出了 AI 编程实践的一个趋势判断：工程重心从写产品代码转向搭建驱动 agent 的流程。评论区有人追问“工厂”到底指流程、团队还是公司，说明这个概念边界仍不清晰。",
+    "tags": [
+     "Agent 工程",
+     "软件工厂",
+     "AI 编程"
+    ]
+   }
+  },
   {
    "id": "x-2119742312976642488",
    "date": "2026-11-09",
