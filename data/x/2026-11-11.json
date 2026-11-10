@@ -1,0 +1,243 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-11",
+ "day": {
+  "digest": "Matt Pocock 介绍了让 agent 跨多个仓库工作的“Home Repo”做法，并在回复中补充了团队共享、仓库专属内容的放置、跨仓库 issue 和与 monorepo 的对比等细节。",
+  "by_source": {
+   "mattpocockuk": "分享 Home Repo 方案：在一个主仓库运行 agent，用 AGENTS.md 指向其他仓库，并回答了团队、权限和 monorepo 等追问。"
+  },
+  "updated_at": "2026-11-11T08:25:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2120274646348030270",
+   "date": "2026-11-11",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120274646348030270",
+   "url": "https://x.com/mattpocockuk/status/2120274646348030270",
+   "posted_at": "2026-11-11T05:57+08:00",
+   "kind": "reply",
+   "text": "Cross-repo issues live in the home repo, if that's what you mean",
+   "article_title": null,
+   "reply_to": {
+    "handle": "huesofbanter",
+    "post_id": "2120274041520927110",
+    "url": "https://x.com/huesofbanter/status/2120274041520927110",
+    "text": "when a task changes three repos, where do you leave the note explaining how the changes fit together?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "跨仓库的 issue 放在 home 仓库里，如果你指的是这个的话",
+   "analysis": {
+    "summary": "有人问一个任务改动三个仓库时，解释这些改动如何配合的说明该放哪里，他回复：跨仓库的 issue 放在 home 仓库里。",
+    "points": [
+     "涉及多个仓库的任务，其说明/issue 放在 home 仓库"
+    ],
+    "why": "补充了 Home Repo 的另一个用途：作为跨仓库任务的协调与记录中心。",
+    "tags": [
+     "多仓库",
+     "工作流"
+    ]
+   }
+  },
+  {
+   "id": "x-2120274753219068368",
+   "date": "2026-11-11",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120274753219068368",
+   "url": "https://x.com/mattpocockuk/status/2120274753219068368",
+   "posted_at": "2026-11-11T05:57+08:00",
+   "kind": "reply",
+   "text": "Yep, also very good, just lots of tooling needed and you can't always make it work",
+   "article_title": null,
+   "reply_to": {
+    "handle": "wesley_gahr",
+    "post_id": "2120274496867188762",
+    "url": "https://x.com/wesley_gahr/status/2120274496867188762",
+    "text": "What about actual monorepos?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "对，那也很好，只是需要大量工具支持，而且不一定总能搞定",
+   "analysis": {
+    "summary": "有人问“真正的 monorepo 呢？”，他回复 monorepo 也很好，但需要大量工具支持，而且不一定总能行得通。",
+    "points": [
+     "他认可 monorepo 也是好方案",
+     "但 monorepo 需要大量工具配套，并非总能落地"
+    ],
+    "why": "这是作者的观点：Home Repo 是在无法或不便合并成 monorepo 时的轻量替代方案。",
+    "tags": [
+     "Monorepo",
+     "多仓库"
+    ]
+   }
+  },
+  {
+   "id": "x-2120273977385922673",
+   "date": "2026-11-11",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120273977385922673",
+   "url": "https://x.com/mattpocockuk/status/2120273977385922673",
+   "posted_at": "2026-11-11T05:54+08:00",
+   "kind": "reply",
+   "text": "You put it inside the repos where it's needed, navigation pointers in the home repo",
+   "article_title": null,
+   "reply_to": {
+    "handle": "SamVale29",
+    "post_id": "2120263758346145827",
+    "url": "https://x.com/SamVale29/status/2120263758346145827",
+    "text": "How do you keep repo specific stuff like build commands from piling up in the home repo?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "放在需要它的那些仓库里，home 仓库里只放导航指引",
+   "analysis": {
+    "summary": "有人问怎样避免构建命令这类仓库专属内容堆积在 home 仓库里，他回复：这些内容放在各自仓库中，home 仓库只放导航指引。",
+    "points": [
+     "仓库专属内容（如构建命令）留在对应仓库内",
+     "home 仓库只负责提供指向各仓库的导航指引"
+    ],
+    "why": "明确了 Home Repo 方案的分层原则：home 仓库是索引与公共工具层，具体仓库的细节仍各自维护，避免 home 仓库臃肿。",
+    "tags": [
+     "Agent 工程",
+     "多仓库"
+    ]
+   }
+  },
+  {
+   "id": "x-2120262528701956125",
+   "date": "2026-11-11",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120262528701956125",
+   "url": "https://x.com/mattpocockuk/status/2120262528701956125",
+   "posted_at": "2026-11-11T05:09+08:00",
+   "kind": "reply",
+   "text": "Why more nervous than individual agents that can touch individual parts?",
+   "article_title": null,
+   "reply_to": {
+    "handle": "ShubhamMal72313",
+    "post_id": "2120261736691601414",
+    "url": "https://x.com/ShubhamMal72313/status/2120261736691601414",
+    "text": "how do you scope keys with this, one agent that can touch every repo makes me a little nervous"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "为什么会比“各自只能碰各自部分的独立 agent”更让人紧张？",
+   "analysis": {
+    "summary": "有人担心一个能碰所有仓库的 agent 难以限定密钥权限、令人不安，他反问：为什么这比多个各管一部分的 agent 更让人紧张？",
+    "points": [
+     "提问者关心 Home Repo 方案下的密钥作用域与权限风险",
+     "他以反问回应，暗示单一 agent 不一定比多个分散的 agent 风险更大"
+    ],
+    "why": "这条只是反问，没有给出具体的密钥/权限管理方案；安全隐患的讨论未展开，读者需自行判断权限设计。",
+    "tags": [
+     "Agent 安全",
+     "权限"
+    ]
+   }
+  },
+  {
+   "id": "x-2120262332354077102",
+   "date": "2026-11-11",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120262332354077102",
+   "url": "https://x.com/mattpocockuk/status/2120262332354077102",
+   "posted_at": "2026-11-11T05:08+08:00",
+   "kind": "reply",
+   "text": "Of course they struggle more because of the communication overhead",
+   "article_title": null,
+   "reply_to": {
+    "handle": "polymorph3us",
+    "post_id": "2120261893776670961",
+    "url": "https://x.com/polymorph3us/status/2120261893776670961",
+    "text": "in your experience/observation, is there a distinction you can make between solo devs versus teams? do teams struggle more or less with planning?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "当然，团队会更吃力，因为有沟通开销",
+   "analysis": {
+    "summary": "有人问独立开发者和团队在做规划时谁更吃力，他回复团队当然更吃力，原因是沟通开销。",
+    "points": [
+     "他认为团队在规划上比独立开发者更吃力",
+     "原因归结为沟通开销"
+    ],
+    "why": "这是作者的个人观点，不是数据结论；信息量较低，但点出了团队使用 agent 做规划时的主要摩擦来源。",
+    "tags": [
+     "团队协作",
+     "规划"
+    ]
+   }
+  },
+  {
+   "id": "x-2120261712699900309",
+   "date": "2026-11-11",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120261712699900309",
+   "url": "https://x.com/mattpocockuk/status/2120261712699900309",
+   "posted_at": "2026-11-11T05:05+08:00",
+   "kind": "reply",
+   "text": "The home repo is the team's property, everyone runs their agents there",
+   "article_title": null,
+   "reply_to": {
+    "handle": "BradGroux",
+    "post_id": "2120261357413044566",
+    "url": "https://x.com/BradGroux/status/2120261357413044566",
+    "text": "Now how do we scale this to teams?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "home 仓库归团队所有，每个人都在里面运行自己的 agent",
+   "analysis": {
+    "summary": "有人问 Home Repo 方案如何扩展到团队，他回复：home 仓库归团队所有，所有人都在其中运行 agent。",
+    "points": [
+     "Home Repo 可以作为团队共享资产",
+     "团队成员都在同一个 home 仓库里运行 agent"
+    ],
+    "why": "补充了 Home Repo 方案在团队场景下的用法：把它当作团队共享的 agent 入口，而非个人配置仓库。具体的权限与协作细节帖子未展开。",
+    "tags": [
+     "Agent 工程",
+     "团队协作"
+    ]
+   }
+  },
+  {
+   "id": "x-2120260969750540327",
+   "date": "2026-11-11",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120260969750540327",
+   "url": "https://x.com/mattpocockuk/status/2120260969750540327",
+   "posted_at": "2026-11-11T05:03+08:00",
+   "kind": "post",
+   "text": "A lot of folks ask me \"how do you work with agents in multiple repos at once?\"\n\nI have a very simple solution - the Home Repo\n\nI have a single repo (the home) where all of my skills, steering files, wiki etc live.\n\nI run my agent in the home repo, and then inside AGENTS.md I have pointers to the other repos:\n\n```\nFor skills, clone mattpocock/skills to ~/repos/skills.\nFor Sandcastle, clone mattpocock/sandcastle to ~/repos/sandcastle\n```\n\nThis is extremely simple and incredibly effective. The home repo lets you:\n\n1. Put all your steering files and tooling in one place\n2. Have a single spot to run all your agents in\n3. Make sweeping changes over multiple repos\n\nTalked about this in the course yesterday and folks are loving it (see below).\n\nI'm sure you will too. Enjoy!",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "很多人问我：“你是怎么让 agent 同时在多个仓库里干活的？”\n\n我的办法非常简单——Home Repo（主仓库）\n\n我有一个单独的仓库（也就是 home），我所有的 skills、steering 文件、wiki 等都放在里面。\n\n我在这个 home 仓库里运行 agent，然后在 AGENTS.md 里写上指向其他仓库的指引：\n\n```\nFor skills, clone mattpocock/skills to ~/repos/skills.\nFor Sandcastle, clone mattpocock/sandcastle to ~/repos/sandcastle\n```\n\n这招极其简单，又非常有效。home 仓库能让你：\n\n1. 把所有 steering 文件和工具放在一个地方\n2. 有一个统一的地方运行你所有的 agent\n3. 跨多个仓库做大范围改动\n\n昨天我在课程里讲了这个，大家都很喜欢（见下方）。\n\n相信你也会喜欢。祝用得开心！",
+   "analysis": {
+    "summary": "Matt Pocock 分享他让 agent 跨多个仓库工作的做法：建一个“Home Repo”，在里面运行 agent，并通过 AGENTS.md 指向其他仓库。",
+    "points": [
+     "在一个 home 仓库里集中放 skills、steering 文件、wiki 等",
+     "agent 在 home 仓库中运行，AGENTS.md 写明其他仓库应 clone 到哪个本地路径（如 mattpocock/skills、mattpocock/sandcastle）",
+     "好处：工具与 steering 文件集中、所有 agent 有统一运行入口、便于跨仓库做大范围改动",
+     "他说昨天在课程中讲过，反响很好"
+    ],
+    "why": "这是一个低成本的多仓库 agent 工作流组织方式，不需要改造成 monorepo，只靠一个入口仓库和 AGENTS.md 指引即可。“简单且有效”是作者的个人经验判断；帖子提到的“见下方”内容未采集到，不做推断。",
+    "tags": [
+     "Agent 工程",
+     "AGENTS.md",
+     "多仓库",
+     "工作流"
+    ]
+   }
+  }
+ ]
+}
