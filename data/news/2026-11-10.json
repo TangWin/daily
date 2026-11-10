@@ -1,0 +1,329 @@
+{
+ "schema_version": 1,
+ "type": "news",
+ "date": "2026-11-10",
+ "day": {
+  "window": "11/09 08:30 – 11/10 08:30 北京时间",
+  "note": "未使用 X 付费 API",
+  "footer": "Java 和 Ontology 今日无值得报的新内容；Spring AI、LangChain4j、ADK Java、MCP Java SDK 过去 24 小时没有新版本。",
+  "highlights": [
+   1,
+   4,
+   6
+  ]
+ },
+ "items": [
+  {
+   "id": "news-2026-11-10-01",
+   "date": "2026-11-10",
+   "type": "news",
+   "rank": 1,
+   "title": "Anthropic 发布 Claude Fable 5.2 / Mythos 5.2",
+   "summary": "同一底座两个版本，价格降到 $8/$40 每百万 token，FrontierCode 2.0 拿到 49.1%，1000 个 agent 30 小时形式化了费马大定理。",
+   "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+   "tags": [
+    "模型",
+    "Coding Agent",
+    "Harness"
+   ],
+   "raw_tags": [
+    "模型",
+    "Coding Agent",
+    "Harness Engineering"
+   ],
+   "score": 876,
+   "score_label": "HN 876 · 526 评；Artificial Analysis 榜单 HN 262",
+   "detail": {
+    "heat": "HN 876 · 526 评；Artificial Analysis 榜单 HN 262",
+    "highlight": true,
+    "event": "Anthropic 11 月 9 日发布 Claude Fable 5.2 和 Mythos 5.2：两者是同一个模型，Fable 带网络安全和生物安全拦截、对所有人开放，Mythos 只给通过验证计划的机构。价格 $8/$40 每百万 token，输出最高快 30%，另有 2.5 倍速的 fast mode（$16/$80）。官方基准里 FrontierCode 2.0 为 49.1%（Opus 5.5 是 45.5%、GPT-6 Astra 42.8%），FrontierSWE v2 69.9%；High 档的 Fable 5.2 与 Opus 5.5 最高档得分持平，单任务成本约一半。案例包括：1000 个 Fable 5.2 agent 30 小时完成费马大定理的 Lean 形式化（同配置 Opus 5.5 18 小时只完成 26%）、协调 1000 多个子 agent 8 天写出可启动的原型操作系统、把一个生产服务从 Python 迁到 Rust（启动快约 26 倍）。Anthropic 称其核心代码库 90% 以上的合入变更由 Claude 写。Artificial Analysis 给出 65 分，为目前最高。",
+    "why": "官方明确把 Fable 定位成 Advisor（小模型遇难题时咨询它）和 Orchestrator（把简单任务派给小模型）两种角色，这是在给多模型 harness 背书；同时它仍建议日常先用 Opus 5.5，再按任务难度上下切换。",
+    "use": "可以在现有 coding agent 流程里试一个「Opus/Sonnet 干活 + Fable 做规划和疑难咨询」的分层配置，用 High 档对比成本和合入率，而不是整体切到最贵的模型。注意 Fable 遇到安全类任务会被拦截并回退到 Opus 4.8，做安全扫描的流程要单独评估。",
+    "links": [
+     {
+      "name": "Anthropic 发布文",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50429906"
+     },
+     {
+      "name": "Artificial Analysis",
+      "url": "https://artificialanalysis.ai/models/claude-fable-5-2"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-10-02",
+   "date": "2026-11-10",
+   "type": "news",
+   "rank": 2,
+   "title": "「Opus 5.5 是不是被削弱了？」争议冲上 HN",
+   "summary": "用户称 11 月 3 日起 Opus 5.5 思考模式变了，新模型一发布，「发版前先降智」的说法再度发酵，但目前没有评测数据支撑。",
+   "url": "https://twitter.com/shanemelaugh/status/2119192075505893695",
+   "tags": [
+    "Coding Agent",
+    "有争议"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "争议观点"
+   ],
+   "score": 729,
+   "score_label": "HN 729 · 469 评",
+   "detail": {
+    "heat": "HN 729 · 469 评",
+    "highlight": false,
+    "event": "一条 X 帖子称 Opus 5.5 的思考模式从 11 月 3 日开始变化，HN 上大量开发者附和说最近一周错误明显变多，Fable 5.2 发布后有人认为「发版前降智」被坐实。也有人指出唯一长期跟踪 Opus 5.5 的公开评测 livenerf 没有显示退化，并提醒不要只信体感。",
+    "why": "依赖单一托管模型的 agent 流程，最怕模型行为在不通知的情况下漂移；这类争议每隔几个月出现一次，说明团队需要自己的回归信号，而不是靠论坛情绪判断。",
+    "use": "给关键 agent 任务建一个小型固定回归集（比如 20 个历史真实任务），每天或每周定时跑并记录通过率和 token 消耗；模型版本、effort 档位写死在配置里，出现漂移时能拿数据去判断和切换。",
+    "links": [
+     {
+      "name": "原帖（X）",
+      "url": "https://twitter.com/shanemelaugh/status/2119192075505893695"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50422069"
+     },
+     {
+      "name": "livenerf 评测",
+      "url": "https://github.com/ninjahawk/livenerf"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-10-03",
+   "date": "2026-11-10",
+   "type": "news",
+   "rank": 3,
+   "title": "Claude Code 2.1.321：Fable 设为默认，修了一串权限绕过",
+   "summary": "除了接入 Fable 5.2，还修复了只读 Bash 跳出沙箱、cp/mv 绕过 deny 规则、MCP OAuth 重定向泄露 refresh token 等问题。",
+   "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.321",
+   "tags": [
+    "Coding Agent",
+    "MCP",
+    "安全"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "MCP",
+    "安全"
+   ],
+   "score": null,
+   "score_label": "GitHub Release",
+   "detail": {
+    "heat": "GitHub Release",
+    "highlight": false,
+    "event": "Claude Code v2.1.321（11 月 9 日）把 claude-fable-5-2 设为默认 Fable 模型（1M 上下文，缓存读取 $0.20/M）；remote-control 新增 --settings 参数，给它启动的每个会话统一套一份设置文件。安全修复包括：MCP 服务器重定向时 OAuth 请求会把 refresh token 等密钥发到另一台主机；某些只读 Bash 命令在沙箱外执行且不弹权限提示；Bash 权限检查按错误目录判断文件写入；cp 或 mv 到目录时 deny 规则和受保护文件提示不生效；网络路径上 Edit 可能改错匹配或整文件替换。",
+    "why": "这些都是「看起来有权限控制、实际没拦住」的漏洞，说明 agent 的权限模型在命令语义（cp/mv 目标、工作目录）上很容易漏判；MCP OAuth 跟随重定向发送 token 的问题也值得所有 MCP 客户端实现者对照检查。",
+    "use": "团队里用 Claude Code 的尽快升级；remote-control 的 --settings 可以用来统一下发权限和 deny 规则。如果自研 agent 或 MCP 客户端，检查 OAuth 是否会对跨域重定向携带凭据，以及文件类 deny 规则是否覆盖 cp/mv 的实际落点。",
+    "links": [
+     {
+      "name": "Release 说明",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.321"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-10-04",
+   "date": "2026-11-10",
+   "type": "news",
+   "rank": 4,
+   "title": "MCP 鉴权双消息：Mittwald 经 MCP 服务器被入侵，规范弃用 DCR",
+   "summary": "德国主机商 Mittwald 的 MCP 服务器被利用，攻击者读走客户 token、攻陷 56 个项目；同时 MCP 授权指南改以 Client ID Metadata Documents 为主、标记 DCR 弃用。",
+   "url": "https://webhosting.today/2026/11/09/mittwald-traces-a-breach-of-56-customer-projects-to-its-mcp-server/",
+   "tags": [
+    "MCP",
+    "安全"
+   ],
+   "raw_tags": [
+    "MCP",
+    "安全"
+   ],
+   "score": null,
+   "score_label": null,
+   "detail": {
+    "heat": "",
+    "highlight": true,
+    "event": "据 webhosting.today 11 月 9 日报道，Mittwald 的 mStudio MCP 服务器 10 月 27 日被利用漏洞，攻击者读取了使用过该服务器的客户的会话 token，进而攻陷 56 个客户项目，8 天后（11 月 4 日）才发现；公司已吊销 token、预防性封禁 API key。没用过 MCP 服务器的客户不受影响。同期 MCP 规范仓库合入 PR #3518，重写 2026-07-28 版授权指南：Client ID Metadata Documents 成为主要注册方式，Dynamic Client Registration 标为弃用，并加强 audience、issuer、scope 和 Origin 头校验；PR #3514 规定 SEP 需先经工作组批准才能开规范 PR。",
+    "why": "这是少见的「MCP 服务器本身成为集中化 token 仓库、一处被破全员受影响」的真实事故，正好说明 MCP 服务器不该长期持有用户高权限会话凭据；规范同时在收紧 OAuth 注册和校验，两件事方向一致。",
+    "use": "自建或评审 MCP 服务器时：用短期、最小 scope 的 token，不存用户的完整会话凭据；按新指南做 audience/issuer 校验；新接入的 OAuth 客户端改用 Client ID Metadata Documents，不再依赖 DCR。支付或资金类系统暴露 MCP 时更要先做只读、管理员显式开启。",
+    "links": [
+     {
+      "name": "Mittwald 事件报道",
+      "url": "https://webhosting.today/2026/11/09/mittwald-traces-a-breach-of-56-customer-projects-to-its-mcp-server/"
+     },
+     {
+      "name": "MCP PR #3518",
+      "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/pull/3518"
+     },
+     {
+      "name": "MCP PR #3514",
+      "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/pull/3514"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-10-05",
+   "date": "2026-11-10",
+   "type": "news",
+   "rank": 5,
+   "title": "ChatGPT Desktop 会把你的 SSH agent 转发到远程机器",
+   "summary": "Codex 远程 SSH 模式下，远端机器上的 agent 能用你本地的 SSH 凭据，比如推送到你的私有 GitHub 仓库。",
+   "url": "https://news.ycombinator.com/item?id=50422628",
+   "tags": [
+    "Coding Agent",
+    "安全",
+    "Harness"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "安全",
+    "Harness Engineering"
+   ],
+   "score": 205,
+   "score_label": "HN 205 · 71 评",
+   "detail": {
+    "heat": "HN 205 · 71 评",
+    "highlight": false,
+    "event": "HN 帖子指出，ChatGPT Desktop 的 Codex 远程 SSH 功能会转发本地 SSH agent，远端运行的 agent 因此能用你的本地密钥认证，例如推送到私有仓库。相关机制可追溯到 openai/codex 的 PR #28131（为 app-server proxy 加 --forward-ssh-agent，让长驻进程跟随新的转发 socket），后续 issue #59694 还报告了多个桌面客户端会互相覆盖共享的 SSH agent。评论区建议用需要逐次确认的 SSH agent（如 Bitwarden、macOS Secure Enclave 指纹确认）。",
+    "why": "SSH agent 转发本身是常规功能，但交给一个自主执行命令的 agent，就等于把你所有 SSH 身份借给了它；这是 coding agent 远程化之后很容易被忽视的权限面。",
+    "use": "在跑远程 agent 的机器上默认关闭 agent forwarding，给 agent 单独发只读或单仓库的 deploy key；本地 SSH key 改成每次使用都要确认，至少能看见 agent 何时在用它。",
+    "links": [
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50422628"
+     },
+     {
+      "name": "codex PR #28131",
+      "url": "https://github.com/openai/codex/pull/28131"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-10-06",
+   "date": "2026-11-10",
+   "type": "news",
+   "rank": 6,
+   "title": "加拿大实时支付系统 Real-Time Rail 正式上线",
+   "summary": "7×24 实时清算结算、ISO 20022 报文，G7 中第一个上线即强制集中反欺诈（含收款人确认）的实时支付系统。",
+   "url": "https://www.payments.ca/canada-launches-real-time-rail-bringing-247-payment-infrastructure-national-economy",
+   "tags": [
+    "支付"
+   ],
+   "raw_tags": [
+    "支付系统"
+   ],
+   "score": 449,
+   "score_label": "HN 449 · 253 评",
+   "detail": {
+    "heat": "HN 449 · 253 评",
+    "highlight": true,
+    "event": "Payments Canada 11 月 9 日宣布 RTR 上线：参与机构可 7×24 实时清算和结算，采用 ISO 20022 富数据报文，由 CGI、德勤、IBM 和 Interac 共同交付，Interac 任技术运营方和首个反欺诈服务商，Interac e-Transfer 将开始在 RTR 上清算结算。上线即强制的集中反欺诈服务包括：收款人确认（首日支持个人账户）、交易风险评分、风险名单库、欺诈上报与情报平台。首批参与者是 Wealthsimple、KOHO、Bank of America 等 8 家，五大行要在未来数月陆续接入，目标一年内覆盖九成以上加拿大人。HN 评论对比了美国 FedNow 覆盖少、收费高的现状。",
+    "why": "「实时到账 + 集中化反欺诈从第一天就强制」是实时支付系统设计的一个新样板，对应的是实时支付最大的痛点：钱一到账就追不回，风控必须前置。",
+    "use": "做支付系统的可以参考它的反欺诈分层：收款人确认放在发起前、交易打分放在清算链路中、风险名单和上报平台做网络级共享。ISO 20022 报文的结构化字段也是做对账自动化和 AI 风控特征的好来源。",
+    "links": [
+     {
+      "name": "Payments Canada 公告",
+      "url": "https://www.payments.ca/canada-launches-real-time-rail-bringing-247-payment-infrastructure-national-economy"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50427362"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-10-07",
+   "date": "2026-11-10",
+   "type": "news",
+   "rank": 7,
+   "title": "Gemini 连接 Gmail/Drive 后，文件可能被送去人工标注",
+   "summary": "GitHub 上的整理显示，消费版 Gemini 通过 Connected Apps 读取的邮件和 Drive 文件，也适用「可能由人工审阅」的条款；Workspace 版声称不受此限。",
+   "url": "https://github.com/thisisme6598/gemini_files/",
+   "tags": [
+    "Context Engineering",
+    "隐私",
+    "AI Agent"
+   ],
+   "raw_tags": [
+    "Context Engineering",
+    "隐私",
+    "AI Agent"
+   ],
+   "score": 342,
+   "score_label": "HN 342 · 84 评",
+   "detail": {
+    "heat": "HN 342 · 84 评",
+    "highlight": false,
+    "event": "一个 GitHub 仓库整理了 Google 的条款和实际案例，指出消费版 Gemini 在用户授权 Gmail、Drive 等 Connected Apps 后，工具调用读进来的内容和其他对话一样，可能被交给人工标注员审阅。HN 评论补充：Workspace 版 Gemini 及其企业 RAG 仍声明不做人审，问题集中在个人账户。",
+    "why": "agent 通过连接器把私有数据拉进上下文后，这些数据就跟着进入了模型方的对话数据管道；「工具读进来的内容算不算用户输入」是 context engineering 里经常被忽视的合规边界。",
+    "use": "给团队定一条规则：涉及客户或支付数据的连接器只在企业版、零数据保留的账户上开；评估任何 agent 产品时，把「连接器读取的内容如何留存、是否人审、是否用于训练」列入必查项。",
+    "links": [
+     {
+      "name": "GitHub 整理",
+      "url": "https://github.com/thisisme6598/gemini_files/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50429426"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-10-08",
+   "date": "2026-11-10",
+   "type": "news",
+   "rank": 8,
+   "title": "AI 编码的账单和代价：苹果每天 $200 上限，「100% AI」一年后没人懂代码",
+   "summary": "报道称苹果给工程师设了每天 $200 的 AI 预算并考虑降到 $100；另一篇 Reddit 帖子讲强制全 AI 写代码一年后团队失去了对代码的理解。",
+   "url": "https://www.stork.ai/newsletter/2026-11-08-apple-capped-engineers-at-a-200-daily-ai-budget",
+   "tags": [
+    "Coding Agent",
+    "工程管理",
+    "有争议"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "工程管理",
+    "争议观点"
+   ],
+   "score": 110,
+   "score_label": "HN 110 · 120 评；HN 75 · 70 评",
+   "detail": {
+    "heat": "HN 110 · 120 评；HN 75 · 70 评",
+    "highlight": false,
+    "event": "Stork 通讯称苹果给工程师的 AI 使用设了每天 $200 上限，评论引用雅虎财经报道说可能进一步降到 $100，并提到埃森哲每月只给员工 $29。同一天 r/ClaudeCode 一篇帖子说，公司推行「100% AI」一年后，团队里一半人一年没写过非平凡代码，排查问题比 2024 年慢得多；HN 上有人用检测工具判断原帖本身是 AI 生成，作者也没回应，可信度存疑，但评论里不少人分享了类似经历。",
+    "why": "继高盛收回 Claude Code 之后，大公司开始从「全员放开」转向「按预算和角色管控」，而「人还懂不懂代码」正在成为 AI 编码推广的主要反对理由。",
+    "use": "在团队推 coding agent 时，可以同时设置按人或按任务的 token 预算和看板，并保留「关键模块必须有人能讲清楚」的要求，例如核心支付链路的变更要求作者口头或书面解释设计，而不只是评审 diff。",
+    "links": [
+     {
+      "name": "苹果预算报道",
+      "url": "https://www.stork.ai/newsletter/2026-11-08-apple-capped-engineers-at-a-200-daily-ai-budget"
+     },
+     {
+      "name": "HN 讨论（苹果）",
+      "url": "https://news.ycombinator.com/item?id=50421426"
+     },
+     {
+      "name": "Reddit 原帖",
+      "url": "https://www.reddit.com/r/ClaudeCode/comments/1xq2n3t/a_year_after_the_100_ai_mandate_nobody/"
+     },
+     {
+      "name": "HN 讨论（100% AI）",
+      "url": "https://news.ycombinator.com/item?id=50433079"
+     }
+    ]
+   }
+  }
+ ]
+}
