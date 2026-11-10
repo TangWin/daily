@@ -3,13 +3,113 @@
  "type": "x",
  "date": "2026-11-10",
  "day": {
-  "digest": "Matt Pocock 分享了让 agent 拷问需求时“先讲问题、再谈方案”的技巧，并主张把对 agent 的纠正固化成 lint 规则；晚些时候他参与 Gergely Orosz 关于 AI 时代 waterfall 与 agile 的讨论，认为差别已淡化、关键在于规划的量与精细度，还指出 agent 会加剧古德哈特定律，用 PR 数考核生产力可能有害。",
+  "digest": "Matt Pocock 分享了让 agent 拷问需求时“先讲问题、再谈方案”的技巧，主张把对 agent 的纠正固化成 lint 规则；他参与了 AI 时代 waterfall 与 agile 的讨论，并指出 agent 会加剧古德哈特定律。晚间他展示了一个团队共享的“决策工单”看板原型，想把对齐工作提前到实现之前，agent 可通过 CLI 往看板上添加问题。",
   "by_source": {
-   "mattpocockuk": "讲 grilling 技巧与 lint 规则、提到用 Wispr Flow 语音听写；讨论 AI 时代 waterfall/agile 与规划精细度；警告 agent 会让按 PR 数考核适得其反。"
+   "mattpocockuk": "讲 grilling 技巧与 lint 规则、语音听写；讨论 waterfall/agile 与按 PR 数考核的危害；试验团队共享的“决策工单”看板式 grilling UI。"
   },
-  "updated_at": "2026-11-10T20:10:00+09:00"
+  "updated_at": "2026-11-11T00:20:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2120141643407823121",
+   "date": "2026-11-10",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120141643407823121",
+   "url": "https://x.com/mattpocockuk/status/2120141643407823121",
+   "posted_at": "2026-11-10T21:08+08:00",
+   "kind": "reply",
+   "text": "The chat has a CLI it can use to add/update questions and wait for answers",
+   "article_title": null,
+   "reply_to": {
+    "handle": "serhii_fozykosh",
+    "post_id": "2120137342858260700",
+    "url": "https://x.com/serhii_fozykosh/status/2120137342858260700",
+    "text": "So this is generated on the fly in the chat or is it some kind of html page?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "聊天里的 agent 有一个 CLI，可以用它来添加/更新问题，并等待回答",
+   "analysis": {
+    "summary": "有人问这个决策工单看板是在聊天里即时生成的，还是某种 HTML 页面；Matt 回复说聊天中的 agent 可以通过一个 CLI 来添加、更新问题并等待回答。",
+    "points": [
+     "Serhii Fozykosh 询问看板是聊天中即时生成还是 HTML 页面",
+     "Matt：agent 通过一个 CLI 添加/更新问题",
+     "agent 还能通过这个 CLI 等待（人）回答"
+    ],
+    "why": "透露了这个原型的实现思路：agent 用命令行工具把问题写到共享看板上并等待团队回答，而非只在聊天窗口里提问。具体技术细节帖子未说明。",
+    "tags": [
+     "Agent 工程",
+     "CLI",
+     "团队协作"
+    ]
+   }
+  },
+  {
+   "id": "x-2120135880916808093",
+   "date": "2026-11-10",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120135880916808093",
+   "url": "https://x.com/mattpocockuk/status/2120135880916808093",
+   "posted_at": "2026-11-10T20:45+08:00",
+   "kind": "post",
+   "text": "Playing around with a different UI for grilling\n\nA shared 'decision ticket' board, where your team can talk through decisions before implementation\n\nWhy leave all the alignment until review - get it done early",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "在尝试给 grilling（拷问）换一种不同的 UI\n\n一个共享的“决策工单”（decision ticket）看板，你的团队可以在动手实现之前把各项决策讨论清楚\n\n为什么要把所有对齐工作都留到 review 阶段——早点把它搞定",
+   "analysis": {
+    "summary": "Matt Pocock 在试验一种新的 grilling 界面：共享的“决策工单”看板，让团队在实现之前就讨论和对齐决策，而不是等到代码 review 时才对齐。",
+    "points": [
+     "他在尝试给 grilling 工作流做不同的 UI",
+     "形式是团队共享的“决策工单”看板",
+     "目的是在实现前完成决策讨论",
+     "主张把对齐从 review 阶段提前",
+     "帖子附了一个链接/配图，未采集到其具体内容，不做推断"
+    ],
+    "why": "把 agent 拷问需求的过程从单人聊天扩展为团队协作的决策板，是 grilling 工作流的一个延伸方向。目前只是作者在试验的原型，细节以帖子附带内容为准。",
+    "tags": [
+     "Agent 工程",
+     "需求澄清",
+     "团队协作"
+    ]
+   }
+  },
+  {
+   "id": "x-2120130205737947236",
+   "date": "2026-11-10",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120130205737947236",
+   "url": "https://x.com/mattpocockuk/status/2120130205737947236",
+   "posted_at": "2026-11-10T20:23+08:00",
+   "kind": "reply",
+   "text": "I'd say, good luck finding the holy grail",
+   "article_title": null,
+   "reply_to": {
+    "handle": "alperortac",
+    "post_id": "2120113658227233078",
+    "url": "https://x.com/alperortac/status/2120113658227233078",
+    "text": "What if we find the holy grail metric that actually measures productivity in a meaningful way? Like tying code changes to business earnings for example?\n\nI know it's super hard, but sounds like something we might be able to figure out in the future."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我只能说，祝你好运，去找那个圣杯吧",
+   "analysis": {
+    "summary": "Alper Ortac 回复 Matt 关于古德哈特定律的帖子，设想将来也许能找到真正有意义地衡量生产力的“圣杯”指标，比如把代码改动和业务收入挂钩；Matt 回复“祝你好运，去找圣杯吧”。",
+    "points": [
+     "Alper 设想：未来或许能找到真正衡量生产力的指标，例如把代码改动与业务收益挂钩，并承认这非常难",
+     "Matt 用“祝你好运找到圣杯”回应，表达怀疑"
+    ],
+    "why": "延续 Matt 上一条“衡量生产力本就不可能”的观点，语气带讽刺，信息量较低；属于观点表达。",
+    "tags": [
+     "生产力",
+     "工程管理"
+    ]
+   }
+  },
   {
    "id": "x-2120103371335962979",
    "date": "2026-11-10",
