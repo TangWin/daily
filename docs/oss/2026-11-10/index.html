@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>开源 2026-11-10 · Peter 的每日雷达</title>
+<meta name="description" content="11月10日 开源推荐：gputaskman：看清显存里到底是模型权重、KV 缓存还是别的进程">
+<link rel="canonical" href="https://tangwin.github.io/daily/oss/2026-11-10/">
+<meta property="og:title" content="开源 2026-11-10 · Peter 的每日雷达"><meta property="og:description" content="11月10日 开源推荐：gputaskman：看清显存里到底是模型权重、KV 缓存还是别的进程"><meta property="og:url" content="https://tangwin.github.io/daily/oss/2026-11-10/"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN">
+<link rel="alternate" type="application/rss+xml" title="AI 工程新闻 · Peter 的每日雷达" href="/daily/news/rss.xml"><link rel="alternate" type="application/rss+xml" title="产品 Idea Top 5 · Peter 的每日雷达" href="/daily/idea/rss.xml"><link rel="alternate" type="application/rss+xml" title="开源推荐 · Peter 的每日雷达" href="/daily/oss/rss.xml">
+<script>/* mark JS + apply saved theme before paint */(function(){var d=document.documentElement;d.className+=' js';try{var t=localStorage.getItem('hub-theme');if(t)d.dataset.theme=t}catch(e){}})()</script>
+<link rel="stylesheet" href="/daily/assets/style.css">
+</head>
+<body data-base="/daily/">
+<a class="skip" href="#main">跳到正文</a>
+<header class="site">
+  <div class="bar wrap">
+    <a class="brand" href="/daily/"><span class="logo" aria-hidden="true"></span><span>Peter 的每日雷达</span></a>
+    <nav class="nav" aria-label="频道"><a href="/daily/" data-nav="home">今天</a><a href="/daily/news/" data-nav="news">新闻</a><a href="/daily/idea/" data-nav="idea">产品 Idea</a><a href="/daily/oss/" data-nav="oss" class="on" aria-current="page">开源</a><a href="/daily/x/" data-nav="x">信源</a></nav>
+    <form class="search" role="search" id="searchForm" action="/daily/search/" method="get">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" name="q" type="search" placeholder="搜索标题、标签、内容" aria-label="搜索" autocomplete="off">
+    </form>
+    <div class="acts">
+      <a class="icon-btn blog" href="https://tangwin.github.io/blog/" title="博客">博客</a>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="切换主题" title="主题：跟随系统（点击切换）"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+<div class="narrow ch-oss"><div class="crumbs"><a href="/daily/">今天</a> / <a href="/daily/oss/">开源</a> / 2026-11-10</div>
+<header class="page-h"><div class="eyebrow"><i style="background:var(--oss)"></i>Daily OSS Pick · 11.10</div>
+<h1>2026年11月10日 <small>周二 · 开源推荐</small></h1>
+<div class="facts"><a class="rss" href="/daily/oss/rss.xml" title="开源 RSS"><svg viewBox="0 0 24 24"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.2" fill="currentColor"/></svg>RSS</a></div></header>
+<article class="repo-card" id="c-oss-2026-11-10-gputaskman">
+<div class="repo"><a href="https://github.com/shanselman/gputaskman" target="_blank" rel="noopener">shanselman/gputaskman ↗</a> <span class="badge ch-oss">当日推荐</span></div>
+<div class="t">gputaskman：看清显存里到底是模型权重、KV 缓存还是别的进程</div><p>Scott Hanselman 开源的终端 GPU 任务管理器，把显存拆到进程、运行时和模型，再把 llama.cpp / Ollama 的占用拆成权重、KV 缓存和计算缓冲区；一周 7 个版本、91 次提交，昨天刚加了录制功能。</p>
+<div class="kv"><span class="star"><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg>1,502</span><span class="tag">74 forks</span><span class="tag">MIT</span><span class="tag">Python</span><span class="tag">最新发布 v0.3.4</span></div>
+<div class="kv"><span class="badge ch-oss">开发者工具</span><span class="badge ch-oss">模型</span><span class="badge ch-oss">本地推理</span><span class="badge ch-oss">GPU 监控</span></div></article>
+<div class="prose"><h2>gputaskman：看清显存里到底装了什么，是模型权重、KV 缓存还是浏览器</h2><p><strong>为什么今天值得试：</strong> Scott Hanselman（微软开发者社区的老面孔）11 月 3 日开源的终端工具，一周拿下约 1500 星。本地跑大模型最常见的困惑是「显存满了，但到底谁占的」：任务管理器和 <code>nvidia-smi</code> 只给一个总数，它能把显存拆到进程、运行时、模型文件，再把 llama.cpp / Ollama 的占用拆成权重、KV 缓存和计算缓冲区。昨天还一口气合并了 8 个 PR，加了 <code>record</code> 录制功能。</p><p>仓库：<a href="https://github.com/shanselman/gputaskman" target="_blank" rel="noopener">shanselman/gputaskman</a></p><h3>它解决什么问题 / 适合谁</h3><p>在自己电脑上跑 llama.cpp、Ollama、LM Studio、PyTorch 训练或 Unsloth 微调的人。它回答这些问题：这 15 GB 显存是哪个进程、哪个模型用的；改了上下文长度 <code>-c</code> 后 KV 缓存涨了多少；为什么有一大块 GPU 内存落在系统内存里（可能拖慢推理）。云端服务、纯 CPU 或 NPU 推理不在范围内。</p><h3>从 README 读到的要点</h3><ul><li><strong>一个更懂 AI 的 htop：</strong> 终端界面（TUI）同时显示设备的显存、负载、温度、功耗、PCIe 流量和历史曲线，以及每个进程的显存、溢出到系统内存的部分（Spill）、引擎占用、加载的运行时（CUDA、HIP、Vulkan、ggml、ONNX Runtime 等）。</li><li><strong>模型拆解：</strong> 读 GGUF 文件头估算权重和 KV 缓存，配合 llama-server 的日志（<code>-lv 4 --log-file</code>）给出实际缓冲区大小，并探测本机的 <code>/props</code>、<code>/slots</code>、<code>/v1/models</code>、<code>/api/ps</code> 拿到上下文长度、忙碌槽位和 Ollama / LM Studio 的友好模型名。作者在 RTX 4080 SUPER 上对过账：Qwen3-0.6B 的权重和 KV 估算与运行时日志完全一致。</li><li><strong>每条结论都标证据：</strong> 模型识别标出 <code>api</code>、<code>mapped</code>、<code>cmdline</code>、<code>installed</code> 哪种来源，两种强证据才算「确认」；测不到的值显示 <code>n/a</code>（JSON 里是 <code>null</code>），不会伪装成 0。</li><li><strong>跨平台：</strong> Windows（NVIDIA / AMD，用 WDDM 计数器，GeForce 上 <code>nvidia-smi</code> 给不出的每进程显存它能给）、原生 Linux（NVIDIA、AMD、Intel i915）、WSL（从 Windows 宿主读计数器再匹配回 Linux 进程）、Docker 容器、Apple Silicon Mac。</li><li><strong>可脚本化：</strong> <code>--once</code> 文本快照、<code>--json</code> 机器可读，<code>gputaskman diff before.json after.json</code> 对比加载模型前后哪块内存涨了，<code>gputaskman record</code> 每秒往 JSONL 文件追加一次快照，适合记录整晚的训练或推理服务。</li></ul><h3>近期活跃证据</h3><ul><li><strong>Issues：</strong> 共 15 个，已关 11 个、开放 4 个。Ollama 清单里 <code>layers</code> 为空导致崩溃的报告（#33）不到一小时就修好合并；多显卡支持（#7）从提出到 v0.3.3 发布用了三天，期间有多位用户贴出三卡、混合厂商的实测结果。维护方的回复由 Copilot 代理代 Scott 分诊，并会明说自己不是本人。</li><li><strong>Release：</strong> 一周 7 个版本，最新 v0.3.4 发布于北京时间 2026-11-09 10:28，加了精简监控视图和 Windows 显卡禁用后重新启用的自动恢复；每版自动出 Windows x64/ARM64、Linux x64/ARM64 便携包，并发布到 PyPI。</li><li><strong>提交：</strong> 91 次提交、9 位贡献者（作者 69 次）；北京时间 11 月 9 日下午到傍晚连续合并了 AMD、Intel、macOS、内存与 CPU 面板等社区 PR，以及 <code>record</code> 命令。</li></ul><h3>怎么快速上手</h3><ol><li>有 Python 3.11+：<code>uv tool install gputaskman</code>（或 <code>pipx install gputaskman</code>）。没有 Python 的 Windows 用户直接从 <a href="https://github.com/shanselman/gputaskman/releases" target="_blank" rel="noopener">Releases</a> 下载便携 ZIP，解压后运行 <code>gputaskman.exe</code>。</li><li>先开一个模型（例如 <code>ollama run qwen3:8b</code> 或你自己的 llama-server），再运行 <code>gputaskman</code>，用上下方向键选中那个进程看拆解；按 <code>?</code> 看每个指标的含义和局限。</li><li>想看改参数的影响：<code>gputaskman --json &gt; before.json</code>，调整上下文长度并发一次请求后再导出 <code>after.json</code>，跑 <code>gputaskman diff before.json after.json</code>。</li></ol><h3>风险与注意</h3><ul><li><strong>早期实验软件：</strong> README 自己说设备和进程计数器是实测，分类和 GGUF 拆解是估算；滑动窗口注意力的模型（如 Gemma 3）KV 估算只是上限。</li><li><strong>很多组合没在真机验证：</strong> 双独显、Windows 多卡、Intel <code>xe</code> 驱动、AMD 新的归属规则都标了「未在硬件上验证」；Linux 和 WSL 上已在运行的进程归属只是推测（标 <code>?</code>）。</li><li><strong>便携包未签名</strong>，Windows 可能弹出警告；macOS 目前只能从源码运行。</li><li><strong>隐私：</strong> 检查器、JSON 和录制文件会包含路径、命令行参数、模型名和本地端口，分享截图或日志前要先打码。它会向本机已监听的端口发 GET 请求做探测，若 llama-server 用 <code>--api-key</code> 启动会带上这个 key（不存储也不打印）。</li></ul></div>
+<nav class="pager" aria-label="翻页"><span><a href="/daily/oss/2026-11-09/" rel="prev">← 11月9日</a></span><a href="/daily/oss/">开源 · 全部往期</a><span></span></nav></div>
+</main>
+<footer class="site-foot wrap">
+  <span>Peter 的每日雷达 · 新闻 08:30、产品 Idea 07:00、开源 10:00 每日更新（北京时间）· 信源每天多次更新</span>
+  <span><a href="/daily/news/">新闻</a> · <a href="/daily/idea/">产品 Idea</a> · <a href="/daily/oss/">开源</a> · <a href="https://tangwin.github.io/blog/">博客</a> · <a href="https://github.com/TangWin/daily">GitHub</a></span>
+</footer>
+<script src="/daily/assets/app.js" defer></script>
+</body>
+</html>
