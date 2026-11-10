@@ -3,13 +3,115 @@
  "type": "x",
  "date": "2026-11-10",
  "day": {
-  "digest": "Matt Pocock 分享了让 agent 拷问需求时“先讲问题、再谈方案”的技巧，并在讨论中延伸到提示词里的限定语与语音听写；另外他同意“要敢于否定 agent 的糟糕输出”，并补充应把纠正固化成 lint 规则。",
+  "digest": "Matt Pocock 分享了让 agent 拷问需求时“先讲问题、再谈方案”的技巧，并主张把对 agent 的纠正固化成 lint 规则；晚些时候他参与 Gergely Orosz 关于 AI 时代 waterfall 与 agile 的讨论，认为差别已淡化、关键在于规划的量与精细度，还指出 agent 会加剧古德哈特定律，用 PR 数考核生产力可能有害。",
   "by_source": {
-   "mattpocockuk": "讲 grilling 技巧：先描述问题而非方案；赞同否定 agent 烂输出并主张加 lint 规则；提到自己用语音听写、订阅了 Wispr Flow。"
+   "mattpocockuk": "讲 grilling 技巧与 lint 规则、提到用 Wispr Flow 语音听写；讨论 AI 时代 waterfall/agile 与规划精细度；警告 agent 会让按 PR 数考核适得其反。"
   },
-  "updated_at": "2026-11-10T08:05:00+09:00"
+  "updated_at": "2026-11-10T20:10:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2120103371335962979",
+   "date": "2026-11-10",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120103371335962979",
+   "url": "https://x.com/mattpocockuk/status/2120103371335962979",
+   "posted_at": "2026-11-10T18:36+08:00",
+   "kind": "post",
+   "text": "Agents make Goodhart's Law a LOT worse:\n\n\"When a measure becomes a target, it ceases to be a good measure.\"\n\nAgents are incredibly good at gaming metrics. So any organisation that says \"we track your number of PR's\" is fucked.\n\nMeasuring productivity was already impossible. Now it might be actively harmful.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "Agent 让古德哈特定律（Goodhart's Law）严重得多：\n\n“当一个指标变成目标，它就不再是一个好指标。”\n\nAgent 特别擅长刷指标。所以任何说“我们会统计你的 PR 数量”的组织都完蛋了。\n\n衡量生产力本来就不可能。现在这么做可能还会主动带来危害。",
+   "analysis": {
+    "summary": "Matt Pocock 认为 agent 会大大加剧古德哈特定律：agent 极擅长刷指标，用 PR 数量之类的指标衡量生产力不仅无效，还可能有害。",
+    "points": [
+     "引用古德哈特定律：指标一旦成为目标就不再是好指标",
+     "agent 非常擅长钻指标的空子",
+     "按 PR 数量考核的组织会陷入困境",
+     "衡量生产力本就做不到，现在可能适得其反"
+    ],
+    "why": "提醒团队在引入 agent 后慎用产出类量化指标（如 PR 数）考核。属于作者观点，未附数据。",
+    "tags": [
+     "Agent 工程",
+     "工程管理",
+     "生产力"
+    ]
+   }
+  },
+  {
+   "id": "x-2120100656195555654",
+   "date": "2026-11-10",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120100656195555654",
+   "url": "https://x.com/mattpocockuk/status/2120100656195555654",
+   "posted_at": "2026-11-10T18:26+08:00",
+   "kind": "reply",
+   "text": "Essentially the differences between waterfall and agile have faded\n\nBecause the differences were about how you applied human labour\n\nNow, it's basically \"do you plan? how much? at what fidelity?\"",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2120100383527682165",
+    "url": "https://x.com/mattpocockuk/status/2120100383527682165",
+    "text": "Yes, but only if it's done at the right fidelity\n\nI still hear stories of folks taking a month to plan something (with, say, /wayfinder) and not getting what they want at the end\n\nThat's probably because they're mostly planning with text, not code\n\nBuilding prototypes and gathering early feedback has never been easier with agents\n\nSo agile is ALSO better with AI"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "本质上，waterfall 和 agile 之间的差别已经淡化了\n\n因为那些差别讲的是你如何投入人力\n\n现在，基本上就是“你做不做规划？做多少？精细度多高？”",
+   "analysis": {
+    "summary": "Matt 在回复 Gergely 的讨论中接着自己的上一条补充：waterfall 与 agile 的区别已经淡化，问题变成了规划与否、规划多少、精细度多高。",
+    "points": [
+     "waterfall 和 agile 的差别在淡化",
+     "过去的区别在于如何安排人力投入",
+     "现在的核心问题是：是否规划、规划多少、规划精细度多高"
+    ],
+    "why": "把开发方法论之争重新表述为“规划的量与精细度”的选择，是 Matt 的观点，延续上一条关于用原型做规划的论述。",
+    "tags": [
+     "软件开发流程",
+     "规划",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2120100383527682165",
+   "date": "2026-11-10",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120100383527682165",
+   "url": "https://x.com/mattpocockuk/status/2120100383527682165",
+   "posted_at": "2026-11-10T18:24+08:00",
+   "kind": "reply",
+   "text": "Yes, but only if it's done at the right fidelity\n\nI still hear stories of folks taking a month to plan something (with, say, /wayfinder) and not getting what they want at the end\n\nThat's probably because they're mostly planning with text, not code\n\nBuilding prototypes and gathering early feedback has never been easier with agents\n\nSo agile is ALSO better with AI",
+   "article_title": null,
+   "reply_to": {
+    "handle": "GergelyOrosz",
+    "post_id": "2120058798178009574",
+    "url": "https://x.com/GergelyOrosz/status/2120058798178009574",
+    "text": "Hear me out:\n\nWe hated \"waterfall\" because after Big Upfront Planning, implementation took FOREVER, and by the time we were done, the plan was out of date\n\nBut with AI, implementation is rapid (100x faster, or more, than before)\n\nSo Big Upfront Planning can now make sense?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "是的，但前提是规划的精细度要对\n\n我还是常听到有人花一个月做规划（比如用 /wayfinder），最后却没得到想要的东西\n\n这大概是因为他们主要在用文字做规划，而不是用代码\n\n有了 agent，做原型、尽早收集反馈从没这么容易过\n\n所以 agile 用上 AI 也一样变得更好",
+   "analysis": {
+    "summary": "Gergely Orosz 提出：既然 AI 让实现快了 100 倍以上，“大规模前期规划”（waterfall）是否又变得合理了？Matt 回复说可以，但前提是规划精细度要对，而且 AI 同样让 agile 变得更好。",
+    "points": [
+     "Gergely 的观点：过去讨厌 waterfall 是因为实现太慢、计划过时；AI 让实现极快，前期大规划或许重新合理",
+     "Matt：前提是规划的精细度（fidelity）要对",
+     "他听说有人用 /wayfinder 规划一个月仍没得到想要的结果，认为原因是主要用文字而非代码做规划",
+     "agent 让做原型、早期收集反馈变得极其容易，因此 agile 也受益于 AI"
+    ],
+    "why": "讨论 AI 时代开发流程的取舍：Matt 主张用原型（代码）而非纯文字去做规划。属于观点表达，“一个月规划”的案例是他听来的说法，未给出具体出处。",
+    "tags": [
+     "Agent 工程",
+     "软件开发流程",
+     "规划"
+    ]
+   }
+  },
   {
    "id": "x-2119892609048916293",
    "date": "2026-11-10",
