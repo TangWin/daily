@@ -1,0 +1,152 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-12",
+ "day": {
+  "digest": "Matt Pocock 预告了与 Pi 创作者 @mitsuhiko、@badlogicgames 的直播访谈，并围绕 DDD 连发几条：用清晰一致的语言描述业务流程，就等于自动化软件做了一半，还建议维护 GLOSSARY.md。",
+  "by_source": {
+   "mattpocockuk": "预告 Pi 创作者直播访谈，并主张 DDD 在 AI 时代更有价值。"
+  },
+  "updated_at": "2026-11-12T08:25:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2120606575819956439",
+   "date": "2026-11-12",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120606575819956439",
+   "url": "https://x.com/mattpocockuk/status/2120606575819956439",
+   "posted_at": "2026-11-12T03:56+08:00",
+   "kind": "quote",
+   "text": "One odd quirk of AI is that if you can describe your business processes in clear, consistent language...\n\n...you've already half-built all the software you need to automate the process\n\nDDD has never been more powerful",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": {
+    "handle": "builtwithjon",
+    "post_id": "2120555188906041811",
+    "url": "https://x.com/builtwithjon/status/2120555188906041811",
+    "text": "How well does this work for non-coding work? I'm thinking of DDD'ing my entire business repo."
+   },
+   "links": [],
+   "translation_zh": "AI 有个奇特之处：如果你能用清晰、一致的语言描述你的业务流程……\n\n……那你其实已经把自动化这个流程所需的软件搭好一半了\n\nDDD 从未像现在这样强大",
+   "analysis": {
+    "summary": "Matt 引用一条“DDD 能否用于非编程工作”的提问，提出观点：能用清晰一致的语言描述业务流程，就等于自动化软件已经做了一半，DDD 在 AI 时代价值更大。",
+    "points": [
+     "被引用的问题：DDD 用在非编程工作上效果如何，提问者想把整个业务仓库 DDD 化",
+     "观点：用清晰、一致的语言描述业务流程，等于完成了自动化软件的一半",
+     "结论：DDD（领域驱动设计）在 AI 时代比以往更有用"
+    ],
+    "why": "这是作者的观点而非数据。它的逻辑是：AI 能把自然语言描述转成软件，所以瓶颈变成了把流程和术语说清楚，而这正是 DDD 擅长的。对想用 AI 自动化业务的人，先写清流程和术语表可能是性价比最高的一步。",
+    "tags": [
+     "DDD",
+     "AI 编程",
+     "业务自动化"
+    ]
+   }
+  },
+  {
+   "id": "x-2120606009861284188",
+   "date": "2026-11-12",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120606009861284188",
+   "url": "https://x.com/mattpocockuk/status/2120606009861284188",
+   "posted_at": "2026-11-12T03:54+08:00",
+   "kind": "reply",
+   "text": "Extremely well\n\nEspecially because once you nail down your processes in language it's then pretty trivial to build an app to help you",
+   "article_title": null,
+   "reply_to": {
+    "handle": "builtwithjon",
+    "post_id": "2120555188906041811",
+    "url": "https://x.com/builtwithjon/status/2120555188906041811",
+    "text": "How well does this work for non-coding work? I'm thinking of DDD'ing my entire business repo."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "效果非常好\n\n尤其是因为，一旦你用语言把流程确定下来，再做一个帮你干活的应用就相当简单了",
+   "analysis": {
+    "summary": "有人问 DDD 的做法用在非编程工作上效果如何、想把整个业务仓库都 DDD 化；Matt 回答效果非常好，因为流程用语言定清楚后，做个辅助应用就很简单。",
+    "points": [
+     "提问者想把 DDD 用到非编程的业务工作上",
+     "Matt 认为效果非常好",
+     "理由：流程一旦用语言明确下来，构建辅助应用就变得相当容易"
+    ],
+    "why": "这是作者的个人观点，没有给出具体案例；随后他把这个想法扩写成了一条引用帖。",
+    "tags": [
+     "DDD",
+     "业务流程",
+     "AI 编程"
+    ]
+   }
+  },
+  {
+   "id": "x-2120587029981561134",
+   "date": "2026-11-12",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120587029981561134",
+   "url": "https://x.com/mattpocockuk/status/2120587029981561134",
+   "posted_at": "2026-11-12T02:38+08:00",
+   "kind": "reply",
+   "text": "I do like having a canonical GLOSSARY.md file too",
+   "article_title": null,
+   "reply_to": {
+    "handle": "sandst1",
+    "post_id": "2120586518234362097",
+    "url": "https://x.com/sandst1/status/2120586518234362097",
+    "text": "Everywhere. In the specs. In the code. In the database. That's the point of DDD."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我也挺喜欢放一个权威的 GLOSSARY.md 文件",
+   "analysis": {
+    "summary": "有人说 DDD 的统一语言应该无处不在：规格、代码、数据库里都要用；Matt 回复说他也喜欢再维护一个权威的 GLOSSARY.md 文件。",
+    "points": [
+     "对方观点：领域术语要贯穿规格、代码和数据库，这正是 DDD 的意义",
+     "Matt 补充：用一个规范的 GLOSSARY.md 集中定义术语"
+    ],
+    "why": "一句简短的实践补充，信息量不大，但和他这几天反复讲的 DDD / 统一语言思路一致：把术语写成文件，方便人和 AI agent 共用。",
+    "tags": [
+     "DDD",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2120554967035433183",
+   "date": "2026-11-12",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120554967035433183",
+   "url": "https://x.com/mattpocockuk/status/2120554967035433183",
+   "posted_at": "2026-11-12T00:31+08:00",
+   "kind": "post",
+   "text": "Super excited to be doing another one of my live interviews\n\nThis time, with two legends in the space: @mitsuhiko and @badlogicgames \n\nYou'll learn how the creators of Pi think code should be written in the AI age\n\nMonday, 4:20PM UTC\n\nhttps://youtube.com/live/ZBTegd8DUZM?feature=share",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://youtube.com/live/ZBTegd8DUZM?feature=share",
+     "title": "LIVE: Writing code that doesn't suck with the creators of Pi"
+    }
+   ],
+   "translation_zh": "又要做一场我的直播访谈了，超级期待\n\n这次请到的是这个领域的两位传奇人物：@mitsuhiko 和 @badlogicgames\n\n你会了解到 Pi 的创作者们认为在 AI 时代代码应该怎么写\n\n周一，UTC 时间下午 4:20\n\nhttps://youtube.com/live/ZBTegd8DUZM?feature=share",
+   "analysis": {
+    "summary": "Matt Pocock 预告一场直播访谈，嘉宾是 @mitsuhiko 和 @badlogicgames，主题是 Pi 的创作者如何看待 AI 时代的代码写法。",
+    "points": [
+     "嘉宾：@mitsuhiko 和 @badlogicgames，帖子称他们是 Pi 的创作者",
+     "主题：AI 时代代码应该怎么写；直播标题为 “Writing code that doesn't suck with the creators of Pi”",
+     "时间：周一 UTC 16:20（北京时间周二 00:20），YouTube 直播"
+    ],
+    "why": "这是活动预告，本身没有观点内容；对关注 AI 编程实践和 Pi 这个工具的人，可以留意直播回放。",
+    "tags": [
+     "直播访谈",
+     "AI 编程",
+     "Pi"
+    ]
+   }
+  }
+ ]
+}
