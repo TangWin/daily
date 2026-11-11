@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>开源 2026-11-11 · Peter 的每日雷达</title>
+<meta name="description" content="11月11日 开源推荐：sand3d：让大模型用几百个 token 写出能动、能导出的 3D 物体">
+<link rel="canonical" href="https://tangwin.github.io/daily/oss/2026-11-11/">
+<meta property="og:title" content="开源 2026-11-11 · Peter 的每日雷达"><meta property="og:description" content="11月11日 开源推荐：sand3d：让大模型用几百个 token 写出能动、能导出的 3D 物体"><meta property="og:url" content="https://tangwin.github.io/daily/oss/2026-11-11/"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN">
+<link rel="alternate" type="application/rss+xml" title="AI 工程新闻 · Peter 的每日雷达" href="/daily/news/rss.xml"><link rel="alternate" type="application/rss+xml" title="产品 Idea Top 5 · Peter 的每日雷达" href="/daily/idea/rss.xml"><link rel="alternate" type="application/rss+xml" title="开源推荐 · Peter 的每日雷达" href="/daily/oss/rss.xml">
+<script>/* mark JS + apply saved theme before paint */(function(){var d=document.documentElement;d.className+=' js';try{var t=localStorage.getItem('hub-theme');if(t)d.dataset.theme=t}catch(e){}})()</script>
+<link rel="stylesheet" href="/daily/assets/style.css">
+</head>
+<body data-base="/daily/">
+<a class="skip" href="#main">跳到正文</a>
+<header class="site">
+  <div class="bar wrap">
+    <a class="brand" href="/daily/"><span class="logo" aria-hidden="true"></span><span>Peter 的每日雷达</span></a>
+    <nav class="nav" aria-label="频道"><a href="/daily/" data-nav="home">今天</a><a href="/daily/news/" data-nav="news">新闻</a><a href="/daily/idea/" data-nav="idea">产品 Idea</a><a href="/daily/oss/" data-nav="oss" class="on" aria-current="page">开源</a><a href="/daily/x/" data-nav="x">信源</a></nav>
+    <form class="search" role="search" id="searchForm" action="/daily/search/" method="get">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" name="q" type="search" placeholder="搜索标题、标签、内容" aria-label="搜索" autocomplete="off">
+    </form>
+    <div class="acts">
+      <a class="icon-btn blog" href="https://tangwin.github.io/blog/" title="博客">博客</a>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="切换主题" title="主题：跟随系统（点击切换）"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></button>
+    </div>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+<div class="narrow ch-oss"><div class="crumbs"><a href="/daily/">今天</a> / <a href="/daily/oss/">开源</a> / 2026-11-11</div>
+<header class="page-h"><div class="eyebrow"><i style="background:var(--oss)"></i>Daily OSS Pick · 11.11</div>
+<h1>2026年11月11日 <small>周三 · 开源推荐</small></h1>
+<div class="facts"><a class="rss" href="/daily/oss/rss.xml" title="开源 RSS"><svg viewBox="0 0 24 24"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.2" fill="currentColor"/></svg>RSS</a></div></header>
+<article class="repo-card" id="c-oss-2026-11-11-sand3d">
+<div class="repo"><a href="https://github.com/Sandflow-ai/sand3d" target="_blank" rel="noopener">Sandflow-ai/sand3d ↗</a> <span class="badge ch-oss">当日推荐</span></div>
+<div class="t">sand3d：让大模型用几百个 token 写出能动、能导出的 3D 物体</div><p>Sandflow 开源的 Python 3D 建模库，专为 LLM 设计：整套 API 约 3600 token 可放进提示词，零件按名字引用、带关节装配，一键导出 GLB/URDF/USD/IFC；一周约 1760 星，已发 3 版并上 PyPI，昨天刚合并 IFC 导出。</p>
+<div class="kv"><span class="star"><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg>1,764</span><span class="tag">197 forks</span><span class="tag">Apache-2.0</span><span class="tag">Python</span><span class="tag">最新发布 v1.6.3</span><a class="tag" href="https://sandflow.ai/sand3d/" target="_blank" rel="noopener">主页 ↗</a></div>
+<div class="kv"><span class="badge ch-oss">开发者工具</span><span class="badge ch-oss">模型</span><span class="badge ch-oss">3D 生成</span><span class="badge ch-oss">Python</span></div></article>
+<div class="prose"><h2>sand3d：让大模型用几百个 token 写出能动、能导出的 3D 物体</h2><p><strong>为什么今天值得试：</strong> Sandflow 团队 11 月 3 日开源的 Python 库，一周约 1760 星。它给 LLM 设计了一套「说清楚怎么做出来」的 3D 建模词汇：整套 API 约 3600 token，能直接塞进系统提示词；同一个零件比 Blender Python、CadQuery、FeatureScript 少用 2–6 倍 token。昨天刚合并了社区贡献的 IFC（Revit/BIM）导出。</p><p>仓库：<a href="https://github.com/Sandflow-ai/sand3d" target="_blank" rel="noopener">Sandflow-ai/sand3d</a></p><h3>它解决什么问题 / 适合谁</h3><p>想让 Claude Code、Codex 或自己的模型「生成 3D 模型」的人：做文本/图像转 3D、机器人仿真资产、游戏道具、产品原型或 3D 生成数据集的研究者和开发者。让模型直接写 Blender <code>bpy</code> 代码往往又长又要手算坐标、容易错；sand3d 把建模变成短程序——轮廓、实体、编辑、关节、装配——人也读得懂。</p><h3>从 README 读到的要点</h3><ul><li><strong>按名字引用，不算坐标：</strong> 零件、边、面都用名字取（如 <code>edges=&quot;top&quot;</code>），模型不用自己推坐标；同一程序每次生成的网格逐位一致（确定性）。</li><li><strong>能动的装配体：</strong> <code>group</code>、<code>joint</code>、<code>assembly</code> 描述铰链、旋转、滑轨等关节和行程范围，README 里一台前开门洗衣机只用 38 行代码。</li><li><strong>一个函数导出六种格式：</strong> <code>s3d.export(obj, &quot;x.glb&quot;)</code>，按扩展名导出 GLB（网页/游戏引擎）、URDF（ROS、PyBullet、MuJoCo、Isaac）、USDA（Omniverse/Isaac Sim）、IFC（Revit、ArchiCAD）、OBJ、STL；单位为米。</li><li><strong>扁平词汇表：</strong> 全部是 <code>s3d.&lt;动词&gt;</code>，涵盖约 16 个轮廓、15 个实体/路径、15 个编辑（cut、hole、fillet、shell…）、定位、关节、装配，还有齿轮、滚花、螺纹、材质；故意不提供 <code>chair()</code> 这种品类函数。</li><li><strong>给 LLM 的现成材料：</strong> 把 <code>docs/api.md</code> 放进系统提示词，<code>llms.txt</code> 指向它；多零件物体还有「先规划、再细节、再零件」的八条装配写法规范。</li><li><strong>数据集：</strong> 在 Hugging Face 以 CC BY 4.0 发布了 5 个 sand3d 程序数据集（Objaverse、CAD、Articraft、NVIDIA SimReady、AutoMate），附在线浏览器，可直接拿来做微调或评测。</li></ul><h3>近期活跃证据</h3><ul><li><strong>Issues：</strong> 11 个 Issue（开放 9）、18 个 PR（开放 3），有 4 位外部贡献者提了修复和功能。维护者处理很认真：一个「空交集应报错」的 PR（#18），他们拿已发布数据集里 5635 个调用 <code>intersect</code> 的程序回归测试，发现 29 个会被打断，于是要求改成警告以保持 v1 兼容，贡献者第二天就改好；另一个换掉 Blender 后端的大 PR（#26）则被礼貌关闭，转成设计讨论 Issue。</li><li><strong>Release：</strong> 已发 v1.6.1–v1.6.3 三版并上 PyPI，最新 v1.6.3 发布于北京时间 2026-11-06 20:04，修正了 GLB 只导出根节点子树、保留偏移与镜像（由社区用户报告并修复）。</li><li><strong>提交：</strong> 共 22 次提交、4 位贡献者，前几天主要是文档和网站，北京时间 11 月 10 日下午合并了 IFC 导出和长名称 KeyError 修复，主分支尚未发新版。</li></ul><h3>怎么快速上手</h3><ol><li>准备 Python 3.13（或 3.11；3.12 和 Intel Mac 上的新版没有 <code>bpy</code> 轮子），<code>pip install sand3d</code>（会带上 Blender 的 <code>bpy</code> 模块，体积较大）。</li><li>跑 README 里的支架示例：<code>extrude</code> 一块圆角板、<code>hole</code> 打两个孔、<code>fillet</code> 倒角，<code>s3d.export(bracket(), &quot;bracket.glb&quot;)</code>，把 GLB 拖进任意在线查看器看效果。</li><li>把 <code>docs/api.md</code> 贴给 Claude Code / Codex，让它「用 sand3d 写一个带抽屉的床头柜，导出 GLB 和 URDF」，看看模型一次能写对多少。</li></ol><h3>风险与注意</h3><ul><li><strong>项目很新：</strong> 建库刚一周、主要靠两位作者，v2 的 API 调整（列表操作、空结果诊断、几何后端）还在讨论中。</li><li><strong>依赖 Blender：</strong> 底层是 <code>bpy</code>，安装包大、Python 版本受限；想接其它 3D 软件的后端暂未接受。</li><li><strong>已知几何问题：</strong> 开放 Issue 里有自相交 loft 交集为空、intersect 结果越界等，复杂布尔运算要自己看图核对。</li><li><strong>IFC 导出不带关节</strong>，GlobalId 随几何变化，不能用来跨版本追踪零件；数据集是 CC BY 4.0，商用要署名。</li><li>GitHub 把主语言标成 HTML 是因为仓库里有大量文档网页，库本身是 Python。</li></ul></div>
+<nav class="pager" aria-label="翻页"><span><a href="/daily/oss/2026-11-10/" rel="prev">← 11月10日</a></span><a href="/daily/oss/">开源 · 全部往期</a><span></span></nav></div>
+</main>
+<footer class="site-foot wrap">
+  <span>Peter 的每日雷达 · 新闻 08:30、产品 Idea 07:00、开源 10:00 每日更新（北京时间）· 信源每天多次更新</span>
+  <span><a href="/daily/news/">新闻</a> · <a href="/daily/idea/">产品 Idea</a> · <a href="/daily/oss/">开源</a> · <a href="https://tangwin.github.io/blog/">博客</a> · <a href="https://github.com/TangWin/daily">GitHub</a></span>
+</footer>
+<script src="/daily/assets/app.js" defer></script>
+</body>
+</html>

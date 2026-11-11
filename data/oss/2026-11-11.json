@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-11-11",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-11-11-sand3d",
+      "date": "2026-11-11",
+      "type": "oss",
+      "rank": 1,
+      "title": "sand3d：让大模型用几百个 token 写出能动、能导出的 3D 物体",
+      "summary": "Sandflow 开源的 Python 3D 建模库，专为 LLM 设计：整套 API 约 3600 token 可放进提示词，零件按名字引用、带关节装配，一键导出 GLB/URDF/USD/IFC；一周约 1760 星，已发 3 版并上 PyPI，昨天刚合并 IFC 导出。",
+      "url": "https://github.com/Sandflow-ai/sand3d",
+      "tags": [
+        "开发者工具",
+        "模型",
+        "3D 生成",
+        "Python"
+      ],
+      "raw_tags": [],
+      "score": 1764,
+      "score_label": "★ 1764",
+      "detail": {
+        "status": "picked",
+        "repo": "Sandflow-ai/sand3d",
+        "homepage": "https://sandflow.ai/sand3d/",
+        "stars": 1764,
+        "forks": 197,
+        "license": "Apache-2.0",
+        "language": "Python",
+        "latest_release": "v1.6.3",
+        "runners_up": [],
+        "body_md": "## sand3d：让大模型用几百个 token 写出能动、能导出的 3D 物体\n\n**为什么今天值得试：** Sandflow 团队 11 月 3 日开源的 Python 库，一周约 1760 星。它给 LLM 设计了一套「说清楚怎么做出来」的 3D 建模词汇：整套 API 约 3600 token，能直接塞进系统提示词；同一个零件比 Blender Python、CadQuery、FeatureScript 少用 2–6 倍 token。昨天刚合并了社区贡献的 IFC（Revit/BIM）导出。\n\n仓库：[Sandflow-ai/sand3d](https://github.com/Sandflow-ai/sand3d)\n\n### 它解决什么问题 / 适合谁\n\n想让 Claude Code、Codex 或自己的模型「生成 3D 模型」的人：做文本/图像转 3D、机器人仿真资产、游戏道具、产品原型或 3D 生成数据集的研究者和开发者。让模型直接写 Blender `bpy` 代码往往又长又要手算坐标、容易错；sand3d 把建模变成短程序——轮廓、实体、编辑、关节、装配——人也读得懂。\n\n### 从 README 读到的要点\n\n- **按名字引用，不算坐标：** 零件、边、面都用名字取（如 `edges=\"top\"`），模型不用自己推坐标；同一程序每次生成的网格逐位一致（确定性）。\n- **能动的装配体：** `group`、`joint`、`assembly` 描述铰链、旋转、滑轨等关节和行程范围，README 里一台前开门洗衣机只用 38 行代码。\n- **一个函数导出六种格式：** `s3d.export(obj, \"x.glb\")`，按扩展名导出 GLB（网页/游戏引擎）、URDF（ROS、PyBullet、MuJoCo、Isaac）、USDA（Omniverse/Isaac Sim）、IFC（Revit、ArchiCAD）、OBJ、STL；单位为米。\n- **扁平词汇表：** 全部是 `s3d.<动词>`，涵盖约 16 个轮廓、15 个实体/路径、15 个编辑（cut、hole、fillet、shell…）、定位、关节、装配，还有齿轮、滚花、螺纹、材质；故意不提供 `chair()` 这种品类函数。\n- **给 LLM 的现成材料：** 把 `docs/api.md` 放进系统提示词，`llms.txt` 指向它；多零件物体还有「先规划、再细节、再零件」的八条装配写法规范。\n- **数据集：** 在 Hugging Face 以 CC BY 4.0 发布了 5 个 sand3d 程序数据集（Objaverse、CAD、Articraft、NVIDIA SimReady、AutoMate），附在线浏览器，可直接拿来做微调或评测。\n\n### 近期活跃证据\n\n- **Issues：** 11 个 Issue（开放 9）、18 个 PR（开放 3），有 4 位外部贡献者提了修复和功能。维护者处理很认真：一个「空交集应报错」的 PR（#18），他们拿已发布数据集里 5635 个调用 `intersect` 的程序回归测试，发现 29 个会被打断，于是要求改成警告以保持 v1 兼容，贡献者第二天就改好；另一个换掉 Blender 后端的大 PR（#26）则被礼貌关闭，转成设计讨论 Issue。\n- **Release：** 已发 v1.6.1–v1.6.3 三版并上 PyPI，最新 v1.6.3 发布于北京时间 2026-11-06 20:04，修正了 GLB 只导出根节点子树、保留偏移与镜像（由社区用户报告并修复）。\n- **提交：** 共 22 次提交、4 位贡献者，前几天主要是文档和网站，北京时间 11 月 10 日下午合并了 IFC 导出和长名称 KeyError 修复，主分支尚未发新版。\n\n### 怎么快速上手\n\n1. 准备 Python 3.13（或 3.11；3.12 和 Intel Mac 上的新版没有 `bpy` 轮子），`pip install sand3d`（会带上 Blender 的 `bpy` 模块，体积较大）。\n2. 跑 README 里的支架示例：`extrude` 一块圆角板、`hole` 打两个孔、`fillet` 倒角，`s3d.export(bracket(), \"bracket.glb\")`，把 GLB 拖进任意在线查看器看效果。\n3. 把 `docs/api.md` 贴给 Claude Code / Codex，让它「用 sand3d 写一个带抽屉的床头柜，导出 GLB 和 URDF」，看看模型一次能写对多少。\n\n### 风险与注意\n\n- **项目很新：** 建库刚一周、主要靠两位作者，v2 的 API 调整（列表操作、空结果诊断、几何后端）还在讨论中。\n- **依赖 Blender：** 底层是 `bpy`，安装包大、Python 版本受限；想接其它 3D 软件的后端暂未接受。\n- **已知几何问题：** 开放 Issue 里有自相交 loft 交集为空、intersect 结果越界等，复杂布尔运算要自己看图核对。\n- **IFC 导出不带关节**，GlobalId 随几何变化，不能用来跨版本追踪零件；数据集是 CC BY 4.0，商用要署名。\n- GitHub 把主语言标成 HTML 是因为仓库里有大量文档网页，库本身是 Python。\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
