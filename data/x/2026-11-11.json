@@ -3,13 +3,44 @@
  "type": "x",
  "date": "2026-11-11",
  "day": {
-  "digest": "Matt Pocock 介绍了让 agent 跨多个仓库工作的“Home Repo”做法，并在回复中补充了团队共享、仓库专属内容的放置、跨仓库 issue 和与 monorepo 的对比等细节。",
+  "digest": "Matt Pocock 介绍了让 agent 跨多个仓库工作的“Home Repo”做法并回答了团队、权限和 monorepo 等追问；晚些时候他又表示课程里最受震撼的是领域驱动设计（DDD）的统一语言实践。",
   "by_source": {
-   "mattpocockuk": "分享 Home Repo 方案：在一个主仓库运行 agent，用 AGENTS.md 指向其他仓库，并回答了团队、权限和 monorepo 等追问。"
+   "mattpocockuk": "分享 Home Repo 多仓库方案及相关答疑，并称课程中最受好评的是 DDD：建立统一语言、让 agent 使用并据此重构代码。"
   },
-  "updated_at": "2026-11-11T08:25:00+09:00"
+  "updated_at": "2026-11-12T00:20:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2120503390333768170",
+   "date": "2026-11-11",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120503390333768170",
+   "url": "https://x.com/mattpocockuk/status/2120503390333768170",
+   "posted_at": "2026-11-11T21:06+08:00",
+   "kind": "post",
+   "text": "As expected, the thing that is blowing people's minds most in my course is not the agentic stuff.\n\nIt's the DDD stuff - domain-driven design.\n\nBuilding a ubiquitous language, using it with the agent, and refactoring the code to use it.\n\nJust bonkers how good it is",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "不出所料，我的课程里最让大家惊呼的并不是 agent 相关的内容。\n\n而是 DDD 部分——领域驱动设计（domain-driven design）。\n\n建立一套统一语言（ubiquitous language），和 agent 一起使用它，并重构代码让代码也用上这套语言。\n\n效果好得离谱",
+   "analysis": {
+    "summary": "Matt Pocock 说他课程里最让学员震撼的不是 agent 相关内容，而是领域驱动设计（DDD）：建立统一语言，让 agent 使用它，并据此重构代码。",
+    "points": [
+     "课程中反响最强烈的是 DDD 部分，而非 agentic 内容",
+     "做法：建立 ubiquitous language（统一语言）",
+     "在与 agent 协作时使用这套语言，并重构代码使其与之一致",
+     "他评价效果“好得离谱”"
+    ],
+    "why": "这是作者基于课程反馈的个人观点：在 AI 编程中，清晰一致的领域术语可能比 agent 技巧本身更关键。帖子未给出具体案例或数据。",
+    "tags": [
+     "DDD",
+     "Agent 工程",
+     "AI 编程"
+    ]
+   }
+  },
   {
    "id": "x-2120274646348030270",
    "date": "2026-11-11",
