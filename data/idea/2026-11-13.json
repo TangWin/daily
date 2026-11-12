@@ -1,0 +1,396 @@
+{
+ "schema_version": 1,
+ "type": "idea",
+ "date": "2026-11-13",
+ "day": {
+  "sample": "样本：主清单 137（HN42 Lobsters1 Reddit48 IH20 PH26） + Reddit 深翻页抱怨 85（4800 帖） + HN 句式评论/Ask/Show 567；未使用 X 付费 API。"
+ },
+ "items": [
+  {
+   "id": "idea-2026-11-13-01",
+   "date": "2026-11-13",
+   "type": "idea",
+   "rank": 1,
+   "title": "「是不是只有我这样？」系统更新踩坑公共追踪：Apple 论坛关闭后，按系统版本和机型查已知问题、受影响人数和土办法，再决定要不要升级",
+   "summary": "做一个按「系统版本 + 机型 + 症状」组织的公共已知问题库：用户一键报告「我也遇到」，自动去重成一条问题，显示受影响人数趋势、在哪个小版本出现、哪个版本修复；每条问题下只置顶被验证有效的解法。再给每个即将推送的系统更新生成「升级前检查」：你的机型和常用 App 有哪些已知问题、建议现在升还是等下一版。数据来源先从 Reddit、MacRumors、Apple 开发者论坛、Mastodon 的公开帖子聚类，再靠用户投票补齐。",
+   "url": "https://news.ycombinator.com/item?id=50449904",
+   "tags": [
+    "Mac/桌面",
+    "开发者工具",
+    "个人/生活"
+   ],
+   "raw_tags": [
+    "Mac/桌面工具",
+    "开发者工具",
+    "个人/生活"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Apple 宣布支持社区论坛 2026 年 11 月 20 日永久关闭，现在已只读，官方没有给出替代。HN 评论里很多人说那里的回答大多没用，但也承认它有两个用处：一是确认「不只是我坏了」，二是偶尔能找到官方不写的土办法，比如每次 macOS 更新后 Sonos 都会失灵，要在「本地网络」权限里关掉再打开。与此同时，Reddit 上 macOS Golden Gate 的抱怨正集中爆发：有人说是 13 年来最差的 Apple 软件，频繁强制重启，重装也没用；有人一升级就同时遇到聚焦搜索失灵、液态玻璃效果关不掉等三个 bug；有人说 27.2 改坏了邮件的会话展开；还有人干脆拒绝升级 iPhone，因为每次升级后网上都是「千万别升」「升了赶紧改这些设置」。大家缺的是一个按版本、机型整理的已知问题清单：多少人中招、有没有解法、下个小版本修没修。",
+    "target_users": "升级前犹豫的 Mac 和 iPhone 普通用户；管理几十到上千台 Apple 设备的 IT 管理员；依赖 Mac 工作、怕升级翻车的设计师和开发者；做 Mac 软件、需要知道系统 bug 影响面的独立开发者。",
+    "quotes": [
+     {
+      "text": "It was pretty useful to know when something got broken for more than just you. E.g like iPhone mirroring being absolutely unreliable.",
+      "links": [
+       {
+        "label": "Hacker News 评论（Apple 支持社区关闭帖 162 分，231 条评论）",
+        "url": "https://news.ycombinator.com/item?id=50449904"
+       }
+      ]
+     },
+     {
+      "text": "there were some long-lasting OS flaws and third-party app frictions where the workaround was helpfully posted on this site. As an example, every time MacOS updated, Sonos would stop working.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50450884"
+       }
+      ]
+     },
+     {
+      "text": "I'm also experiencing more bugs in Apple software than I ever have before, and it's really frustrating to see Apple shutting down the direct line of public feedback right in the middle of that.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50460773"
+       }
+      ]
+     },
+     {
+      "text": "It appears that Apple is simply killing the community with no replacement.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50455026"
+       }
+      ]
+     },
+     {
+      "text": "macOS Golden Gate is the worst Apple software that I've ever used in my 13 years of owning a Mac ... I've never had to restart, force-restart, or force-quit apps this often",
+      "links": [
+       {
+        "label": "Reddit r/MacOS（24 条评论）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1xtzkuv/"
+       }
+      ]
+     },
+     {
+      "text": "i have like three bugs happening at the same time and i want to know if u guys having issues like me.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS（34 条评论）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1xu8ri6/"
+       }
+      ]
+     },
+     {
+      "text": "after I update it, I see a bunch of stuff online being like “DONT DOWNLOAD THE NEW UPDATE” and “IF YOU UPDATED YOUR IPHONE CHECK THESE SETTINGS!” And I am just so done with it.",
+      "links": [
+       {
+        "label": "Reddit r/iphone",
+        "url": "https://www.reddit.com/r/iphone/comments/1xuhr40/"
+       }
+      ]
+     }
+    ],
+    "existing": "Apple 支持社区（11 月 20 日关闭，现只读）；Apple 反馈助理（提交后看不到别人、也没有回音）；MacRumors 论坛、Reddit r/MacOS；Downdetector；各类科技媒体的「别升级」文章",
+    "defects": "论坛和 Reddit 帖子按时间流走，没法按系统版本、机型、症状筛选；看不到受影响人数和修复状态；有效的土办法埋在几十条「我也是」里；Apple 自己不公开已知问题列表；媒体文章只讲大问题，小版本的回归没人整理。",
+    "solution": "做一个按「系统版本 + 机型 + 症状」组织的公共已知问题库：用户一键报告「我也遇到」，自动去重成一条问题，显示受影响人数趋势、在哪个小版本出现、哪个版本修复；每条问题下只置顶被验证有效的解法。再给每个即将推送的系统更新生成「升级前检查」：你的机型和常用 App 有哪些已知问题、建议现在升还是等下一版。数据来源先从 Reddit、MacRumors、Apple 开发者论坛、Mastodon 的公开帖子聚类，再靠用户投票补齐。",
+    "mvp": "一个网页：选系统版本（先做 macOS 27 Golden Gate 和 iOS 27），列出聚类后的前 50 个问题，每条有「我也是」按钮、受影响人数、已验证解法；外加订阅：某个问题被修复时发邮件提醒。冷启动用 Reddit r/MacOS、r/iphone 近 30 天抱怨帖自动聚类。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-13-02",
+   "date": "2026-11-13",
+   "type": "idea",
+   "rank": 2,
+   "title": "GitHub Actions 锁全了吗：一键查出工作流里没锁住的第三方 Action、可复用工作流、组合 Action 和 runner 镜像，并自动补锁",
+   "summary": "做一个面向整个 GitHub 组织的 Actions 依赖地图：递归展开每个工作流用到的 Action、可复用工作流和组合 Action，再静态分析 Action 源码里运行时拉取的镜像、脚本和二进制，标出所有「会悄悄变」的点，按风险排序；一键给每个仓库开 PR，补全锁文件和哈希，并在 CI 里加一步校验，防止新加的引用没锁。上游 Action 的标签被移动时实时报警。",
+   "url": "https://news.ycombinator.com/item?id=50459919",
+   "tags": [
+    "开发者工具",
+    "安全"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "安全/隐私"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN「锁住你的 GitHub Actions」323 分、64 条评论，讲的是 GitHub 官方新推的工作流锁文件。但评论里马上有人泼冷水：zizmor（一个 Actions 安全扫描工具）的维护者指出，锁文件只锁普通的 Action 调用，可复用工作流还得自己手动钉哈希，组合 Action 也不会单独被锁，默认命令甚至会把原来的哈希钉子去掉；有人提醒 runs-on 写的 ubuntu-latest 也是一个镜像，几乎没人能把它钉到具体版本；有人说就算钉了 SHA，Action 自己依赖的别的 Action 没钉，照样会中招；还有人指出 Action 里一句 docker pull 某镜像的 latest，你不翻源码根本发现不了；也有人抱怨 GitHub 明明可以让标签不可变，却一直不做。团队真正想知道的是：我所有仓库的工作流，到底还有哪些地方会悄悄变。",
+    "target_users": "维护开源项目或几十上百个仓库的开发者和平台工程师；负责软件供应链安全的安全团队；需要过 SOC 2 等合规审计的 SaaS 公司；用 GitHub Actions 发版和部署的中小团队。",
+    "quotes": [
+     {
+      "text": "They only lock normal action calls. If your workflows invoke other reusable workflows, you need to keep those hash-pinned manually for now. - Composite actions are not themselves locked.",
+      "links": [
+       {
+        "label": "Hacker News 评论（zizmor 维护者，帖子 323 分）",
+        "url": "https://news.ycombinator.com/item?id=50459919"
+       }
+      ]
+     },
+     {
+      "text": "`runs-on:` also refers to an image, but in practice a huge amount of people will just set it to `ubuntu-latest` and accept whatever GH happens to include that day.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50464910"
+       }
+      ]
+     },
+     {
+      "text": "even using a specific SHA instead of a tag isn’t a guarantee with GitHub Actions, because the Action itself may have a dependency which does not pin to a SHA",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50460808"
+       }
+      ]
+     },
+     {
+      "text": "One could write an action that executes a shell script that does docker pull abc:latest. As the consumer of an action that becomes really hard to find out unless I take the whole codebase apart.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50460291"
+       }
+      ]
+     },
+     {
+      "text": "If GitHub really cared about security they could fix this tomorrow by declaring any tag linked to an action immutable.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50463051"
+       }
+      ]
+     }
+    ],
+    "existing": "GitHub 官方工作流锁文件；zizmor（工作流安全扫描）；pinact、actions-up（批量钉 SHA 与升级）；Dependabot；StepSecurity Harden-Runner",
+    "defects": "官方锁文件不覆盖可复用工作流、组合 Action 和 runner 镜像；钉 SHA 的工具只管第一层，不展开传递依赖；Action 运行时临时拉取的镜像和脚本没人看；扫描工具多是单仓库命令行，看不到全组织的整体情况；修复要一个个仓库手动提 PR。",
+    "solution": "做一个面向整个 GitHub 组织的 Actions 依赖地图：递归展开每个工作流用到的 Action、可复用工作流和组合 Action，再静态分析 Action 源码里运行时拉取的镜像、脚本和二进制，标出所有「会悄悄变」的点，按风险排序；一键给每个仓库开 PR，补全锁文件和哈希，并在 CI 里加一步校验，防止新加的引用没锁。上游 Action 的标签被移动时实时报警。",
+    "mvp": "一个 GitHub App：装上后扫描组织下所有仓库，生成一页报告，列出未锁的第三方 Action、可复用工作流、组合 Action、latest 镜像和 docker pull 语句；支持对单个仓库一键开修复 PR。先免费给公开仓库用。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-13-03",
+   "date": "2026-11-13",
+   "type": "idea",
+   "rank": 3,
+   "title": "云服务挂了，到底是谁挂了、我们哪些系统受影响：按公司实际用到的 SaaS 和登录依赖画出故障影响图，不靠 Downdetector 猜",
+   "summary": "连接公司的身份提供商（Entra ID、Google Workspace、Okta），自动读出全公司用到的 SaaS 和它们的登录方式，画出依赖图；从多个地区主动探测这些服务的登录和核心接口，结合官方状态页和 RSS，几分钟内判断真正的故障源；出事时直接告诉你「是微软登录挂了，以下 14 个系统会受影响，以下 6 个不受影响」，并一键给全员发一条通俗的状况说明。",
+   "url": "https://news.ycombinator.com/item?id=50471668",
+   "tags": [
+    "开发者工具",
+    "支付"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "支付/计费"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "微软 365 在美洲大面积故障，HN 两个帖子分别 362 分、342 条评论和 399 分。评论里大家先发现官方状态页本身都打不开，有人反问「谁会把状态页放在它要监控的服务器上」；有人只能订阅状态 RSS，再把更新一条条贴到 HN；大家转而去看 Downdetector，结果上面 AWS、Azure、Gmail 全是红的，有人解释说那只是用户报告，很多人根本不知道自己用的是哪个服务，一条「Outlook 挂了但 Gmail 还好」也会被算成两个都挂；一位 IT 人员说，同事在抱怨 Atlassian 和 AWS 挂了，其实是公司的单点登录依赖微软，Intune 和 Defender 也会一起受影响。公司缺的是一张「我们用的每个系统依赖谁」的图，出事时立刻知道真正的源头和影响范围。",
+    "target_users": "中小公司的 IT 管理员和运维负责人；全员用微软 365 或 Google Workspace 并靠单点登录进各种 SaaS 的公司；需要向老板和客户解释「为什么停工」的技术负责人；托管服务商（MSP）。",
+    "quotes": [
+     {
+      "text": "For the past 5 minutes all of our Microsoft Cloud connections are down. Anyone else? The Status page won't even load.",
+      "links": [
+       {
+        "label": "Ask HN（399 分）",
+        "url": "https://news.ycombinator.com/item?id=50471668"
+       }
+      ]
+     },
+     {
+      "text": "who puts their status page on servers the status is supposed to be for?",
+      "links": [
+       {
+        "label": "Hacker News 评论（微软 365 故障帖 362 分，342 条评论）",
+        "url": "https://news.ycombinator.com/item?id=50472036"
+       }
+      ]
+     },
+     {
+      "text": "people don't actually know what services they're using and report wrong things, and partly because downdetector parses social media posts like \"outlook is down but gmail still works\" as outlook and gmail both being down.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50472518"
+       }
+      ]
+     },
+     {
+      "text": "Downdetector does not measure service availability. It's more of a vibes thing.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50473243"
+       }
+      ]
+     },
+     {
+      "text": "people are complaining about Atlassian and about AWS but in reality if your organization is using SSO then that would get impacted. If your org is using Intune or Defender EDR then you probably also are impacted.",
+      "links": [
+       {
+        "label": "Hacker News 评论（IT 从业者）",
+        "url": "https://news.ycombinator.com/item?id=50473072"
+       }
+      ]
+     }
+    ],
+    "existing": "各厂商官方状态页（故障时自己也可能打不开）；Downdetector（用户报告，不准）；StatusGator、IsDown（聚合官方状态页）；Datadog、UptimeRobot 等自建监控",
+    "defects": "状态聚合只转述官方说法，往往比实际晚、范围说得含糊；都不知道你公司哪些 SaaS 是通过微软或 Google 单点登录进的，看不出连锁影响；自建监控要自己配，查不到第三方服务内部；出事时没有现成的「对内通知」模板。",
+    "solution": "连接公司的身份提供商（Entra ID、Google Workspace、Okta），自动读出全公司用到的 SaaS 和它们的登录方式，画出依赖图；从多个地区主动探测这些服务的登录和核心接口，结合官方状态页和 RSS，几分钟内判断真正的故障源；出事时直接告诉你「是微软登录挂了，以下 14 个系统会受影响，以下 6 个不受影响」，并一键给全员发一条通俗的状况说明。",
+    "mvp": "一个网页加 Slack 机器人：导入 Entra ID 或 Google Workspace 的应用列表，生成依赖图；对前 30 个常见 SaaS 和三大身份提供商做外部探测；故障时在 Slack 推送「源头 + 受影响系统 + 对内通知草稿」。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-13-04",
+   "date": "2026-11-13",
+   "type": "idea",
+   "rank": 4,
+   "title": "买来的硬件别被订阅绑架：按型号查设备有没有本地可用的开源 App 和协议文档，买前先看「断订阅还能用多少」",
+   "summary": "做一个按设备型号检索的数据库：每个型号列出官方订阅收什么钱、断订阅后还能用哪些功能、有哪些社区 App 和驱动、在哪些固件版本上被真机验证过、协议文档链接；给买家一个「三年总成本」计算；给开发者一个提交协议文档和真机测试结果的地方，打通维护者和用户。后续可以做浏览器插件，在电商页面上直接显示这个型号的订阅风险。",
+   "url": "https://news.ycombinator.com/item?id=50470488",
+   "tags": [
+    "支付",
+    "开发者工具",
+    "电商"
+   ],
+   "raw_tags": [
+    "支付/计费",
+    "开发者工具",
+    "电商"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Show HN「我 300 美元的绣花机要订阅，于是我自己写了个 App」239 分、101 条评论。作者买的 Brother 家用绣花机，官方软件差、还要付月费，评论里有人直言「自带软件真的很烂」，作者说这台机器差评多半也是因为软件和订阅费；有人喊出「用大模型一个 App 一个 App 地干掉订阅，直到硬件重新变成买断」；也有人冷静提醒，如果你让 AI 写了却看不懂，只是把一种依赖换成了另一种；还有人说协议其实去年就有人逆向出来了，零散地放在别的项目里。打印机、绣花机、相机、智能家居都在搞「硬件 + 订阅」，消费者买前不知道断了订阅还剩多少功能，也不知道有没有社区做的替代软件。",
+    "target_users": "买绣花机、3D 打印机、标签机、相机等「硬件 + App」产品的消费者和手工爱好者；想摆脱厂商订阅的小工作室和小商家；为这些设备写开源驱动和 App 的开发者；在评测里关心长期成本的科技博主。",
+    "quotes": [
+     {
+      "text": "Show HN: My $300 embroidery machine needed a subscription, so I built my own app",
+      "links": [
+       {
+        "label": "Show HN（239 分，101 条评论）",
+        "url": "https://news.ycombinator.com/item?id=50470488"
+       }
+      ]
+     },
+     {
+      "text": "The supplied software is truly terrible.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50472451"
+       }
+      ]
+     },
+     {
+      "text": "We should kill subscription models with LLMs app by app (and possibly server by server) until hardware is sold as standalone hardware with no strings attached.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50472714"
+       }
+      ]
+     },
+     {
+      "text": "it's nice to see people rebelling against the \"hardware I bought held hostage to a subscription\" business model, but if you use an AI to do this and don't understand what it's done, you've just traded one subscription dependency for another.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50473124"
+       }
+      ]
+     }
+    ],
+    "existing": "厂商官方 App（常带订阅）；GitHub 上零散的逆向项目和开源 App；Home Assistant 等社区集成；iFixit 和 Right to Repair 相关资料；电商评论区",
+    "defects": "开源替代散落在各个仓库，普通用户搜不到也不敢用；没有按型号整理「哪些功能要订阅、断订阅还能用什么」；协议文档和已验证机型没人统一维护；评测很少算长期订阅成本；AI 写的替代 App 质量参差，缺少「真机验证过」的标记。",
+    "solution": "做一个按设备型号检索的数据库：每个型号列出官方订阅收什么钱、断订阅后还能用哪些功能、有哪些社区 App 和驱动、在哪些固件版本上被真机验证过、协议文档链接；给买家一个「三年总成本」计算；给开发者一个提交协议文档和真机测试结果的地方，打通维护者和用户。后续可以做浏览器插件，在电商页面上直接显示这个型号的订阅风险。",
+    "mvp": "一个网页，先覆盖家用绣花机、标签打印机和 3D 打印机三个品类的前 50 个型号，手工整理订阅条款和已知开源替代；每个型号有「我用这个替代成功了」投票；页面可被搜索引擎收录。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-13-05",
+   "date": "2026-11-13",
+   "type": "idea",
+   "rank": 5,
+   "title": "AI 会话不被自动删、也不用记在哪个工具里聊的：把 ChatGPT、Claude、Gemini 和各种编程代理的对话统一存到本地，一处搜索、随时接着用",
+   "summary": "一个本地优先的 AI 对话档案：浏览器插件自动保存网页版 ChatGPT、Claude、Gemini、Grok 的对话，命令行组件收集 Claude Code、Codex 等编程代理的会话日志，统一存在本机并可端到端加密同步到自己的其他电脑；提供关键词加语义的统一搜索，结果可以一键「带着这段上下文」在任意工具里继续；平台删除前自动备份。",
+   "url": "https://news.ycombinator.com/item?id=50455208",
+   "tags": [
+    "Coding Agent",
+    "开发者工具",
+    "安全"
+   ],
+   "raw_tags": [
+    "Agent/AI编码",
+    "开发者工具",
+    "安全/隐私"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN「Atuin Threads：所有机器上的 AI 代理会话」233 分、83 条评论。评论里有人问会话是不是过一段时间就会被删，开发者回答 Claude 会在 30 天后删除；有人说在一堆聊天里丢了重要内容，想不起是哪次对话，搜不到，问 AI 本身它也不记得；有人自己写了扫描所有编程工具会话日志、做语义搜索的脚本，说「能搜三个月前做某件事的那次会话」特别有用；也有人吐槽这帖下面几乎每条评论都是「我刚自己做了一个」。Reddit r/SaaS 上也有人说同时用 ChatGPT、Claude、Gemini、Grok，每次找旧对话都要先回忆在哪个平台，于是开始自己做 Chrome 插件。需求很明确，但大家都在各自造轮子。",
+    "target_users": "同时用多个 AI 聊天工具和编程代理的开发者、研究人员和咨询顾问；在多台电脑上切换工作的工程师；需要留存 AI 决策过程备查的团队负责人；对隐私敏感、不想把记录交给第三方云的用户。",
+    "quotes": [
+     {
+      "text": "Aren't session also deleted after some time? It would be nice to keep them.",
+      "links": [
+       {
+        "label": "Hacker News 评论（Atuin Threads 帖 233 分，83 条评论）",
+        "url": "https://news.ycombinator.com/item?id=50455208"
+       }
+      ]
+     },
+     {
+      "text": "lost valuable content across group of chat and not remembering in which chat it was. Tried searching but couldn't find it.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50455236"
+       }
+      ]
+     },
+     {
+      "text": "It's so useful to be able to say \"search sessions for the time I was working on XYZ 3 months ago\"",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50455202"
+       }
+      ]
+     },
+     {
+      "text": "Whenever I needed to find an old conversation, I had to remember which platform I used and search through its history.",
+      "links": [
+       {
+        "label": "Reddit r/SaaS",
+        "url": "https://www.reddit.com/r/SaaS/comments/1xuoxfm/"
+       }
+      ]
+     }
+    ],
+    "existing": "Atuin Threads（编程代理会话同步与搜索）；各 AI 平台自带的历史搜索；ChatGPT、Claude 的导出功能；个人自写的脚本和 Chrome 插件；Rewind、Limitless 等全量记录工具",
+    "defects": "Atuin Threads 偏终端和编程代理，网页聊天覆盖不到；平台自带搜索只能搜自家，有的还会按期删除；导出是手动的一次性压缩包，不能持续同步；自写脚本各管一摊；全量录屏太重、隐私顾虑大。",
+    "solution": "一个本地优先的 AI 对话档案：浏览器插件自动保存网页版 ChatGPT、Claude、Gemini、Grok 的对话，命令行组件收集 Claude Code、Codex 等编程代理的会话日志，统一存在本机并可端到端加密同步到自己的其他电脑；提供关键词加语义的统一搜索，结果可以一键「带着这段上下文」在任意工具里继续；平台删除前自动备份。",
+    "mvp": "一个 Chrome 插件加一个本地小程序：先支持 ChatGPT、Claude 网页版和 Claude Code、Codex 的本地会话，存到本地 SQLite，提供统一搜索框和导出为 Markdown；暂不做同步。",
+    "difficulty": null,
+    "potential": null
+   }
+  }
+ ]
+}
