@@ -3,13 +3,412 @@
  "type": "x",
  "date": "2026-11-12",
  "day": {
-  "digest": "Matt Pocock 预告了与 Pi 创作者 @mitsuhiko、@badlogicgames 的直播访谈，并围绕 DDD 连发几条：用清晰一致的语言描述业务流程，就等于自动化软件做了一半，还建议维护 GLOSSARY.md；晚些时候还调侃自己让 agent “把我当成 tool call”。",
+  "digest": "Matt Pocock 当天先预告 Pi 创作者直播访谈、谈 DDD 在 AI 时代的价值，并开了“把我当成 tool call”的玩笑；晚间重点推出 Home Repo 模式（文章+视频+搭建 prompt），用一个团队共用的仓库存放 skills、AGENTS.md 和共享文档，并在回复里解答版本管理、团队共享等问题；另外分享了 X 关注者即将突破 40 万的里程碑。",
   "by_source": {
-   "mattpocockuk": "预告 Pi 创作者直播访谈，主张 DDD 在 AI 时代更有价值，并发了一条 agent 相关的玩笑帖。"
+   "mattpocockuk": "推出 Home Repo 模式并答疑，此前谈 DDD、预告 Pi 访谈，还分享了关注者增长里程碑。"
   },
-  "updated_at": "2026-11-12T20:20:00+09:00"
+  "updated_at": "2026-11-13T00:25:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2120887374469300260",
+   "date": "2026-11-12",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120887374469300260",
+   "url": "https://x.com/mattpocockuk/status/2120887374469300260",
+   "posted_at": "2026-11-12T22:32+08:00",
+   "kind": "reply",
+   "text": "Mmmm, very nice idea\n\nIf only I had good taste",
+   "article_title": null,
+   "reply_to": {
+    "handle": "emilkowalski",
+    "post_id": "2120887191828115492",
+    "url": "https://x.com/emilkowalski/status/2120887191828115492",
+    "text": "This is an experimental skill inspired by @mattpocockuk (highly recommend to follow him) retro skill, but instead of correcting how the agent works, it focuses specifically on design."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "嗯，非常好的点子\n\n要是我有好品味就好了",
+   "analysis": {
+    "summary": "Emil Kowalski 介绍了一个受 Matt 的 retro skill 启发的实验性 skill，专注于设计而非纠正 agent 的工作方式；Matt 称赞好点子，并自嘲没有好品味。",
+    "points": [
+     "Emil 的实验性 skill 受 Matt 的 retro skill 启发",
+     "该 skill 聚焦设计",
+     "Matt 夸好点子，自嘲缺乏设计品味"
+    ],
+    "why": "信息量较低，但显示 Matt 的 retro skill 已被他人拿去衍生出设计方向的 skill。",
+    "tags": [
+     "Skills",
+     "社区"
+    ]
+   }
+  },
+  {
+   "id": "x-2120869605577220507",
+   "date": "2026-11-12",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120869605577220507",
+   "url": "https://x.com/mattpocockuk/status/2120869605577220507",
+   "posted_at": "2026-11-12T21:21+08:00",
+   "kind": "reply",
+   "text": "Compound interest is coming for you, CR7",
+   "article_title": null,
+   "reply_to": {
+    "handle": "erikras",
+    "post_id": "2120856931858518418",
+    "url": "https://x.com/erikras/status/2120856931858518418",
+    "text": "Wow! @Cristiano better watch his back!"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "复利正在追上你了，CR7",
+   "analysis": {
+    "summary": "有人看到 Matt 的粉丝增长后调侃 @Cristiano（C 罗）要小心了，Matt 接梗说“复利正在追上你，CR7”。",
+    "points": [
+     "接续粉丝增长帖下的玩笑",
+     "CR7 指 C 罗"
+    ],
+    "why": "纯社交玩笑，信息量很低。",
+    "tags": [
+     "幽默",
+     "社交"
+    ]
+   }
+  },
+  {
+   "id": "x-2120860193324142830",
+   "date": "2026-11-12",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120860193324142830",
+   "url": "https://x.com/mattpocockuk/status/2120860193324142830",
+   "posted_at": "2026-11-12T20:44+08:00",
+   "kind": "reply",
+   "text": "Yes, that's the point - the team all contributes to the same home repo",
+   "article_title": null,
+   "reply_to": {
+    "handle": "gaunacode",
+    "post_id": "2120854045283774867",
+    "url": "https://x.com/gaunacode/status/2120854045283774867",
+    "text": "Do you share the home repo with the team? No right? It's a personal repo so the tradeoff is that you can't really share skills with the team?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "对，这正是重点：整个团队都往同一个 home repo 里贡献",
+   "analysis": {
+    "summary": "有人以为 home repo 是个人仓库、不能与团队共享 skills；Matt 纠正说重点正是整个团队共同维护同一个 home repo。",
+    "points": [
+     "误解：home repo 是个人的，无法和团队共享",
+     "Matt：团队一起向同一个 home repo 贡献"
+    ],
+    "why": "澄清 Home Repo 是团队级而非个人级的做法，这关系到它能否用于组织内共享 skills。",
+    "tags": [
+     "Home Repo",
+     "团队协作"
+    ]
+   }
+  },
+  {
+   "id": "x-2120860272491458580",
+   "date": "2026-11-12",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120860272491458580",
+   "url": "https://x.com/mattpocockuk/status/2120860272491458580",
+   "posted_at": "2026-11-12T20:44+08:00",
+   "kind": "reply",
+   "text": "Yep, you can grill from your own home repo",
+   "article_title": null,
+   "reply_to": {
+    "handle": "rtellez91",
+    "post_id": "2120851230234726782",
+    "url": "https://x.com/rtellez91/status/2120851230234726782",
+    "text": "Thanks for sharing your approach! If I got it, I should run your setup skill in the home repo, so then I can use the grill with docs, right?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "对，你可以在自己的 home repo 里跑 grill",
+   "analysis": {
+    "summary": "有人确认：先在 home repo 里运行 Matt 的 setup skill，然后就能用 grill with docs 了吗？Matt 回答是的，可以在自己的 home repo 里用 grill。",
+    "points": [
+     "提问：在 home repo 里跑 setup skill 后能否用 grill with docs",
+     "回答：可以，在 home repo 里就能 grill"
+    ],
+    "why": "说明 Matt 的 grill 类 skill 可以与 Home Repo 搭配使用。",
+    "tags": [
+     "Skills",
+     "Home Repo"
+    ]
+   }
+  },
+  {
+   "id": "x-2120856216108929347",
+   "date": "2026-11-12",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120856216108929347",
+   "url": "https://x.com/mattpocockuk/status/2120856216108929347",
+   "posted_at": "2026-11-12T20:28+08:00",
+   "kind": "reply",
+   "text": "Blocking clankers from dusk till dawn, bye",
+   "article_title": null,
+   "reply_to": {
+    "handle": "GoosenWayne",
+    "post_id": "2120855347023777905",
+    "url": "https://x.com/GoosenWayne/status/2120855347023777905",
+    "text": "Congrats Matt, Thanks for sharing your knowledge with us. What does your X routine look like?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "从黄昏到黎明一直在拉黑 clanker，拜",
+   "analysis": {
+    "summary": "有人祝贺 Matt 并问他在 X 上的日常是怎样的，Matt 开玩笑说是从早到晚拉黑 clanker（对机器人/AI 账号的戏称）。",
+    "points": [
+     "提问：你在 X 上的日常是什么",
+     "回答（玩笑）：整天拉黑 clanker"
+    ],
+    "why": "玩笑回复，信息量很低。“clanker”是网络上对机器人的戏称，这里大概指 bot 账号，原帖未展开。",
+    "tags": [
+     "幽默",
+     "社交"
+    ]
+   }
+  },
+  {
+   "id": "x-2120854082730541515",
+   "date": "2026-11-12",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120854082730541515",
+   "url": "https://x.com/mattpocockuk/status/2120854082730541515",
+   "posted_at": "2026-11-12T20:19+08:00",
+   "kind": "post",
+   "text": "Hit 200K in January\nHit 300K in August\nWill hit 400K in 2 weeks' time\n\nThanks for a crazy year on X, folks. Glad you're enjoying it!",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "1 月达到 20 万\n8 月达到 30 万\n两周后将达到 40 万\n\n感谢大家在 X 上陪我度过疯狂的一年。很高兴你们喜欢！",
+   "analysis": {
+    "summary": "Matt 分享 X 账号增长：1 月 20 万、8 月 30 万，预计两周后到 40 万，并感谢粉丝。",
+    "points": [
+     "1 月达到 20 万",
+     "8 月达到 30 万",
+     "预计两周后达到 40 万",
+     "感谢粉丝陪伴的一年"
+    ],
+    "why": "个人里程碑帖。帖子未明说是粉丝数，按语境应是关注者数量；“两周后”是他的预估。",
+    "tags": [
+     "个人动态",
+     "创作者增长"
+    ]
+   }
+  },
+  {
+   "id": "x-2120851030711922749",
+   "date": "2026-11-12",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120851030711922749",
+   "url": "https://x.com/mattpocockuk/status/2120851030711922749",
+   "posted_at": "2026-11-12T20:07+08:00",
+   "kind": "reply",
+   "text": "Yep, same idea just a different implementation",
+   "article_title": null,
+   "reply_to": {
+    "handle": "center_of_chaos",
+    "post_id": "2120850673520738479",
+    "url": "https://x.com/center_of_chaos/status/2120850673520738479",
+    "text": "I do this two. One main folder and cloning the repos inside that folder to maintain.  Similar to home repo but different maybe."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "对，同样的思路，只是实现方式不同",
+   "analysis": {
+    "summary": "有人说自己也用一个主文件夹、把各仓库克隆到里面维护，类似 home repo；Matt 认同这是同样的思路、不同的实现。",
+    "points": [
+     "对方做法：一个主文件夹，内含克隆的各仓库",
+     "Matt：思路相同，实现不同"
+    ],
+    "why": "简短认同，信息量较低，但说明“主目录包含多仓库”也属于同类做法。",
+    "tags": [
+     "Home Repo"
+    ]
+   }
+  },
+  {
+   "id": "x-2120850639706267818",
+   "date": "2026-11-12",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120850639706267818",
+   "url": "https://x.com/mattpocockuk/status/2120850639706267818",
+   "posted_at": "2026-11-12T20:06+08:00",
+   "kind": "reply",
+   "text": "They only describe the repo-specific stuff",
+   "article_title": null,
+   "reply_to": {
+    "handle": "FarisBrni",
+    "post_id": "2120849978352656401",
+    "url": "https://x.com/FarisBrni/status/2120849978352656401",
+    "text": "do the per-repo claude.md files go away then, or does the home repo just sit on top of them"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "它们只描述仓库特有的东西",
+   "analysis": {
+    "summary": "有人问用了 home repo 后各仓库的 claude.md 是否就不要了，还是 home repo 叠在上面；Matt 回复说各仓库的文件只描述该仓库特有的内容。",
+    "points": [
+     "提问：每个仓库的 claude.md 是去掉还是保留",
+     "回答：保留，但只写该仓库特有的内容"
+    ],
+    "why": "厘清分工：通用内容放 home repo，仓库级文件只放本仓库特有信息。",
+    "tags": [
+     "Home Repo",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2120850570655203522",
+   "date": "2026-11-12",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120850570655203522",
+   "url": "https://x.com/mattpocockuk/status/2120850570655203522",
+   "posted_at": "2026-11-12T20:05+08:00",
+   "kind": "reply",
+   "text": "You don't, you just have them in the home repo",
+   "article_title": null,
+   "reply_to": {
+    "handle": "giacomomasseron",
+    "post_id": "2120850100373315682",
+    "url": "https://x.com/giacomomasseron/status/2120850100373315682",
+    "text": "how do you version the skills across repos"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "不用，你只要把它们放在 home repo 里就行",
+   "analysis": {
+    "summary": "有人问跨仓库怎么给 skills 做版本管理，Matt 回答不需要，skills 只放在 home repo 里。",
+    "points": [
+     "提问：skills 如何跨仓库做版本管理",
+     "回答：不需要，skills 只存在于 home repo 中"
+    ],
+    "why": "说明 Home Repo 模式的一个要点：skills 集中在一处，避免在各仓库复制和同步版本。",
+    "tags": [
+     "Home Repo",
+     "Skills"
+    ]
+   }
+  },
+  {
+   "id": "x-2120847356539400629",
+   "date": "2026-11-12",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120847356539400629",
+   "url": "https://x.com/mattpocockuk/status/2120847356539400629",
+   "posted_at": "2026-11-12T19:53+08:00",
+   "kind": "reply",
+   "text": "Here's a copy-pasteable prompt you can use to set up your own home repo:\n\nhttps://www.aihero.dev/the-home-repo-pattern",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2120847219788308872",
+    "url": "https://x.com/mattpocockuk/status/2120847219788308872",
+    "text": "Working with agents across multiple repos is a pain\n\nWhere do you put the skills? The steering files? The tooling?\n\nLet me propose a solution I've been using for months (that I thought was too boring and obvious to post)\n\nIt's a pattern called the Home Repo. Enjoy:"
+   },
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://www.aihero.dev/the-home-repo-pattern",
+     "title": "The Home Repo Pattern"
+    }
+   ],
+   "translation_zh": "这里有一段可以直接复制粘贴的 prompt，用来搭建你自己的 home repo：",
+   "analysis": {
+    "summary": "Matt 在自己介绍 Home Repo 的帖子下补充，附上可复制的搭建 prompt 链接（aihero.dev 文章）。",
+    "points": [
+     "回复的是他自己的 Home Repo 介绍帖",
+     "链接指向 The Home Repo Pattern 文章，其中含搭建 prompt"
+    ],
+    "why": "补充链接，方便读者直接上手；信息主要在链接文章里，正文未采集。",
+    "tags": [
+     "Home Repo",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2120847219788308872",
+   "date": "2026-11-12",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120847219788308872",
+   "url": "https://x.com/mattpocockuk/status/2120847219788308872",
+   "posted_at": "2026-11-12T19:52+08:00",
+   "kind": "post",
+   "text": "Working with agents across multiple repos is a pain\n\nWhere do you put the skills? The steering files? The tooling?\n\nLet me propose a solution I've been using for months (that I thought was too boring and obvious to post)\n\nIt's a pattern called the Home Repo. Enjoy:",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "跨多个仓库使用 agent 很痛苦\n\nskills 放哪？steering 文件放哪？工具放哪？\n\n我来提一个我已经用了好几个月的方案（我原本觉得它太无聊、太显而易见，不值得发）\n\n这个模式叫 Home Repo。请看：",
+   "analysis": {
+    "summary": "Matt 指出跨多仓库使用 agent 时，skills、steering 文件和工具无处安放，并用一段视频介绍他用了几个月的 Home Repo 模式。",
+    "points": [
+     "痛点：多仓库下 skills、steering 文件、工具该放哪",
+     "他已经用这个方案好几个月",
+     "他原以为这个方案太平常不值得发",
+     "帖子附一段约 9 分钟的视频（未观看，内容未采集）"
+    ],
+    "why": "多仓库下 agent 配置分散是常见问题，这条是 Home Repo 系列的开篇。视频内容未采集，不做推断。",
+    "tags": [
+     "Agent 工程",
+     "Skills",
+     "Home Repo"
+    ]
+   }
+  },
+  {
+   "id": "x-2120838662254420341",
+   "date": "2026-11-12",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120838662254420341",
+   "url": "https://x.com/mattpocockuk/status/2120838662254420341",
+   "posted_at": "2026-11-12T19:18+08:00",
+   "kind": "post",
+   "text": "Published a proper article on the Home Repo pattern - the simple solution to running agents across multiple repos.\n\nContains a prompt you can run on your org's repos to help you set it up for yourself.\n\nEnjoy your new home\n\nhttps://www.aihero.dev/the-home-repo-pattern",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://www.aihero.dev/the-home-repo-pattern",
+     "title": "The Home Repo Pattern"
+    }
+   ],
+   "translation_zh": "我发了一篇正式文章，讲 Home Repo 模式：一个在多个仓库里运行 agent 的简单方案。\n\n文章里附了一段 prompt，你可以在自己组织的仓库上运行它，帮你把这套搭起来。\n\n享受你的新家吧",
+   "analysis": {
+    "summary": "Matt Pocock 发布了一篇关于 Home Repo 模式的文章（aihero.dev），称其为在多个仓库中运行 agent 的简单方案，并附带可在组织仓库上运行的搭建 prompt。",
+    "points": [
+     "文章标题为 The Home Repo Pattern，发布在 aihero.dev",
+     "定位：解决跨多个仓库使用 agent 的问题",
+     "文章包含一段可直接在组织仓库上运行、帮助搭建的 prompt",
+     "链接卡片描述：一个仓库存放 skills、AGENTS.md 和共享文档，并指向其他仓库"
+    ],
+    "why": "这是他当天 Home Repo 系列帖的核心链接，给出了可复用的做法和搭建 prompt。正文内容未采集，以上仅依据帖子和链接卡片描述。",
+    "tags": [
+     "Agent 工程",
+     "Skills",
+     "Home Repo"
+    ]
+   }
+  },
   {
    "id": "x-2120795868509151239",
    "date": "2026-11-12",
