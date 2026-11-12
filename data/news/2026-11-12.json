@@ -1,0 +1,325 @@
+{
+ "schema_version": 1,
+ "type": "news",
+ "date": "2026-11-12",
+ "day": {
+  "window": "11/11 08:30 – 11/12 08:30 北京时间",
+  "note": "未使用 X 付费 API",
+  "footer": "Java 和 Ontology 今日无值得报的新内容；Spring AI、LangChain4j、ADK Java、MCP Java SDK、OpenAI Agents SDK 过去 24 小时没有新版本；Claude Code 无新版，Codex 0.167.2 只是 Vertex AI 增量工具更新的小修，不单列。Rain Agent Vaults 昨天已报，不重复。",
+  "highlights": [
+   1,
+   2,
+   3
+  ]
+ },
+ "items": [
+  {
+   "id": "news-2026-11-12-01",
+   "date": "2026-11-12",
+   "type": "news",
+   "rank": 1,
+   "title": "AWS 开源 AWS Emulator：全部由 agent 写成的本地 AWS，给 coding agent 当测试环境",
+   "summary": "覆盖 200 多个服务、400 多个 API 模型，离线免费、CC0 授权；Swami 的配套文章讲清了「agent 写代码时，工程师该做什么」。",
+   "url": "https://github.com/aws/aws-emulator",
+   "tags": [
+    "Coding Agent",
+    "Harness",
+    "开源"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "Harness Engineering",
+    "开源项目"
+   ],
+   "score": 625,
+   "score_label": "HN 625 · 208 评；GitHub 1.7k star",
+   "detail": {
+    "heat": "HN 625 · 208 评；GitHub 1.7k star",
+    "highlight": true,
+    "event": "AWS 11 月 11 日发布 aws/aws-emulator（Rust），一个在本机离线运行的 AWS API 模拟器，用 CC0 公共领域授权。Werner Vogels 博客上 Swami Sivasubramanian 的客座文章介绍了做法：从公开的 Smithy API 模型生成「保真度测试」（端到端客户场景，比如 SQS 消息在可见性超时前对其他消费者不可见），先让 agent 修改测试直到它在真实 AWS 上通过，测试就记录下了真实行为；再让 agent 写模拟器直到通过同一组测试。最早 Matt Goldberg 只给 Kiro 一个提示，15 分钟拿到可用的 SQS 模拟器。所有代码都由 agent 编写和测试，每次改动要过一道合并门禁：多个安全 agent 做对抗式审查，再加确定性检查防止 agent 改不该碰的代码。仓库里有 things-that-do-not-work 目录，公开列出和真实 AWS 行为不一致的地方。Swami 还讲了个教训：他用 Kiro 重写当年 Paxos 锁服务 Alf 的复制引擎，盯了四个晚上才发现 agent 没法验证自己的结果；补上规格和测试环境后，两小时就重写完了（当年人工用了四个月）。",
+    "why": "这是目前最完整的一个「规格 + 对照真实系统的测试 + 合并门禁」驱动 agent 自主开发的大规模公开案例，提交历史和 agent 提的 issue 全部公开，可以直接研究。HN 评论里也有质疑：它会不会长期维护，以及和 LocalStack、Floci、Testcontainers 比怎么样。",
+    "use": "支付系统依赖 SQS、DynamoDB、KMS、Step Functions 之类的话，可以让 coding agent 在本地对着模拟器跑集成测试，不用连真实账号也不会产生费用；先看 things-that-do-not-work 目录确认自己用到的接口有没有坑。方法论更值得抄：对外部依赖（清算通道、银行接口）先写「对真实沙箱跑通的保真度测试」，再让 agent 实现 mock 或适配层，并给 agent 改动加多视角审查门禁。",
+    "links": [
+     {
+      "name": "GitHub 仓库",
+      "url": "https://github.com/aws/aws-emulator"
+     },
+     {
+      "name": "Swami 客座文章",
+      "url": "https://www.allthingsdistributed.com/2026/11/aws-emulator-and-the-engineers-job-when-agents-write-the-code.html"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50456631"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-12-02",
+   "date": "2026-11-12",
+   "type": "news",
+   "rank": 2,
+   "title": "Google 推出 Gemini Decisions API：只打分不生成的「决策模型」，$0.10/百万 token、输出免费",
+   "summary": "一次请求可对同一份多模态输入问最多 1,000 个是非、选择、评分题，端到端 150–250 ms，附带置信度。",
+   "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+   "tags": [
+    "AI Agent",
+    "MCP",
+    "新品发布"
+   ],
+   "raw_tags": [
+    "AI Agent",
+    "MCP",
+    "新品发布"
+   ],
+   "score": 240,
+   "score_label": "HN 240 · 75 评",
+   "detail": {
+    "heat": "HN 240 · 75 评",
+    "highlight": true,
+    "event": "Google 11 月 11 日发布 Gemini Decisions API 和 gemini-decision-1 模型。它不逐 token 生成文本，而是一次前向计算给候选选项打分，返回概率和 0–1 的置信度。支持三类问题：noul（是/否）、choice（2–255 个选项）、score（有序评分量表）；输入可以混合文本、图片、音频、视频、PDF，最长 256K token，共享输入只计费一次。价格 $0.10/百万输入 token，输出不收费，官方称比用 Gemini 3.5 Flash-Lite 走 Interactions API 便宜近 5 倍。Google 内部用法包括：Gemini Notebook 的模型路由（日常请求延迟降 40%）、Search 里 MCP 工具调用的对抗行为检测安全层。OpenRouter、LangChain、LiteLLM、Pydantic AI 等正在接入。",
+    "why": "昨天刚报了 Amazon 用 Strands Decider 替掉 Sonnet 做工单分类，今天 Google 也推出同类产品；HN 评论提到 OpenAI 早在 Jev 之后两周就出了决策端点。「封闭选择题交给决策模型」正在成为 agent 架构里的标准一层，用于工具选择、模型路由、策略检查。",
+    "use": "可以把 agent 里的工具/路由选择、MCP 调用前的安全检查，以及支付侧的风控初筛、交易异常分类、客诉路由、对账差异归类，改成决策 API 调用，按置信度阈值把不确定的样本转人工或大模型。多模态这点对支付也有用：一次请求同时判断扫描的发票 PDF 和订单元数据是否一致。上线前先和现有 LLM 方案并跑对比。",
+    "links": [
+     {
+      "name": "Google 官方博客",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50456791"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-12-03",
+   "date": "2026-11-12",
+   "type": "news",
+   "rank": 3,
+   "title": "United Airlines 禁止第三方个人 AI agent 订票，同一天 YC 的 Pomerado 要把任何网站变成 MCP",
+   "summary": "United 以凭证和支付信息泄露、误购风险和联邦法规为由，在自家渠道和代理渠道封禁未授权 agent；HN 上反对声很大。",
+   "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+   "tags": [
+    "支付",
+    "AI Agent",
+    "有争议观点"
+   ],
+   "raw_tags": [
+    "支付系统",
+    "AI Agent",
+    "有争议观点"
+   ],
+   "score": 310,
+   "score_label": "HN 310 · 283 评；Pomerado Launch HN 44 · 35 评",
+   "detail": {
+    "heat": "HN 310 · 283 评；Pomerado Launch HN 44 · 35 评",
+    "highlight": true,
+    "event": "CBS 报道，United 11 月 11 日宣布禁止未经授权的第三方个人 AI 助手（文中举例 Meta Muse、OpenAI dots）代客订票，理由是分享账户凭证和支付信息有风险，agent 可能造成意外购买、账户变更或里程被用掉，代办值机还可能违反要求旅客亲自确认行李的联邦规定。United 会在自家数字渠道直接限制，并通过旅行社和聚合平台间接限制，同时修改订票条款。分析师认为真实动机是不想多一个比 Google 和 OTA 更强的中间商，也要控制 bot 搜索成本；对比之下，Southwest 已经向 ChatGPT 开放航班库存。同一天 YC F26 的 Pomerado 在 HN 发布：agent 先用浏览器把任务跑一遍，再把过程固化成确定性、能自我修复的 API/MCP，登录交给确定性流程以免模型看到凭证，还支持代填 2FA。评论里有人直接问法律风险。",
+    "why": "这是大型商户第一次公开、成规模地拒绝「消费者的 agent 代付」，和 Visa Intelligent Commerce、Mastercard Agent Pay 等推动 agent 支付的方向正面冲突。商户凭什么信任 agent 发起的交易，正在变成 agentic commerce 的核心问题。",
+    "use": "做支付或收单的话，可以从商户视角设计「agent 交易」的识别和授权：区分已授权的 agent（有网络令牌或意图签名、限额、限定商户）和冒充用户的浏览器 agent，在风控规则里单独打标签、单独设限额，并准备好拒付和争议处理口径。也可以对比 Southwest 开放库存的做法，评估给 agent 一个官方 API/MCP 入口是否比封堵更划算。",
+    "links": [
+     {
+      "name": "CBS 报道",
+      "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50458900"
+     },
+     {
+      "name": "Pomerado Launch HN",
+      "url": "https://news.ycombinator.com/item?id=50455811"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-12-04",
+   "date": "2026-11-12",
+   "type": "news",
+   "rank": 4,
+   "title": "48 个 agent 看 1,200 km² 激光雷达图，72 小时「发现」一处玛雅遗址，最后发现早被论文记录过",
+   "summary": "没有专用模型，agent 照着一份判读指南逐张看图；但文献检索漏掉了 2025 年的论文，成了「再发现」。",
+   "url": "https://pietromiotti.com/latest/maya-site",
+   "tags": [
+    "AI Agent",
+    "工程实践"
+   ],
+   "raw_tags": [
+    "AI Agent",
+    "工程实践"
+   ],
+   "score": 917,
+   "score_label": "HN 917 · 335 评",
+   "detail": {
+    "heat": "HN 917 · 335 评",
+    "highlight": false,
+    "event": "Pietro Miotti 的博客记录：他让多个 agent 把 NASA 公开的激光雷达条带（约 1,200 km² 丛林）转成图片，48 个 agent 按一份详细指南逐张判读，找金字塔、平台、广场，排除自然山丘、天坑和道路。第二天 agent 筛出一处疑似未登记的山顶遗址，还检查了原始点云，确认形状来自地面而不是树冠。agent 帮他写了西班牙语报告发给墨西哥国家人类学与历史研究所（INAH），INAH 回复登记册里没有这处遗址。11 月 11 日作者更新：这处遗址其实已在 Estrada-Belli 等人 2025 年的论文里被测绘过，agent 做文献检索时漏掉了。",
+    "why": "这是「大量并行 agent + 写清楚的判读指南」做视觉筛查的一个具体案例，流程可以照搬；而结尾的反转同样重要：agent 的「查无此项」不等于真的不存在，检索类结论需要独立核验。",
+    "use": "可以把大批量人工审阅的活（比如商户资质材料、交易截图、对账异常单）拆成「转成统一格式 + 详细判读指南 + 多个 agent 并行初筛 + 原始数据二次校验」的流水线。凡是 agent 给出「没有重复、没有先例、未登记」这类否定结论的环节，都要加一个独立的检索或人工复核步骤。",
+    "links": [
+     {
+      "name": "原文博客",
+      "url": "https://pietromiotti.com/latest/maya-site"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50452455"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-12-05",
+   "date": "2026-11-12",
+   "type": "news",
+   "rank": 5,
+   "title": "MCP 规范改成每半年发布一次，下一版 2027-03-30；Sentry 让 CLI 和 MCP 共用一次登录",
+   "summary": "每年 3 月、9 月最后一个周二发布，有明确的软冻结、SDK beta 和硬冻结时间点；未完成的提案顺延，不拖延发布。",
+   "url": "https://blog.modelcontextprotocol.io/posts/mcp-release-cycle/",
+   "tags": [
+    "MCP",
+    "Context Engineering"
+   ],
+   "raw_tags": [
+    "MCP",
+    "Context Engineering"
+   ],
+   "score": null,
+   "score_label": "MCP 官方博客；Google 开源博客；Sentry 发布",
+   "detail": {
+    "heat": "MCP 官方博客；Google 开源博客；Sentry 发布",
+    "highlight": false,
+    "event": "MCP 官方博客 11 月 11 日宣布：规范改为固定每半年发布一次，一般在 3 月和 9 月的最后一个周二，下一版目标 2027-03-30，Luca Chang 加入 Den Delimarsky、David Soria Parra 担任发布经理。时间表是发布前 8 个月开始规划，6 个月开始核心维护者评审，2.5 个月软冻结（提案必须定稿合并），1.5 个月 Tier 1 SDK 出 beta，1 个月硬冻结（只接受关键安全或互操作修复）。同日 Google 开源博客回顾：7 月 28 日版规范已把 MCP 转向无状态模型，Agent Skills 规范和 MCP 一起归入 Linux 基金会 AAIF，Google、Anthropic、OpenAI 共同维护。Sentry 则推出 `sentry mcp`，以 stdio 模式启动 MCP，直接复用 CLI 的设备码登录，配置里不用放 token；David Cramer 认为 CLI 能做 MCP 做不到的事（比如 grep 原始事件日志），但 MCP 在可发现性上仍然更好。",
+    "why": "有了固定发布节奏，企业可以按日期规划 MCP 服务端和 SDK 升级，不用再追着不定期的规范变更跑。Sentry 的做法给出了一个「本地 MCP 不存 token」的凭证管理思路。",
+    "use": "如果在维护内部 MCP 服务（包括 Java SDK 实现），可以把 2027-03-30 版的 SDK beta 时间（约 2027 年 2 月中）排进计划，并确认已按无状态模型改造。内部工具可以参考 Sentry 的方式，让 MCP server 复用已有 CLI 或 SSO 登录态，避免在 agent 配置文件里放长期 token。",
+    "links": [
+     {
+      "name": "MCP 发布周期公告",
+      "url": "https://blog.modelcontextprotocol.io/posts/mcp-release-cycle/"
+     },
+     {
+      "name": "Google：MCP 与 Agent Skills 加入 AAIF",
+      "url": "https://opensource.googleblog.com/2026/11/scaling-ai-agents-open-standards-mcp-aaif.html"
+     },
+     {
+      "name": "Sentry CLI 与 MCP 共用登录",
+      "url": "https://news.sulat.com/2026/11/11/sentry-cli-mcp-shared-login/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-12-06",
+   "date": "2026-11-12",
+   "type": "news",
+   "rank": 6,
+   "title": "Atuin Threads：跨机器同步、搜索、续接所有 coding agent 会话，还能在 Claude Code 和 Codex 之间换着接",
+   "summary": "Atuin 18.24 把 agent 会话当作只追加日志端到端加密同步，并提供 MCP 让 agent 自己检索过去的会话。",
+   "url": "https://blog.atuin.sh/threads-agent-sessions/",
+   "tags": [
+    "Context Engineering",
+    "Coding Agent",
+    "开源"
+   ],
+   "raw_tags": [
+    "Context Engineering",
+    "Coding Agent",
+    "开源项目"
+   ],
+   "score": 188,
+   "score_label": "HN 188 · 68 评",
+   "detail": {
+    "heat": "HN 188 · 68 评",
+    "highlight": false,
+    "event": "终端历史工具 Atuin 发布 Threads（18.24+）：支持 Claude Code、Codex、Pi、Omp、OpenCode 的会话采集（需主动开启），端到端加密同步，可用官方或自建同步服务器，也可以只存本地。`atuin resume` 可以在任意机器续接某个会话，或把会话 fork 到另一个 agent 工具里继续。`atuin mcp install` 会给各 agent 装上 MCP，让 agent 自己搜索以前的会话：作者举例说，agent 改引导流程时会先找到之前几次放弃的尝试和放弃原因；排查对象存储故障时，直接找到了当天早些时候另一个 agent 的调查记录。团队间共享会话正在开发。",
+    "why": "agent 会话里有完整的意图、尝试过程和失败原因，这些通常不会进 Git 或文档。把它变成可检索的长期记忆，是一种成本很低的上下文工程做法。",
+    "use": "可以在自己的开发机和服务器上试用，让 coding agent 在动手前先查历史会话（比如以前排查过的支付回调超时、对账脚本问题）。注意会话里可能包含密钥和客户数据，开启采集前确认同步的加密方式，生产相关机器优先只存本地或自建服务器。",
+    "links": [
+     {
+      "name": "Atuin 博客",
+      "url": "https://blog.atuin.sh/threads-agent-sessions/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50453637"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-12-07",
+   "date": "2026-11-12",
+   "type": "news",
+   "rank": 7,
+   "title": "GitHub Actions 支持 workflow 锁文件：用版本标签写，锁文件钉 commit",
+   "summary": "`gh actions-lock` 生成 `.github/workflows/actions.lock`，Renovate、Dependabot、zizmor 都已支持，可以在 CI 里校验。",
+   "url": "https://hugovk.dev/blog/2026/lock-github-actions/",
+   "tags": [
+    "工程实践",
+    "供应链安全"
+   ],
+   "raw_tags": [
+    "工程实践",
+    "供应链安全"
+   ],
+   "score": 90,
+   "score_label": "HN 90 · 18 评",
+   "detail": {
+    "heat": "HN 90 · 18 评",
+    "highlight": false,
+    "event": "Python 核心开发者 Hugo van Kemenade 写了接入教程：安装 `gh extension install github/gh-actions-lock` 后运行 `gh actions-lock`，workflow 里的 action 引用会从「完整 SHA + 注释」改回可读的版本标签，同时生成锁文件，记录每个 action 的 commit、owner_id 和 repo_id。CI 里加一个任务运行 `gh actions-lock --verify`，锁文件过期或上游钉住的版本无法验证时就会失败。Renovate 和 Dependabot 已支持更新锁文件（作者建议配置冷却期），zizmor 从 v1.32.0 起支持锁文件。Pillow、CPython 等项目已经切换。",
+    "why": "标签可以被篡改，过去只能手工钉 SHA，可读性差、升级也麻烦。在 agent 大量自动改 workflow 和依赖的情况下，锁文件加 CI 校验是一道成本很低的供应链防线。",
+    "use": "支付相关仓库的 CI/CD 可以统一接入 actions.lock，并在 CI 里加 verify 任务；同时把「不得手改锁文件、改 workflow 后必须重新 lock」写进给 coding agent 的仓库规则（AGENTS.md 或 CLAUDE.md）。",
+    "links": [
+     {
+      "name": "原文教程",
+      "url": "https://hugovk.dev/blog/2026/lock-github-actions/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50459485"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-12-08",
+   "date": "2026-11-12",
+   "type": "news",
+   "rank": 8,
+   "title": "「为什么有了 AI 我们还没更快交付？」Christian Bird 谈 AI 带来的活动量和实际产出之间的差距",
+   "summary": "前微软研究院学者用访谈和 NBER 论文讨论：AI 让写代码变多，但交付结果没有同步变快。",
+   "url": "https://cabird.com/talks/shipping-faster/",
+   "tags": [
+    "Coding Agent",
+    "有争议观点"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "有争议观点"
+   ],
+   "score": 103,
+   "score_label": "HN 103 · 100 评",
+   "detail": {
+    "heat": "HN 103 · 100 评",
+    "highlight": false,
+    "event": "Christian Bird（Dryden Technology Group）发布 21 分钟演讲和讲义，核心论点来自 30 人访谈的在投论文《The Activity-Outcome Gap: Why AI Does Not Solve Software Engineering》，并引用 NBER 工作论文《Writing Code vs. Shipping Code》、代码审查 agent 漏洞检测基准《(When) Should a Software Factory Be Lights-Off?》，以及开发者在哪里划定 AI 自主权边界的研究。HN 评论两极：一部分人认为「我们明明更快了」，另一部分人说看到了更多上线后很快又被撤掉的功能。",
+    "why": "这和 AWS Emulator 文章是同一个问题的两面：代码产出不再是瓶颈，规格、验证、审查和合并门禁才是。论文清单本身就是一份不错的阅读材料。",
+    "use": "评估团队用 coding agent 的效果时，可以把指标从提交量、代码行数换成交付周期、变更失败率、回滚率和缺陷逃逸率；挑讲义里的代码审查 agent 基准论文，看哪些类型的缺陷适合交给 agent 审查，哪些在支付这类高风险改动里必须保留人工。",
+    "links": [
+     {
+      "name": "演讲与讲义",
+      "url": "https://cabird.com/talks/shipping-faster/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50455332"
+     }
+    ]
+   }
+  }
+ ]
+}
