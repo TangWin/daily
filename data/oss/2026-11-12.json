@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-11-12",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-11-12-exact",
+      "date": "2026-11-12",
+      "type": "oss",
+      "rank": 1,
+      "title": "Exact：写一次界面，原生跑四个平台，还让 AI Agent 自己搭、自己看、自己测",
+      "summary": "Expo 团队的跨平台运行时，用小巧的 Contract 语言写界面、TypeScript/Rust 写数据，在网页、macOS、iOS、Linux 上原生渲染（无 webview），Agent 用同一套十个操作截图、点按、跑测试；十天约 2950 星，过去一天 100 多次提交。",
+      "url": "https://github.com/expo/exact",
+      "tags": [
+        "Coding Agent",
+        "开发者工具",
+        "跨平台",
+        "Rust"
+      ],
+      "raw_tags": [],
+      "score": 2952,
+      "score_label": "★ 2952",
+      "detail": {
+        "status": "picked",
+        "repo": "expo/exact",
+        "homepage": null,
+        "stars": 2952,
+        "forks": 65,
+        "license": "MIT",
+        "language": "Rust",
+        "latest_release": null,
+        "runners_up": [],
+        "body_md": "## Exact：写一次界面，原生跑在网页、macOS、iOS 和 Linux 上，还让 AI Agent 自己搭、自己看、自己测\n\n**为什么今天值得试：** Expo 团队 11 月 2 日公开的跨平台应用运行时，十天约 2950 星。它从第一天就按「代码主要由 AI Agent 来写」设计：同一份界面描述在四个平台原生渲染，Agent 用同一套十个操作就能在每个平台上截图、点按、输入、跑测试，不需要人盯着。过去一天主分支又进了 100 多次提交。\n\n仓库：[expo/exact](https://github.com/expo/exact)\n\n### 它解决什么问题 / 适合谁\n\n想让 Claude Code、Codex 一类编程 Agent 独立做出「真原生」App 的开发者，以及关心跨平台方案、受够了 webview 包壳或 React Native 桥接开销的前端和移动端工程师。传统做法里 Agent 很难自己验证 iOS/macOS 界面对不对；Exact 把构建、运行、截图、操作和测试都做成机器可读的命令，让 Agent 能「看着结果改」。\n\n### 从 README 读到的要点\n\n- **Contract 写界面，TypeScript 或 Rust 写数据：** Contract 是一门很小的声明式语言（shape、component、state、action、view），视图里不跑 JavaScript、没有 I/O，数据只从一个「数据源」接口进出，返回值会按声明的类型校验。README 里一个完整待办 App 只要一份 Contract、一份 `app.ts` 和一份测试。\n- **真原生、无 webview：** 编译成紧凑的「plan」。网页端是一个 ES 模块加约 20 KB 运行时直接驱动 DOM；macOS/iOS/Linux 由 Rust 执行同一份 plan，用 CSS 规则算布局，再分别用 AppKit、UIKit、GPU 画出来，按钮、返回键、字体都是系统原生的。\n- **为 Agent 设计的十个操作：** `tree · screenshot · tap · type · state · layout · logs · clock · prefer · perf`，通过 `scripts/agent.mjs` 在网页、macOS、iOS（模拟器或真机）、Linux 上用法一致；时钟归 Agent 控制（`clock +60000`），动画不会造成测试抖动；`app.test.contract` 测试文件在任何平台原样运行。\n- **编译器会说人话：** 一次报出最多二十个错误，带稳定 id 和源码位置，还会告诉你「这里应写成 web 的 `font-size`」；`--json`、`symbols` 方便工具调用。\n- **速度预算写进规则：** 冷启动到可交互首帧 p50 100 毫秒、保存修改到页面更新约 0.1 秒；README 称在 RealWorld 基准里运行时只有 26 KB，React 版为 81 KB。\n- **自带一批示例：** Caltrain 时刻表（v1 的「真实应用」标杆，四个平台都能跑）、Markdown 阅读器、SQLite 笔记本、接 OpenRouter 的聊天 Demo、地图、SVG/Canvas 画廊和可选的游戏引擎。\n\n### 近期活跃证据\n\n- **Issues：** 约 87 个 Issue、开放约 50 个，大多是这两天 Android、iOS 列表、Xcode 版本等具体问题；维护者通常当天回复，回复里写清根因、给出修复提交或说明为何不收（标注由 Claude Code 代维护者发出），并会请报告者验证修复。\n- **Release：** 还没有任何 Release 或 tag，README 明说 1.0 之前每天都在变、不保证 API 兼容、不提供迁移指南；只能从源码使用。\n- **提交：** 共约 671 次提交，主要作者 ccheever（638 次），另有 ide 等人；最近 24 小时 100 多次提交，方向包括 Android 渲染修复、游戏引擎材质与阴影、iOS 列表和 Apple 打包签名修复，迭代非常密集。\n\n### 怎么快速上手\n\n1. 准备 Rust（rustup）、Bun 1.4.2 和 Chrome；要跑 macOS/iOS 还需 Xcode 27.1+（Linux 只能跑网页和 Linux 宿主）。`git clone https://github.com/expo/exact.git && cd exact && bun scripts/exact.mjs setup`。\n2. `bun host/web/dev.mjs` 在 http://127.0.0.1:8765/ 打开 Caltrain，改 `apps/caltrain/app.contract` 里的文字保存，看 0.1 秒热更新；再用 `bun scripts/agent.mjs web tree \"tap change-station\" \"screenshot out.png\"` 体验 Agent 怎么操作它。\n3. 把 README 里的提示词交给 Claude Code：让它用 `exact new` 做一个待办 App、写 `app.test.contract` 并在网页、macOS、iOS 模拟器上都跑通。README 记录的一次实测约 57 分钟，其中首次原生构建每个约 13 分钟。\n\n### 风险与注意\n\n- **非常早期：** 1.0 之前、无 Release、无打包好的 CLI，API 随时会变；设计文档（LLP）在私有仓库，公开的只有 `docs/`。\n- **环境门槛高：** 首次 setup 和首次原生构建要十几分钟，Xcode 版本要求新（已有人报告 Xcode 26.6 编不过）；Android、Windows 刚起步，Linux 端暂不支持编辑输入。\n- **主要靠一位作者：** 绝大多数提交来自 ccheever。\n- **会询问是否上报使用反馈：** `exact new` 生成的项目会记录构建/测试摩擦，默认先征询再发往 Expo，可用 `bun exact.mjs feedback never` 或 `EXACT_FEEDBACK=0` 关掉。\n- GitHub 页面没识别出许可证，README 说明整个工作区按 MIT 授权（见 `Cargo.toml` 与 LICENSE 文件）。\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
