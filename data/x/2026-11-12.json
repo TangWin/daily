@@ -3,13 +3,41 @@
  "type": "x",
  "date": "2026-11-12",
  "day": {
-  "digest": "Matt Pocock 预告了与 Pi 创作者 @mitsuhiko、@badlogicgames 的直播访谈，并围绕 DDD 连发几条：用清晰一致的语言描述业务流程，就等于自动化软件做了一半，还建议维护 GLOSSARY.md。",
+  "digest": "Matt Pocock 预告了与 Pi 创作者 @mitsuhiko、@badlogicgames 的直播访谈，并围绕 DDD 连发几条：用清晰一致的语言描述业务流程，就等于自动化软件做了一半，还建议维护 GLOSSARY.md；晚些时候还调侃自己让 agent “把我当成 tool call”。",
   "by_source": {
-   "mattpocockuk": "预告 Pi 创作者直播访谈，并主张 DDD 在 AI 时代更有价值。"
+   "mattpocockuk": "预告 Pi 创作者直播访谈，主张 DDD 在 AI 时代更有价值，并发了一条 agent 相关的玩笑帖。"
   },
-  "updated_at": "2026-11-12T08:25:00+09:00"
+  "updated_at": "2026-11-12T20:20:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2120795868509151239",
+   "date": "2026-11-12",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2120795868509151239",
+   "url": "https://x.com/mattpocockuk/status/2120795868509151239",
+   "posted_at": "2026-11-12T16:28+08:00",
+   "kind": "post",
+   "text": "I just told my agent \"treat me like a tool call\"\n\nSo degrading",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我刚刚跟我的 agent 说“把我当成一次 tool call 来对待”\n\n太掉价了",
+   "analysis": {
+    "summary": "Matt Pocock 调侃说，他让自己的 AI agent “把我当成一次 tool call”，并自嘲这很掉价。",
+    "points": [
+     "他对自己的 agent 下了“把我当成 tool call”的指令",
+     "他用“So degrading（太掉价了）”自嘲"
+    ],
+    "why": "一条玩笑帖，信息量很低。帖子没说明具体用法；字面上像是让 agent 在需要人介入时像调用工具一样向他发起请求，但这只是对字面的理解，原帖没有展开。",
+    "tags": [
+     "Agent 工程",
+     "幽默"
+    ]
+   }
+  },
   {
    "id": "x-2120606575819956439",
    "date": "2026-11-12",
