@@ -1,0 +1,50 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-14",
+ "day": {
+  "digest": "Matt Pocock 回复用户对 /animatic 视频 skill 的反馈，强调为控制延迟和 token 消耗要保持简单，声音可配置、字幕用隐藏字幕即可。",
+  "by_source": {
+   "mattpocockuk": "逐条回应 /animatic 的改进建议，坚持简单优先。"
+  },
+  "updated_at": "2026-11-14T08:20:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2121329381041684601",
+   "date": "2026-11-14",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2121329381041684601",
+   "url": "https://x.com/mattpocockuk/status/2121329381041684601",
+   "posted_at": "2026-11-14T03:48+08:00",
+   "kind": "reply",
+   "text": "1. Yep, voice is configurable and mostly you'll watch these on 2x speed\n2. Latency and token spend is a huge concern with these so IMO keeping things simple is essential\n3. Turn closed captions on\n4. It's fine, not amazing",
+   "article_title": null,
+   "reply_to": {
+    "handle": "_onmax",
+    "post_id": "2121298031429685497",
+    "url": "https://x.com/_onmax/status/2121298031429685497",
+    "text": "I have been also playing around with similar skills. Here is some feedback :)\n- Voice is too boring\n- you are using a video. Add animations / things popping up / etc...\n- add subtitles with word highlighting\n- use Kokoro v1.0 voice modal which is LOCAL and SOOOO GOOD"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "1. 对，声音是可配置的，而且大多数时候你会用 2 倍速看这些视频\n2. 这类东西的延迟和 token 消耗是个大问题，所以我认为保持简单至关重要\n3. 打开隐藏字幕（closed captions）\n4. 还行，不算惊艳",
+   "analysis": {
+    "summary": "用户 @_onmax 针对 Matt 的 /animatic 视频 skill 提了四条反馈（声音太无聊、应加动画、加逐词高亮字幕、改用本地 Kokoro v1.0 语音模型），Matt 逐条回复。",
+    "points": [
+     "声音可配置，并称大多数人会用 2 倍速观看",
+     "认为延迟和 token 消耗是这类 skill 的大问题，所以坚持保持简单（作者观点），以此回应“加动画”的建议",
+     "字幕需求：建议直接打开隐藏字幕",
+     "对 Kokoro v1.0 的评价是“还行，不算惊艳”"
+    ],
+    "why": "延续前一天 /animatic 的讨论，说明 Matt 的设计取舍是控制延迟和 token 成本、不堆花哨效果。对 Kokoro 的评价是个人看法，没有给出对比数据。",
+    "tags": [
+     "Skills",
+     "设计取舍",
+     "AI 视频"
+    ]
+   }
+  }
+ ]
+}
