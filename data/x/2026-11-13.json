@@ -3,14 +3,182 @@
  "type": "x",
  "date": "2026-11-13",
  "day": {
-  "digest": "Matt Pocock 在讨论串里补充：多 agent 并行时应在各子仓库内建 worktree；Dan Koe 发了一条关于“不知所措意味着在成长”的激励帖。",
+  "digest": "Matt Pocock 今天最活跃：先在讨论串里说明多 agent 并行时 worktree 应建在子仓库，随后公布正在做 /animatic skill，想让每个重要 PR 都配讲解视频（实现是图片加 ffmpeg，当前瓶颈是延迟），并答疑 Home Repo 配置和新一期 cohort 课程。Dan Koe 发了一条“不知所措意味着在成长”的激励帖。",
   "by_source": {
-   "mattpocockuk": "回复网友：多个 agent 从 Home Repo 并行时，worktree 应建在子仓库里。",
+   "mattpocockuk": "在做 /animatic skill 给 PR 自动配讲解视频，另答疑 worktree、Home Repo 配置和新一期课程。",
    "thedankoe": "激励帖：感到不知所措说明你在做新事、在成长，停滞更糟。"
   },
-  "updated_at": "2026-11-13T08:26:00+09:00"
+  "updated_at": "2026-11-13T20:22:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2121198879723114563",
+   "date": "2026-11-13",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2121198879723114563",
+   "url": "https://x.com/mattpocockuk/status/2121198879723114563",
+   "posted_at": "2026-11-13T19:09+08:00",
+   "kind": "reply",
+   "text": "Yep that was a 2-week cohort a few months ago, this is a new cohort!",
+   "article_title": null,
+   "reply_to": {
+    "handle": "ankitjainai",
+    "post_id": "2121197182988730831",
+    "url": "https://x.com/ankitjainai/status/2121197182988730831",
+    "text": "I have your course AI Coding for Real Engineers. Do you update it with this new info or I should buy a new one?\n@mattpocockuk"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "对，那是几个月前的一期为期两周的 cohort 课程，这次是新的一期！",
+   "analysis": {
+    "summary": "有网友说自己买过 Matt 的课程《AI Coding for Real Engineers》，问是会更新还是需要买新的；Matt 回复说那是几个月前的两周 cohort，这次是新的一期。",
+    "points": [
+     "《AI Coding for Real Engineers》是几个月前的一期两周 cohort 课程",
+     "Matt 正在推广的是新的一期 cohort",
+     "回复未说明老学员能否获得新内容或优惠"
+    ],
+    "why": "信息量较低，主要是课程推广相关的答疑。可以看出 Matt 在开新一期 AI 编程 cohort 课程。",
+    "tags": [
+     "课程",
+     "AI 编程"
+    ]
+   }
+  },
+  {
+   "id": "x-2121187472394576185",
+   "date": "2026-11-13",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2121187472394576185",
+   "url": "https://x.com/mattpocockuk/status/2121187472394576185",
+   "posted_at": "2026-11-13T18:24+08:00",
+   "kind": "reply",
+   "text": "Run /setup-matt-pocock-skills in your home repo and explain the setup",
+   "article_title": null,
+   "reply_to": {
+    "handle": "tofuninjax",
+    "post_id": "2121186455930413464",
+    "url": "https://x.com/tofuninjax/status/2121186455930413464",
+    "text": "I've been reading the Home Repo article. One thing I'm still unsure about: where should I run /setup-matt-pocock-skills?\n\nIt writes per-repo config (issue tracker, triage labels, and domain docs) into whichever repo I run it in. Each child repo still keeps its own issue tracker.\n\nShould I run setup in the home repo, in each child repo, or both? And when the session starts in the home repo, which docs/agents/issue-tracker.md do to-spec, triage, or wayfinder actually read?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "在你的 home repo 里运行 /setup-matt-pocock-skills，并说明你的这套布局。",
+   "analysis": {
+    "summary": "有网友读了 Home Repo 文章后问：/setup-matt-pocock-skills 该在 home repo、各子仓库还是两边都运行？会话从 home repo 启动时，to-spec、triage、wayfinder 读的是哪个 docs/agents/issue-tracker.md？Matt 回复：在 home repo 里运行它，并向它说明你的布局。",
+    "points": [
+     "/setup-matt-pocock-skills 会把 issue tracker、triage 标签、领域文档等配置写进运行它的仓库",
+     "提问者的场景：每个子仓库各有自己的 issue tracker",
+     "Matt 的建议：在 home repo 里运行，并把整体布局解释给它听",
+     "回复没有直接回答各 skill 具体读取哪个 issue-tracker.md"
+    ],
+    "why": "对使用 Matt 的 skills 并采用 Home Repo 多仓库布局的人有直接参考价值：配置入口放在 home repo，靠向 agent 说明布局来处理子仓库。回复很简短，细节仍需看原文章。",
+    "tags": [
+     "Skills",
+     "多仓库",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2121158328940114165",
+   "date": "2026-11-13",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2121158328940114165",
+   "url": "https://x.com/mattpocockuk/status/2121158328940114165",
+   "posted_at": "2026-11-13T16:28+08:00",
+   "kind": "reply",
+   "text": "It's just pictures and ffmpeg, runs faster than most test suites",
+   "article_title": null,
+   "reply_to": {
+    "handle": "budqst",
+    "post_id": "2121157007269150772",
+    "url": "https://x.com/budqst/status/2121157007269150772",
+    "text": "This sounds awesome, but somehow I feel like this would make the memory crisis/inflation worse."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "它就是图片加 ffmpeg，跑得比大多数测试套件还快。",
+   "analysis": {
+    "summary": "有网友担心给 PR 配视频会让内存/资源紧张的问题更严重，Matt 回复说 /animatic 只是图片加 ffmpeg，运行速度比大多数测试套件还快。",
+    "points": [
+     "网友担心视频生成会加剧资源（内存）消耗",
+     "Matt 透露实现方式：静态图片拼接，用 ffmpeg 合成视频",
+     "他称其运行速度快于大多数测试套件"
+    ],
+    "why": "透露了 /animatic 的技术路线：不是生成式视频模型，而是图片加 ffmpeg 的轻量方案。“比测试套件快”是作者的说法，没有给出数据。",
+    "tags": [
+     "Skills",
+     "ffmpeg",
+     "代码评审"
+    ]
+   }
+  },
+  {
+   "id": "x-2121156751307481134",
+   "date": "2026-11-13",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2121156751307481134",
+   "url": "https://x.com/mattpocockuk/status/2121156751307481134",
+   "posted_at": "2026-11-13T16:22+08:00",
+   "kind": "reply",
+   "text": "The problem at the moment is latency - trying to get the thing as fast as possible",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2121156583979962734",
+    "url": "https://x.com/mattpocockuk/status/2121156583979962734",
+    "text": "My dream is for every important PR to be accompanied by a video that shows folks how it works\n\nWorking on an /animatic skill for this"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "目前的问题是延迟——我在努力让它尽可能快。",
+   "analysis": {
+    "summary": "Matt 在自己关于 /animatic skill 的帖子下补充：目前遇到的问题是延迟，他在尽量把速度提上去。",
+    "points": [
+     "/animatic skill 当前的主要问题是延迟",
+     "作者正在优化速度"
+    ],
+    "why": "说明这个生成 PR 视频的 skill 还在开发早期，性能是当前瓶颈。帖子没有给出具体耗时数据。",
+    "tags": [
+     "Skills",
+     "性能"
+    ]
+   }
+  },
+  {
+   "id": "x-2121156583979962734",
+   "date": "2026-11-13",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2121156583979962734",
+   "url": "https://x.com/mattpocockuk/status/2121156583979962734",
+   "posted_at": "2026-11-13T16:21+08:00",
+   "kind": "post",
+   "text": "My dream is for every important PR to be accompanied by a video that shows folks how it works\n\nWorking on an /animatic skill for this",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我的梦想是：每一个重要的 PR 都配一段视频，向大家展示它是怎么工作的。\n\n我正在为此做一个 /animatic skill。",
+   "analysis": {
+    "summary": "Matt Pocock 说他希望每个重要的 PR 都附带一段讲解其工作原理的视频，并透露正在开发一个名为 /animatic 的 skill 来实现这一点。",
+    "points": [
+     "目标：重要 PR 都配一段演示其工作方式的视频",
+     "正在开发 /animatic skill 来做这件事",
+     "帖子没有说明发布时间或具体实现"
+    ],
+    "why": "这是把 AI agent 用在代码评审沟通上的新方向：让 PR 不只是 diff，还能自动生成讲解视频。目前只是作者的设想和在做的项目，尚无可用成果。",
+    "tags": [
+     "Skills",
+     "代码评审",
+     "Agent 工程"
+    ]
+   }
+  },
   {
    "id": "x-2120979340775117026",
    "date": "2026-11-13",
