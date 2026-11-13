@@ -1,0 +1,387 @@
+{
+ "schema_version": 1,
+ "type": "idea",
+ "date": "2026-11-14",
+ "day": {
+  "sample": "样本：主清单 138（HN42 Lobsters2 Reddit48 IH20 PH26） + Reddit 深翻页抱怨 137（5000 帖） + HN 句式评论/Ask/Show 572；未使用 X 付费 API。"
+ },
+ "items": [
+  {
+   "id": "idea-2026-11-14-01",
+   "date": "2026-11-14",
+   "type": "idea",
+   "rank": 1,
+   "title": "App Store 审核别再盲等：按 App 类型看现在审核要排多久、最近常因什么被拒，提交前先按真实拒审案例自查一遍",
+   "summary": "一个开发者共享的审核情报站：开发者授权读取 App Store Connect 的提交和审核状态（只读），自动匿名上报「提交时间、类别、结果、拒审条款」，汇成按类别、按周的审核时长和拒审热点；每条拒审条款下收集真实的被拒原文和最终过审的改法。提交前再跑一遍「预检」：检查删除账号入口、测试账号是否长期有效、截图是否含版权内容、演示视频是否齐全等高频拒因。",
+   "url": "https://news.ycombinator.com/item?id=50477395",
+   "tags": [
+    "开发者工具",
+    "个人/生活"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "个人/生活"
+   ],
+   "score": 3,
+   "score_label": "潜力 3/5 · 难度 None/5",
+   "detail": {
+    "problem": "AI 让做 App 变得很快，提交量暴增，Apple 审核却越来越慢、越来越严。HN 帖子里有人等了两周才等到审核，一次被拒又花了 20 天；有人的更新从 11 月 3 日一直卡在审核中，同一款应用的安卓版早就上线了；有人第一次就被要求录真机演示视频、展示所有页面和删除账号流程，以前从没遇到过；还有人连续四次被判「设计雷同、模板生成」。Indie Hackers 报道 Marc Lou 用代理 4 小时做完 iPhone 应用，审核却等了 336 小时。开发者不知道现在正常要等多久、自己这类 App 最近卡在哪条规则，只能反复提交碰运气。有评论直接说：应该有个产品按领域收集拒审案例，帮你过审。",
+    "target_users": "用 AI 快速做 App 的独立开发者；音乐、合成器、电台、工具类等容易被判「重复」的小众 App 团队；替客户上架 App 的外包公司；要按日期发版的初创公司。",
+    "quotes": [
+     {
+      "text": "At this rate, I feel like some kind of software product could come out that collects rejection cases for each area and domain and gets you past AI review",
+      "links": [
+       {
+        "label": "Hacker News 评论（Apple 审核帖 195 分，232 条评论）",
+        "url": "https://news.ycombinator.com/item?id=50477395"
+       }
+      ]
+     },
+     {
+      "text": "I've been waiting about two weeks for the last review for my app, I got one rejection and that took 20 days.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50475355"
+       }
+      ]
+     },
+     {
+      "text": "Update for my app has been in review on the App Store since November 3rd. Meanwhile on Android updates are just flying through.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50482346"
+       }
+      ]
+     },
+     {
+      "text": "App Store asked for a video of the app working (showing all screens including account deletion flow, never been asked for this before)",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50483377"
+       }
+      ]
+     },
+     {
+      "text": "had their app rejected for \"App does not contain means to delete accounts\" Then all subsequent ones were rejected \"Developer provided test account stopped working\"",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50476005"
+       }
+      ]
+     },
+     {
+      "text": "Marc Lou says his agent took 4 hours to build an iPhone app for TrustMRR's founder chat, and Apple took 336 hours to review it.",
+      "links": [
+       {
+        "label": "Indie Hackers",
+        "url": "https://www.indiehackers.com/post/tech/marc-lous-agent-built-an-iphone-app-in-4-hours-apple-s-review-took-336-hours-Qmc7bI6d5b3zdRuopvQ3"
+       }
+      ]
+     }
+    ],
+    "existing": "App Store Connect 自带状态；Apple 审核指南和「加急审核」申请；网友自建的审核时长统计（多已停更）；AppTraction 等 App Store Connect 客户端；Fastlane 自动化上架",
+    "defects": "官方不公布当前排队时长，也不分类型；拒审原因只给条款编号，看不到别人同条款怎么改过的；网友统计样本少、早停更；Fastlane 和客户端只管上传，不管能不能过；加急审核次数有限、不保证。",
+    "solution": "一个开发者共享的审核情报站：开发者授权读取 App Store Connect 的提交和审核状态（只读），自动匿名上报「提交时间、类别、结果、拒审条款」，汇成按类别、按周的审核时长和拒审热点；每条拒审条款下收集真实的被拒原文和最终过审的改法。提交前再跑一遍「预检」：检查删除账号入口、测试账号是否长期有效、截图是否含版权内容、演示视频是否齐全等高频拒因。",
+    "mvp": "一个网页加一个只读的 App Store Connect API 连接：显示自己每次提交的排队时长，并和匿名池里同类别的中位数对比；一个人工整理的「近 30 天高频拒审 Top 20 及改法」清单；一份提交前勾选清单。",
+    "difficulty": null,
+    "potential": 3
+   }
+  },
+  {
+   "id": "idea-2026-11-14-02",
+   "date": "2026-11-14",
+   "type": "idea",
+   "rank": 2,
+   "title": "改版上线前先比一比安全有没有倒退：录下旧版的登录、两步验证、付款确认流程，新版上线前自动回放对比，少一步就报警",
+   "summary": "一个「安全行为基线」工具：在旧版上用测试账号录一次关键流程（注册、登录、两步验证、找回密码、修改邮箱、付款、退款、下载已购内容），自动记下每一步要求了什么（验证码、确认弹窗、重新输入密码、邮件通知及到达时间）。新版在预发环境或上线后自动回放同样流程，对比哪一步不再要求、哪封邮件变慢或没了，出一份「安全倒退清单」，可以接到上线流程里挡住发布。",
+   "url": "https://news.ycombinator.com/item?id=50464261",
+   "tags": [
+    "安全",
+    "开发者工具",
+    "支付"
+   ],
+   "raw_tags": [
+    "安全/隐私",
+    "开发者工具",
+    "支付/计费"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Humble Bundle 用 AI 大改版后，用户发现两步验证没了，只凭密码就能登录；一键购买不再确认，有人误点直接被 PayPal 扣了 12.99 欧元；登录验证码邮件迟到一小时；已买的电子书下载不了。HN 上 400 分、235 条评论，大家说这些问题不需要多懂技术，只要有人认真点一遍就能发现。另有人说让 Claude 重构权限模型，结果缺了一层权限时它直接放行。重写和大改版常常「功能看起来都在」，但安全和确认步骤悄悄少了，团队自己很难发现，用户先发现。",
+    "target_users": "用 AI 大规模重写或改版网站的中小公司；没有专职安全和测试的电商、会员、订阅类网站；外包给 AI 代理改代码的产品经理；负责上线把关的技术负责人。",
+    "quotes": [
+     {
+      "text": "Not only is the site uglier (gradients, gradients everywhere!), but I could log in without needing my 2FA at all.",
+      "links": [
+       {
+        "label": "Hacker News 评论（Humble Bundle 改版帖 400 分，235 条评论）",
+        "url": "https://news.ycombinator.com/item?id=50464261"
+       }
+      ]
+     },
+     {
+      "text": "I pressed \"Get your games\" button accidentally and it immediately deducted 12,99€ from my Paypal account without confirmation. What the hell.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50464602"
+       }
+      ]
+     },
+     {
+      "text": "I wondered why I did not get email code from them for login. Then it arrive one hour later... Seems like pretty big oversight...",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50464277"
+       }
+      ]
+     },
+     {
+      "text": "None of the issues raised in the post/article here even require any particular knowledge of how to build software. Anybody with a basic attention to detail would have noticed them.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50464443"
+       }
+      ]
+     },
+     {
+      "text": "if a part of a permission grant was missing in the hierarchy, claude happily granted them approval instead of rejecting, fail open for permissions.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50464749"
+       }
+      ]
+     },
+     {
+      "text": "I've been involved in many \"rewrites\". Almost exclusively, the result is worse for users at release.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50465213"
+       }
+      ]
+     }
+    ],
+    "existing": "Playwright、Cypress 等端到端测试；Checkly 等合成监控；OWASP ZAP、Burp 等安全扫描；视觉回归测试工具",
+    "defects": "端到端测试要有人先写好，改版时往往一起被重写或删掉；合成监控只看页面能不能打开，不看两步验证、付款确认这些步骤还在不在；安全扫描找漏洞类型，不比较「新版比旧版少了哪道关」；视觉回归只看样子。",
+    "solution": "一个「安全行为基线」工具：在旧版上用测试账号录一次关键流程（注册、登录、两步验证、找回密码、修改邮箱、付款、退款、下载已购内容），自动记下每一步要求了什么（验证码、确认弹窗、重新输入密码、邮件通知及到达时间）。新版在预发环境或上线后自动回放同样流程，对比哪一步不再要求、哪封邮件变慢或没了，出一份「安全倒退清单」，可以接到上线流程里挡住发布。",
+    "mvp": "一个命令行工具加 Playwright 录制：先支持登录、两步验证、付款确认三条流程，输出新旧两版每一步的对比表，并在少了验证步骤时返回失败码，可放进 GitHub Actions。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-14-03",
+   "date": "2026-11-14",
+   "type": "idea",
+   "rank": 3,
+   "title": "孩子的作业到底在哪：把 Google Classroom、Canvas 和各家学习平台的作业汇成一张清单，一点直达文件，不用再登录一圈",
+   "summary": "一个家长和学生共用的作业汇总 App：用官方接口（Google Classroom API、Canvas API）连接孩子账号，只读拉取作业、截止日期和附件，合成按日期排列的一张清单，每条一点直接打开文件；纸质或口头作业可以拍照或一句话补录；对有需要的孩子，把大作业拆成小步骤并按作息提醒；每周给家长一封「本周没交、快到期」汇总。",
+   "url": "https://news.ycombinator.com/item?id=50488349",
+   "tags": [
+    "开发者工具",
+    "安全",
+    "个人/生活"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "安全/隐私",
+    "个人/生活"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 上「学生在 iPad 上打开一个 PowerPoint 要点 16 下」222 分、113 条评论。原帖列出步骤：先登录 Clever，再选 Google 账号，输入又长又难记的学校邮箱和密码，再点 Canvas，再用 Google 登录一次……评论里家长说孩子用学校强制的 iPad 上 Google Classroom，经常找不到作业，或者打不开；有注意力问题的孩子更难跟上，因为有的作业在 Classroom 里，有的只是占位、实际是纸质讲义，有的根本不在系统里；还有学生描述交一份测验要经过拍照、扫描、上传网盘、再下载、再上传 Canvas 十来步。问题不在某一个平台，而在学校同时用好几个平台，家长和孩子没有一个地方看清「今天要交什么、文件在哪」。",
+    "target_users": "中小学生家长，尤其是孩子有注意力或学习困难（有个别化教育计划）的家庭；使用学校配发 iPad 或 Chromebook 的学生；想减少「找不到作业」问题的班主任和资源教师。",
+    "quotes": [
+     {
+      "text": "Some assignments are in Google Classrooms, some are there but only placeholders as there was a handout, some aren't in there at all.",
+      "links": [
+       {
+        "label": "Hacker News 评论（16 下打开 PowerPoint 帖 222 分，113 条评论）",
+        "url": "https://news.ycombinator.com/item?id=50488349"
+       }
+      ]
+     },
+     {
+      "text": "The amount of times work can’t be done because something is broken or corrupted or doesn’t display properly or there are auth or consistency problems is unreal. That is if you can find the work in the first place.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50488111"
+       }
+      ]
+     },
+     {
+      "text": "login to clever > click google profile > type in his long terrible email he is required to remember ... click canvas > click log in via google again",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50488951"
+       }
+      ]
+     },
+     {
+      "text": "1. Open canvas on laptop 2. Open canvas quiz 3. Write answers on paper 4. Scan paper with office lens 5. Export document from office lens 6. Upload document to google drive",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50488662"
+       }
+      ]
+     },
+     {
+      "text": "But with third-party auth, the third-party add-ons and integrations, that's where it turns into complete crap.",
+      "links": [
+       {
+        "label": "Hacker News 评论",
+        "url": "https://news.ycombinator.com/item?id=50488400"
+       }
+      ]
+     }
+    ],
+    "existing": "Google Classroom 家长邮件摘要；Canvas Parent App；Clever 单点登录门户；学校自己的家校通知 App；纸质作业本",
+    "defects": "每个平台只管自家作业，家长要装好几个 App；Classroom 家长摘要只有标题，没有直达文件；Clever 只解决登录入口，不汇总作业；纸质讲义和口头布置的作业完全不在系统里；没有给注意力困难孩子的提醒和拆分。",
+    "solution": "一个家长和学生共用的作业汇总 App：用官方接口（Google Classroom API、Canvas API）连接孩子账号，只读拉取作业、截止日期和附件，合成按日期排列的一张清单，每条一点直接打开文件；纸质或口头作业可以拍照或一句话补录；对有需要的孩子，把大作业拆成小步骤并按作息提醒；每周给家长一封「本周没交、快到期」汇总。",
+    "mvp": "一个网页或 iPad App：先只接 Google Classroom 和 Canvas，显示合并后的作业清单和截止日期，附件直达；加一个手动补录按钮和每晚 7 点的提醒。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-14-04",
+   "date": "2026-11-14",
+   "type": "idea",
+   "rank": 4,
+   "title": "搜索广告是不是在抢自己的自然流量：给小 App 开发者测出 Apple 搜索广告的真实增量，哪些关键词该停",
+   "summary": "一个面向小开发者的「广告增量」助手：连接 Apple 搜索广告、App Store Connect 和 RevenueCat（都只读），按关键词把「广告安装、同期自然排名、自然安装、试用和订阅」放在一起；自动安排轮流停投的小实验（某些词隔几天停一次），比较停投期间自然安装补回来多少，算出每个词的真实增量成本，给出「品牌词和已有排名的词可以停、哪些词值得加」的建议。",
+   "url": "https://www.indiehackers.com/post/apple-search-ads-five-weeks-in-i-still-can-t-tell-if-they-really-work-pEDsycH9LiEDK6TI83VL",
+   "tags": [
+    "开发者工具",
+    "支付"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "支付/计费"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Indie Hackers 上一位做励志名言 App 的开发者投了约五周 Apple 搜索广告：花 700 英镑换来约 800 次安装，但把广告和自然安装合起来看，订阅收入还是显得贵。大部分预算花在「motivational quotes」「quote of the day」这类他本来就有自然排名的词上——用户搜到，先看到顶部广告点了，Apple 就算一次广告安装，可没有广告时很多人本来也会点他的自然结果。他把零试用的关键词砍掉后，发现小组件相关的词吃掉了大块预算却毫无产出。五周过去，他仍然说不清广告到底有没有用。小开发者没有数据团队，也没有做对照实验的方法。",
+    "target_users": "月广告预算几百到几千美元的独立 App 开发者；靠订阅赚钱的小工具类 App；同时有自然排名和付费投放的小团队。",
+    "quotes": [
+     {
+      "text": "So someone searches, sees my ad at the top, taps it, and Apple counts an ad install. Without the ad, some of them would probably have tapped my normal listing.",
+      "links": [
+       {
+        "label": "Indie Hackers（Apple Search Ads 五周复盘）",
+        "url": "https://www.indiehackers.com/post/apple-search-ads-five-weeks-in-i-still-can-t-tell-if-they-really-work-pEDsycH9LiEDK6TI83VL"
+       }
+      ]
+     },
+     {
+      "text": "800 installs for £700 might not sound too bad, but blended subscription results (ad installs + organic) still made it look a bit expensive.",
+      "links": [
+       {
+        "label": "Indie Hackers",
+        "url": "https://www.indiehackers.com/post/apple-search-ads-five-weeks-in-i-still-can-t-tell-if-they-really-work-pEDsycH9LiEDK6TI83VL"
+       }
+      ]
+     },
+     {
+      "text": "Apple Search Ads: five weeks in, I still can’t tell if they really work",
+      "links": [
+       {
+        "label": "Indie Hackers（标题）",
+        "url": "https://www.indiehackers.com/post/apple-search-ads-five-weeks-in-i-still-can-t-tell-if-they-really-work-pEDsycH9LiEDK6TI83VL"
+       }
+      ]
+     }
+    ],
+    "existing": "Apple 搜索广告后台；AppFigures、Sensor Tower 等 ASO 工具；SplitMetrics、SearchAdsHQ 等投放管理；RevenueCat 订阅分析",
+    "defects": "广告后台只报广告安装，不告诉你其中多少本来会自然下载；ASO 工具看排名不看增量；投放管理工具面向大预算团队，价格高；RevenueCat 有收入但不和关键词的自然排名对上；小开发者不会设计停投对照实验。",
+    "solution": "一个面向小开发者的「广告增量」助手：连接 Apple 搜索广告、App Store Connect 和 RevenueCat（都只读），按关键词把「广告安装、同期自然排名、自然安装、试用和订阅」放在一起；自动安排轮流停投的小实验（某些词隔几天停一次），比较停投期间自然安装补回来多少，算出每个词的真实增量成本，给出「品牌词和已有排名的词可以停、哪些词值得加」的建议。",
+    "mvp": "一个网页：导入 Apple 搜索广告关键词报表和 App Store Connect 自然安装数据（先支持上传 CSV），标出「已有自然前三排名却在投放」的关键词，并生成一个两周停投实验计划和结果对比表。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-14-05",
+   "date": "2026-11-14",
+   "type": "idea",
+   "rank": 5,
+   "title": "老 Mac 停更后还能安全用多久：按型号告诉你能不能用 OCLP 升到哪个系统、浏览器和证书还撑多久、哪些用法该断网，给出继续用、装 Linux 还是卖掉的建议",
+   "summary": "一个按型号出报告的网页：输入或自动识别 Mac 型号和当前系统，告诉你：用 OCLP 最高能升到哪个系统、哪些功能会失效；当前系统下 Chrome、Firefox、Safari、Zoom、Teams 等常用 App 还支持到什么时候；系统证书会不会让网站打不开；按你的用途（上网开会、给孩子学习、离线跑老软件、当家用服务器）给出「继续用 / OCLP 升级 / 装 Linux / 卖掉」的建议和一步步的操作清单；关键日期到期前邮件提醒。",
+   "url": "https://www.reddit.com/r/MacOS/comments/1xuqsjt/",
+   "tags": [
+    "Mac/桌面",
+    "安全",
+    "开发者工具"
+   ],
+   "raw_tags": [
+    "Mac/桌面工具",
+    "安全/隐私",
+    "开发者工具"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Reddit r/MacOS 有人问：2017 款 Intel MacBook Pro 已经没有系统更新了，怎么保护它（35 条评论）。回答五花八门：用 OpenCore Legacy Patcher（OCLP）升到新系统、装 Linux、装 Windows 11、断网用、卖掉买二手 M1；有人说 OCLP 让他的 2012 款 Mac mini 还能拿到安全更新，有人说 2017 款停在 Ventura 连网站证书都过不了。每个回答只说一种办法，没人按具体型号、用途和风险把选择讲清楚；楼主也只是想继续开 Teams 和视频会议。",
+    "target_users": "还在用 2012–2020 款 Intel Mac 的普通用户和家庭；给父母或孩子留旧电脑的人；学校、小办公室里的旧 Mac；想把旧 Mac 改作家用服务器的人。",
+    "quotes": [
+     {
+      "text": "What is the best way to protect my 2017 Intel MacBook Pro given there are no more OS updates for it?",
+      "links": [
+       {
+        "label": "Reddit r/MacOS（标题，35 条评论）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1xuqsjt/"
+       }
+      ]
+     },
+     {
+      "text": "You’re screwed. I just had to deal with a 17 MBP on Ventura and it couldn’t even load websites right because of the SSL certs.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论",
+        "url": "https://www.reddit.com/r/MacOS/comments/1xuqsjt/"
+       }
+      ]
+     },
+     {
+      "text": "Open Core Legacy Patcher is keeping my 2012 Mac mini up to date as far as macOS 15, which means it still gets security updates",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论",
+        "url": "https://www.reddit.com/r/MacOS/comments/1xuqsjt/"
+       }
+      ]
+     },
+     {
+      "text": "Install Linux or Windows 11.  But really, it's time to let go. Give it away, use it as a sever of some sort, or sell it on eBay for a few hundred dollars.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论",
+        "url": "https://www.reddit.com/r/MacOS/comments/1xuqsjt/"
+       }
+      ]
+     }
+    ],
+    "existing": "OpenCore Legacy Patcher 官网和兼容表；Apple 官方支持机型列表；EveryMac 等型号资料站；各类「旧 Mac 怎么办」文章和论坛帖",
+    "defects": "OCLP 兼容表很技术化，普通用户看不懂风险（比如哪些功能会坏、升级后能否回退）；官方列表只说不支持；没有把「系统更新、浏览器支持截止、根证书过期、常用 App 最低系统要求」放在一起看；文章不针对具体型号和用途。",
+    "solution": "一个按型号出报告的网页：输入或自动识别 Mac 型号和当前系统，告诉你：用 OCLP 最高能升到哪个系统、哪些功能会失效；当前系统下 Chrome、Firefox、Safari、Zoom、Teams 等常用 App 还支持到什么时候；系统证书会不会让网站打不开；按你的用途（上网开会、给孩子学习、离线跑老软件、当家用服务器）给出「继续用 / OCLP 升级 / 装 Linux / 卖掉」的建议和一步步的操作清单；关键日期到期前邮件提醒。",
+    "mvp": "一个静态网页：覆盖 2012–2020 年主要 Intel Mac 型号，表格列出 OCLP 最高系统、主要浏览器和会议软件的最低系统要求，选型号和用途后生成一页建议；附二手估价链接。",
+    "difficulty": null,
+    "potential": null
+   }
+  }
+ ]
+}
