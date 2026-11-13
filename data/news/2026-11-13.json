@@ -1,0 +1,379 @@
+{
+ "schema_version": 1,
+ "type": "news",
+ "date": "2026-11-13",
+ "day": {
+  "window": "11/12 08:30 – 11/13 08:30 北京时间",
+  "note": "未使用 X 付费 API",
+  "footer": "Java 今日没有值得单列的新版本：Spring AI 2.1.0-RC2（11/5）和 LangChain4j 1.23.0（10/28）之前已报，MCP Java SDK、ADK Java 无新版；Codex 只有 0.170.0 alpha 预发布，不单列。MCP 规范改为半年发布周期昨天已报，不重复。Jensen Huang 辞职、Anthropic IPO、微软 365 故障热度很高但与技术主题无关，未收录；Jane Street 面试改革一文发于 11/2，不算新内容。",
+  "highlights": [
+   1,
+   2,
+   3
+  ]
+ },
+ "items": [
+  {
+   "id": "news-2026-11-13-01",
+   "date": "2026-11-13",
+   "type": "news",
+   "rank": 1,
+   "title": "Google 发布 Gemini 4 Hydrogen，Antigravity 上线 Orchestrator：同一条轨迹里大小模型动态接力",
+   "summary": "Hydrogen 定位快速执行模型，$1.50/$7.50 每百万 token、1M 上下文统一价；Orchestrator 让 Carbon 规划、Hydrogen 执行，卡住再交回，少用 24% 额度。",
+   "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+   "tags": [
+    "Coding Agent",
+    "AI Agent",
+    "新品发布"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "AI Agent",
+    "新品发布"
+   ],
+   "score": 449,
+   "score_label": "HN 449 · 289 评；Antigravity 博客 HN 275 · 61 评",
+   "detail": {
+    "heat": "HN 449 · 289 评；Antigravity 博客 HN 275 · 61 评",
+    "highlight": true,
+    "event": "Google 11 月 12 日发布 Gemini 4 Hydrogen，面向全部开发者、企业和消费者入口同步上线（AI Studio、Gemini API、Gemini app、搜索）。官方数据：Artificial Analysis 智能指数默认 high 档 51、xhigh 档 54，超过上一代旗舰 Argon 的 50；Terminal-Bench 4.1 得分 57%，是 3.8 Flash（18.2%）的三倍多；任务完成速度快 2.5 倍，捏造性陈述减少 5 倍以上，会原生并行批量读文件和搜索。定价在整个 1M 上下文内统一为输入 $1.50、输出 $7.50 每百万 token，有 low/medium/high/xhigh 四档推理。同时 Antigravity 推出 Orchestrator 模型选项：不是按首条提示静态路由，而是在一次会话里双向切换——Carbon 先只读探索、做计划并写明重新规划的触发条件，Hydrogen 接手改代码、升级依赖、跑测试，遇到阻力再交回 Carbon 修计划。Terminal-Bench 上接近 Carbon 的成功率，平均少用 24% 额度、快 19%。Antigravity SDK 也可以显式编排多模型流水线。",
+    "why": "「强模型规划 + 快模型执行 + 失败回退」第一次被大厂做成默认产品形态，并给出了量化收益，这正是 harness 层的模型路由该怎么设计的参考答案。HN 讨论集中在命名太难懂（Hydrogen 比 Carbon 小）、调用入口太多，以及有人质疑 Gemini 连当前日期都答不对。",
+    "use": "自己做 agent 编排时，可以照搬这套分工：规划和根因分析用贵模型、只读权限，批量改代码和跑测试交给便宜模型，并显式定义「什么情况交回规划者」的触发条件（测试连续失败、需要改接口契约等）。Hydrogen 的统一定价也适合拿来跑大上下文的代码库问答，值得和现在用的模型做一次成本对比。",
+    "links": [
+     {
+      "name": "Google 官方博客",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+     },
+     {
+      "name": "Antigravity Orchestrator 博客",
+      "url": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50471431"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-13-02",
+   "date": "2026-11-13",
+   "type": "news",
+   "rank": 2,
+   "title": "Claude Code 2.1.323 推出实验性 Code Mode：让 Claude 写 JavaScript 来调用工具",
+   "summary": "不再一个个发起工具调用，而是写代码批量编排；同版本还加了插件版本范围约束、长时间 hook 心跳和大量 MCP 登录修复。",
+   "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.323",
+   "tags": [
+    "Coding Agent",
+    "Harness",
+    "MCP"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "Harness Engineering",
+    "MCP"
+   ],
+   "score": null,
+   "score_label": "GitHub release（11/12）；多家 changelog 站跟进",
+   "detail": {
+    "heat": "GitHub release（11/12）；多家 changelog 站跟进",
+    "highlight": true,
+    "event": "Claude Code 2.1.323 于 11 月 12 日发布。最大的新功能是 Code Mode（实验性、需手动开启，组织可统一关闭）：Claude 写 JavaScript 去调用它的工具，而不是每个工具单独调用一次。2.1.318 起代码里已有这个 REPL 模式的雏形：开启后的会话只能在开启状态下恢复，退出时还在后台跑的代码会标记为 Lost，这类会话不能迁到云端。其他变化：plugin.json 支持 engines[\"claude-code\"] 声明兼容版本范围；claude plugin validate 会对 TypeScript hooks 做类型检查；claude -p 和 SDK 会话里 hook 跑得久时每 30 秒发心跳，避免宿主误判卡死；对 Bash allow 规则里变量值带 * 的写法（如 Bash(PORT=* npm run dev)）给出启动警告。修复方面，MCP 工具遇到 TOKEN_EXPIRED 现在会提示重新登录而不是直接报错，完成 MCP 登录的工具在 bypass/auto 模式下也要求确认，.mcp.json 的服务器批准改为精确匹配名称。",
+    "why": "「用代码调用工具」（code-as-action）之前主要是 Cloudflare、HF smolagents 等在推，现在主流 coding agent 官方内置，意味着工具结果可以在代码里过滤、合并后再进上下文，对省 token 和多步工具链影响很大。权限相关的几个改动也说明 Anthropic 在收紧通配规则和 MCP 认证的边界。",
+    "use": "可以挑一个需要连续调很多次 MCP 工具的任务（比如批量查订单状态再汇总）对比开关 Code Mode 的 token 用量和成功率。团队如果分发内部插件，赶紧给 plugin.json 加上版本范围；同时检查 settings 里有没有 PORT=* 这种宽松 allow 规则。",
+    "links": [
+     {
+      "name": "Release notes",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.323"
+     },
+     {
+      "name": "AI Tracker 解读",
+      "url": "https://ai-tracker.rootstudio.io/news/2026-11-12-claude-code-2-1-323"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-13-03",
+   "date": "2026-11-13",
+   "type": "news",
+   "rank": 3,
+   "title": "同一天四家落地 agent 支付：Replit 代买、Mastercard 机票全链路、VGS agentic token、Wirex Navoka",
+   "summary": "共同点是 agent 永远拿不到卡号、每笔都受范围化凭证或硬编码规则约束；Replit 明确「批准检查写在代码里，不交给模型」。",
+   "url": "https://replit.com/blog/replit-agent-ads-commerce",
+   "tags": [
+    "支付",
+    "AI Agent",
+    "新品发布"
+   ],
+   "raw_tags": [
+    "支付系统",
+    "AI Agent",
+    "新品发布"
+   ],
+   "score": null,
+   "score_label": "Replit 官方博客、PYMNTS、PR Newswire（11/12）",
+   "detail": {
+    "heat": "Replit 官方博客、PYMNTS、PR Newswire（11/12）",
+    "highlight": true,
+    "event": "11 月 12 日：① Replit Agent 可以替企业采购，用 Stripe 的 Link agent wallet 和 Visa 支付。浏览器子 agent（Browserbase 提供）去商家网站加购物车、准备结账，停在结账页等用户批准最终金额；支付阶段关闭 shell 和通用浏览，批准检查由代码强制执行，目前限美国、一次性购买。② Mastercard 联合 Travelport、Booked AI、Basis Theory 完成首笔真实的 AI 订机票交易：agent 通过 NDC 拿到航司报价，用户在对话里确认后由 Mastercard Agent Pay 用令牌化凭证付款，卡号存在 Basis Theory 的 PCI 保险库里，航司始终是商户，中间没有第三方收银台。③ VGS 宣布 agentic token 已在 Visa、Mastercard、Amex 三大卡组织上线，每天发放超过 50 万个。④ Wirex 推出 Navoka：每个 agent 有自己的 IBAN、借记卡和 USDC/EURC 钱包，与用户账户隔离，授权时按用户设的商户白名单、额度、国家逐笔校验，agent 自己改不了规则，每笔记录依据哪条规则、谁批准。",
+    "why": "agent 支付从「演示」进入「有真实交易量」阶段，而且几家不约而同地用了同一套安全模式：范围化令牌、凭证隔离、人工批准最终金额、规则在授权层而非提示词里执行。这基本就是 agentic commerce 的事实标准雏形。",
+    "use": "做支付系统可以对照这几个设计检查自己的接口：是否支持给 agent 签发带商户/金额/有效期约束的令牌；授权时能否识别「agent 发起」并走不同风控；审计日志能否记录规则命中和批准人。Replit 的「支付阶段禁用 shell 和浏览」也是 harness 侧很好抄的隔离做法。",
+    "links": [
+     {
+      "name": "Replit 博客",
+      "url": "https://replit.com/blog/replit-agent-ads-commerce"
+     },
+     {
+      "name": "PYMNTS：Mastercard 机票交易",
+      "url": "https://www.pymnts.com/transportation/travel-payments/2026/mastercard-touts-successful-agentic-travel-transaction/"
+     },
+     {
+      "name": "VGS agentic tokens",
+      "url": "https://www.verygoodsecurity.com/blog/posts/vgs-is-live-with-agentic-tokens-and-already-provisioning-millions"
+     },
+     {
+      "name": "Wirex Navoka",
+      "url": "https://www.prnewswire.com/news-releases/wirex-launches-navoka-an-ai-agent-that-pays-from-its-own-bank-account-and-card-302938065.html"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-13-04",
+   "date": "2026-11-13",
+   "type": "news",
+   "rank": 4,
+   "title": "Humble Bundle 新站上线即「拆掉」安全：没有 2FA、改密码改邮箱都不用验证，被指 vibe coding 所致",
+   "summary": "用户实测改密码不要旧密码、改邮箱验证码发往新邮箱；HN 上吵成「怪 AI 还是怪人」。",
+   "url": "https://forums.spacebattles.com/threads/humble-bundle-just-completely-killed-most-of-their-security-through-vibecoding.1346295/",
+   "tags": [
+    "Coding Agent",
+    "支付",
+    "有争议"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "支付系统",
+    "争议观点"
+   ],
+   "score": 368,
+   "score_label": "HN 368 · 219 评",
+   "detail": {
+    "heat": "HN 368 · 219 评",
+    "highlight": false,
+    "event": "Humble Bundle 11 月 11 日上线新网站后，用户在 SpaceBattles 论坛和 Reddit 上陆续实测：登录不再要求 2FA；修改密码既不需要旧密码也不需要输两遍；修改邮箱时验证码发到新邮箱而不是旧邮箱，旧邮箱只收到一封「邮箱已变更」通知，里面没有联系客服的链接，反而指向一家 AI 安全公司；有人称一键购买被打开；资料库显示混乱、重复。官方截至发帖时未回应。帖子标题直接把原因归为 vibe coding（用 AI 快速生成代码）。",
+    "why": "这是一个具体、可验证的「AI 加速重写导致安全回退」案例，正好落在账户和支付这类最敏感的路径上。HN 热评分成两派：一派认为是管理层裁掉懂行的人、用便宜模型赶工；另一派认为「AI 不会写出烂软件，人会」，问题在没人审安全需求。",
+    "use": "拿来做团队里 AI 生成代码的反面教材：账户安全（2FA、改密、改绑邮箱/手机）和支付确认流程应该有一组不依赖实现的回归测试和安全清单，任何重写（不管是人还是 agent 写的）都必须先过这组测试再上线。也可以让 review agent 专门对比新旧版本的认证和授权流程差异。",
+    "links": [
+     {
+      "name": "SpaceBattles 原帖",
+      "url": "https://forums.spacebattles.com/threads/humble-bundle-just-completely-killed-most-of-their-security-through-vibecoding.1346295/"
+     },
+     {
+      "name": "Reddit 讨论",
+      "url": "https://www.reddit.com/r/humblebundles/comments/1xtj3nj/2fa_removed_from_humble_bundle/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50463899"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-13-05",
+   "date": "2026-11-13",
+   "type": "news",
+   "rank": 5,
+   "title": "Amazon Cognito 支持 OAuth 2.0 Token Exchange：MCP server 可以换出窄范围、带 act 声明的下游 token",
+   "summary": "不用再把用户原始 token 往下游转发，新 token 单一受众、范围更窄、没有 refresh token，并标明是哪个 agent 代用户发起。",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/cognito-token-exchange/",
+   "tags": [
+    "MCP",
+    "AI Agent",
+    "支付"
+   ],
+   "raw_tags": [
+    "MCP",
+    "AI Agent",
+    "支付系统"
+   ],
+   "score": null,
+   "score_label": "AWS What's New（11/12）",
+   "detail": {
+    "heat": "AWS What's New（11/12）",
+    "highlight": false,
+    "event": "AWS 11 月 12 日宣布 Amazon Cognito 支持 RFC 8693 OAuth 2.0 Token Exchange。代表用户行事的服务或 AI agent 可以把用户的 token 换成只针对某个下游服务的新 token：范围比原 token 窄、绑定单一 audience、不带 refresh token。如果同时提供 actor token，Cognito 会加上 act 声明标明中间方，下游就能区分「用户本人发起」和「agent 代用户发起」。官方举的例子就是 MCP server 用用户 token 换一个窄范围 token 去调后端 API，act 里记录 MCP server。可以走 token 端点或新的 GetDerivedToken API，Essentials 和 Plus 套餐可用。此前 AgentCore Identity 已支持同类 on-behalf-of 交换。",
+    "why": "MCP 远程服务器最常见的安全反模式就是把用户 token 原样透传给下游。主流 IdP 原生支持 token exchange + act 声明后，「agent 代用户调用」终于有了标准、可审计的做法，也和 MCP 规范弃用 DCR、收紧授权的方向一致。",
+    "use": "如果在做支付或订单相关的 MCP server，下游 API 应该只接受换出来的窄范围 token，并在风控和审计里读取 act 声明，把 agent 发起的操作单独限额或要求二次确认。不用 Cognito 的话，Keycloak、Okta 等也支持 RFC 8693，可以按同样模式设计。",
+    "links": [
+     {
+      "name": "AWS 公告",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/cognito-token-exchange/"
+     },
+     {
+      "name": "AgentCore OBO 交换文档",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-13-06",
+   "date": "2026-11-13",
+   "type": "news",
+   "rank": 6,
+   "title": "Google 发布 A2UI 1.0：agent 用协议描述界面，各端用原生组件渲染，可嵌入 MCP Apps",
+   "summary": "第一个稳定版，新增双向函数调用；React/Angular/Lit/Flutter/SwiftUI 渲染器开源，Atlassian、Bloomberg、字节已在用。",
+   "url": "https://developers.googleblog.com/a2ui-10-build-delightful-fast-reliable-agentic-experiences/",
+   "tags": [
+    "AI Agent",
+    "MCP",
+    "开源"
+   ],
+   "raw_tags": [
+    "AI Agent",
+    "MCP",
+    "开源项目"
+   ],
+   "score": 40,
+   "score_label": "HN 40；Google Developers Blog",
+   "detail": {
+    "heat": "HN 40；Google Developers Blog",
+    "highlight": false,
+    "event": "Google 11 月 11 日发布生成式 UI 开放协议 A2UI 1.0。agent 只描述要展示什么（表单、图表、确认卡片），宿主应用用自己注册的设计系统组件原生渲染，agent 只能放置开发者注册过的组件。1.0 新增双向函数调用（比如航班选择器可以当场查余票）、无障碍支持和扩展元数据；数据绑定在服务端完成，敏感值不进模型。Web 和 Flutter 渲染器能在 MCP Apps 里运行，所以 A2UI 界面可以出现在 Claude、Gemini 这类支持 MCP Apps 的助手里。新出 TypeScript、Dart agent SDK（另有 Python）。案例：Jira 里 agent 用交互卡片向团队追问缺失信息；Alation 的数据 feed 在 Claude 和自家应用里几乎同样呈现，每张图可查看背后的 SQL。",
+    "why": "agent 输出从「一墙文字」变成可确认、可编辑的界面，是 agent 产品体验的关键一步；A2UI 和 MCP Apps 打通后，同一套界面可以同时出现在自家 App 和第三方助手里。",
+    "use": "支付和运营场景里很多 agent 输出需要人确认（退款审批、对账差异、风控放行），可以用 A2UI 的确认卡片替代纯文本，配合「敏感字段服务端绑定、不进模型」的设计，减少数据暴露。先在 CopilotKit 的 A2UI Playground 上试一下组件表达力。",
+    "links": [
+     {
+      "name": "Google Developers Blog",
+      "url": "https://developers.googleblog.com/a2ui-10-build-delightful-fast-reliable-agentic-experiences/"
+     },
+     {
+      "name": "GitHub 仓库",
+      "url": "https://github.com/a2ui-project/a2ui"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50461919"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-13-07",
+   "date": "2026-11-13",
+   "type": "news",
+   "rank": 7,
+   "title": "Expo Simulators 正式发布：给 coding agent 用的云端 iOS/Android 模拟器，自带录屏作为验证证据",
+   "summary": "每个会话独立 VM，并行 agent 互不干扰；录屏、截图、日志、网络流量都留存，可直接贴到 PR 里。",
+   "url": "https://expo.dev/blog/introducing-expo-simulators-cloud-simulators-built-for-agents",
+   "tags": [
+    "Coding Agent",
+    "Harness",
+    "新品发布"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "Harness Engineering",
+    "新品发布"
+   ],
+   "score": 24,
+   "score_label": "HN 24 · 12 评",
+   "detail": {
+    "heat": "HN 24 · 12 评",
+    "highlight": false,
+    "event": "Expo 11 月 12 日让 Expo Simulators 在所有付费套餐 GA。agent、CI 或同事用一条命令（npx eas-cli simulator --platform ios）就能拉起云端 iOS Simulator 或 Android Emulator，不需要 Mac，也不占本机内存。agent 用和本地一样的 agent-device、Argent 或 Appium 命令驱动；每个会话记录 agent 的操作、全程录屏、截图、日志、网络流量和 CPU/内存。会话最长两小时，可设空闲超时，避免 CI 提前退出后一直计费。提供 eas-simulator skill，教 agent 检查权限、启动会话、操作 App、带回证据、结束会话。价格 $0.10/分钟。",
+    "why": "文章把「验证」明确称为 agent 时代新的瓶颈，并给出完整答案：隔离环境 + 可回放证据 + 自动清理。和昨天 AWS Emulator 一样，都是在给 agent 提供可以自证正确的运行环境，这是 harness engineering 的主线。",
+    "use": "即使不做移动端，这套模式也能借鉴：给 agent 的每次验证分配独立、有时限的环境，并把录屏或执行轨迹作为 PR 附件，让评审看「跑起来的证据」而不是只读 diff。做支付 App 的话，可以让 agent 在云模拟器里跑完整支付流程并附录屏。",
+    "links": [
+     {
+      "name": "Expo 官方博客",
+      "url": "https://expo.dev/blog/introducing-expo-simulators-cloud-simulators-built-for-agents"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50471310"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-13-08",
+   "date": "2026-11-13",
+   "type": "news",
+   "rank": 8,
+   "title": "开源 AgentRun：在现有 harness 上加自我改进和持久执行，自建代码评审每次 18 美分",
+   "summary": "Parcha 开源（Apache-2.0）的 agent 控制平面；案例里用 Opus 摸索商户分类方法再交给便宜模型，每个商户成本从 $0.89 降到 $0.12。",
+   "url": "https://github.com/Parcha-ai/agentrun",
+   "tags": [
+    "AI Agent",
+    "开源",
+    "支付"
+   ],
+   "raw_tags": [
+    "AI Agent",
+    "开源项目",
+    "支付系统"
+   ],
+   "score": 74,
+   "score_label": "HN 74 · 12 评；GitHub 590 star",
+   "detail": {
+    "heat": "HN 74 · 12 评；GitHub 590 star",
+    "highlight": false,
+    "event": "Parcha 在 HN 发布开源项目 AgentRun（JavaScript，Apache-2.0）。它叠加在现有 agent harness 之上，提供三件事：自我改进（agent 运行后保留学到的笔记，之后的运行更快更省）、持久执行（容错）和控制平面。README 里有两个案例：一是 Greptile 按每次评审 $1 收费后，他们的账单从每月 $180 涨到 $6,451，于是用便宜模型在自家 PR 上调出一个评审 agent，每次 18 美分，在 30 个没见过的 PR 上抓到的真实 bug 是 Greptile 的 1.6 倍；二是商户编码分类：先让 Opus 想清楚怎么分类，再把学到的方法交给便宜模型，每个商户成本从 $0.89 降到 $0.12。可用 npx @parcha/agentrun 本地启动或部署到 Render。",
+    "why": "「强模型先学会任务、再把经验交给便宜模型」是降低 agent 运行成本最实用的模式之一，项目把它做成了带控制台的开源实现。商户分类案例和支付业务直接相关。注意数据来自项目自己的 README，属于自报效果。",
+    "use": "可以拿商户 MCC 归类、交易描述清洗、拒付原因分类这类高频小任务试一下这个流程：用强模型生成分类规则和难例笔记，再让便宜模型按笔记跑，对比准确率和单位成本。自建 PR 评审 agent 的教程也值得照着在自家仓库跑一遍。",
+    "links": [
+     {
+      "name": "GitHub 仓库",
+      "url": "https://github.com/Parcha-ai/agentrun"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50471650"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-13-09",
+   "date": "2026-11-13",
+   "type": "news",
+   "rank": 9,
+   "title": "Relate：给 agent 用的嵌入式 Cypher 图数据库，把记忆存成可查询的事实和关系",
+   "summary": "无需服务器，数据放内存、目录或单个 .rl 文件；带 agent skill 和 MCP 端点，提供含 Java 在内的多语言库。",
+   "url": "https://relatedb.ai/",
+   "tags": [
+    "Ontology",
+    "Context Engineering",
+    "开源"
+   ],
+   "raw_tags": [
+    "Ontology",
+    "Context Engineering",
+    "开源项目"
+   ],
+   "score": 19,
+   "score_label": "HN 19 · 9 评",
+   "detail": {
+    "heat": "HN 19 · 9 评",
+    "highlight": false,
+    "event": "Relate 在 HN 发布，定位是「agent 原生」的开源嵌入式图数据库。它随应用启动和停止，不需要部署服务；agent 写 openCypher 查询（通过 openCypher TCK 测试，和 Neo4j 不同之处在文档里标出），返回表格或 JSON。提供 Claude Code、Codex、Cursor 等十几种 agent 的 skill，以及 MCP 端点、CLI 和 Rust、Python、JS、Go、Java、Swift、C 等语言库。官方给 agent 的使用规范里要求：先查看 schema/本体再生成查询、参数绑定、非聚合结果加 LIMIT、默认只读。",
+    "why": "agent 记忆和上下文管理正在从「向量库里的文本片段」转向「有结构的事实 + 关系」，这和 Ontology 方向直接相关。它的 skill 写法（先读本体、默认只读、参数化）本身也是很好的 context engineering 范例。项目很新、互动不多，适合先观察。",
+    "use": "可以试着把支付领域的实体关系（商户、门店、渠道、清算账户、费率规则）建成一个小图，让 agent 回答「改这个费率会影响哪些商户和对账任务」这类影响分析问题；Java 库也方便嵌进现有服务做原型。",
+    "links": [
+     {
+      "name": "官网",
+      "url": "https://relatedb.ai/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50472738"
+     }
+    ]
+   }
+  }
+ ]
+}
