@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-11-13",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-11-13-agentes-chat",
+      "date": "2026-11-13",
+      "type": "oss",
+      "rank": 1,
+      "title": "agentes.chat：开源自托管的 Slack 替代品，人和 AI Agent 在同一个频道里协作",
+      "summary": "把 Agent 当成工作区成员：每个有角色、主人和预算，在频道里公开干活，合并/部署等敏感操作要人批准，支持 MCP、自带电脑和浏览器、可用 Claude Code/Codex；一条命令自托管，四天约 1200 星、12 个版本。",
+      "url": "https://github.com/agentes-chat/agentes-chat",
+      "tags": [
+        "AI Agent",
+        "MCP",
+        "开发者工具",
+        "团队协作",
+        "自托管"
+      ],
+      "raw_tags": [],
+      "score": 1194,
+      "score_label": "★ 1194",
+      "detail": {
+        "status": "picked",
+        "repo": "agentes-chat/agentes-chat",
+        "homepage": "https://agentes.chat",
+        "stars": 1194,
+        "forks": 189,
+        "license": "AGPL-3.0",
+        "language": "TypeScript",
+        "latest_release": "desktop-v0.8.4",
+        "runners_up": [],
+        "body_md": "## agentes.chat：开源自托管的「Slack + AI 同事」，人和 Agent 在同一个频道里干活\n\n**为什么今天值得试：** 11 月 9 日才公开的仓库，四天约 1200 星、12 个桌面版 Release，过去一天还在连续合并 PR。它把 Agent 当成工作区成员而不是侧边栏机器人：每个 Agent 有角色、主人和月度预算，在频道里公开干活，合并、部署这类敏感操作要人点卡片批准。想给团队搭一个「人 + Agent」协作空间、又不想把数据交给 SaaS 的，可以自己部署一套看看。\n\n**仓库：** [agentes-chat/agentes-chat](https://github.com/agentes-chat/agentes-chat)（官网 [agentes.chat](https://agentes.chat)）\n\n### 它解决什么问题 / 适合谁\n\n- 现在的团队聊天工具多是「外挂一个 AI 机器人」，单人 Agent 应用又不好多人共用。agentes.chat 把两者合在一起：频道、线程、私信里同时有人和 Agent，Agent 能接活、交接、要审批。\n- 适合：想自托管团队 AI 协作空间的小团队、想把 Claude Code / Codex 放进团队流程的开发团队、在研究「多 Agent + 人工审批」产品形态的人。\n\n### README 里的关键能力\n\n- **Agent 是成员**：每个 Agent 有角色、指令、模型（Claude、OpenAI、Gemini、DeepSeek、Kimi、Z.ai、MiniMax 或 OpenRouter 任意模型）、月度预算（每次调用前检查），以及接收审批和预算告警的主人。\n- **路由**：没人 @ 的消息交给路由器，由代码挑候选、小模型或规则选人，最多四个 Agent 回答，也可以都不答，并注明是谁选的；路由从不授予权限。\n- **审批**：合并、部署、回滚和连接器标为敏感的操作，以卡片形式等主人或管理员批准，批准后按原样只执行一次。\n- **MCP 连接器**：组织统一接一次 MCP 服务器（Linear、Sentry、Notion、Stripe 等一键接入，或填 URL），每个 Agent 只拿到分给它的权限；配 Composio key 还能接 Google 全家桶、Slack、Teams、HubSpot 等。\n- **Agent 有自己的电脑和浏览器**：在连接的服务器/虚拟机/笔记本上跑命令和代码；浏览器（Beta）可在聊天里实时看、遇到登录或验证码可接管再交还。连接的电脑上还能直接用已登录的 Claude Code 或 Codex 当「大脑」（Codex 仍在测试）。\n- **还有**：Skills（SKILL.md）、定时/事件触发的 Routines、会从纠正中学习的记忆、Wiki（可导入 Obsidian）、Drive、任务看板、只读 Postgres 连接器（Beta）、Agent 邮箱（发送默认要审批）、手机 App 和桌面 App（Beta）、14 种语言（含简体中文），以及从 Grok Bot、ChatGPT dots、OpenClaw 等应用导入 Agent。\n- **部署**：一条命令装在 Linux 服务器上，唯一依赖是 Postgres（带 pgvector），默认放进你的 Tailscale 网络并配好 HTTPS；也有不用 Docker 的单程序版（Beta）。\n\n### 近期活跃证据\n\n- **Issues：** 共约 59 个、开放约 45 个，大多是 11 月 12–13 日新报的具体问题（Windows 下 Claude Code 参数、WSL2 网络隔离、内存暴涨被 OOM 等）。维护者 wescld 会附上修复 PR 和版本号关单，比如镜像拉取被拒的问题约两个多小时就公开了镜像；不过今天新开的不少还没人回复。\n- **Release：** 最新桌面版 0.8.4 发布于 2026-11-13 02:17（北京时间），三天内共 12 个版本，提供 macOS、Windows、Linux（x64/ARM64）安装包和校验文件。\n- **提交：** 历史共约 8000 次提交（heliocosta-dev 约 5600、wescld 约 2350），今天北京时间上午仍在不断合并 PR，方向是审批级别收紧、Codex 生成图片显示、引导流程和移动端构建修复；PR 共约 268 个、开放约 103 个。\n\n### 快速上手（三步）\n\n1. 先试云版：在 [agentes.chat](https://agentes.chat) 注册，不用部署。\n2. 想自托管：在一台 Linux 服务器上运行 `curl -fsSL https://agentes.chat/install | sh`，约 10 分钟装好并接入 Tailscale（细节见仓库的 `SELF_HOSTING.md`）。\n3. 在应用里填入你自己的模型 key，建一个 Agent，给它设预算和主人，拉进频道 @ 它试一个小任务，再试一次需要审批的操作。\n\n### 风险与注意点\n\n- **很新、变化极快**：一天发多个版本，问题多、开放 PR 上百，生产环境先别押上。\n- **AGPL-3.0**（GitHub 未自动识别许可证）：改了再对外提供服务要开源，副本还需保留「Based on agentes.chat」署名；名称和 logo 是商标，不在许可内。\n- **安装脚本是 `curl | sh`**，并会装 Docker；建议先看脚本或在测试机上跑。\n- **Agent 能在你的机器上跑命令、用浏览器**：给它连接的电脑最好是隔离的服务器或虚拟机，并保持审批默认开启。Agent 浏览器、桌面 App、手机 App、邮箱都还是 Beta，桌面版 Mac 包未公证、Windows 安装包未签名。\n- 维护主要靠两个人，新问题积压较多，回复速度可能跟不上。\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
