@@ -3,14 +3,182 @@
  "type": "x",
  "date": "2026-11-13",
  "day": {
-  "digest": "Matt Pocock 今天最活跃：先在讨论串里说明多 agent 并行时 worktree 应建在子仓库，随后公布正在做 /animatic skill，想让每个重要 PR 都配讲解视频（实现是图片加 ffmpeg，当前瓶颈是延迟），并答疑 Home Repo 配置和新一期 cohort 课程。Dan Koe 发了一条“不知所措意味着在成长”的激励帖。",
+  "digest": "Matt Pocock 全天围绕 /animatic 展开：先提出“每个重要 PR 配讲解视频”的设想，晚间正式介绍 /setup-animatic 与 /animatic 两个 skill 并附预览，随后回应“过度设计”“只读 diff”“环境难配”等质疑（可纳入 Playwright 截图视频、环境配置对任何 agent 都有用、可复用流程的价值）；此外还答疑了 worktree、Home Repo 配置和新一期 cohort 课程。Dan Koe 发了一条“不知所措意味着在成长”的激励帖。",
   "by_source": {
-   "mattpocockuk": "在做 /animatic skill 给 PR 自动配讲解视频，另答疑 worktree、Home Repo 配置和新一期课程。",
+   "mattpocockuk": "介绍 /setup-animatic 与 /animatic 两个 skill 并答疑质疑，另回答 worktree、Home Repo 配置和新一期课程。",
    "thedankoe": "激励帖：感到不知所措说明你在做新事、在成长，停滞更糟。"
   },
-  "updated_at": "2026-11-13T20:22:00+09:00"
+  "updated_at": "2026-11-14T00:25:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2121246524395098439",
+   "date": "2026-11-13",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2121246524395098439",
+   "url": "https://x.com/mattpocockuk/status/2121246524395098439",
+   "posted_at": "2026-11-13T22:19+08:00",
+   "kind": "reply",
+   "text": "Of course it's simple to make one of these, once\n\nBut if you want to make a lot of them, having a reusable process is invaluable",
+   "article_title": null,
+   "reply_to": {
+    "handle": "synthshareai",
+    "post_id": "2121244309231911072",
+    "url": "https://x.com/synthshareai/status/2121244309231911072",
+    "text": "If you still need to download a skill to make something like this for you, you are cooked as a dev"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "当然，做一个这样的东西很简单，做一次的话。\n\n但如果你想做很多个，有一套可复用的流程就无比宝贵。",
+   "analysis": {
+    "summary": "网友 Petra 嘲讽说如果还要下载一个 skill 才能做出这种东西，作为开发者就完蛋了；Matt 回复说做一次确实简单，但要大量产出时，可复用的流程非常有价值。",
+    "points": [
+     "有人认为做这类视频不需要专门的 skill",
+     "Matt 的回应：一次性制作简单，批量制作需要可复用流程",
+     "这也是他对 skill 价值的一种概括"
+    ],
+    "why": "体现了 Matt 对 skills 的定位：把重复工作沉淀为可复用流程，而不是解决“做不出来”的问题。属于观点交锋，信息量中等。",
+    "tags": [
+     "Skills",
+     "工作流"
+    ]
+   }
+  },
+  {
+   "id": "x-2121240050197532898",
+   "date": "2026-11-13",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2121240050197532898",
+   "url": "https://x.com/mattpocockuk/status/2121240050197532898",
+   "posted_at": "2026-11-13T21:53+08:00",
+   "kind": "reply",
+   "text": "IMO you HAVE to set this up even if you don't want to do animatics, it makes any agent's work so much more reliable",
+   "article_title": null,
+   "reply_to": {
+    "handle": "p_wilfried_",
+    "post_id": "2121237392174539091",
+    "url": "https://x.com/p_wilfried_/status/2121237392174539091",
+    "text": "Okay, that sounds interesting. The hardest part for me was setting up the environment. Let's say I want to do this in the cloud and my app requires Docker, Bun... With Claude, Cursor, etc., we can create our environments using snapshots, but not everywhere. For example, if I want to run it in CI."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "在我看来，就算你不想做 animatic，也必须把这个配置好，它能让任何 agent 的工作可靠得多。",
+   "analysis": {
+    "summary": "Wilfried 说最难的是配环境：如果要在云端或 CI 里跑，而应用依赖 Docker、Bun 等，并非所有地方都能像 Claude、Cursor 那样用快照建环境；Matt 回复说即使不做 animatic 也应该把这套环境配置好，因为它能让任何 agent 的工作更可靠。",
+    "points": [
+     "提问者的难点：在云端/CI 中为 agent 准备依赖 Docker、Bun 等的运行环境",
+     "提问者提到 Claude、Cursor 等可用快照建环境，但不是处处可用",
+     "Matt 的观点：这套环境配置本身就值得做，能显著提升任何 agent 的可靠性"
+    ],
+    "why": "点出 agent 工程中常被忽视的一环：让 agent 能真正构建、运行应用的环境。这是作者的观点，回复没有给出具体配置方法。",
+    "tags": [
+     "Agent 工程",
+     "开发环境",
+     "CI"
+    ]
+   }
+  },
+  {
+   "id": "x-2121232432322015368",
+   "date": "2026-11-13",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2121232432322015368",
+   "url": "https://x.com/mattpocockuk/status/2121232432322015368",
+   "posted_at": "2026-11-13T21:23+08:00",
+   "kind": "reply",
+   "text": "No - it can also incorporate screenshots/videos taken by Playwright etc, but still doesn't take long.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "p_wilfried_",
+    "post_id": "2121231470081798286",
+    "url": "https://x.com/p_wilfried_/status/2121231470081798286",
+    "text": "Oh my bad, it only reads the diff. I was trying to make an explanatory video about what a PR does, with a local demo (build, browser navigation before/after, etc.). It’s not the same thing at all! It’s still interesting, though, thanks!"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "不是的——它也可以把 Playwright 等工具截的图/录的视频放进去，但耗时仍然不长。",
+   "analysis": {
+    "summary": "网友 Wilfried 说自己误会了，以为 /animatic 只读 diff，而他想做的是带本地演示（构建、浏览器前后对比）的 PR 讲解视频；Matt 回复说并非只读 diff，它也能纳入 Playwright 等工具截的图或录的视频，而且依旧不费时。",
+    "points": [
+     "/animatic 不只读取 diff",
+     "可以纳入 Playwright 等工具产生的截图或视频",
+     "作者称加入这些素材后耗时仍然不长（未给出具体数据）"
+    ],
+    "why": "澄清了 /animatic 的能力范围：能结合浏览器自动化的真实界面画面，而不只是对代码改动做解说。“不费时”是作者说法。",
+    "tags": [
+     "Skills",
+     "Playwright",
+     "代码评审"
+    ]
+   }
+  },
+  {
+   "id": "x-2121232596034306077",
+   "date": "2026-11-13",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2121232596034306077",
+   "url": "https://x.com/mattpocockuk/status/2121232596034306077",
+   "posted_at": "2026-11-13T21:23+08:00",
+   "kind": "reply",
+   "text": "Good point! Might need an advanced variant",
+   "article_title": null,
+   "reply_to": {
+    "handle": "dzhang69",
+    "post_id": "2121229562826596494",
+    "url": "https://x.com/dzhang69/status/2121229562826596494",
+    "text": "I think this is a bit over engineered, one of the biggest reason I love your skills is simplicity, this one is not."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "说得好！可能需要一个进阶版本。",
+   "analysis": {
+    "summary": "网友 Dong Zhang 认为 /animatic 有点过度设计，而他喜欢 Matt 的 skills 正是因为简单；Matt 表示认同这一点，说可能需要做一个进阶版本。",
+    "points": [
+     "有用户批评 /animatic 过度设计，不如他其他 skills 简洁",
+     "Matt 接受批评，提出可能另做一个进阶版本"
+    ],
+    "why": "信息量较低，但透露出 Matt 可能会把复杂功能拆到“进阶版”，保持基础 skill 简单。只是一句回应，并非确定计划。",
+    "tags": [
+     "Skills",
+     "设计取舍"
+    ]
+   }
+  },
+  {
+   "id": "x-2121211579098083668",
+   "date": "2026-11-13",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2121211579098083668",
+   "url": "https://x.com/mattpocockuk/status/2121211579098083668",
+   "posted_at": "2026-11-13T20:00+08:00",
+   "kind": "post",
+   "text": "Tired of walls of markdown? Try an /animatic.\n\nI'm working on two skills:\n\n- /setup-animatic, that chooses the tooling and sets it up on your machine (or a remote machine)\n- /animatic, that creates a video ready for upload\n\nI've been using them for a while. Here's a preview:",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "厌倦了大段大段的 markdown？试试 /animatic。\n\n我在做两个 skill：\n\n- /setup-animatic：选择工具链并在你的机器（或远程机器）上装好\n- /animatic：生成一段可以直接上传的视频\n\n我已经用了一段时间了。这是预览：",
+   "analysis": {
+    "summary": "Matt Pocock 正式介绍 /animatic：用视频代替大段 markdown 说明，并透露它拆成两个 skill，/setup-animatic 负责选工具并完成环境配置（本机或远程），/animatic 负责生成可直接上传的视频，附了预览。",
+    "points": [
+     "动机：替代“大段 markdown”式的说明",
+     "/setup-animatic：选择工具链并在本机或远程机器上安装配置",
+     "/animatic：生成可直接上传的视频",
+     "作者称自己已使用一段时间，帖子附有预览视频（未采集到视频内容，不做推断）"
+    ],
+    "why": "这是当天 /animatic 话题的主帖，互动量明显高于他的其他帖子（800 多赞、近 800 收藏）。把环境配置单独拆成一个 setup skill，是这类 skill 的一个设计思路。尚未说明何时公开发布。",
+    "tags": [
+     "Skills",
+     "Agent 工程",
+     "代码评审"
+    ]
+   }
+  },
   {
    "id": "x-2121198879723114563",
    "date": "2026-11-13",
