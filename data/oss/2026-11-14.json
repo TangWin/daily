@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-11-14",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-11-14-yogurt",
+      "date": "2026-11-14",
+      "type": "oss",
+      "rank": 1,
+      "title": "Yogurt：免费开源、全在本机跑的 AI 会议纪要，Granola 的平替",
+      "summary": "不往会议里塞机器人，本机用 whisper.cpp 转写、llama.cpp 跑开源模型写纪要和跨会议问答，还带只读 MCP 让 AI 助手读会议；Mac/Windows/Linux 都有包，三天约 1300 星、12 个版本。",
+      "url": "https://github.com/FrigadeHQ/yogurt",
+      "tags": [
+        "MCP",
+        "模型",
+        "会议纪要",
+        "本地 AI"
+      ],
+      "raw_tags": [],
+      "score": 1287,
+      "score_label": "★ 1287",
+      "detail": {
+        "status": "picked",
+        "repo": "FrigadeHQ/yogurt",
+        "homepage": "https://yogurt.so",
+        "stars": 1287,
+        "forks": 56,
+        "license": "MIT",
+        "language": "TypeScript",
+        "latest_release": "v0.3.14",
+        "runners_up": [],
+        "body_md": "## Yogurt：免费开源的本地 AI 会议纪要，Granola 的平替\n\n**为什么今天值得试：** Frigade 团队 11 月 11 日（北京时间）才公开，三天约 1300 星、12 个版本，最新 v0.3.14 是今天早上 07:58（北京时间）发的。录音、转写、总结全在你自己电脑上跑，不用注册账号，也不会往会议里塞机器人。\n\n**仓库：** https://github.com/FrigadeHQ/yogurt （官网 https://yogurt.so ）\n\n### 它解决什么问题 / 适合谁\nGranola 这类 AI 会议纪要好用，但音频和文字都要传到云端，还要付费。Yogurt 把这一套搬到本机：录下你的麦克风和电脑声音，实时出字幕，会后写纪要，还能跨会议提问。适合经常开 Zoom / Teams / Meet、对隐私敏感、或者想把会议记录交给自己的 AI 助手读的人。\n\n### README 里的关键点\n- **实时转写 + 会后纪要**：转写用 whisper.cpp（按机器选 large-v3-turbo 或更小的模型），支持的 Mac 上用 Apple SpeechAnalyzer 出实时字；纪要和问答用本地开源模型（Gemma 4 / gpt-oss / Qwen3 系列，按硬件挑），经 llama.cpp 运行。\n- **不进会议**：只录你的麦克风和电脑正在播放的声音，任何通话软件都能录；Zoom、Teams、Meet 能自动识别通话开始并提示录音，通话结束自动停止。\n- **谁说了什么**：区分「你」和「对方」；Mac 上给了辅助功能权限后能读出通话软件里的发言人名字。**还不能按声音区分多个人**（维护者在 #7 里明确说了）。\n- **跨会议问答带出处**、文件夹与全文搜索、复制或导出 Markdown；多语言模式可转写 99 种语言，界面有 32 种语言。\n- **本地 MCP 服务器**：在 设置 → AI apps 打开后，把助手命令加进 Claude Code 等应用，它就能**只读**你的会议、笔记和转写。默认关闭；Mac/Linux 走 0600 权限的本地 socket，但没有按应用区分的令牌，打开期间你账户下的任何程序都能读。\n- 数据存在本机（Mac `~/Library/Application Support/Yogurt`、Windows `%APPDATA%\\Yogurt`、Linux `~/.config/Yogurt`）；只有下载模型和检查更新时联网，模型下好后可离线用。\n\n### 近期活跃证据\n- **Issues：** 三天约 24 个 Issue、开放约 18 个，多是 Linux/Windows 显卡、蓝牙耳机录音这类真实使用问题；维护者 christianmat 回复很细，#27（Mac 换麦克风导致录音崩溃）当天给出修复并在 0.3.9 发布关单，#32（Linux CPU 跑模型崩溃）先发临时修复、说明根治要重写 Linux 端引擎。\n- **Release：** 共 12 个版本（v0.3.1 → v0.3.14），11 月 13 日一天就发了 0.3.10–0.3.14 五个版本，Mac / Windows / Linux 安装包都有。\n- **提交：** 约 146 次提交，主力是 christianmat（70）和 brownrout（64），还有外部贡献者合入 Linux 下读取 Zoom/Teams 发言人名字的 PR；最近一天在改转写回声、文件夹建议、显卡崩溃恢复。\n\n### 怎么快速上手\n1. 从 Releases 下载对应安装包（Mac 需 Apple 芯片 + macOS 14.4+；Windows 10 2004+；Ubuntu 22.04+ 的 AppImage），至少 8 GB 内存。\n2. 首次启动会先下约 5 GB 的纪要模型，之后后台再下更好的（可能 14 GB 以上，可跳过）；建议先在 Wi-Fi 下装好。\n3. 开一个测试会议点录音，结束后看纪要和问答；想让 AI 助手读会议，再去 设置 → AI apps 打开 MCP 访问。\n\n### 风险与注意点\n- 项目才三天、版本一天好几个，Linux/Windows 上显卡占满、CPU 兜底崩溃、蓝牙耳机录音缺失或变速等问题还开着，重要会议先别只靠它。\n- 模型下载体积大（5 GB 起，可能 14 GB+），对低配机器不友好；Windows 安装包未签名，会弹「已保护你的电脑」。\n- 不进会议也是录音：要先告诉对方你在录（README 也这么提醒）。\n- 打开 MCP 后，本机任何程序都能读你的会议内容，接入的助手还可能把内容发到它自己的云端模型；不用时记得关掉。\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
