@@ -1,0 +1,380 @@
+{
+ "schema_version": 1,
+ "type": "idea",
+ "date": "2026-11-15",
+ "day": {
+  "sample": "样本：主清单 138（HN42 Lobsters2 Reddit48 IH20 PH26） + Reddit 深翻页抱怨 153（5200 帖） + HN 句式评论/Ask/Show 569；未使用 X 付费 API。"
+ },
+ "items": [
+  {
+   "id": "idea-2026-11-15-01",
+   "date": "2026-11-15",
+   "type": "idea",
+   "rank": 1,
+   "title": "让 AI 改文件前先拍快照：只给它这次要改的文件，删了、改错了一键还原（给不会用 git 的普通人）",
+   "summary": "一个夹在 AI 代理和文件夹之间的小工具：开始任务前让用户勾选「这次只能动这几个文件」，其他文件只读；代理每次写入或删除前自动拍快照；任务结束给出一张人能看懂的改动清单（改了哪几页、删了哪个文件），每一项都能单独撤销；超出范围的删除直接拦下，并用一句话问用户。",
+   "url": "https://news.ycombinator.com/item?id=50499142",
+   "tags": [
+    "开发者工具",
+    "Coding Agent",
+    "Mac/桌面"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "Agent/AI编码",
+    "Mac/桌面工具"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "越来越多非程序员让 Claude、ChatGPT 这类代理直接操作电脑里的文件。HN 上的新闻：一位法学教授只让 Claude 给旧讲义重新编页码，它却把当前学期的课程大纲和一年的讲义一起删了，靠 Dropbox 30 天回收站才找回。评论里的共识是：任务只涉及一份文档，代理的权限却是整个文件夹；程序员可以用 git 和沙箱兜底，可法学教授不会 git，也不懂代理权限。手机式的权限弹窗大家也只会盲点「允许」。",
+    "target_users": "用 AI 代理整理文档、改资料的老师、律师、研究者、行政人员；用 Claude 桌面版、Cowork 类工具处理本地文件的知识工作者；给员工开通 AI 代理的小团队管理员。",
+    "quotes": [
+     {
+      "text": "Why isn't there a backup or a secondary deletion confirmation or something along those lines? Plenty of people have accidentally deleted such things",
+      "links": [
+       {
+        "label": "Hacker News 评论（Claude 删教授讲义帖）",
+        "url": "https://news.ycombinator.com/item?id=50499142"
+       }
+      ]
+     },
+     {
+      "text": "The access was much bigger than the task. The job was page numbers in old notes, yet the current syllabus got deleted too. An edit to one document shouldn't be able to remove a different one",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50499248"
+       }
+      ]
+     },
+     {
+      "text": "in 2026 it shouldn't be too much to ask to have a user friendly way to restrict a program's access to resources like files. And I don't mean the approach on smartphones which is basically just another form of cookie popups that users confirm blindly",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50500980"
+       }
+      ]
+     },
+     {
+      "text": "just use git so you have backups, and be aware of access controls and sandboxing. But do you expect a law prof to know how to use git, have a mental model of LLM agent access policies, etc?",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50499715"
+       }
+      ]
+     },
+     {
+      "text": "The professor was lucky that they noticed within Dropbox's recovery window (I think 30 days?) that Claude had deleted totally unrelated files.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50499857"
+       }
+      ]
+     }
+    ],
+    "existing": "git 和各类代码检查点（只给程序员用）；Time Machine、Dropbox/OneDrive 版本历史；AI 工具自带的「每次询问」权限设置",
+    "defects": "git 对普通人门槛太高；Time Machine 按小时备份，粒度粗，找回要翻目录；云盘回收站有期限，而且要事后才发现；权限弹窗只问「能不能访问」，不说「这次会删哪几个文件」，大家习惯性点允许",
+    "solution": "一个夹在 AI 代理和文件夹之间的小工具：开始任务前让用户勾选「这次只能动这几个文件」，其他文件只读；代理每次写入或删除前自动拍快照；任务结束给出一张人能看懂的改动清单（改了哪几页、删了哪个文件），每一项都能单独撤销；超出范围的删除直接拦下，并用一句话问用户。",
+    "mvp": "Mac 菜单栏应用加一个 MCP 文件服务：用 APFS 快照或复制到隐藏目录做版本，只暴露用户选定的文件给 Claude 桌面版；先支持 Word、PDF、Markdown 的改动对比和一键还原；附一份「让 AI 改文件前的三步设置」教程引流。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-15-02",
+   "date": "2026-11-15",
+   "type": "idea",
+   "rank": 2,
+   "title": "旧手机能不能当家用小服务器：输入型号，告诉你能不能解锁刷机、电池怎么处理、系统还有没有安全更新，再一步步装好",
+   "summary": "按型号查询的旧手机改造向导：输入型号或连上 USB 自动识别，给出一张红绿灯卡片：能不能解锁、能刷哪些系统、内核和安全更新到哪年、电池和散热风险。再按用途（广告过滤、家庭助手、监控、网页服务）给出能不能 root 的两种方案和一步步安装脚本，装好后在手机上跑一个健康面板，监控电池温度、闪存寿命和是否还有更新。",
+   "url": "https://news.ycombinator.com/item?id=50495573",
+   "tags": [
+    "个人/生活",
+    "安全",
+    "开发者工具"
+   ],
+   "raw_tags": [
+    "个人/生活",
+    "安全/隐私",
+    "开发者工具"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN「手里有旧手机，为什么还要买贵的树莓派」478 分、271 条评论。大家都有几台旧安卓手机，想拿来跑家庭自动化、广告过滤、小网站，但卡在几处：运营商锁和 Bootloader 锁能不能解开不知道；刷机或 root 很麻烦，旧机内核老、靠少数志愿者维护的分支；长期插电的电池会鼓包，要换成供电模块；闪存会老化；没有上游内核支持就没有安全更新。信息散落在 XDA 和各个论坛，一台一台查太累，最后只好扔掉或去买树莓派。",
+    "target_users": "抽屉里有旧手机、想做家庭服务器或智能家居的折腾爱好者；关注电子垃圾和省钱的家庭；想把旧手机当监控、相框、信息屏的普通用户；给学校和社团做低成本项目的老师。",
+    "quotes": [
+     {
+      "text": "I too have a bunch of cheap android phones of diverse vintage lying around. Some are bought with US carrier locks - never activated or unlocked. Any chance they can be unlocked with today's tools and not dumped into ewaste.",
+      "links": [
+       {
+        "label": "Hacker News 评论（旧手机代替树莓派帖 478 分）",
+        "url": "https://news.ycombinator.com/item?id=50495573"
+       }
+      ]
+     },
+     {
+      "text": "Rooting or flashing a modern phone is pain in the ass. Ideally the battery needs to be replaced with a 3.7V PSU... And for old phones it either old linux kernel, partially unsupported hardware or fork maintained by handful of hackers for free.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50495610"
+       }
+      ]
+     },
+     {
+      "text": "The main issue with old phones are NAND Flash degradation and battery problems. As long as you fix those two issues everything else is simple.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50495662"
+       }
+      ]
+     },
+     {
+      "text": "the terms \"kernel\" or \"security updates\" don't exist in the article at all. Everything without upstream kernel support is inherently vulnerable.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50496462"
+       }
+      ]
+     }
+    ],
+    "existing": "XDA 论坛、LineageOS 和 postmarketOS 的设备列表、Termux、各类旧手机改造教程",
+    "defects": "设备支持信息分散，各站说法不一，还常常过时；不会告诉你运营商锁能不能解、电池长期插电怎么处理；没有按「我要跑什么」推荐方案；装好之后没有安全更新和健康监控",
+    "solution": "按型号查询的旧手机改造向导：输入型号或连上 USB 自动识别，给出一张红绿灯卡片：能不能解锁、能刷哪些系统、内核和安全更新到哪年、电池和散热风险。再按用途（广告过滤、家庭助手、监控、网页服务）给出能不能 root 的两种方案和一步步安装脚本，装好后在手机上跑一个健康面板，监控电池温度、闪存寿命和是否还有更新。",
+    "mvp": "先做网页版查询：整合 LineageOS、postmarketOS 设备库和公开的解锁资料，覆盖最常见的 200 款旧机型；配一个免 root 的 Termux 一键安装包（广告过滤和家庭助手代理）和电池长期插电的注意事项。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-15-03",
+   "date": "2026-11-15",
+   "type": "idea",
+   "rank": 3,
+   "title": "用 Pages 或 LibreOffice 写的 .docx，发出去前先看看在 Word 里会变成什么样：自动标出会乱的格式，一键修成稳妥写法",
+   "summary": "一个 .docx 发送前预检工具：拖进文件，用接近 Word 的排版引擎渲染出「Word 里的样子」，和原编辑器的导出并排对比，高亮会变化的地方，并说明原因（如字体缺失、文本框锚点、自动编号）。能自动修复的一键改成兼容写法（嵌入字体、把文本框转成表格、固定编号），改不了的给出手动改法。",
+   "url": "https://www.reddit.com/r/MacOS/comments/1xu5t5w/comment/19ska7xywvidd/",
+   "tags": [
+    "Mac/桌面",
+    "支付",
+    "个人/生活"
+   ],
+   "raw_tags": [
+    "Mac/桌面工具",
+    "支付/计费",
+    "个人/生活"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Reddit r/MacOS 和 r/macapps「Mac 上最好的免费 Word 替代」两帖共 279 条评论，楼主的四个要求里有一条是「打开和保存 .docx 不乱格式」。评论里很多人推荐 Pages、LibreOffice、OnlyOffice，可同时也承认：Pages 导出的 .docx 在 Word 里打开格式总是不一样；稍微复杂一点的格式就会乱；有人因为格式问题不得不放弃更好用的 Pages。大家不是不想用免费工具，而是怕发给老师、客户、出版社的文件到了对方 Word 里变形，又没有 Word 可以自己先看一眼。",
+    "target_users": "不想订阅 Microsoft 365 的 Mac 学生和自由职业者；要把稿件按 Word 格式交给学校、出版社、律所的写作者；用 LibreOffice 或 OnlyOffice 的 Linux、Windows 用户；经常收发合同和简历的求职者。",
+    "quotes": [
+     {
+      "text": "Formatting always looks different when I open up a pages docx in word",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（免费 Word 替代帖 212 条评论）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1xu5t5w/comment/19ska7xywvidd/"
+       }
+      ]
+     },
+     {
+      "text": "Pages is unintuitive and screws up formatting of Word docs whenever there is formatting more sophisticated than a series of paragraphs, and even then it can still screw up.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1xu5t5w/comment/19sj55u5of2kj/"
+       }
+      ]
+     },
+     {
+      "text": "Yes you can export the files as a Word document (.docx) but I'm always afraid it will won't render exactly the same in Microsoft.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1xu5t5w/comment/19skojvpdpo00/"
+       }
+      ]
+     },
+     {
+      "text": "I am currently using Libre Office instead of Pages. Pages feels a lot better but.. alas... format matters to me.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1xu5t5w/comment/19sl462vovphd/"
+       }
+      ]
+     },
+     {
+      "text": "Opens and saves .docx without breaking formatting",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 原帖（楼主的需求清单）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1xu5t5w/"
+       }
+      ]
+     }
+    ],
+    "existing": "Pages、LibreOffice、OnlyOffice、WPS、Google Docs、Word 网页版；新出的轻量 docx 编辑器（如评论里提到的 Verso Writer、Quill）",
+    "defects": "都是「再换一个编辑器」，而不是告诉你这份文件在 Word 里到底会不会乱；Word 网页版渲染和桌面版不同；没有人逐项列出哪些格式（文本框、分栏、页眉页脚、字体替换、编号列表）在 Word 里会变形",
+    "solution": "一个 .docx 发送前预检工具：拖进文件，用接近 Word 的排版引擎渲染出「Word 里的样子」，和原编辑器的导出并排对比，高亮会变化的地方，并说明原因（如字体缺失、文本框锚点、自动编号）。能自动修复的一键改成兼容写法（嵌入字体、把文本框转成表格、固定编号），改不了的给出手动改法。",
+    "mvp": "Mac 小工具加网页版：先覆盖最常见的 10 类问题（字体替换、页边距、页眉页脚、编号、表格宽度、图片位置等），用 LibreOffice 无界面渲染和规则检查出报告；免费检查，自动修复和批量处理收费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-15-04",
+   "date": "2026-11-15",
+   "type": "idea",
+   "rank": 4,
+   "title": "Duolingo 的讲解补丁：按你正在学的单元，补上语法讲解，只用你学过的词出复习题",
+   "summary": "一个配合 Duolingo 使用的伴学应用：选好语言和当前单元，自动给出这一单元的简短语法讲解（阴阳性、变格等，配例句和发音）；记录你在课程里见过的词，只用这些词生成复习题和小故事，每次最多加一两个新词；遇到不懂的句子拍照或粘贴，即可逐词解释。",
+   "url": "https://www.reddit.com/r/duolingo/comments/1xvbo2u/",
+   "tags": [
+    "语言学习",
+    "支付"
+   ],
+   "raw_tags": [
+    "语言学习",
+    "支付/计费"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Reddit r/duolingo 本周多帖抱怨：学罗马尼亚语只有练习、从不讲解，名词阴阳性只能死记，有人说一句话的讲解就够了；故事里 95% 是没学过的词，只能乱选到对为止，也没法举报；闪卡改版后出现大量没学过的词。评论指出 Duolingo 只有 9 门核心语言有单元讲解，其他小语种课程很短、由志愿者做的，学匈牙利语的人也说还没找到替代品。有人付了 Super 会员，觉得名不副实，准备试用期一过就退。",
+    "target_users": "在 Duolingo 学小语种（罗马尼亚语、匈牙利语等非核心课程）的学习者；需要语法讲解才能学进去的成人学习者；想用 Duolingo 做词汇、但另外找讲解的英语和法语学习者。",
+    "quotes": [
+     {
+      "text": "it's just practice and no actual lessons or explanations... EVER... So you end up just trying to remember by rote, when a simple line of text to READ on the screen would have been sufficient.",
+      "links": [
+       {
+        "label": "Reddit r/duolingo 原帖（37 条评论）",
+        "url": "https://www.reddit.com/r/duolingo/comments/1xvbo2u/"
+       }
+      ]
+     },
+     {
+      "text": "Duo traditionally teaches by example, though they also have explanations in the Section Details and Unit Guidebooks for the core nine languages. Unfortunately for you, Romanian is not one of the core languages.",
+      "links": [
+       {
+        "label": "Reddit r/duolingo 评论（同帖）",
+        "url": "https://www.reddit.com/r/duolingo/comments/1xvbo2u/comment/19sl3o6plazyd/"
+       }
+      ]
+     },
+     {
+      "text": "Checking in from Hungarian course. You're right and it's awful... I have yet to find an alternative but I'd love to.",
+      "links": [
+       {
+        "label": "Reddit r/duolingo 评论（同帖）",
+        "url": "https://www.reddit.com/r/duolingo/comments/1xvbo2u/comment/19sld43vi73wh/"
+       }
+      ]
+     },
+     {
+      "text": "Is it actually that hard to make stories with tje words I've been taught? ... It's 95% of the story completely unknown with no way of figuring out what it's supposed to say.",
+      "links": [
+       {
+        "label": "Reddit r/duolingo 原帖（16 条评论）",
+        "url": "https://www.reddit.com/r/duolingo/comments/1xtvtmd/"
+       }
+      ]
+     },
+     {
+      "text": "Why isn't there a simple algorithm for accumulation of \"words the user has seen at least once\" to ensure we get to review our knowledge?",
+      "links": [
+       {
+        "label": "Reddit r/duolingo 原帖（闪卡出现没学过的词）",
+        "url": "https://www.reddit.com/r/duolingo/comments/1xwfpwz/"
+       }
+      ]
+     }
+    ],
+    "existing": "Duolingo 自带的单元讲解（只有核心语言）、Wiktionary、语法书、Anki、Clozemaster、各类第三方 Duolingo 讲解笔记",
+    "defects": "讲解和 Duolingo 课程进度对不上，要自己翻书找；小语种几乎没有配套讲解；Anki 要自己做卡；没有工具知道「你学过哪些词」，复习还是混进生词",
+    "solution": "一个配合 Duolingo 使用的伴学应用：选好语言和当前单元，自动给出这一单元的简短语法讲解（阴阳性、变格等，配例句和发音）；记录你在课程里见过的词，只用这些词生成复习题和小故事，每次最多加一两个新词；遇到不懂的句子拍照或粘贴，即可逐词解释。",
+    "mvp": "先做 2–3 门 Duolingo 非核心语言（罗马尼亚语、匈牙利语等），按公开课程目录整理每个单元的词表，用大模型生成讲解并人工校对；网页版加浏览器插件，免费看讲解，按词表生成的复习和故事收订阅。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-15-05",
+   "date": "2026-11-15",
+   "type": "idea",
+   "rank": 5,
+   "title": "Mac 和 iPhone 剪贴板历史真正互通：iPhone 上复制的内容也能自动进 Mac 历史，不用每次先打开 App",
+   "summary": "不硬抗系统限制，而是把「手动触发」降到最低：iPhone 上用分享菜单、操作按钮（Action Button）、背面轻点和锁屏小组件一键把当前剪贴板推到 Mac；Mac 端监听通用剪贴板，iPhone 上的复制只要在 Mac 粘贴过一次就自动收进历史；全程走 iCloud 私有数据库加端到端加密，不经过自家服务器。",
+   "url": "https://www.reddit.com/r/macapps/comments/1xvzsv2/",
+   "tags": [
+    "个人/生活",
+    "Mac/桌面",
+    "开发者工具"
+   ],
+   "raw_tags": [
+    "个人/生活",
+    "Mac/桌面工具",
+    "开发者工具"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Reddit r/macapps 有人找能和 iPhone 同步历史的剪贴板管理器，试了 Raycast、Maccy、Pastebot 都不支持。评论推荐了 PastePal、Paste、CloudClip 等，但都说到同一个限制：iOS 不允许后台读取剪贴板，所以 Mac 复制到 iPhone 还行，iPhone 上复制的内容要打开 App、用它的键盘或跑快捷指令才会同步回历史；用了多年 CloudClip 的人也说，每次都要先在手机上打开 App 才能拿到。r/iphone 也有人问能不能在系统键盘里直接加剪贴板历史，又不想换整个键盘。",
+    "target_users": "同时用 Mac 和 iPhone 工作的内容创作者、开发者、客服和运营；常在手机和电脑间搬链接、验证码、地址的普通用户；在意隐私、不想让剪贴板经过第三方服务器的人。",
+    "quotes": [
+     {
+      "text": "I have tried Raycast, Maccy and Pastebot, however it looks like none of them support sync history with Clipboard to my iPhone.",
+      "links": [
+       {
+        "label": "Reddit r/macapps 原帖（23 条评论）",
+        "url": "https://www.reddit.com/r/macapps/comments/1xvzsv2/"
+       }
+      ]
+     },
+     {
+      "text": "Apple does not allow background clipboard monitoring anymore... copying something on your iPhone will only sync back to the history once you open the iOS app, use its keyboard extension, or trigger a Shortcut.",
+      "links": [
+       {
+        "label": "Reddit r/macapps 评论（同帖）",
+        "url": "https://www.reddit.com/r/macapps/comments/1xvzsv2/comment/19smelgr02gis/"
+       }
+      ]
+     },
+     {
+      "text": "If I copy on my Mac, I need to open CC on my phone to grab the sync'd item to my phone clipboard.",
+      "links": [
+       {
+        "label": "Reddit r/macapps 评论（同帖，CloudClip 老用户）",
+        "url": "https://www.reddit.com/r/macapps/comments/1xvzsv2/comment/19smn5x9wxueb/"
+       }
+      ]
+     },
+     {
+      "text": "I want a clipboard, but I don't want an entirely new keyboard if possible.",
+      "links": [
+       {
+        "label": "Reddit r/iphone 原帖",
+        "url": "https://www.reddit.com/r/iphone/comments/1xts6oh/"
+       }
+      ]
+     }
+    ],
+    "existing": "Paste、PastePal、CloudClip、CleanClip、Raycast 和 Maccy（仅 Mac）、苹果自带的通用剪贴板（没有历史）",
+    "defects": "受 iOS 后台限制，iPhone 到 Mac 方向都要手动触发；第三方键盘要替换系统键盘，体验和隐私都让人犹豫；好用的大多要订阅或单买，免费开源的几乎没有",
+    "solution": "不硬抗系统限制，而是把「手动触发」降到最低：iPhone 上用分享菜单、操作按钮（Action Button）、背面轻点和锁屏小组件一键把当前剪贴板推到 Mac；Mac 端监听通用剪贴板，iPhone 上的复制只要在 Mac 粘贴过一次就自动收进历史；全程走 iCloud 私有数据库加端到端加密，不经过自家服务器。",
+    "mvp": "Mac 菜单栏历史加 iPhone 快捷指令和小组件，iCloud CloudKit 同步；先做文字和链接，免费版保留 7 天历史，买断解锁图片和无限历史。",
+    "difficulty": null,
+    "potential": null
+   }
+  }
+ ]
+}
