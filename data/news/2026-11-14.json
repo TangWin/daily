@@ -1,0 +1,377 @@
+{
+ "schema_version": 1,
+ "type": "news",
+ "date": "2026-11-14",
+ "day": {
+  "window": "11/13 08:30 – 11/14 08:30 北京时间",
+  "note": "未使用 X 付费 API",
+  "footer": "Java 今天只有 MCP Java SDK 2.2.0-M2 预发布（modern server 预览版的小破坏性改动、SEP-2243 Mcp-Param 校验），不单列。MCP Servers v2.4.0（修复 filesystem / git / fetch 6 个漏洞，git server 会执行仓库 .git/config 里配置的程序）发布于 11/11，不在窗口内，但如果你在用这些官方 server，建议尽快升级。llama.cpp v1.0 正式版 HN 热度低，未收录。FAA 全国停飞、微软 365 故障、Nvidia CEO 风波热度很高，但与技术主题无关。Perplexity Decider v1.3 页面无法抓取核实，暂不收录。Reddit 今天无法访问。",
+  "highlights": [
+   1,
+   3,
+   4
+  ]
+ },
+ "items": [
+  {
+   "id": "news-2026-11-14-01",
+   "date": "2026-11-14",
+   "type": "news",
+   "rank": 1,
+   "title": "OpenAI 推出 ChatGPT Wallet：agent 用网络支付 token 付款，每笔都要生物识别确认",
+   "summary": "与 Amex、Mastercard、Visa 合作，agent 拿到的是网络 token 而不是真实卡号；先在 dots 里给美国 Pro 用户开放，同日 Agentcard 拿到 800 万美元种子轮。",
+   "url": "https://openai.com/index/introducing-chatgpt-wallet/",
+   "tags": [
+    "支付",
+    "AI Agent",
+    "新品发布"
+   ],
+   "raw_tags": [
+    "支付系统",
+    "AI Agent",
+    "新品发布"
+   ],
+   "score": null,
+   "score_label": "TechCrunch / Reuters 报道；OpenAI 点名 Riskified 合作；同日 Agentcard 融资",
+   "detail": {
+    "heat": "TechCrunch / Reuters 报道；OpenAI 点名 Riskified 合作；同日 Agentcard 融资",
+    "highlight": true,
+    "event": "OpenAI 11 月 13 日发布 ChatGPT Wallet，先在常驻 agent「dots」里上线，面向 18 岁以上、持美国发行卡的 ChatGPT Pro 用户。流程是：用户只绑一次卡；每次购买前查看商品、总价和用哪张卡，用 Face ID 或指纹确认；确认后由卡组织签发支付 token（有自己的卡号、CVV 和有效期）去扣款，商家和 agent 都看不到真实卡号。持卡人的积分和争议保护照旧，商家仍然负责定价、履约和退货。OpenAI 同时给商家发布了指南：别把 agent 流量误挡在外面，风控系统要能认出合法的 agent 购买；Riskified 发文说会补上「agent 是替谁买」这一身份信号。后续计划让用户按金额上限、品类、时间段预授权，让 agent 自主购买。同一天 Agentcard 完成 800 万美元种子轮（Peak XV、Fin Capital、YC），产品分 Vault（托管卡信息）、Issuing（给 agent 发一次性或可复用卡）、Voice（语音确认）和覆盖 5000 多家零售商的 opencommerce 购买工具。",
+    "why": "这是第一个面向十亿级用户的 agent 钱包，它选的方案很保守：网络 token + 每笔强认证 + 留下授权记录，完全走现有卡组织体系，没有自建新协议。这基本定下了「agent 代付」在卡组织体系里的默认形态，也把难点推给商家的风控：怎么区分合法 agent 和机器人刷单。",
+    "use": "如果你负责支付或风控：1）检查结账和反欺诈规则会不会把 headless 浏览器、agent UA 直接拒掉；2）在订单模型里预留「发起方是 agent / 用户授权凭证 / 授权范围」等字段，以后对账和争议处理会用到；3）预授权（限额、品类、时间窗）其实就是 mandate 模型，可以先按这个思路设计内部的 agent 采购审批。",
+    "links": [
+     {
+      "name": "OpenAI 官方公告",
+      "url": "https://openai.com/index/introducing-chatgpt-wallet/"
+     },
+     {
+      "name": "TechCrunch 报道",
+      "url": "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/"
+     },
+     {
+      "name": "Riskified：商家视角",
+      "url": "https://www.riskified.com/blog/openai-ai-agent-checkout/"
+     },
+     {
+      "name": "Agentcard 融资",
+      "url": "https://fintech.global/2026/11/13/agentcard-secures-8m-to-let-ai-agents-shop-online/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-14-02",
+   "date": "2026-11-14",
+   "type": "news",
+   "rank": 2,
+   "title": "Brave Search API 支持 x402：agent 不用 API key，每次请求用 USDC 现付",
+   "summary": "没带支付的请求返回 HTTP 402 和报价，agent 签名支付后重试，拿到结果和链上收据；每千次 5 美元，Stripe 的 Purl 钱包可直接用。",
+   "url": "https://brave.com/blog/search-api-agentic-payments/",
+   "tags": [
+    "支付",
+    "AI Agent",
+    "MCP"
+   ],
+   "raw_tags": [
+    "支付系统",
+    "AI Agent",
+    "MCP"
+   ],
+   "score": 256,
+   "score_label": "HN 256 · 146 评",
+   "detail": {
+    "heat": "HN 256 · 146 评",
+    "highlight": false,
+    "event": "Brave 宣布 Search API 接入开放的 x402 支付协议。被 x402 保护的端点按次收费、不需要认证：请求不带支付时返回 402 Payment Required，响应里写明这次搜索的价格和付款信息；agent 签一笔 USDC 支付再带上重试，验证通过后返回结果和 Base 链上的交易收据。Brave 自己运营 facilitator，目前接受 Base 上的 USDC，其他网络和稳定币之后支持；限时代付 gas。价格与公开价一致：给 agent 用的 LLM Context 接口和网页、新闻、图片、视频、本地搜索都是每千次 5 美元，不用注册账号、不用选套餐。官方推荐 Stripe 开发的 CLI 钱包 Purl Wallet。",
+    "why": "这是 x402 第一次被一个主流数据 API 正式采用，也是「HTTP 402 + 按请求付款」替代 API key 管理的可用样本。HN 上有分歧：有人说自己在大流量站点部署 x402 至今没收到一笔钱；有人算账，一次 ChatGPT 会话 30 次搜索就要 0.15 美元，太贵；也有人认为这可能比广告模式更好。",
+    "use": "做 agent harness 时可以把「工具调用要付钱」当成一等公民来设计：402 响应 → 预算检查 → 签名 → 重试，加上单任务花费上限和收据留存。做支付的同学可以拿它对照现有的预付费 / API key 计费，评估按次结算的对账、退款和税务问题；对内部 API 也可以先用 402 语义模拟额度扣费。",
+    "links": [
+     {
+      "name": "Brave 官方博客",
+      "url": "https://brave.com/blog/search-api-agentic-payments/"
+     },
+     {
+      "name": "接入文档",
+      "url": "https://api-dashboard.search.brave.com/documentation/guides/agent-payments"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50477649"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-14-03",
+   "date": "2026-11-14",
+   "type": "news",
+   "rank": 3,
+   "title": "Claude Code 2.1.325 收紧默认权限：沙箱里的 Bash 不再自动放行，定时任务跑带工具的 skill 要先问",
+   "summary": "沙箱 Bash 改为走正常权限流程（要恢复得显式设 autoAllowBashIfSandboxed），/loop 和定时任务遇到声明 allowed-tools 或 hooks 的 skill 会停下等确认，可能卡住无人值守任务。",
+   "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.325",
+   "tags": [
+    "Coding Agent",
+    "Harness",
+    "新品发布"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "Harness Engineering",
+    "新品发布"
+   ],
+   "score": null,
+   "score_label": "GitHub release（11/14 04:40 北京时间）",
+   "detail": {
+    "heat": "GitHub release（11/14 04:40 北京时间）",
+    "highlight": true,
+    "event": "11 月 13 日发布的 2.1.325 主要是收紧安全默认值：① 沙箱里的 Bash 命令默认改走正常权限流程，想保留免确认需要设置 sandbox.autoAllowBashIfSandboxed: true（托管设置里也要在最高优先级来源中设置）；② 定时任务和 /loop 运行声明了 allowed-tools 或 hooks 的 skill 前会先询问，要无人值守就得把 Skill(name) 加进 permissions.allow；③ 在不是当前项目、也没被信任的仓库里，只读 git 命令也要先问；④ 沙箱禁止写入附加目录里的 .claude 设置、skills、agents、hooks；⑤ 沙箱自己启动的辅助进程不再继承登录 token 和 API key；⑥ 隔离的 worktree 禁止 git bisect run 等命令。另外修了 zstd 解压的安全问题、子 agent 用错模型、第三方网关不压缩上下文导致每轮报错等。",
+    "why": "这些改动都在说同一件事：「在沙箱里」不等于「可以免审批」，prompt 注入可以借 skill、hooks、.claude 配置提权。对依赖定时任务或 CI 无人值守跑 Claude Code 的团队来说，升级后任务可能卡在等待确认，需要提前改配置。",
+    "use": "升级前把自动化流水线里用到的 skill 列出来，显式加 Skill(name) 白名单，不要直接把 autoAllowBashIfSandboxed 全局打开；自建 harness 也可以借鉴两条：子进程环境里清掉凭证，agent 不能改自己的配置和 hooks。",
+    "links": [
+     {
+      "name": "Release v2.1.325",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.325"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-14-04",
+   "date": "2026-11-14",
+   "type": "news",
+   "rank": 4,
+   "title": "Claude Code 悄悄删掉 subagentStatusLine，用户自建的子 agent 监控全部失明，官方认错周一补宽限期",
+   "summary": "2.1.323 删除设置项却没有告警和替代方案，每个子 agent 的模型、effort、上下文占用和花费都看不到了；维护者承认「搞砸了」，下周一的版本恢复宽限期。",
+   "url": "https://github.com/anthropics/claude-code/issues/109446",
+   "tags": [
+    "Harness",
+    "Coding Agent",
+    "有争议"
+   ],
+   "raw_tags": [
+    "Harness Engineering",
+    "Coding Agent",
+    "争议观点"
+   ],
+   "score": 26,
+   "score_label": "HN 26 · 7 评；GitHub issue #109446 十余条长评",
+   "detail": {
+    "heat": "HN 26 · 7 评；GitHub issue #109446 十余条长评",
+    "highlight": true,
+    "event": "2.1.323 的 changelog 只有一句「移除 subagentStatusLine 设置」，启动时没有任何提示，配置好的命令直接不再执行。这个钩子原来是唯一能按子 agent 实时显示上下文占用 / 窗口大小、已花 token 和美元、模型和推理 effort、状态、存活时间、prompt cache 是否还热的地方。多位用户贴出自己的状态栏（例如 `opus·medium │ 82.6K/1.0M │ Σ$2.06 │ 💾cache 98%`），说现在只剩「flights:foreman Running grep」。新的 mods（$）系统没有给子 agent 面板留渲染点，$.agent.list() 也不带 model、effort 和 token 字段，唯一的办法是把版本钉在 2.1.322。维护者 poteat 解释：plugin 自带 settings.json 只支持两个 key，在插件体系里很别扭，所以删了；承认「我确实搞砸了，应该给宽限期」，预计周一的版本恢复，之后会在 $ 上提供更强的替代。",
+    "why": "这个 issue 很好地说明了多 agent 场景下大家真正需要监控什么：每个子 agent 实际用的模型和 effort（不是创建时请求的）、token 拆分、成本、父子关系、cache 是否过期、5 小时 / 7 天额度占用。它也提醒做平台的人，可配置的观测面一旦有人依赖就是公共 API。",
+    "use": "自建 agent 编排时，可以直接照这份需求清单设计子 agent 遥测字段（issue 里有人附了 Go 结构体）；内部工具删除配置项时，至少保留一个会在启动时告警的弃用版本。用 Claude Code 跑多 agent 的话，周一升级前看一下这个 issue 有没有更新。",
+    "links": [
+     {
+      "name": "GitHub issue #109446",
+      "url": "https://github.com/anthropics/claude-code/issues/109446"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50477704"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-14-05",
+   "date": "2026-11-14",
+   "type": "news",
+   "rank": 5,
+   "title": "Claude 全线认证故障约 2 小时，claude.ai、Claude Code、Console 同时受影响",
+   "summary": "11/13 17:58–19:58（北京时间）登录认证出问题，Claude Code 和 Cowork 一起停摆；HN 上相关帖子合计 700 多分、近 600 条评论。",
+   "url": "https://status.claude.com/incidents/nn11wk485zfn",
+   "tags": [
+    "Coding Agent",
+    "Harness"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "Harness Engineering"
+   ],
+   "score": 484,
+   "score_label": "HN 484 · 382 评；「Claude Is Down」196 · 170 评；另有 OAuth 故障帖",
+   "detail": {
+    "heat": "HN 484 · 382 评；「Claude Is Down」196 · 170 评；另有 OAuth 故障帖",
+    "highlight": false,
+    "event": "Anthropic 状态页显示，UTC 09:58（北京时间 17:58）开始调查用户登录 claude.ai 和 Claude Code 的问题，11:05 部署修复进入观察，11:58（北京时间 19:58）宣布恢复。受影响的有 claude.ai、Claude Console（platform.claude.com）、Claude Code 和 Claude Cowork。HN 上同时冒出「Claude Is Down」「Tell HN: Claude Code Is Down」「Claude OAuth Failures」等多个帖子，不少人说正在跑的 agent 任务直接中断。",
+    "why": "故障出在认证层而不是模型推理，所以订阅登录的 Claude Code 会整体不可用。这再次说明，把 coding agent 放进日常交付链路后，供应商的认证和可用性就成了你的单点故障。",
+    "use": "给团队的 agent 工作流准备降级方案：长任务要能断点续跑（会话可恢复、进度写盘）；关键自动化保留一条 API key 或第二家模型的备用路径；CI 里调用 agent 的步骤设超时和失败不阻塞主流程。",
+    "links": [
+     {
+      "name": "Claude 状态页事件",
+      "url": "https://status.claude.com/incidents/nn11wk485zfn"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50481187"
+     },
+     {
+      "name": "HN：Claude Is Down",
+      "url": "https://news.ycombinator.com/item?id=50481220"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-14-06",
+   "date": "2026-11-14",
+   "type": "news",
+   "rank": 6,
+   "title": "Codex CLI 0.168/0.169 和 OpenCode 2.3.0：自定义模型网关、默认后台子 agent、未信任目录禁用 MCP",
+   "summary": "Codex 可以在终端里添加或编辑自定义模型 provider，exec 在未信任目录下强制禁用项目配置和 MCP；OpenCode 让子 agent 默认后台运行，并实验性支持 MCP events。",
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.169.0",
+   "tags": [
+    "Coding Agent",
+    "MCP",
+    "开源"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "MCP",
+    "开源项目"
+   ],
+   "score": null,
+   "score_label": "GitHub releases（11/13）",
+   "detail": {
+    "heat": "GitHub releases（11/13）",
+    "highlight": false,
+    "event": "Codex 0.168.0：新增 Sessions → Model providers，可以选择新会话默认用哪家；实验性的分屏 side conversation；支持音频录音输入；审批通知区分终端输入和网络访问请求。0.169.0：终端里直接新增或编辑自定义 provider，开启网关引导后可以在登录时创建 provider，SSH 或没有浏览器时用 device code；agent command center 可以按名称、提示词、目录搜旧任务；`codex exec` 在未信任目录下即使用 `--sandbox workspace-write` 也保持项目配置和 MCP server 禁用，要信任需显式加 `--trust`；「清空上下文并实施」会把完整计划交给新会话。OpenCode 2.3.0：子 agent 默认在后台运行、立即返回 session ID、空闲时向父会话汇报，子 agent 还有后台任务时会标明「仍在运行」；实验性 MCP events（mcp_events 开关）；shell 超时后可以转到后台；工具输出截断时保留开头和预览；provider 支持 mTLS 客户端证书。",
+    "why": "两个主流 CLI 在同一天往同一个方向走：多 provider / 企业网关成为标配，子 agent 后台并发成为默认，「未信任目录不加载 MCP」成为安全基线。说明 harness 层的竞争已经从模型能力转到编排、信任边界和企业接入。",
+    "use": "在公司内网经由统一 LLM 网关接入时，可以试试 Codex 的自定义 provider + device code，或 OpenCode 的 mTLS 配置；在 CI 里跑 `codex exec` 的脚本要检查是否依赖项目级 MCP，需要的话显式加 `--trust`。",
+    "links": [
+     {
+      "name": "Codex 0.169.0",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.169.0"
+     },
+     {
+      "name": "Codex 0.168.0",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.168.0"
+     },
+     {
+      "name": "OpenCode 2.3.0",
+      "url": "https://github.com/sst/opencode/releases/tag/v2.3.0"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-14-07",
+   "date": "2026-11-14",
+   "type": "news",
+   "rank": 7,
+   "title": "Claude Meetings 公测：Claude 作为参会者加入 Google Meet，边开会边写文档、查资料",
+   "summary": "Team / Enterprise 计划可用，默认用文字回答，用连接的工具前要每个人授权；有外部人员加入时默认不进会或中途离开，只保存转写，不存音频。",
+   "url": "https://claude.com/resources/articles/claude-meetings",
+   "tags": [
+    "AI Agent",
+    "新品发布"
+   ],
+   "raw_tags": [
+    "AI Agent",
+    "新品发布"
+   ],
+   "score": 64,
+   "score_label": "HN 64 · 58 评",
+   "detail": {
+    "heat": "HN 64 · 58 评",
+    "highlight": false,
+    "event": "Anthropic 11 月 13 日发布 Claude Meetings beta。Claude 以可见参会者身份进入视频会议，大家可以口头或在聊天里提问，它默认文字回答；可以现场起草文档、画白板，和参会同事一起编辑；会后在 claude.ai 生成会议页（笔记、行动项、转写、产物），之后还能对历次会议提问。权限设计：每个人连接的工具用各自的授权，首次询问，之后沿用；口头提问时每次都会确认是谁在说话。默认在有组织外人员受邀时不加入、中途有外人加入就离开，管理员可以放开。目前只支持 Google Meet，ZDR、HIPAA、CMEK 组织暂不可用；beta 期间笔记和问答免费，调用连接工具会计入用量。正在和 Gong、Granola、Otter 等合作导出转写。",
+    "why": "会议是企业里上下文最密集、却最少被沉淀的场景，Claude 直接进会就成了一个上下文入口。它的「按发言人确认身份 + 按人授权工具」也是多人共享一个 agent 时权限怎么设计的现成样例。",
+    "use": "如果在做企业内 agent：可以参考它的多人场景权限模型（谁在说话就用谁的权限，外部人员进来就退出）；团队如果用 Google Meet，可以拿需求评审会试一下，让会议纪要和行动项直接落成文档。",
+    "links": [
+     {
+      "name": "Anthropic 官方介绍",
+      "url": "https://claude.com/resources/articles/claude-meetings"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50491097"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-14-08",
+   "date": "2026-11-14",
+   "type": "news",
+   "rank": 8,
+   "title": "两种相反的判断：Dwarkesh 称 2030 年前就有超级智能，Jonathan Blow 问「AI 解决了编码，软件为何没变好」",
+   "summary": "Dwarkesh 用 METR、OpenAI、Anthropic 的数据论证 AI 研发已在自我加速；Blow 认为软件质量 20 年没进步，AI 也没改变这一点。两帖在 HN 上都吵得很凶。",
+   "url": "https://www.dwarkesh.com/p/rsi",
+   "tags": [
+    "有争议",
+    "Coding Agent"
+   ],
+   "raw_tags": [
+    "争议观点",
+    "Coding Agent"
+   ],
+   "score": 147,
+   "score_label": "Blow 演讲 HN 147 · 134 评；Dwarkesh 长文 HN 58 · 100 评",
+   "detail": {
+    "heat": "Blow 演讲 HN 147 · 134 评；Dwarkesh 长文 HN 58 · 100 评",
+    "highlight": false,
+    "event": "Dwarkesh Patel 11 月 13 日发表《The avalanche that hit math is coming for AI development》，说自己三个月里大幅改变看法：现在认为 AI 在几年甚至几个月内就能达到顶尖人类 AI 研究员水平，2030 年前（最早明年）出现各领域都不输顶级专家的 AI。他引用的证据包括：METR 在 Anthropic 内部驻场三个月后认为其在明确任务上的进展速度是一年前的 2 倍，且大部分归因于用 AI 做研发；OpenAI 最重度的 10% 研究员每天的内部 coding agent 花费从约 1000 美元涨到 7000 多美元；Claude「主导」了 Anthropic 超过 26% 的 AI 研发工作（2 月不到 1%）。同一天 HN 热议 Jonathan Blow 的演讲《If AI Solved Coding, Why Is My Software Still the Same?》，认为软件开发自 2000 年代初就没什么进步。评论两极：有游戏开发者反驳说独立游戏的质量明显提高；有人说变化发生在个人定制软件和 AWS 模拟器这种以前不会立项的项目上。",
+    "why": "一边是「AI 研发自我加速」的宏观叙事，一边是「用户手里的软件没变好」的体感，两种看法的冲突正是工程团队评估 AI 投入时绕不开的问题。Dwarkesh 文章下有评论问：花费从 1000 涨到 7000 美元，衡量的是进展，还是只是让 agent 无人看管跑得更久？",
+    "use": "给团队做 AI 提效评估时，别只看 token 花费或生成代码行数，要挑结果指标（缺陷率、交付周期、用户可感知的质量）；可以把这两篇作为团队内部讨论材料，一篇读数据、一篇读反方。",
+    "links": [
+     {
+      "name": "Dwarkesh 原文",
+      "url": "https://www.dwarkesh.com/p/rsi"
+     },
+     {
+      "name": "Jonathan Blow 演讲视频",
+      "url": "https://www.youtube.com/watch?v=IRK8h67ol7Q"
+     },
+     {
+      "name": "HN：Blow 讨论",
+      "url": "https://news.ycombinator.com/item?id=50484658"
+     },
+     {
+      "name": "HN：Dwarkesh 讨论",
+      "url": "https://news.ycombinator.com/item?id=50487854"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-14-09",
+   "date": "2026-11-14",
+   "type": "news",
+   "rank": 9,
+   "title": "Apify 安全事件更新：API token 原来没有哈希存储，存储默认「知道 ID 就能读」",
+   "summary": "攻击者用一个泄露的凭证拿到多个账户凭证；Apify 现在才把 API token 改成只存哈希，并建议所有用户把存储访问改成 Restricted。",
+   "url": "https://status.apify.com/incidents/sxd1dj5j6749",
+   "tags": [
+    "AI Agent",
+    "MCP",
+    "工程实践"
+   ],
+   "raw_tags": [
+    "AI Agent",
+    "MCP",
+    "工程实践"
+   ],
+   "score": 86,
+   "score_label": "HN 86 · 10 评",
+   "detail": {
+    "heat": "HN 86 · 10 评",
+    "highlight": false,
+    "event": "爬虫和 agent 工具平台 Apify（也提供 MCP server 和大量 Actor）11 月 13 日更新安全事件：11 月 9–10 日，第三方用一个被盗凭证获取了一批账户凭证并访问了相关 Apify 账户，11 日检测到并切断。最新整改包括：API token 改为只存哈希；在内部服务之间加网络限制、给内部系统加更强认证；全栈安全审查。给用户的建议：在 Console → Settings → General resource access 把存储设为 Restricted，因为开放状态下任何知道 storage ID 的人都能读取；警惕钓鱼。之前已经预防性撤销了 GitHub 等外部集成的 OAuth 连接，从私有 GitHub 仓库构建 Actor 的用户需要重新授权。一周内发布事后分析。",
+    "why": "agent 越来越依赖这类第三方工具平台（爬虫、浏览器、MCP 服务），而它们保存着你的 token、OAuth 授权和抓下来的数据。「token 明文存储」和「默认 ID 即权限」都是很基础的问题，出在一个被广泛接入 agent 的平台上，值得每个团队对照检查自己的依赖。",
+    "use": "如果用了 Apify：轮换 API token，把存储改成 Restricted，检查 GitHub 集成。更通用的做法：给 agent 接入的每个第三方平台登记它持有哪些凭证、数据默认是否公开，优先用短期或窄范围 token；自己做平台时，token 只存哈希、资源默认私有。",
+    "links": [
+     {
+      "name": "Apify 状态页",
+      "url": "https://status.apify.com/incidents/sxd1dj5j6749"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50486258"
+     }
+    ]
+   }
+  }
+ ]
+}
