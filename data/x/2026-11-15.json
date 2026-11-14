@@ -1,0 +1,41 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-15",
+ "day": {
+  "digest": "Dan Koe 发了一句短帖：不需要经验才开始，经验来自开始。",
+  "by_source": {
+   "thedankoe": "鼓励先行动再积累经验的短句。"
+  },
+  "updated_at": "2026-11-15T08:25:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2121636177702727868",
+   "date": "2026-11-15",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2121636177702727868",
+   "url": "https://x.com/thedankoe/status/2121636177702727868",
+   "posted_at": "2026-11-15T00:07+08:00",
+   "kind": "post",
+   "text": "You don't need experience to start, you gain experience by starting.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "你不需要有经验才能开始，你是通过开始来获得经验的。",
+   "analysis": {
+    "summary": "Dan Koe 发了一条短句：开始做事不需要先有经验，经验是在开始之后积累出来的。",
+    "points": [
+     "经验不是开始的前提，而是开始的结果。"
+    ],
+    "why": "这是一条励志型观点短帖，信息量不大，核心是鼓励先行动再积累经验，与他一贯谈论的创作和个人成长主题一致；属于观点而非数据。",
+    "tags": [
+     "个人成长",
+     "行动力"
+    ]
+   }
+  }
+ ]
+}

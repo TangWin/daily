@@ -3,13 +3,48 @@
  "type": "x",
  "date": "2026-11-14",
  "day": {
-  "digest": "Matt Pocock 回复用户对 /animatic 视频 skill 的反馈，强调为控制延迟和 token 消耗要保持简单，声音可配置、字幕用隐藏字幕即可。",
+  "digest": "Matt Pocock 一方面逐条回应用户对 /animatic 视频 skill 的反馈、坚持简单优先；另一方面反驳“AI 开发流程只该保留 spec、拆 ticket 是死路”的说法，认为 ticket 是逐步指引。",
   "by_source": {
-   "mattpocockuk": "逐条回应 /animatic 的改进建议，坚持简单优先。"
+   "mattpocockuk": "回应 /animatic 改进建议，并为 spec 拆成 ticket 的做法辩护。"
   },
-  "updated_at": "2026-11-14T08:20:00+09:00"
+  "updated_at": "2026-11-15T08:25:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2121630366180192528",
+   "date": "2026-11-14",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2121630366180192528",
+   "url": "https://x.com/mattpocockuk/status/2121630366180192528",
+   "posted_at": "2026-11-14T23:44+08:00",
+   "kind": "reply",
+   "text": "Madness\n\nA ticket is just an instruction to do a discreet piece of work, closed as soon as the work is complete\n\nThis is like saying you can only navigate by choosing a destination, not giving right/left directions",
+   "article_title": null,
+   "reply_to": {
+    "handle": "nateberkopec",
+    "post_id": "2121374054016028943",
+    "url": "https://x.com/nateberkopec/status/2121374054016028943",
+    "text": "Any AI SDLC workflow which involves taking a spec and turning it into a backlog of issues or tickets is a dead end. \n\nThere is only the spec. Any materialization of the spec into discrete units of work can only introduce drift. It is waste."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "太离谱了\n\n一个 ticket 只是一条去完成某块独立工作的指令，工作一完成就关闭\n\n这就像在说：你只能靠选定目的地来导航，而不能给出左转/右转的指引",
+   "analysis": {
+    "summary": "@nateberkopec 认为任何把 spec 拆成 issue/ticket backlog 的 AI 软件开发流程都是死路，只该保留 spec，拆分只会带来偏离；Matt 回复称这种说法“太离谱”，认为 ticket 只是完成一块独立工作的指令，做完即关闭。",
+    "points": [
+     "原帖观点：把 spec 物化为离散工作单元只会引入偏离（drift），是浪费，只应存在 spec。",
+     "Matt 的反驳：ticket 只是针对一块独立工作的指令，工作完成即关闭。",
+     "他的类比：只允许 spec 就像导航只能选目的地，不能给出左转/右转这样的逐步指引。"
+    ],
+    "why": "这是关于 AI 辅助开发中“spec 驱动”与“任务拆分”之争的观点交锋。Matt 的立场是 spec 和 ticket 并不冲突，ticket 是执行层面的逐步指引；这属于他的个人观点，帖子本身没有给出数据或案例。",
+    "tags": [
+     "Agent 工程",
+     "软件开发流程",
+     "Spec"
+    ]
+   }
+  },
   {
    "id": "x-2121329381041684601",
    "date": "2026-11-14",
