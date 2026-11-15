@@ -1,0 +1,367 @@
+{
+ "schema_version": 1,
+ "type": "idea",
+ "date": "2026-11-16",
+ "day": {
+  "sample": "样本：主清单 138（HN42 Lobsters2 Reddit48 IH20 PH26） + Reddit 深翻页抱怨 112（5200 帖） + HN 句式评论/Ask/Show 537；未使用 X 付费 API。"
+ },
+ "items": [
+  {
+   "id": "idea-2026-11-16-01",
+   "date": "2026-11-16",
+   "type": "idea",
+   "rank": 1,
+   "title": "从外面查你的 AI 搭的应用有没有把用户数据公开：输入网址，看不登录能拿到哪些表、哪些字段，一键给出修好的权限规则",
+   "summary": "只需输入网址：工具像陌生访客一样打开页面，找出前端里的 Supabase/Firebase 地址和公开密钥，用只读、只取一两条的方式测试每张表能否被匿名读写，输出一张普通人看得懂的结果（「任何人都能看到 users 表里的邮箱和手机号」）；再按表生成可直接粘贴的 RLS 策略，修完一键复测；可以每周自动复查，并给通过的应用发一个「数据权限已检查」徽章。",
+   "url": "https://news.ycombinator.com/item?id=50499661",
+   "tags": [
+    "安全",
+    "Coding Agent",
+    "个人/生活"
+   ],
+   "raw_tags": [
+    "安全/隐私",
+    "Agent/AI编码",
+    "个人/生活"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 爆帖：研究者从公开网页存档里找到 15.9 万个 Lovable 项目，其中 3.4 万个用 Supabase，2.4 万个网站一打开就把数据库记录发给浏览器，不用登录，泄露了护照信息和 20 多万条私信。根因是行级权限（RLS）没配或配错。平台说上线前会扫描、出问题点 Fix 就行，可评论认为这是把责任推给不懂技术的建站者；扫描只给「严重/不严重」，不说清楚到底谁能看到什么。用户更是完全没法判断哪个应用靠得住。社区里有人说别人晒出来的 Supabase 项目，大约四分之三都有这种问题。",
+    "target_users": "用 Lovable、Bolt、v0、Cursor 等 AI 工具搭应用的非程序员创业者和小团队；接这类外包的自由职业者；替客户审查 AI 生成应用的安全顾问；想确认合作方应用是否泄露数据的小企业。",
+    "quotes": [
+     {
+      "text": "24,664 websites sent database records from Supabase as soon as they loaded, without requiring a login or any other",
+      "links": [
+       {
+        "label": "Hacker News 评论（Lovable 泄露帖 970 分，引用研究博客）",
+        "url": "https://news.ycombinator.com/item?id=50499661"
+       }
+      ]
+     },
+     {
+      "text": "I would say something like 3/4 supabase projects that are submitted have issues like this. The latest i found was exposing health-related data.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50505710"
+       }
+      ]
+     },
+     {
+      "text": "Blame the user because they didn't verify the app they built on your infrastructure meets the most basic requirements? Then provide a tool that offers no guarantees and no definitions of what critical vs non-critical means.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50502217"
+       }
+      ]
+     },
+     {
+      "text": "Customers are absolutely without blame here. They have no way of knowing which parties are and which parties are not running a tight ship.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50502451"
+       }
+      ]
+     },
+     {
+      "text": "The root cause in these apps was insufficent Row-Level Security, which is exactly what our scanning is built to catch.",
+      "links": [
+       {
+        "label": "Hacker News 评论（Lovable 安全负责人）",
+        "url": "https://news.ycombinator.com/item?id=50502105"
+       }
+      ]
+     }
+    ],
+    "existing": "Lovable 上线前自动扫描和付费深度扫描；Supabase 后台的安全提示（Security Advisor）；通用漏洞扫描器和渗透测试服务",
+    "defects": "平台自带扫描只在平台内、只看自己生成的代码，结论是「严重/不严重」，不展示「陌生人能读到哪些表和字段」；Supabase 提示需要懂 SQL 才能看懂和修；通用扫描器不认识 Supabase 匿名密钥这类问题；渗透测试太贵，小项目用不起",
+    "solution": "只需输入网址：工具像陌生访客一样打开页面，找出前端里的 Supabase/Firebase 地址和公开密钥，用只读、只取一两条的方式测试每张表能否被匿名读写，输出一张普通人看得懂的结果（「任何人都能看到 users 表里的邮箱和手机号」）；再按表生成可直接粘贴的 RLS 策略，修完一键复测；可以每周自动复查，并给通过的应用发一个「数据权限已检查」徽章。",
+    "mvp": "一个网页：粘贴网址或 Supabase 项目地址，2 分钟出报告；先只支持 Supabase，内置 10 种常见错误配置和对应的修复 SQL；免费查一次，按项目收月费做持续监控；同时写一篇「Lovable 项目 5 分钟自查」教程引流。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-16-02",
+   "date": "2026-11-16",
+   "type": "idea",
+   "rank": 2,
+   "title": "Stripe 封号风险预检：上线收款前和第一笔大额扣款前，先检查你的扣款方式会不会被当成盗刷，并备好第二家收款渠道",
+   "summary": "一份互动式预检：问清楚业务模式、怎么拿授权、首笔金额、扣款节奏，对照各家收款商公开的禁止业务清单和常见风控触发点，给出红黄绿评分和具体改法（改用 SetupIntent 并保存授权文本、首笔大额前先提交业务说明、留存客户确认）；生成一份「授权证据包」模板（录音、邮件、签字页）；同时推荐并帮你开好一家备用收款渠道，出事时一键切换支付链接。",
+   "url": "https://news.ycombinator.com/item?id=50510042",
+   "tags": [
+    "支付",
+    "开发者工具",
+    "运营/客服"
+   ],
+   "raw_tags": [
+    "支付/计费",
+    "开发者工具",
+    "运营/客服"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Ask HN：一家按次收费的小公司，客户在录音电话里同意，用 1 美元支付链接存了卡；几周后按发票扣 1500 美元，Stripe 拦下付款，两天后关闭账户，说付款「看起来没有得到客户授权」。申诉当天被拒，没人要过通话录音或客户确认。评论指出「先扣 1 美元再扣大额」正是盗卡测试的典型模式，正确做法是用 SetupIntent 设置离线扣款授权。也有人说自己被 Stripe 扣了 4500 美元，只有上了社交媒体才有人管，想找客服靠谱的替代收款商。",
+    "target_users": "刚开通 Stripe/Paddle/PayPal 的小企业和独立开发者；按次、按结果或先存卡后扣款的服务商（中介、预约、代理商）；做 B2B 发票的自由职业者和小团队。",
+    "quotes": [
+     {
+      "text": "Stripe blocked the payment. Two days after that the account was closed with this wording: payments \"don't appear to have been authorized by the customer.\"",
+      "links": [
+       {
+        "label": "Ask HN 原帖",
+        "url": "https://news.ycombinator.com/item?id=50510042"
+       }
+      ]
+     },
+     {
+      "text": "the pattern you just described - a small 1 dollar payment followed by a large payment - is the exact pattern that criminals use to test stolen credit cards numbers.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50511161"
+       }
+      ]
+     },
+     {
+      "text": "unfortunately this charge pattern could not have looked MORE like merchant fraud. The right approach would have been to use https://docs.stripe.com/payments/setup-intents and set it for off-session usage.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50511298"
+       }
+      ]
+     },
+     {
+      "text": "I would be interested to hear about better alternatives that have functional support. ... Are there payment providers like this available?",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50511704"
+       }
+      ]
+     },
+     {
+      "text": "I'm so tired of these big companies giving poor customer support unless they get called out on social media.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50511500"
+       }
+      ]
+     }
+    ],
+    "existing": "Stripe 官方文档和 Radar 风控；各种「Stripe 封号申诉」代写服务；Paddle、Lemon Squeezy 等代收商；律师和支付顾问",
+    "defects": "文档分散，新手不知道「先 1 美元再大额」「存卡后隔几周扣款」会触发风控；Radar 防的是买家欺诈，不会提醒商家自己的流程可疑；封号后才找申诉服务已经晚了，资金还可能被冻结 90 天以上；没有人帮你在出事前准备好第二家收款渠道",
+    "solution": "一份互动式预检：问清楚业务模式、怎么拿授权、首笔金额、扣款节奏，对照各家收款商公开的禁止业务清单和常见风控触发点，给出红黄绿评分和具体改法（改用 SetupIntent 并保存授权文本、首笔大额前先提交业务说明、留存客户确认）；生成一份「授权证据包」模板（录音、邮件、签字页）；同时推荐并帮你开好一家备用收款渠道，出事时一键切换支付链接。",
+    "mvp": "一个网页问卷加报告：20 个问题，输出风险分和改动清单，附可直接用的授权条款和证据包模板；付费版每月检查一次 Stripe 账户设置（只读 API）并提醒异常；从 HN、IH 上的封号帖整理 30 个真实案例做内容引流。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-16-03",
+   "date": "2026-11-16",
+   "type": "idea",
+   "rank": 3,
+   "title": "屏幕闪烁（PWM）买前查：输入笔记本、手机或显示器型号，告诉你调光频率、哪个亮度会闪、有没有不闪的同价位替代",
+   "summary": "一个按型号查询的数据库加浏览器插件：汇总公开评测数据，统一成「低亮度会不会闪、频率多少、调制深度」三项，按敏感程度给红黄绿；在电商和官网商品页旁边直接显示结果，并推荐同价位更安全的型号；附一个用手机慢动作或便宜光电传感器的自测指南，用户上传测量结果补全数据。",
+   "url": "https://news.ycombinator.com/item?id=50507046",
+   "tags": [
+    "个人/生活",
+    "电商",
+    "增长/转化"
+   ],
+   "raw_tags": [
+    "个人/生活",
+    "电商",
+    "增长/转化"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN「MacBook Pro 的 OLED PWM 问题」374 分、202 条评论：新款用 240Hz 调光，很多人震惊「怎么这么低」，认为要到上千 Hz 才不伤眼。对闪烁敏感的人会眼疲劳、头疼甚至眼部偏头痛，但大部分人不知道是屏幕的问题。有人因此放弃 iPhone mini 改买 LCD 的 SE；有人想买 Pixel 只能去店里试 Pro 版。数据散落在 Notebookcheck 等评测里，测法也不统一（有人看示波器得到 240Hz，有人算出 480 或 960Hz）。",
+    "target_users": "对屏幕闪烁敏感、容易眼疲劳或头疼的人；长时间看屏幕的程序员、设计师、学生；准备换笔记本、手机、显示器的普通消费者；给员工采购设备的 IT。",
+    "quotes": [
+     {
+      "text": "Seriously cannot believe the PWM frequency is 240Hz. ... It needs to be on the order of kHz to avoid eyestrain for a very significant proportion of the population. Did Apple just forget about accessibility",
+      "links": [
+       {
+        "label": "Hacker News 评论（MacBook Pro OLED PWM 帖 374 分）",
+        "url": "https://news.ycombinator.com/item?id=50507046"
+       }
+      ]
+     },
+     {
+      "text": "I bought the iPhone Mini when it came out but couldn't stand it because of the PWM on the display. I had to get an SE instead which used an LCD display. I'm one of the ones who is very sensitive to this. I get occular migraines often.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50507668"
+       }
+      ]
+     },
+     {
+      "text": "I was thinking of buying a Google Pixel 11 but I learned that they have the same problem. I will go into a store and see if the Pro version (which can do 480 Hz) is OK.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50507223"
+       }
+      ]
+     },
+     {
+      "text": "I would say most people are actually sensitive, and report eye strain faster when using a specifc type of display, but don't make the connection.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50507161"
+       }
+      ]
+     },
+     {
+      "text": "Lenovo Yoga Pro 9i has a tandem OLED with 1200hz PWM.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖，引用 Notebookcheck）",
+        "url": "https://news.ycombinator.com/item?id=50507182"
+       }
+      ]
+     }
+    ],
+    "existing": "Notebookcheck 评测里的 PWM 测量；少数显示器评测站的「无频闪」标签；手机慢动作拍摄自测；论坛里的敏感人群经验帖",
+    "defects": "数据埋在长评测里，按型号搜不到，手机和显示器覆盖不全；只给一个频率，不说在哪个亮度区间闪、深浅调制多大；没有「同价位不闪替代」推荐；自测方法不准，普通人看不懂示波器数据",
+    "solution": "一个按型号查询的数据库加浏览器插件：汇总公开评测数据，统一成「低亮度会不会闪、频率多少、调制深度」三项，按敏感程度给红黄绿；在电商和官网商品页旁边直接显示结果，并推荐同价位更安全的型号；附一个用手机慢动作或便宜光电传感器的自测指南，用户上传测量结果补全数据。",
+    "mvp": "一个静态网站：先收录 300 款热门笔记本、手机和显示器（来自公开评测），可按型号搜索和对比；一个 Chrome 插件在 Apple、Amazon、Best Buy 商品页显示标签；靠联盟推广链接赚钱。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-16-04",
+   "date": "2026-11-16",
+   "type": "idea",
+   "rank": 4,
+   "title": "几十张几乎一样的照片自动帮你挑一张：按清晰度、睁眼、表情分组排好，一次决定「留哪张」，其余一键删除",
+   "summary": "一个本地运行的 iPhone 应用：用设备上的视觉模型把相似照片按时间和画面聚成小组，每组按清晰度、睁眼、笑容、构图给出推荐的一张，用户只做一次「留这张」的决定，其他一键进最近删除；同时把长录屏和截图单独列出来按大小清理；全程不上传。",
+   "url": "https://www.reddit.com/r/iphone/comments/1xwz7u1/",
+   "tags": [
+    "个人/生活"
+   ],
+   "raw_tags": [
+    "个人/生活"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Reddit r/iphone 和 r/productivity 同时有人问：同一个瞬间拍 20 张，加上截图和长录屏，相册几千张，根本没力气整理；「从 20 张里挑最好的一张」特别累。系统的重复照片功能只认完全相同的图。评论里大家的办法是：只留连拍最后一张、每晚按日期翻、一年花一周集中清理；有人推荐 Clever Cleaner，但每天只能清 1GB。",
+    "target_users": "爱自拍、爱连拍的年轻用户；给孩子和宠物拍大量照片的父母；iPhone 存储快满、不想升级 iCloud 的人；内容创作者。",
+    "quotes": [
+     {
+      "text": "I take 20 shots of the same moment, plus screenshots, plus hour-long screen recordings, and I can't make myself go through it. Picking \"the best one\" out of 20 drains me. Duplicates only catches exact copies. Is there an app or system that picks the best shot from a burst",
+      "links": [
+       {
+        "label": "Reddit r/iphone 原帖（同帖也发在 r/productivity）",
+        "url": "https://www.reddit.com/r/iphone/comments/1xwz7u1/"
+       }
+      ]
+     },
+     {
+      "text": "stop trying to judge all 20 at once. Open the burst full-screen, pick the single one you'd actually show someone, heart it, then delete the rest in one go. \"Which one is the keeper\" is one decision; \"keep or delete\" twenty times is what drains you.",
+      "links": [
+       {
+        "label": "Reddit r/iphone 评论",
+        "url": "https://www.reddit.com/r/iphone/comments/1xwz7u1/comment/19sojx3haahs2/"
+       }
+      ]
+     },
+     {
+      "text": "I only keep the last of the pictures of a burst or a series of pictures, no matter what. Comparing every shot to all the other almost identical is too time consuming.",
+      "links": [
+       {
+        "label": "Reddit r/iphone 评论",
+        "url": "https://www.reddit.com/r/iphone/comments/1xwz7u1/comment/19solyc5x2n45/"
+       }
+      ]
+     },
+     {
+      "text": "Clever cleaner, allows 1gb per day of this exact sort of clean up",
+      "links": [
+       {
+        "label": "Reddit r/iphone 评论",
+        "url": "https://www.reddit.com/r/iphone/comments/1xwz7u1/comment/19sojk3oc46mc/"
+       }
+      ]
+     }
+    ],
+    "existing": "iPhone 相册自带「重复项」；Clever Cleaner、Cleanup 等清理应用；Google Photos 的连拍分组；Lightroom 的人工挑片",
+    "defects": "系统只合并完全相同或几乎像素一致的图；清理应用多数按订阅收费、限制每天清理量，挑「最好那张」的能力弱；Google Photos 要上传云端；Lightroom 太专业",
+    "solution": "一个本地运行的 iPhone 应用：用设备上的视觉模型把相似照片按时间和画面聚成小组，每组按清晰度、睁眼、笑容、构图给出推荐的一张，用户只做一次「留这张」的决定，其他一键进最近删除；同时把长录屏和截图单独列出来按大小清理；全程不上传。",
+    "mvp": "iOS 应用：先做「相似照片分组 + 推荐一张 + 一键删除其余」，每天推送一组「今天清 5 组」的小任务；免费版每天 10 组，买断解锁无限；本地处理作为卖点。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-16-05",
+   "date": "2026-11-16",
+   "type": "idea",
+   "rank": 5,
+   "title": "小广告主的点击欺诈检查：把网站服务器日志和 Google Ads 点击对账，找出不跑 JS 的机器人点击，自动屏蔽并生成退款申请",
+   "summary": "一个轻量服务：接入网站服务器或 CDN 日志（Cloudflare、Vercel、Nginx）和 Google Ads 账户，按 gclid 把每次付费点击和服务器请求对上，标出「付了钱却没有正常页面行为」的点击（无 JS、秒退、数据中心 IP、同一网段集中点击）；自动把 IP 段加入广告排除列表；每月汇总证据，生成可直接提交的无效点击退款申请。",
+   "url": "https://www.indiehackers.com/post/numbers/ilias-isms-homemade-click-fraud-check-caught-206-of-bot-clicks-in-a-morning-32jmuiBgVPYqH8epuGRc",
+   "tags": [
+    "开发者工具",
+    "支付"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "支付/计费"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Indie Hackers 报道：一位经营 24 个网站的开发者用 AI 代理把 ClickHouse 里的原始服务器日志和 Google Ads API 数据对账，一上午抓到 14 次机器人点击、206 美元，屏蔽了 30 个 IP 段，还自动写好退款申请。他说月费 149 美元的点击欺诈工具「根本看不见」这类点击，因为它们靠页面上的 JS 统计，不加载 JS 的无头机器人可以绕过。小广告主预算本来就少，被刷掉的点击直接是钱。",
+    "target_users": "每月投几百到几千美元 Google Ads 的小企业和独立开发者；本地服务商（律所、装修、牙科）；帮客户投广告的小代理商。",
+    "quotes": [
+     {
+      "text": "He says Google Ads fraud tools that cost $149 a month \"can't even see\" clicks like these.",
+      "links": [
+       {
+        "label": "Indie Hackers 报道（Ilias Ism 自制点击欺诈检查）",
+        "url": "https://www.indiehackers.com/post/numbers/ilias-isms-homemade-click-fraud-check-caught-206-of-bot-clicks-in-a-morning-32jmuiBgVPYqH8epuGRc"
+       }
+      ]
+     },
+     {
+      "text": "except mine runs on server-side logs so headless 0-JS bots can't dodge it.",
+      "links": [
+       {
+        "label": "Indie Hackers 报道引用原话（同帖）",
+        "url": "https://www.indiehackers.com/post/numbers/ilias-isms-homemade-click-fraud-check-caught-206-of-bot-clicks-in-a-morning-32jmuiBgVPYqH8epuGRc"
+       }
+      ]
+     },
+     {
+      "text": "A click-fraud check Ilias Ism built himself caught 14 bot clicks worth $206 on his Google Ads in one morning ... It blocked 30 subnets, which are ranges of IP addresses. Then it wrote the refund claim.",
+      "links": [
+       {
+        "label": "Indie Hackers 报道（同帖）",
+        "url": "https://www.indiehackers.com/post/numbers/ilias-isms-homemade-click-fraud-check-caught-206-of-bot-clicks-in-a-morning-32jmuiBgVPYqH8epuGRc"
+       }
+      ]
+     }
+    ],
+    "existing": "ClickCease、Lunio 等点击欺诈工具（月费约 149 美元起）；Google Ads 自带的无效点击过滤；自己手工看日志",
+    "defects": "主流工具靠网页 JS 采集，不跑 JS 的机器人看不见；月费对小广告主偏贵；Google 自己的过滤不透明，退款要自己找证据；手工对日志门槛高",
+    "solution": "一个轻量服务：接入网站服务器或 CDN 日志（Cloudflare、Vercel、Nginx）和 Google Ads 账户，按 gclid 把每次付费点击和服务器请求对上，标出「付了钱却没有正常页面行为」的点击（无 JS、秒退、数据中心 IP、同一网段集中点击）；自动把 IP 段加入广告排除列表；每月汇总证据，生成可直接提交的无效点击退款申请。",
+    "mvp": "先支持 Cloudflare 日志加 Google Ads API：每天一封邮件报告「昨天疑似机器人点击 N 次、约 $X」，一键排除 IP；按挽回金额或低月费（如 19 美元）收费；在 IH 和 r/PPC 发真实对账案例引流。",
+    "difficulty": null,
+    "potential": null
+   }
+  }
+ ]
+}
