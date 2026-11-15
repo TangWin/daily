@@ -1,0 +1,321 @@
+{
+ "schema_version": 1,
+ "type": "news",
+ "date": "2026-11-15",
+ "day": {
+  "window": "11/14 08:30 – 11/15 08:30 北京时间",
+  "note": "未使用 X 付费 API",
+  "footer": "周六整体偏冷，主要来源是 HN、GitHub 和博客。FastMCP 4.2.0（server 端托管 agent skills，要求 Python 3.11 及以上）和 GitHub Copilot CLI 1.0.112（subagent 也受 --max-ai-credits 总额限制）发布在窗口开始前几个小时，昨天没收录，这里只提一句。ggml v1.0.0（HN 398）在 11/13 发布，与 llama.cpp 1.0 是同一件事，不单列。NVIDIA 用两台 DGX Station 跑 GLM-5.3（HN 127，C16 并发峰值 607.8 tok/s）偏推理部署，不单列。「The Claude Delusion」（HN 145 · 181 评）是批评科技精英自大的评论文章，可借鉴的工程内容少，不收录。教授的教学资料被 Claude 误删一事是 11/6 的旧闻。Ontology、Java 今天没有值得报的新内容。Reddit 今天返回 403，无法访问。",
+  "highlights": [
+   1,
+   2,
+   3
+  ]
+ },
+ "items": [
+  {
+   "id": "news-2026-11-15-01",
+   "date": "2026-11-15",
+   "type": "news",
+   "rank": 1,
+   "title": "研究：15.9 万个 Lovable 项目中，大量应用不登录就能读到敏感数据",
+   "summary": "Crissy Field 用 Common Crawl 扫描 Lovable + Supabase 应用，在 7,403 个站点的 10,560 张表里读到带邮箱的记录，暴露内容包括护照信息和 20 多万条私信。",
+   "url": "https://www.crissyfield.de/research/lovable-en/",
+   "tags": [
+    "Coding Agent",
+    "安全",
+    "有争议"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "安全",
+    "有争议"
+   ],
+   "score": 599,
+   "score_label": "HN 599 · 250 评",
+   "detail": {
+    "heat": "HN 599 · 250 评",
+    "highlight": true,
+    "event": "德国安全公司 Crissy Field 从 Common Crawl 找出 2025-12 到 2026-09 间的 159,041 个 Lovable 项目，其中 34,545 个用了 Supabase。24,664 个站点在页面加载时就直接下发数据库记录。研究者用同一把公开 API key 继续发只读请求，在其中 7,403 个站点（30%）的 10,560 张表里读到了含邮箱的记录。典型案例有：一个德国生活方式论坛泄露 8 万多份用户资料和 20 多万条聊天消息；一家服务商泄露 1,000 多条护照号和有效期记录；活动方和餐厅泄露带电话、地址、支付信息和票码的订单；另有一家物业公司泄露了 AI 生成的内部邮件摘要。研究者特别说明，30% 不是确认的泄露率，样本也不代表全部 Lovable 应用。这项研究 11 月 2 日先由 Handelsblatt 报道，作者首次提交 HN 时没火，这次重新提交后冲上首页。",
+    "why": "这不是个别应用写错了权限，而是一个结构性问题：同一平台生成的应用用的是同一套数据库接入模式，一个攻击方法能批量复用到成千上万个应用上。这和昨天报的 Humble Bundle 安全退化是一回事：vibecoding 平台把权限设计这件事悄悄交给了不懂权限的人。",
+    "use": "1）团队里有用 Lovable、Bolt 或 v0 这类工具做内部小工具的，统一排查一遍：Supabase 的表是否都开了 RLS，anon key 实际能读到哪些表；2）把「用前端拿到的 anon key 直接请求 REST 接口」写进 AI 生成代码的上线检查清单；3）在 coding agent 的 harness 里加一条规则：生成数据库 schema 时必须同时生成 RLS 策略和对应的越权测试。",
+    "links": [
+     {
+      "name": "Crissy Field 研究报告",
+      "url": "https://www.crissyfield.de/research/lovable-en/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50499017"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-15-02",
+   "date": "2026-11-15",
+   "type": "news",
+   "rank": 2,
+   "title": "Google Research 披露 Antigravity /teamwork 的设计：按构造切分上下文，用独立验证器把关",
+   "summary": "每个 agent 只拿到当前步骤需要的文件和工具，critic 和 auditor 在干净的上下文里复核；并公布了 Zircon 内核约 80 万行 Rust 重写等结果。",
+   "url": "https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/",
+   "tags": [
+    "Harness",
+    "Context Engineering",
+    "AI Agent"
+   ],
+   "raw_tags": [
+    "Harness Engineering",
+    "Context Engineering",
+    "AI Agent"
+   ],
+   "score": 157,
+   "score_label": "HN 157",
+   "detail": {
+    "heat": "HN 157",
+    "highlight": true,
+    "event": "Google Research 在 11 月 13 日的博客里讲了 Antigravity /teamwork 多 agent 系统的两条核心设计。一是并行探索配专门的「证伪器」：Lean 4、未经修改的测试套件、模拟器、硬件计数器都可以充当，用来自动判断哪个候选解是对的。二是按构造切分上下文：每个子 agent 只拿到当前步骤需要的文件和工具；coordinator 把任务交给全新的继任 agent；critic 和 auditor 在看不到原作者推理过程的干净上下文里复核结果。工程方面的成果有：一个新的 rewrite 模式只在一个模块的依赖都编译通过后才调度它，并让每个叶子模块链接原始测试套件，以此避免 agent 打桩或改测试，两周内给 Zircon 微内核补写了约 80 万行 safe Rust；libgav1 被改写为约 17 万行 Rust，做到 bit-exact，开放 profiling 工具后比原 C++ 快 20–30%；一个长期运行的 campaign 分析历史轨迹后发现，耦合紧密的代码更适合顺序实现加修订而不是并行拆分，并据此改进了 /boost，等于用 harness 优化另一个 harness。/teamwork 和 /boost 现在已在 Antigravity 开放。",
+    "why": "相比 11/13 报道的 Orchestrator，这次是第一次把 harness 的具体做法讲清楚：上下文隔离、验证器和生成器分开、靠依赖顺序调度防止 agent 作弊。这几条都可以搬到自己的 agent 系统里，不依赖 Gemini。",
+    "use": "做大规模代码迁移时可以照搬「依赖编译通过才调度这个模块、必须链接原测试、禁止改测试」这三条规则。review agent 不要继承写代码 agent 的对话历史，只给它 diff 和需求。耦合紧的模块别强行并行拆给多个 agent，改用顺序实现加修订。",
+    "links": [
+     {
+      "name": "Google Research 博客",
+      "url": "https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50496811"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-15-03",
+   "date": "2026-11-15",
+   "type": "news",
+   "rank": 3,
+   "title": "WSJ：摩根大通拦截拿着客户卡号购物的 AI agent，Stripe 的一次性虚拟卡让商户多付手续费",
+   "summary": "Chase 卡不再允许 agent 用卡号直接付款；Stripe Link 用一次性虚拟卡绕开，但这种卡按商务卡计费，商户成本更高，退货也更麻烦。",
+   "url": "https://www.pymnts.com/news/2026/jpmorgan-stops-ai-agents-from-using-customer-credit-cards/",
+   "tags": [
+    "支付",
+    "AI Agent"
+   ],
+   "raw_tags": [
+    "支付系统",
+    "AI Agent"
+   ],
+   "score": null,
+   "score_label": "WSJ 11/13（美东时间）报道，PYMNTS 跟进",
+   "detail": {
+    "heat": "WSJ 11/13（美东时间）报道，PYMNTS 跟进",
+    "highlight": true,
+    "event": "据 PYMNTS 转述《华尔街日报》11 月 13 日（美东时间）的报道：客户把卡号交给 AI agent 购物时，摩根大通会拦截；美国银行、Capital One、花旗的卡在客户允许的情况下已经能被 agent 使用。在此之前，Chase 已经禁止外部 agent 用客户凭证登录、转账或付账单。Stripe Link 对 Chase 等发卡行改用一次性虚拟卡：为单笔、固定金额开一张卡，agent 用它付给商户，Stripe 再从用户自己的卡扣款。但商户向 Visa 和 Mastercard 投诉，说这种卡被归为商务卡，受理成本比消费卡高，退货处理也更麻烦。Link 也支持 Visa 和 Mastercard 的 agentic token，但知情人士说 JPMorgan 接入得很慢。Mastercard CEO 此前把虚拟卡称为通往全面 token 化的「过渡桥梁」。报道还提到，几家银行打算把「把卡交给 agent」视同「把卡交给家人」处理，产生的扣款由持卡人承担。",
+    "why": "和昨天报的 ChatGPT Wallet 放在一起看，agent 支付现在有三条路并行：网络 token、一次性虚拟卡、直接用卡号。发卡行开始用拦截表态。对商户来说，虚拟卡意味着更高的 interchange 和更麻烦的退款对账，这是做支付的人能直接算出来的成本。",
+    "use": "支付或结算团队可以：1）在交易数据里区分「agent 发起 + 商务虚拟卡」这类订单，单独统计费率和退货率；2）检查退款链路：原支付卡和用户实际被扣款的卡不一致时，退款怎么原路返回；3）优先接入 Visa 和 Mastercard 的 agentic token，降低对虚拟卡的依赖。",
+    "links": [
+     {
+      "name": "PYMNTS 报道",
+      "url": "https://www.pymnts.com/news/2026/jpmorgan-stops-ai-agents-from-using-customer-credit-cards/"
+     },
+     {
+      "name": "Digital Influence：agent 支付限额与责任现状",
+      "url": "https://digitalinfluence.com/news/agent-payments-get-limits-and-insurance"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-15-04",
+   "date": "2026-11-15",
+   "type": "news",
+   "rank": 4,
+   "title": "Wise 上线官方只读 MCP Server：在 ChatGPT 和 Claude 里查余额、汇率和转账进度",
+   "summary": "共 15 个只读工具，分 7 个权限组，走 OAuth + PKCE 授权，无法动钱；「起草转账、在 Wise 内审批」标为即将推出。",
+   "url": "https://wise.com/gb/feature/wise-for-ai-mcp",
+   "tags": [
+    "MCP",
+    "支付",
+    "新品发布"
+   ],
+   "raw_tags": [
+    "MCP",
+    "支付系统",
+    "新品发布"
+   ],
+   "score": null,
+   "score_label": "Sulat 11/14 报道；Wise 官方页面和帮助中心已上线",
+   "detail": {
+    "heat": "Sulat 11/14 报道；Wise 官方页面和帮助中心已上线",
+    "highlight": false,
+    "event": "Wise 推出「Wise for AI」，也就是官方托管的 MCP Server（https://mcp.wise.com/mcp），支持 ChatGPT 和 Claude，文档里还给了 Claude Code 和 Codex CLI 的配置命令。用户在 Wise 自己的页面登录并完成二步验证，然后选择要连接的个人或企业 profile 和要授予的读权限，不需要交出密码或创建 API token。文档列出 15 个只读工具，分 7 个权限组，覆盖余额、收款人、转账预计到账时间、交易流水、汇率和费用报价；其中 wise_create_quote 名字像写操作，但被归在只读类。服务端每次请求都会校验用户、profile 和 client 三者，新建的 profile 不会自动加入授权，团队角色权限继续生效。Wise 称不保存 AI 对话内容，并提醒：只读权限也可能暴露交易对手等敏感信息。断开连接时要先 logout 再 remove，否则本地可能残留 token。该功能目前在日本不可用。",
+    "why": "这是持牌支付机构把 MCP 用在资金账户上的一个保守范例：先只读，写操作改成「agent 起草、用户在 Wise 内审批」，授权粒度到 profile 和权限组。对想给自家支付或账户系统做 MCP 的团队，这是一个可以直接参考的权限模型。",
+    "use": "设计自家资金类 MCP 时可以参考：按权限组暴露工具，每次请求都校验 user、profile、client；资金操作只允许生成草稿，由用户在主 App 里批准；文档里写明 logout 和撤销授权的步骤。也可以把它当作 agent 代查汇率和到账状态的现成数据源。",
+    "links": [
+     {
+      "name": "Wise for AI 官方页面",
+      "url": "https://wise.com/gb/feature/wise-for-ai-mcp"
+     },
+     {
+      "name": "Wise MCP 文档",
+      "url": "https://docs.wise.com/mcp/overview"
+     },
+     {
+      "name": "Sulat 详解",
+      "url": "https://news.sulat.com/2026/11/14/wise-mcp-server/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-15-05",
+   "date": "2026-11-15",
+   "type": "news",
+   "rank": 5,
+   "title": "Claude 自定义连接器新规：远程 MCP Server 必须跑在 443 端口",
+   "summary": "Anthropic 帮助文档新增要求：带非标准端口的 URL（如 :8443）一律连不上，同时明确了本地 MCP 在 Cowork 中的可用范围。",
+   "url": "https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp",
+   "tags": [
+    "MCP",
+    "Coding Agent"
+   ],
+   "raw_tags": [
+    "MCP",
+    "Coding Agent"
+   ],
+   "score": null,
+   "score_label": "AI Docs Watch 11/14 10:19 UTC（北京时间 18:19）捕获文档变更",
+   "detail": {
+    "heat": "AI Docs Watch 11/14 10:19 UTC（北京时间 18:19）捕获文档变更",
+    "highlight": false,
+    "event": "Anthropic 的帮助文档「Get started with custom connectors using remote MCP」新增一句：服务器必须能通过标准 HTTPS 端口 443 访问，Claude 无法连接指定了其他端口的 URL（例如 https://example.com:8443/mcp）。原有要求不变：服务器必须能从 Anthropic 的 IP 段访问，私有网络、VPN 后的服务器连不上。同时更新的还有：claude_desktop_config.json 里配置的本地 MCP 不能用于 claude.ai 和云端 Cowork，只能用于本地运行的 Cowork；添加连接器时要「原样」粘贴包括路径在内的 URL；「使用自己的 OAuth client」只适用于文档明确要求的 server，回调地址填 https://claude.ai/api/mcp/auth_callback；企业版允许带「Manage access to Libraries」权限的自定义角色配置连接器。我们已直接访问该帮助页，确认了 443 这条原文。",
+    "why": "很多团队的内部 MCP 网关跑在 8443 之类的端口上，自己机器上能连通，但连接是从 Anthropic 服务器发起的，接成 Claude 连接器就会静默失败。这是一个容易踩、排查成本高的坑。",
+    "use": "检查团队对外暴露给 Claude 的 MCP 端点：统一用 443，通过反向代理按路径路由（比如 /mcp/jira、/mcp/db）；防火墙放行 Anthropic 的 IP 段；在对接文档里写清完整 URL 和 OAuth 回调地址。",
+    "links": [
+     {
+      "name": "Claude 帮助中心原文",
+      "url": "https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp"
+     },
+     {
+      "name": "AI Docs Watch 变更对比",
+      "url": "https://docswatch.stevetoth.ai/anthropic/custom-connectors-remote-mcp/2026-11-14/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-15-06",
+   "date": "2026-11-15",
+   "type": "news",
+   "rank": 6,
+   "title": "ArmourCode 开源 Claude Code Hooks：22 个插件，确定性拦截 rm -rf ~ 和 git reset --hard",
+   "summary": "在 Claude Code 的 hooks 上做一层规则护栏，危险命令在进入 shell 前就被拒绝，带 1,949 个测试；作者也坦白找到了自己规则的两个绕过方法。",
+   "url": "https://github.com/karanb192/claude-code-hooks",
+   "tags": [
+    "Harness",
+    "Coding Agent",
+    "开源"
+   ],
+   "raw_tags": [
+    "Harness Engineering",
+    "Coding Agent",
+    "开源项目"
+   ],
+   "score": null,
+   "score_label": "GitHub 583 stars",
+   "detail": {
+    "heat": "GitHub 583 stars",
+    "highlight": false,
+    "event": "据 AI In Context（转引 itbrief）11 月 14 日报道，ArmourCode AI 负责人 Karan Bansal 发布了 claude-code-hooks（karanb192/claude-code-hooks），共 22 个插件、1,949 个测试。它基于 Claude Code 自带的 hooks 机制：模型提出工具调用后、真正执行前，由普通代码做判断，拒绝时把原因返回给模型。规则覆盖的场景有：读取常见密码和 access key 文件、删除 home 目录、修改 agent 自身的安全设置、git reset --hard 这类会丢未提交改动的命令、可疑的指令文件、改动已识别的配置文件，以及会话内的设置变更记录。作者也公开了局限：录演示视频时找到了自己 secret 保护规则的两种绕过方法；有一条正则会卡死 hook、占满 CPU，因此补了回归测试并给检查加了时间上限；数据库 reset、用权限过大的 token 删生产存储这类场景还没有覆盖；hooks 拦不住在 agent 启动前就已经落盘的恶意 session-start hook。ArmourCode 内部用的是其中一部分规则的托管配置。",
+    "why": "提示词和 AGENTS.md 只能影响模型，hooks 才能强制执行。这个项目的价值主要在两点：规则清单直接对应公开的事故记录；作者坦白了自己被绕过的经历和正则 DoS 问题，说明这类护栏本身也需要测试和超时控制。",
+    "use": "可以直接 fork 它的 deny 规则，合并进团队统一下发的 Claude Code 配置。给每个 hook 设置执行超时，并写对抗性测试（变量拼接、子 shell、别名等绕过方式）。数据库 reset、云存储删除这类自己业务特有的危险操作，要补写对应规则，同时配合最小权限的凭证和沙箱，不要只靠 hooks。",
+    "links": [
+     {
+      "name": "GitHub 仓库",
+      "url": "https://github.com/karanb192/claude-code-hooks"
+     },
+     {
+      "name": "AI In Context 报道",
+      "url": "https://aiincontext.com/articles/armourcode-open-sources-claude-code-hooks-to-block-destructive-agent-commands"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-15-07",
+   "date": "2026-11-15",
+   "type": "news",
+   "rank": 7,
+   "title": "Agweb：专给 coding agent 用的 macOS 浏览器，不抢焦点，操作后只返回页面变化",
+   "summary": "基于 WebKit，命令沿用 playwright-cli 的风格；每次操作后直接返回 DOM diff，省掉重复 snapshot 的 token；多个 agent 共享登录态，密码不进对话记录。",
+   "url": "https://github.com/paul-nameless/agweb",
+   "tags": [
+    "Coding Agent",
+    "开源",
+    "Context Engineering"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "开源项目",
+    "Context Engineering"
+   ],
+   "score": 86,
+   "score_label": "Show HN 86 · GitHub 174 stars",
+   "detail": {
+    "heat": "Show HN 86 · GitHub 174 stars",
+    "highlight": false,
+    "event": "作者同时跑多个 coding agent 时，Playwright 打开的 Chrome 窗口总是抢走键盘焦点，headless 浏览器又会被一些网站拦截，于是做了 agweb：一个永远不抢焦点的 WebKit 窗口，agent 在 shell 里用 agweb 命令操作，人可以在仪表盘（⌘D）里同时看到所有 agent 的标签页和各自最后一条命令。几个关键设计：元素 ref 在元素留在页面上期间保持稳定；click 等操作的返回值直接带上「改动了什么」的 diff（新增节点、发起的请求、弹窗、控制台报错），agent 不用每一步都重新 snapshot；动作会自动等它触发的请求完成；ask 命令可以把标签页交给人处理登录、MFA、验证码；fill --secret-cmd 从 pass、1Password 或 Bitwarden 读出密码直接填入，agent 看不到明文。作者实测 5 个空闲页面时内存约 590 MB，headless Chrome 约 730 MB，Playwright Chrome 约 1.6 GB。限制：只支持 macOS 26 及以上，没有 CDP，Chrome 专属的网站可能表现异常。",
+    "why": "浏览器工具是 agent 的上下文大户。「操作后只返回 diff」本质上是一种 context engineering，比每步都返回完整可访问性树省很多 token。secret-cmd 和 ask 交接也是很实用的 harness 设计。",
+    "use": "在 Mac 上跑前端 E2E 或自动化后台操作的团队可以试一下，用它替换 Playwright MCP，对比 token 消耗。即使不用这个工具，也可以借鉴两点：浏览器类工具的返回改成增量 diff；凭证通过命令注入，不经过模型。",
+    "links": [
+     {
+      "name": "GitHub 仓库",
+      "url": "https://github.com/paul-nameless/agweb"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50497147"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-15-08",
+   "date": "2026-11-15",
+   "type": "news",
+   "rank": 8,
+   "title": "Agent First Development：给企业团队的 12 条 agent 协作开发守则",
+   "summary": "主张先对齐完整范围，再把有边界的任务交给 agent，最后按证据验收；并行的 agent 数量要按团队的 review 和集成能力来定。",
+   "url": "https://debarshibasak.github.io/readables/blogs/agent-first-development",
+   "tags": [
+    "AI Agent",
+    "Harness",
+    "工程实践"
+   ],
+   "raw_tags": [
+    "AI Agent",
+    "Harness Engineering",
+    "工程实践"
+   ],
+   "score": 23,
+   "score_label": "HN 23（热度不高，内容扎实）",
+   "detail": {
+    "heat": "HN 23（热度不高，内容扎实）",
+    "highlight": false,
+    "event": "作者在 11 月 14 日的文章里提出「Agent First Development」：从瀑布式开发借鉴显式写下需求和依赖，从 Agile 借鉴短迭代，从 SAFe 借鉴跨团队依赖规划和架构跑道，整理成 12 条守则。几条关键的：每项交付都要有一个具体的人负责，「agent 写的」只能说明作者是谁，不能免除团队的责任；需求、契约、验收检查放在同一份版本化的记录里，每个 agent 任务都要标明自己实现的是哪个版本；先定好 API、schema、错误处理等契约再并行开发；每个 agent 任务都要有目标、可改动范围、资源上限和停止规则，遇到缺失的需求或需要更大权限时必须停下并上报，不能自行扩大任务范围；并行的 agent 数量由 review、测试、集成的能力决定，review 队列变长时先收尾、不开新任务；agent 写的实现和它写的测试可能基于同一个错误假设，需要独立的人来对照原始需求审查；衡量指标看交付周期、逃逸缺陷、返工率和总成本，而不是生成了多少代码。文中还用一个「企业数据导出」功能完整走了一遍流程。",
+    "why": "热度不高，但这是今天少有的、从团队层面讲 agent 协作的工程方法论。它和 Antigravity 的「验证器和生成器分离」、ArmourCode 的「用 hooks 限制权限」说的是同一件事：agent 越自主，边界和验收证据就越要事先写清楚。",
+    "use": "可以拿第 7 条（任务边界和停止规则）和第 8 条（按 review 能力限制并行数）当团队 agent 使用规范的初稿。在任务模板里加上「允许改动的范围 / 验收检查 / 遇到什么情况必须上报」三个字段。",
+    "links": [
+     {
+      "name": "原文",
+      "url": "https://debarshibasak.github.io/readables/blogs/agent-first-development"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50496562"
+     }
+    ]
+   }
+  }
+ ]
+}
