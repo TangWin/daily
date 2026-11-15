@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-11-15",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-11-15-ui",
+      "date": "2026-11-15",
+      "type": "oss",
+      "rank": 1,
+      "title": "UI SDK：Vercel Labs 给 AI Agent 用的前端交互行为库，Agent 拼组件、也能直接操作组件",
+      "summary": "shadcn 带队的新库，把焦点、键盘导航、选择、弹层、拖放和 ARIA 写成可组合的行为，让 Coding Agent 在 React/Vue/Svelte/Solid/Web Components 里拼组件；页面还能通过 agent bridge / WebMCP 让 Agent 直接读状态、调动作。11 月 12 日公开 beta，约 4600 星。",
+      "url": "https://github.com/vercel-labs/ui",
+      "tags": [
+        "开发者工具",
+        "Coding Agent",
+        "AI Agent",
+        "MCP",
+        "前端"
+      ],
+      "raw_tags": [],
+      "score": 4576,
+      "score_label": "★ 4576",
+      "detail": {
+        "status": "picked",
+        "repo": "vercel-labs/ui",
+        "homepage": "https://ui-sdk.dev",
+        "stars": 4576,
+        "forks": 136,
+        "license": "Apache-2.0",
+        "language": "TypeScript",
+        "latest_release": "@ui-sdk/core@0.1.0-beta.2",
+        "runners_up": [],
+        "body_md": "## UI SDK：给 AI Agent 用的前端交互「行为库」，Vercel Labs 出品\n\n**为什么今天值得试：** shadcn（shadcn/ui 作者）带队、Nuxt UI 作者 benjamincanac 和 shuding 一起做的新库，11 月 12 日正式公开 beta，现在约 4600 星。它不是又一套组件库：它把焦点、键盘导航、选择、弹层、拖放和配套 ARIA 写成可组合的「行为」，专门让 Coding Agent 来拼组件，页面做好后还能让 Agent 直接读组件状态、调用组件动作。\n\n**仓库：** https://github.com/vercel-labs/ui （文档 https://ui-sdk.dev/docs ）\n\n### 它解决什么问题 / 适合谁\n让 Claude Code / Codex 写前端组件，样子容易对，但键盘操作、焦点回收、读屏 ARIA、弹层关闭这些细节常常出错。UI SDK 把这些交互做成测好的底层零件，Agent 只负责组合；同一个组件可以在 React、Vue、Svelte、Solid 和 Web Components 里渲染。适合用 Agent 写前端、要维护自家设计系统、或者想让网页对 AI Agent 更好操作的团队。\n\n### README 里的关键点\n- **行为在 `@ui-sdk/core`**：键盘导航、焦点、选择、关闭、弹层、拖放和需要的 ARIA；框架适配包有 `@ui-sdk/react`、`vue`、`svelte`、`solid`、`web`。\n- **用 `definePrimitive` 定义组件**：写清状态、动作（api）和各个部件（slots），比如「有文字时才显示的清除按钮，点了焦点回到输入框」；再用 `createParts` 在五个框架里渲染出同样的部件。README 原话：这些代码「你不用学怎么写，你的 Agent 会写」。\n- **给 Agent 的技能和文档**：`npx skills add vercel-labs/ui --skill ui-sdk` 装技能；每个包自带对应版本的 Markdown 文档（`node_modules/@ui-sdk/react/docs/llms.txt` 等），还有测试工具检查键盘、焦点和 ARIA。\n- **Agent 操作页面（文档的 Agents 部分）**：`createAgent()` 建一个桥，`snapshot()` 列出页面上的组件、状态和可用动作，`act()` 直接调组件动作（如给输入框 `setValue`），你的应用可以用 `allow` 回调批准或拒绝；也能通过 WebMCP 注册给支持的浏览器。官方基准（Claude Code + Sonnet，各跑三次取中位数）：比用浏览器工具点页面少 69% 工具调用、少 83% 读入文字、快 61%、便宜 56%。\n- 目前是 **beta**，受 Vercel beta 条款约束，API 可能在正式版前变化。\n\n### 近期活跃证据\n- **Issues：** 共约 117 个、开放约 109 个，大多是 11 月 14 日一天涌进来的，质量很高（带复现、补丁链接和测试结果），但大部分还没人回复；之前 11 月 12 日报的几条安全问题（密码框通过 data 属性泄露状态、cookie 读取等）维护者当天修复关单，`href` 不过滤 `javascript:` 一条被认定按设计如此，要应用自己清洗。仓库只收协作者的 PR，外部贡献者只能贴补丁。\n- **Release：** 只有 beta 版：最新 0.1.0-beta.2（11 月 13 日 21:02 北京时间，六个包同时发），修了「对话框里再弹确认框」被遮挡、cookie 前后端读法不一致等问题；npm 上 `beta` 标签是 0.1.0-beta.2。\n- **提交：** 约 454 次提交，shadcn 一人 365 次，benjamincanac 55、shuding 32；最近一次在 11 月 14 日 20:30（北京时间），方向是 WebMCP 改进和各框架的修复。\n\n### 怎么快速上手\n1. 在 React 19+ 项目里装：`npm install @ui-sdk/react @ui-sdk/core`（其他框架换成对应适配包）。\n2. 给 Agent 装技能：`npx skills add vercel-labs/ui --skill ui-sdk`，并在 AGENTS.md 里写上「先读 node_modules/@ui-sdk/react/docs/llms.txt」（文档首页有现成提示词可以直接贴）。\n3. 让 Agent 做个小组件试试，比如「带清除按钮的搜索框，清除后焦点回到输入框」，再用键盘和读屏检查一遍。\n\n### 风险与注意点\n- beta 阶段，API 会变，生产项目先锁版本。\n- Issue 积压多、只收协作者 PR，问题修复要看核心团队节奏；主力基本是 shadcn 一个人。\n- 让 Agent 通过桥或 WebMCP 改页面时，记得用 `allow` 回调和 `data-agent-confirm` 把关有后果的操作；来自不可信数据的链接要自己过滤。\n- 旧版 skills CLI 可能找不到这个技能（#574），装不上先升级 CLI。\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
