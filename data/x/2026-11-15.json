@@ -3,13 +3,82 @@
  "type": "x",
  "date": "2026-11-15",
  "day": {
-  "digest": "Dan Koe 发了一句短帖：不需要经验才开始，经验来自开始。",
+  "digest": "Dan Koe 发了一句短帖：不需要经验才开始，经验来自开始。Matt Pocock 与 @_lopopolo 讨论 agent 工作流：他认为 ticket 只是实现细节，但不认同“不要用 ticket、只按结果构建”的说法，并请对方具体解释。",
   "by_source": {
-   "thedankoe": "鼓励先行动再积累经验的短句。"
+   "thedankoe": "鼓励先行动再积累经验的短句。",
+   "mattpocockuk": "就 ticket 式 vs 目标式 agent 工作流与人讨论，认为 ticket 仍有用，并追问对方观点。"
   },
-  "updated_at": "2026-11-15T08:25:00+09:00"
+  "updated_at": "2026-11-15T20:20:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2121889033043534156",
+   "date": "2026-11-15",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2121889033043534156",
+   "url": "https://x.com/mattpocockuk/status/2121889033043534156",
+   "posted_at": "2026-11-15T16:52+08:00",
+   "kind": "reply",
+   "text": "> Successful, high ambition agentic systems only build for and evaluate for outcomes.\n\nI'm finding it hard to concretely understand this take, could you elaborate?",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2121888708005900582",
+    "url": "https://x.com/mattpocockuk/status/2121888708005900582",
+    "text": "But I'm not treating the ticket as anything valuable, it's just an implementation detail on the way to the destination.\n\nI agree that they aren't worth much, but saying don't use them is just odd"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "> Successful, high ambition agentic systems only build for and evaluate for outcomes.（成功的、高野心的 agentic 系统只为结果而构建、只按结果评估。）\n\n我觉得这个观点很难具体理解，能展开讲讲吗？",
+   "analysis": {
+    "summary": "Matt 接着自己上一条回复，引用 @_lopopolo 的原话“成功的高野心 agentic 系统只为结果构建和评估”，表示难以具体理解，请对方展开说明。",
+    "points": [
+     "Matt 引用了对方“只为结果构建和评估”的说法。",
+     "他表示这个观点不够具体，请对方详细解释。"
+    ],
+    "why": "信息量较低，主要是追问；但能看出 Matt 对“只给目标、不拆任务”的 agent 工作流说法持保留态度，想看到更具体的做法。截至采集时未看到对方的回复。",
+    "tags": [
+     "Agent 工程",
+     "讨论"
+    ]
+   }
+  },
+  {
+   "id": "x-2121888708005900582",
+   "date": "2026-11-15",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2121888708005900582",
+   "url": "https://x.com/mattpocockuk/status/2121888708005900582",
+   "posted_at": "2026-11-15T16:51+08:00",
+   "kind": "reply",
+   "text": "But I'm not treating the ticket as anything valuable, it's just an implementation detail on the way to the destination.\n\nI agree that they aren't worth much, but saying don't use them is just odd",
+   "article_title": null,
+   "reply_to": {
+    "handle": "_lopopolo",
+    "post_id": "2121748186175844459",
+    "url": "https://x.com/_lopopolo/status/2121748186175844459",
+    "text": "To build via ticket is to care about mechanism. To build via big objective is to only care about outcomes. Successful, high ambition agentic systems only build for and evaluate for outcomes."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "但我并没有把 ticket 当成什么有价值的东西，它只是通往目标路上的一个实现细节。\n\n我同意它们本身没多大价值，但说不要用它们就有点奇怪了",
+   "analysis": {
+    "summary": "@_lopopolo 说“按 ticket 构建是在乎机制，按大目标构建是只在乎结果；成功的高野心 agentic 系统只为结果构建和评估”。Matt 回复：他并不把 ticket 当作有价值的东西，只是实现细节，同意它们价值不大，但“不要用 ticket”的说法很奇怪。",
+    "points": [
+     "Matt 认为 ticket 只是通往目标的实现细节，而不是要守护的产物。",
+     "他同意 ticket 本身价值不高。",
+     "他不认同“完全不要用 ticket”的结论。"
+    ],
+    "why": "这是关于 AI agent 工程工作流的讨论：任务该拆成 ticket 交给 agent，还是只给大目标、按结果评估。Matt 的立场是 ticket 作为中间步骤仍有用。这是双方观点交锋，不是实验数据；完整讨论串只采集到被回复的这一条。",
+    "tags": [
+     "Agent 工程",
+     "工作流",
+     "任务拆分"
+    ]
+   }
+  },
   {
    "id": "x-2121636177702727868",
    "date": "2026-11-15",
