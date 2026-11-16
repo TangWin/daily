@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-11-16",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-11-16-llama-modchip",
+      "date": "2026-11-16",
+      "type": "oss",
+      "rank": 1,
+      "title": "llama-modchip：64GB 内存、零显卡跑 284B DeepSeek-V4-Flash 的 CPU 推理改装包",
+      "summary": "给 llama.cpp 加上 3.00/3.75 bpw 的 SIMD 查表量化（VQ3-64、Fractal-64）和投机解码，把 284B 的 DeepSeek-V4-Flash 压到 58GiB 以内，64GB 纯 CPU 机器单路约 9 tok/s，30B Nemotron 只要 13GiB；自带 chat/web/bench/Claude Code 接入。建库 18 天发了 10 个版本，Issue 区有一堆用户跑分。",
+      "url": "https://github.com/synchopate/llama-modchip",
+      "tags": [
+        "模型",
+        "本地推理",
+        "开发者工具",
+        "量化"
+      ],
+      "raw_tags": [],
+      "score": 1270,
+      "score_label": "★ 1270",
+      "detail": {
+        "status": "picked",
+        "repo": "synchopate/llama-modchip",
+        "homepage": null,
+        "stars": 1270,
+        "forks": 113,
+        "license": "Apache-2.0",
+        "language": "Python",
+        "latest_release": "v2.5.5",
+        "runners_up": [],
+        "body_md": "## llama-modchip：在 64GB 内存、不插显卡的电脑上跑 284B 的 DeepSeek-V4-Flash\n\n**为什么今天值得试：** 想在本地跑大号 MoE 模型，又没有大显存显卡的人，可以看看这个项目。它把 284B 参数的 DeepSeek-V4-Flash 压到 58GiB 以内，在 64GB 内存的纯 CPU 机器上跑，单路解码约 9 tok/s；30B 的 Nemotron 只要 13GiB，笔记本也能跑。项目建库 18 天，发了 10 个版本，Issue 区有 20 多份用户交上来的跑分。\n\n- 仓库：https://github.com/synchopate/llama-modchip\n- 许可证：Apache-2.0；主语言 Python（引擎是给 llama.cpp 打的 C/C++ 补丁）；1270★ / 113 fork\n\n### 解决什么问题、适合谁\n\nMoE 模型放在 CPU 上推理，速度主要卡在内存带宽。常见的 Q4_0 每个权重约 4.5 bit，284B 的模型 64GB 内存放不下；Q2_K/Q3_K 解包又慢，碰到维度不是 256 倍数的专家矩阵还会退回 Q4_0。llama-modchip 给 llama.cpp 加了两种适合 SIMD 查表的 64 权重块格式：**Fractal-64**（3.75 bpw）和 **LUT-VQ3-64**（3.00 bpw，AVX-512 VBMI 在寄存器里查表解码）。再配上 KV 缓存管理、`/dev/shm` 前缀快照和投机解码（作者叫 Stockfish-PVS），把大 MoE 模型塞进普通台式机的内存。\n\n适合：手上有 64GB 内存的台式机或服务器、Apple Silicon 大内存机器，或者 16–32GB 笔记本，想要离线、本地、不花 API 钱的 Coding Agent 后端的人；也适合研究 CPU 推理和量化的人。\n\n### README 里的关键能力\n\n- **支持的模型：** DeepSeek-V4-Flash-0731 284B（默认 MaxQ-v4，57.99GiB）、NVIDIA-Nemotron-3.5-30B-A3B（VQ3 13.30GiB / Fractal 14.36GiB）、Qwen3-30B-A3B/14B、Nemotron-H-8B。量化好的 GGUF 放在 Hugging Face 的 Synchopate 名下\n- **作者给的数据（Zen 5 16 核，无 GPU）：** 284B 冷启动预填充 36–41 tok/s，单路解码 8.7–9.1 tok/s，开投机解码后突发 25 tok/s；30B 投机解码最高 111.6 tok/s。也支持 CPU+显卡混合（热层放 GPU、冷专家放内存），以及 Metal、CUDA、Vulkan、Windows 11\n- **`./modchip` 命令：** `chat`（终端聊天，实时显示 tok/s）、`web`（网页聊天 + 监控面板，127.0.0.1:8787）、`bench`（30 秒跑分卡片，可以交到排行榜）、`claude`（把 Claude Code CLI 接到本地 256K 引擎）、`eval`（100 分质量、工具调用和长上下文测试）、`quantize`（自己转 VQ3/Fractal）、`status`/`stop`\n- **硬件预检：** 不用下模型，`check_cpu_readiness.py` 先看你的 CPU 适合哪条路线\n- **质量数据也公开：** 30B VQ3 的 WikiText-2 PPL 是 7.44（BF16 为 6.96），作者的 100 分测试拿满分。284B MaxQ-v4 的 PPL 是 6.86（参考值 4.33），平均 KLD 约 0.65 nats，Top-1 一致率约 73%。**压缩损失不小**，README 里这些数都列出来了\n\n### 近期活跃证据\n\n- **Issues：** 共 32 个（开放 29，大部分是用户交的跑分，从 Xeon E5、Ryzen 5600X 到 M4 Max 都有）。作者 synchopate 通常几小时内回复，回复里有原因分析和修复方案。例如 #31「VQ3 引擎编不出来」当天出修复 e4911e1，之后 Windows 崩溃也当天查出原因修好；#22 有人接 Pi 编程框架没连上，给出 `/v1` 绕过方法后跑通；#38 macOS 链接失败还没修，作者已请报告者提 PR\n- **Release：** 最新 v2.5.5 发布于 2026-11-15 17:08（北京时间）：DeepSeek-V4 默认换成「无 donor 权重」的 MaxQ-v4，不再用自定义张量类型，所以上游 Metal/CUDA/Vulkan/CPU 后端都能加载；加了 GGUF 维度校验，跑了 51 段 KLD 评测。v2.5.0–v2.5.5 是 11-11 到 11-15 五天内发的，节奏很快\n- **提交：** 共约 97 次提交（synchopate 85，austindixson 6，notactuallytreyanastasio 5，MR1KRAKEN 1）。最近一次在 2026-11-15 17:08（北京时间）。最近几天主要在修 Windows/macOS 构建、做量化格式和评测、加固 IPC 和网关；已合并外部 PR：Metal Q2_0 解码提速 2.1×、Windows 构建脚本\n\n### 快速上手\n\n1. 先预检硬件：`curl -sL https://raw.githubusercontent.com/synchopate/llama-modchip/main/scripts/check_cpu_readiness.py | python3`（担心的话先下载下来看一遍再跑）\n2. Linux/macOS：`git clone https://github.com/synchopate/llama-modchip.git && cd llama-modchip && ./modchip chat`。安装脚本会按内存选模型，16–59GB 默认装 Nemotron-30B，64GB 档装 DeepSeek-V4 284B\n3. 想接 Agent，就跑 `./modchip web` 或 `./modchip claude`，OpenAI 兼容地址填 `http://127.0.0.1:8787/v1`（记得带 `/v1`）\n\n### 风险注意点\n\n- **格式不通用：** Fractal-64/VQ3 是自定义张量类型，原版 llama.cpp、Ollama、vLLM、LM Studio 加载会报错，只能用项目打过补丁的引擎（v2.5.5 的 MaxQ-v4 例外）\n- **质量损失明显：** 284B 压到 3 bit 级别，PPL 和 KLD 离原模型差距不小。「能跑」不等于「和官方 API 一样聪明」，重要任务先拿自己的用例比一比\n- **单人主力、变化快：** 约 87% 的提交出自一人，一天能发好几个版本，补丁之间会互相影响（#31、#38 都是构建坏掉）。README 很密，营销用语也多，跑分以你自己机器上的 `bench` 为准\n- **资源占用：** 284B 模型约 58GiB，64GB 机器基本被吃满。README 也提醒：桌面机要用 `-c 32768`，256K 上下文要配 zram/swap 或 96GB 以上内存\n- **去审查模型：** 仓库提供可选的 abliterated（去掉拒答）预设，默认不装，需要手动确认。不要把这类端点开放到公网或多人网络\n- **安全：** 预检脚本用 `curl | python3`，预编译二进制建议先用 SHA256SUMS 校验，网关只监听本机\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
