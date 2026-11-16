@@ -3,13 +3,458 @@
  "type": "x",
  "date": "2026-11-16",
  "day": {
-  "digest": "Matt Pocock 发布了一份 2025 年 11 月以来的 AI 编程逐月简史，认为没人再写代码但意义仍待摸索；并在回复中分享了给每条论断标注日期的 llm-wiki 做法。",
+  "digest": "Matt Pocock 发布 2025 年 11 月以来的 AI 编程逐月简史，引发关于“还有没有人手写代码”的争论；他分享了每 3 小时自动采集受众反馈的 llm-wiki 做法，推荐 @poteto 关于“细微差别导致 slop”的演讲，并预告与 @badlogicgames、@mitsuhiko 讨论“是否该慢下来”的直播。",
   "by_source": {
-   "mattpocockuk": "回顾一年来 AI 编程演变，并分享自己用 llm-wiki 收集受众反馈、给论断标日期的经验。"
+   "mattpocockuk": "回顾 AI 编程一年演变并卷入争论，分享 llm-wiki 用法，推荐 @poteto 演讲，预告“慢下来”主题直播。"
   },
-  "updated_at": "2026-11-16T20:25:00+09:00"
+  "updated_at": "2026-11-17T00:25:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2122333950622245068",
+   "date": "2026-11-16",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122333950622245068",
+   "url": "https://x.com/mattpocockuk/status/2122333950622245068",
+   "posted_at": "2026-11-16T22:20+08:00",
+   "kind": "reply",
+   "text": "I think Lauren's approach is an incredibly example of slowing down to go fast\n\nI.e. thinking deeply about process and quality",
+   "article_title": null,
+   "reply_to": {
+    "handle": "sertlock",
+    "post_id": "2122326129017319460",
+    "url": "https://x.com/sertlock/status/2122326129017319460",
+    "text": "i know you're a nice guy, but i think you're hilariously wrong here. i don't think you can be shipping anything serious if you think that you need to slow down with opus 5.5 :)))\n\ni highly advise you watch lauren tans talk at the ai summit :)))"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我觉得 Lauren 的做法是“慢下来才能走得快”的一个绝佳例子\n\n也就是深入思考流程和质量",
+   "analysis": {
+    "summary": "有人说用 opus 5.5 还觉得要放慢是“搞笑地错了”，推荐看 Lauren Tan 的演讲；Matt 回复说 Lauren 的做法正是“慢下来才能走得快”。",
+    "points": [
+     "对方认为用 opus 5.5 不需要放慢速度",
+     "对方推荐 Lauren Tan 在 AI summit 的演讲",
+     "Matt 认为 Lauren 的做法恰是慢下来去深入思考流程和质量"
+    ],
+    "why": "与前面 @poteto（Lauren Tan）演讲推荐呼应，Matt 用它支持“重视流程和质量”的立场；Lauren 与 @poteto 是否同一人帖中未明说。",
+    "tags": [
+     "AI 编程",
+     "软件质量"
+    ]
+   }
+  },
+  {
+   "id": "x-2122325627529519558",
+   "date": "2026-11-16",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122325627529519558",
+   "url": "https://x.com/mattpocockuk/status/2122325627529519558",
+   "posted_at": "2026-11-16T21:47+08:00",
+   "kind": "post",
+   "text": "Starting in a couple of hours!\n\nI'll be interviewing @badlogicgames and @mitsuhiko about the current software engineering meta\n\nMaybe we need to slow the f*** down\n\nStarting 4:20PM UTC\n\nhttps://youtube.com/live/ZBTegd8DUZM?feature=share",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://youtube.com/live/ZBTegd8DUZM?feature=share",
+     "title": "LIVE: Writing code that doesn't suck with the creators of Pi"
+    }
+   ],
+   "translation_zh": "几个小时后开始！\n\n我将采访 @badlogicgames 和 @mitsuhiko，聊聊当下的软件工程玩法\n\n也许我们得他妈的慢下来\n\n4:20PM UTC 开始\n\nhttps://youtube.com/live/ZBTegd8DUZM?feature=share",
+   "analysis": {
+    "summary": "Matt 预告直播：采访 @badlogicgames 和 @mitsuhiko，主题是当前的软件工程玩法，以及“也许该慢下来”。",
+    "points": [
+     "直播嘉宾：@badlogicgames 和 @mitsuhiko",
+     "话题：当前软件工程的 meta",
+     "核心态度：也许需要放慢速度",
+     "时间 16:20 UTC（北京时间 11 月 17 日 00:20），附 YouTube 直播链接"
+    ],
+    "why": "“慢下来”与当下追求 AI 提速的风气形成对照，可留意直播内容；帖子本身只是预告。",
+    "tags": [
+     "直播",
+     "软件工程",
+     "AI 编程"
+    ]
+   }
+  },
+  {
+   "id": "x-2122317883984519478",
+   "date": "2026-11-16",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122317883984519478",
+   "url": "https://x.com/mattpocockuk/status/2122317883984519478",
+   "posted_at": "2026-11-16T21:16+08:00",
+   "kind": "reply",
+   "text": "Technically July, but the outcry peaked in August",
+   "article_title": null,
+   "reply_to": {
+    "handle": "ccccjjjjeeee",
+    "post_id": "2122295083211096254",
+    "url": "https://x.com/ccccjjjjeeee/status/2122295083211096254",
+    "text": "opus 5 was THREE MONTHS AGO??????"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "严格说是 7 月，但抗议声在 8 月达到顶峰",
+   "analysis": {
+    "summary": "有人惊讶 opus 5 竟是三个月前的事；Matt 回复说严格是 7 月，但反对声浪在 8 月最高。",
+    "points": [
+     "对方惊讶 opus 5 是三个月前",
+     "Matt 说时间严格算是 7 月",
+     "相关的抗议/反对在 8 月达到顶峰"
+    ],
+    "why": "信息量较低，是对其 AI 编程时间线的细节修正；抗议具体内容帖中没说。",
+    "tags": [
+     "AI 编程",
+     "时间线"
+    ]
+   }
+  },
+  {
+   "id": "x-2122317108394565741",
+   "date": "2026-11-16",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122317108394565741",
+   "url": "https://x.com/mattpocockuk/status/2122317108394565741",
+   "posted_at": "2026-11-16T21:13+08:00",
+   "kind": "reply",
+   "text": "I suppose I meant \"SOTA to me\", or \"what I consider SOTA\"\n\n> There are brilliant engineers out there who [disagree with you]\n\nIf you think I'm myopic enough to think that only my view matters, that might be block-worthy levels of insanity",
+   "article_title": null,
+   "reply_to": {
+    "handle": "paulbkimdev",
+    "post_id": "2122300165109514705",
+    "url": "https://x.com/paulbkimdev/status/2122300165109514705",
+    "text": "I admire your courage to call the people in your world SOTA as if others aren't. There are brilliant engineers out there who are just as capable, and they don’t like some aspects of your version of engineering."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我想我的意思是“对我来说的 SOTA”，或者“我认为的 SOTA”\n\n> 外面有很多优秀的工程师[不同意你]\n\n如果你觉得我短视到认为只有我的观点才重要，那简直是值得拉黑的离谱程度",
+   "analysis": {
+    "summary": "对方说 Matt 把自己圈子的人称为 SOTA 是傲慢，外面有优秀工程师不认同他的工程方式；Matt 澄清 SOTA 指“他认为的 SOTA”，并对被指短视表示强烈不满。",
+    "points": [
+     "对方批评 Matt 把自己圈子视为 SOTA",
+     "Matt 澄清“SOTA”是他个人的判断",
+     "他否认自己认为只有自己的观点重要，语气强硬"
+    ],
+    "why": "社交争论，技术信息量低，反映了围绕“没人手写代码”说法的分歧。",
+    "tags": [
+     "争论",
+     "AI 编程"
+    ]
+   }
+  },
+  {
+   "id": "x-2122316570852487441",
+   "date": "2026-11-16",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122316570852487441",
+   "url": "https://x.com/mattpocockuk/status/2122316570852487441",
+   "posted_at": "2026-11-16T21:11+08:00",
+   "kind": "post",
+   "text": ".@poteto's talk at AIE Code is excellent.\n\nIf I had to pick one still from that felt genuinely original, it would be this one:\n\n\"nuance tends to lead to slop\"\n\nTo increase quality, design API's and automated checks that remove the nuance from agents' decisions.\n\n- Ban useEffect\n- Ban 99% of explanatory comments (they just lead to workarounds)\n- Create API's that hide complexity from agents\n\nFull talk below.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": ".@poteto 在 AIE Code 上的演讲非常出色。\n\n如果只挑一张让我觉得真正有原创性的幻灯片，那就是这张：\n\n“细微差别往往会导致垃圾产出（slop）”\n\n想提高质量，就要设计 API 和自动化检查，把需要权衡细微差别的决策从 agent 手里拿掉。\n\n- 禁用 useEffect\n- 禁用 99% 的解释性注释（它们只会导致变通写法）\n- 打造能对 agent 隐藏复杂性的 API\n\n完整演讲见下方。",
+   "analysis": {
+    "summary": "Matt 推荐 @poteto 在 AIE Code 的演讲，核心观点是“细微差别导致 slop”，应通过 API 和自动检查减少 agent 需要做的权衡。",
+    "points": [
+     "推荐 @poteto 在 AIE Code 的演讲",
+     "最原创的观点：“nuance tends to lead to slop”",
+     "用 API 和自动化检查移除 agent 决策中的细微权衡",
+     "例子：禁用 useEffect、禁用 99% 解释性注释、用 API 隐藏复杂性"
+    ],
+    "why": "对 agent 编程很有操作性：与其让 agent 判断，不如用约束和检查把选择收窄。观点来自演讲，这里只是 Matt 的转述。",
+    "tags": [
+     "Agent 工程",
+     "代码质量",
+     "React"
+    ]
+   }
+  },
+  {
+   "id": "x-2122316636895981883",
+   "date": "2026-11-16",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122316636895981883",
+   "url": "https://x.com/mattpocockuk/status/2122316636895981883",
+   "posted_at": "2026-11-16T21:11+08:00",
+   "kind": "reply",
+   "text": "Here you go:\n\nhttps://www.youtube.com/watch?v=O_zcc6Xl12g",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2122316570852487441",
+    "url": "https://x.com/mattpocockuk/status/2122316570852487441",
+    "text": ".@poteto's talk at AIE Code is excellent.\n\nIf I had to pick one still from that felt genuinely original, it would be this one:\n\n\"nuance tends to lead to slop\"\n\nTo increase quality, design API's and automated checks that remove the nuance from agents' decisions.\n\n- Ban useEffect\n- Ban 99% of explanatory comments (they just lead to workarounds)\n- Create API's that hide complexity from agents\n\nFull talk below."
+   },
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://www.youtube.com/watch?v=O_zcc6Xl12g",
+     "title": "All Code Is Slop (Except Mine) — Lauren Tan, SpaceXSI"
+    }
+   ],
+   "translation_zh": "给你：\n\nhttps://www.youtube.com/watch?v=O_zcc6Xl12g",
+   "analysis": {
+    "summary": "Matt 在自己的帖子下补上 @poteto 演讲的 YouTube 链接。",
+    "points": [
+     "提供上一条提到的 AIE Code 演讲视频链接"
+    ],
+    "why": "信息量很低，只是补链接。",
+    "tags": [
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2122296878008283161",
+   "date": "2026-11-16",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122296878008283161",
+   "url": "https://x.com/mattpocockuk/status/2122296878008283161",
+   "posted_at": "2026-11-16T19:53+08:00",
+   "kind": "reply",
+   "text": "Yeah, it just runs every 3 hours and collects the latest stuff\n\nYes I would agree with that prior - i.e. SOP's should be more structured and largely human-audited. LLM-wiki only needs occasional human audit",
+   "article_title": null,
+   "reply_to": {
+    "handle": "nateberkopec",
+    "post_id": "2122290075916460069",
+    "url": "https://x.com/nateberkopec/status/2122290075916460069",
+    "text": "\"it ingests every good tweet\" that's automated ingestion, not based on like you liking or faving stuff or something. essentially just like a local copy of \"stuff people are saying to me on socials\".\n\nThat confirms a prior I have of where I think llm-wikis are useful, as collections of facts/info/history, not collections of how/procedures."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "对，它就是每 3 小时跑一次，收集最新的内容\n\n是的，我同意那个先验判断——也就是 SOP 应该更结构化、主要由人来审核。LLM-wiki 只需要偶尔由人审核",
+   "analysis": {
+    "summary": "Nate Berkopec 指出 Matt 的 llm-wiki 是自动采集的，并认为 llm-wiki 适合存事实而非流程；Matt 确认并表示赞同。",
+    "points": [
+     "llm-wiki 每 3 小时自动运行一次，收集最新内容",
+     "Nate 认为 llm-wiki 适合存事实/信息/历史，不适合存操作流程",
+     "Matt 同意：SOP 应更结构化、主要由人审核",
+     "llm-wiki 只需偶尔人工审核"
+    ],
+    "why": "给出了一个实用的划分：事实类知识库可以自动采集、少量审核；流程类文档需要结构化和人工把关。",
+    "tags": [
+     "llm-wiki",
+     "Agent 工程",
+     "知识管理"
+    ]
+   }
+  },
+  {
+   "id": "x-2122296143371464799",
+   "date": "2026-11-16",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122296143371464799",
+   "url": "https://x.com/mattpocockuk/status/2122296143371464799",
+   "posted_at": "2026-11-16T19:50+08:00",
+   "kind": "reply",
+   "text": "I mean, everyone's world is small.\n\nThat's also why I qualified it with 'SOTA'",
+   "article_title": null,
+   "reply_to": {
+    "handle": "paulbkimdev",
+    "post_id": "2122295153058836774",
+    "url": "https://x.com/paulbkimdev/status/2122295153058836774",
+    "text": "Then your world is too small, Matt. Don't get me wrong. I like you."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我是说，每个人的世界都很小。\n\n这也是我为什么加了“SOTA”这个限定",
+   "analysis": {
+    "summary": "对方说 Matt 的世界太小了；Matt 回应每个人的世界都很小，并说自己之前特意用“SOTA”做了限定。",
+    "points": [
+     "对方说“你的世界太小了”",
+     "Matt 承认每个人的视野都有限",
+     "他强调此前的说法限定在“SOTA”范围"
+    ],
+    "why": "延续上面的争论，Matt 在澄清自己的论断范围。上下文中“SOTA”具体指的原帖内容未完整采集。",
+    "tags": [
+     "AI 编程",
+     "争论"
+    ]
+   }
+  },
+  {
+   "id": "x-2122294784236966191",
+   "date": "2026-11-16",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122294784236966191",
+   "url": "https://x.com/mattpocockuk/status/2122294784236966191",
+   "posted_at": "2026-11-16T19:44+08:00",
+   "kind": "reply",
+   "text": "I don't know anyone still writing code by hand",
+   "article_title": null,
+   "reply_to": {
+    "handle": "paulbkimdev",
+    "post_id": "2122294255121293714",
+    "url": "https://x.com/paulbkimdev/status/2122294255121293714",
+    "text": "Posts like this show the massive gap between AI influencers and people actually shipping code at regular jobs. As AI-pilled as I am, maybe we should let the technology speak for itself instead of telling people they’re not writing code anymore, when most of them still are."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我不认识还有谁在手写代码",
+   "analysis": {
+    "summary": "有人批评 AI 网红与真正在公司写代码的人差距巨大，说大多数人仍在写代码；Matt 回复说他不认识还有人手写代码。",
+    "points": [
+     "对方认为告诉别人“已不写代码”脱离多数普通工作的现实",
+     "Matt 称他认识的人里没人还在手写代码"
+    ],
+    "why": "这是 Matt 基于个人圈子的说法，不代表行业统计；后续回复里他自己也承认圈子有限。",
+    "tags": [
+     "AI 编程",
+     "争论"
+    ]
+   }
+  },
+  {
+   "id": "x-2122291516869607487",
+   "date": "2026-11-16",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122291516869607487",
+   "url": "https://x.com/mattpocockuk/status/2122291516869607487",
+   "posted_at": "2026-11-16T19:31+08:00",
+   "kind": "reply",
+   "text": "Hard to write the history of now, that's for sure",
+   "article_title": null,
+   "reply_to": {
+    "handle": "tommy5dollar",
+    "post_id": "2122289731987972150",
+    "url": "https://x.com/tommy5dollar/status/2122289731987972150",
+    "text": "Mostly bang on but don't really recognise the Oct/Nov stuff, I'd say it's more like this:\n\nOct: SDLC is running 2-3x as fast as pre-AI but it turns out product wasn't the revenue bottleneck\n\nNov: no one is reading the code any more and people are starting to question code review"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "要写“当下”的历史确实很难",
+   "analysis": {
+    "summary": "有人说 Matt 的 AI 编程逐月简史大体准确，但对 10/11 月的描述不认同，并给出自己的版本；Matt 回复说给当下写历史确实难。",
+    "points": [
+     "对方认为 10 月：开发流程比 AI 前快 2–3 倍，但产品并不是营收瓶颈",
+     "对方认为 11 月：没人再读代码，开始有人质疑代码审查",
+     "Matt 承认写当下的历史很难"
+    ],
+    "why": "Matt 本人的回复信息量很低；被回复帖里的 10/11 月观点是提问者的看法。",
+    "tags": [
+     "AI 编程",
+     "社交互动"
+    ]
+   }
+  },
+  {
+   "id": "x-2122291330038874532",
+   "date": "2026-11-16",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122291330038874532",
+   "url": "https://x.com/mattpocockuk/status/2122291330038874532",
+   "posted_at": "2026-11-16T19:30+08:00",
+   "kind": "reply",
+   "text": "IMO it all depends on the defect rate, you WILL get slowed back down to 1x (or slower) if you don't stay on top of bugs",
+   "article_title": null,
+   "reply_to": {
+    "handle": "ddyods",
+    "post_id": "2122289711037505637",
+    "url": "https://x.com/ddyods/status/2122289711037505637",
+    "text": "What realistic speed gains do you expect for big companies ? On my team in a kinda big company, with micro software factories set up from June (first Lumpcode version), we are now 2x on the main project I lead (and increasing). Not bad but I think we can do far more."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我觉得这完全取决于缺陷率，如果你不持续盯住 bug，你一定会被拖回 1 倍速（甚至更慢）",
+   "analysis": {
+    "summary": "有人说他们团队用 AI 软件工厂后主项目提速到 2 倍，问大公司能现实地提速多少；Matt 回复说关键在缺陷率。",
+    "points": [
+     "提问者团队自 6 月起用“微型软件工厂”，主项目已提速 2 倍",
+     "Matt 认为提速多少取决于缺陷率",
+     "不持续处理 bug，速度会退回 1 倍甚至更慢"
+    ],
+    "why": "提醒 AI 提速的收益会被质量问题吃掉，这是作者的观点，没有给出数据。",
+    "tags": [
+     "AI 编程",
+     "软件质量"
+    ]
+   }
+  },
+  {
+   "id": "x-2122289744243503184",
+   "date": "2026-11-16",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122289744243503184",
+   "url": "https://x.com/mattpocockuk/status/2122289744243503184",
+   "posted_at": "2026-11-16T19:24+08:00",
+   "kind": "reply",
+   "text": "But I wouldn't really describe it as \"memory\", it's just creating a more agent-friendly data structure out of existing data",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2122289504027546106",
+    "url": "https://x.com/mattpocockuk/status/2122289504027546106",
+    "text": "As a concrete example, it allows me to answer questions like:\n\n\"What do people get confused about with /wayfinder?\"\n\"What are people asking about right now?\"\n\"Can you give me 100 tips I can turn into a compilation video?\"\n\nThe quality of responses are outrageously high"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "不过我不太会把它称作“记忆”，它只是把已有数据整理成对 agent 更友好的数据结构",
+   "analysis": {
+    "summary": "Matt 补充说，他的 llm-wiki 不算“记忆”，只是把现有数据变成对 agent 更友好的结构。",
+    "points": [
+     "不把 llm-wiki 定义为 agent 的“记忆”",
+     "本质是把已有数据重组成 agent 友好的数据结构"
+    ],
+    "why": "区分了“agent 记忆”和“为 agent 整理数据”两种思路，属于作者的概念界定。",
+    "tags": [
+     "llm-wiki",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2122289504027546106",
+   "date": "2026-11-16",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122289504027546106",
+   "url": "https://x.com/mattpocockuk/status/2122289504027546106",
+   "posted_at": "2026-11-16T19:23+08:00",
+   "kind": "reply",
+   "text": "As a concrete example, it allows me to answer questions like:\n\n\"What do people get confused about with /wayfinder?\"\n\"What are people asking about right now?\"\n\"Can you give me 100 tips I can turn into a compilation video?\"\n\nThe quality of responses are outrageously high",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2122289114183516440",
+    "url": "https://x.com/mattpocockuk/status/2122289114183516440",
+    "text": "Yes, I use a llm-wiki in my home repo, it ingests every good tweet/Discord message/Slack message/gmail/YouTube comment/LinkedIn comment\n\nIt has been essential for understanding my audience better.\n\nOne crucial part is it dates every single claim (with dates or commit permalinks) so it's less likely to go out of date.\n\nEventually I will need to compact it but I haven't found a need for that yet"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "举个具体的例子，它让我能回答这样的问题：\n\n“大家对 /wayfinder 有哪些困惑？”\n“大家现在都在问什么？”\n“你能给我 100 条可以剪成合集视频的技巧吗？”\n\n回答的质量高得离谱",
+   "analysis": {
+    "summary": "接着上一条介绍自己的 llm-wiki，Matt 举例说明它能回答哪些问题。",
+    "points": [
+     "llm-wiki 可用来回答“大家对 /wayfinder 有什么困惑”",
+     "也能回答“大家现在在问什么”",
+     "还能生成可做合集视频的 100 条技巧",
+     "他评价回答质量“高得离谱”"
+    ],
+    "why": "展示了把受众反馈整理成 llm-wiki 后的实际用途：做用户研究和内容选题。“质量高”是作者的主观评价。",
+    "tags": [
+     "llm-wiki",
+     "受众研究",
+     "内容创作"
+    ]
+   }
+  },
   {
    "id": "x-2122289114183516440",
    "date": "2026-11-16",
