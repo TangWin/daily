@@ -1,0 +1,342 @@
+{
+ "schema_version": 1,
+ "type": "idea",
+ "date": "2026-11-17",
+ "day": {
+  "sample": "样本：主清单 137（HN42 Lobsters1 Reddit48 IH20 PH26） + Reddit 深翻页抱怨 152（5000 帖） + HN 句式评论/Ask/Show 538；未使用 X 付费 API。"
+ },
+ "items": [
+  {
+   "id": "idea-2026-11-17-01",
+   "date": "2026-11-17",
+   "type": "idea",
+   "rank": 1,
+   "title": "假折扣识别：打开商品页就告诉你「这个原价是不是刚抬上去的」，按过去 90 天真实成交价判断现在买划不划算",
+   "summary": "浏览器插件加网页版：打开任意商品页，抓取当前价、划线价，对照自建价格库（自己定期抓取，加用户匿名上报）。给出三个直接结论：划线价是否过去 90 天出现过、现价在 90 天里是低位、中位还是高位、近期有没有先涨后降。愿望清单可设目标价，大促期间达到才提醒。",
+   "url": "https://news.ycombinator.com/item?id=50518179",
+   "tags": [
+    "电商"
+   ],
+   "raw_tags": [
+    "电商"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 爆帖指出亚马逊黑五、网一的很多「折扣」并不便宜：商家先抬高划线原价，再打「25% off」，价格可能比平时还贵。按价格排序也挡不住，因为「历史高位的低价」照样被包装成特价。手表等直营品牌（DTC）干脆编一个从没人付过的原价当锚点。亚马逊在部分地区开始给出价格历史，但不含第三方卖家和二手；Keepa、camelcamelcamel 只管亚马逊，独立站、百思买、塔吉特等没有统一的看法。",
+    "target_users": "黑五、双十一、618 等大促时网购的普通消费者；用愿望清单等低价的「理性囤货党」；做折扣内容的博主和比价社区；消费者保护组织和记者。",
+    "quotes": [
+     {
+      "text": "This is clearly false advertising. Presenting a \"deal\" that costs consumers more should not be allowed. ... this method won't protect you from a historically high \"low price\" being presented as a special deal.",
+      "links": [
+       {
+        "label": "Hacker News 评论（亚马逊假折扣帖 781 分）",
+        "url": "https://news.ycombinator.com/item?id=50518179"
+       }
+      ]
+     },
+     {
+      "text": "The problem with this is we end up with completely made-up original prices, that do nothing but serve as an anchor to manipulate people. Watch start-ups are notorious for this.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50519097"
+       }
+      ]
+     },
+     {
+      "text": "I actually see that Amazon itself provides me a price history tool now. ... I don't believe it gives any price history related to third party sellers or the used markets like these other services do",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50520263"
+       }
+      ]
+     },
+     {
+      "text": "I mostly keep a wishlist of things I want but don't really need, that I'd get at a deep enough discount. Then during events like BF/CM, I can take a look at the list and see if anything's at a good enough price (it rarely is).",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50520711"
+       }
+      ]
+     }
+    ],
+    "existing": "Keepa、camelcamelcamel（亚马逊价格历史）；亚马逊自带价格历史（部分地区）；Honey、Capital One Shopping（优惠券和比价）；国内的慢慢买、什么值得买",
+    "defects": "大多只覆盖亚马逊，不含独立站和其他大型零售商；只给价格曲线，不直接判断「划线价是否虚高、现价在 90 天里排第几」；优惠券插件本身有返利动机，结论不够中立；没有把「目标价愿望清单」和大促自动对比",
+    "solution": "浏览器插件加网页版：打开任意商品页，抓取当前价、划线价，对照自建价格库（自己定期抓取，加用户匿名上报）。给出三个直接结论：划线价是否过去 90 天出现过、现价在 90 天里是低位、中位还是高位、近期有没有先涨后降。愿望清单可设目标价，大促期间达到才提醒。",
+    "mvp": "Chrome 插件，先支持亚马逊美国站加 10 家常见美国零售商和独立站常用模板（Shopify 商品页）；每天抓取一次价格存库；商品页上显示一枚徽章（真降价/假折扣/正常价）和一句理由；愿望清单目标价邮件提醒。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-17-02",
+   "date": "2026-11-17",
+   "type": "idea",
+   "rank": 2,
+   "title": "旧链接被劫持巡检：把你印过、发过、网站里引用的短链、二维码和外部域名列出来，定期检查有没有过期被人抢注、跳去别处",
+   "summary": "输入网站地址，再导入短链账号和二维码列表：爬取全站外链和外部脚本，记录每个链接第一次检查时的落地页指纹（域名、WHOIS 注册时间、页面截图）。之后每周对比：域名注册人变了、近期重新注册、跳转链变长或指向新域名、内容大变，就报警并给出替换建议。可选：自托管短链，把关键二维码迁到自己的域名下。",
+   "url": "https://news.ycombinator.com/item?id=50519872",
+   "tags": [
+    "电商",
+    "开发者工具",
+    "增长/转化"
+   ],
+   "raw_tags": [
+    "电商",
+    "开发者工具",
+    "增长/转化"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 帖子披露旧 Bitly 短链被劫持：原账号停用后链接被改指向。评论里更普遍的问题是「链接腐烂」：有人清理一家多年的 Shopify 店，发现网站偶尔把访客跳到可疑域名，原因是老插件从一个已经过期、又被别人重新注册的域名加载资源。印在杂志、书和包装上的二维码用的是「今天免费、以后收费」的生成器，到期后就被拿走。企业很难记得自己在哪些地方用过哪些链接。",
+    "target_users": "中小企业和电商店主（Shopify、WordPress）；印刷物料、包装和线下广告上用了二维码的市场部；出版社和作者；接网站维护的代理公司和自由职业者。",
+    "quotes": [
+     {
+      "text": "This sort of thing is not rare; link rot is how a lot of websites get compromised. ... The cause was an old Shopify app, which pulled resources from an external domain that had expired and been reregistered.",
+      "links": [
+       {
+        "label": "Hacker News 评论（旧 Bitly 短链被劫持帖 372 分）",
+        "url": "https://news.ycombinator.com/item?id=50519872"
+       }
+      ]
+     },
+     {
+      "text": "yes the QR they offer (free today, then you need to pay) is a total scam: but so many professionals cannot spot it until is too late (saw in printed magazines, books ...)",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50513564"
+       }
+      ]
+     },
+     {
+      "text": "There's a lot of abandoned url ownership things on the internet. We need something like a bureau that keeps track of what it was for.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50512109"
+       }
+      ]
+     },
+     {
+      "text": "I don't need shorter links per-se but I need a way to track the effectivness of the links I send out to the public for marketing purposes.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50512067"
+       }
+      ]
+     }
+    ],
+    "existing": "Bitly、Rebrandly 等短链服务；死链检查工具（Ahrefs、Screaming Frog、Dr. Link Check）；子域名接管扫描（安全团队工具）",
+    "defects": "死链工具只看「打不开」，看不出「能打开但已经换了主人」；短链和二维码分散在多个账号和印刷品里，没有清单；外部脚本域名过期没人提醒；安全扫描工具面向专业团队，小店主用不了",
+    "solution": "输入网站地址，再导入短链账号和二维码列表：爬取全站外链和外部脚本，记录每个链接第一次检查时的落地页指纹（域名、WHOIS 注册时间、页面截图）。之后每周对比：域名注册人变了、近期重新注册、跳转链变长或指向新域名、内容大变，就报警并给出替换建议。可选：自托管短链，把关键二维码迁到自己的域名下。",
+    "mvp": "网页版：输入一个网址，扫描全站外链和外部脚本，标出过期、即将过期和最近重新注册的域名；支持粘贴一列短链和二维码网址做同样检查；每周邮件报告。先做免费单站扫描引流。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-17-03",
+   "date": "2026-11-17",
+   "type": "idea",
+   "rank": 3,
+   "title": "AI 订阅用量对账：额度莫名用完、账单暴涨时，把各设备、插件、MCP、定时任务的调用摊开，告诉你是谁用掉的",
+   "summary": "本地常驻小程序加团队看板：读取各 AI 编程工具的本地日志和会话记录，统计每台设备、每个项目、每个插件或 MCP 的 token 估算；定时抓取官方用量页做对账，发现「本地没用、额度却在掉」就报警，提示查登录会话或第三方应用。按模型和任务类型给出「换便宜模型能省多少」。",
+   "url": "https://www.reddit.com/r/ClaudeAI/comments/1xxmk71/",
+   "tags": [
+    "Coding Agent",
+    "支付",
+    "开发者工具"
+   ],
+   "raw_tags": [
+    "Agent/AI编码",
+    "支付/计费",
+    "开发者工具"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Reddit r/ClaudeAI 有人笔记本整个周末合上，只在手机上用过一次 Claude，周一 5 小时额度却已满；查定时任务、登录设备都是空的，官方也没有用量明细，只能怀疑插件、MCP 或账号被盗。r/cursor 有人月账单从 1 月的 200 美元涨到 9 月的 1000 多美元，还多了周额度。HN 有人说某次更新后 token 消耗大涨，一周用完 3 个最高档订阅。订阅制工具只给一个「剩余百分比」，看不到明细。",
+    "target_users": "同时用 Claude Code、Cursor、Codex 等订阅的独立开发者和小团队；给团队统一付费的技术负责人；装了很多插件和 MCP 的重度 AI 用户。",
+    "quotes": [
+     {
+      "text": "I noticed this morning that my Claude 5 hour window was full, even though I hadn't used Claude for the whole weekend. ... Is there a way to check if an MCP server has gone rogue to use up my window?",
+      "links": [
+       {
+        "label": "Reddit r/ClaudeAI 原帖",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1xxmk71/"
+       }
+      ]
+     },
+     {
+      "text": "Back in January, $200 was enough to cover a full month of work with Cursor. By September, even $1,000 wasn't enough. Now we have weekly limits on top of increasingly expensive models",
+      "links": [
+       {
+        "label": "Reddit r/cursor 原帖",
+        "url": "https://www.reddit.com/r/cursor/comments/1xtr20p/"
+       }
+      ]
+     },
+     {
+      "text": "Also the token burn-rate increased a lot, I've reached limits of 3 Ultra subscriptions during last week",
+      "links": [
+       {
+        "label": "Hacker News 评论（Opus 5.5 变差讨论）",
+        "url": "https://news.ycombinator.com/item?id=50423198"
+       }
+      ]
+     },
+     {
+      "text": "The product is a wrapper. I'm paying for the IDE not the model. The token burn rate proves they are throttling usage to force premium tiers",
+      "links": [
+       {
+        "label": "Reddit r/cursor 评论",
+        "url": "https://www.reddit.com/r/cursor/comments/1xtr20p/comment/19siirqh6ptvn/"
+       }
+      ]
+     }
+    ],
+    "existing": "各家后台的用量百分比和账单页；ccusage 等读取本地 Claude Code 日志的命令行工具；OpenRouter、Helicone 等 API 网关的用量统计",
+    "defects": "官方只给总量，不分设备、插件、MCP 和定时任务；本地日志工具只看一台机器上的一个客户端；走订阅而不是 API 时，网关类工具接不进去；出现异常消耗没有提醒，也无法判断是否被盗用",
+    "solution": "本地常驻小程序加团队看板：读取各 AI 编程工具的本地日志和会话记录，统计每台设备、每个项目、每个插件或 MCP 的 token 估算；定时抓取官方用量页做对账，发现「本地没用、额度却在掉」就报警，提示查登录会话或第三方应用。按模型和任务类型给出「换便宜模型能省多少」。",
+    "mvp": "Mac 菜单栏应用：先支持 Claude Code 和 Cursor 本地日志，按小时画用量曲线并拆到项目和 MCP；对比官方剩余额度，不一致时通知；一键导出给客服的证据报告。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-17-04",
+   "date": "2026-11-17",
+   "type": "idea",
+   "rank": 4,
+   "title": "网购错发、调包申诉助手：收到不对的货时，一步步拍照留证、选对退货理由，自动写好申诉并跟进到退款",
+   "summary": "手机应用：收到包裹前提醒开箱录像；遇到问题按平台和问题类型（错发、调包、空箱、缺件）给出取证清单，自动整理照片、订单、面单和时间线；生成对应平台客服的申诉文本和退货理由选择建议；超时未解决时，生成信用卡拒付材料和消费者投诉模板，并提醒各节点期限。",
+   "url": "https://news.ycombinator.com/item?id=50521468",
+   "tags": [
+    "支付",
+    "个人/生活",
+    "电商"
+   ],
+   "raw_tags": [
+    "支付/计费",
+    "个人/生活",
+    "电商"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "同一条 HN 亚马逊帖里：有人买 iPad 收到玩具车，拍照投诉后反被要求验证身份；有人买 15 美元的 CD 被错发版本，退货页面没有「发错货」选项，最接近的「商品有缺陷」只会再寄同一件，评论认为退货流程故意设计得绕，让人放弃。Audible 同样难搜自己的书库、诱导重复购买。普通人不知道该拍什么、选哪个理由、何时升级到信用卡拒付。",
+    "target_users": "在亚马逊、淘宝、京东、拼多多等平台遇到错发、调包、空箱的网购者；买高价电子产品的人；替家里老人网购的人；小卖家（反向也可用于证明发货内容）。",
+    "quotes": [
+     {
+      "text": "I recently ordered an iPad from amazon (from apple). I received a toy car instead. Complained, documented with photos etc. and suddenly (after me being like 10 years of customer) they need to verify MY IDENTITY due to fraud",
+      "links": [
+       {
+        "label": "Hacker News 评论（亚马逊假折扣帖 781 分）",
+        "url": "https://news.ycombinator.com/item?id=50521468"
+       }
+      ]
+     },
+     {
+      "text": "I believe their return process is intentionally obtuse to get customers to give up and eat the cost of Amazon's poor quality control. ... there's no option for \"you sent me the wrong thing\"",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50520714"
+       }
+      ]
+     },
+     {
+      "text": "They make it super hard to search your own book library and instead push you over to the for-sale library so you accidentally buy a different version of a book you already own.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖，Audible）",
+        "url": "https://news.ycombinator.com/item?id=50519274"
+       }
+      ]
+     }
+    ],
+    "existing": "平台自带退货流程和客服聊天；信用卡拒付（chargeback）；DoNotPay 等消费者维权工具；部分物流的签收照片",
+    "defects": "平台流程按平台利益设计，没有「发错货」这类关键选项；用户不知道开箱要录像、要拍面单和重量；申诉话术和升级路径（客服→高级客服→信用卡拒付→消费者保护机构）没人教；DoNotPay 口碑和可靠性有争议",
+    "solution": "手机应用：收到包裹前提醒开箱录像；遇到问题按平台和问题类型（错发、调包、空箱、缺件）给出取证清单，自动整理照片、订单、面单和时间线；生成对应平台客服的申诉文本和退货理由选择建议；超时未解决时，生成信用卡拒付材料和消费者投诉模板，并提醒各节点期限。",
+    "mvp": "网页版向导：先做亚马逊美国站加信用卡拒付两条路径；上传照片和订单截图，输出一份带时间线的证据 PDF 和三段可复制的申诉话术；记录案例，逐步积累「哪个理由最快退款」的数据。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-17-05",
+   "date": "2026-11-17",
+   "type": "idea",
+   "rank": 5,
+   "title": "跨境收款报价器：输入想到手的金额、客户所在国和收款方式，算出该开多少钱的发票，含外汇费、跨境卡费、退款规则和当地是否允许加收手续费",
+   "summary": "网页计算器加 Stripe/PayPal 只读连接：输入想到手金额、客户国家、开票币种，对比 Stripe、PayPal、Wise、银行转账的含税报价和到手金额；连上账户后用过去 30 笔真实到账算实际费率；按客户所在地提示能否单列手续费，给出合规写法（如「银行转账价」和「刷卡价」两档报价）；可加汇率缓冲。",
+   "url": "https://www.reddit.com/r/indiehackers/comments/1xw9ahx/",
+   "tags": [
+    "支付",
+    "开发者工具",
+    "增长/转化"
+   ],
+   "raw_tags": [
+    "支付/计费",
+    "开发者工具",
+    "增长/转化"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Reddit r/indiehackers 帖子指出，自由职业者给海外企业客户开票、想把手续费转给客户时常算错：只记得 Stripe 2.9%+0.30 美元，忘了跨境卡加收 1.5% 和外汇费 1%–2%；直接在金额上加百分比也不对，应该用反算公式。评论补充更多坑：外汇费只在收款币种和结算币种不同时收；两家平台退款时退不退百分比部分不同；有些地区限制或禁止加收刷卡手续费；开票日和到账日汇率不同。没有一个工具把这些放在一起算。",
+    "target_users": "接海外客户的自由职业者和小型代理公司（设计、开发、咨询）；用 Stripe、PayPal、Wise 收款的独立开发者；给客户开票的远程工作者。",
+    "quotes": [
+     {
+      "text": "Almost nobody factors in the extra +1.5% international card surcharge and +1% to +2% FX conversion fee until the payout hits their bank.",
+      "links": [
+       {
+        "label": "Reddit r/indiehackers 原帖",
+        "url": "https://www.reddit.com/r/indiehackers/comments/1xw9ahx/"
+       }
+      ]
+     },
+     {
+      "text": "Check the legal side before you ship a \"fee breakdown\" to clients: card surcharging is restricted or banned in some places, and Stripe and the card networks have rules about passing processor fees through as a line item.",
+      "links": [
+       {
+        "label": "Reddit r/indiehackers 评论",
+        "url": "https://www.reddit.com/r/indiehackers/comments/1xw9ahx/comment/19smw73dl89k3/"
+       }
+      ]
+     },
+     {
+      "text": "one thing that flips your comparison: refunds. one of those two gives back the percentage part of the fee when you refund (inside some window) and keeps only the fixed part, the other keeps the whole fee.",
+      "links": [
+       {
+        "label": "Reddit r/indiehackers 评论",
+        "url": "https://www.reddit.com/r/indiehackers/comments/1xw9ahx/comment/19sovw511hy00/"
+       }
+      ]
+     },
+     {
+      "text": "i'd pull the last 20-30 real payouts, compute the effective fee rate per payment, and use the median in the calculator.",
+      "links": [
+       {
+        "label": "Reddit r/indiehackers 评论",
+        "url": "https://www.reddit.com/r/indiehackers/comments/1xw9ahx/comment/19soi69744mlg/"
+       }
+      ]
+     }
+    ],
+    "existing": "Stripe、PayPal 官方费率页和简单手续费计算器；Wise 的转账比价；开票软件（FreshBooks、Bonsai）",
+    "defects": "计算器多只算单一平台的基础费率，不含跨境卡费、外汇费和反算；不考虑退款时手续费退不退；不提示当地加收手续费是否合法；不用自己的历史到账数据算真实费率",
+    "solution": "网页计算器加 Stripe/PayPal 只读连接：输入想到手金额、客户国家、开票币种，对比 Stripe、PayPal、Wise、银行转账的含税报价和到手金额；连上账户后用过去 30 笔真实到账算实际费率；按客户所在地提示能否单列手续费，给出合规写法（如「银行转账价」和「刷卡价」两档报价）；可加汇率缓冲。",
+    "mvp": "单页免费计算器（SEO 引流）：四种收款方式的反算报价对比、退款情景和地区加收规则提示；付费版连接 Stripe 只读接口算真实费率，并生成发票上的说明文字。",
+    "difficulty": null,
+    "potential": null
+   }
+  }
+ ]
+}
