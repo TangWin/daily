@@ -1,0 +1,49 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-17",
+ "day": {
+  "digest": "Dan Koe 建议不知道学什么时，先学学习、写作和表达三项可迁移的元技能，并引用了一篇关于如何变得能说会道的长文。",
+  "by_source": {
+   "thedankoe": "推荐学习、写作、表达三项元技能，引用“dangerously well-spoken”长文。"
+  },
+  "updated_at": "2026-11-17T08:30:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2122374187935523045",
+   "date": "2026-11-17",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2122374187935523045",
+   "url": "https://x.com/thedankoe/status/2122374187935523045",
+   "posted_at": "2026-11-17T01:00+08:00",
+   "kind": "quote",
+   "text": "If you don't know what skill to learn - learn how to learn, learn how to write, and learn how to speak. They spill over into any other skill you acquire.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": {
+    "handle": null,
+    "post_id": "2122359603384238090",
+    "url": "https://x.com/i/status/2122359603384238090",
+    "text": null
+   },
+   "links": [],
+   "translation_zh": "如果你不知道该学什么技能——那就学会如何学习、学会写作、学会表达。它们会外溢到你习得的任何其他技能上。",
+   "analysis": {
+    "summary": "Dan Koe 引用一篇题为《How to become dangerously well-spoken (use these 5 strategies)》的长文，建议不知道学什么时，先学学习、写作和表达这三项可迁移的元技能。",
+    "points": [
+     "推荐三项基础技能：学习能力、写作、表达",
+     "理由：这三项会外溢到之后学的任何技能",
+     "被引用的是一篇关于如何变得能说会道（5 个策略）的长文，只采集到标题，未采集到正文，不做推断"
+    ],
+    "why": "这是 Dan Koe 一贯的个人成长观点，属于观点而非数据；对创作者来说，写作和表达也是他内容体系的核心。被引用长文的作者和正文未采集到。",
+    "tags": [
+     "个人成长",
+     "写作",
+     "表达"
+    ]
+   }
+  }
+ ]
+}
