@@ -1,0 +1,83 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-16",
+ "day": {
+  "digest": "Matt Pocock 发布了一份 2025 年 11 月以来的 AI 编程逐月简史，认为没人再写代码但意义仍待摸索；并在回复中分享了给每条论断标注日期的 llm-wiki 做法。",
+  "by_source": {
+   "mattpocockuk": "回顾一年来 AI 编程演变，并分享自己用 llm-wiki 收集受众反馈、给论断标日期的经验。"
+  },
+  "updated_at": "2026-11-16T20:25:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2122289114183516440",
+   "date": "2026-11-16",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122289114183516440",
+   "url": "https://x.com/mattpocockuk/status/2122289114183516440",
+   "posted_at": "2026-11-16T19:22+08:00",
+   "kind": "reply",
+   "text": "Yes, I use a llm-wiki in my home repo, it ingests every good tweet/Discord message/Slack message/gmail/YouTube comment/LinkedIn comment\n\nIt has been essential for understanding my audience better.\n\nOne crucial part is it dates every single claim (with dates or commit permalinks) so it's less likely to go out of date.\n\nEventually I will need to compact it but I haven't found a need for that yet",
+   "article_title": null,
+   "reply_to": {
+    "handle": "nateberkopec",
+    "post_id": "2122288286874148914",
+    "url": "https://x.com/nateberkopec/status/2122288286874148914",
+    "text": "I feel like there's _some_ gold in memory or llm-wiki approaches but I haven't quite figured it out yet, would be very curious if you have found literally anything that works.\n\nthe only thing we can be sure of is that automemory is absolutely awful and no one has a good one"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "是的，我在我的 home repo 里用了一个 llm-wiki，它会收录每一条优质的推文/Discord 消息/Slack 消息/gmail/YouTube 评论/LinkedIn 评论\n\n它对我更好地理解受众至关重要。\n\n其中关键的一点是，它给每一条论断都标注日期（用日期或 commit 永久链接），这样就不太容易过时。\n\n最终我需要对它做压缩，但目前还没觉得有这个必要",
+   "analysis": {
+    "summary": "Nate Berkopec 说记忆/llm-wiki 方案里“有点料”但没摸索出来，自动记忆很糟糕；Matt Pocock 回复分享了自己在 home repo 里维护 llm-wiki 的做法。",
+    "points": [
+     "他的 llm-wiki 收录来自推文、Discord、Slack、gmail、YouTube 评论、LinkedIn 评论的优质内容。",
+     "主要用途是更好地理解自己的受众。",
+     "关键做法：每条论断都标注日期或 commit 永久链接，降低内容过时的风险。",
+     "目前还没需要压缩（compact）这个 wiki，但预计将来需要。"
+    ],
+    "why": "给出了一个具体可借鉴的 LLM 知识库实践：给每条信息打时间戳/出处，以应对知识过时问题。这是作者个人经验，未提供实现细节或效果数据。",
+    "tags": [
+     "LLM 记忆",
+     "知识管理",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2122287575557706226",
+   "date": "2026-11-16",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122287575557706226",
+   "url": "https://x.com/mattpocockuk/status/2122287575557706226",
+   "posted_at": "2026-11-16T19:16+08:00",
+   "kind": "post",
+   "text": "A brief history of AI Coding since Nov 2025:\n\nNov 2025: Opus 4.5 releases, OpenClaw gets built\nDec 2025: community agrees that models get good enough to handle 95% of coding tasks\nJan 2026: Ralph loops get popular, early efforts on loops/orchestration\nFeb: Everyone feels knackered, too much strategic decision-making, fears around cognitive debt begin\nMar: Skills explosion as community converges around easy-to-share processes (superpowers already ahead of the game here)\nApr: most SOTA devs haven't written a line of code in months\nMay: \"The unreasonable effectiveness of HTML\" - more interest in richer review surfaces\nJun: \"Loop Engineering\" wins vaguepost of the year, signals more hype around process\nJul: Every talk in every conference becomes \"here is my software factory\"\nAug: Opus 5 speaks incomprehensibly, interest in ASD-STE100 peaks\nSep: Grok Bot gets popular, more interest in long-running \"manager\" threads which retain context and delegate work\nOct: The promised speed gains haven't materialised, \"dark factory\" feels a long way off still\nNov: No-slop manifesto releases, reading the code still appears essential\n\nTL;DR: no-one is writing code anymore, and we are still figuring out what that means",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "自 2025 年 11 月以来的 AI 编程简史：\n\n2025 年 11 月：Opus 4.5 发布，OpenClaw 被做出来\n2025 年 12 月：社区一致认为模型已经好到能处理 95% 的编程任务\n2026 年 1 月：Ralph loops 流行起来，开始早期的循环/编排尝试\n2 月：所有人都感到精疲力尽，战略决策太多，对“认知债务”的担忧开始出现\n3 月：Skills 大爆发，社区围绕易于分享的流程形成共识（superpowers 在这方面早已领先）\n4 月：大多数 SOTA 开发者已经几个月没写过一行代码\n5 月：“The unreasonable effectiveness of HTML”——人们对更丰富的审查界面更感兴趣\n6 月：“Loop Engineering”赢得年度最佳含糊帖，标志着围绕流程的炒作升温\n7 月：每场大会的每个演讲都变成了“这是我的软件工厂”\n8 月：Opus 5 说话让人看不懂，对 ASD-STE100 的兴趣达到顶峰\n9 月：Grok Bot 流行起来，人们对长时间运行、保留上下文并分派工作的“manager”线程更感兴趣\n10 月：承诺的速度提升并没有兑现，“dark factory”看起来仍然遥远\n11 月：No-slop manifesto 发布，读代码似乎仍然必不可少\n\nTL;DR：已经没人在写代码了，而我们仍在弄清楚这意味着什么",
+   "analysis": {
+    "summary": "Matt Pocock 用逐月时间线回顾了 2025 年 11 月至今的 AI 编程演变，结论是“没人再写代码了，但大家还在摸索这意味着什么”。",
+    "points": [
+     "时间线起点：2025 年 11 月 Opus 4.5 发布、OpenClaw 出现；12 月社区认为模型能处理 95% 的编程任务。",
+     "2026 年上半年：Ralph loops 与编排兴起，随后出现疲惫感与“认知债务”担忧，3 月 Skills 爆发。",
+     "4 月起大多数 SOTA 开发者几个月不写代码；5–7 月关注点转向审查界面、“Loop Engineering”、“软件工厂”。",
+     "8–9 月：Opus 5 输出难懂、ASD-STE100（简化技术英语）受关注，长时间运行的“manager”线程流行。",
+     "10–11 月：承诺的速度提升未兑现，“dark factory”仍遥远；No-slop manifesto 发布，读代码依然必要。"
+    ],
+    "why": "这是作者个人视角的行业回顾，带有调侃语气（如“年度最佳含糊帖”），各条判断是他的观点和印象而非统计数据。它点出一个值得注意的张力：写代码的工作已大量交给 AI，但速度红利未如预期，人工阅读和审查代码仍不可省。",
+    "tags": [
+     "AI 编程",
+     "Agent 工程",
+     "Skills",
+     "行业观察"
+    ]
+   }
+  }
+ ]
+}
