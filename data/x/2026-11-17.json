@@ -3,14 +3,79 @@
  "type": "x",
  "date": "2026-11-17",
  "day": {
-  "digest": "Dan Koe 建议不知道学什么时先学学习、写作和表达三项元技能；Matt Pocock 分享了一个让 agent 评估新技术（以 XState v6 beta 为例）的 prompt 模板，并附上 v6 beta 公告链接。",
+  "digest": "Dan Koe 建议不知道学什么时先学学习、写作和表达三项元技能；Matt Pocock 分享了让 agent 评估新技术（以 XState v6 beta 为例）的 prompt，又提出用严苛 lint 规则把工具约束成“极简版”供 agent 使用的 /constrain 实验想法。",
   "by_source": {
    "thedankoe": "推荐学习、写作、表达三项元技能，引用“dangerously well-spoken”长文。",
-   "mattpocockuk": "分享让 agent 调研、做 PoC 并按多维度给新技术打分的 prompt，以 XState v6 beta 为例。"
+   "mattpocockuk": "分享评估新技术的 agent prompt（XState v6 beta），并提出用严苛 lint 约束工具的 /constrain 想法。"
   },
-  "updated_at": "2026-11-17T20:20:00+09:00"
+  "updated_at": "2026-11-18T00:25:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2122685189168279780",
+   "date": "2026-11-17",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122685189168279780",
+   "url": "https://x.com/mattpocockuk/status/2122685189168279780",
+   "posted_at": "2026-11-17T21:36+08:00",
+   "kind": "reply",
+   "text": "Your voice is the least of your problems",
+   "article_title": null,
+   "reply_to": {
+    "handle": "erikras",
+    "post_id": "2122679328291147783",
+    "url": "https://x.com/erikras/status/2122679328291147783",
+    "text": "I might need some voice coaching if you know a guy..."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "你的声音是你最不用担心的问题",
+   "analysis": {
+    "summary": "@erikras 半开玩笑说自己可能需要声音辅导，问 Matt 认不认识人；Matt 回复：“你的声音是你最不用担心的问题。”",
+    "points": [
+     "@erikras：可能需要找人做声音辅导",
+     "Matt 调侃回复，说声音是他最小的问题"
+    ],
+    "why": "朋友间的玩笑式社交回复，信息量很低；上下文不全，不做推断。",
+    "tags": [
+     "社交"
+    ]
+   }
+  },
+  {
+   "id": "x-2122659341685694586",
+   "date": "2026-11-17",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122659341685694586",
+   "url": "https://x.com/mattpocockuk/status/2122659341685694586",
+   "posted_at": "2026-11-17T19:53+08:00",
+   "kind": "post",
+   "text": "Today's experiment:\n\nIf too much choice is bad for agents, what if you could create an EXTREMELY constrained version of the tools you like?\n\nI.e. the agent is allowed to use React, but all state must be in Zustand/useReducer?\n\nStrip out all the nuance, create a black hole of success, all through incredibly harsh lint rules.\n\nThinking of calling it /constrain",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "今天的实验：\n\n如果选择太多对 agent 不好，那能不能把你喜欢的工具做成一个“极度受限”的版本？\n\n比如：允许 agent 用 React，但所有状态都必须放在 Zustand/useReducer 里？\n\n去掉所有细微差别，打造一个“成功的黑洞”，全部靠极其严苛的 lint 规则来实现。\n\n打算把它叫做 /constrain",
+   "analysis": {
+    "summary": "Matt Pocock 提出一个实验想法：既然选择太多对 agent 不利，就用极其严苛的 lint 规则把常用工具限制成“极度受限”版本（如 React 状态只能用 Zustand/useReducer），暂名 /constrain。",
+    "points": [
+     "前提观点：选择太多对 agent 不好",
+     "做法：为喜欢的工具创建极度受限的版本，去掉 API 的细微差别",
+     "例子：允许用 React，但所有状态必须放在 Zustand 或 useReducer 里",
+     "实现手段：极其严苛的 lint 规则，让 agent 只能走向“成功的黑洞”",
+     "打算命名为 /constrain，目前只是想法"
+    ],
+    "why": "延续了他上一条 prompt 里“API 选择越少，agent 表现越好”的观点，从“评估”走向“主动约束”：用 lint 规则替 agent 做架构决定。这是尚在构思的实验，没有效果数据。",
+    "tags": [
+     "Agent 工程",
+     "Lint",
+     "React",
+     "Skills"
+    ]
+   }
+  },
   {
    "id": "x-2122618527840354327",
    "date": "2026-11-17",
