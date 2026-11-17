@@ -1,0 +1,41 @@
+{
+ "schema_version": 1,
+ "type": "oss",
+ "date": "2026-11-17",
+ "day": {},
+ "items": [
+  {
+   "id": "oss-2026-11-17-coop-anything",
+   "date": "2026-11-17",
+   "type": "oss",
+   "rank": 1,
+   "title": "Co-op Anything：让你的 Coding Agent 把单机游戏改成能和朋友联机",
+   "summary": "MIT 开源的 Agent 手册 + MCP 服务器 + 联机同步测试工具：Claude Code/Codex 按 AGENTS.md 调研、逆向、写同步、用机器人在真实游戏里自测并打包 Steam 中继联机；已收录 230+ 联机 mod，近 7 天 122 次提交。",
+   "url": "https://github.com/cranebeaker/coop-anything",
+   "tags": [
+    "AI Agent",
+    "Coding Agent",
+    "MCP",
+    "游戏",
+    "逆向工程"
+   ],
+   "raw_tags": [],
+   "score": 2153,
+   "score_label": "★ 2153",
+   "detail": {
+    "status": "picked",
+    "repo": "cranebeaker/coop-anything",
+    "homepage": "https://coopanything.app",
+    "stars": 2153,
+    "forks": 295,
+    "license": "MIT",
+    "language": "Python",
+    "latest_release": null,
+    "runners_up": [],
+    "body_md": "## Co-op Anything：让你的 Coding Agent 把单机游戏改成能和朋友联机\n\n**为什么今天值得试：** 这是一个现成的例子，看 Coding Agent 怎么在一个真实、复杂的长期任务里干活：逆向游戏、写同步、用机器人自测、打包发布。项目是 MIT 许可的 Agent 手册（AGENTS.md + skills）加一个 MCP 服务器和一套联机同步测试工具。过去 7 天有 122 次提交，北京时间 11-17 凌晨一次合并了 12 个社区 PR，已经有二十多款游戏的联机 mod 记录在册。\n\n- 仓库：https://github.com/cranebeaker/coop-anything\n- 网站：https://coopanything.app （可搜索 230+ 个联机 mod 和缺口）\n- 许可证：MIT；主语言 Python；2153★ / 295 fork；无 Release（直接用 main 分支）\n\n### 解决什么问题、适合谁\n\n想和朋友一起玩只有单机模式的游戏，以前要靠懂逆向和网络编程的人花几个月写 mod。这个仓库把这些经验整理成 Agent 能照着做的流程。你只要对 Claude Code / Codex / Gemini CLI / Cursor / OpenCode 说一句：\n\n`Read https://github.com/cranebeaker/coop-anything and follow AGENTS.md. I want to play <game> in co-op with my friends.`\n\nAgent 会先查有没有现成的 mod，必要时逆向游戏和引擎，写出或修好联机功能，**在游戏里开多个实例让机器人测试**，最后打包成一键安装，通过 Steam 中继联机，不用做端口转发。\n\n适合：想和朋友联机玩老游戏的玩家（README 说不会写代码也行，但要有耐心，还得肯花 Agent 额度）；想研究 Agent 怎么跑长任务、多 Agent 怎么协作、怎么给 Agent 写 playbook/skills 的开发者；做 mod 和逆向的人。\n\n### README 里的关键能力\n\n- **两条路线：** 已经有 mod 但有 bug 或没人维护的，走「修复和复活」（`coop-research`、`coop-revive`、`coop-qa`）；什么都没有的，走「从零做」（`coop-reverse-engineer`、`coop-build-from-zero`、`coop-networking`、`coop-sync-testing`）。两条路最后都要过真实游戏客户端的自动化测试、做好安装包、提 PR 回馈仓库\n- **MCP 服务器**（`tools/mcp/coop_mcp.py`，需要 Python 3.9+ 和 PyYAML，本地只读）：`search_directory` 按游戏/引擎/状态/QA 等级查目录；`detect_engine` 根据安装目录的文件特征判断引擎，同时提示可用的 hook 工具和反作弊风险；`game_identity` 记录 exe 的 SHA-256、PE 信息和 Steam build id；另有读 playbook/skill、`validate_entry` 等工具。二进制分析部分建议配合 REA 这类逆向 MCP\n- **同步测试工具**（`tools/`，每个都带测试，`python -I tools/test_all.py` 一键跑）：chaos（给真实客户端之间注入延迟、丢包、乱序）、flight（多机录制回放，自动定位第一次不同步并生成回归测试）、fuzz（N 人联机模糊测试）、ownership（NPC 归属的 C++ 库）、bots/scenarios（多机器人剧本）、animcheck（检测滑步、T-pose）、hotreload（不重启游戏热替换 mod）等\n- **按引擎给打法：** Unity 用 BepInEx/Harmony，UE4/5 用 UE4SS，Bethesda 用脚本扩展，主机游戏先走反编译或重编译移植，纯闭源二进制就完全逆向。单机分屏走 Nucleus Co-op / PartyDeck 或作者的 Couchlink\n- **规则：** 不提交游戏文件和素材；只做合作模式，不碰别人的多人游戏作弊，不碰反作弊；Agent 提的 PR 默认是草稿，你看过 diff 再发\n\n### 近期活跃证据\n\n- **Issues：** 共约 166 个（开放约 150），大多是「Claim」认领帖和社区发布的 mod 版本说明，讨论质量参差。好的那种像 #353《Prototype》从零做联机，北京时间 11-11 开帖，至今 15 条进度：Ghidra 定位联机管理器、注入假 NetSystem、远端角色成功出现在游戏里，每条都附提交号。维护者很少在 Issue 里回复，主要靠合并 PR 处理（例如 #355 由 PR #358 关闭）\n- **Release：** 仓库本身没有 Release 和 tag，各游戏的 mod 在各自的仓库发版。例如社区 PR 合进来的 Resident Evil Revelations 2 Co-op 0.3.2、Jericho Co-op+ 0.3.4，以及 TimeShift Co-op 0.1.7\n- **提交：** 共约 900 次提交，约 50 多位贡献者（cranebeaker 209、Claude 署名 94）。11-10 以来 122 次（cranebeaker 57、dolbaras 20）；最近一次在 2026-11-17 04:57（北京时间），作者批量合并 12 个 PR，还 rebase 过并重编了 lessons 序号。已合并 PR 111 个，开放 31 个\n\n### 快速上手\n\n1. `git clone https://github.com/cranebeaker/coop-anything && pip install pyyaml`，在仓库里打开 Claude Code，它会通过 `.mcp.json` 自动加载 MCP（Codex/Cursor 的配置见 `playbook/mcp.md`）\n2. 先在 [coopanything.app](https://coopanything.app) 或用 `search_directory` 查你的游戏，有现成 mod 就走修复路线，通常会快很多\n3. 对 Agent 说「Read … follow AGENTS.md. I want to play <game> in co-op」，再让它对游戏目录跑一次 `detect_engine`，看引擎和反作弊提示；想先看工具质量，可以跑 `python -I tools/test_all.py`\n\n### 风险与注意点\n\n- **法律和版权灰区：** 要逆向、hook 商业游戏，部分走反编译。仓库不放游戏文件，但各地法律和游戏 EULA 不同，自己判断。**带反作弊、在线服务的游戏不要碰**，可能封号\n- **安全：** Agent 要下载并运行 DLL 注入器、调试器和社区 mod，最好在独立的 Windows 机器或虚拟机里做，不要在主力机上放开权限；社区 mod 的二进制要自己核实来源\n- **成本和成功率：** README 说「每款游戏都能做到」，这话乐观了。从零做要花大量 Agent 小时和额度，很多 Claim 帖还停在早期\n- **质量参差：** 目录条目有 QA 等级（未测 / 玩家报告 / 自动化测试 / 验证通关），先看等级；Issue 区噪音多，维护者主要在 PR 里回应\n",
+    "source_file": null,
+    "date_inferred": false
+   }
+  }
+ ]
+}
