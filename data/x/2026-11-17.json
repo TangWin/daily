@@ -3,14 +3,109 @@
  "type": "x",
  "date": "2026-11-17",
  "day": {
-  "digest": "Dan Koe 建议不知道学什么时先学学习、写作和表达三项元技能；Matt Pocock 分享了让 agent 评估新技术（以 XState v6 beta 为例）的 prompt，又提出用严苛 lint 规则把工具约束成“极简版”供 agent 使用的 /constrain 实验想法。",
+  "digest": "Dan Koe 建议不知道学什么时先学学习、写作和表达三项元技能，并主张先做出粗糙的第一版再改进；Matt Pocock 分享了让 agent 评估新技术（以 XState v6 beta 为例）的 prompt，称评估虽未采用但帮他发现错误、渲染快了 3 倍，还提出 /constrain 实验想法，并征集“用 AI 做非编程任务”的优质信源。",
   "by_source": {
-   "thedankoe": "推荐学习、写作、表达三项元技能，引用“dangerously well-spoken”长文。",
-   "mattpocockuk": "分享评估新技术的 agent prompt（XState v6 beta），并提出用严苛 lint 约束工具的 /constrain 想法。"
+   "thedankoe": "推荐学习、写作、表达三项元技能，并强调先把粗糙的第一版做出来。",
+   "mattpocockuk": "分享评估新技术的 agent prompt 及其收获、提出 /constrain 想法，并征集 AI 非编程用途的优质信源。"
   },
-  "updated_at": "2026-11-18T00:25:00+09:00"
+  "updated_at": "2026-11-18T08:20:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2122718523768426931",
+   "date": "2026-11-17",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122718523768426931",
+   "url": "https://x.com/mattpocockuk/status/2122718523768426931",
+   "posted_at": "2026-11-17T23:48+08:00",
+   "kind": "reply",
+   "text": "Yes, we decided not to adopt it yet but it pointed out a big mistake in what I was already doing that speeds up renders by 3x",
+   "article_title": null,
+   "reply_to": {
+    "handle": "shuba_dev",
+    "post_id": "2122716764207268314",
+    "url": "https://x.com/shuba_dev/status/2122716764207268314",
+    "text": "Did it make anything good for you?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "是的，我们决定暂时不采用它，但它指出了我原本做法中的一个大错误，修正后渲染速度提升了 3 倍。",
+   "analysis": {
+    "summary": "有人问（他让 agent 评估新技术的那次尝试）“对你有产出什么好东西吗？”，Matt 回复：决定暂不采用，但它指出了现有做法中的一个大错误，修正后渲染快了 3 倍。",
+    "points": [
+     "@shuba_dev 问这次评估是否带来了好结果",
+     "结论是暂时不采用被评估的东西",
+     "过程中发现了原有做法里的一个大错误",
+     "修正后渲染速度提升 3 倍"
+    ],
+    "why": "说明让 agent 做技术评估即使结论是“不采用”，也可能带来意外收获。上下文推测与同日他分享的 XState v6 beta 评估 prompt 有关，但回复本身未点名评估对象；3 倍是作者自述数字。",
+    "tags": [
+     "Agent 工程",
+     "技术评估",
+     "性能"
+    ]
+   }
+  },
+  {
+   "id": "x-2122717500014022904",
+   "date": "2026-11-17",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2122717500014022904",
+   "url": "https://x.com/thedankoe/status/2122717500014022904",
+   "posted_at": "2026-11-17T23:44+08:00",
+   "kind": "post",
+   "text": "You can't improve what doesn't exist, and your first version will suck. Be okay with that.\n\nYou have to get the embarrassing version out. The book. The social post. The product. Anything. It needs to be tangible, not in your head.\n\nOnly then can you make it good.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "你无法改进不存在的东西，而你的第一个版本会很烂。接受这一点。\n\n你必须先把那个让人尴尬的版本做出来。一本书。一条社交帖子。一个产品。任何东西。它需要是具体可见的，而不是只存在于你脑子里。\n\n只有这样，你才能把它做好。",
+   "analysis": {
+    "summary": "Dan Koe 主张先把粗糙的第一版做出来，再谈改进。",
+    "points": [
+     "不存在的东西无法改进",
+     "第一版注定很烂，要接受",
+     "书、帖子、产品等都要先变成具体成果，而不是停留在脑中",
+     "有了实物之后才能把它做好"
+    ],
+    "why": "这是关于创作和产品迭代的观点，强调先发布再打磨，对克服完美主义有参考价值；属作者个人观点，没有数据支撑。",
+    "tags": [
+     "创作者经济",
+     "迭代",
+     "行动力"
+    ]
+   }
+  },
+  {
+   "id": "x-2122715955336036600",
+   "date": "2026-11-17",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122715955336036600",
+   "url": "https://x.com/mattpocockuk/status/2122715955336036600",
+   "posted_at": "2026-11-17T23:38+08:00",
+   "kind": "post",
+   "text": "Who is writing the best stuff/making the best videos about using AI for non-coding tasks?\n\nThat field is full of noise, I need signal",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "谁在写关于“用 AI 做非编程任务”的最佳内容／做最好的相关视频？\n\n这个领域噪音太多了，我需要信号。",
+   "analysis": {
+    "summary": "Matt Pocock 公开征集：谁在产出关于“用 AI 做非编程任务”的高质量文章或视频。",
+    "points": [
+     "寻找讲用 AI 处理非编程任务的优质作者／视频创作者",
+     "他认为这个领域噪音很多，想找到有价值的信号"
+    ],
+    "why": "反映出一位以 AI 编程教学为主的作者开始关注 AI 在编程之外的应用，并认为现有内容质量参差。帖子本身只是提问，未给出答案。",
+    "tags": [
+     "AI 应用",
+     "信息筛选"
+    ]
+   }
+  },
   {
    "id": "x-2122685189168279780",
    "date": "2026-11-17",

@@ -1,0 +1,48 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-18",
+ "day": {
+  "digest": "Matt Pocock 在征集“用 AI 做非编程任务”优质信源的讨论中，就有人推荐的 @emollick 追问最佳关注渠道。",
+  "by_source": {
+   "mattpocockuk": "追问被推荐的 @emollick 的最佳关注渠道。"
+  },
+  "updated_at": "2026-11-18T08:20:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2122785013070442644",
+   "date": "2026-11-18",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2122785013070442644",
+   "url": "https://x.com/mattpocockuk/status/2122785013070442644",
+   "posted_at": "2026-11-18T04:12+08:00",
+   "kind": "reply",
+   "text": "What's the best channel to follow him on?",
+   "article_title": null,
+   "reply_to": {
+    "handle": "omprashantjain",
+    "post_id": "2122720191247421605",
+    "url": "https://x.com/omprashantjain/status/2122720191247421605",
+    "text": "@emollick. He tests it on real work, not demos."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "关注他最好的渠道是哪个？",
+   "analysis": {
+    "summary": "有人回答 Matt 的征集，推荐 @emollick，称“他在真实工作中测试，而不是做演示”；Matt 回复问关注他最好的渠道是哪个。",
+    "points": [
+     "@omprashantjain 推荐 @emollick 作为“用 AI 做非编程任务”领域的优质信源",
+     "推荐理由：在真实工作中测试 AI，而非演示",
+     "Matt 追问关注他的最佳渠道"
+    ],
+    "why": "信息量较低，是社交性追问；但可看出他征集问题收到的一个推荐是 @emollick。",
+    "tags": [
+     "AI 应用",
+     "信息筛选"
+    ]
+   }
+  }
+ ]
+}
