@@ -1,0 +1,160 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-19",
+ "day": {
+  "digest": "Matt Pocock 发布 70 分钟实战视频，演示用其 skills 构建 21,000 行 PR，并围绕 Home Repo 模式回答跨仓库共享规则的问题，承认其取舍。",
+  "by_source": {
+   "mattpocockuk": "发布 skills 实战深度视频与免费邮件课程，并推荐用 Home Repo 跨项目共享规则、按领域组织工作。"
+  },
+  "updated_at": "2026-11-19T08:25:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2123104323877880108",
+   "date": "2026-11-19",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123104323877880108",
+   "url": "https://x.com/mattpocockuk/status/2123104323877880108",
+   "posted_at": "2026-11-19T01:21+08:00",
+   "kind": "reply",
+   "text": "Yep, all of that is true\n\nBut that allows you to organise things not by repo, but by problem space or domain",
+   "article_title": null,
+   "reply_to": {
+    "handle": "CrypticTac",
+    "post_id": "2123103332957102409",
+    "url": "https://x.com/CrypticTac/status/2123103332957102409",
+    "text": "wont launching agents from the home repo mess up how apps like herdr display cwd and repo? also each time for a new agent I'd need to specify which project I'm talking about? maybe I'm misunderstanding how it'll work?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "是的，这些都对\n\n但这样可以让你不按仓库，而是按问题空间或领域来组织东西",
+   "analysis": {
+    "summary": "@CrypticTac 担心从 Home Repo 启动 agent 会打乱 herdr 等应用显示的 cwd 和仓库，而且每开新 agent 都得指明项目。Matt 承认这些问题都存在，但认为好处是能按问题空间或领域而非按仓库组织工作。",
+    "points": [
+     "质疑：Home Repo 可能影响工具对 cwd/仓库的显示",
+     "质疑：每个新 agent 都要说明针对哪个项目",
+     "Matt 承认这些代价属实",
+     "他认为收益是按问题空间/领域组织，而不是按仓库"
+    ],
+    "why": "坦率说明了 Home Repo 模式的取舍，是作者观点；有助于判断是否适合自己的多仓库场景。",
+    "tags": [
+     "Agent 工程",
+     "Home Repo"
+    ]
+   }
+  },
+  {
+   "id": "x-2123098517422129660",
+   "date": "2026-11-19",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123098517422129660",
+   "url": "https://x.com/mattpocockuk/status/2123098517422129660",
+   "posted_at": "2026-11-19T00:58+08:00",
+   "kind": "reply",
+   "text": "Here's a free email course you can use to level up your development process:\n\nhttps://www.aihero.dev/skills/subscribe",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2123098316867051991",
+    "url": "https://x.com/mattpocockuk/status/2123098316867051991",
+    "text": "It's been nearly 6 months since I posted a 'watch me work' deep dive on my skills.\n\nSince then, they've become the most-starred skills repo in the world.\n\nSo, here's 70 minutes of me building a 21,000-line PR, especially focusing on:\n\n- DDD with /grill-with-docs\n- Improving your codebase with /retro\n- How to do human review effectively\n\nEnjoy!"
+   },
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://www.aihero.dev/skills/subscribe",
+     "title": "AI Skills for Real Engineers: Free Seven-Lesson Email Course"
+    }
+   ],
+   "translation_zh": "这里有一个免费的邮件课程，可以用来提升你的开发流程：\n\nhttps://www.aihero.dev/skills/subscribe",
+   "analysis": {
+    "summary": "Matt 在自己的视频帖下补充推荐一个免费邮件课程。",
+    "points": [
+     "课程链接：aihero.dev/skills/subscribe",
+     "链接标题为《AI Skills for Real Engineers: Free Seven-Lesson Email Course》，共七课"
+    ],
+    "why": "主要是推广自家免费课程，对想系统学习他 skills 用法的人有用；课程内容未采集。",
+    "tags": [
+     "Skills",
+     "学习资源"
+    ]
+   }
+  },
+  {
+   "id": "x-2123098316867051991",
+   "date": "2026-11-19",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123098316867051991",
+   "url": "https://x.com/mattpocockuk/status/2123098316867051991",
+   "posted_at": "2026-11-19T00:57+08:00",
+   "kind": "post",
+   "text": "It's been nearly 6 months since I posted a 'watch me work' deep dive on my skills.\n\nSince then, they've become the most-starred skills repo in the world.\n\nSo, here's 70 minutes of me building a 21,000-line PR, especially focusing on:\n\n- DDD with /grill-with-docs\n- Improving your codebase with /retro\n- How to do human review effectively\n\nEnjoy!",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "距离我上次发布关于我的 skills 的「看我工作」深度视频已经快 6 个月了。\n\n从那以后，它们成了全世界 star 最多的 skills 仓库。\n\n所以，这里是 70 分钟的我构建一个 21,000 行 PR 的过程，重点讲：\n\n- 用 /grill-with-docs 做 DDD\n- 用 /retro 改进你的代码库\n- 如何有效地进行人工审查\n\n请享用！",
+   "analysis": {
+    "summary": "Matt 发布了一个 70 分钟的「看我工作」视频，演示用他的 skills 构建一个 21,000 行的 PR。",
+    "points": [
+     "距上次同类深度视频近 6 个月",
+     "他称其 skills 已成为全球 star 最多的 skills 仓库（作者自述）",
+     "视频重点：用 /grill-with-docs 做 DDD",
+     "用 /retro 改进代码库",
+     "如何有效做人工审查"
+    ],
+    "why": "展示了大规模 AI 辅助开发中领域建模、复盘改进和人工审查的实际工作流；“star 最多”是作者自述，未核实。视频内容本次未采集。",
+    "tags": [
+     "Skills",
+     "Agent 工程",
+     "代码审查",
+     "DDD"
+    ]
+   }
+  },
+  {
+   "id": "x-2123093348626186625",
+   "date": "2026-11-19",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123093348626186625",
+   "url": "https://x.com/mattpocockuk/status/2123093348626186625",
+   "posted_at": "2026-11-19T00:37+08:00",
+   "kind": "reply",
+   "text": "I'd use a Home Repo:\n\nhttps://www.youtube.com/watch?v=hWe-j78vNpc",
+   "article_title": null,
+   "reply_to": {
+    "handle": "stevebeauge",
+    "post_id": "2123092561430528044",
+    "url": "https://x.com/stevebeauge/status/2123092561430528044",
+    "text": "Hey @mattpocockuk \n\nMy team is using your skill suit more and more.\n\nDo you have any recipe to share rules across multiple projects ? Most of rules written by setup-matt-pocock-skills are identical. \nI wonder if a custom claude plugin can bring rules to your skills automatically"
+   },
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://www.youtube.com/watch?v=hWe-j78vNpc",
+     "title": "The Home Repo Pattern: Run agents across ALL your repos"
+    }
+   ],
+   "translation_zh": "我会用 Home Repo：\n\nhttps://www.youtube.com/watch?v=hWe-j78vNpc",
+   "analysis": {
+    "summary": "@stevebeauge 说团队越来越多地用 Matt 的 skill 套件，问怎么在多个项目间共享规则（setup-matt-pocock-skills 生成的规则大多相同），是否可以用自定义 Claude 插件自动注入。Matt 回复建议用 Home Repo 模式，并附上视频。",
+    "points": [
+     "提问者的痛点：多个项目里 setup-matt-pocock-skills 写出的规则大多重复",
+     "提问者设想用自定义 Claude 插件把规则自动带给 skills",
+     "Matt 的答案是 Home Repo 模式，附视频《The Home Repo Pattern: Run agents across ALL your repos》"
+    ],
+    "why": "给出了跨仓库复用 agent 规则的一个具体做法（Home Repo），细节在视频中，这里未采集视频内容，不做推断。",
+    "tags": [
+     "Agent 工程",
+     "Skills",
+     "Home Repo"
+    ]
+   }
+  }
+ ]
+}
