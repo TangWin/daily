@@ -3,13 +3,150 @@
  "type": "x",
  "date": "2026-11-19",
  "day": {
-  "digest": "Matt Pocock 发布 70 分钟实战视频，演示用其 skills 构建 21,000 行 PR，并围绕 Home Repo 模式回答跨仓库共享规则的问题、承认其取舍；还澄清了工作流中 AI 只读取 PR 评论、不在合并前修复。",
+  "digest": "Matt Pocock 发布 70 分钟 skills 实战视频（构建 21,000 行 PR）并推荐免费邮件课程，随后集中回答 Home Repo 相关问题：按领域组织、共享 GLOSSARY.md、用五条原则回应 agent 记忆与多仓库协同；还解释了 PR 拆分为 stacked PRs 的取舍，并表示 AI Coding 课程的很多内容可迁移到非编程工作。",
   "by_source": {
-   "mattpocockuk": "发布 skills 实战深度视频与免费邮件课程，推荐用 Home Repo 按领域组织工作，并澄清 AI 只读取 PR 评论而非在合并前修复。"
+   "mattpocockuk": "发布 skills 实战视频与免费课程，围绕 Home Repo、GLOSSARY.md、agent 记忆与 stacked PRs 拆分答疑，并称 AI Coding 课程可迁移到非编程工作。"
   },
-  "updated_at": "2026-11-19T16:20:00+09:00"
+  "updated_at": "2026-11-19T20:20:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2123343133152833912",
+   "date": "2026-11-19",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123343133152833912",
+   "url": "https://x.com/mattpocockuk/status/2123343133152833912",
+   "posted_at": "2026-11-19T17:10+08:00",
+   "kind": "reply",
+   "text": "1. Yes! Though it was pretty easy to prompt\n2. Probably not, because the end result is sequential but you need parallelism to get it built fast",
+   "article_title": null,
+   "reply_to": {
+    "handle": "luis_cf_borges",
+    "post_id": "2123342468682838051",
+    "url": "https://x.com/luis_cf_borges/status/2123342468682838051",
+    "text": "Thanks Matt! Two questions on the PR breakdown at the end that I am sure you thought about but would like to get your insights:\n\n- Have you thought about turning the split into stacked PRs into a skill? You said that Agents are good at it and it happens on every big PR.\n- Could that split happen earlier, at the spec/ticket stage, so each ticket ships as a small, reviewable increment?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "1. 是的！不过直接用提示词就挺容易做到的\n2. 大概不行，因为最终结果是顺序的，但要想快速构建出来，你需要并行",
+   "analysis": {
+    "summary": "@luis_cf_borges 就视频结尾的 PR 拆分提了两个问题：是否考虑把拆成 stacked PRs 做成一个 skill（因为 agent 擅长且每个大 PR 都要做）；能否把拆分提前到 spec/ticket 阶段，让每个 ticket 都作为小而可审的增量交付。Matt 回答：1. 是的，不过直接用提示词就挺容易；2. 大概不行，因为最终结果是顺序的，而快速构建需要并行。",
+    "points": [
+     "问题一：把拆分 stacked PRs 做成 skill？Matt：是的，但直接 prompt 也很容易",
+     "问题二：拆分能否提前到 spec/ticket 阶段？Matt：大概不行",
+     "理由：最终结果（stacked PRs）是顺序的，而构建阶段需要并行才能快"
+    ],
+    "why": "说明了他的工作流里先并行构建、事后再把大 PR 拆成顺序的 stacked PRs 供审查的取舍，属于作者观点。",
+    "tags": [
+     "Agent 工程",
+     "Code Review",
+     "Skills"
+    ]
+   }
+  },
+  {
+   "id": "x-2123341910559318124",
+   "date": "2026-11-19",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123341910559318124",
+   "url": "https://x.com/mattpocockuk/status/2123341910559318124",
+   "posted_at": "2026-11-19T17:05+08:00",
+   "kind": "post",
+   "text": "Reading back through the AI Coding Crash Course, it is insane how much of it can be directly ported to non-coding work\n\nGiving me some ideas...",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "重读 AI Coding Crash Course 时发现，里面有那么多内容可以直接搬到非编程工作上，简直离谱\n\n给了我一些想法……",
+   "analysis": {
+    "summary": "Matt 说重读自己的 AI Coding Crash Course 时，发现大量内容可以直接迁移到非编程工作中，并表示因此有了一些新想法。",
+    "points": [
+     "他在重读 AI Coding Crash Course",
+     "认为其中很多内容可直接用于非编程工作",
+     "暗示可能有新的内容或项目想法，但未说明具体是什么"
+    ],
+    "why": "可能预示他会把 AI 工作流方法扩展到编程以外的场景；目前只是作者的感想，没有具体计划或细节。",
+    "tags": [
+     "AI 工作流",
+     "学习资源"
+    ]
+   }
+  },
+  {
+   "id": "x-2123316173366296886",
+   "date": "2026-11-19",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123316173366296886",
+   "url": "https://x.com/mattpocockuk/status/2123316173366296886",
+   "posted_at": "2026-11-19T15:23+08:00",
+   "kind": "reply",
+   "text": "1. Your codebase is your memory\n2. Relentlessly prune your setup\n3. A home repo will solve the '3 main repos' setup\n4. You don't need a session-start skill\n5. Claude Code is fine for orchestrating subagents",
+   "article_title": null,
+   "reply_to": {
+    "handle": "buildwithquinn",
+    "post_id": "2123251525460103312",
+    "url": "https://x.com/buildwithquinn/status/2123251525460103312",
+    "text": "Hey! Does anyone know how Matt built the home repo?\n\nA few other questions: how do agents build memory across sessions? Why does Claude code forget to save decisions? Do I save decisions in files or GitHub? How does Matt have such a low token startup? Every time I start a session it uses 170k tokens. I have 3 main repos and they often struggle to work together and follow the same design.md, rules, etc. does anyone have solutions to these problems? Do I need a session-start skill? Does Matt use an orchestrator and agents or subagents? How is memory never lost and how do I make sure my agents fi…"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "1. 你的代码库就是你的记忆\n2. 毫不留情地精简你的配置\n3. 一个 home repo 就能解决“3 个主仓库”的问题\n4. 你不需要 session-start skill\n5. 用 Claude Code 编排 subagents 就够了",
+   "analysis": {
+    "summary": "@buildwithquinn 连珠炮式提问：Matt 的 home repo 怎么搭的、agent 如何跨会话保留记忆、为什么每次开会话就耗 170k token、3 个主仓库难以协同、是否需要 session-start skill、是否用 orchestrator 和 subagents 等。Matt 用五条简短回答作答。",
+    "points": [
+     "代码库本身就是记忆（回应跨会话记忆的问题）",
+     "要持续精简配置（对应会话启动 token 过高）",
+     "用一个 home repo 解决多个主仓库协同的问题",
+     "不需要 session-start skill",
+     "用 Claude Code 编排 subagents 就够了"
+    ],
+    "why": "这五条浓缩了他对 agent 工作流的核心主张，均为作者观点；回复很简短，没有展开具体做法（例如如何精简配置），细节需看他的其他内容。",
+    "tags": [
+     "Agent 工程",
+     "Home Repo",
+     "Claude Code",
+     "Skills"
+    ]
+   }
+  },
+  {
+   "id": "x-2123315809800126872",
+   "date": "2026-11-19",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123315809800126872",
+   "url": "https://x.com/mattpocockuk/status/2123315809800126872",
+   "posted_at": "2026-11-19T15:21+08:00",
+   "kind": "reply",
+   "text": "IMO if it's a single model, use a GLOSSARY.md in the home repo",
+   "article_title": null,
+   "reply_to": {
+    "handle": "MiguelColeto",
+    "post_id": "2123302694043394180",
+    "url": "https://x.com/MiguelColeto/status/2123302694043394180",
+    "text": "a question about home repos.\n\nShould GLOSSARY.md files live in the home repo or are they local to each repo?\n\nIn our company we have a backend repository and 3 frontend repositories that consume that backend, but the domain language is mostly shared"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我的看法是，如果是单一模型，就在 home repo 里放一个 GLOSSARY.md",
+   "analysis": {
+    "summary": "@MiguelColeto 问：GLOSSARY.md 应该放在 home repo 里，还是各仓库各放一份？他们公司有一个后端仓库和 3 个消费该后端的前端仓库，领域语言大体共享。Matt 回复：如果是单一模型，就在 home repo 里放一个 GLOSSARY.md。",
+    "points": [
+     "提问场景：1 个后端仓库 + 3 个前端仓库，领域语言大体共享",
+     "问题：GLOSSARY.md 放 home repo 还是各仓库本地",
+     "Matt 的看法：单一（领域）模型时，在 home repo 里集中放一个 GLOSSARY.md"
+    ],
+    "why": "这是作者的个人看法（IMO），给出了多仓库共享领域术语时的一个具体做法；帖子没说明多个模型时该怎么处理，不做推断。",
+    "tags": [
+     "Home Repo",
+     "DDD",
+     "Agent 工程"
+    ]
+   }
+  },
   {
    "id": "x-2123313955326374111",
    "date": "2026-11-19",
