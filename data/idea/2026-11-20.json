@@ -1,0 +1,412 @@
+{
+ "schema_version": 1,
+ "type": "idea",
+ "date": "2026-11-20",
+ "day": {
+  "sample": "样本：主清单 141（HN42 Lobsters5 Reddit48 IH20 PH26） + Reddit 深翻页抱怨 152（5200 帖） + HN 句式评论/Ask/Show 540；未使用 X 付费 API。"
+ },
+ "items": [
+  {
+   "id": "idea-2026-11-20-01",
+   "date": "2026-11-20",
+   "type": "idea",
+   "rank": 1,
+   "title": "Lemon Squeezy 关门前把生意搬走：授权码、下载文件、订阅和老版本 App 的激活一起迁移，客户不用重新付款",
+   "summary": "搬家向导：连上 Lemon Squeezy API，先把产品、订单、订阅、授权码和每个授权的设备激活记录、文件全部导出备份；按你的国家、产品类型（授权/下载/订阅/游戏内购）和收入规模，列出可用的新平台和费率对比；提供兼容 Lemon Squeezy 授权接口（激活、校验、注销）的托管授权服务，导入旧授权和激活数，老版本 App 只改一个地址甚至不改（反向代理）就能继续用；生成给客户的通知邮件和老订阅的续费迁移方案，跟踪每个客户是否已迁移。",
+   "url": "https://www.indiehackers.com/post/shutdowns/lemon-squeezy-is-closing-its-stripe-replacement-doesnt-deliver-files-tro66hRkWRwuH0PwycFI",
+   "tags": [
+    "支付",
+    "增长/转化",
+    "开发者工具"
+   ],
+   "raw_tags": [
+    "支付/计费",
+    "增长/转化",
+    "开发者工具"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Lemon Squeezy 2026-11-16 宣布关停，2027-03-31 停止收款且不延期。官方推荐的 Stripe Managed Payments 不提供授权码管理和文件托管，迁移工具也不会自动搬这些。卖桌面软件、模板、电子书的独立开发者要自己找新的发货和授权方案；已经装在用户电脑上的旧版本还在调用 Lemon Squeezy 的授权接口，到期后会失效；订阅用户换平台可能要重新输卡，长期不活跃的订阅很可能直接流失；部分国家不在 Managed Payments 覆盖范围，有的业务（游戏内货币等）又被其他平台判为高风险拒绝。",
+    "target_users": "在 Lemon Squeezy 上卖软件授权、数字下载和订阅的独立开发者与小团队，尤其是 Mac/Windows 桌面 App 作者；Stripe Managed Payments 不支持所在国家的卖家。",
+    "quotes": [
+     {
+      "text": "Sellers who deliver files or license keys through Lemon Squeezy must move their past orders and subscriptions to a new fulfillment tool before March 31. Otherwise, Lemon Squeezy's migration guide says, \"customers may lose access to their license keys, files, and links.\"",
+      "links": [
+       {
+        "label": "Indie Hackers 文章（Lemon Squeezy is closing. Its Stripe replacement doesn't deliver files.）",
+        "url": "https://www.indiehackers.com/post/shutdowns/lemon-squeezy-is-closing-its-stripe-replacement-doesnt-deliver-files-tro66hRkWRwuH0PwycFI"
+       }
+      ]
+     },
+     {
+      "text": "For apps that validate keys at runtime, the part I'd plan around is the installed base, not the store. Old versions call the LS license endpoints, so you need something that accepts the existing keys plus an app update pointing at it, shipped early enough that slow updaters have it before March 31.",
+      "links": [
+       {
+        "label": "Indie Hackers 评论（同文，评论者自述在做相关工具）",
+        "url": "https://www.indiehackers.com/post/shutdowns/lemon-squeezy-is-closing-its-stripe-replacement-doesnt-deliver-files-tro66hRkWRwuH0PwycFI"
+       }
+      ]
+     },
+     {
+      "text": "My little SaaS has like 20 subscribers that haven't used the app in months. Switching provider means they will have to resubscribe so this risks me loses a good chunk of my MRR. Any advice?",
+      "links": [
+       {
+        "label": "Reddit r/SaaS 帖（Any way to retain Zombie MRR after LemonSqueezy Shutdown?）",
+        "url": "https://www.reddit.com/r/SaaS/comments/1xyfe2s/any_way_to_retain_zombie_mrr_after_lemonsqueezy/"
+       }
+      ]
+     },
+     {
+      "text": "I haven't found a good way to switch providers WITHOUT having to get my customers to resubscribe... I think it's inevitable, but i'd love to be proven wrong :')",
+      "links": [
+       {
+        "label": "Reddit r/SaaS 评论（同帖）",
+        "url": "https://www.reddit.com/r/SaaS/comments/1xyfe2s/any_way_to_retain_zombie_mrr_after_lemonsqueezy/19ss8wmrhte01/"
+       }
+      ]
+     },
+     {
+      "text": "didn't check, but Stripe not available in my country so not an option for me.",
+      "links": [
+       {
+        "label": "Reddit r/SaaS 评论（同帖，楼主回复）",
+        "url": "https://www.reddit.com/r/SaaS/comments/1xyfe2s/any_way_to_retain_zombie_mrr_after_lemonsqueezy/19srj7ccb328y/"
+       }
+      ]
+     },
+     {
+      "text": "I literally signed up yesterday to use their platform to sell my desktop app. I was looking forward to their license management. I guess I'll have to find an alternative now.",
+      "links": [
+       {
+        "label": "Hacker News 评论（Lemon Squeezy is winding down）",
+        "url": "https://news.ycombinator.com/item?id=50525299"
+       }
+      ]
+     }
+    ],
+    "existing": "Stripe Managed Payments（官方推荐）；Paddle、Polar、FastSpring、Checkout Page 等收款平台；Keygen、Keyharbor 等授权服务；Lemon Squeezy 12 月 2 日上线的迁移工具",
+    "defects": "官方迁移只搬订单和卡片订阅，不搬授权码、激活记录和文件；各替代平台只管自己那一段，没人帮你把「收款 + 发货 + 授权 + 老版本兼容」串成一份清单；哪个平台支持你的国家和业务类型要逐家去问，被拒常常只给一句「风险太高」；离截止日只有 4 个月，单人开发者很难自己排期",
+    "solution": "搬家向导：连上 Lemon Squeezy API，先把产品、订单、订阅、授权码和每个授权的设备激活记录、文件全部导出备份；按你的国家、产品类型（授权/下载/订阅/游戏内购）和收入规模，列出可用的新平台和费率对比；提供兼容 Lemon Squeezy 授权接口（激活、校验、注销）的托管授权服务，导入旧授权和激活数，老版本 App 只改一个地址甚至不改（反向代理）就能继续用；生成给客户的通知邮件和老订阅的续费迁移方案，跟踪每个客户是否已迁移。",
+    "mvp": "一个命令行工具加网页：一键导出 Lemon Squeezy 全部数据到本地 JSON/CSV；一个兼容 LS 授权 API 的轻量授权服务（可自托管或托管）；平台选择对照表（国家、业务类型、费率）。按迁移次数一次性收费，托管授权按月收费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-20-02",
+   "date": "2026-11-20",
+   "type": "idea",
+   "rank": 2,
+   "title": "智能家居 App 推送广告挡下来：把推送分成「设备提醒」和「营销」，营销类自动静音；买设备前先查这款 App 有没有推广告",
+   "summary": "两部分：一是 Android 通知过滤 App（读取通知内容，按规则和小模型判断是不是营销，营销类静音并归档，设备报警照常响），每周告诉你哪个 App 推了几次广告；iOS 上提供 Home Assistant/快捷指令的替代控制方案，绕开厂家 App。二是众包数据库：按品牌和型号记录 App 是否推广告、是否强制注册、有没有本地控制替代方案，带截图证据，买前一查就知道，还能一键生成给苹果/谷歌的违规举报（引用推送广告需用户明确同意的审核规则）。",
+   "url": "https://news.ycombinator.com/item?id=50560311",
+   "tags": [
+    "增长/转化",
+    "个人/生活",
+    "安全"
+   ],
+   "raw_tags": [
+    "增长/转化",
+    "个人/生活",
+    "安全/隐私"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "车库门、灯泡、摄像头、扫地机这些设备只能用厂家 App 控制，最近 myQ、Hue、Arlo、Feit、eufy 等纷纷在推送和首页塞广告。用户需要设备报警（门没关、有人来），却不想要「买新灯泡」。手机系统不区分同一个 App 的提醒和营销，关掉营销开关还会被悄悄打开，唯一办法是整个关掉推送，把重要提醒也一起关了。买设备时也没人告诉你哪个牌子的 App 会推广告，几年后 App 一更新广告就来了。",
+    "target_users": "家里装了智能车库门、灯具、摄像头、扫地机的普通用户；替家人管设备的技术爱好者；关注隐私、想买「不打扰」设备的消费者。",
+    "quotes": [
+     {
+      "text": "I can literally turn off every marketing toggle in the Uber app (buried as it is), save it, then swipe out of those settings, then back in, and the notifications are all enabled again.",
+      "links": [
+       {
+        "label": "Hacker News 评论（Garage Door Spam，698 分、289 条评论）",
+        "url": "https://news.ycombinator.com/item?id=50560311"
+       }
+      ]
+     },
+     {
+      "text": "I need your business notifications, I do not need or approve of your advertising/product updates. For my mobile OS, all notifications look the same.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50559556"
+       }
+      ]
+     },
+     {
+      "text": "Feit Electric and Arlo have also started pushing ads, probably within the past few months. Before there were zero ads... for years.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50560764"
+       }
+      ]
+     },
+     {
+      "text": "The worst part is that you might buy a device with a perfectly nice app with no ads, and then years later the vendor updates the app and you're stuck with horrible ads.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50561663"
+       }
+      ]
+     },
+     {
+      "text": "Bad reviews don't help when it's the only app you can use with that hardware. Most people buy the garage door opener that's on sale. They aren't checking each brand's app reviews in Home Depot.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50567656"
+       }
+      ]
+     },
+     {
+      "text": "I should be able to mark notifications as spam, and if Apple/Google notice that an app has too high of a spam rate, they should be punished (lower deliverability, etc.).",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50566367"
+       }
+      ]
+     }
+    ],
+    "existing": "iOS/Android 通知设置（只能按 App 整体开关）；Android 的通知分类（取决于开发者是否分好）；Home Assistant、ratgdo 等绕开厂家 App 的方案；App Store 评论",
+    "defects": "系统层面分不出同一个 App 的提醒和广告；厂家可以随时把关掉的营销开关重新打开；Home Assistant、ratgdo 需要动手能力，普通用户做不到；App Store 评论不会告诉你「这款 App 会推广告」，也没有按设备型号汇总的记录",
+    "solution": "两部分：一是 Android 通知过滤 App（读取通知内容，按规则和小模型判断是不是营销，营销类静音并归档，设备报警照常响），每周告诉你哪个 App 推了几次广告；iOS 上提供 Home Assistant/快捷指令的替代控制方案，绕开厂家 App。二是众包数据库：按品牌和型号记录 App 是否推广告、是否强制注册、有没有本地控制替代方案，带截图证据，买前一查就知道，还能一键生成给苹果/谷歌的违规举报（引用推送广告需用户明确同意的审核规则）。",
+    "mvp": "Android 通知监听 App（本地分类，不上传内容）+ 网页数据库首批收录 50 个热门智能家居 App 的广告情况；用户可一键提交截图。App 免费，高级规则和多设备同步收费；数据库靠导购分成。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-20-03",
+   "date": "2026-11-20",
+   "type": "idea",
+   "rank": 3,
+   "title": "这条招聘是真的吗：投简历前先查职位有没有在招、是不是骗局或「囤简历」，按发布者屏蔽不靠谱的招聘方",
+   "summary": "浏览器插件 + 网页：在 LinkedIn、Indeed 等职位页旁边显示「可信度」：公司是否真实（域名年龄、工商信息、官网招聘页是否有同一职位）、这条职位重复发布了几次、挂了多久、发布者历史（多少条被下架）、其他求职者反馈（投了有没有回音）。支持一键屏蔽某个发布者或中介，屏蔽在所有支持的网站生效。记录自己的投递，统计哪类职位回复率高。",
+   "url": "https://news.ycombinator.com/item?id=50505784",
+   "tags": [
+    "个人/生活"
+   ],
+   "raw_tags": [
+    "个人/生活"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "CBC 调查后 LinkedIn 和 Monster 下架了 1000 多条假招聘。求职者在招聘网站上看到的大量职位要么是骗局（假公司、传销、收费培训），要么是根本不打算招人、只为攒简历的「幽灵职位」。举报没用，平台算法还在推；也不能按发布者屏蔽。有人投了 415 份只拿到 3 个面试，大量时间浪费在不存在的职位上。",
+    "target_users": "正在找工作的程序员和白领，尤其是刚被裁员、海投简历的人；应届生；在多个招聘网站同时找工作的人。",
+    "quotes": [
+     {
+      "text": "They should force them to allow people to block job publishers. I can't get to see reputable job ads because the algorithm pushes these fake jobs, no matter how many I report.",
+      "links": [
+       {
+        "label": "Hacker News 评论（LinkedIn, Monster take down over 1000 fake job postings after CBC investigation，293 分、186 条评论）",
+        "url": "https://news.ycombinator.com/item?id=50505784"
+       }
+      ]
+     },
+     {
+      "text": "Apply for jobs. Maybe 1 in 100 isn't a scam. Get an offer at 1 in 10 of the non-scam jobs. It sucks but there doesn't seem to be a better way.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50505834"
+       }
+      ]
+     },
+     {
+      "text": "I sent out over 415 applications and got three interviews.  It's pretty bad.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50508208"
+       }
+      ]
+     },
+     {
+      "text": "Many places post job ads, but they don't really look for anyone, they just need CVs in case they'll need someone in the future. Waste of time.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50501401"
+       }
+      ]
+     },
+     {
+      "text": "LinkedIn, Indeed, Monster, all the same scam jobs. I don't bother with any of them, any more since jobs are sadly disappearing.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50503666"
+       }
+      ]
+     }
+    ],
+    "existing": "LinkedIn、Indeed 等平台的举报和「已验证」标识；Glassdoor 公司评价；一些浏览器插件显示职位发布天数",
+    "defects": "举报后平台很少处理，算法照推；无法按发布者或招聘中介屏蔽；看不出职位是不是同一条反复重发、在公司官网是否存在、发布多久没下线；跨平台信息不互通，同一个假职位在几个网站换个名字又出现",
+    "solution": "浏览器插件 + 网页：在 LinkedIn、Indeed 等职位页旁边显示「可信度」：公司是否真实（域名年龄、工商信息、官网招聘页是否有同一职位）、这条职位重复发布了几次、挂了多久、发布者历史（多少条被下架）、其他求职者反馈（投了有没有回音）。支持一键屏蔽某个发布者或中介，屏蔽在所有支持的网站生效。记录自己的投递，统计哪类职位回复率高。",
+    "mvp": "Chrome 插件支持 LinkedIn 和 Indeed：抓取职位信息，查公司官网招聘页是否有同名职位、域名年龄、同文案重复发布次数；本地黑名单屏蔽发布者；用户可标记「投了无回音/骗局」。免费基础版，付费解锁跨站历史和投递统计。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-20-04",
+   "date": "2026-11-20",
+   "type": "idea",
+   "rank": 4,
+   "title": "Windows 设置被更新改回去了：记住你关掉的遥测、广告和后台服务，每次更新后自动检查并恢复，还告诉你哪些数据仍在上传",
+   "summary": "常驻小工具：首次运行时让你按「开发者 / 游戏 / 普通」场景选择要关的项目，每项说明作用和副作用（会不会影响更新、游戏联网）；用组策略或注册表的稳定方式写入；每次 Windows 更新后自动比对，发现被改回就提醒并一键恢复；网络面板显示系统遥测连接的去向和流量；出问题时一键回滚某一项。配置可导出，在多台电脑上同步。",
+   "url": "https://news.ycombinator.com/item?id=50527352",
+   "tags": [
+    "开发者工具",
+    "Coding Agent",
+    "安全"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "Agent/AI编码",
+    "安全/隐私"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 上「Windows 11 收集你用了哪些编程代理和开发工具」引发 624 条评论。很多人早就在设置里关了诊断数据、广告和不需要的后台服务，但 Windows 更新后经常又被打开；真正能管住的组策略、注册表散落在各种教程里，网上脚本有的失效、有的锁得太死导致商店和游戏连不上网。用户想知道到底有哪些数据在上传、自己的设置是否还生效，却没有一个地方能看。",
+    "target_users": "用 Windows 写代码的开发者；在意隐私又不想换 Linux 的游戏玩家；管理几台家用或小公司电脑的人。",
+    "quotes": [
+     {
+      "text": "And when Windows updates and enables the setting again:",
+      "links": [
+       {
+        "label": "Hacker News 评论（Windows 11 is collecting data on which coding agents and developer tools you use，732 分、624 条评论）",
+        "url": "https://news.ycombinator.com/item?id=50527352"
+       }
+      ]
+     },
+     {
+      "text": "Also, once you “decide” to re-enable sharing (aka. accidentally enable after an update) is there a high likelihood it will upload all of this previously collected data?",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50526682"
+       }
+      ]
+     },
+     {
+      "text": "Also tried to disable a bunch of other stuff through O&O Shutup, many of which still didn't work or reverted because Windows is such a clusterfark.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50526893"
+       }
+      ]
+     },
+     {
+      "text": "Don't do it in the settings, do it with group policy settings. Windows will not override those like it will \"user\" settings.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50527432"
+       }
+      ]
+     },
+     {
+      "text": "Careful, as the 'full bore' privacy setting locks things down so much that Windows won't detect whether it's connected to the internet because it disables the internet connectivity test to MS servers. This can interfere with windows update and, annoyingly, even some game stores.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同上）",
+        "url": "https://news.ycombinator.com/item?id=50527432"
+       }
+      ]
+     }
+    ],
+    "existing": "Windows 设置和组策略编辑器；O&O ShutUp10++、privacy.sexy 等一次性脚本；各类 debloat 脚本",
+    "defects": "一次性工具只管「改」，不管「更新后有没有被改回」；改得太狠会弄坏 Windows 更新、商店、游戏联网，又不告诉你是哪一项导致的；家庭版没有组策略编辑器；没有地方直观显示现在哪些数据仍在上传",
+    "solution": "常驻小工具：首次运行时让你按「开发者 / 游戏 / 普通」场景选择要关的项目，每项说明作用和副作用（会不会影响更新、游戏联网）；用组策略或注册表的稳定方式写入；每次 Windows 更新后自动比对，发现被改回就提醒并一键恢复；网络面板显示系统遥测连接的去向和流量；出问题时一键回滚某一项。配置可导出，在多台电脑上同步。",
+    "mvp": "开源命令行 + 简单界面：30 个常见遥测/广告/后台项的检测与设置（含家庭版注册表等效写法），开机和更新后自动比对并提示；变更日志和一键回滚。免费开源，付费版提供多电脑管理和每月规则更新。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-20-05",
+   "date": "2026-11-20",
+   "type": "idea",
+   "rank": 5,
+   "title": "签宽带前查清楚是不是真光纤：按地址查真实接入方式、邻居实测速度，把合同里的「最高」速度条款摘出来",
+   "summary": "网页 + 测速小工具：输入地址，汇总各运营商声明、FCC 数据和附近用户实测（按光纤到户/同轴/DSL/无线分开显示上下行、晚高峰速度、掉线次数）；上传或粘贴合同和套餐页，自动摘出「实际速度」「上传速度」「涨价时间」等条款并翻成大白话；装机后长期测速，速度不达标或频繁掉线时自动生成带记录的投诉/退订材料。",
+   "url": "https://news.ycombinator.com/item?id=50534735",
+   "tags": [
+    "运营/客服",
+    "个人/生活"
+   ],
+   "raw_tags": [
+    "运营/客服",
+    "个人/生活"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "AT&T 起诉 Comcast，称其「光纤 Wi-Fi」其实是同轴电缆。用户换宽带时，销售说是光纤，上门的却是同轴；套餐叫「千兆」，条款里写着实际最多 400/20；运营商的比较表故意夸大需求，推销更贵的套餐。普通人很难在签约前搞清楚自己地址到底有哪些运营商、是光纤到户还是同轴、邻居实际跑多少。",
+    "target_users": "正在搬家或换宽带的家庭用户；在家办公、对上传速度敏感的人（视频会议、传大文件、直播）；替父母选宽带的人。",
+    "quotes": [
+     {
+      "text": "Found Earthlink, went through hell trying to sign up with their voice llm bot, and then final ToS is something like this \"just so you know, while plan called 'a gig', you probably going to get 400/20 at most\".",
+      "links": [
+       {
+        "label": "Hacker News 评论（Comcast's \"fiber-powered Wi-Fi\" is cable, AT&T says in false advertising case，262 分、255 条评论）",
+        "url": "https://news.ycombinator.com/item?id=50534735"
+       }
+      ]
+     },
+     {
+      "text": "Reminded me of a Spectrum guy crimping coaxial cable in front of and me telling me its fiber.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同上）",
+        "url": "https://news.ycombinator.com/item?id=50534735"
+       }
+      ]
+     },
+     {
+      "text": "CenturyLink carpetbombed my neighborhood with comments on how we might have seen their vans and we have fiber. I didn’t think so. Checked online, not within 50 miles.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50527389"
+       }
+      ]
+     },
+     {
+      "text": "The comparison charts for the services tend to be pretty dishonest, making ridiculous claims about what service you need to support basic vanilla levels of Internet activities.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50523531"
+       }
+      ]
+     },
+     {
+      "text": "Too many times of unexplainable drops in signal quality that can never be replicated in the 10 minute window when a tech shows up days later.",
+      "links": [
+       {
+        "label": "Hacker News 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50531866"
+       }
+      ]
+     }
+    ],
+    "existing": "FCC 宽带地图；BroadbandNow 等比价站；Speedtest/Ookla 测速；运营商官网地址查询",
+    "defects": "FCC 地图和比价站依赖运营商自报，常把「附近有光纤」算成「你家有光纤」；测速数据不按地址和接入方式公开；合同里「最高」「通常」速度的限制条款藏在细则里没人看；装好后掉线、速度不达标也没有留证据的工具",
+    "solution": "网页 + 测速小工具：输入地址，汇总各运营商声明、FCC 数据和附近用户实测（按光纤到户/同轴/DSL/无线分开显示上下行、晚高峰速度、掉线次数）；上传或粘贴合同和套餐页，自动摘出「实际速度」「上传速度」「涨价时间」等条款并翻成大白话；装机后长期测速，速度不达标或频繁掉线时自动生成带记录的投诉/退订材料。",
+    "mvp": "先做美国几个大城市：地址查询整合 FCC 公开数据 + 用户提交的测速（浏览器测速并记录接入方式）；合同条款摘要用大模型；免费查询，靠运营商导购分成和付费长期监测（每月几美元）。",
+    "difficulty": null,
+    "potential": null
+   }
+  }
+ ]
+}
