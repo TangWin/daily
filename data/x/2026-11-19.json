@@ -3,13 +3,48 @@
  "type": "x",
  "date": "2026-11-19",
  "day": {
-  "digest": "Matt Pocock 发布 70 分钟实战视频，演示用其 skills 构建 21,000 行 PR，并围绕 Home Repo 模式回答跨仓库共享规则的问题，承认其取舍。",
+  "digest": "Matt Pocock 发布 70 分钟实战视频，演示用其 skills 构建 21,000 行 PR，并围绕 Home Repo 模式回答跨仓库共享规则的问题、承认其取舍；还澄清了工作流中 AI 只读取 PR 评论、不在合并前修复。",
   "by_source": {
-   "mattpocockuk": "发布 skills 实战深度视频与免费邮件课程，并推荐用 Home Repo 跨项目共享规则、按领域组织工作。"
+   "mattpocockuk": "发布 skills 实战深度视频与免费邮件课程，推荐用 Home Repo 按领域组织工作，并澄清 AI 只读取 PR 评论而非在合并前修复。"
   },
-  "updated_at": "2026-11-19T08:25:00+09:00"
+  "updated_at": "2026-11-19T16:20:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2123313955326374111",
+   "date": "2026-11-19",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123313955326374111",
+   "url": "https://x.com/mattpocockuk/status/2123313955326374111",
+   "posted_at": "2026-11-19T15:14+08:00",
+   "kind": "reply",
+   "text": "It just reads the comments, it's not fixing them before the PR's merge",
+   "article_title": null,
+   "reply_to": {
+    "handle": "amarjit_uk",
+    "post_id": "2123304797969297569",
+    "url": "https://x.com/amarjit_uk/status/2123304797969297569",
+    "text": "The part I didn't get is, you're reviewing a PR in Git, making comments; but how is the AI reading this and making changes if you're the one merging them?  I might need to ask AI how to do this, because I didn't get it"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "它只是读取评论，并不是在 PR 合并之前就去修复它们",
+   "analysis": {
+    "summary": "@amarjit_uk 没看懂：既然是自己在 Git 里审 PR、写评论、自己合并，AI 是怎么读到这些评论并做修改的？Matt 回复说，AI 只是读取评论，并不会在 PR 合并之前去修复它们。",
+    "points": [
+     "提问者疑惑：人在审 PR 并写评论、由人来合并时，AI 如何读取评论并改代码",
+     "Matt 澄清：AI 只是读取 PR 评论",
+     "AI 并不会在 PR 合并之前修复这些评论"
+    ],
+    "why": "这是对他此前 skills / PR 工作流内容的一句澄清，说明 AI 在该流程中读取评论的角色；回复很短，具体读取评论后如何使用，帖子里没有交代，不做推断。",
+    "tags": [
+     "Agent 工程",
+     "Code Review",
+     "Skills"
+    ]
+   }
+  },
   {
    "id": "x-2123104323877880108",
    "date": "2026-11-19",
