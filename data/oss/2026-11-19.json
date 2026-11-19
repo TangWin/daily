@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-11-19",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-11-19-soduwork",
+      "date": "2026-11-19",
+      "type": "oss",
+      "rank": 1,
+      "title": "SoduWork：把多种 Coding Agent 接进自托管需求池，先定验收标准、交叉 AI 复核、最后由人签收",
+      "summary": "MIT 开源的团队 AI 工作台：Pi、OpenCode、DeepSeek Harness、Qwen Code、Kimi Code、Codex 等 9 种 harness 统一接入，一个 Agent 干活、另一个换模型按验收标准复核，做对的流程存成可审核的插件；11-10 起已发 5 版，近 24 小时 108 次提交。",
+      "url": "https://github.com/mdiri-ai/SoduWork",
+      "tags": [
+        "AI Agent",
+        "Coding Agent",
+        "MCP",
+        "开发者工具",
+        "团队协作",
+        "自托管"
+      ],
+      "raw_tags": [],
+      "score": 2908,
+      "score_label": "★ 2908",
+      "detail": {
+        "status": "picked",
+        "repo": "mdiri-ai/SoduWork",
+        "homepage": "https://www.soduwork.ai",
+        "stars": 2908,
+        "forks": 345,
+        "license": "MIT",
+        "language": "JavaScript",
+        "latest_release": "v1.13.18",
+        "runners_up": [],
+        "body_md": "## SoduWork：把 Claude Code/Codex/OpenCode 等 Agent 接进团队需求池，先定验收标准，再交叉 AI 复核，最后由人签收\n\n**为什么今天值得试：** 现在 Coding Agent 干活很快，费时的是检查它交的东西。SoduWork 不是又一个 Agent，它把 Pi、OpenCode、DeepSeek Harness、Qwen Code、Kimi Code、Codex 等 9 种 harness 放进同一个自托管工作台：每个需求开工前先写好验收标准，干活的 Agent 和复核的 Agent 可以用不同 harness、不同模型，最后由提需求的人签收。做对一次的流程还能存成插件给团队复用。项目北京时间 10-29 建库，11-10 起已发 5 个正式版，最近 24 小时 100 多次提交，Issue 基本当天有维护者回复。\n\n- 仓库：https://github.com/mdiri-ai/SoduWork\n- 许可证：MIT（名称和 Logo 是商标，不在 MIT 范围）；主语言 JavaScript（Electron 客户端 + FastAPI Hub）；2908★ / 345 fork；最新 v1.13.18（2026-11-18 22:53 北京时间）\n\n### 解决什么问题、适合谁\n\n- 同时在用好几个 Coding Agent、想统一工作方式的个人开发者：一个人用也行，本地 SQLite 一条命令启动，组织功能不用就不出现\n- 想让团队成员和各自的 Agent 协作，又需要权限、成本、审计记录的小团队或企业\n- 想把\"这次和 AI 做对了\"的做法沉淀成可复用、可审核、有版本的流程的人\n\n### README 里的关键能力\n\n- **一个干活、一个复核：** 比如 Pi 执行，OpenCode 换个模型按验收标准逐条复核，不过就带着理由打回；最后由人签收才算完成\n- **需求池贯穿全流程：** 提需求 → AI 补全验收标准 → 指派给自己、同事或 Agent → Agent 用团队插件执行 → AI 复核 → 提需求的人签收 → 存成插件。谁提的、谁做的、用了哪个插件、谁批的都有记录\n- **多 harness：** Pi 内置；OpenCode、Codex 原生适配；DeepSeek Harness、Qwen Code、Kimi Code、Codex Harness 走 ACP（Agent Client Protocol），按需安装。对话中途可以切换 harness，历史和工作目录保留。支持 ACP 的程序写一份目录声明就能接入\n- **插件和应用：** 插件是带版本的包，包含方法、输入、验收标准和工作流（JSON，例如 `ai` → `ai_review` → `publish` 节点，每步可指定不同的 harness 和模型）；在对话里描述需求，Plugin Developer 会帮你生成。插件共享前要审核，按团队或个人授权，可以收回\n- **治理与运行：** 角色、用量、成本、审计日志；长任务可以交给你自己的云端 Runner（Runner 经 WebSocket 连 Hub，每次派发有 ID，不会重复领取，断线后补发事件）；每次运行发短期凭据，密钥不以明文写进 harness 配置\n- **数据去向：** 自托管时需求、插件、聊天记录都在你自己的 Hub；README 写明公开源码里没有单独的分析或崩溃上报\n\n### 近期活跃证据\n\n- **Issues：** 共 149 个，开放 46 个；PR 348 个，合并 232 个。11-18 一天新开了几十个 Issue，多数带复现步骤和日志。维护者回复很快，例如 #411（托管 OpenCode 和桌面版共用 opencode.db 导致启动失败）13:22 报告，14:32（北京时间）就回复已在 #420 修复；#428 关于把验收证据绑定到不可变产物摘要的提案，维护者认真回应了技术细节\n- **Release：** 11-10 发布首个二进制版 1.13.13，之后 1.13.15、1.13.16、1.13.17、1.13.18 平均两天一版，覆盖 Windows x64、Linux x64（deb/rpm/tar.gz，带签名）、macOS ARM/Intel，以及 Linux amd64 的 Hub 镜像，附 release-manifest 和各平台验收回执。最新版的说明比较简短，细节要看 manifest\n- **提交：** 共约 870 次，44 位贡献者（2026wangwei 211、hugengyong 187、guo9310 166、yongzhang1223 59）。11-12 以来 637 次，最近 24 小时 108 次，最新一次在 11-19 07:58（北京时间）。最近主要在修 Runner 会话隔离、插件评估断线恢复、Linux 无 keyring 登录、首次安装密码时机等稳定性问题\n\n### 快速上手\n\n1. 准备 Python 3.12+、Node.js 22.19+ 和 Git，然后 `git clone https://github.com/mdiri-ai/SoduWork && cd SoduWork && sh start.sh --desktop`（Windows 用 `.\\start.cmd --desktop`）。首次运行会装依赖，并启动 Hub、管理后台和桌面客户端，按提示给 `admin` 设置 12–128 位密码\n2. 在管理后台 **Capabilities → Model catalog** 里添加服务后，还要单独 **Add model** 并选 **Chat model**，只存密钥不会出现可选模型；桌面端登录时确认 **Connection** 指向同一个 Hub\n3. 新建对话，选 Pi 和刚加的模型（建议先用 OpenAI 兼容的对话模型）试个小任务；需要指派和验收时就建一个需求，填目标和验收标准，点 **Arrange execution** 选 Agent 和模型。团队部署可以用 `python3 ops/self-host/deploy.py up` 拉起 Hub、后台和 PostgreSQL\n\n### 风险与注意点\n\n- **公开 Beta、非常新：** 建库 3 周，版本发得很密，1.13.15 明确写了不支持从 1.13.13 迁移；README 也建议上生产前先评估。开放的 Issue 多数是安装和边界问题，Windows 源码首次启动、代理环境下载失败这类报告比较多\n- **默认连官方服务：** 客户端默认 Hub 是 `https://service.soduwork.ai`，在这里会产生用量记录（对话标题、模型、token 和成本）和更新检查；想数据不出本地，就在登录页把 Connection 改成你自己的 Hub。官方在线 Demo 不要传真实数据\n- **不是沙箱：** README 写明 Runner 和 skill 不是通用沙箱，隔离程度取决于 harness 和你的环境，只把 Runner 连到你信任的 Hub\n- **配置门槛：** 模型的\"思考能力\"在自动识别模式下，遇到不支持关闭思考的模型会直接报 400（#417，可以先手动设成\"始终开启\"）；Codex 用自己的 OpenAI 账号，不走你在 SoduWork 里配的 API key\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
