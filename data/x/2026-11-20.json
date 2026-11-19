@@ -1,0 +1,47 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-20",
+ "day": {
+  "digest": "今天目前只有 Matt Pocock 的一条回复：针对有人质疑他视频里 21,000 行 PR 的规模，他回应对方更喜欢评论而不是看视频。",
+  "by_source": {
+   "mattpocockuk": "回应对其 21,000 行 PR 视频的质疑，称对方没看视频就评论。"
+  },
+  "updated_at": "2026-11-20T08:25:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2123504198600016203",
+   "date": "2026-11-20",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123504198600016203",
+   "url": "https://x.com/mattpocockuk/status/2123504198600016203",
+   "posted_at": "2026-11-20T03:50+08:00",
+   "kind": "reply",
+   "text": "I see you prefer commenting over watching",
+   "article_title": null,
+   "reply_to": {
+    "handle": "chrisped",
+    "post_id": "2123501252344787380",
+    "url": "https://x.com/chrisped/status/2123501252344787380",
+    "text": "A 21,000-line PR.\n\nThat is not the flex you think it is."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我看你更喜欢评论，而不是看视频",
+   "analysis": {
+    "summary": "Matt 此前发布了 70 分钟构建 21,000 行 PR 的工作视频，chrisped 评论“一个 21,000 行的 PR，这可不是你以为的那种值得炫耀的事”，Matt 回复说对方似乎更喜欢评论而不是去看视频。",
+    "points": [
+     "chrisped 质疑 21,000 行的 PR 规模不值得炫耀",
+     "Matt 回应暗示对方没看视频就下结论"
+    ],
+    "why": "属于社交性回怼，信息量很低；侧面反映出超大 PR 的做法会引发争议，Matt 的立场是内容需看完视频再评价。",
+    "tags": [
+     "Agent 工程",
+     "代码审查"
+    ]
+   }
+  }
+ ]
+}
