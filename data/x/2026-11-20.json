@@ -3,13 +3,117 @@
  "type": "x",
  "date": "2026-11-20",
  "day": {
-  "digest": "今天 Matt Pocock 有两条回复：一条回应有人对其 21,000 行 PR 视频的质疑，称对方更喜欢评论而不是看视频；另一条在有人询问 handoff 和 teach skills 用法时，反问对方想解决什么问题。",
+  "digest": "今天只有 Matt Pocock 更新：他回怼了对 21,000 行 PR 视频的质疑、就 /handoff 用法反问提问者，又与 Eric Clemmons 讨论 AI 时代 ADR 是否还有必要（追问创建标准），晚间分享了一条让 agent 清理代码注释的长 prompt，称“注释有害”。",
   "by_source": {
-   "mattpocockuk": "回怼对 21,000 行 PR 视频的质疑，并就 /handoff 用法反问提问者的具体需求。"
+   "mattpocockuk": "回应 PR 视频质疑和 /handoff 提问，讨论 ADR 的记录门槛，并分享清理代码注释、沉淀成 /delete-comment skill 的 prompt。"
   },
-  "updated_at": "2026-11-20T20:25:00+09:00"
+  "updated_at": "2026-11-21T00:30:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2123798388227403983",
+   "date": "2026-11-20",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123798388227403983",
+   "url": "https://x.com/mattpocockuk/status/2123798388227403983",
+   "posted_at": "2026-11-20T23:19+08:00",
+   "kind": "post",
+   "text": "Prompt of the day (a long one):\n\nTake a look at every code comment in <my codebase | this section of the code>.\n\nCategorise each comment as:\n\n- Tautology: simply repeats what is already visible from the code\n- Excuse: many comments allow the agent to get away with a hacky implementation, which then gets propagated through the code\n- Stale: references code or implementation information that is no longer relevant\n- Decision Record: documents an important, non-obvious decision about the code\n\nFor each comment, take this action:\n\n- Tautology/Stale: delete the comment\n- Excuse: delete the comment and file an issue to fix the hacky implementation\n- Decision Record: move it into an ADR\n\nOnce this is done:\n\n- Create a lint rule banning comments for <my codebase | this section of the code>\n- Take a ratchet approach, assuming not all comments will be deleted this PR\n- Create a /delete-comment skill in this repository so we can repeat this process later\n- Estimate for me how many lines of code we'll shed by deleting all comments\n\n---\n\nI'm sold - comments considered harmful",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "今日 prompt（比较长）：\n\n看一遍 <我的代码库 | 这部分代码> 里的每一条代码注释。\n\n把每条注释归类为：\n\n- 同义反复（Tautology）：只是重复代码里已经看得到的东西\n- 借口（Excuse）：很多注释让 agent 得以蒙混过一个 hacky 的实现，然后这种实现在代码里被扩散开\n- 过时（Stale）：引用了已不再相关的代码或实现信息\n- 决策记录（Decision Record）：记录了关于代码的重要且不明显的决策\n\n对每条注释采取如下行动：\n\n- 同义反复 / 过时：删除该注释\n- 借口：删除该注释，并提一个 issue 去修复那个 hacky 实现\n- 决策记录：把它移到 ADR 中\n\n完成后：\n\n- 为 <我的代码库 | 这部分代码> 创建一条禁止注释的 lint 规则\n- 采用 ratchet（棘轮）方式，假定这个 PR 里不会删掉所有注释\n- 在这个仓库里创建一个 /delete-comment skill，以便以后重复这个流程\n- 帮我估算删除所有注释能减掉多少行代码\n\n---\n\n我被说服了——注释有害",
+   "analysis": {
+    "summary": "Matt 分享了一条“今日 prompt”：让 agent 审查代码库中的所有注释，按同义反复、借口、过时、决策记录四类处理，再加禁止注释的 lint 规则、棘轮式推进，并沉淀成 /delete-comment skill。他表示自己已经认同“注释有害”。",
+    "points": [
+     "四类注释：同义反复、借口（掩盖 hacky 实现）、过时、决策记录",
+     "处理方式：前两类过时/重复的删掉；借口类删掉并提 issue 修实现；决策记录移入 ADR",
+     "之后加 lint 规则禁止注释，并用 ratchet 方式逐步收紧",
+     "把流程做成仓库内的 /delete-comment skill，便于以后重复",
+     "让 agent 估算删除注释能减少多少行代码"
+    ],
+    "why": "这是可直接复用的 agent prompt，核心观点是：在 AI 写代码时，注释常成为 agent 为糟糕实现找借口的地方，并会被复制扩散。“注释有害”是 Matt 的个人观点，并非共识；与同日他和 Eric Clemmons 关于 ADR 的讨论相呼应。",
+    "tags": [
+     "Agent 工程",
+     "Prompt",
+     "Skills",
+     "代码质量"
+    ]
+   }
+  },
+  {
+   "id": "x-2123796403604599135",
+   "date": "2026-11-20",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123796403604599135",
+   "url": "https://x.com/mattpocockuk/status/2123796403604599135",
+   "posted_at": "2026-11-20T23:11+08:00",
+   "kind": "reply",
+   "text": "Banger, thanks\n\nHad me in the first half, ngl",
+   "article_title": null,
+   "reply_to": {
+    "handle": "ericclemmons",
+    "post_id": "2123793834685456412",
+    "url": "https://x.com/ericclemmons/status/2123793834685456412",
+    "text": "👋 I'll preface with you do it right 👑\n\nThe root problem was the agent considered almost any high LoC change to be a \"changed decision\" and dutifully recorded it:\n> ... Write an ADR for a durable trade-off, contract, convention, rejected approach, or changed decision...\n\n(What we wanted were constraints to prevent old patterns)\n\nFor those that still want ADRs, I point them to your skills & our Codex () with a very high bar:\n\n- HITL to record ADR\n- hard to reverse, surprising without context, AND a real-trade-off\n- MUST for security/compliance"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "说得好，谢谢\n\n前半段差点把我说服了，说真的",
+   "analysis": {
+    "summary": "Eric 回应 Matt 的追问：根本问题是 agent 把几乎所有大改动都当成“决策变更”并记成 ADR；他现在建议想保留 ADR 的人使用 Matt 的 skills，并设很高门槛（人工确认、难以逆转且有真实取舍、安全/合规必须记录）。Matt 回复称赞并调侃“前半段差点把我说服了”。",
+    "points": [
+     "Eric 说明问题根源：agent 按提示把几乎任何高代码量改动都记录为 ADR",
+     "他们真正想要的是防止旧模式回潮的约束",
+     "Eric 给出的高门槛：HITL（人工参与）才记录 ADR；难以逆转、无上下文会让人意外、且确有取舍；安全/合规相关必须记录",
+     "Matt 回应认可，并开玩笑说前半段（删光 ADR）差点让他信了"
+    ],
+    "why": "Matt 的回复本身信息量很低，但被回复的帖子给出了有用结论：让 agent 写 ADR 时要设高门槛并加入人工确认，否则会产生大量很快过时的记录。",
+    "tags": [
+     "Agent 工程",
+     "ADR",
+     "Skills"
+    ]
+   }
+  },
+  {
+   "id": "x-2123788371147587879",
+   "date": "2026-11-20",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123788371147587879",
+   "url": "https://x.com/mattpocockuk/status/2123788371147587879",
+   "posted_at": "2026-11-20T22:39+08:00",
+   "kind": "reply",
+   "text": "What was your criteria for creating ADR's?",
+   "article_title": null,
+   "reply_to": {
+    "handle": "ericclemmons",
+    "post_id": "2123466481057038439",
+    "url": "https://x.com/ericclemmons/status/2123466481057038439",
+    "text": "I was wrong. I deleted all ADRs from our codebase.\n\n🔄 49% got superseded\n3️⃣ days until superseded\n🔜 7% were superseded that same day\n\nAI has made \"leave it better than you found it\" fiscally viable!\n\nYour codebase today is your ADR.\nOld patterns should be short-lived."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "你当初创建 ADR 的标准是什么？",
+   "analysis": {
+    "summary": "Eric Clemmons 发帖说自己错了，已把代码库里的 ADR（架构决策记录）全部删掉：49% 被取代、平均 3 天就被取代、7% 当天就被取代，并称 AI 让“离开时比来时更好”在成本上变得可行，“今天的代码库就是你的 ADR”。Matt 回复追问他当初创建 ADR 的标准是什么。",
+    "points": [
+     "Eric 删除了代码库中所有 ADR，理由是大部分很快被取代（49% 被取代，约 3 天，7% 当天）",
+     "Eric 的观点：有了 AI，持续改进代码在成本上可行，代码库本身就是决策记录，旧模式应短命",
+     "Matt 追问对方创建 ADR 的标准，暗示问题可能出在记录门槛上"
+    ],
+    "why": "这是一次关于 AI 编程时代是否还需要 ADR 的讨论。Matt 的追问指向关键：ADR 很快过时，可能是因为记录的门槛太低，而不是 ADR 本身没用。帖子中的百分比是 Eric 自己代码库的数据，不代表普遍情况。",
+    "tags": [
+     "Agent 工程",
+     "ADR",
+     "代码文档"
+    ]
+   }
+  },
   {
    "id": "x-2123723470580351396",
    "date": "2026-11-20",
