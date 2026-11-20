@@ -3,13 +3,47 @@
  "type": "x",
  "date": "2026-11-20",
  "day": {
-  "digest": "今天目前只有 Matt Pocock 的一条回复：针对有人质疑他视频里 21,000 行 PR 的规模，他回应对方更喜欢评论而不是看视频。",
+  "digest": "今天 Matt Pocock 有两条回复：一条回应有人对其 21,000 行 PR 视频的质疑，称对方更喜欢评论而不是看视频；另一条在有人询问 handoff 和 teach skills 用法时，反问对方想解决什么问题。",
   "by_source": {
-   "mattpocockuk": "回应对其 21,000 行 PR 视频的质疑，称对方没看视频就评论。"
+   "mattpocockuk": "回怼对 21,000 行 PR 视频的质疑，并就 /handoff 用法反问提问者的具体需求。"
   },
-  "updated_at": "2026-11-20T08:25:00+09:00"
+  "updated_at": "2026-11-20T20:25:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2123723470580351396",
+   "date": "2026-11-20",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123723470580351396",
+   "url": "https://x.com/mattpocockuk/status/2123723470580351396",
+   "posted_at": "2026-11-20T18:21+08:00",
+   "kind": "reply",
+   "text": "What are you looking to use them for? I.e. what problem are you having?\n\nOr are you just looking at /handoff and wondering when you'd use it?",
+   "article_title": null,
+   "reply_to": {
+    "handle": "Suocollinzo",
+    "post_id": "2123723033626157317",
+    "url": "https://x.com/Suocollinzo/status/2123723033626157317",
+    "text": "You are giving so much for free, l want to beg on something Sir how do l use handoff docs or handoff and teach skills, l am not clear on it. Can you please explain more on it, l will really appreciate"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "你想用它们来做什么？也就是说，你遇到了什么问题？\n\n还是说你只是看到了 /handoff，在想什么时候会用到它？",
+   "analysis": {
+    "summary": "有人向 Matt 求助，说不太清楚怎么使用 handoff 文档（或 /handoff）以及 teach 类 skills；Matt 没有直接讲解，而是反问对方想用它们解决什么问题，还是只是看到 /handoff 不知道何时该用。",
+    "points": [
+     "提问者对 handoff 文档 / handoff 和 teach skills 的用法感到困惑",
+     "Matt 反问对方的具体使用场景和遇到的问题",
+     "他区分了两种情况：有实际问题要解决，或只是好奇 /handoff 的适用时机"
+    ],
+    "why": "本身是简短的答疑式回复，信息量不高；可以看出 Matt 倾向于从实际问题出发来讲工具用法，而不是脱离场景讲解。帖子里没有给出 /handoff 的具体用法。",
+    "tags": [
+     "Skills",
+     "Agent 工程"
+    ]
+   }
+  },
   {
    "id": "x-2123504198600016203",
    "date": "2026-11-20",
