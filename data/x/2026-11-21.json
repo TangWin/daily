@@ -1,0 +1,217 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-21",
+ "day": {
+  "digest": "Matt Pocock 预告面向非开发者的 skill /vector，并在一串回复中论证 ADR（架构决策记录）比代码注释更适合为 agent 保存代码库的“为什么”。",
+  "by_source": {
+   "mattpocockuk": "预告 /vector skill，并连续发帖讨论 ADR 对 agent 的价值。"
+  },
+  "updated_at": "2026-11-21T08:25:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2123861337650471082",
+   "date": "2026-11-21",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123861337650471082",
+   "url": "https://x.com/mattpocockuk/status/2123861337650471082",
+   "posted_at": "2026-11-21T03:29+08:00",
+   "kind": "reply",
+   "text": "This is not to say that every piece of code needs an ADR.\n\nBut if comments are a bad store of the 'why' of the codebase (and they are), then you need to put it somewhere. An ADR is a great spot.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2123861012550148104",
+    "url": "https://x.com/mattpocockuk/status/2123861012550148104",
+    "text": "I don't think \"anything in the system should be challenged\" is correct.\n\nInstead, \"do not remove a fence until you know why it was put up in the first place.\""
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "这并不是说每一段代码都需要一个 ADR。\n\n但如果注释不适合存放代码库的“为什么”（事实也确实如此），那你就需要把它放到别的地方。ADR 就是个很好的地方。",
+   "analysis": {
+    "summary": "Matt 为这串讨论收尾：并非每段代码都需要 ADR，但既然注释不适合存放代码库的“为什么”，就需要别的地方存放，ADR 是好选择。",
+    "points": [
+     "不是每段代码都需要 ADR",
+     "他认为注释不适合记录代码库的“为什么”",
+     "ADR 是存放设计原因的好地方"
+    ],
+    "why": "总结了他的立场：用 ADR 而不是注释来承载设计决策的原因，这对给 agent 提供可靠上下文尤其有用。属于作者观点。",
+    "tags": [
+     "ADR",
+     "代码文档",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2123861012550148104",
+   "date": "2026-11-21",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123861012550148104",
+   "url": "https://x.com/mattpocockuk/status/2123861012550148104",
+   "posted_at": "2026-11-21T03:28+08:00",
+   "kind": "reply",
+   "text": "I don't think \"anything in the system should be challenged\" is correct.\n\nInstead, \"do not remove a fence until you know why it was put up in the first place.\"",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2123860812607758629",
+    "url": "https://x.com/mattpocockuk/status/2123860812607758629",
+    "text": "IMO ADR's are essential for agents so that they don't continually recommend avenues you've already explored.\n\nOr, once you pass off the system the agents can see the history of all the surprising decisions."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我不认为“系统里的一切都应该被质疑”是对的。\n\n而应该是：“在弄清楚一道篱笆当初为什么被立起来之前，不要拆掉它。”",
+   "analysis": {
+    "summary": "Matt 在同一串讨论中继续：他不同意“系统里一切都应被质疑”，主张遵循“切斯特顿的篱笆”原则——先弄清原因再改动。",
+    "points": [
+     "反对“系统里一切都该被质疑”的说法",
+     "引用切斯特顿篱笆原则：不知道为何存在之前不要移除"
+    ],
+    "why": "为 ADR 的价值提供了理论依据：记录决策原因，agent 和后来者才能判断某个设计能否拆除。线程中被反驳的“一切都应被质疑”出自谁未采集到。",
+    "tags": [
+     "ADR",
+     "软件设计",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2123860812607758629",
+   "date": "2026-11-21",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123860812607758629",
+   "url": "https://x.com/mattpocockuk/status/2123860812607758629",
+   "posted_at": "2026-11-21T03:27+08:00",
+   "kind": "reply",
+   "text": "IMO ADR's are essential for agents so that they don't continually recommend avenues you've already explored.\n\nOr, once you pass off the system the agents can see the history of all the surprising decisions.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2123860597963894965",
+    "url": "https://x.com/mattpocockuk/status/2123860597963894965",
+    "text": "First, ADR's don't have to be long. They can be short and sharp, which is when they're best used.\n\nSecond, you don't need them for most decisions. Only for surprising decisions that are hard to reverse.\n\nI prefer ADR's to comments because comments can ALSO be used as excuses."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "在我看来，ADR 对 agent 来说必不可少，这样它们就不会一再推荐你已经探索过的方向。\n\n或者，当你把系统交接出去后，agent 能看到所有出人意料的决策的历史。",
+   "analysis": {
+    "summary": "Matt 接着自己的回复补充：ADR 对 agent 必不可少，能避免 agent 反复推荐已探索过的方案，也能在系统交接后保留决策历史。",
+    "points": [
+     "ADR 能防止 agent 反复建议已经试过的方向",
+     "系统交接后，agent 能通过 ADR 看到出人意料决策的历史"
+    ],
+    "why": "点出了 agent 编程的一个常见痛点：agent 没有历史记忆，会重复提出被否决的方案。ADR 被当作一种持久的项目记忆。属于作者观点。",
+    "tags": [
+     "ADR",
+     "Agent 工程",
+     "上下文"
+    ]
+   }
+  },
+  {
+   "id": "x-2123860597963894965",
+   "date": "2026-11-21",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123860597963894965",
+   "url": "https://x.com/mattpocockuk/status/2123860597963894965",
+   "posted_at": "2026-11-21T03:26+08:00",
+   "kind": "reply",
+   "text": "First, ADR's don't have to be long. They can be short and sharp, which is when they're best used.\n\nSecond, you don't need them for most decisions. Only for surprising decisions that are hard to reverse.\n\nI prefer ADR's to comments because comments can ALSO be used as excuses.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "ItsPatrickU",
+    "post_id": "2123853775148572932",
+    "url": "https://x.com/ItsPatrickU/status/2123853775148572932",
+    "text": "Kind of like having too much context. I’d say, keep the comment. Skip the ADR. End up with less bloat, and an agent that’s enabled to do better work. The “now” is way more important than the “how did we get here”. Just like we fight LLMs to drop so much history into docs"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "第一，ADR 不必很长。它们可以简短犀利，这时候用起来效果最好。\n\n第二，大多数决策不需要 ADR。只有那些出人意料、难以逆转的决策才需要。\n\n比起注释我更喜欢 ADR，因为注释同样可能被当作借口。",
+   "analysis": {
+    "summary": "有人认为保留注释、跳过 ADR 能减少冗余，让 agent 更专注于“现在”。Matt 反驳：ADR 可以很短，只用于出人意料且难逆转的决策，并且他更偏好 ADR 而非注释。",
+    "points": [
+     "ADR（架构决策记录）可以简短，短而犀利时最好用",
+     "大多数决策不需要 ADR，只记录出人意料、难以逆转的决策",
+     "注释同样可能被当作借口，所以他更偏好 ADR"
+    ],
+    "why": "这是关于如何给 AI agent 保留代码库“为什么”的讨论，属于作者观点。对使用 agent 的团队有参考意义：用少量精炼的 ADR 代替散落的注释。",
+    "tags": [
+     "ADR",
+     "Agent 工程",
+     "代码文档"
+    ]
+   }
+  },
+  {
+   "id": "x-2123851525571375458",
+   "date": "2026-11-21",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123851525571375458",
+   "url": "https://x.com/mattpocockuk/status/2123851525571375458",
+   "posted_at": "2026-11-21T02:50+08:00",
+   "kind": "reply",
+   "text": "Because there is value in the comments to be extracted before deletion",
+   "article_title": null,
+   "reply_to": {
+    "handle": "carchoun",
+    "post_id": "2123811693667209484",
+    "url": "https://x.com/carchoun/status/2123811693667209484",
+    "text": "Why the prompt then? Why not just tell it to delete all comments?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "因为在删除之前，注释里还有价值可以提取出来",
+   "analysis": {
+    "summary": "有人问：既然如此为何还要用 prompt，直接让它删掉所有注释不就行了？Matt 回复：删除前注释里还有可提取的价值。",
+    "points": [
+     "讨论背景是用 AI 处理代码注释",
+     "Matt 认为注释在删除前应先提取其中有价值的信息"
+    ],
+    "why": "结合同时段的 ADR 讨论，他的思路似乎是把注释里的“为什么”迁移到别处再删除；但被回复帖的完整上下文未采集到，这只是推断。",
+    "tags": [
+     "Agent 工程",
+     "代码注释"
+    ]
+   }
+  },
+  {
+   "id": "x-2123810087361810663",
+   "date": "2026-11-21",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2123810087361810663",
+   "url": "https://x.com/mattpocockuk/status/2123810087361810663",
+   "posted_at": "2026-11-21T00:05+08:00",
+   "kind": "post",
+   "text": "Cooking my first skill for non-devs\n\nIt's called /vector, and it guides you on how to delegate AI for any task.\n\nSix simple steps, and you'll have a workflow that is easy to use, easy to trust, and gets better over time\n\nI'm planning on releasing frameworks and docs around it so you can run your own VECTOR sessions at your company:\n\n- Find workflows that AI could help with\n- Give agents the right context\n- Reorder the workflow\n- Identify ways it can improve over time (via memory)\n\nReleasing soon. Would you use this?",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "正在打磨我的第一个面向非开发者的 skill\n\n它叫 /vector，会指导你如何把任何任务委派给 AI。\n\n六个简单步骤，你就能得到一个好用、可信、还会随时间越用越好的工作流\n\n我打算围绕它发布一些框架和文档，让你可以在自己公司里开展 VECTOR 工作坊：\n\n- 找出 AI 能帮上忙的工作流\n- 给 agent 提供正确的上下文\n- 重新编排工作流\n- 找到让它随时间改进的方法（借助 memory）\n\n即将发布。你会用吗？",
+   "analysis": {
+    "summary": "Matt Pocock 预告他第一个面向非开发者的 skill /vector，用六个步骤指导人们把任务委派给 AI，并计划配套发布框架和文档。",
+    "points": [
+     "/vector 是面向非开发者的 skill，指导如何把任意任务委派给 AI",
+     "号称六个步骤即可得到好用、可信、可持续改进的工作流",
+     "计划发布配套框架和文档，便于在公司内开展 VECTOR 工作坊",
+     "内容涵盖：找可用 AI 的工作流、提供上下文、重排流程、借助 memory 持续改进",
+     "尚未发布，作者在征集反馈"
+    ],
+    "why": "Matt 一直面向开发者讲 AI 编程，这条表明他开始把 skills 方法论推向非开发者和企业场景。目前只是预告，具体六个步骤和效果尚未公开。",
+    "tags": [
+     "Skills",
+     "AI 委派",
+     "工作流"
+    ]
+   }
+  }
+ ]
+}
