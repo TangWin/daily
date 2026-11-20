@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-11-20",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-11-20-dsh-go",
+      "date": "2026-11-20",
+      "type": "oss",
+      "rank": 1,
+      "title": "DSH Go：把 DeepSeek Harness 装进 Android 手机，本机跑 Agent、遥控电脑、还能替你点手机",
+      "summary": "AGPL 开源的 DeepSeek Harness 手机客户端：App 内免 Root 装 Ubuntu+Node+DSH 在手机本机跑 Agent，也能通过 SSH/DSHarness Remote 接管电脑上的 DSH，支持读屏点按的手机操控和三档确认；11-18 发 v1.2.0，最近一天 100 多次提交。",
+      "url": "https://github.com/ccch1mneyyy/dsh-Go",
+      "tags": [
+        "AI Agent",
+        "Coding Agent",
+        "开发者工具",
+        "移动端",
+        "DeepSeek"
+      ],
+      "raw_tags": [],
+      "score": 28236,
+      "score_label": "★ 28236",
+      "detail": {
+        "status": "picked",
+        "repo": "ccch1mneyyy/dsh-Go",
+        "homepage": "https://go.dshtui.com",
+        "stars": 28236,
+        "forks": 1353,
+        "license": "AGPL-3.0",
+        "language": "Dart",
+        "latest_release": "v1.2.0",
+        "runners_up": [],
+        "body_md": "## DSH Go：把 DeepSeek Harness 装进 Android 手机，本机跑 Agent，也能遥控电脑上的 DSH\n\n**为什么今天值得试：** 大多数 Coding Agent 只能在电脑上跑，手机最多当个远程查看窗口。DSH Go 在 App 里装一套 Ubuntu + Node.js + DSH 运行环境（不用 Root，也不用 Termux），手机自己就是一台能跑 Agent 的主机；也能通过 SSH / DSHarness Remote 连上电脑、服务器上的 DSH 接着干。开了无障碍权限后，Agent 还能看屏幕、帮你点按，每一步可以要求你确认。北京时间 11-18 发了 v1.2.0（第一次出未签名 iOS 包、鸿蒙代码合进主线），最近一天 100 多次提交。\n\n- 仓库：https://github.com/ccch1mneyyy/dsh-Go\n- 许可证：AGPL-3.0（`sdk/`、`examples/` 是 MIT；名称和 Deepy、鲸娘形象不在授权范围内）；主语言 Dart（Flutter + Kotlin）；28236★ / 1353 fork；最新 v1.2.0（2026-11-18 15:32 北京时间）\n- 社区开发的非官方客户端，和 DeepSeek 没有关系\n\n### 解决什么问题、适合谁\n\n- 已经在用 DeepSeek Harness（DSH）、想在路上用手机继续盯任务、插话或审批工具调用的人\n- 想让 Agent 在手机上直接操作 App（读屏、点按、输入）做自动化的人\n- 想给 DSH 写带原生表单、面板的插件的开发者（仓库带插件 SDK 和示例）\n\n### README 里的关键能力\n\n- **本机运行：** App 内一键装 Ubuntu、Node.js 和 DSH，默认用 PRoot 兼容启动，约占 1 GB；模型请求仍发到你配置的提供方，按它计费\n- **远程连接：** SSH 或 DSHarness Remote 连电脑/服务器上的 DSH，一键在本机和远程主机之间切换\n- **聊天与工具：** 换模型、发图片、语音输入，回复中途也能插话、排队消息「立即发送」，做完的过程折叠成一行；和官方网页版一键切换，停在同一段对话\n- **手机操控：** 读屏幕、点按、输入，确认分三档（允许一次 / 本轮允许 / 取消），敏感操作默认交还给你；「不打扰模式」要 Android 14+ 和 Shizuku 或自连 ADB\n- **插件与分享：** 原生工具卡、表单、面板插件；对话可做分享卡，或生成端到端加密的回放链接\n- 还有桌宠、主题、横屏/平板排版、中英文界面\n\n### 近期活跃证据\n\n- **Release：** 北京时间 10-30 发 v1.0.0，到 11-18 的 v1.2.0 共 19 个版本。v1.2.0 加了未签名 iOS 包（需自己签名）、鸿蒙代码合入主线、手机操控三档确认和「始终允许」App 列表、按你问过的话搜索会话，修了安卓引擎重启卡死、DeepSeek 拒答被当成网络错误等问题；说明里直接写了 iOS/鸿蒙只在模拟器上测过\n- **提交：** 共约 2950 次提交，几乎都是作者 ccch1mneyyy 一个人写的；最近 7 天约 755 次，11-19 08:00 北京时间以来 114 次，最新一次 11-20 09:23 北京时间，集中在酒馆功能修复、性能和 CI 提速\n- **Issues：** 共约 1044 个、开放约 767 个，11-17 以来新开了 80 个，大多是具体机型的安装和兼容问题（vivo 提示缺少开发者证书、Android 9 proot 崩溃、华为 WebView 白屏）。有些当天就关掉了（#1521 21 分钟关），社区用户也会互相帮忙排查，但大量新 Issue 还没有人回复\n\n### 快速上手\n\n1. 在 [Releases](https://github.com/ccch1mneyyy/dsh-Go/releases/latest) 下载 `dsh-go-1.2.0-arm64.apk` 侧载安装（要求 Android 8+；模拟器用发布说明末尾的 x64 包）\n2. 首次启动选「在本机安装运行环境」（预留约 1 GB），或者直接填电脑的 SSH / DSHarness Remote 连接\n3. 为主机配置模型和 API Key 后开聊；想让它操控手机，再按指引开无障碍权限，先保留默认的确认\n\n### 风险与注意点\n\n- **单人维护、跑得很快：** 几乎全部代码出自一个人，开放 Issue 七百多个，新版改动多数只过了自动测试；iOS（未签名 ipa）和鸿蒙版都还是测试状态\n- **手机操控有真实后果：** 屏幕文字和截图可能发给模型；README 明确建议不要在存有支付或银行信息的设备上解除限制，不可逆的操作别让它无人值守地跑\n- **侧载 APK：** 不在 Google Play 上，部分国产系统会拦截安装或在后台杀进程；签名不同的旧测试包要先卸载，卸载会清空对话和 Linux 环境\n- **隐私默认值：** 「发送匿名使用统计」默认开启，可以在设置 → 隐私与分享里关掉\n- **许可证：** AGPL-3.0，改了再分发要开源；作者还希望二次开发前先联系他，品牌和吉祥物不能拿去商用\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
