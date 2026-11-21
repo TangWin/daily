@@ -3,13 +3,114 @@
  "type": "x",
  "date": "2026-11-21",
  "day": {
-  "digest": "Matt Pocock 预告面向非开发者的 skill /vector，并在一串回复中论证 ADR（架构决策记录）比代码注释更适合为 agent 保存代码库的“为什么”。",
+  "digest": "Matt Pocock 预告面向非开发者的 skill /vector，并围绕 ADR（架构决策记录）连续发帖：论证 ADR 比代码注释更适合为 agent 保存代码库的“为什么”，举出“缩略图示意图不是示意图”的例子，并回应可发现性和术语表的质疑。",
   "by_source": {
-   "mattpocockuk": "预告 /vector skill，并连续发帖讨论 ADR 对 agent 的价值。"
+   "mattpocockuk": "预告 /vector skill，并围绕 ADR 对 agent 的价值连续发帖和回复。"
   },
-  "updated_at": "2026-11-21T08:25:00+09:00"
+  "updated_at": "2026-11-21T20:25:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2124096506617549030",
+   "date": "2026-11-21",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124096506617549030",
+   "url": "https://x.com/mattpocockuk/status/2124096506617549030",
+   "posted_at": "2026-11-21T19:04+08:00",
+   "kind": "reply",
+   "text": "It is, but you shouldn't put reasoning or implementation details in the glossary",
+   "article_title": null,
+   "reply_to": {
+    "handle": "tri_rizeki",
+    "post_id": "2124088558030115034",
+    "url": "https://x.com/tri_rizeki/status/2124088558030115034",
+    "text": "why can't this be in GLOSSARY instead?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "可以放，但你不应该把推理过程或实现细节放进术语表（glossary）",
+   "analysis": {
+    "summary": "有人问为什么这些内容不能放进 GLOSSARY（术语表）。Matt 回复：术语表可以用，但不应在里面写推理过程或实现细节。",
+    "points": [
+     "有人建议用术语表代替 ADR",
+     "Matt 认为术语表不应包含决策推理和实现细节",
+     "言下之意：术语表管命名，ADR 管“为什么”"
+    ],
+    "why": "补充区分了术语表与 ADR 的职责边界。回复很短，“言下之意”一条是对上下文的解读。",
+    "tags": [
+     "ADR",
+     "术语表",
+     "代码文档"
+    ]
+   }
+  },
+  {
+   "id": "x-2124060786641313884",
+   "date": "2026-11-21",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124060786641313884",
+   "url": "https://x.com/mattpocockuk/status/2124060786641313884",
+   "posted_at": "2026-11-21T16:42+08:00",
+   "kind": "reply",
+   "text": "If your domain language is set up right, i.e. things are named the same, then relevant ADR's are going to be shown whenever it searches for the right terms",
+   "article_title": null,
+   "reply_to": {
+    "handle": "f_stack_snack",
+    "post_id": "2124060296419397905",
+    "url": "https://x.com/f_stack_snack/status/2124060296419397905",
+    "text": "So instead of decision WHY it's done this way right where the information is needed, you move it to a long list of documents and pray that an agent editing this piece of code would find relevant ADR. What's the profit of lowering the chances of relevant info being read?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "如果你的领域语言设置得当，也就是同样的东西用同样的名字，那么只要 agent 搜索正确的术语，相关的 ADR 就会被检索出来",
+   "analysis": {
+    "summary": "有人质疑：把“为什么这样做”从代码旁移到一长串文档里，只能祈祷 agent 能找到相关 ADR。Matt 回复：只要领域语言统一、命名一致，agent 搜索正确术语时自然会找到相关 ADR。",
+    "points": [
+     "质疑者认为 ADR 离代码太远，降低了被 agent 读到的概率",
+     "Matt 认为关键在于统一的领域语言（同一事物同一名字）",
+     "命名一致时，agent 按术语搜索就能命中相关 ADR"
+    ],
+    "why": "回应了 ADR 方案最常见的反对意见——可发现性，把答案落在统一命名上。属于作者观点。",
+    "tags": [
+     "ADR",
+     "领域语言",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2124058139477594142",
+   "date": "2026-11-21",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124058139477594142",
+   "url": "https://x.com/mattpocockuk/status/2124058139477594142",
+   "posted_at": "2026-11-21T16:31+08:00",
+   "kind": "post",
+   "text": "Good ADR's are good, actually\n\n\"A Thumbnail Diagram is not a Diagram\"\n\nThis was the result of a long battle in a grilling session over naming and data relationships\n\nImagine the assumptions the agent would make if this ADR didn't exist.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "好的 ADR 是真的好\n\n“缩略图示意图（Thumbnail Diagram）不是示意图（Diagram）”\n\n这是在一次 grilling 会话里，围绕命名和数据关系长时间争论后得出的结果\n\n想象一下，如果没有这份 ADR，agent 会做出哪些假设。",
+   "analysis": {
+    "summary": "Matt 分享了一条 ADR 的标题“A Thumbnail Diagram is not a Diagram”，说这是在 grilling 会话中就命名和数据关系反复争论的结果，并强调没有它 agent 会自行做出假设。",
+    "points": [
+     "他认为好的 ADR 确实有价值",
+     "示例 ADR：“缩略图示意图不是示意图”",
+     "该决策来自 grilling 会话中关于命名和数据关系的长时间讨论",
+     "没有这条 ADR，agent 可能会做出错误假设"
+    ],
+    "why": "用一个具体例子说明 ADR 如何把领域命名上的决策固定下来，防止 agent 按字面相似性误推数据关系。属于作者观点；ADR 的完整内容未采集到。",
+    "tags": [
+     "ADR",
+     "领域建模",
+     "Agent 工程"
+    ]
+   }
+  },
   {
    "id": "x-2123861337650471082",
    "date": "2026-11-21",
