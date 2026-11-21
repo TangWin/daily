@@ -1,0 +1,115 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-22",
+ "day": {
+  "digest": "Matt Pocock 构想了一种用逐句打分应用让 agent 学习个人写作风格的方法，并补充其降低人类认知负担的逻辑；另在讨论中指出，对 agent 的信任程度决定了人们能否接受返工。",
+  "by_source": {
+   "mattpocockuk": "提出逐句打分让 agent 学文风的构想，并认为对 agent 的信任度比性格更影响返工容忍度。"
+  },
+  "updated_at": "2026-11-22T08:30:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2124214716461359499",
+   "date": "2026-11-22",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124214716461359499",
+   "url": "https://x.com/mattpocockuk/status/2124214716461359499",
+   "posted_at": "2026-11-22T02:53+08:00",
+   "kind": "reply",
+   "text": "I love that AI helps you optimise around the thimble of high-quality working memory that humans have.\n\nInstead of \"does this all flow together\", it's literally just \"does this sentence read well\".",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2124214098984370645",
+    "url": "https://x.com/mattpocockuk/status/2124214098984370645",
+    "text": "Thinking about a new, very simple way of getting an agent to write in your style:\n\n1. Build a 'scorer' app that lets the agent send you example sentences which you score, one at a time, swipe-left style\n2. Either as a \"score this sentence 1-4\" (single) or \"which of these is better\" (multi)\n3. You plan an article together and work through it sentence-by-sentence\n4. The agent is able to test its own hypotheses about your writing style, and builds up a profile over time"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我很喜欢 AI 能帮你绕开人类那一丁点高质量工作记忆的限制来做优化。\n\n不用再问“这些内容整体连不连贯”，而只需要问“这一句读起来好不好”。",
+   "analysis": {
+    "summary": "Matt 在自己“逐句打分让 agent 学文风”的帖子下补充：这种方式的好处是绕开人类有限的工作记忆，只需判断单句好不好，而非整体是否连贯。",
+    "points": [
+     "人类高质量的工作记忆非常有限（“一顶针那么多”）。",
+     "AI 可以帮人围绕这一限制来优化流程。",
+     "评判任务从“整体是否连贯”简化为“这一句读起来好不好”。"
+    ],
+    "why": "这是对上一条构想的补充解释，属于作者观点。它点出了该方法的设计逻辑：把复杂判断拆小，降低人类反馈的认知负担，整体连贯性交给 agent 处理。",
+    "tags": [
+     "AI 写作",
+     "认知负荷",
+     "人类反馈"
+    ]
+   }
+  },
+  {
+   "id": "x-2124214098984370645",
+   "date": "2026-11-22",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124214098984370645",
+   "url": "https://x.com/mattpocockuk/status/2124214098984370645",
+   "posted_at": "2026-11-22T02:51+08:00",
+   "kind": "post",
+   "text": "Thinking about a new, very simple way of getting an agent to write in your style:\n\n1. Build a 'scorer' app that lets the agent send you example sentences which you score, one at a time, swipe-left style\n2. Either as a \"score this sentence 1-4\" (single) or \"which of these is better\" (multi)\n3. You plan an article together and work through it sentence-by-sentence\n4. The agent is able to test its own hypotheses about your writing style, and builds up a profile over time",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "在想一种新的、非常简单的方法，让 agent 用你的风格写作：\n\n1. 做一个“打分”应用，让 agent 把示例句子发给你，你一次给一句打分，像左滑右滑那样\n2. 可以是“给这句话打 1-4 分”（单句），也可以是“这几句哪句更好”（多选）\n3. 你们一起规划一篇文章，然后逐句推进\n4. agent 能够检验它对你写作风格的假设，并随着时间积累出一份风格档案",
+   "analysis": {
+    "summary": "Matt 构想了一种让 agent 学会你写作风格的简单方法：通过逐句打分/比较的应用，让 agent 在共同写文章的过程中不断验证假设并积累风格档案。",
+    "points": [
+     "做一个类似左滑右滑的打分应用，agent 每次发一句示例让你评分。",
+     "两种模式：单句 1-4 分打分，或多句比较选更好的一句。",
+     "人与 agent 先一起规划文章，再逐句写。",
+     "agent 借此检验对你风格的假设，逐步建立风格档案。"
+    ],
+    "why": "这是一个尚在构想中的点子，并非已发布的工具。它把“教 AI 模仿文风”拆成细粒度、低认知负担的人类反馈（类似偏好标注），对想用 AI 辅助写作又保留个人风格的人有参考价值。",
+    "tags": [
+     "AI 写作",
+     "Agent 工程",
+     "人类反馈"
+    ]
+   }
+  },
+  {
+   "id": "x-2124180407759282627",
+   "date": "2026-11-22",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124180407759282627",
+   "url": "https://x.com/mattpocockuk/status/2124180407759282627",
+   "posted_at": "2026-11-22T00:37+08:00",
+   "kind": "reply",
+   "text": "IMO I think \"how much you trust the agent\" is more salient\n\nI.e. if you don't trust the agent yet then rework feels crushing",
+   "article_title": null,
+   "reply_to": {
+    "handle": "jamonholmgren",
+    "post_id": "2124165158797021206",
+    "url": "https://x.com/jamonholmgren/status/2124165158797021206",
+    "text": "I suspect this is going to fall along personality traits more than universal heuristics.\n\nI don’t mind rework, as long as what I’m building seems better, so I tend to have a high tolerance for this iterative workflow. I’ve noticed other people get more frustrated with rework than I do, and they tend to do more up front planning. Maybe I’m too impatient.\n\nI think when I do more up front planning it helps move quicker long terms, but there’s also a point of diminishing returns."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我觉得“你有多信任这个 agent”才是更关键的因素\n\n也就是说，如果你还不信任这个 agent，返工就会让人非常崩溃",
+   "analysis": {
+    "summary": "Jamon Holmgren 认为，人们对 AI 迭代式开发中“返工”的容忍度更多取决于性格，而非通用法则；Matt 回复说，更关键的是你对 agent 的信任程度。",
+    "points": [
+     "Jamon：自己不介意返工，只要结果在变好，所以偏好迭代式工作流；有人更讨厌返工、更倾向于前期多做规划，但规划也有边际收益递减。",
+     "Matt：比起性格，“你有多信任 agent”更重要。",
+     "还不信任 agent 时，返工会让人感到非常挫败。"
+    ],
+    "why": "这是 Matt 的个人观点，不是数据。它把“该前期规划还是边做边改”的讨论从性格差异转向了对 agent 的信任度，提示团队引入 agent 时，建立信任可能比选择工作流更先决。",
+    "tags": [
+     "Agent 工程",
+     "AI 编程",
+     "工作流"
+    ]
+   }
+  }
+ ]
+}
