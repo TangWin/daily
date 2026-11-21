@@ -3,13 +3,152 @@
  "type": "x",
  "date": "2026-11-21",
  "day": {
-  "digest": "Matt Pocock 预告面向非开发者的 skill /vector，并围绕 ADR（架构决策记录）连续发帖：论证 ADR 比代码注释更适合为 agent 保存代码库的“为什么”，举出“缩略图示意图不是示意图”的例子，并回应可发现性和术语表的质疑。",
+  "digest": "Matt Pocock 预告面向非开发者的 skill /vector，并围绕 ADR（架构决策记录）连续发帖，论证 ADR 比代码注释更适合为 agent 保存代码库的“为什么”。晚间他又参与 Cory House 发起的“有了 AI 该多做还是少做前期规划”讨论：认为返工即使有 AI 也令人沮丧且耗费稀缺时间，但仅限大 diff、大功能这类返工代价高的场景；另回复称语音听写的错字对 agent 无所谓。",
   "by_source": {
-   "mattpocockuk": "预告 /vector skill，并围绕 ADR 对 agent 的价值连续发帖和回复。"
+   "mattpocockuk": "预告 /vector skill，围绕 ADR 对 agent 的价值连续发帖；晚间讨论 AI 时代前期规划与返工成本。"
   },
-  "updated_at": "2026-11-21T20:25:00+09:00"
+  "updated_at": "2026-11-22T00:30:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2124147482238333210",
+   "date": "2026-11-21",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124147482238333210",
+   "url": "https://x.com/mattpocockuk/status/2124147482238333210",
+   "posted_at": "2026-11-21T22:26+08:00",
+   "kind": "reply",
+   "text": "Note that I'm really only talking about situations where rework is costly - i.e. large diffs and features.\n\nIf rework is cheap, then you're right, not much need for up-front planning.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2124147224234107214",
+    "url": "https://x.com/mattpocockuk/status/2124147224234107214",
+    "text": "Yes, but the effect is you feel that you've lost time you could have been spending on other things\n\nI.e. my time feels more constrained than ever, so I want my time spent with AI to feel effective and useful"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "注意，我其实只在说返工代价高的情况——也就是大的 diff 和功能。\n\n如果返工很便宜，那你说得对，没太大必要做前期规划。",
+   "analysis": {
+    "summary": "Matt 补充自己上一条回复的适用范围：他说的只是返工代价高的场景，即大 diff 和大功能；如果返工便宜，他同意 @housecor 的看法，不太需要前期规划。",
+    "points": [
+     "前期规划的必要性取决于返工成本",
+     "大 diff、大功能：返工代价高，值得前期规划",
+     "小改动：返工便宜，可以少规划、直接试"
+    ],
+    "why": "给出了一个实用的判断标准：按改动规模/返工成本决定要不要先规划，而不是一刀切。属于作者观点。",
+    "tags": [
+     "Agent 工程",
+     "前期规划",
+     "AI 编程"
+    ]
+   }
+  },
+  {
+   "id": "x-2124147224234107214",
+   "date": "2026-11-21",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124147224234107214",
+   "url": "https://x.com/mattpocockuk/status/2124147224234107214",
+   "posted_at": "2026-11-21T22:25+08:00",
+   "kind": "reply",
+   "text": "Yes, but the effect is you feel that you've lost time you could have been spending on other things\n\nI.e. my time feels more constrained than ever, so I want my time spent with AI to feel effective and useful",
+   "article_title": null,
+   "reply_to": {
+    "handle": "housecor",
+    "post_id": "2124146883887092130",
+    "url": "https://x.com/housecor/status/2124146883887092130",
+    "text": "Yes it can be, but I can literally re-prompt from scratch in less time than it took to build once previously"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "是的，但结果是你会觉得自己浪费了本可以花在别的事情上的时间\n\n也就是说，我的时间感觉比以往任何时候都紧张，所以我希望花在 AI 上的时间是高效、有用的",
+   "analysis": {
+    "summary": "@housecor 回应说返工确实可能令人沮丧，但他现在从头重新 prompt 一遍所需的时间，比以前从零做一遍还短。Matt 回复：即便如此，你仍会觉得浪费了本可用在别处的时间；他的时间比以往更紧张，希望与 AI 一起度过的时间高效有用。",
+    "points": [
+     "@housecor 认为重新 prompt 比过去手写一遍快得多，返工代价不大",
+     "Matt 强调的是机会成本：返工的时间本可花在别的事情上",
+     "他个人感觉时间比以往更受限，因此重视与 AI 协作的有效性"
+    ],
+    "why": "这段讨论点出了“返工便宜”论点的盲点：即使绝对时间短，开发者的注意力和时间仍是稀缺资源。属于个人观点。",
+    "tags": [
+     "Agent 工程",
+     "前期规划",
+     "时间管理"
+    ]
+   }
+  },
+  {
+   "id": "x-2124145569589563539",
+   "date": "2026-11-21",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124145569589563539",
+   "url": "https://x.com/mattpocockuk/status/2124145569589563539",
+   "posted_at": "2026-11-21T22:19+08:00",
+   "kind": "reply",
+   "text": "Doesn't matter at all, agents are awesome at it",
+   "article_title": null,
+   "reply_to": {
+    "handle": "zeeg",
+    "post_id": "2124031266555355384",
+    "url": "https://x.com/zeeg/status/2124031266555355384",
+    "text": "I really want to believe in dictation because of how much easier it makes things, but holy shit, the number of typos and random misspellings.\n\ndid you know I started Century?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "完全没关系，agent 很擅长处理这个",
+   "analysis": {
+    "summary": "David Cramer（@zeeg）吐槽语音听写虽然省事，但错字和拼写错误太多。Matt 回复：这完全没关系，agent 很擅长处理这些。",
+    "points": [
+     "@zeeg 想用语音听写，但被大量错字和拼写错误困扰",
+     "Matt 认为给 agent 的输入有错字无所谓，agent 能理解"
+    ],
+    "why": "隐含观点：用语音听写给 agent 下指令时不必纠结错字。回复很短，信息量有限，属于个人观点。",
+    "tags": [
+     "语音听写",
+     "AI 编程",
+     "工作流"
+    ]
+   }
+  },
+  {
+   "id": "x-2124145322028904893",
+   "date": "2026-11-21",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124145322028904893",
+   "url": "https://x.com/mattpocockuk/status/2124145322028904893",
+   "posted_at": "2026-11-21T22:18+08:00",
+   "kind": "reply",
+   "text": "In my experience rework is frustrating and demoralising even with AI",
+   "article_title": null,
+   "reply_to": {
+    "handle": "housecor",
+    "post_id": "2124143075341586924",
+    "url": "https://x.com/housecor/status/2124143075341586924",
+    "text": "Does AI mean we should do more up-front planning or less?\n\nThe argument for more: If we plan carefully the agent is more likely to one shot the solution. This may save tokens, time, and money.\n\nThe argument for less: Tokens are cheap, so rework is cheap. Planning delays user feedback. AI is so fast we can quickly try many ideas."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我的经验是，即便有 AI，返工依然让人沮丧、打击士气",
+   "analysis": {
+    "summary": "Cory House（@housecor）提问：有了 AI，是该多做前期规划还是少做？（支持少做的理由之一是 token 便宜所以返工便宜。）Matt 回复：在他看来，即使有 AI，返工仍然令人沮丧、打击士气。",
+    "points": [
+     "@housecor 列出多规划与少规划两方论点：多规划让 agent 更可能一次做对，省 token、时间和钱；少规划则因 token 便宜、返工便宜、能更快拿到用户反馈",
+     "Matt 认为返工的成本不只是 token，还有心理上的挫败感",
+     "他以个人经验表达，属于观点"
+    ],
+    "why": "把“AI 让返工变便宜”这一论点补上了情绪/心理成本的维度，是 Matt 倾向前期规划立场的起点。属于个人经验观点，非数据。",
+    "tags": [
+     "Agent 工程",
+     "前期规划",
+     "开发体验"
+    ]
+   }
+  },
   {
    "id": "x-2124096506617549030",
    "date": "2026-11-21",
