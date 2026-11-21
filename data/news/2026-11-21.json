@@ -1,0 +1,343 @@
+{
+ "schema_version": 1,
+ "type": "news",
+ "date": "2026-11-21",
+ "day": {
+  "window": "11/20 08:30 – 11/21 08:30 北京时间",
+  "note": "未使用 X 付费 API",
+  "footer": "来源主要是 HN（Algolia API）、GitHub releases/commits、官方博客和新闻稿。今天 HN 前排被「广义黎曼猜想证明」（HN 2305）和 Anthropic 上市后股价下跌、纳指回吐全年涨幅占满，和工程主题关系不大，不收录。Architect Labs 的 Frostbite（AI agent 群从 ISA 到 GDS 端到端设计验证的 CPU，HN 615）原文发于 11/18，偏芯片领域，只在这里提一句。OpenAI 发文讲如何对抗「对抗性蒸馏」、保护 GPT-6.2 的推理链（HN 32 · 48 评）；OpenAI Dots 常驻 agent 开始在 Plus 档小范围测试、Business Standard 全量（Engadget）；Mastering Emacs 作者发布 GUI 编码 harness DreamCoder（HN 84）；Show HN OpenComputer 号称开源版 Devin（HN 51），仓库还很早期。Stripe 文档里的 machine payments（MPP / x402 按调用收费）不是今天的新协议（MPP 3 月已发布），不单独报。Ontology 方向本周的 Collate Ontology Studio、Foundry IQ 知识图谱都是 11/17 发布，不在窗口内；今天 Ontology 没有新内容。",
+  "highlights": [
+   1,
+   2,
+   3
+  ]
+ },
+ "items": [
+  {
+   "id": "news-2026-11-21-01",
+   "date": "2026-11-21",
+   "type": "news",
+   "rank": 1,
+   "title": "OpenSSL 4.x 的 EVP_EncodeBlock() Base64 编码堆溢出（CVE-2026-121481，CVSS 9.8）：修复 PR 已公开，4.0.4 / 4.1.1 为修复版，3.x 不受影响",
+   "summary": "超大输入让 Base64 编码长度计算溢出 int，越界写堆内存；继 Java4Shell、Ruby2ßhell 之后又一个「编码函数一个边界检查」的高危漏洞，但能否远程利用取决于应用会不会把巨量不可信数据交给这个函数。",
+   "url": "https://github.com/openssl/openssl/pull/33652",
+   "tags": [
+    "安全",
+    "支付",
+    "Java"
+   ],
+   "raw_tags": [
+    "安全",
+    "支付系统",
+    "Java"
+   ],
+   "score": 364,
+   "score_label": "HN 364 · 328 评",
+   "detail": {
+    "heat": "HN 364 · 328 评",
+    "highlight": true,
+    "event": "OpenSSL PR #33652（作者 nmouha）修复 EVP_EncodeBlock()：遇到 NULL 缓冲区、负长度、或编码后长度放不进 int 的输入时直接返回 -1，同时给 EVP_DecodeBlock() 加了类似防护，并修了 http_client.c 里 base64encode() 只拦 len > INT_MAX 的错误检查。PR 里说 OpenSSL 安全团队要求公开修复，正式公告还在等。作者演示了命令行利用路径：给 openssl s_client 传一个超长的 -proxy_pass（要通过 env:VAR 传入，否则命令行放不下）。CVE 记录的受影响版本是 4.0.0–4.0.3 和 4.1.0，修复版 4.0.4 / 4.1.1；3.x 及更早版本不在受影响范围。Ubuntu 给的优先级是 Medium，并指出 22.04 的 nodejs 包自带一份 OpenSSL 也被标为受影响。",
+    "why": "这是一周内第三个 Base64/编码类内存错误（Java4Shell 是 OpenJDK Base64 解码，Ruby2ßhell 是大小写转换），HN 评论也在直接拿它和 Java4Shell 比。CVSS 9.8 看着吓人，但实际风险在于应用会不会把超大不可信数据交给这个编码函数——服务只是用 OpenSSL 做 TLS 并不等于能被打到。另一个坑是很多运行时（Node、Python 发行版、容器镜像）自带 OpenSSL，只查系统库会漏掉。",
+    "use": "1）盘点 OpenSSL 4.x 的使用位置，包括容器基础镜像、Node/Python 运行时自带的库，升到 4.0.4 / 4.1.1；还在 3.x 的不用急；2）支付网关、对账、签名服务里凡是把报文或文件整体 Base64 编码的地方（JNI/native 调用、sidecar、网关插件），确认有输入大小上限；3）把「编码/解码函数的长度上限」加进内部安全编码规范和 code review 清单，这周三个漏洞是同一类问题。",
+    "links": [
+     {
+      "name": "OpenSSL PR #33652",
+      "url": "https://github.com/openssl/openssl/pull/33652"
+     },
+     {
+      "name": "Cybersecurity News 解读",
+      "url": "https://cybersecuritynews.com/openssl-heap-buffer-overflow/"
+     },
+     {
+      "name": "NVD：CVE-2026-121481",
+      "url": "https://nvd.nist.gov/vuln/detail/cve-2026-121481"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50569226"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-21-02",
+   "date": "2026-11-21",
+   "type": "news",
+   "rank": 2,
+   "title": "MCP Events 扩展（SEP-3415）定稿并写进官方文档：agent 可以订阅 Slack 消息、Git push、PagerDuty 告警等上游事件，支持轮询、推送和 webhook 三种投递",
+   "summary": "MCP 第一次有了标准化的「事件订阅」，agent 不用人在场就能被外部事件唤醒；扩展状态是 Beta，官方 TS/Python SDK 实现还在 PR 中。",
+   "url": "https://modelcontextprotocol.io/seps/3415-events-extension",
+   "tags": [
+    "MCP",
+    "AI Agent",
+    "Harness"
+   ],
+   "raw_tags": [
+    "MCP",
+    "AI Agent",
+    "Harness Engineering"
+   ],
+   "score": null,
+   "score_label": "官方仓库提交（11/20 10:50 UTC），无 HN 讨论",
+   "detail": {
+    "heat": "官方仓库提交（11/20 10:50 UTC），无 HN 讨论",
+    "highlight": true,
+    "event": "modelcontextprotocol 仓库合入提交 bbc31f8，把 Events 扩展（io.modelcontextprotocol/events）登记进扩展文档，SEP-3415 状态为 Final，扩展本身标为 Beta，规范放在独立的 ext-events 仓库。机制：服务端用 events/list 列出事件类型（名字、订阅参数的 inputSchema、payloadSchema、支持的投递方式）；客户端用 (name, arguments) 订阅，收到 {eventId, name, timestamp, data, cursor}。三种投递方式都不强制：events/poll 轮询；events/stream 长连接推送；events/subscribe 注册 https 回调，服务端 POST 签名事件，客户端需定期续 TTL。cursor 用于断线续传，回放可选，truncated: true 表示中间有事件丢了。提交里附的客户端支持情况（11/19 核对）：MCPJam 和 Mastra 支持三种方式；ChatGPT（仅工作对话和 dots）、Hermes Agent、Vercel AI SDK、TanStack AI 只支持 webhook；Claude Code 还只是功能请求。",
+    "why": "之前 MCP 基本是「agent 主动调工具」，要做事件驱动的 agent 都得自己接 webhook、自己管订阅和去重。Events 把订阅、投递、断线续传和签名回调标准化了，常驻 agent / 后台 agent 这类产品有了共同的接口。webhook 模式下服务端主动回调客户端，签名校验和 TTL 续期是新的安全面。",
+    "use": "1）内部已经在做的 MCP 服务（告警、工单、代码仓库），可以评估先用 webhook 模式暴露事件，客户端覆盖面最大；2）支付场景里「退款到账、拒付通知、风控命中」这类事件天然适合做成 MCP 事件给运营 agent 订阅，但要先设计好签名校验、幂等（eventId 去重）和 cursor 回放；3）Java 侧官方 SDK 还没实现，短期可以先按规范在 Spring AI / MCP Java SDK 外面包一层，等官方支持再切。",
+    "links": [
+     {
+      "name": "SEP-3415 规范",
+      "url": "https://modelcontextprotocol.io/seps/3415-events-extension"
+     },
+     {
+      "name": "登记提交 bbc31f8",
+      "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/commit/bbc31f8ded5762eae4df115b93942f5e71c8b3a7"
+     },
+     {
+      "name": "MCP Events 文档",
+      "url": "https://modelcontextprotocol.io/extensions/events/overview"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-21-03",
+   "date": "2026-11-21",
+   "type": "news",
+   "rank": 3,
+   "title": "Thinking Machines 发布开放权重 Inkling 2 Mini：26.4B MoE（3.4B 激活）的「循环 Transformer」，约 20GB 可在笔记本上跑，100B 以下开放权重模型里 agent 编码分数第一",
+   "summary": "中间层每个 token 跑三遍，用更少 token 做更多推理；DeepSWE v1.1 48.2%，同时放出可变循环次数的研究版，用来研究循环对思维链可监控性的影响。",
+   "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+   "tags": [
+    "Coding Agent",
+    "开源",
+    "AI Agent"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "开源项目",
+    "AI Agent"
+   ],
+   "score": 586,
+   "score_label": "HN 586 · 96 评",
+   "detail": {
+    "heat": "HN 586 · 96 评",
+    "highlight": true,
+    "event": "Thinking Machines Lab 11/20 发布 Inkling 2 Mini：MoE，总参数 26.4B、激活 3.4B，因为中间层循环 3 次，每 token 实际用到 5.4B 权重。大部分权重原生以 NVFP4 训练和部署（最后四层 MXFP8），总内存约 20GB，研究员在飞机上离线用 MacBook Pro（M5 Pro 48GB）几分钟做出一个能玩的飞行模拟器。官方数据：DeepSWE v1.1 48.2%、Vals Index v2.2 46.5%，在 100B 以下开放权重模型中领先，部分基准只落后 Qwen3.8-27B。官方也坦白：循环提升推理，但不增加知识量，事实类基准（AA-Omniscience 等）和同尺寸模型持平，需要靠检索补。同时发布可变循环研究版：不写思维链时的「时间跨度」从 1 次循环的 16 秒提升到 3 次的 37 秒，思维链随循环增多变短但仍可读，agent 破坏行为测试没有随循环上升。权重开放，可在 Tinker 上推理和微调。",
+    "why": "本地可跑的 agent 编码模型又上了一个台阶，而且是一种新架构（循环 Transformer）的开放权重版本，研究和工程两边都有看点。「推理越多在隐藏层里做、写出来的思维链越少」对 agent 的可监控性是个真实问题，官方主动拿出实验数据讨论，这点比单纯刷榜有价值。HN 用户反馈 Inkling 2 Small 实际体验比跑分好，但输出格式偶尔怪。",
+    "use": "1）对代码不能出内网的场景（支付、风控代码库），可以把它作为本地编码 agent 的候选，和现有 Qwen 等模型在自家任务上做对比；2）因为知识量偏弱，配合内部文档检索 / MCP 工具使用效果会更好，正好验证 context engineering 的投入；3）关注可变循环版的研究：如果团队依赖读思维链做 agent 审计，要意识到未来模型可能「想得多、写得少」。",
+    "links": [
+     {
+      "name": "Thinking Machines 发布文",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50581260"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-21-04",
+   "date": "2026-11-21",
+   "type": "news",
+   "rank": 4,
+   "title": "两篇高赞争议文：「不再自己写代码，你审代码的能力也会退化」vs「我们在没告诉开发者的情况下，把他们都升成了架构师」",
+   "summary": "一篇说 review AI 代码替代不了亲手练习，另一篇用真实性能事故说明：AI 不会推回需求，开发者被迫承担架构判断。",
+   "url": "https://cekrem.github.io/posts/if-you-stop-writing-code-you-also-get-worse-at-reviewing-it/",
+   "tags": [
+    "Coding Agent",
+    "有争议观点",
+    "工程实践"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "有争议观点",
+    "工程实践"
+   ],
+   "score": 321,
+   "score_label": "HN 321 · 158 评；HN 265 · 168 评",
+   "detail": {
+    "heat": "HN 321 · 158 评；HN 265 · 168 评",
+    "highlight": false,
+    "event": "cekrem 的文章（11/20）：任何技能都要靠练，软件工程却流行「只下指令、只 review」。作者打比方：吉他手不再弹琴、只指导别人弹再听结果，水平一定下降；而且「你现在真的在读 Claude 写的每一行吗？」他主张继续亲手解决难题，否则大脑会被训练成「难的事就别试」。Mani Doraisamy 的文章：同事用 vibe coding 写安装日志，AI 生成了「先取邮箱、失败取用户 ID、再失败记错误」的 try/catch 链，每一行背后都是多次 Google API 调用，日志又是安装后第一行代码，导致欢迎页加载 15 秒。作者认为，有经验的架构师会只记时间戳、或把取邮箱改成异步并推回营销需求；AI 不知道你的规模和约束，而且会迎合需求，不会推回——于是每个用 AI 写代码的开发者，其实都在不知不觉中做架构决策。",
+    "why": "这两篇从两个方向说同一件事：coding agent 让「写代码」变便宜了，但把「判断代码对不对、该不该这么做」的压力推到了人身上，而人的这部分能力恰恰可能因为少写代码而退化。评论区分歧很大，是团队制定 AI 编码规范时绕不开的问题。",
+    "use": "1）在团队 AI 编码规范里加一条：首行执行路径、热路径上的外部调用、日志/埋点里的 PII，必须人工确认，别让 agent 自己决定；2）给 agent 的项目说明（CLAUDE.md / AGENTS.md）里写清楚规模、延迟预算和「哪些需求要先问人」，相当于把架构约束放进上下文；3）新人培养上保留一部分不用 agent 的练习，比如支付核心链路的改动先手写再让 agent review，而不是反过来。",
+    "links": [
+     {
+      "name": "cekrem：If you stop writing code…",
+      "url": "https://cekrem.github.io/posts/if-you-stop-writing-code-you-also-get-worse-at-reviewing-it/"
+     },
+     {
+      "name": "HN 讨论（cekrem）",
+      "url": "https://news.ycombinator.com/item?id=50573886"
+     },
+     {
+      "name": "Mani Doraisamy：developer to architect",
+      "url": "https://manidoraisamy.com/developer-to-architect.html"
+     },
+     {
+      "name": "HN 讨论（Doraisamy）",
+      "url": "https://news.ycombinator.com/item?id=50579331"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-21-05",
+   "date": "2026-11-21",
+   "type": "news",
+   "rank": 5,
+   "title": "Backpack for Laravel 维护者：llms.txt 和 MCP 文档服务器对 agent 几乎没用，真正起作用的是稳定 API、可读源码和直接放进上下文的 skill",
+   "summary": "「需要 agent 记得去取的东西都很弱，有用的是已经在它眼前、或已经在它脑子里的东西」——一份来自真实开源库的 context engineering 复盘。",
+   "url": "https://backpackforlaravel.com/articles/opinions/llms-txt-and-mcp-didn-t-move-the-needle-for-us-here-s-what-did",
+   "tags": [
+    "Context Engineering",
+    "MCP",
+    "Coding Agent"
+   ],
+   "raw_tags": [
+    "Context Engineering",
+    "MCP",
+    "Coding Agent"
+   ],
+   "score": 29,
+   "score_label": "HN 29 · 19 评（原文 10/20 发布，昨天上 HN）",
+   "detail": {
+    "heat": "HN 29 · 19 评（原文 10/20 发布，昨天上 HN）",
+    "highlight": false,
+    "event": "Cristian Tabacitu（Backpack for Laravel 维护者，项目 10 年）复盘让 agent 更会用自家库的经验。没用的：llms.txt——agent 很少去看，看了也只是一份文档目录，准备删；MCP 文档服务器——agent 通常不主动调用，调用时只打两个词的查询，返回不了有用内容，也准备删。他认为 MCP 适合实时数据和工具调用，不适合静态文档。意外有用的：1）核心 API 四年基本不变，多年的代码都进了训练数据且仍然正确（「宁可 deprecate，不要 rename」）；2）开源带来大量 issue、PR、教程作为训练数据；3）付费插件也以可读源码装进 vendor/，agent 会自己去读；4）低仪式感，一行闭包就能扩展，agent 需要加载的上下文少。主动做的里面效果最大的是 Laravel Boost 插件：安装后把按主题拆分的 guidelines 和 skills 直接放进 agent 上下文。",
+    "why": "现在「给你的库/产品做 MCP 和 llms.txt」几乎成了标配建议，这篇给出了反例和原因：被动可取的上下文往往不会被取，主动注入的上下文才稳定生效。对做内部平台、SDK 的团队，这比大多数理论文章更可操作。",
+    "use": "1）内部 Java SDK、支付网关客户端想让 agent 用好，优先写进项目级 skill / 规则文件，而不是只做一个文档 MCP；2）API 演进尽量保持签名兼容、少改名，否则 agent 会长期推荐旧写法；3）内部闭源组件把源码 jar（sources.jar）随依赖发布，agent 读源码比查文档可靠；4）已有的文档类 MCP 可以看一下调用日志，验证 agent 到底有没有在用、查的是什么。",
+    "links": [
+     {
+      "name": "原文",
+      "url": "https://backpackforlaravel.com/articles/opinions/llms-txt-and-mcp-didn-t-move-the-needle-for-us-here-s-what-did"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50574772"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-21-06",
+   "date": "2026-11-21",
+   "type": "news",
+   "rank": 6,
+   "title": "Spring AI 2.1.0 发布：支持「modern MCP」客户端/服务端连接和异步 API，新增会话回忆（conversation_search 工具）和 SQL Server 会话存储",
+   "summary": "Java 生态做 agent 的主力框架跟上新版 MCP 连接方式，会话记忆也从「全部塞进上下文」走向「按需检索」。",
+   "url": "https://github.com/spring-projects/spring-ai/releases/tag/v2.1.0",
+   "tags": [
+    "Java",
+    "MCP",
+    "Context Engineering"
+   ],
+   "raw_tags": [
+    "Java",
+    "MCP",
+    "Context Engineering"
+   ],
+   "score": null,
+   "score_label": "GitHub release（11/20 15:46 UTC），同时发布 2.0.3 修复版",
+   "detail": {
+    "heat": "GitHub release（11/20 15:46 UTC），同时发布 2.0.3 修复版",
+    "highlight": false,
+    "event": "Spring AI 2.1.0 新功能：支持 modern MCP 客户端连接（#7385）并为其加异步客户端（#7392），modern MCP 服务端支持异步 API（#7349）；会话回忆：对会话日志做关键词搜索，并提供 conversation_search 工具（#7371）；会话扩展点命名和契约测试（#7372）；JdbcSessionRepository 支持 SQL Server（#7301）；新增与模型厂商无关的结束原因归一化 FinishReasonCategory（#5190）；OpenAI 的 ConnectionDetails；Couchbase、MongoDB Atlas 向量库增强。修复：适配 MCP SDK 的 McpHeaders、护栏拒答标记结束原因、补回上一轮没拿到结果的工具调用（#7369）、JDBC 会话按 id 删除过期会话避免死锁（#7362）、MCP 服务端处理器注册不再依赖 bean 顺序（#7329）。2.0.3 修了 Anthropic / Bedrock 的缓存 token 计入 prompt token。",
+    "why": "这周 MCP Java SDK 2.2.0 刚加了 stateless modern server/client（11/17 已报），Spring AI 2.1.0 把它接进了主流 Java agent 框架。会话回忆用工具按需检索历史，而不是把整段历史塞进 prompt，是很典型的 context engineering 做法。几个 bug 修复（工具调用缺结果、会话删除死锁）也正是生产环境会踩的坑。",
+    "use": "1）Java 服务要对接新版 MCP 服务器的，可以直接升 2.1.0 用 modern 连接和异步客户端，别再自己适配；2）长会话的客服 / 运营 agent 可以试 conversation_search，把历史从上下文挪到检索，降 token 成本；3）用 JDBC 存会话、并发高的系统，尽快升级避开死锁问题；4）用 FinishReasonCategory 统一多模型的结束原因，方便监控护栏拒答和截断。",
+    "links": [
+     {
+      "name": "Spring AI v2.1.0 Release",
+      "url": "https://github.com/spring-projects/spring-ai/releases/tag/v2.1.0"
+     },
+     {
+      "name": "Spring AI v2.0.3 Release",
+      "url": "https://github.com/spring-projects/spring-ai/releases/tag/v2.0.3"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-21-07",
+   "date": "2026-11-21",
+   "type": "news",
+   "rank": 7,
+   "title": "Coding Agent 更新：Codex 0.171 默认用 GPT-6.2 Sol 并默认开启 TUI 工作区，支持 codex exec --remote；Claude Code 2.1.330 支持企业管理后台下发组织设置",
+   "summary": "两边都在补「团队化、远程化」能力：Codex 能把非交互任务挂到远端 app server，Claude Code 让企业统一下发配置和网关，并修了 worktree 被误删等问题。",
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.171.0",
+   "tags": [
+    "Coding Agent",
+    "Harness",
+    "MCP"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "Harness Engineering",
+    "MCP"
+   ],
+   "score": null,
+   "score_label": "GitHub releases（Codex 11/20 00:44 UTC；Claude Code 11/20 22:32 UTC）",
+   "detail": {
+    "heat": "GitHub releases（Codex 11/20 00:44 UTC；Claude Code 11/20 22:32 UTC）",
+    "highlight": false,
+    "event": "Codex rust-v0.171.0：模型目录加入 GPT-6.2 Sol 和 Astra，默认选 Sol；TUI 工作区默认开启，可在主对话旁看文档预览、图片和子 agent 的对话记录；codex exec --remote <ADDR> 可以在已有 app server 上启动或恢复非交互会话；/rc、/remote 管理本地远程控制和设备配对码；可自定义 MCP 状态栏。修复：切换工作目录不再丢权限配置、迟到的完成事件不再取消新一轮的审批、企业 MCP 登录支持不发 refresh token 的身份提供方。同日已有 0.173.0 alpha。Claude Code 2.1.330：claude auth login 后可接入 Enterprise Admin Console 管理的组织，自动应用组织设置和云厂商/网关；新增内置 mod「easel」自动为 MCP 指标结果画图（可在 /config 关）；自托管 runner 支持 --start-dir 和两项调度耗时指标；修复长对话压缩后卡死几分钟、WebFetch 卡死、ExitWorktree 删掉另一个会话正在用的 worktree、多进程同时保存用户设置互相覆盖。",
+    "why": "「迟到事件取消新审批」「worktree 被别的会话删掉」「多进程写配置互相覆盖」都是多 agent 并行跑时才会出现的问题，说明两家的重点已经从单人交互转到并发、远程、企业管控。企业统一下发设置和网关，对有合规要求的团队是落地前提。",
+    "use": "1）在用 Codex 跑 CI 或批处理的，可以试 codex exec --remote，把任务集中到一台受控的 app server；2）用 Claude Code 多 worktree 并行的团队升到 2.1.330 避免 worktree 误删；3）公司如果有 LLM 网关，可以评估用 Enterprise Admin Console 统一下发，替代每个人手配环境变量；4）自托管 runner 的新指标可以接进现有 Prometheus，看 agent 任务的排队时间。",
+    "links": [
+     {
+      "name": "Codex rust-v0.171.0",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.171.0"
+     },
+     {
+      "name": "Claude Code v2.1.330",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.330"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-21-08",
+   "date": "2026-11-21",
+   "type": "news",
+   "rank": 8,
+   "title": "Adyen × Klarna：Klarna 成为 Adyen Agentic 首个非卡支付方式，AI agent 结账可选分期/融资，已接 Klarna 的商户无需新集成",
+   "summary": "也是 Klarna「开放支付处理器（payment handler）」规范的首个合作方上线，消费者仍需在完成前亲自确认购买。",
+   "url": "https://www.businesswire.com/news/home/20261120480359/en/Adyen-Merchants-Can-Now-Offer-Klarna-in-AI-Agent-Checkout",
+   "tags": [
+    "支付",
+    "AI Agent"
+   ],
+   "raw_tags": [
+    "支付系统",
+    "AI Agent"
+   ],
+   "score": null,
+   "score_label": "Business Wire 新闻稿，PYMNTS / Digital Transactions 跟进报道",
+   "detail": {
+    "heat": "Business Wire 新闻稿，PYMNTS / Digital Transactions 跟进报道",
+    "highlight": false,
+    "event": "11/20 Klarna 和 Adyen 宣布：AI agent 通过 Adyen Agentic 替用户结账时，可以用 Klarna 付款，这是 Adyen Agentic 第一个卡以外的本地支付方式。购物者看到的是商户本来就提供的 Klarna 选项（全额、免息分期、融资），并且必须在完成前审核确认。已经通过 Adyen 接入 Klarna 的商户可以直接开启，不用额外集成。集成基于 Klarna 公开的 payment handler 规范，任何支付服务商都可以按它把 Klarna 接进 agent 结账，Adyen 是第一个上线的。Adyen Agentic 6 月发布，把商品发现、结账编排和支付做成模块，用来适配不同 AI 平台的协议和数据格式。",
+    "why": "agent 支付到目前基本是「卡 + token」路线（Visa/Mastercard 的 agent token），这是第一个大规模的非卡、带信贷属性的支付方式进入 agent 结账，而且用的是公开规范。分期/融资涉及授信和消费者确认，「人必须最后确认」被写进了流程，对 agent 支付的合规设计有参考意义。",
+    "use": "1）做收单或聚合支付的团队，可以研究 Klarna 的 payment handler 规范，看本地支付方式（钱包、分期、银行转账）如何抽象成 agent 可调用的支付处理器；2）设计 agent 支付流程时，参考「agent 可以选方式、人必须确认」的分工，把确认步骤放在支付服务商侧而不是 agent 侧；3）有分期 / 先买后付业务的，提前评估 agent 发起交易的风控和争议处理规则。",
+    "links": [
+     {
+      "name": "Business Wire 新闻稿",
+      "url": "https://www.businesswire.com/news/home/20261120480359/en/Adyen-Merchants-Can-Now-Offer-Klarna-in-AI-Agent-Checkout"
+     },
+     {
+      "name": "PYMNTS 报道",
+      "url": "https://www.pymnts.com/commerce/ecommerce/2026/adyen-taps-klarna-to-enable-agentic-commerce-payment-options-beyond-cards/"
+     },
+     {
+      "name": "Digital Transactions 报道",
+      "url": "https://www.digitaltransactions.net/adyen-recruits-klarna-for-payments-on-adyen-agentic/"
+     }
+    ]
+   }
+  }
+ ]
+}
