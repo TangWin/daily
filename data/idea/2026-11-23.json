@@ -1,0 +1,443 @@
+{
+ "schema_version": 1,
+ "type": "idea",
+ "date": "2026-11-23",
+ "day": {
+  "sample": "样本：主清单 140（HN42 Lobsters4 Reddit48 IH20 PH26） + Reddit 深翻页抱怨 148（5200 帖） + HN 句式评论/Ask/Show 566；未使用 X 付费 API。"
+ },
+ "items": [
+  {
+   "id": "idea-2026-11-23-01",
+   "date": "2026-11-23",
+   "type": "idea",
+   "rank": 1,
+   "title": "自托管软件会不会「翻车」：部署前先查作者前科、许可证和 API 变化，跑着的服务一旦开始锁接口、收订阅或换协议就提醒你，并给出迁移路线",
+   "summary": "一个面向自托管软件的「项目体检 + 变更雷达」：输入仓库或 docker-compose 文件，自动给每个服务打分（许可证类型、是否要求 CLA、维护者集中度、有没有活跃分叉、历史上是否删库/改协议/锁 API、官方客户端是否闭源收费）；之后持续盯着仓库的 LICENSE、NOTICE、发布说明和关键提交（如新增认证、限制第三方客户端），一出现「收费、锁接口、换协议」就推送，附上社区讨论链接、可替代项目，以及数据导出和迁移步骤。",
+   "url": "https://www.reddit.com/r/selfhosted/comments/1y0c854/bookorbit_api_restrictions_against_unofficial/19sxx9jydcc83/",
+   "tags": [
+    "开发者工具",
+    "支付",
+    "个人/生活"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "支付/计费",
+    "个人/生活"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "自托管用户选软件时只能靠 Reddit 上的口碑帖，很难判断一个项目靠不靠谱。BookLore 作者删库后换名做了 BookOrbit，最近又给自托管服务器加了 App 认证，只放行官方客户端，开源安卓客户端被迫停更；想替换 Calibre-Web 的人面对 BookOrbit、Grimmory、BookLore 三个分支不知道该信谁。OpenCloud 也宣布 2027 年 4 月起稳定版要订阅。等发现时，数据、客户端和自动化流程都已经绑在上面了。",
+    "target_users": "家里跑 NAS、Docker、Unraid 的自托管玩家；给家人朋友提供电子书、照片、网盘服务的「家庭管理员」；在小团队里选型开源软件的运维和开发。",
+    "quotes": [
+     {
+      "text": "Yeah - locking self-hosted API routes behind proprietary app attestation kind of defeats the whole point of self-hosting tbh ... half the reason people run their own server is so they can pick whatever open client or automation they want",
+      "links": [
+       {
+        "label": "Reddit r/selfhosted 评论（BookOrbit API restrictions against unofficial clients，109 条评论）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1y0c854/bookorbit_api_restrictions_against_unofficial/19sxx9jydcc83/"
+       }
+      ]
+     },
+     {
+      "text": "There are usually very clear signs that predict switch'n'bait.  An obvious one is the use of a license that's not FOSS.",
+      "links": [
+       {
+        "label": "Reddit r/selfhosted 评论（同帖）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1y0c854/bookorbit_api_restrictions_against_unofficial/19svobdzmven5/"
+       }
+      ]
+     },
+     {
+      "text": "FYI the BookOrbit dev is the same as the Booklore dev. As multiple people have warned before, his previous meltdown was in part spurred by trying to create his own iOS app and breaking auth/removing API documentation/breaking API contracts to promote his paid features on that iOS app.",
+      "links": [
+       {
+        "label": "Reddit r/selfhosted 评论（同帖）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1y0c854/bookorbit_api_restrictions_against_unofficial/19sw4gay11luq/"
+       }
+      ]
+     },
+     {
+      "text": "Concrete things I care about, since \"it works for me\" doesn't help me: my library sits on a NAS over SMB, and both projects disable all file operations in network mode, so metadata writing and renaming are gone.",
+      "links": [
+       {
+        "label": "Reddit r/selfhosted 帖（想替换 Calibre-Web，在 BookOrbit 和 Grimmory 之间纠结，120 条评论，后被版主移除）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1y2rj57/removed_by_moderator/"
+       }
+      ]
+     },
+     {
+      "text": "The Booklore project imploded earlier this year and now this. What's with these ebook apps causing drama all the time ? I'm running Grimmory and if they don't pull some crazy bullshit next year I'll consider myself very lucky",
+      "links": [
+       {
+        "label": "Reddit r/selfhosted 评论（With all the recent drama surrounding Bookorbit, what are other alternatives?，96 条评论）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1y1m0c0/with_all_the_recent_drama_surrounding_bookorbit/19sy8waycwux1/"
+       }
+      ]
+     },
+     {
+      "text": "As much as I hate Nextcloud when it comes to performance and updates they don't do shit like this. OpenCloud is the fastest OSS rug pull I have seen and I am really happy I didn't adopt it.",
+      "links": [
+       {
+        "label": "Reddit r/selfhosted 评论（OpenCloud 稳定版 2027 年 4 月起需订阅，106 条评论）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xzj6gq/opencloud_the_nextcloudowncloud_alternative/19su18kzwpmbl/"
+       }
+      ]
+     },
+     {
+      "text": "I agree with the first part. However, I suspect you won't get security updates for pinned rolling releases while you will get them for production (and LTS) releases. So just pinning can be problematic.",
+      "links": [
+       {
+        "label": "Reddit r/selfhosted 评论（同帖）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1xzj6gq/opencloud_the_nextcloudowncloud_alternative/19su9xrcok403/"
+       }
+      ]
+     }
+    ],
+    "existing": "selfh.st、awesome-selfhosted 列表；GitHub 星标和提交活跃度；Reddit 口碑帖；Renovate、Watchtower、Diun 这类镜像更新提醒；OpenSSF Scorecard",
+    "defects": "列表只收录不评级，不记录作者前科、分叉来龙去脉和许可证变更；星标和提交数反映不了「作者会不会锁接口、改收费」；更新提醒只告诉你有新版本，不会读发布说明里的许可证、CLA、认证、订阅变化；Scorecard 面向供应链安全，不管商业化风险",
+    "solution": "一个面向自托管软件的「项目体检 + 变更雷达」：输入仓库或 docker-compose 文件，自动给每个服务打分（许可证类型、是否要求 CLA、维护者集中度、有没有活跃分叉、历史上是否删库/改协议/锁 API、官方客户端是否闭源收费）；之后持续盯着仓库的 LICENSE、NOTICE、发布说明和关键提交（如新增认证、限制第三方客户端），一出现「收费、锁接口、换协议」就推送，附上社区讨论链接、可替代项目，以及数据导出和迁移步骤。",
+    "mvp": "先做网页版：粘贴 docker-compose.yml，识别出镜像对应的 GitHub 仓库，给出风险卡片；每周扫一次 LICENSE/README/Release 文本差异，用邮件或 RSS 推送。先覆盖电子书、网盘、照片、媒体服务器四类最常见的 100 个项目，人工补「分叉族谱」。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-23-02",
+   "date": "2026-11-23",
+   "type": "idea",
+   "rank": 2,
+   "title": "你用的云服务偷偷改了隐私政策：自动盯住备份、网盘、邮箱等服务的条款变化，用大白话告诉你改了什么、怎么退出，必要时帮你换成自己加密",
+   "summary": "一个个人版「服务条款变更雷达」：连上邮箱收据或手动勾选你在用的服务，自动抓取它们的隐私政策和服务条款，每次变化用大白话总结「新增分享给谁、收集什么、能否退出」，并直接给出退出链接（按地区识别隐藏入口）；对备份和网盘类服务，额外检查你是否在用服务商托管的密钥，提供一键切到自有密钥或迁移到其他存储（如 Rclone 加密）的向导，附价格对比。",
+   "url": "https://www.reddit.com/r/selfhosted/comments/1y22k2d/removed_by_moderator/",
+   "tags": [
+    "安全",
+    "开发者工具",
+    "个人/生活"
+   ],
+   "raw_tags": [
+    "安全/隐私",
+    "开发者工具",
+    "个人/生活"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Backblaze 更新隐私政策：把用户标识、元数据甚至位置分享给广告合作伙伴做「个性化广告」，还写明会用 AI 处理客户数据，官方没有任何通知，用户是在条款里自己翻出来的。退出要走隐藏的表单，有人在美国找不到退出按钮、把国家改成法国才出现。更多人根本不知道自己的备份是用 Backblaze 托管的密钥加密的。大家能做的只有在帖子里吵、手动退出、或者下决心搬家。",
+    "target_users": "用云备份、网盘、邮箱、密码管理器等服务存放敏感数据的个人；对隐私敏感的自托管用户；帮家人和小公司管 IT 的人。",
+    "quotes": [
+     {
+      "text": "So long story short, they've been selling customer data to their ads partner network for the past 12 months and didn't announce it anywhere",
+      "links": [
+       {
+        "label": "Reddit r/selfhosted 帖（Backblaze 隐私政策变更，196 条评论、548 分，后被版主移除）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1y22k2d/removed_by_moderator/"
+       }
+      ]
+     },
+     {
+      "text": "Many people may not be encrypting their backups, or if they are they're using the Backblaze tool to do it, which may or may not be decryptable by Backblaze.  They're selling your data to advertisers, which doesn't necessarily mean ads served by Backblaze themselves.",
+      "links": [
+       {
+        "label": "Reddit r/selfhosted 评论（同帖）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1y22k2d/removed_by_moderator/19szpdejua1xg/"
+       }
+      ]
+     },
+     {
+      "text": "The client encrypts by default using a Backblaze-provided key. The option is there to set a custom key which they do not store, but it's not the default.",
+      "links": [
+       {
+        "label": "Reddit r/selfhosted 评论（同帖）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1y22k2d/removed_by_moderator/19szs9ysyzzuq/"
+       }
+      ]
+     },
+     {
+      "text": "Every single service turns to crap. It's just a matter of when. Every service you use, you always need to be on the lookout for an alternative. I'm tired",
+      "links": [
+       {
+        "label": "HN 评论（Backblaze Notice at Collection and Privacy Policy，252 分）",
+        "url": "https://news.ycombinator.com/item?id=50586391"
+       }
+      ]
+     },
+     {
+      "text": "I couldn't find any opt-out buttons. Changed the country to France and it appeared :(",
+      "links": [
+       {
+        "label": "HN 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50587049"
+       }
+      ]
+     },
+     {
+      "text": "Thanks for this, I've opted out but I think it's time to move away. Does anyone have any good suggestions as to where to store approx 1tb at a sensible price? It's cold storage for my photos so never accessed (fingers crossed)",
+      "links": [
+       {
+        "label": "HN 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50586567"
+       }
+      ]
+     },
+     {
+      "text": "Encrypt your backups locally with your own key before it ever leaves your four walls, and this will never be a problem.",
+      "links": [
+       {
+        "label": "Reddit r/selfhosted 评论（同帖）",
+        "url": "https://www.reddit.com/r/selfhosted/comments/1y22k2d/removed_by_moderator/19t0eo67m9b28/"
+       }
+      ]
+     }
+    ],
+    "existing": "ToS;DR（条款评级）；Open Terms Archive（开源条款存档比对）；Termly 等企业合规工具；Rclone/Restic 等自加密备份工具；手动订阅官方博客",
+    "defects": "ToS;DR 评级更新慢、靠志愿者，不会主动推送给「正在用这个服务的你」；Open Terms Archive 面向研究者，输出是原始差异，普通人看不懂；企业工具不服务个人；Rclone/Restic 要命令行，从托管密钥迁移到自有密钥没有向导",
+    "solution": "一个个人版「服务条款变更雷达」：连上邮箱收据或手动勾选你在用的服务，自动抓取它们的隐私政策和服务条款，每次变化用大白话总结「新增分享给谁、收集什么、能否退出」，并直接给出退出链接（按地区识别隐藏入口）；对备份和网盘类服务，额外检查你是否在用服务商托管的密钥，提供一键切到自有密钥或迁移到其他存储（如 Rclone 加密）的向导，附价格对比。",
+    "mvp": "先做 50 个常见云备份、网盘、邮箱、密码管理器的条款监控，网页 + 邮件提醒；变化摘要用大模型生成并附原文差异；Backblaze、iCloud、Google Drive 三家写好「切换到自有密钥/迁移」图文向导。免费 5 个服务，付费无限。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-23-03",
+   "date": "2026-11-23",
+   "type": "idea",
+   "rank": 3,
+   "title": "Apple Music 管不好本地音乐库了：一个尊重本地文件的 Mac 音乐管理器，批量改标签、整理合辑、查漏导入，再无损同步到 iPhone",
+   "summary": "一个以文件夹为准的 Mac 音乐资料库：直接读取本地目录，批量改标签和合辑、自动查封面；导入后自动核对「文件夹里有多少首、资料库里有多少首」，标出漏导和重复；歌单和元数据存成开放格式（可导出 M3U/XML），不受订阅影响；通过 USB/Wi-Fi 把选定歌单同步进 iPhone 的音乐 App 或自带播放器。",
+   "url": "https://www.reddit.com/r/MacOS/comments/1y2e5u2/apple_has_ruined_manual_offline_music_management/",
+   "tags": [
+    "Mac/桌面",
+    "个人/生活",
+    "支付"
+   ],
+   "raw_tags": [
+    "Mac/桌面工具",
+    "个人/生活",
+    "支付/计费"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "还在用本地音乐库的人（CD 翻录、黑胶转录、流媒体上没有的音乐）被 Mac 上的 Music App 越改越难用：新版不能一次多选几张专辑、加歌单要一张张拖、合辑要逐首标记；大量导入时会悄悄漏掉几首，重复导入又产生重复项；专辑莫名拆成两张、封面不加载。试用 Apple Music 订阅后取消，还有人 15 年的歌单和元数据被清空。大家想要的是「本地文件是唯一真相」，再能同步到 iPhone。",
+    "target_users": "有大量自有音乐文件的 Mac 用户：收藏家、DJ、独立音乐爱好者、所在国家流媒体曲库不全的人；用 iPod/iPhone 离线听歌的通勤族。",
+    "quotes": [
+     {
+      "text": "You can no longer select multiple albums at once. If an album is a compilation, good luck tracking down all the separate songs just to select them and mark them as a compilation. Wanna add several albums to a playlist? Tough luck—you have to add them one by one!",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 帖（Apple has ruined manual offline music management，122 条评论、339 分）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y2e5u2/apple_has_ruined_manual_offline_music_management/"
+       }
+      ]
+     },
+     {
+      "text": "if you're importing a large number of tracks at once (say, if you've just bought a new machine and are transferring your entire library over), a bunch of tracks will simply silently fail to import, and you won't realise until you're playing a certain album one day and notice that it's skipped from track 12 to track 14.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y2e5u2/apple_has_ruined_manual_offline_music_management/19t0huoetnqkl/"
+       }
+      ]
+     },
+     {
+      "text": "I once tried Apple Music for 2 months. When I decided to end the subscription, it deleted my library that I had built for the last 15 years. My local music was still there but all my playlists and all metadata was deleted. That’s criminal",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y2e5u2/apple_has_ruined_manual_offline_music_management/19t0qyyg5e62o/"
+       }
+      ]
+     },
+     {
+      "text": "Is there a good alternative to Apple Music that lets the user sync music files from a computer to an iPhone?",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y2e5u2/apple_has_ruined_manual_offline_music_management/19t08gqfd3scl/"
+       }
+      ]
+     },
+     {
+      "text": "I keep the master directory on a local machine away from iTunes or anything else - on a windows box in this case where I have this tool called Tag&Rename I use it to manage my metadata and rename and organize - then I COPY the thing out to a directory where I let iTunes mangle it up  - so I can have the music on iTunes but the \"source of truth\" remains fully manual control.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y2e5u2/apple_has_ruined_manual_offline_music_management/19t022h4kzold/"
+       }
+      ]
+     }
+    ],
+    "existing": "Music App 自带资料库；Meta、Kid3、Mp3tag（标签编辑）；Swinsian、Doppler、Vox（Mac 播放器）；iMazing（同步到 iPhone）；Navidrome + Amperfy 等自建流媒体",
+    "defects": "Music App 功能倒退、导入不可靠、取消订阅可能清空歌单；标签编辑器只改标签，不管资料库和同步；第三方播放器大多不能写入 iPhone 自带音乐 App；iMazing 是通用备份工具，界面复杂；自建流媒体要服务器，不适合普通用户",
+    "solution": "一个以文件夹为准的 Mac 音乐资料库：直接读取本地目录，批量改标签和合辑、自动查封面；导入后自动核对「文件夹里有多少首、资料库里有多少首」，标出漏导和重复；歌单和元数据存成开放格式（可导出 M3U/XML），不受订阅影响；通过 USB/Wi-Fi 把选定歌单同步进 iPhone 的音乐 App 或自带播放器。",
+    "mvp": "先做 Mac 端：文件夹资料库 + 批量标签/合辑编辑 + 导入核对报告 + 从 Music App 的 XML 导入歌单。同步到 iPhone 先借用 Finder 同步通道或配套 iOS 播放器。一次性买断 25 美元。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-23-04",
+   "date": "2026-11-23",
+   "type": "idea",
+   "rank": 4,
+   "title": "准备离开伴侣前，悄悄查清手机有没有被看：一步步检查共享账号、已登录设备、位置共享、描述文件和家里路由器，不惊动对方地完成断开",
+   "summary": "一个问答式的「离开前数字安全检查」：先问几个问题（对方是否知道密码、是否共用 Apple 账号/家庭共享、家里路由器谁管、有没有共用电脑和车），再生成按风险排序的清单；每一步都标注「对方会不会收到通知或看出变化」，分成「现在可悄悄做」和「离开当天再做」两批；附带检查描述文件、已登录设备、位置共享、AirTag 跟踪的图文步骤，并一键导出给社工或律师的证据记录。网页版不留历史，提供「快速离开」按钮。",
+   "url": "https://www.reddit.com/r/iphone/comments/1y2hhik/can_husband_see_what_im_doing_on_my_phone/",
+   "tags": [
+    "个人/生活",
+    "安全",
+    "支付"
+   ],
+   "raw_tags": [
+    "个人/生活",
+    "安全/隐私",
+    "支付/计费"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "一位准备离开丈夫的 iPhone 用户问「他能看到我在手机上干什么吗？」，105 条评论给出的建议零散又互相矛盾：查 Safety Check、查 VPN 与设备管理里的描述文件、看是否共用 Apple 账号、笔记本上登录的信息、路由器能记录浏览记录、运营商账单显示通话……更麻烦的是对方知道锁屏密码，贸然改密码反而会引起怀疑。Apple 的 Safety Check 只覆盖 Apple 账号本身，不管路由器、家庭共享电脑和运营商账单，也不告诉你「哪些动作会被对方察觉」。",
+    "target_users": "遭受伴侣控制或家暴、准备离开的人（以女性为主）；为她们提供支援的社工、热线和庇护机构；担心被跟踪的普通 iPhone/Android 用户。",
+    "quotes": [
+     {
+      "text": "Can he see what I’m doing on apps or in web browser? Is there a way to prevent it? I’m planning on leaving him and he has been acting strange, I think he knows",
+      "links": [
+       {
+        "label": "Reddit r/iphone 帖（Can husband see what I’m doing on my phone，105 条评论）",
+        "url": "https://www.reddit.com/r/iphone/comments/1y2hhik/can_husband_see_what_im_doing_on_my_phone/"
+       }
+      ]
+     },
+     {
+      "text": "You can actually check.  Settings > Privacy & Security > Safety Check > Manage Sharing and Access.  That will show you any devices that are signed into your account allowing them to see/access your data.",
+      "links": [
+       {
+        "label": "Reddit r/iphone 评论（同帖）",
+        "url": "https://www.reddit.com/r/iphone/comments/1y2hhik/can_husband_see_what_im_doing_on_my_phone/19t07yyrsexcx/"
+       }
+      ]
+     },
+     {
+      "text": "Are you using the same Apple account?  Any profiles showing in settings under VPN & Device Management?",
+      "links": [
+       {
+        "label": "Reddit r/iphone 评论（同帖）",
+        "url": "https://www.reddit.com/r/iphone/comments/1y2hhik/can_husband_see_what_im_doing_on_my_phone/19t07qwir5tnk/"
+       }
+      ]
+     },
+     {
+      "text": "does he know your iphone password?   have you logged into your apple ID on any devices that he has access to? (macbooks, tablets, PCs,etc)  if so, assume yes.  Also FYI; depending on the phone carrier, the bill may show which phone numbers you've dialed/received and how long the call was.",
+      "links": [
+       {
+        "label": "Reddit r/iphone 评论（同帖）",
+        "url": "https://www.reddit.com/r/iphone/comments/1y2hhik/can_husband_see_what_im_doing_on_my_phone/19t08pxdysa5g/"
+       }
+      ]
+     },
+     {
+      "text": "If she leaves her laptop at home and has messages signed in, he can open her laptop and read everything- most couples know each others laptop sign in passwords.",
+      "links": [
+       {
+        "label": "Reddit r/iphone 评论（同帖）",
+        "url": "https://www.reddit.com/r/iphone/comments/1y2hhik/can_husband_see_what_im_doing_on_my_phone/19t0ago9bp8wy/"
+       }
+      ]
+     },
+     {
+      "text": "Routers which allow you to track web traffic (or even automatically do it) are widely available and not too expensive these days. With the right setup he could not only see what websites you visit, but also when and for how long you visit them, whenever you're connected to wi-fi at home.",
+      "links": [
+       {
+        "label": "Reddit r/iphone 评论（同帖）",
+        "url": "https://www.reddit.com/r/iphone/comments/1y2hhik/can_husband_see_what_im_doing_on_my_phone/19t0a8on1lheo/"
+       }
+      ]
+     }
+    ],
+    "existing": "Apple Safety Check（安全检查）；Google 的安全检查；Coalition Against Stalkerware 的指南；家暴热线（如 thehotline.org）的技术安全页面；各类杀毒软件的跟踪软件扫描",
+    "defects": "Safety Check 只管 Apple 账号内的共享，一键「紧急重置」反而容易被对方察觉；指南是长文，不按你的设备和处境给步骤；不覆盖路由器、共用电脑、运营商账单、家庭共享、车载定位等；没有「哪些操作会被对方看到」的风险提示，也不衔接热线和法律援助",
+    "solution": "一个问答式的「离开前数字安全检查」：先问几个问题（对方是否知道密码、是否共用 Apple 账号/家庭共享、家里路由器谁管、有没有共用电脑和车），再生成按风险排序的清单；每一步都标注「对方会不会收到通知或看出变化」，分成「现在可悄悄做」和「离开当天再做」两批；附带检查描述文件、已登录设备、位置共享、AirTag 跟踪的图文步骤，并一键导出给社工或律师的证据记录。网页版不留历史，提供「快速离开」按钮。",
+    "mvp": "先做 iPhone 版网页问答（不需要安装 App，用后即清），覆盖 Apple 账号、家庭共享、位置、描述文件、Mac/iPad 上的信息同步、路由器 5 大类；与 1～2 家家暴援助机构合作审核内容并分发。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-23-05",
+   "date": "2026-11-23",
+   "type": "idea",
+   "rank": 5,
+   "title": "试装 App 不留垃圾：安装前自动拍快照，决定不要时一键彻底回滚，连系统保护的缓存和设置项一起清掉",
+   "summary": "一个「试装模式」小工具：安装新 App 前点一下，记录文件系统、登录项、后台服务、系统扩展、权限授权、钥匙串条目的基线；试用期间持续记录这个 App 新增或修改了什么；决定不要时，只撤销这个 App 带来的变化，系统保护的目录自动安排在下次重启时清理，最后给出「已清干净」报告。决定保留则一键转为正式安装。",
+   "url": "https://www.reddit.com/r/MacOS/comments/1xzy3t4/app_removers_dont_remove_everything/",
+   "tags": [
+    "Mac/桌面",
+    "安全"
+   ],
+   "raw_tags": [
+    "Mac/桌面工具",
+    "安全/隐私"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "喜欢试新 App 的 Mac 用户，卸载时总有删不掉的残留：用 Find Any File 找出所有相关文件，仍有几个 WebKit 沙盒目录提示「没有权限」；Peel、AppCleaner、Remove-it 2 三款卸载工具都清不掉，只能重启或进安全模式。Citrix 之类的工作软件更是在磁盘和系统设置里到处留东西。有人干脆每次试装前做一次 Time Machine 快照，不要就整机回滚；不懂技术的人得出的结论是「别再试新 App 了」。",
+    "target_users": "经常试用新 App 的 Mac 用户、App 评测博主和 r/macapps 常客；需要临时装公司 VPN、会议、远程桌面客户端的上班族；有轻微「整洁强迫」的人。",
+    "quotes": [
+     {
+      "text": "So I thought I would try a dedicated app remover app. In fact I tried three apps: Peel, AppCleaner and Remove-it 2. All three left these four files (above) and could not delete them.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 帖（App removers don't remove everything，25 条评论）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1xzy3t4/app_removers_dont_remove_everything/"
+       }
+      ]
+     },
+     {
+      "text": "My method of testing new apps is honestly kind of overkill, but I’ll share it anyway: I make a Time Machine backup before installing the app and then, if I don’t want to keep it, I’ll just roll back to the previous snapshot.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1xzy3t4/app_removers_dont_remove_everything/19supdaiyge6d/"
+       }
+      ]
+     },
+     {
+      "text": "I used it to uninstall a Citrix installation I needed for work. It left flotsam all over my disk and settings menus. I still haven’t found all of it.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1xzy3t4/app_removers_dont_remove_everything/19sunnpeey8jk/"
+       }
+      ]
+     },
+     {
+      "text": "Booting your Mac in Safe Mode resets these sandbox areas, allowing you to clear them all at once.  Since booting into Safe Mode every time you uninstall an app is quite cumbersome, it is a good idea to do it occasionally—perhaps once a month or whenever you perform an OS update—as a form of routine maintenance.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1xzy3t4/app_removers_dont_remove_everything/19sur7oj77wzk/"
+       }
+      ]
+     },
+     {
+      "text": "Takeawaya for a no-techie like me:  Don't try new apps. Live with orphans Restart mac , even mac mini regularly (Usual advice: Don't, no need)",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1xzy3t4/app_removers_dont_remove_everything/19suvdduuli9w/"
+       }
+      ]
+     }
+    ],
+    "existing": "AppCleaner、Peel、Remove-it、AppZapper、CleanMyMac（按名称搜残留）；Time Machine 本地快照（整机回滚）；macOS 虚拟机（UTM、Parallels）里试装",
+    "defects": "按文件名匹配找残留，漏掉登录项、后台服务、系统扩展、钥匙串、系统设置里的条目，被系统保护的沙盒目录删不掉；Time Machine 回滚会把这段时间其他文件和设置一起退回去；虚拟机里试装体验不真实、占资源，很多 App（菜单栏、辅助功能类）没法测",
+    "solution": "一个「试装模式」小工具：安装新 App 前点一下，记录文件系统、登录项、后台服务、系统扩展、权限授权、钥匙串条目的基线；试用期间持续记录这个 App 新增或修改了什么；决定不要时，只撤销这个 App 带来的变化，系统保护的目录自动安排在下次重启时清理，最后给出「已清干净」报告。决定保留则一键转为正式安装。",
+    "mvp": "先做基于 FSEvents 的变更记录 + 登录项/后台服务/系统扩展/隐私权限对比，卸载时生成清单并执行删除，受保护项目提示重启后自动处理。买断 15 美元，r/macapps 首发。",
+    "difficulty": null,
+    "potential": null
+   }
+  }
+ ]
+}
