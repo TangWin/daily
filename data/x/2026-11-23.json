@@ -1,0 +1,116 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-23",
+ "day": {
+  "digest": "Matt Pocock 继续讨论 /the-perfect-typescript-codebase skill：说明它描述的是 lint 规则、CI 等规范，并称已用其早期版本启动新项目，自评是做过的最好的代码库。",
+  "by_source": {
+   "mattpocockuk": "解释该 skill 涵盖 lint/CI 等规范，并称用早期版本做的新项目是他最好的代码库（作者自评）。"
+  },
+  "updated_at": "2026-11-23T08:25:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2124577125814657374",
+   "date": "2026-11-23",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124577125814657374",
+   "url": "https://x.com/mattpocockuk/status/2124577125814657374",
+   "posted_at": "2026-11-23T02:53+08:00",
+   "kind": "quote",
+   "text": "Just started a project with an early version of this skill and it's already the best codebase I've ever produced\n\nNot sure how I lived without this skill for greenfield projects",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": {
+    "handle": "mattpocockuk",
+    "post_id": "2124500662436151797",
+    "url": "https://x.com/mattpocockuk/status/2124500662436151797",
+    "text": "Thinking about creating a /the-perfect-typescript-codebase skill\n\nI.e. a platonic ideal for what a great codebase looks like\n\nWhat should go in there?"
+   },
+   "links": [],
+   "translation_zh": "刚用这个 skill 的早期版本开始了一个项目，它已经是我做过的最好的代码库了\n\n真不知道以前没有这个 skill 时我是怎么做新项目（greenfield）的",
+   "analysis": {
+    "summary": "Matt 引用自己此前“打算做一个 /the-perfect-typescript-codebase skill（代码库的柏拉图式理想）”的帖子，称已用该 skill 的早期版本开始新项目，效果是他做过的最好的代码库。",
+    "points": [
+     "被引用帖：他在构思 /the-perfect-typescript-codebase skill，描述好代码库的理想样子，并征求应包含的内容。",
+     "他已经用该 skill 的早期版本启动了一个项目。",
+     "他称这已是自己做过的最好的代码库。",
+     "他认为这个 skill 对 greenfield（从零开始的）项目尤其有用。"
+    ],
+    "why": "表明这个 skill 从构思到早期试用进展很快。“最好的代码库”是作者的主观评价，不是量化数据；skill 尚未公开具体内容。",
+    "tags": [
+     "Skills",
+     "TypeScript",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2124568231793119504",
+   "date": "2026-11-23",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124568231793119504",
+   "url": "https://x.com/mattpocockuk/status/2124568231793119504",
+   "posted_at": "2026-11-23T02:18+08:00",
+   "kind": "reply",
+   "text": "@samwhoo",
+   "article_title": null,
+   "reply_to": {
+    "handle": "samwhoo",
+    "post_id": "2124540739950436802",
+    "url": "https://x.com/samwhoo/status/2124540739950436802",
+    "text": "Brother you’re the fucking Typescript guy you tell me"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "@samwhoo",
+   "analysis": {
+    "summary": "samwhoo 调侃说 Matt 自己就是“TypeScript 那个人”，应该由他来告诉别人答案；Matt 只用一张 GIF 回复。",
+    "points": [
+     "对方原话：你就是那个 TypeScript 专家，应该你来告诉我。",
+     "Matt 的回复只有 @提及和一张 GIF，未采集到 GIF 内容，不做推断。"
+    ],
+    "why": "纯社交回复，信息量很低。",
+    "tags": [
+     "社区互动"
+    ]
+   }
+  },
+  {
+   "id": "x-2124549022585344202",
+   "date": "2026-11-23",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124549022585344202",
+   "url": "https://x.com/mattpocockuk/status/2124549022585344202",
+   "posted_at": "2026-11-23T01:02+08:00",
+   "kind": "reply",
+   "text": "Yeah it's a skill that describes lint rules, CI etc",
+   "article_title": null,
+   "reply_to": {
+    "handle": "shubham_pawar_s",
+    "post_id": "2124547837971288522",
+    "url": "https://x.com/shubham_pawar_s/status/2124547837971288522",
+    "text": "I don't think it should be skill but rather lint rules"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "是的，它是一个描述 lint 规则、CI 等内容的 skill",
+   "analysis": {
+    "summary": "有人认为这不该做成 skill，而应该是 lint 规则；Matt 回复：是的，这个 skill 本身就是用来描述 lint 规则、CI 等内容的。",
+    "points": [
+     "对方观点：应该用 lint 规则而不是 skill。",
+     "Matt：该 skill 描述的正是 lint 规则、CI 等配置。"
+    ],
+    "why": "说明他设想的“完美 TypeScript 代码库” skill 并不替代 lint/CI，而是把这些工程规范写下来交给 agent。上下文仅限这两条帖子。",
+    "tags": [
+     "Skills",
+     "TypeScript",
+     "工程规范"
+    ]
+   }
+  }
+ ]
+}

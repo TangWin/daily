@@ -3,13 +3,81 @@
  "type": "x",
  "date": "2026-11-22",
  "day": {
-  "digest": "Matt Pocock 全天围绕 AI 工作流与 skill：指出对 agent 的信任度决定返工容忍度；提出逐句打分让 agent 学文风的构想，后更新称单句打分远好于多选；正在撰写面向非开发者的 VECTOR 文档并答疑（渐进委派信任、工作坊模板）；还在构思 /the-perfect-typescript-codebase skill，认为 skill 与文档只是打包方式不同。他的陪产假即将开始。",
+  "digest": "Matt Pocock 全天围绕 AI 工作流与 skill：指出对 agent 的信任度决定返工容忍度；提出逐句打分让 agent 学文风的构想，后更新称单句打分远好于多选；正在撰写面向非开发者的 VECTOR 文档并答疑；构思 /the-perfect-typescript-codebase skill，认为 skill 与文档只是打包方式不同，并承认“完美代码库”难以达到但追求过程有价值。他的陪产假即将开始。",
   "by_source": {
-   "mattpocockuk": "谈信任与返工、逐句打分学文风（单句优于多选）、VECTOR 文档与答疑、构思 /the-perfect-typescript-codebase skill，并提到陪产假将开始。"
+   "mattpocockuk": "谈信任与返工、逐句打分学文风、VECTOR 文档与答疑、构思 /the-perfect-typescript-codebase skill（认为追求理想代码库过程本身有价值），并提到陪产假将开始。"
   },
-  "updated_at": "2026-11-23T00:17:00+09:00"
+  "updated_at": "2026-11-23T08:25:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2124530476866249068",
+   "date": "2026-11-22",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124530476866249068",
+   "url": "https://x.com/mattpocockuk/status/2124530476866249068",
+   "posted_at": "2026-11-22T23:48+08:00",
+   "kind": "reply",
+   "text": "Of course, but it's a valuable journey even if you never reach the destination",
+   "article_title": null,
+   "reply_to": {
+    "handle": "myszojelenio",
+    "post_id": "2124509103703613635",
+    "url": "https://x.com/myszojelenio/status/2124509103703613635",
+    "text": "I'm afraid that chasing an ideal codebase will be an neverending story. There might be multiple optimal approaches depending on the scenario. Fingers crossed anyway and waiting for the first results, good luck"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "当然，但即使你永远到不了终点，这也是一段有价值的旅程",
+   "analysis": {
+    "summary": "有人担心追求“理想代码库”会是一个永无止境的故事，最优方案因场景而异；Matt 回复：确实如此，但即使永远达不到终点，这段过程本身也有价值。",
+    "points": [
+     "对方观点：理想代码库难以达成，最优方案取决于场景。",
+     "Matt 认同这一点。",
+     "Matt 认为追求理想的过程本身有价值。"
+    ],
+    "why": "回应的是他构思的 /the-perfect-typescript-codebase skill：他承认“完美代码库”不可完全达到，但把它当作值得追求的方向。属于作者观点。",
+    "tags": [
+     "TypeScript",
+     "代码质量",
+     "Skills"
+    ]
+   }
+  },
+  {
+   "id": "x-2124528884687245731",
+   "date": "2026-11-22",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124528884687245731",
+   "url": "https://x.com/mattpocockuk/status/2124528884687245731",
+   "posted_at": "2026-11-22T23:42+08:00",
+   "kind": "reply",
+   "text": "Where did you learn about them? Were you in the cohort?",
+   "article_title": null,
+   "reply_to": {
+    "handle": "kamranali",
+    "post_id": "2124526414246695174",
+    "url": "https://x.com/kamranali/status/2124526414246695174",
+    "text": "Hey @mattpocockuk \n\nYou should definitely talk about creating content and course planner Skill"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "你是在哪里了解到它们的？你参加过那期课程吗？",
+   "analysis": {
+    "summary": "有人建议 Matt 谈谈创建“内容与课程规划” Skill；Matt 反问对方是从哪里了解到这些的，是否参加过那期课程（cohort）。",
+    "points": [
+     "对方建议 Matt 讲讲创建内容和课程规划的 Skill。",
+     "Matt 反问对方从哪里得知这些，是否参加了 cohort。"
+    ],
+    "why": "纯社交性的追问，信息量很低；“它们”具体指什么，帖子上下文不全，不做推断。",
+    "tags": [
+     "Skills",
+     "社区互动"
+    ]
+   }
+  },
   {
    "id": "x-2124506847885631875",
    "date": "2026-11-22",
