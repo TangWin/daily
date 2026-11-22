@@ -3,13 +3,315 @@
  "type": "x",
  "date": "2026-11-22",
  "day": {
-  "digest": "Matt Pocock 构想了一种用逐句打分应用让 agent 学习个人写作风格的方法，并补充其降低人类认知负担的逻辑；另在讨论中指出，对 agent 的信任程度决定了人们能否接受返工。",
+  "digest": "Matt Pocock 全天围绕 AI 工作流与 skill：指出对 agent 的信任度决定返工容忍度；提出逐句打分让 agent 学文风的构想，后更新称单句打分远好于多选；正在撰写面向非开发者的 VECTOR 文档并答疑（渐进委派信任、工作坊模板）；还在构思 /the-perfect-typescript-codebase skill，认为 skill 与文档只是打包方式不同。他的陪产假即将开始。",
   "by_source": {
-   "mattpocockuk": "提出逐句打分让 agent 学文风的构想，并认为对 agent 的信任度比性格更影响返工容忍度。"
+   "mattpocockuk": "谈信任与返工、逐句打分学文风（单句优于多选）、VECTOR 文档与答疑、构思 /the-perfect-typescript-codebase skill，并提到陪产假将开始。"
   },
-  "updated_at": "2026-11-22T08:30:00+09:00"
+  "updated_at": "2026-11-23T00:17:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2124506847885631875",
+   "date": "2026-11-22",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124506847885631875",
+   "url": "https://x.com/mattpocockuk/status/2124506847885631875",
+   "posted_at": "2026-11-22T22:14+08:00",
+   "kind": "reply",
+   "text": "No difference between them, other than packaging/portability",
+   "article_title": null,
+   "reply_to": {
+    "handle": "enchil_ada_",
+    "post_id": "2124506458628723019",
+    "url": "https://x.com/enchil_ada_/status/2124506458628723019",
+    "text": "Is not that knowledge instead of skill?\nThat should live into docs files and the agent.md should point to that right?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "它们之间没有区别，除了打包方式/可移植性",
+   "analysis": {
+    "summary": "在 /the-perfect-typescript-codebase 讨论串中，有人问这类内容是不是“知识”而非“skill”，应放在文档里由 agent.md 指向；Matt 回复两者没有区别，只是打包和可移植性不同。",
+    "points": [
+     "对方观点：这是知识，应放进 docs 文件，由 agent.md 指向。",
+     "Matt：skill 与文档没有本质区别。",
+     "区别仅在打包/可移植性。"
+    ],
+    "why": "这是 Matt 对 skill 本质的看法：skill 就是可打包、可移植的知识/文档。属于作者观点。",
+    "tags": [
+     "Skills",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2124505526323368303",
+   "date": "2026-11-22",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124505526323368303",
+   "url": "https://x.com/mattpocockuk/status/2124505526323368303",
+   "posted_at": "2026-11-22T22:09+08:00",
+   "kind": "reply",
+   "text": "Yep sounds super aligned with my approach. Good luck!",
+   "article_title": null,
+   "reply_to": {
+    "handle": "develogue",
+    "post_id": "2124504850650349954",
+    "url": "https://x.com/develogue/status/2124504850650349954",
+    "text": "Clarification: I experimented with Spec Kit in the very early days. Since then, I’ve been on team “have long form conversations with your Agent”.\n\nSpecs outside. ADRs inside. Voice first (where possible)."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "是的，听起来和我的做法非常一致。祝你好运！",
+   "analysis": {
+    "summary": "在 /the-perfect-typescript-codebase 讨论串中，有人澄清自己早期试过 Spec Kit，之后转向“和 Agent 长对话”的做法（规格放外面、ADR 放里面、尽量语音优先）；Matt 回复这与他的做法非常一致。",
+    "points": [
+     "对方：早期试过 Spec Kit，后来改为与 Agent 进行长篇对话。",
+     "对方的原则：Specs outside（规格放外部），ADRs inside（架构决策记录放仓库内），尽量语音优先。",
+     "Matt：这与他的方法很一致。"
+    ],
+    "why": "对方帖子以“澄清”开头，说明此前还有对话，但未采集到，上下文不全。可看出 Matt 认同“长对话 + ADR”而非重型规格工具的工作方式，这是他的观点表态。",
+    "tags": [
+     "Agent 工程",
+     "工作流",
+     "ADR"
+    ]
+   }
+  },
+  {
+   "id": "x-2124500662436151797",
+   "date": "2026-11-22",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124500662436151797",
+   "url": "https://x.com/mattpocockuk/status/2124500662436151797",
+   "posted_at": "2026-11-22T21:50+08:00",
+   "kind": "post",
+   "text": "Thinking about creating a /the-perfect-typescript-codebase skill\n\nI.e. a platonic ideal for what a great codebase looks like\n\nWhat should go in there?",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "在考虑做一个 /the-perfect-typescript-codebase skill\n\n也就是一个关于优秀代码库应该是什么样的理想范本\n\n里面应该放些什么？",
+   "analysis": {
+    "summary": "Matt 在考虑做一个 /the-perfect-typescript-codebase skill，描述“优秀 TypeScript 代码库”的理想范本，并向大家征集内容。",
+    "points": [
+     "skill 名：/the-perfect-typescript-codebase。",
+     "定位：优秀代码库的“柏拉图式理想”。",
+     "他在征集应该包含哪些内容。",
+     "讨论中有人质疑太主观，他回复“当然，它会带有主观立场”（该回复较短，未单独收录）。"
+    ],
+    "why": "把代码库最佳实践打包成 agent skill，是他“用 skill 给 agent 注入规范”思路的延续。目前只是想法，还没有具体内容。",
+    "tags": [
+     "Skills",
+     "TypeScript",
+     "代码规范"
+    ]
+   }
+  },
+  {
+   "id": "x-2124499707367936063",
+   "date": "2026-11-22",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124499707367936063",
+   "url": "https://x.com/mattpocockuk/status/2124499707367936063",
+   "posted_at": "2026-11-22T21:46+08:00",
+   "kind": "reply",
+   "text": "It's just a process for creating workflows",
+   "article_title": null,
+   "reply_to": {
+    "handle": "MiclauMarius",
+    "post_id": "2124499185693257841",
+    "url": "https://x.com/MiclauMarius/status/2124499185693257841",
+    "text": "What about if in a team one member is it and the rest don’t ? Will there be any clashes in the repo ?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "它只是一个创建工作流的流程",
+   "analysis": {
+    "summary": "有人问如果团队里只有一人用 VECTOR、其他人不用，会不会在仓库里产生冲突；Matt 回复 VECTOR 只是一个创建工作流的流程。",
+    "points": [
+     "提问：团队中只有部分人用 VECTOR，仓库里会不会冲突？",
+     "Matt：它只是创建工作流的流程。"
+    ],
+    "why": "言下之意是 VECTOR 是方法而非会改动仓库的工具，但他没有直接回答冲突问题，这是根据回复的推断。信息量较低。",
+    "tags": [
+     "VECTOR",
+     "工作流"
+    ]
+   }
+  },
+  {
+   "id": "x-2124498185863282757",
+   "date": "2026-11-22",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124498185863282757",
+   "url": "https://x.com/mattpocockuk/status/2124498185863282757",
+   "posted_at": "2026-11-22T21:40+08:00",
+   "kind": "reply",
+   "text": "Either - anyone who wants to run VECTOR to help someone else adopt AI",
+   "article_title": null,
+   "reply_to": {
+    "handle": "MiclauMarius",
+    "post_id": "2124497400546898369",
+    "url": "https://x.com/MiclauMarius/status/2124497400546898369",
+    "text": "are the workshop templates for teams or solo owners ?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "都可以——任何想用 VECTOR 帮别人采用 AI 的人都行",
+   "analysis": {
+    "summary": "有人问 VECTOR 的工作坊模板是面向团队还是个人经营者；Matt 回复两者都可以，面向任何想用 VECTOR 帮助别人采用 AI 的人。",
+    "points": [
+     "提问：工作坊模板是给团队还是个人经营者（solo owners）？",
+     "Matt：都可以。",
+     "目标用户是想用 VECTOR 帮别人采用 AI 的人。"
+    ],
+    "why": "澄清了工作坊模板的定位：它是给“引导者”用的，用来帮别人落地 AI。信息量中等。",
+    "tags": [
+     "VECTOR",
+     "AI 落地"
+    ]
+   }
+  },
+  {
+   "id": "x-2124482879463805378",
+   "date": "2026-11-22",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124482879463805378",
+   "url": "https://x.com/mattpocockuk/status/2124482879463805378",
+   "posted_at": "2026-11-22T20:39+08:00",
+   "kind": "post",
+   "text": "My pat leave is starting soon\n\nAnd I've immediately had a work idea I can't stop thinking about\n\nA relaxed brain is a creative one eh",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我的陪产假快开始了\n\n结果我立刻就冒出了一个工作上的点子，停不下来地想它\n\n放松的大脑才是有创造力的大脑，是吧",
+   "analysis": {
+    "summary": "Matt 说陪产假即将开始，却马上冒出一个停不下来的工作点子，感叹放松的大脑更有创造力。",
+    "points": [
+     "他的陪产假即将开始。",
+     "刚放松就想到一个工作点子。",
+     "调侃“放松的大脑更有创造力”。"
+    ],
+    "why": "个人生活动态，信息量较低；可留意他接下来一段时间可能更新减少。点子具体是什么帖子里没说。",
+    "tags": [
+     "个人动态"
+    ]
+   }
+  },
+  {
+   "id": "x-2124476439307391342",
+   "date": "2026-11-22",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124476439307391342",
+   "url": "https://x.com/mattpocockuk/status/2124476439307391342",
+   "posted_at": "2026-11-22T20:13+08:00",
+   "kind": "reply",
+   "text": "Yep, we map the whole process and then only delegate trust slowly",
+   "article_title": null,
+   "reply_to": {
+    "handle": "JubayarAdnan",
+    "post_id": "2124472775633158229",
+    "url": "https://x.com/JubayarAdnan/status/2124472775633158229",
+    "text": "non-devs i teach struggle to trust the output, does vector cover that?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "是的，我们会先把整个流程梳理出来，然后只是慢慢地逐步交出信任",
+   "analysis": {
+    "summary": "有人说自己教的非开发者很难信任 AI 的输出，问 VECTOR 是否涉及这点；Matt 回复：会先完整梳理流程，再逐步、缓慢地把信任交给 AI。",
+    "points": [
+     "提问者：非开发者难以信任 AI 输出。",
+     "Matt：VECTOR 先映射整个流程。",
+     "然后“慢慢地”委派信任，而不是一次全交给 AI。"
+    ],
+    "why": "点出 VECTOR 处理信任问题的思路：渐进式委派。但具体怎么做（步骤、标准）帖子里没有展开。",
+    "tags": [
+     "AI 落地",
+     "信任",
+     "VECTOR"
+    ]
+   }
+  },
+  {
+   "id": "x-2124471135953723528",
+   "date": "2026-11-22",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124471135953723528",
+   "url": "https://x.com/mattpocockuk/status/2124471135953723528",
+   "posted_at": "2026-11-22T19:52+08:00",
+   "kind": "quote",
+   "text": "Working on the docs for VECTOR today. Planning to include:\n\n- A /vector skill for creating your own workflows\n- Workshop templates for helping non-AI-pilled people create theirs (consultant catnip)\n- Example prompts for creating your own workflows\n\nWould love to hear common use cases. What are you struggling to adopt AI for? Or are you struggling to imagine how you'll adopt it at all?",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": {
+    "handle": "mattpocockuk",
+    "post_id": "2123810087361810663",
+    "url": "https://x.com/mattpocockuk/status/2123810087361810663",
+    "text": "Cooking my first skill for non-devs\n\nIt's called /vector, and it guides you on how to delegate AI for any task.\n\nSix simple steps, and you'll have a workflow that is easy to use, easy to trust, and gets better over time\n\nI'm planning on releasing frameworks and docs around it so you can run your own VECTOR sessions at your company:\n\n- Find workflows that AI could help with\n- Give agents the right context\n- Reorder the workflow\n- Identify ways it can improve over time (via memory)\n\nReleasing soon. Would you use this?"
+   },
+   "links": [],
+   "translation_zh": "今天在写 VECTOR 的文档。计划包括：\n\n- 一个 /vector skill，用来创建你自己的工作流\n- 工作坊模板，帮助那些还没“AI 上头”的人创建他们自己的工作流（咨询顾问的猫薄荷）\n- 用来创建你自己工作流的示例提示词\n\n很想听听常见的使用场景。你在哪些事情上难以用上 AI？还是说你连自己会怎么用上 AI 都难以想象？",
+   "analysis": {
+    "summary": "Matt 引用自己此前介绍 /vector（面向非开发者、指导如何把任务委派给 AI 的 skill）的帖子，说正在写 VECTOR 文档，并公布计划内容、征集使用场景。",
+    "points": [
+     "被引用帖：/vector 是他第一个面向非开发者的 skill，六个步骤帮你建立易用、可信、会随时间改进的工作流。",
+     "被引用帖提到的框架内容：找出 AI 可帮忙的工作流、给 agent 正确的上下文、重排工作流、通过记忆持续改进。",
+     "文档计划包含：/vector skill、给非 AI 用户的工作坊模板、创建工作流的示例提示词。",
+     "他公开征集：大家在哪些事上难以采用 AI。"
+    ],
+    "why": "这表明 Matt 正把 skill 从开发者工具扩展到“帮组织落地 AI”的方法论和工作坊材料，“咨询顾问的猫薄荷”暗示面向咨询/培训场景。发布时间与具体内容仍以他后续发布为准。",
+    "tags": [
+     "Skills",
+     "AI 落地",
+     "工作流",
+     "VECTOR"
+    ]
+   }
+  },
+  {
+   "id": "x-2124465699955335538",
+   "date": "2026-11-22",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124465699955335538",
+   "url": "https://x.com/mattpocockuk/status/2124465699955335538",
+   "posted_at": "2026-11-22T19:31+08:00",
+   "kind": "reply",
+   "text": "Quick update, which is that single is FAR better than multi\n\nTurns out that reading 3 options and choosing the best is far harder for your brain than just giving fast vibes-based feedback",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2124214716461359499",
+    "url": "https://x.com/mattpocockuk/status/2124214716461359499",
+    "text": "I love that AI helps you optimise around the thimble of high-quality working memory that humans have.\n\nInstead of \"does this all flow together\", it's literally just \"does this sentence read well\"."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "快速更新一下：单句模式比多选模式好得多\n\n原来，读三个选项再挑出最好的那个，对大脑来说比凭感觉快速给反馈难得多",
+   "analysis": {
+    "summary": "Matt 在自己“逐句打分让 agent 学文风”的帖子串里更新试验结论：单句打分（single）远好于多选比较（multi）。",
+    "points": [
+     "此前构想中有两种模式：给单句打 1-4 分（single），或在几句中选更好的（multi）。",
+     "他的结论是 single 模式“好得多”。",
+     "理由：读 3 个选项再挑最好的，比凭感觉快速反馈更费脑。"
+    ],
+    "why": "这是作者亲自试用后的主观体会，不是量化数据。它延续了前面“降低人类认知负担”的思路：给 agent 提供反馈时，越轻量的判断越可持续。",
+    "tags": [
+     "AI 写作",
+     "人类反馈",
+     "认知负荷"
+    ]
+   }
+  },
   {
    "id": "x-2124214716461359499",
    "date": "2026-11-22",
