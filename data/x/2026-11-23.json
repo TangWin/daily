@@ -3,13 +3,190 @@
  "type": "x",
  "date": "2026-11-23",
  "day": {
-  "digest": "Matt Pocock 继续讨论 /the-perfect-typescript-codebase skill：说明它描述的是 lint 规则、CI 等规范，并称已用其早期版本启动新项目，自评是做过的最好的代码库。",
+  "digest": "Matt Pocock 一早解释了 /the-perfect-typescript-codebase skill（涵盖 lint、CI 等规范，自评用它做出了最好的代码库）；晚间则长文推荐 Vercel Board 这种 agent 与开发者共用的 Slack 式工作区，认为多数开发团队应自建，并在回复中补充它偏聊天而非任务管理、非开发场景可买现成。",
   "by_source": {
-   "mattpocockuk": "解释该 skill 涵盖 lint/CI 等规范，并称用早期版本做的新项目是他最好的代码库（作者自评）。"
+   "mattpocockuk": "先谈 /the-perfect-typescript-codebase skill，后长文分析 Vercel Board 式人机协作工作区并称正在自己重新实现。"
   },
-  "updated_at": "2026-11-23T08:25:00+09:00"
+  "updated_at": "2026-11-23T20:25:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2124808929087750563",
+   "date": "2026-11-23",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124808929087750563",
+   "url": "https://x.com/mattpocockuk/status/2124808929087750563",
+   "posted_at": "2026-11-23T18:15+08:00",
+   "kind": "reply",
+   "text": "Yes, though probably buy > build in that context",
+   "article_title": null,
+   "reply_to": {
+    "handle": "zemariagp",
+    "post_id": "2124806912902406258",
+    "url": "https://x.com/zemariagp/status/2124806912902406258",
+    "text": "do you think a format like this would apply to non-development work?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "是的，不过在那种场景下，可能买比自己做更合适",
+   "analysis": {
+    "summary": "有人问这种形式是否也适用于非开发工作；Matt 回答适用，但在那种场景下买现成的可能比自己做更好。",
+    "points": [
+     "被回复帖：问这种形式（agent 与人共处的聊天工作区）是否适用于非开发工作。",
+     "Matt 认为适用。",
+     "他认为非开发场景下买现成产品可能比自建更合适。"
+    ],
+    "why": "这和他前面“大多数团队应自己做”的说法形成补充：自建建议主要针对开发团队。这是简短观点，没有展开理由。",
+    "tags": [
+     "多 Agent 协作",
+     "工具选型"
+    ]
+   }
+  },
+  {
+   "id": "x-2124800353946447929",
+   "date": "2026-11-23",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124800353946447929",
+   "url": "https://x.com/mattpocockuk/status/2124800353946447929",
+   "posted_at": "2026-11-23T17:40+08:00",
+   "kind": "reply",
+   "text": "Yes, but vendor agnostic\n\nNot checked those tools out though, they might have some agnosticism too\n\nPlus, it's more about chat than task management\n\nIMO I think you should just use your existing ticket tracker, not bolt a new one on",
+   "article_title": null,
+   "reply_to": {
+    "handle": "kksrini89",
+    "post_id": "2124799625500766316",
+    "url": "https://x.com/kksrini89/status/2124799625500766316",
+    "text": "is this very similar to \"hermes/openclaw - kanban board\"what we manage the tasks with agents?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "是的，但与厂商无关\n\n不过我还没看过那些工具，它们可能也有一定的厂商无关性\n\n另外，这更多是关于聊天，而不是任务管理\n\n依我看，你应该直接用现有的工单系统，而不是再额外加一个",
+   "analysis": {
+    "summary": "有人问这是否类似用 agent 管任务的“hermes/openclaw 看板”；Matt 回复说思路相似但他强调与厂商无关，而且这是聊天而非任务管理，任务应继续用现有工单系统。",
+    "points": [
+     "被回复帖：问这和 hermes/openclaw 的看板（用 agent 管理任务）是否很像。",
+     "Matt：是的，但他想要的是与厂商无关的版本。",
+     "他承认没看过那些工具，它们也可能有一定的厂商无关性。",
+     "他认为这更关乎聊天，而非任务管理。",
+     "他建议继续用现有工单系统，不要再加一个新的。"
+    ],
+    "why": "补充了他对这类工具的定位：沟通层而不是任务管理层。对比的工具他自己说没用过，所以对比结论只是他的看法。",
+    "tags": [
+     "Agent 工程",
+     "多 Agent 协作",
+     "工具选型"
+    ]
+   }
+  },
+  {
+   "id": "x-2124797892808384889",
+   "date": "2026-11-23",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124797892808384889",
+   "url": "https://x.com/mattpocockuk/status/2124797892808384889",
+   "posted_at": "2026-11-23T17:31+08:00",
+   "kind": "reply",
+   "text": "And yes I am currently burning a bunch of tokens reimplementing this",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2124797717834543167",
+    "url": "https://x.com/mattpocockuk/status/2124797717834543167",
+    "text": "Vercel Board has been lighting my brain on fire for the last few days\n\nIt's a genius idea, but I think most teams should build it from scratch\n\nBasically just a private Slack workspace for your agents AND developers (which can even sync to Slack channels for better observability)\n\nThe idea (not necessarily Vercel's implementation of it) makes so many things simple:\n\n1. Collaborative grilling\n\nEach locally running agent has its own identity on the board. As does every human!\n\nThat means if you're grilling with an agent, and you need to ask someone a question, you just get your agent to ping the…"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "而且没错，我现在正在烧一大堆 token 重新实现这个东西",
+   "analysis": {
+    "summary": "接着自己介绍 Vercel Board 的长帖，Matt 补充说他正在花大量 token 自己重新实现一个类似的东西。",
+    "points": [
+     "这是对自己 Vercel Board 帖子的补充回复。",
+     "他正在自己重新实现类似 Vercel Board 的东西。",
+     "他说为此消耗了大量 token。"
+    ],
+    "why": "说明他在实践自己“团队应自建”的观点；没有透露实现细节，信息量有限。",
+    "tags": [
+     "Agent 工程",
+     "多 Agent 协作"
+    ]
+   }
+  },
+  {
+   "id": "x-2124797717834543167",
+   "date": "2026-11-23",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124797717834543167",
+   "url": "https://x.com/mattpocockuk/status/2124797717834543167",
+   "posted_at": "2026-11-23T17:30+08:00",
+   "kind": "post",
+   "text": "Vercel Board has been lighting my brain on fire for the last few days\n\nIt's a genius idea, but I think most teams should build it from scratch\n\nBasically just a private Slack workspace for your agents AND developers (which can even sync to Slack channels for better observability)\n\nThe idea (not necessarily Vercel's implementation of it) makes so many things simple:\n\n1. Collaborative grilling\n\nEach locally running agent has its own identity on the board. As does every human!\n\nThat means if you're grilling with an agent, and you need to ask someone a question, you just get your agent to ping them (or, ping their agent!)\n\n2. Locally running agents\n\nThis setup feels awesome for connecting locally running agents to the rest of the organisation.\n\n\"Unread messages\" could form a queue (Vercel board doesn't do this AFAIK) which would allow remote agents to ping messages to local agents, which would get picked up when they wake up.\n\nThis would allow seamless communication between remote and local, and aid companies looking to make the leap to remote agents.\n\n3. Schedules\n\nWant to schedule a cron? Just trigger a repeating message to an agent. I love how simple it makes the mental model.\n\n4. Multi-vendor setups\n\nCreating a vendor-agnostic version of this would be sweet - a seamless collaboration environment for all of your vendor-locked servers/harnesses.\n\n5. Deterministic workflows as commands\n\nOne opportunity I see for Vercel Board is to allow for registering deterministic workflows as `/commands` - i.e. running review agents or implementer agents.\n\nThis would allow you to mix and match agents and workflows in a really lovely way, and agents could themselves trigger workflows which report back via the board.\n\nOverall my brain is on fire, just wanted to share\n\nhttps://vercel.com/blog/introducing-vercel-board",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://vercel.com/blog/introducing-vercel-board",
+     "title": null
+    }
+   ],
+   "translation_zh": "过去几天 Vercel Board 一直让我脑洞大开\n\n这是个天才的想法，但我觉得大多数团队应该从零自己做一个\n\n它基本上就是一个给你的 agent 和开发者共用的私有 Slack 工作区（甚至可以同步到 Slack 频道，便于观察）\n\n这个想法（不一定是 Vercel 的具体实现）让很多事情变得简单：\n\n1. 协作式追问（grilling）\n\n每个在本地运行的 agent 在 board 上都有自己的身份。每个人类也一样！\n\n这意味着，如果你正在和 agent 进行追问对齐，需要问别人一个问题，只要让你的 agent 去 ping 对方就行（或者 ping 对方的 agent！）\n\n2. 本地运行的 agent\n\n这种设置用来把本地运行的 agent 和组织的其他部分连接起来，感觉非常棒。\n\n“未读消息”可以形成一个队列（据我所知 Vercel Board 没这么做），这样远程 agent 可以给本地 agent 发消息，本地 agent 醒来时就会处理。\n\n这能让远程和本地之间无缝沟通，并帮助想要转向远程 agent 的公司迈出这一步。\n\n3. 定时任务\n\n想设一个 cron？只要定时给某个 agent 发一条重复消息就行。我很喜欢它让心智模型变得这么简单。\n\n4. 多厂商环境\n\n做一个与厂商无关的版本会很棒——为你所有被厂商锁定的服务器/harness 提供一个无缝协作环境。\n\n5. 把确定性工作流做成命令\n\n我看到 Vercel Board 的一个机会是允许把确定性工作流注册为 `/commands`——比如运行审查 agent 或实现 agent。\n\n这样就能以非常优雅的方式混合搭配 agent 和工作流，agent 自己也可以触发工作流，并通过 board 汇报结果。\n\n总之我脑洞大开，只是想分享一下\n\nhttps://vercel.com/blog/introducing-vercel-board",
+   "analysis": {
+    "summary": "Matt 介绍 Vercel Board：一个让 agent 和开发者共处的私有 Slack 式工作区。他认为这个想法很天才，但大多数团队应自己从零实现，并列出它带来的 5 个好处。",
+    "points": [
+     "Vercel Board 基本上是 agent 与开发者共用的私有 Slack 工作区，可同步到 Slack 频道以便观察。",
+     "协作式追问：每个本地 agent 和每个人都有身份，agent 可以代你 ping 同事或同事的 agent。",
+     "本地 agent：“未读消息”可作为队列，让远程 agent 给本地 agent 留言，本地 agent 醒来再处理（他称 Vercel Board 目前据他所知没有这个功能）。",
+     "定时任务：cron 可以简化为定时给 agent 发消息。",
+     "多厂商：希望有与厂商无关的版本，连接各家被锁定的服务器/harness。",
+     "建议把确定性工作流注册成 /commands（如审查、实现 agent），agent 也能触发工作流并通过 board 汇报。"
+    ],
+    "why": "这是 Matt 对“人和 agent 共用一个聊天空间”这一协作模式的看法，提出了消息队列、cron、/commands 等具体设计思路。“大多数团队应自己做”是他的个人观点；帖子没有讲 Vercel Board 的具体功能细节，以原文链接为准。",
+    "tags": [
+     "Agent 工程",
+     "多 Agent 协作",
+     "Vercel"
+    ]
+   }
+  },
+  {
+   "id": "x-2124778878979948778",
+   "date": "2026-11-23",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124778878979948778",
+   "url": "https://x.com/mattpocockuk/status/2124778878979948778",
+   "posted_at": "2026-11-23T16:15+08:00",
+   "kind": "reply",
+   "text": "Strongly agree, they can spin a lot of plates at once",
+   "article_title": null,
+   "reply_to": {
+    "handle": "thorstenball",
+    "post_id": "2124526763472494940",
+    "url": "https://x.com/thorstenball/status/2124526763472494940",
+    "text": "Crazy how the well these models now handle multiple questions and requests being sent at the same time.\n\nReminder: forget most of the context management practices you thought were important 4 months ago."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "非常同意，它们可以同时兼顾很多事情",
+   "analysis": {
+    "summary": "Thorsten Ball 说现在的模型能很好地处理同时发来的多个问题和请求，并提醒大家忘掉 4 个月前那些上下文管理做法；Matt 回复表示强烈同意，说模型能同时应付很多事。",
+    "points": [
+     "被回复帖（Thorsten Ball）：模型现在能很好地同时处理多个问题和请求。",
+     "被回复帖还说：4 个月前认为重要的大部分上下文管理做法可以忘掉了。",
+     "Matt 强烈同意，称模型可以“同时转很多盘子”。"
+    ],
+    "why": "一句表态式回复，信息量较低；主要反映两位开发者的主观体验：新模型处理并发请求的能力提升，旧的上下文管理习惯可能不再必要。这是观点，并非测评数据。",
+    "tags": [
+     "Agent 工程",
+     "上下文管理"
+    ]
+   }
+  },
   {
    "id": "x-2124577125814657374",
    "date": "2026-11-23",
