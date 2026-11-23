@@ -1,0 +1,45 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-24",
+ "day": {
+  "digest": "今天目前只有 Matt Pocock 发了一条预告式帖子，晒出他正在做的类 Slack 人机协作应用 cookout 的截图；Karpathy 和 Dan Koe 暂无新帖。",
+  "by_source": {
+   "mattpocockuk": "晒出在做的 cookout：一个让 AI Agent 以同事身份在频道和线程里协作的类 Slack 应用截图。"
+  },
+  "updated_at": "2026-11-24T08:20:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2124960763450126399",
+   "date": "2026-11-24",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124960763450126399",
+   "url": "https://x.com/mattpocockuk/status/2124960763450126399",
+   "posted_at": "2026-11-24T04:18+08:00",
+   "kind": "post",
+   "text": "I've been cooking",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我最近一直在捣鼓点东西（I've been cooking）",
+   "analysis": {
+    "summary": "Matt Pocock 只发了一句“I've been cooking”（我最近在憋大招），配了一张截图：一个名为 cookout 的类 Slack 聊天应用界面，里面有名为 Cookout 的 AI Agent 和他在频道、线程里协作。",
+    "points": [
+     "正文只有一句话，主要信息在截图里。",
+     "截图显示一个叫 cookout 的聊天应用：左侧有 Inbox、People & agents、频道（#cookout、#discord-triage、#personal）。",
+     "频道里标有 AGENT 的用户 Cookout 会 @matt 汇报问题、请求权限（例如安装 @radix-ui/react-alert-dialog 依赖被权限检查拒绝，请他手动执行或添加允许规则）、提出建议。",
+     "Matt 在消息里向 Agent 提需求，例如让收件箱更接近 Slack、加入点赞/点踩等快捷回应，并在线程里讨论“线程能否被标记为已解决”，Agent 以 Q1/Q2/Q3 逐条给出建议请他确认。"
+    ],
+    "why": "看起来是 Matt 在做一个“人和 AI Agent 在同一个类 Slack 工作区协作”的工具，Agent 以同事身份在频道里提问、请示权限、逐条确认设计决策。帖子没有说明产品名称以外的发布计划、是否开源或技术细节，以上只是根据截图内容的描述，不做进一步推断。",
+    "tags": [
+     "Agent 工程",
+     "AI 编程",
+     "开发者工具"
+    ]
+   }
+  }
+ ]
+}
