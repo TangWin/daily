@@ -1,0 +1,441 @@
+{
+ "schema_version": 1,
+ "type": "idea",
+ "date": "2026-11-24",
+ "day": {
+  "sample": "样本：主清单 139（HN42 Lobsters3 Reddit48 IH20 PH26） + Reddit 深翻页抱怨 112（5200 帖） + HN 句式评论/Ask/Show 563；未使用 X 付费 API。"
+ },
+ "items": [
+  {
+   "id": "idea-2026-11-24-01",
+   "date": "2026-11-24",
+   "type": "idea",
+   "rank": 1,
+   "title": "本地大模型该用哪个推理引擎：按你的显卡和模型自动测速选引擎，一个入口统一启动、切换和回滚，像本地版 OpenRouter",
+   "summary": "一个本地推理「引擎路由器」：先识别你的显卡、显存、内存和要跑的模型，自动拉取几个候选引擎（容器化隔离），用同一组提示跑速度、显存占用和输出一致性测试，给出每个模型的最佳引擎和启动参数；之后对外只暴露一个 OpenAI 兼容端点，按请求的模型名自动启动、卸载、并发调度；引擎更新前先在影子环境里复测，变慢或跑不起来就保持旧版本，一键回滚。",
+   "url": "https://www.reddit.com/r/LocalLLaMA/comments/1y30a6x/inference_engines_are_becoming_too_fragmented/",
+   "tags": [
+    "Coding Agent",
+    "开发者工具"
+   ],
+   "raw_tags": [
+    "Agent/AI编码",
+    "开发者工具"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "跑本地模型的人几个月前只用 llama.cpp 就够了，现在却出现了一堆只针对某类显卡、某种架构（如 MoE）、某几个模型优化的专用引擎和分支，各自有不同的量化、KV 缓存方案和启动参数。只用 llama.cpp 会白白损失性能，可逐个试又费时，新引擎每周都有，升级还常把老模型弄坏。有人自己写启动器、用 llama-swap 拼凑，但都要手工维护配置。",
+    "target_users": "在家用一张或多张显卡（NVIDIA/AMD/Apple Silicon）跑本地模型的开发者和爱好者；给小团队搭内网推理服务的工程师；同时给多个前端（编程代理、聊天界面）提供模型的人。",
+    "quotes": [
+     {
+      "text": "Fast forward a few months and now I have no idea what to run because you are leaving so much performance on the table if you just stick with llama.cpp",
+      "links": [
+       {
+        "label": "Reddit r/LocalLLaMA 帖（Inference engines are becoming too fragmented，241 分，195 条评论）",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1y30a6x/inference_engines_are_becoming_too_fragmented/"
+       }
+      ]
+     },
+     {
+      "text": "Feel like we need an OpenRouter for local engines. I see llama swap mentioned, but something more turnkey. Too lazy to build myself but putting idea out there if anyone wants to take it up.",
+      "links": [
+       {
+        "label": "Reddit r/LocalLLaMA 评论（同帖）",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1y30a6x/inference_engines_are_becoming_too_fragmented/19t1ku00algkl/"
+       }
+      ]
+     },
+     {
+      "text": "100%  we need an engine for swapping engines",
+      "links": [
+       {
+        "label": "Reddit r/LocalLLaMA 评论（同帖）",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1y30a6x/inference_engines_are_becoming_too_fragmented/19t1mhq6i2ujl/"
+       }
+      ]
+     },
+     {
+      "text": "LLMs are pretty horrible at staying up to date with the latest engine coming out every week and even launch parameters for rapidly moving engine project.",
+      "links": [
+       {
+        "label": "Reddit r/LocalLLaMA 评论（同帖）",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1y30a6x/inference_engines_are_becoming_too_fragmented/19t1ld5apeko1/"
+       }
+      ]
+     },
+     {
+      "text": "And that router could also act as an arbiter, like if two front ends want the same model, route it with concurrency, or if two small models that fit are requested, load them both, otherwise unload ...",
+      "links": [
+       {
+        "label": "Reddit r/LocalLLaMA 评论（同帖）",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1y30a6x/inference_engines_are_becoming_too_fragmented/19t1m6r6wcild/"
+       }
+      ]
+     },
+     {
+      "text": "Until I got a engine which was stable, I always kept a working version of llama.cpp on my machine. Play with a new tool, it breaks, you go back to llama.cpp and tell hermes/pi to fix it, then switch back.",
+      "links": [
+       {
+        "label": "Reddit r/LocalLLaMA 评论（同帖）",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1y30a6x/inference_engines_are_becoming_too_fragmented/19t22558hj869/"
+       }
+      ]
+     }
+    ],
+    "existing": "llama.cpp、Ollama、LM Studio（单引擎为主）；llama-swap（按请求切换模型的代理）；vLLM、SGLang 等服务端引擎；各家社区基准帖",
+    "defects": "Ollama/LM Studio 绑定自家后端，不会帮你比较其它引擎；llama-swap 要手写配置，不测速、不推荐参数；基准帖用的是别人的硬件，结论套不到你机器上；没有工具在引擎升级出问题时自动回到上一个能用的版本",
+    "solution": "一个本地推理「引擎路由器」：先识别你的显卡、显存、内存和要跑的模型，自动拉取几个候选引擎（容器化隔离），用同一组提示跑速度、显存占用和输出一致性测试，给出每个模型的最佳引擎和启动参数；之后对外只暴露一个 OpenAI 兼容端点，按请求的模型名自动启动、卸载、并发调度；引擎更新前先在影子环境里复测，变慢或跑不起来就保持旧版本，一键回滚。",
+    "mvp": "命令行 + 本地网页面板：支持 llama.cpp、vLLM 和 1~2 个热门专用引擎，Docker 拉起；对用户已下载的 GGUF/safetensors 模型跑 5 分钟基准，生成 llama-swap 兼容配置；社区可匿名上传「硬件+模型+引擎」成绩，形成可查的推荐表。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-24-02",
+   "date": "2026-11-24",
+   "type": "idea",
+   "rank": 2,
+   "title": "微软又砍掉 To Do 和 Mail：把任务、重复规则、提醒、共享清单和邮件账号原样搬到新工具，并提前告诉你手上还有哪些 App 可能被砍",
+   "summary": "一个「大厂 App 停服搬家」工具：连上 Microsoft 账号，读出 To Do 里的全部清单、任务、重复规则、提醒、子任务、附件和共享成员，按用户选的目标（Todoist、TickTick、Apple 提醒事项、自托管 Vikunja 等）逐字段映射，搬完生成对照报告，标出哪些字段目标不支持、用什么方式补；共享清单会提示要重新邀请谁。Mail 用户则一键配置成 Thunderbird 等客户端，保留账户、签名和规则。另附一个本机扫描：列出你在用的微软/谷歌免费 App，按官方公告和历史停服节奏标出风险。",
+   "url": "https://www.reddit.com/r/Windows11/comments/1y2mvju/do_you_actually_hate_your_users_people_are_fed_up/19t0q3y9jafj9/",
+   "tags": [
+    "Coding Agent",
+    "开发者工具",
+    "支付"
+   ],
+   "raw_tags": [
+    "Agent/AI编码",
+    "开发者工具",
+    "支付/计费"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Windows Latest 报道微软接连结束 Mail、To Do 等用户常用的免费 App。很多人从 Wunderlist 被迁到 To Do，十年后又要再搬一次；官方给的替代往往是功能更少、更重的新 Outlook 或 Copilot 体系。任务 App 的数据不只是标题：重复规则、提醒时间、子任务、共享清单和协作者，一般的导出都会丢；喜欢老 Mail 客户端的人只能自己架本地代理继续用。",
+    "target_users": "长期用 Microsoft To Do / Windows Mail 管个人、学业和工作事务的 Windows 用户；用共享清单和家人、同事协作的人；帮家里或小公司管电脑的人。",
+    "quotes": [
+     {
+      "text": "I used Wunderlist daily for a few years before Microsoft bought it for $200 million then ended it in favour of To Do, so I switched in 2017 and started using that daily, then 10 years later they end that one too with no replacement.",
+      "links": [
+       {
+        "label": "Reddit r/Windows11 评论（“Do you actually hate your users?”: Microsoft keeps killing apps they love，455 分，87 条评论）",
+        "url": "https://www.reddit.com/r/Windows11/comments/1y2mvju/do_you_actually_hate_your_users_people_are_fed_up/19t0q3y9jafj9/"
+       }
+      ]
+     },
+     {
+      "text": "To me it's a lesson to never integrate any Microsoft software into my business or workflow as they'll inevitably just end it without a proper replacement.",
+      "links": [
+       {
+        "label": "Reddit r/Windows11 评论（同一条）",
+        "url": "https://www.reddit.com/r/Windows11/comments/1y2mvju/do_you_actually_hate_your_users_people_are_fed_up/19t0q3y9jafj9/"
+       }
+      ]
+     },
+     {
+      "text": "I wanted to support you but I got discouraged today as I found out MS is killing the ToDo app! Like... what's next? I used it for about 10 years, for personal, school, and work life!",
+      "links": [
+       {
+        "label": "Reddit r/windows 评论（Thinking about switching back to Windows，61 条评论）",
+        "url": "https://www.reddit.com/r/windows/comments/1y21lz4/thinking_about_switching_back_to_windows/19szxi6llp2m9/"
+       }
+      ]
+     },
+     {
+      "text": "Same, I’m down to only using Google calendar and Microsoft OneNote now, I’d change to alternatives but I’m still looking",
+      "links": [
+       {
+        "label": "Reddit r/Windows11 评论（同帖）",
+        "url": "https://www.reddit.com/r/Windows11/comments/1y2mvju/do_you_actually_hate_your_users_people_are_fed_up/19t0r42b9tr8i/"
+       }
+      ]
+     },
+     {
+      "text": "funny, but i actually just now setup a localhost proxy so now Outlook accounts work with this old mail client as well... Hilarious how we gotta go to extreme lengths just to get an experience everyone was getting for 100% free 2 years ago... typical microsoft moment",
+      "links": [
+       {
+        "label": "Reddit r/Windows11 评论（同帖）",
+        "url": "https://www.reddit.com/r/Windows11/comments/1y2mvju/do_you_actually_hate_your_users_people_are_fed_up/19t0pvs5mojs4/"
+       }
+      ]
+     },
+     {
+      "text": "Same with Google services. Using them just puts you at risk of losing them at any time. I'm so fed up with this.",
+      "links": [
+       {
+        "label": "Reddit r/Windows11 评论（同帖）",
+        "url": "https://www.reddit.com/r/Windows11/comments/1y2mvju/do_you_actually_hate_your_users_people_are_fed_up/19t0r0g0nzw2q/"
+       }
+      ]
+     }
+    ],
+    "existing": "微软官方导出（To Do 导入 Outlook 任务）；Todoist、TickTick、Things 等自带的导入器；Thunderbird、eM Client 等邮件客户端；Killed by Google / Killed by Microsoft 之类的停服名单",
+    "defects": "官方导出只把任务塞进 Outlook，重复规则、子任务、共享清单常常丢失或打平；第三方导入器各自只支持少数来源，不会告诉你哪些字段没搬过去；停服名单只是事后记录，不会对照你电脑上实际在用的 App 提前预警",
+    "solution": "一个「大厂 App 停服搬家」工具：连上 Microsoft 账号，读出 To Do 里的全部清单、任务、重复规则、提醒、子任务、附件和共享成员，按用户选的目标（Todoist、TickTick、Apple 提醒事项、自托管 Vikunja 等）逐字段映射，搬完生成对照报告，标出哪些字段目标不支持、用什么方式补；共享清单会提示要重新邀请谁。Mail 用户则一键配置成 Thunderbird 等客户端，保留账户、签名和规则。另附一个本机扫描：列出你在用的微软/谷歌免费 App，按官方公告和历史停服节奏标出风险。",
+    "mvp": "网页版 To Do 搬家：用 Microsoft Graph 读数据，先支持导出到 Todoist 和 Apple 提醒事项，输出「搬家前后对照表」；免费搬 100 条，完整搬家一次性收费。停服预警先做成人工维护的公告订阅页。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-24-03",
+   "date": "2026-11-24",
+   "type": "idea",
+   "rank": 3,
+   "title": "Mac 外接机械硬盘整夜起转又停转：找出是谁在唤醒它，一键关掉索引和无用唤醒，按需挂载，并盯住 SMART 磨损",
+   "summary": "一个菜单栏小工具：持续记录每块外接盘的起转/停转时间，并和 pmset 日志、正在读写的进程对上，直接告诉你「凌晨 3:12 是 Spotlight/Time Machine/某 App 唤醒的」；一键方案包括把该盘加入 Spotlight 隐私、调整磁盘休眠时间、关闭 Power Nap、设为「用到时才挂载」（备份时间到了自动挂载，备份完自动卸载）；同时追踪 SMART 193/9 等指标的增长速度，磨损异常就提醒你换盘或先多备一份。",
+   "url": "https://www.reddit.com/r/MacOS/comments/1y2wfrz/how_do_you_deal_with_external_hard_drives_on_macos/",
+   "tags": [
+    "Mac/桌面",
+    "开发者工具",
+    "增长/转化"
+   ],
+   "raw_tags": [
+    "Mac/桌面工具",
+    "开发者工具",
+    "增长/转化"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "很多 Mac 用户把机械硬盘（备份盘、素材盘）一直插在电脑上，结果硬盘频繁停转再起转，连睡眠时也会被唤醒。有用户监测到磁头停放次数（SMART 193）已超过 30 万次，2 个多小时里涨了 175 次，担心备份盘被提前磨坏。原因可能是 Spotlight 索引、Power Nap/Dark Wake、硬盘盒固件的休眠计时互相打架，但要用 pmset、mdutil 和日志一点点排查，普通用户根本不会。",
+    "target_users": "长期插着外接机械硬盘做 Time Machine 备份或存素材的 Mac 用户；摄影、视频创作者；用 Mac mini 当家庭小服务器的人。",
+    "quotes": [
+     {
+      "text": "It often spins down and then audibly spins up again, a little even while the iMac sleeps.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 帖（How do you deal with external hard drives on macOS?，49 条评论）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y2wfrz/how_do_you_deal_with_external_hard_drives_on_macos/"
+       }
+      ]
+     },
+     {
+      "text": "The spin ping-pong is macOS plus the LaCie bridge firmware fighting each other: some background read wakes the disk, the idle timer parks it again, all night long.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y2wfrz/how_do_you_deal_with_external_hard_drives_on_macos/19t16xamwjxz8/"
+       }
+      ]
+     },
+     {
+      "text": "I’ve a couple of WD and Seagate external backup drives, and I worry the constant spin up / spin down is gonna kill the drives early and then I’ll lose *all* my backups",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y2wfrz/how_do_you_deal_with_external_hard_drives_on_macos/19t17q09ggszn/"
+       }
+      ]
+     },
+     {
+      "text": "Because 'Dark Wake' and Power Nap are default system settings out-of-the-box. I agree macOS *can* come out of sleep and do maintenance - but it must *ask for user permission first*. That's not the case.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y2wfrz/how_do_you_deal_with_external_hard_drives_on_macos/19t2rxhhusekg/"
+       }
+      ]
+     },
+     {
+      "text": "It's so annoying we have to resort to this to keep them from spinning.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y2wfrz/how_do_you_deal_with_external_hard_drives_on_macos/19t2ebyaggs76/"
+       }
+      ]
+     },
+     {
+      "text": "They are always plugged in, but i wrote a little config file so they never mount and spin up unless i ask them too.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y2wfrz/how_do_you_deal_with_external_hard_drives_on_macos/19t22y6syz937/"
+       }
+      ]
+     }
+    ],
+    "existing": "DriveDx（SMART 监测）；Amphetamine、KeepingYouAwake（防睡眠）；Jettison（睡眠前自动推出）；系统自带 pmset、mdutil 命令；硬盘厂商工具",
+    "defects": "SMART 工具只报健康度，不告诉你是谁在唤醒硬盘；防睡眠工具反而让硬盘一直转；Jettison 只管推出，不管索引和 Dark Wake；命令行方案要自己查日志、写配置，改错还会影响备份",
+    "solution": "一个菜单栏小工具：持续记录每块外接盘的起转/停转时间，并和 pmset 日志、正在读写的进程对上，直接告诉你「凌晨 3:12 是 Spotlight/Time Machine/某 App 唤醒的」；一键方案包括把该盘加入 Spotlight 隐私、调整磁盘休眠时间、关闭 Power Nap、设为「用到时才挂载」（备份时间到了自动挂载，备份完自动卸载）；同时追踪 SMART 193/9 等指标的增长速度，磨损异常就提醒你换盘或先多备一份。",
+    "mvp": "菜单栏 App：读取 SMART（借助 smartmontools）和 pmset -g log，显示每块盘一天内的起转次数和唤醒原因 Top3，提供三个开关（Spotlight 排除、休眠时间、按需挂载）；一次性买断。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-24-04",
+   "date": "2026-11-24",
+   "type": "idea",
+   "rank": 4,
+   "title": "好评别再烂在收件箱：把散落在短信、邮件、评价站的客户反馈自动归类，投诉派给能改的人，好评当天请客户授权引用或留 Google 评价",
+   "summary": "一个面向小商家的反馈收件箱：接入邮箱、短信/WhatsApp 转发、Google/Yelp 评价和表单，AI 自动把每条反馈分成「要修」「可引用」「忽略」，并识别涉及的服务或产品；投诉自动派给负责人并跟踪是否回复了「我们改了什么」；好评当天生成一条礼貌的回复，附上 Google 评价链接和「能否在官网引用您的话」的授权请求，客户同意后自动进入推荐语库，可一键导出到网站和销售材料。每周发一份 15 分钟就能看完的汇总。",
+   "url": "https://www.reddit.com/r/Entrepreneur/comments/1xxkxph/what_actually_happens_to_customer_feedback_after/19sqkjegbonvp/",
+   "tags": [
+    "运营/客服",
+    "电商"
+   ],
+   "raw_tags": [
+    "运营/客服",
+    "电商"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "小商家和小团队都在收集客户反馈，但收集完就结束了：投诉因为紧急会当天处理，好评却躺在短信和邮箱里没人管，等想用来做案例、要评价时已经过了时机。收集反馈的人和需要反馈的人（销售、市场、负责修问题的人）往往不是同一个，表格越记越乱，成了「整理得很好的杂物抽屉」。",
+    "target_users": "本地服务商（汽车美容、装修、诊所、代理机构）、小型 SaaS 和电商团队的老板或运营；负责口碑和案例的市场人员。",
+    "quotes": [
+     {
+      "text": "In a small business it usually dies because complaints create a task and compliments don't.",
+      "links": [
+       {
+        "label": "Reddit r/Entrepreneur 评论（What actually happens to customer feedback after businesses collect it?，63 条评论）",
+        "url": "https://www.reddit.com/r/Entrepreneur/comments/1xxkxph/what_actually_happens_to_customer_feedback_after/19sqkjegbonvp/"
+       }
+      ]
+     },
+     {
+      "text": "That was my miss for ages. I'd get a great text from a customer after a detail and then never follow up on it, so it just sat in my messages. The complaints got handled same day because they felt urgent.",
+      "links": [
+       {
+        "label": "Reddit r/Entrepreneur 评论（同帖）",
+        "url": "https://www.reddit.com/r/Entrepreneur/comments/1xxkxph/what_actually_happens_to_customer_feedback_after/19sqam7heqajn/"
+       }
+      ]
+     },
+     {
+      "text": "in my experience, nothing happens with it.  The people that set up the collection are separate from the people that need the info and the two rarely connect.",
+      "links": [
+       {
+        "label": "Reddit r/Entrepreneur 评论（同帖）",
+        "url": "https://www.reddit.com/r/Entrepreneur/comments/1xxkxph/what_actually_happens_to_customer_feedback_after/19sq8do7k7s2t/"
+       }
+      ]
+     },
+     {
+      "text": "The testimonials folder is the one I see small businesses skip most. Everyone agrees it's a great idea, and then the praise just lives in the inbox forever.",
+      "links": [
+       {
+        "label": "Reddit r/Entrepreneur 评论（同帖）",
+        "url": "https://www.reddit.com/r/Entrepreneur/comments/1xxkxph/what_actually_happens_to_customer_feedback_after/19svj6jr8skbm/"
+       }
+      ]
+     },
+     {
+      "text": "whoever owns feedback needs a rule like \"every positive note gets forwarded to sales within 48h with a ask-for-permission-to-quote reply attached.\" without that step it's just vibes.",
+      "links": [
+       {
+        "label": "Reddit r/Entrepreneur 评论（同帖）",
+        "url": "https://www.reddit.com/r/Entrepreneur/comments/1xxkxph/what_actually_happens_to_customer_feedback_after/19ssfvxdjy2ud/"
+       }
+      ]
+     },
+     {
+      "text": "Save the exact wording, source/date and whether the customer has okayed it for public use; then send positive notes to sales or marketing while the customer is still engaged and assign complaints to someone who can close the loop. Without a regular pass the spreadsheet becomes a very organized junk drawer.",
+      "links": [
+       {
+        "label": "Reddit r/Entrepreneur 评论（同帖）",
+        "url": "https://www.reddit.com/r/Entrepreneur/comments/1xxkxph/what_actually_happens_to_customer_feedback_after/19sqaqm0uq50i/"
+       }
+      ]
+     }
+    ],
+    "existing": "Birdeye、Podium（评价管理，偏中大型本地商家）；Senja、Testimonial.to（收集推荐语）；Canny、Productboard（产品功能需求）；Google 商家资料的评价链接",
+    "defects": "评价管理工具只管公开评价站，抓不到客户发来的短信、邮件和私信；推荐语工具要客户主动填表，不会从已有夸奖里捞；需求管理工具面向产品经理，不管好评和服务投诉；没有「谁负责、多久内处理、是否已获授权引用」的闭环",
+    "solution": "一个面向小商家的反馈收件箱：接入邮箱、短信/WhatsApp 转发、Google/Yelp 评价和表单，AI 自动把每条反馈分成「要修」「可引用」「忽略」，并识别涉及的服务或产品；投诉自动派给负责人并跟踪是否回复了「我们改了什么」；好评当天生成一条礼貌的回复，附上 Google 评价链接和「能否在官网引用您的话」的授权请求，客户同意后自动进入推荐语库，可一键导出到网站和销售材料。每周发一份 15 分钟就能看完的汇总。",
+    "mvp": "先做 Gmail + 手动转发短信：每天汇总新反馈并分类，好评一键发送「求评价+求授权」模板，授权后的原话存成可嵌入网页的推荐语墙；按店铺月费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-24-05",
+   "date": "2026-11-24",
+   "type": "idea",
+   "rank": 5,
+   "title": "AI 摘要拿走了小站流量：按页面算清被 Google AI 摘要和聊天机器人吃掉多少点击，看 AI 有没有引用你，再帮你把剩下的读者转成订阅和直接赞助",
+   "summary": "一个给独立站长的「AI 时代流量体检」：接入 Search Console 和统计工具，按页面和查询词找出「展示没少、点击暴跌」的部分，并实际去 Google、ChatGPT、Perplexity 里查同样的问题，记录 AI 回答是否引用、是否给了链接；给每个页面打标签（被 AI 吃掉 / 仍有点击 / AI 会引用你），建议哪些内容改成需要实时更新或个人经验的形式、哪些适合做成邮件订阅或付费指南；再根据读者来源推荐本地商家赞助名单，附上报价模板。",
+   "url": "https://news.ycombinator.com/item?id=50543676",
+   "tags": [
+    "支付",
+    "增长/转化",
+    "电商"
+   ],
+   "raw_tags": [
+    "支付/计费",
+    "增长/转化",
+    "电商"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "独立内容站（城市指南、旅行、技术教程）多年靠搜索流量和广告养活。All About Berlin 站长说，网站在 7 年增长后被 Google AI 摘要拿走了七成多流量：搜索结果先是广告，再是用他内容训练出来的 AI 答案，最后才是他的链接。很多站长要么上付费墙、要么停更。他们不知道具体哪些页面、哪些问题被 AI 吃掉了，也不知道 AI 回答里有没有提到自己，更不知道下一步该卖广告、做订阅还是做付费指南。",
+    "target_users": "靠搜索流量生存的独立站长、博主和小媒体；做本地指南、旅行、教程类内容的创作者；关心「在 ChatGPT 里能不能被提到」的小企业主。",
+    "quotes": [
+     {
+      "text": "I think Google and rest of these companies really should be less greedy. If there is no-one visiting the websites and no-one writing them, where do your clankers find new information to feed to your ~marks~ users?",
+      "links": [
+       {
+        "label": "HN 评论（AI is killing All About Berlin，821 分，700 多条评论）",
+        "url": "https://news.ycombinator.com/item?id=50543676"
+       }
+      ]
+     },
+     {
+      "text": "So either the search bot should funnel customers via recommendations (”…And if you want to know more, allaboutberlin.com is a great site recommended often to people moving to Berlin first time…”) or AI companies should pay for the content they use.",
+      "links": [
+       {
+        "label": "HN 评论（同一条）",
+        "url": "https://news.ycombinator.com/item?id=50543676"
+       }
+      ]
+     },
+     {
+      "text": "In this case, I suspect that: - All About Berlin would need to sell advertising the traditional way. (IE, either by directly approaching local / relevant businesses, or using a traditional broker.)",
+      "links": [
+       {
+        "label": "HN 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50565547"
+       }
+      ]
+     },
+     {
+      "text": "To be honest I'm guilty of using AI for many things I used to use websites for. News (with web-searched sources and citations), Recipes, Exercise routines, Managing my emails Why? because its a better user experience. It's that simple.",
+      "links": [
+       {
+        "label": "HN 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50543661"
+       }
+      ]
+     },
+     {
+      "text": "paywall all of your content. even $1 US. The AI's won't touch it.  And unless you are a well-known newspaper or something like that, have your visitors drop to zero.",
+      "links": [
+       {
+        "label": "HN 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50543154"
+       }
+      ]
+     },
+     {
+      "text": "So curious, what we should work on to increase our visibility in AI tools?",
+      "links": [
+       {
+        "label": "Reddit r/Entrepreneur 帖（How to gain visibility in AI tools like ChatGPT?，56 条评论）",
+        "url": "https://www.reddit.com/r/Entrepreneur/comments/1xyitwp/how_to_gain_visibility_in_ai_tools_like_chatgpt/"
+       }
+      ]
+     }
+    ],
+    "existing": "Google Search Console（看展示和点击）；Profound、Otterly 等「AI 搜索可见度」监测（偏品牌和企业）；Ahrefs/Semrush；Substack、Ghost、Memberful 等订阅工具；本地广告直销",
+    "defects": "Search Console 不区分 AI 摘要导致的点击下降；AI 可见度工具贵、面向品牌营销，不按页面告诉小站哪些内容还值得写；订阅和赞助工具与流量分析是割裂的，站长要自己判断该把哪类读者转成什么收入",
+    "solution": "一个给独立站长的「AI 时代流量体检」：接入 Search Console 和统计工具，按页面和查询词找出「展示没少、点击暴跌」的部分，并实际去 Google、ChatGPT、Perplexity 里查同样的问题，记录 AI 回答是否引用、是否给了链接；给每个页面打标签（被 AI 吃掉 / 仍有点击 / AI 会引用你），建议哪些内容改成需要实时更新或个人经验的形式、哪些适合做成邮件订阅或付费指南；再根据读者来源推荐本地商家赞助名单，附上报价模板。",
+    "mvp": "网页工具：连 Search Console，自动生成「被 AI 吃掉的页面 Top20」报告，并对其中前 20 个查询做一次 AI 回答抽查（是否提到你的站）；按月订阅，免费版每月一份报告。",
+    "difficulty": null,
+    "potential": null
+   }
+  }
+ ]
+}
