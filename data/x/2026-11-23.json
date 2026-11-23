@@ -3,13 +3,180 @@
  "type": "x",
  "date": "2026-11-23",
  "day": {
-  "digest": "Matt Pocock 一早解释了 /the-perfect-typescript-codebase skill（涵盖 lint、CI 等规范，自评用它做出了最好的代码库）；晚间则长文推荐 Vercel Board 这种 agent 与开发者共用的 Slack 式工作区，认为多数开发团队应自建，并在回复中补充它偏聊天而非任务管理、非开发场景可买现成。",
+  "digest": "Matt Pocock 一早解释了 /the-perfect-typescript-codebase skill（涵盖 lint、CI 等规范，自评用它做出了最好的代码库）；晚间长文推荐 Vercel Board 这种 agent 与开发者共用的 Slack 式工作区，认为多数开发团队应自建，并在回复中补充它偏聊天而非任务管理、非开发场景可买现成；深夜又在回复中谈到上下文压缩（compaction）已变好用但“dumb zone”仍在，以及 agent 间通信不应挤占人类沟通渠道。",
   "by_source": {
-   "mattpocockuk": "先谈 /the-perfect-typescript-codebase skill，后长文分析 Vercel Board 式人机协作工作区并称正在自己重新实现。"
+   "mattpocockuk": "先谈 /the-perfect-typescript-codebase skill，后长文分析 Vercel Board 式人机协作工作区，深夜回复讨论上下文压缩与 agent 通信应和人类沟通分开。"
   },
-  "updated_at": "2026-11-23T20:25:00+09:00"
+  "updated_at": "2026-11-24T00:20:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2124878905672675552",
+   "date": "2026-11-23",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124878905672675552",
+   "url": "https://x.com/mattpocockuk/status/2124878905672675552",
+   "posted_at": "2026-11-23T22:53+08:00",
+   "kind": "reply",
+   "text": "100%, agents should not have to crowd human comms to communicate to each other",
+   "article_title": null,
+   "reply_to": {
+    "handle": "cramforce",
+    "post_id": "2124878743005225111",
+    "url": "https://x.com/cramforce/status/2124878743005225111",
+    "text": "There is a big jump when you go post Slack channels (which is how some teams here started).\n\nMost of the messages should not go to a place where humans need to see them (you might think you can ignore a slack channel but it still appears in search)."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "100%，agent 之间通信不应该挤占人类的沟通渠道",
+   "analysis": {
+    "summary": "cramforce 说从 Slack 频道往外迁移会有大跃升，多数消息不该出现在人需要看的地方；Matt 完全赞同，认为 agent 之间的通信不该挤占人类沟通渠道。",
+    "points": [
+     "被回复帖：一些团队最初用 Slack 频道承载 agent 消息，迁出后有很大提升。",
+     "被回复帖：大多数消息不应进入人类需要查看的地方，即使能忽略的频道也会出现在搜索里。",
+     "Matt 赞同：agent 间通信不应挤占人类沟通。"
+    ],
+    "why": "延续他当天关于 Vercel Board 式人机协作工作区的讨论，强调把 agent 通信与人类沟通分开。是观点交流，未给出具体方案。",
+    "tags": [
+     "多 Agent 协作",
+     "Agent 工程"
+    ]
+   }
+  },
+  {
+   "id": "x-2124878991752622359",
+   "date": "2026-11-23",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124878991752622359",
+   "url": "https://x.com/mattpocockuk/status/2124878991752622359",
+   "posted_at": "2026-11-23T22:53+08:00",
+   "kind": "reply",
+   "text": "Slack channels also have a social dimension too",
+   "article_title": null,
+   "reply_to": {
+    "handle": "mattpocockuk",
+    "post_id": "2124878905672675552",
+    "url": "https://x.com/mattpocockuk/status/2124878905672675552",
+    "text": "100%, agents should not have to crowd human comms to communicate to each other"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "Slack 频道还有社交层面的因素",
+   "analysis": {
+    "summary": "Matt 在自己“agent 通信不应挤占人类沟通”的回复下补充：Slack 频道还有社交层面的因素。",
+    "points": [
+     "接续上一条回复。",
+     "他补充 Slack 频道带有社交属性（未展开说明）。"
+    ],
+    "why": "简短补充，信息量较低；暗示把 agent 消息放进 Slack 频道还会影响团队的社交空间，但帖内没有展开。",
+    "tags": [
+     "多 Agent 协作"
+    ]
+   }
+  },
+  {
+   "id": "x-2124868440972489196",
+   "date": "2026-11-23",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124868440972489196",
+   "url": "https://x.com/mattpocockuk/status/2124868440972489196",
+   "posted_at": "2026-11-23T22:11+08:00",
+   "kind": "reply",
+   "text": "It got good a few months ago, but the dumb zone is still a thing IMO",
+   "article_title": null,
+   "reply_to": {
+    "handle": "artemysone",
+    "post_id": "2124867980165345614",
+    "url": "https://x.com/artemysone/status/2124867980165345614",
+    "text": "WHEN did we start compacting Matt?!\n\nI'm over here still /clearing"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "它几个月前就变好用了，但在我看来“dumb zone”（笨区）依然存在",
+   "analysis": {
+    "summary": "有人惊讶地问 Matt 什么时候开始用压缩（compacting）了，自己还在用 /clear；Matt 回答压缩几个月前就变好用了，但他认为“dumb zone”依然存在。",
+    "points": [
+     "被回复帖：对方问他何时开始用 compaction，自己仍在用 /clear 清空上下文。",
+     "Matt：compaction 几个月前就变好了。",
+     "但他认为“dumb zone”仍是个问题。"
+    ],
+    "why": "反映 Matt 对 agent 上下文压缩的态度：认可其改进，但仍认为存在效果变差的区间。属个人观点，帖内未解释“dumb zone”的具体含义。",
+    "tags": [
+     "Agent 工程",
+     "上下文管理"
+    ]
+   }
+  },
+  {
+   "id": "x-2124867544674611510",
+   "date": "2026-11-23",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124867544674611510",
+   "url": "https://x.com/mattpocockuk/status/2124867544674611510",
+   "posted_at": "2026-11-23T22:07+08:00",
+   "kind": "reply",
+   "text": "IMO compaction is even more essential in knowledge work when you REALLY want your agent doing smart stuff",
+   "article_title": null,
+   "reply_to": {
+    "handle": "NateDoesNumbers",
+    "post_id": "2124853620952662391",
+    "url": "https://x.com/NateDoesNumbers/status/2124853620952662391",
+    "text": "i came to ask this exact same thing  🙃 I wonder if it depends on the type of work you're doing... i'm mainly doing knowledge work (although I've tried to set my vote in as code-y way as possible) and even the idea of compaction gives me the ick. maybe i'm being too precious? would love to know how the elites are doing it!"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我觉得，在知识类工作里，当你真的希望 agent 做聪明事的时候，压缩（compaction）甚至更不可或缺",
+   "analysis": {
+    "summary": "有人说自己主要做知识类工作，一想到上下文压缩（compaction）就反感，想知道高手怎么做；Matt 回复认为在知识类工作中压缩反而更重要。",
+    "points": [
+     "被回复帖：对方主要做知识类工作，对 compaction 有抵触，怀疑是否取决于工作类型。",
+     "Matt 的观点：在知识类工作中，如果想让 agent 做真正聪明的事，compaction 更不可或缺。"
+    ],
+    "why": "这是 Matt 关于 agent 上下文管理的个人观点，没有给出理由或数据；可与他同日“dumb zone 仍然存在”的说法对照理解。",
+    "tags": [
+     "Agent 工程",
+     "上下文管理"
+    ]
+   }
+  },
+  {
+   "id": "x-2124837161010966847",
+   "date": "2026-11-23",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2124837161010966847",
+   "url": "https://x.com/mattpocockuk/status/2124837161010966847",
+   "posted_at": "2026-11-23T20:07+08:00",
+   "kind": "reply",
+   "text": "No\n\nAnd please congratulate my restraint on not making the obvious joke",
+   "article_title": null,
+   "reply_to": {
+    "handle": "theo",
+    "post_id": "2124830593561346244",
+    "url": "https://x.com/theo/status/2124830593561346244",
+    "text": "Are you finally over the “dumb zone” thing"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "没有\n\n另外请夸夸我忍住了没开那个显而易见的玩笑",
+   "analysis": {
+    "summary": "Theo 问 Matt 是否终于放下了“dumb zone”（笨区）这个说法；Matt 回答没有，并调侃自己忍住了没开那个显而易见的玩笑。",
+    "points": [
+     "被回复帖：Theo 问他是不是终于不再提“dumb zone”了。",
+     "Matt 回答：没有。",
+     "他自嘲忍住了没开那个“显而易见的玩笑”（具体指什么帖子里没说）。"
+    ],
+    "why": "以社交调侃为主，信息量很低；唯一的信息是他仍坚持“dumb zone”这一说法。",
+    "tags": [
+     "社交互动",
+     "上下文管理"
+    ]
+   }
+  },
   {
    "id": "x-2124808929087750563",
    "date": "2026-11-23",
