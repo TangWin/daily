@@ -1,0 +1,295 @@
+{
+ "schema_version": 1,
+ "type": "news",
+ "date": "2026-11-23",
+ "day": {
+  "window": "11/22 08:30 – 11/23 08:30 北京时间",
+  "note": "未使用 X 付费 API",
+  "footer": "来源主要是 HN（Algolia API）、GitHub releases、官方博客和支付行业媒体。周日整体偏冷，HN 前排是丰田/日产/本田零件标准化（HN 1174）和「Anthropic 2028 年电力 87% 来自天然气」（HN 868），与工程主题关系不大，不收录。窗口内 Claude Code、Codex、MCP 各语言 SDK、Spring AI、LangChain4j 都没有新版本；Qwen Code 0.28.4 只是 Web Shell 体验改进和内置 Gemini 4 推理默认值，不单列。Java 方向：JEP 547 Lazy Constants（第四次预览）11/20 进入 JDK 28 Targeted，API 与第三次预览无变化，只在这里提一句；Java4Shell 已在 11/18 报过。Adyen × Klarna、Visa/BILL/Billtrust、Kinexys × 现代卡此前都已报过，不重复。MIRI 的 Do Not Accept 宣传活动（HN 43）属于倡导内容，不收录。MCP 规范、Ontology 方向今天没有新内容。",
+  "highlights": [
+   1,
+   2,
+   3
+  ]
+ },
+ "items": [
+  {
+   "id": "news-2026-11-23-01",
+   "date": "2026-11-23",
+   "type": "news",
+   "rank": 1,
+   "title": "OpenRouter 下架 3 家推理服务商、撤掉 125 个端点的 ZDR 资格；Together AI 承认 6–7 月部分 serverless prompt 被下载——起因是 AI coding agent 把私有仓库凭据提交到了公开仓库",
+   "summary": "昨天的 Dragos 金丝雀研究有了实锤后续：路由层开始清退服务商，Together 的事故根源恰好是一次 coding agent 的凭据泄漏。",
+   "url": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/",
+   "tags": [
+    "安全",
+    "AI Agent",
+    "Coding Agent",
+    "供应链安全"
+   ],
+   "raw_tags": [
+    "安全",
+    "AI Agent",
+    "Coding Agent",
+    "供应链安全"
+   ],
+   "score": 279,
+   "score_label": "HN 279 · 97 评（OpenRouter 公告）；Together 公告 HN 47 · 11 评",
+   "detail": {
+    "heat": "HN 279 · 97 评（OpenRouter 公告）；Together 公告 HN 47 · 11 评",
+    "highlight": true,
+    "event": "OpenRouter 11/22 发公告：根据 Dragos 研究和自身调查，已把 3 家推理服务商从平台下架，把 125 个端点移出 Zero Data Retention（ZDR）资格（含研究点名的和出于谨慎额外撤下的），并通知了所有可能受影响的客户；后续会把研究者的金丝雀测试方法改成常态化检查，核查请求/响应是否被转发给第三方的网络路径，恢复 ZDR 资格前要求服务商提供保证和验证。公告里列出已公开事件说明的服务商：Atlas Cloud、Novita、Phala、Together。其中 Together AI（11/21 发布）说明：为做常规测试，他们把一部分 serverless 请求的 prompt 样本（来自 MiniMax M3、GLM-5.2、Kimi K2.6）存进了私有 Hugging Face 仓库；一份访问该仓库的凭据被暴露到公开代码仓库后，第三方在 6/24 及 7/4、7/8、7/14 前后下载了这些样本。多家媒体援引的细节是：这份凭据是 AI coding agent 提交的，后来被发现并回滚。",
+    "why": "这是昨天那条「推理供应链金丝雀」新闻的实质进展：从「研究发现」变成了「平台清退 + 服务商认错」。更值得注意的是 Together 的根因——不是高深攻击，而是 coding agent 把 token 写进了公开仓库。也就是说，agent 既是被泄漏的一方（prompt 被偷），也是泄漏的源头（凭据被提交）。HN 评论的共识是：ZDR 只是承诺，经中间层转发时你仍然只能「相信」每一跳。",
+    "use": "1）检查团队是否用 OpenRouter 及上述服务商，查收通知邮件，按已泄露处理相关请求里出现过的凭据；2）在路由配置里显式锁定 provider 白名单，敏感业务直连一手厂商或自托管；3）给 coding agent 的提交流程加 pre-commit secret scanning（gitleaks/trufflehog）和 GitHub push protection，agent 可写的凭据一律用短期、最小权限 token；4）测试数据集（包括抽样的生产 prompt）当生产数据管，别放在凭据能被轻易拿走的地方。",
+    "links": [
+     {
+      "name": "OpenRouter：Data Processing Incidents on Inference Providers",
+      "url": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/"
+     },
+     {
+      "name": "Together AI：Security event: Prompt leakage for requests in June and July of 2026",
+      "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026"
+     },
+     {
+      "name": "HN 讨论（OpenRouter 公告）",
+      "url": "https://news.ycombinator.com/item?id=50595554"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-23-02",
+   "date": "2026-11-23",
+   "type": "news",
+   "rank": 2,
+   "title": "OpenAI 首席科学家 Jakub Pachocki 公开内部 perplexity 曲线，提议用它做跨实验室的「开发限速」指标",
+   "summary": "OpenAI 首次披露预训练进度数字（GPT-4 约 0.91，现在低于 0.8），并主张各家约定一个 perplexity 门槛，监控能力跟上之前不越线；HN 争议很大。",
+   "url": "https://openai.com/index/perplexity-and-intelligence/",
+   "tags": [
+    "AI 模型",
+    "有争议观点",
+    "AI 安全"
+   ],
+   "raw_tags": [
+    "AI 模型",
+    "有争议观点",
+    "AI 安全"
+   ],
+   "score": 457,
+   "score_label": "HN 457 · 309 评",
+   "detail": {
+    "heat": "HN 457 · 309 评",
+    "highlight": true,
+    "event": "OpenAI 11/22 发布 Pachocki 署名文章《Perplexity and Intelligence》。他认为现代 AI 的核心能力来自「训练更好的压缩器」，追踪预训练进度最好的指标仍是在留出数据集上的 perplexity（交叉熵损失）。文章公开了 OpenAI 内部主评测集上的 log-perplexity：GPT-3.5 约 0.99、GPT-4 约 0.91，现在已低于 0.8，并在网络安全、数学上出现了「变革性能力」；升级到约 0.76 的模型后开始在数学开放问题上批量出结果。他预计进入 0.68–0.7 区间会出现新的、我们今天可能还没在测的能力，同时现有对齐审计手段会继续退化。他提议前沿实验室共同建立评估和红队规范，并约定基于 perplexity 等指标的共同上限：在理解和监控 AI 行为的能力达到具体里程碑（比如 CoT 监控的继任方案）之前不越线。文章也承认几个问题：跨实验室难比较、不对应具体任务、思维链推理不会降低 perplexity、熵的下限未知。",
+    "why": "这是头部实验室少见地公开预训练进度，并试图把「暂停/限速」讨论落到一个可度量的数字上。HN 的主要质疑很尖锐：OpenAI 说这个留出数据集来自自己的内部代码库，用「预测自家代码下一个 token 的能力」衡量通用智能是否站得住？如果预训练里合成数据越来越多，perplexity 下降是否也会失真？这场争论会影响接下来行业怎么谈模型能力和监管。",
+    "use": "1）给团队做模型选型时，记住一个分层：预训练能力（perplexity）和推理/agent 能力（CoT、工具使用、harness）是两回事，coding agent 的表现很大一部分来自后者；2）如果在做内部评测，可以借鉴「固定快照的内部代码库做留出集」的做法，用自己的代码库测候选模型的困惑度，作为私有基座选型的一个信号；3）关注后续是否有其他实验室回应——如果形成行业标准，会影响模型发布节奏和企业采购的合规要求。",
+    "links": [
+     {
+      "name": "OpenAI：Perplexity and Intelligence",
+      "url": "https://openai.com/index/perplexity-and-intelligence/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50601525"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-23-03",
+   "date": "2026-11-23",
+   "type": "news",
+   "rank": 3,
+   "title": "开源 fast-anything：不要整体用 Rust 重写，让 coding agent 只移植最慢的 5% 函数，用录制的真实调用证明行为一致后再换上",
+   "summary": "profile → 挑热点 → agent 写一个函数的 Rust 版 → 回放真实调用验证 → 可逆替换，支持 Python/Node/Ruby/Java/Kotlin/Go 等，带 Claude Code 插件和 MCP server。",
+   "url": "https://github.com/EL4CTEO/fast-anything",
+   "tags": [
+    "开源",
+    "Coding Agent",
+    "Harness",
+    "Java"
+   ],
+   "raw_tags": [
+    "开源",
+    "Coding Agent",
+    "Harness Engineering",
+    "Java"
+   ],
+   "score": 177,
+   "score_label": "HN 177 · 148 评；GitHub 1,887 stars（11/21 创建，MIT）",
+   "detail": {
+    "heat": "HN 177 · 148 评；GitHub 1,887 stars（11/21 创建，MIT）",
+    "highlight": true,
+    "event": "fast-anything 是一个 CLI（npm 或 cargo 安装），一条命令 `fast-anything go --agent claude -- python app.py` 完成全流程：scan 对应用做 profiling，按「耗时 × 可移植程度」给函数排序；port 录制目标函数最多 500 次真实调用，生成只含这一个函数的 Rust crate 和给 agent 的 TASK.md；verify 用 release 构建并回放全部录制调用（还会派生额外用例）；enable/disable 用一个标记块换入/换出，按字节可逆；bench 交错运行对比整体耗时；report 生成给 PR 用的 markdown 和 SVG。--agent 支持 claude、codex 或任何从 stdin 读 prompt 的命令。README 举例：一个看起来正确的移植把「字符」比成了「字节」，500 次真实调用里有 148 次把它抓了出来。支持的运行方式包括 java App.java、mvn exec:java、gradle run。",
+    "why": "这是「让 agent 干活、让 harness 负责证明」的一个干净范例：agent 只拿到边界清晰的单函数任务，正确性不靠 agent 自评，而靠录制的真实输入输出回放。比「让 agent 重写整个服务」可控得多。HN 评论里有人分享了同样思路的手工实践（Python Web 框架把路由匹配、JSON 编码、压缩挪到 PyO3），也有人调侃仓库本身 62% 是 Rust。",
+    "use": "1）把这个模式用到 Java 服务：热点函数先用录制回放（golden test）锁住行为，再让 agent 优化或改写，验证通过才合入；2）即使不换 Rust，「录制真实调用 → 回放对比」也适合用来验收 agent 做的重构，尤其是支付里的金额计算、报文解析这类纯函数；3）可以拿一个非关键 Java 模块试跑 scan，看它给出的热点排序是否和现有 profiling 结论一致。",
+    "links": [
+     {
+      "name": "GitHub：EL4CTEO/fast-anything",
+      "url": "https://github.com/EL4CTEO/fast-anything"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50596155"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-23-04",
+   "date": "2026-11-23",
+   "type": "news",
+   "rank": 4,
+   "title": "Show HN Worker 755：一个让你当 LLM 的 subagent 的游戏——真实的编排 agent 给你派任务、验收、写事故报告和绩效评估",
+   "summary": "把 orchestrator–subagent 关系反过来让人体验：90 秒限时、只回传报告和命令记录，用户的家庭照片离一次 rm 只有一步之遥。",
+   "url": "https://github.com/gulivan/worker755",
+   "tags": [
+    "Harness",
+    "AI Agent",
+    "开源"
+   ],
+   "raw_tags": [
+    "Harness Engineering",
+    "AI Agent",
+    "开源"
+   ],
+   "score": 264,
+   "score_label": "HN 264 · 60 评",
+   "detail": {
+    "heat": "HN 264 · 60 评",
+    "highlight": false,
+    "event": "Worker 755 是一个开源浏览器游戏（worker755.com）。「经理」是真实的 LLM（可选 Claude、GPT、Gemini、DeepSeek、GLM、Kimi），像普通编排器一样配置：有任务队列、对机器的只读权限，以及一个「派生 subagent」的工具——这个 subagent 就是你。指令会出现在你的终端里，限时 90 秒；你执行或不执行，经理收到的都和真实 subagent 返回的一样：你的报告加命令记录，或者「Subagent did nothing. Write a new instruction.」之后它会检查你的工作、发纠正指令、写事故报告，最后给你写绩效评估。旁边还有雇佣这个 agent 的用户 Dan 在看聊天，他的家庭照片、唯一一份签了字的 NDA 和本周要交的演讲稿都在 home 目录里。可以选新沙箱或「带真实数据库的遗留生产环境」，可以关掉命令提示，让经理只说结果不说命令。",
+    "why": "设计多 agent 系统的人很少站在 subagent 的位置上看问题：指令有多含糊、验收靠什么、返回的上下文够不够。这个游戏把这些体验具体化了，比读一篇 harness 设计文章更直观。",
+    "use": "1）团队内部做 agent 设计评审时可以玩一轮，用「人当 subagent」来检验编排 prompt 的清晰度；2）借鉴它的返回契约：subagent 必须回传「报告 + 原始命令记录」，编排者基于记录而不是自述来验收；3）它的「不给命令提示、只给目标结果」开关，对应真实系统里任务描述的两种写法，可以拿来对比哪种更不容易出错。",
+    "links": [
+     {
+      "name": "GitHub：gulivan/worker755",
+      "url": "https://github.com/gulivan/worker755"
+     },
+     {
+      "name": "HN 讨论（Show HN）",
+      "url": "https://news.ycombinator.com/item?id=50599762"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-23-05",
+   "date": "2026-11-23",
+   "type": "news",
+   "rank": 5,
+   "title": "mod_wsgi 作者 Graham Dumpleton 用 AI 辅助写 Rust 版 Python 应用服务器 Muru，三周公开写了 19 篇开发日志",
+   "summary": "一个资深基础设施作者如何把 AI 当工具而不是替身：AI 写大部分代码，「什么还不够好」由 20 年踩坑经验决定。",
+   "url": "https://simonwillison.net/2026/Nov/21/muru/",
+   "tags": [
+    "Coding Agent",
+    "工程实践",
+    "开源"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "工程实践",
+    "开源"
+   ],
+   "score": 70,
+   "score_label": "HN 70 · 11 评（Simon Willison 推荐）",
+   "detail": {
+    "heat": "HN 70 · 11 评（Simon Willison 推荐）",
+    "highlight": false,
+    "event": "Simon Willison 11/21 推荐了 Muru：mod_wsgi 作者 Graham Dumpleton 新做的 AI 辅助 Rust 服务器，目标是为 ASGI 和 WSGI Python 应用提供开发和生产环境下最好的运行方式。他从 11/4 到 11/22 几乎每天发一篇详细日志，覆盖 worker 内部结构、「import 一次、fork 多次」、开发环境 HTTPS、WSGI 与 ASGI 共存、用发布代替重启、没有 service mesh 的金丝雀发布、容器里做好租户、配合而非绕开 Kubernetes、按 worker 上报指标扩缩容、缩到零、定时覆盖配置、页面工具栏里的链路追踪、懒加载 import 的收益等。其中《AI as a lifestyle choice》一文被 Willison 特别推荐，核心一句是：AI 表面上做了大量工作，但决定什么还不够好仍然要靠我自己，而 mod_wsgi 二十年的踩坑经历正好派上用场。",
+    "why": "这是目前少见的、由真正的领域专家公开完整过程的 AI 辅助基础设施项目：不是 demo，而是持续三周、每天一个设计主题的工程记录。它说明 agent 时代专家的价值在于验收标准和取舍判断，也提供了一种「边做边写」的过程文档方法。",
+    "use": "1）挑几篇和自己相关的读（扩缩容、金丝雀、Kubernetes 那几篇对 Java 服务同样适用）；2）借鉴「每天一个设计主题的开发日志」做法：让 agent 写代码的同时，人负责写设计取舍记录，既是给 agent 的上下文，也是团队文档；3）把「什么还不够好」写成明确的验收清单交给 agent，而不是只给功能需求。",
+    "links": [
+     {
+      "name": "Simon Willison：Muru",
+      "url": "https://simonwillison.net/2026/Nov/21/muru/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50597959"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-23-06",
+   "date": "2026-11-23",
+   "type": "news",
+   "rank": 6,
+   "title": "争议：「软件是不是一直就复杂得超出人类能力？」——黎曼猜想 1700 万行 AI 辅助 Lean 证明之后，有人认为软件工程只剩「从规格推导一切」一条路；同日 agent 舰队公开直播攻 P vs NP",
+   "summary": "剑桥的 Anil Madhavapeddy 认为人类写的代码几十年来漏洞百出，2027 年安全压力会加速；另一边，pequalnp.com 让 agent 舰队实时攻 P vs NP，HN 质疑用的是落后模型。",
+   "url": "https://anil.recoil.org/notes/software-too-complex-for-humans",
+   "tags": [
+    "有争议观点",
+    "AI Agent",
+    "形式化验证"
+   ],
+   "raw_tags": [
+    "有争议观点",
+    "AI Agent",
+    "形式化验证"
+   ],
+   "score": 46,
+   "score_label": "HN 46 · 69 评（软件复杂度）；Agent swarm P vs NP HN 80 · 68 评",
+   "detail": {
+    "heat": "HN 46 · 69 评（软件复杂度）；Agent swarm P vs NP HN 80 · 68 评",
+    "highlight": false,
+    "event": "Anil Madhavapeddy 11/22 发文《Was software just always too complex for humans?》：他看着黎曼猜想通过约 1700 万行 AI 辅助代码被证明，并在没有人类（目前）真正理解其工作原理的情况下被认证为正确；由此他认为软件工程一直是失衡的——计算理论的理解跟不上把软件部署到整个社会的冲动，几十年人类写的代码充满 bug，最近 Java、PHP、Linux 一连串关联性故障和漏洞披露预示 2027 年安全痛点会加速。他看到两种走向，其一是「从规格推导一切」（他在 4 月还认为不可能形式化所有层，现在改变了看法）。同一天上线的 pequalnp.com 让一个协调的 AI agent 舰队实时攻 P vs NP，公开展示已验证引理、被驳倒的论断和「墓地」里放弃的思路；HN 高赞评论认为它用的是落后一代的公开模型，近期的大成果几乎都来自未公开的模型。",
+    "why": "「AI 写的代码人看不懂，只要能被机器验证就行」正在从数学蔓延到软件工程。这和这一周反复出现的 Java4Shell、OpenSSL、GPGME 等漏洞形成呼应，也直接关系到 agent 生成代码该用什么标准验收。",
+    "use": "1）在关键模块（支付对账、金额计算、状态机）上评估更强的验证手段：属性测试、模型检查（TLA+）、形式化规格，而不是只靠 code review；2）观察 pequalnp 这种「公开记录每个 agent 的引理、驳倒和放弃路径」的设计，它是长任务多 agent 协作的状态记录样板，可借鉴到自己的 agent 任务日志里；3）团队讨论时可以用这篇文章做引子，对齐「agent 产出代码的可信度靠什么」。",
+    "links": [
+     {
+      "name": "Anil Madhavapeddy：Was software just always too complex for humans?",
+      "url": "https://anil.recoil.org/notes/software-too-complex-for-humans"
+     },
+     {
+      "name": "pequalnp.com：AI agent fleet attacking P vs NP",
+      "url": "https://pequalnp.com/"
+     },
+     {
+      "name": "HN 讨论（软件复杂度）",
+      "url": "https://news.ycombinator.com/item?id=50601823"
+     },
+     {
+      "name": "HN 讨论（P vs NP agent swarm）",
+      "url": "https://news.ycombinator.com/item?id=50604314"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-23-07",
+   "date": "2026-11-23",
+   "type": "news",
+   "rank": 7,
+   "title": "移卡（Yeahka）与万事达签约测试 Agent Pay：Mastercard App 里的 agent 一句话点奶茶、用户确认后由 YeahPay 付款，agent 支付 SDK 已对外开放",
+   "summary": "国内收单机构接入 Mastercard Agent Pay 的一个落地样板：商户数据由子公司提供，支付以用户明确确认为前提。",
+   "url": "https://findeskasia.com/yeahka-mastercard-agent-pay/",
+   "tags": [
+    "支付",
+    "AI Agent",
+    "Agentic Commerce"
+   ],
+   "raw_tags": [
+    "支付系统",
+    "AI Agent",
+    "Agentic Commerce"
+   ],
+   "score": null,
+   "score_label": "FinDeskAsia 11/22 报道；新加坡金融科技节（11/18–20）现场演示",
+   "detail": {
+    "heat": "FinDeskAsia 11/22 报道；新加坡金融科技节（11/18–20）现场演示",
+    "highlight": false,
+    "event": "港股上市的移卡与万事达签署合作协议，探索从找商品到付款的 AI agent 购物，并在新加坡金融科技节上做了演示：用户在 Mastercard App 里让 agent 找附近门店、点一杯大杯少糖少冰的奶茶，agent 选店选品，用户确认后通过移卡完成支付。分工是：Mastercard App 计划接入 YeahPay（移卡国际支付品牌）的 agent 支付服务，YeahPay 处理这些 Agent Pay 交易；移卡另一子公司富士科技提供商户和商品数据，让 agent 能查店、查价、查选项并下单。移卡称服务约 920 万商户，YeahPay 在 7 个市场做商户签约和处理；其 AI agent 支付 SDK 和技术文档已放到官网供外部开发者接入。",
+    "why": "过去几周的 agent 支付新闻多是欧美卡组织和大银行，这是一个国内背景的收单/聚合支付公司直接接入 Mastercard Agent Pay 的案例。它把 agentic commerce 的两个硬前提讲得很清楚：商户侧要有结构化、准确的商品数据，支付侧要有用户明确授权。对做支付系统的人来说，商户数据层往往比支付本身更难。",
+    "use": "1）如果在做收单或聚合支付，可以去看 YeahPay 公开的 agent 支付 SDK 和文档，对比自己的接口离「agent 可调用」还差什么（商品目录 API、价格/库存查询、确认回调）；2）把「用户确认后才扣款」做成交易状态机里的显式状态，并记录 agent 身份和授权凭证，便于后续争议处理；3）跟进 Mastercard Agent Pay 在亚洲的收单侧接入方式，评估是否需要在风控规则里区分 agent 发起的交易。",
+    "links": [
+     {
+      "name": "FinDeskAsia：Yeahka and Mastercard Test AI Agents That Order and Pay in One Chat",
+      "url": "https://findeskasia.com/yeahka-mastercard-agent-pay/"
+     }
+    ]
+   }
+  }
+ ]
+}
