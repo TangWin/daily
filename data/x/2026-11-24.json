@@ -3,13 +3,45 @@
  "type": "x",
  "date": "2026-11-24",
  "day": {
-  "digest": "今天只有 Matt Pocock 有动态：他晒出正在做的类 Slack 人机协作应用 cookout 的截图；被问到 sandcastle 和“软件工厂”的方向时，他说因为 SOTA 变化太快，暂时没有头绪。Karpathy 和 Dan Koe 暂无新帖。",
+  "digest": "Matt Pocock 晒出正在做的类 Slack 人机协作应用 cookout 的截图；被问到 sandcastle 和“软件工厂”的方向时，他说因为 SOTA 变化太快，暂时没有头绪。晚间 Dan Koe 发帖，把信息过载类比成现代饮食，预测“大脑节食”会成为下一个大趋势。Karpathy 暂无新帖。",
   "by_source": {
-   "mattpocockuk": "晒出在做的 cookout 截图；被问到 sandcastle/“软件工厂”的方向时，表示 SOTA 变化太快，暂时没有头绪。"
+   "mattpocockuk": "晒出在做的 cookout 截图；被问到 sandcastle/“软件工厂”的方向时，表示 SOTA 变化太快，暂时没有头绪。",
+   "thedankoe": "把信息过载比作高糖高盐饮食，预测多巴胺戒断、模拟生活、写日记等“大脑节食”会更流行。"
   },
-  "updated_at": "2026-11-24T20:25:00+09:00"
+  "updated_at": "2026-11-25T00:25:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2125216627029373342",
+   "date": "2026-11-24",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2125216627029373342",
+   "url": "https://x.com/thedankoe/status/2125216627029373342",
+   "posted_at": "2026-11-24T21:15+08:00",
+   "kind": "post",
+   "text": "The reason people go on a \"diet\" is because modern food options have an amount of fat, sugar, and salt that our monkey brains aren't equipped to deal with. Those used to be scarce ingredients. We overconsume easily.\n\nThe next big trend will be diets for the mind. We aren't meant to be exposed to this much information. It makes us go insane. Dopamine detoxes, \"analog living,\" journaling, and training your brain will be far more popular than they already are, because an absurd amount of people are quickly becoming mentally obese.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "人们之所以要“节食”，是因为现代食物里的脂肪、糖和盐的含量，是我们的猴子大脑应付不了的。这些东西过去都是稀缺的。我们很容易过度摄入。\n\n下一个大趋势会是“大脑的节食”。我们本来就不该接触这么多信息。它让我们发疯。多巴胺戒断、“模拟生活”（analog living）、写日记和训练大脑会比现在更流行，因为有大量的人正在迅速变得“精神肥胖”。",
+   "analysis": {
+    "summary": "Dan Koe 把信息过载类比成现代饮食：就像食物里高脂高糖高盐让人需要节食，过量信息也会让人“精神肥胖”，他预测“大脑节食”会成为下一个大趋势。",
+    "points": [
+     "类比：现代食物中脂肪、糖、盐的含量超出了人类大脑的应对能力，这些成分过去很稀缺，所以人们容易过度摄入，才需要“节食”。",
+     "他认为人类本来不适合接触这么多信息，信息过载“让我们发疯”。",
+     "预测：多巴胺戒断、“analog living”（模拟生活）、写日记、训练大脑会比现在更流行。",
+     "理由：大量的人正在迅速变得“精神肥胖”（mentally obese）。"
+    ],
+    "why": "这是 Dan Koe 一贯的注意力管理/个人成长主题，是作者的观点和趋势预测，不是数据或研究结论；帖子没有给出任何证据或具体做法。对内容创作者来说，可以当作“信息节食”类产品或内容方向的一个信号来看。",
+    "tags": [
+     "注意力管理",
+     "个人成长",
+     "创作者经济"
+    ]
+   }
+  },
   {
    "id": "x-2125128419130421672",
    "date": "2026-11-24",
