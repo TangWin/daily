@@ -1,0 +1,353 @@
+{
+ "schema_version": 1,
+ "type": "news",
+ "date": "2026-11-24",
+ "day": {
+  "window": "11/23 08:30 – 11/24 08:30 北京时间",
+  "note": "未使用 X 付费 API",
+  "footer": "来源主要是 HN（Algolia API）、GitHub releases/commits、官方博客和支付行业媒体；Reddit JSON 今天仍然返回 403，没有纳入。HN 前排被 Nvidia 恢复黄仁勋 CEO 职务（HN 1973 · 近 3000 评）和 Ladybird 进入 alpha（HN 1338）占据，与工程主题关系不大，不收录。Anthropic 公开由其内部研究模型发现并用 Lean 形式化的「VP ≠ VNP over Every Field」（HN 191 · 152 评，README 说明尚无人类数学家核对证明），以及「Yes, 17M lines of Lean is a lot」（HN 260 · 321 评）都属于黎曼猜想 / P vs NP 话题的延续，偏数学，只在这里提一句。Docker 新品牌「Built to Run on Trust」（HN 121 · 199 评）原文发于 11/19 且偏品牌宣传；Nango「为 1000+ API 运维鉴权的经验」（HN 52）是 8 月旧文；Gentoo「The next circle of security hell」（HN 235）是 10 月旧文；「别把 SSH 私钥放在磁盘上」（HN 148 · 96 评）是通用安全实践，均不单列。Superconductor 在 SF Ruby Conf 做的 coding agent 调查（82% 受访者说上月交付的代码大部分或全部由 agent 写，HN 8）样本偏早期采用者且带产品推广，不单列。支付方向：Mastercard × Antom、Adyen × Klarna、Visa Agentic Ready 此前都已报过，不重复；WooshPay × 云锋 AlphaToken 只是演示，试点要到 2027 Q1。窗口内 MCP 规范仓库只有 Core Primitives 工作组章程等文档改动，各语言 MCP SDK、Spring AI、LangChain4j、Qwen Code、Cline 都没有新版本（LangChain4j 合入了 McpTransportCustomizer，尚未发版）。Java 方向只有 Brian Goetz 的「Evolving the Java Language」演讲文章，Ontology 方向今天没有新内容。",
+  "highlights": [
+   1,
+   2,
+   4
+  ]
+ },
+ "items": [
+  {
+   "id": "news-2026-11-24-01",
+   "date": "2026-11-24",
+   "type": "news",
+   "rank": 1,
+   "title": "Anthropic 发布 Claude Ship（beta）：Claude 不只审 PR，还会修 CI/冲突，并按仓库里的策略文件自动批准常规变更",
+   "summary": "Code Review + PR Steward + Claude Approvals 三件套，加一个 /ship 命令：从开 PR 到批准合并都可以交给 agent，人只看策略要求人看的变更。",
+   "url": "https://claude.com/resources/articles/introducing-claude-ship",
+   "tags": [
+    "Coding Agent",
+    "新品发布",
+    "代码审查",
+    "Claude Code"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "新品发布",
+    "代码审查",
+    "Claude Code"
+   ],
+   "score": 18,
+   "score_label": "HN 18 · 6 评（另一帖 3 · 2 评）；官方 11/23 发布",
+   "detail": {
+    "heat": "HN 18 · 6 评（另一帖 3 · 2 评）；官方 11/23 发布",
+    "highlight": true,
+    "event": "Anthropic 11/23 推出 Claude Ship（beta），由三部分组成：已 GA 的 Code Review（多视角审查、对发现做对抗式复核后贴到 PR，可选 Quick/Standard/Deep 三档）；新的 PR Steward（自动处理失败的 CI、合并冲突和审查意见，每次 push 后说明改了什么、怎么撤销，可用 `@claude` 指挥或 `@claude stop` 叫停，设计上不会批准或合并）；新的 Claude Approvals（读取团队写在仓库里的审批策略文件，像「更聪明的 CODEOWNERS」，可自动批准常规变更或要求人工签字，建议先用 observe-only 模式）。开发者在 Claude Code 里运行 `/ship` 即可推送、开 PR、审查并处理反馈。Anthropic 称 Claude Code 团队 6–9 月合并的 PR 翻了一倍多，被回滚的比例下降 40% 以上。仅支持 GitHub 上的 Team/Enterprise 计划，按 token 计费，可设支出上限；开启 ZDR、HIPAA 配置或客户自管密钥的组织不可用。",
+    "why": "这是头部厂商第一次把「批准合并」也正式产品化交给 agent，而且审批规则以文件形式放进仓库、可审计、可灰度（observe 模式）。它回应的正是最近反复出现的问题：agent 写代码快了，瓶颈移到了 review 和审批。同时也意味着「谁对合并负责」需要团队重新定义——PR Steward 不批准、Approvals 只按策略批准，这种职责拆分本身值得参考。",
+    "use": "1）即使不用 Claude Ship，也可以借鉴它的结构：把「修 PR 的 agent」和「批准 PR 的 agent」分开，前者绝不拥有批准权；2）把审批规则写成仓库内的策略文件（哪些目录/风险等级必须人审），先 observe 一段时间对比人工结论再接入分支保护；3）支付、鉴权、密钥相关路径在策略里一律要求人工签字；4）评估成本时注意：策略里引用 Claude 审查即使在 observe 模式也会触发计费的 Code Review。",
+    "links": [
+     {
+      "name": "Anthropic：Introducing Claude Ship",
+      "url": "https://claude.com/resources/articles/introducing-claude-ship"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50618513"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-24-02",
+   "date": "2026-11-24",
+   "type": "news",
+   "rank": 2,
+   "title": "智谱 GLM-5.4：第一个「循环 Transformer」旗舰模型，把 GLM-5 的 28 层循环跑两遍，号称达到 2–3T 参数模型的水平，主打「泛化编码」",
+   "summary": "750B 规模的 loop 架构，靠门控渐进更新、混合 KV 缓存和稀疏注意力索引复用控制成本；已上 GLM Coding Plan，但没公布基准分数，权重「安全加固后再开源」。",
+   "url": "https://z.ai/blog/glm-5.4",
+   "tags": [
+    "AI Agent",
+    "Coding Agent",
+    "模型发布",
+    "开源权重"
+   ],
+   "raw_tags": [
+    "AI Agent",
+    "Coding Agent",
+    "模型发布",
+    "开源权重"
+   ],
+   "score": 1033,
+   "score_label": "HN 1033 · 332 评；另有 GLM 5.4 帖 58 · 11 评、Coding Plan 上线帖 32 · 13 评",
+   "detail": {
+    "heat": "HN 1033 · 332 评；另有 GLM 5.4 帖 58 · 11 评、Coding Plan 上线帖 32 · 13 评",
+    "highlight": true,
+    "event": "Z.ai 11/23 发布 GLM-5.4：在已预训练的 GLM-5 基座上通过继续训练改造成 Loop Transformer，把 28 层共享权重循环两次（750B 规模）。三项关键改动：每轮迭代独立的逐 token 门控，把候选更新按比例写回残差流，避免激活范数爆炸；混合 KV 缓存——第二轮复用第一轮的稀疏 KV，只额外保留一个滑动窗口，1M 上下文下部署成本相对 GLM-5.3 增幅可控；第二轮直接复用第一轮稀疏注意力的索引。在同参数量 30B 模型上的对照实验里，仅多约 10% 训练算力，数学、科学推理、长上下文提升最明显，GPQA-Diamond、MMLU-Pro 等平均输出长度反而下降 10–14%。官方承认会陷入过长的「马拉松式思考」。推理速度闲时最高 200 tokens/s、高峰 70–80 tokens/s。已对所有 GLM Coding Plan 用户开放，API 即将上线，权重计划在完成安全加固后开源。",
+    "why": "继 Thinking Machines Inkling 2 Mini 之后，又一家把「循环深度」用到旗舰规模，而且是改造已有基座而不是从头训练——这是一条比堆参数便宜的提升推理能力的路线。HN 高赞评论的质疑也很直接：没有给基准分数，很难判断实际水平。对 coding agent 用户来说，它更像一个值得自己跑评测的新选项，而不是可以直接信的宣传。",
+    "use": "1）如果团队在用 GLM Coding Plan，可以在自己的任务集（真实仓库的 bugfix/重构）上对比 GLM-5.3 与 5.4 的通过率、思考 token 和耗时，重点盯「马拉松思考」导致的超时；2）给 agent harness 设好单步思考预算和整体超时，避免循环模型拖慢流水线；3）关注 API 上线与开源权重的时间点，再决定是否纳入自托管候选。",
+    "links": [
+     {
+      "name": "Z.ai：GLM-5.4: Toward Generalized Coding with Our First Loop Transformer",
+      "url": "https://z.ai/blog/glm-5.4"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50609685"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-24-03",
+   "date": "2026-11-24",
+   "type": "news",
+   "rank": 3,
+   "title": "争议：LeCun 指责 Dario Amodei「夸大 AI 危险，好让开源模型被定为非法、自己保持控制」，HN 近 600 条评论吵成一团",
+   "summary": "LeCun 把限制开放权重比作奥斯曼帝国禁印刷术；Anthropic 的公开立场是不主张全面禁止，只要求高能力模型发布前做安全检查。",
+   "url": "https://businessupturn.com/technology/yann-lecun-challenges-dario-amodei-over-open-weight-ai-restrictions/",
+   "tags": [
+    "有争议",
+    "AI Agent",
+    "开源模型",
+    "AI 政策"
+   ],
+   "raw_tags": [
+    "争议观点",
+    "AI Agent",
+    "开源模型",
+    "AI 政策"
+   ],
+   "score": 1038,
+   "score_label": "HN 1038 · 582 评（当日 HN 前五）",
+   "detail": {
+    "heat": "HN 1038 · 582 评（当日 HN 前五）",
+    "highlight": false,
+    "event": "LeCun 11/22（美国时间）在 X 上回复一条讨论 Amodei 国会证词的帖子，称 Dario 从 GPT-2 起就在「炒作危险，让开放模型被定为非法而他能保持控制」，并说他离开 OpenAI 是因为拿不到控制权，把这比作「新形式的中世纪蒙昧主义」。多家媒体 11/23 跟进报道。媒体同时引用了 Anthropic 7 月的政策声明：Amodei 称 Anthropic「从未主张禁止开放权重模型」，认为不具危险能力的开放模型是公共品，但高能力模型无论开放与否都应在发布前做安全检查，因为权重一旦发布无法收回、难以监控。HN 讨论分成两派：一派认为闭源厂商在用安全叙事构筑监管护城河、并靠补贴订阅制造依赖；另一派指出要区分「被滥用的风险」和「失控风险」，开放模型降低前者却可能增加后者。",
+    "why": "这不是新政策，而是「开放权重该不该受限」这场争论的又一次公开爆发，热度很高。对工程团队的实际意义在于：模型选型越来越带有政策风险——开放权重模型的可用性、合规要求和许可条款都可能随监管走向变化；同一天智谱 GLM-5.4 也说权重要「安全加固后」才开源，说明这个议题已经影响到发布节奏。",
+    "use": "1）在模型选型文档里把「可替换性」列成正式要求：关键 agent 流程至少保留一个可自托管的开放权重备选，并定期回归测试；2）跟踪各地对开放权重/高能力模型的监管提案，评估对自托管方案的影响；3）读评论时把论点与动机分开——讨论里最有价值的是「滥用风险 vs 失控风险」这条区分，可以用来组织团队内部的安全讨论。",
+    "links": [
+     {
+      "name": "Business Upturn：Yann LeCun challenges Dario Amodei over open-weight AI restrictions",
+      "url": "https://businessupturn.com/technology/yann-lecun-challenges-dario-amodei-over-open-weight-ai-restrictions/"
+     },
+     {
+      "name": "LeCun 原帖",
+      "url": "https://twitter.com/ylecun/status/2124550037912920090"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50615308"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-24-04",
+   "date": "2026-11-24",
+   "type": "news",
+   "rank": 4,
+   "title": "OpenAI × Cisco 开源 Shirudo：用 eBPF「护盾」给还没打补丁的 Linux 服务挡漏洞，演示里 Codex 生成的护盾在不重启的情况下挡住了 Java4Shell",
+   "summary": "agent 负责调查漏洞、生成并验证护盾，运维批准后热加载；护盾带签名，加载/卸载记录由 TPM 背书。BSD-2 许可。",
+   "url": "https://openai.com/index/introducing-shirudo/",
+   "tags": [
+    "安全",
+    "AI Agent",
+    "开源",
+    "Java"
+   ],
+   "raw_tags": [
+    "安全",
+    "AI Agent",
+    "开源项目",
+    "Java"
+   ],
+   "score": 14,
+   "score_label": "HN 14 · 1 评；GitHub shirudo-dev/shirudo 315 stars",
+   "detail": {
+    "heat": "HN 14 · 1 评；GitHub shirudo-dev/shirudo 315 stars",
+    "highlight": true,
+    "event": "OpenAI 与 Cisco 11/23 发布开源运行时 Shirudo（日语「盾」）：在补丁测试、发布需要数天到数周的空窗期里，用 eBPF 程序（称为 shield）精确拦截暴露漏洞的行为、放行正常请求，服务无需重启。四项设计：实时防护（可先观察 shield 对应用的影响再强制执行）；面向 agent 的可编程接口，让 agent 调查漏洞、开发并针对真实 exploit 和负载验证 shield，部署权在安全团队；shield 加密签名后才加载，并经内核 eBPF verifier 校验；用 TPM 记录 shield 的加载与移除，供合规核验。官方示例：用 Codex 生成一个 shield，给 Java 的 Base64 解码器加输入检查，挂到运行中的 Elasticsearch 进程上，Java4Shell 攻击被拒、服务持续运行。代码 BSD 2-Clause 许可，BPF 程序 BSD/GPL 双许可，12/15 有技术网络研讨会。",
+    "why": "Java4Shell（11/18 报过）这类 JDK 级漏洞的痛点是：补丁要等 JDK 发布、再逐个服务升级重启。Shirudo 给出的是「agent 写临时防护、人审批、热加载」的流程，把 AI 从找漏洞延伸到补丁空窗期的缓解，并且把签名、verifier、TPM 审计都做进了设计。项目刚开源、讨论还很少，但方向对 Java 服务运维很有参考价值。",
+    "use": "1）有大量 JVM 服务的团队可以跑一下 VM quickstart，评估 eBPF shield 作为「补丁前缓解」的可行性；2）把它的流程当模板：agent 只产出候选防护 + 验证报告，部署必须由人批准且有签名和审计记录；3）没准备上 eBPF 的团队，至少为 JDK 级 CVE 准备好 WAF/入参校验层面的临时缓解手册。",
+    "links": [
+     {
+      "name": "OpenAI：OpenAI and Cisco introduce Shirudo",
+      "url": "https://openai.com/index/introducing-shirudo/"
+     },
+     {
+      "name": "GitHub：shirudo-dev/shirudo",
+      "url": "https://github.com/shirudo-dev/shirudo"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50619630"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-24-05",
+   "date": "2026-11-24",
+   "type": "news",
+   "rank": 5,
+   "title": "Kudelski Security 横评 4 款 coding agent 沙箱：nono、Docker Sandboxes、Microsandbox、NVIDIA OpenShell 都只拿到 4–4.5/5，谁都还没到 1.0",
+   "summary": "microVM 隔离更强、OS 级沙箱更快；只有 nono 和 OpenShell 能把凭据同时限定到域名和端点；所有工具都无法禁止已放行目录里的单个文件。",
+   "url": "https://kudelskisecurity.com/research/sandboxing-coding-agents",
+   "tags": [
+    "Coding Agent",
+    "Harness",
+    "安全",
+    "沙箱"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "Harness Engineering",
+    "安全",
+    "沙箱"
+   ],
+   "score": 12,
+   "score_label": "HN 12 · 0 评（易漏的高质量长文）",
+   "detail": {
+    "heat": "HN 12 · 0 评（易漏的高质量长文）",
+    "highlight": false,
+    "event": "Kudelski Security 11/23 发布实测横评。安全评分：nono 4/5（OS 级原语、开源、启动最快、密钥处理最好，但与宿主共享内核）、Docker Sandboxes 4.5/5（每个 agent 一个 microVM，体验最完善，首次启动约 10 秒，但闭源、需 Docker 账号、网络过滤功能偏少）、Microsandbox 4/5（Rust + libkrun 的 microVM，通用型，缺 HTTP 路径过滤）、OpenShell 4.5/5（NVIDIA，网关架构、支持 Docker/Podman/K8s/microVM/Windows MXC 多种后端，功能最全但仍有 bug）。共性缺口：不能拒绝已放行目录中的某个文件、不能自定义 syscall 白名单、没有内置管理/监控 Web 界面。文章强调仅按域名过滤网络不够（github.com 既能正常 git 也能被用来外传 gist），DNS 也是外泄通道；并引用 Johann Rehberger 用新技巧对 Claude Code Auto mode 取得 60–80% 注入成功率，说明厂商宣称的 0% ASR 不能替代沙箱。",
+    "why": "这是少见的、不站队的 agent 沙箱实测对比，评估维度（隔离原语、文件/网络/凭据注入粒度、DNS 外泄防护、易用性）本身就可以直接当团队选型清单。结论也很务实：没有完美方案，「最好的沙箱是一直开着的那个」。",
+    "use": "1）用文中评估维度给团队现有的 agent 运行环境打分，尤其检查网络是否只按域名放行、DNS 外泄是否有防护；2）凭据尽量用「域名 + 端点」双重限定的注入方式，而不是把 token 放进环境变量；3）本地开发可先用启动快的 OS 级方案，CI/无人值守跑 agent 优先 microVM；4）实在来不及部署，至少打开 coding agent 自带的沙箱选项。",
+    "links": [
+     {
+      "name": "Kudelski Security：Sandboxing AI Coding Agents: nono vs Docker Sandboxes vs Microsandbox vs OpenShell",
+      "url": "https://kudelskisecurity.com/research/sandboxing-coding-agents"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50611099"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-24-06",
+   "date": "2026-11-24",
+   "type": "news",
+   "rank": 6,
+   "title": "Greptile 实验「LLM 该怎么看电脑」：无障碍树 + 按元素 ID 点击能让弱模型分数翻倍，但对最强模型几乎没帮助",
+   "summary": "同一套 OSWorld 172 个任务、7 个模型：GPT-5.2 从纯截图 15.8% 提到 52.8%，GPT-6.1 Sol 纯截图 83.8%，加树和 ID 点击后反而略低。",
+   "url": "https://www.greptile.com/blog/trex-computer-use",
+   "tags": [
+    "Context Engineering",
+    "Harness",
+    "AI Agent",
+    "Computer Use"
+   ],
+   "raw_tags": [
+    "Context Engineering",
+    "Harness Engineering",
+    "AI Agent",
+    "Computer Use"
+   ],
+   "score": 43,
+   "score_label": "HN 43 · 22 评",
+   "detail": {
+    "heat": "HN 43 · 22 评",
+    "highlight": false,
+    "event": "Greptile 为自家 QA agent TREX 做了三组对照：纯截图、截图 + 无障碍树（仍按坐标点击）、再加按元素 ID 点击（由 harness 执行点击）。同一 agent、172 个 OSWorld 任务、每题一次、50 步上限、低推理强度。结果：GPT-4.1 纯截图 5.4% → 加树 20.6% → ID 点击 29.3%；GPT-5.2 15.8% → 36.2% → 52.8%；而最强的三个模型变化都不显著，GPT-6.1 Sol 纯截图 83.8%、加树 82.7%、ID 点击 82.1%。文章也指出无障碍树的盲区：Figma 画布、游戏没有树，文字溢出这类 bug 只在屏幕上可见。TREX 最终方案是每步都给截图，能用树就按 ID 点击，树里没有的元素（画布/游戏）再退回坐标。",
+    "why": "这是一个很干净的「上下文该给什么」实验：额外的结构化上下文对弱模型是大幅增益，对强模型几乎是噪声。对 harness 设计的启示是，上下文策略应该按模型分档，并随模型升级重新验证，而不是一次定死。",
+    "use": "1）做 computer-use/浏览器 agent 时，把「截图 / 无障碍树 / 按 ID 操作」做成可配置项，按所用模型在自己的任务集上跑 A/B；2）用小模型降本的场景优先补无障碍树和 ID 点击；3）QA 类 agent 保留截图，因为溢出、遮挡等视觉 bug 树里看不到；4）每次换模型都重跑这类对照，把结论写进 harness 配置而不是写死在代码里。",
+    "links": [
+     {
+      "name": "Greptile：How should an LLM see a computer?",
+      "url": "https://www.greptile.com/blog/trex-computer-use"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50615520"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-24-07",
+   "date": "2026-11-24",
+   "type": "news",
+   "rank": 7,
+   "title": "Coding Agent 更新：OpenCode 2.4.0 加入自动化任务（可由 MCP 事件触发）和内置浏览器；Codex 0.172 默认按需启动 stdio MCP 服务；Claude Code 2.1.331 修复 MCP 调用卡 30 分钟",
+   "summary": "三家同一天发版，共同点都落在 MCP 和长时运行的稳定性上。",
+   "url": "https://github.com/anomalyco/opencode/releases/tag/v2.4.0",
+   "tags": [
+    "Coding Agent",
+    "MCP",
+    "开源",
+    "版本更新"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "MCP",
+    "开源项目",
+    "版本更新"
+   ],
+   "score": null,
+   "score_label": "GitHub releases（anomalyco/opencode v2.4.0/2.4.1、openai/codex rust-v0.172.0、anthropics/claude-code v2.1.331），无单独 HN 讨论",
+   "detail": {
+    "heat": "GitHub releases（anomalyco/opencode v2.4.0/2.4.1、openai/codex rust-v0.172.0、anthropics/claude-code v2.1.331），无单独 HN 讨论",
+    "highlight": false,
+    "event": "OpenCode 2.4.0（11/23）：新增 Automations，让 agent 按定时器、cron 或「MCP 服务器发来事件时」运行 prompt/脚本/命令，用 /automation 管理（可配置关闭）；内置桌面浏览器，可导入 Chrome/Edge/Firefox/Safari 的登录和历史；新增 generate_video；MCP 服务默认先按最新协议握手、失败再退回旧握手（可设 protocol: legacy）；GitHub Copilot 不再读取 GITHUB_TOKEN；按版本范围声明的插件每 24 小时自动更新。Codex 0.172.0（北京时间 11/24 08:03）：带缓存工具列表的可选 stdio MCP 服务默认在第一次工具调用时才启动；可在 config.toml 为单个 app 工具指定审批人；codex exec resume 恢复保存的沙箱权限和工作目录；中断父回合时保留子 agent 排队的回复；Code Mode 全部改走 gRPC。Claude Code 2.1.331：修复本地/WebSocket MCP 服务返回异常时工具调用最长挂起 30 分钟；修复 /compact 在摘要引用某些 XML 标签时丢失内容；llm_request trace span 增加 gen_ai.usage.* 等 OpenTelemetry 字段；插件清单支持 optionalDependencies；预告 11/30 起托管设置里的插件市场默认自动更新。",
+    "why": "MCP 正在从「工具调用」变成「事件触发 + 懒加载」的基础设施：OpenCode 让 MCP 事件直接驱动自动化（呼应 11/21 报过的 MCP Events SEP-3415），Codex 把 MCP 服务改成按需启动以减少启动开销。同时几家都在给插件/依赖加自动更新，这对供应链安全是双刃剑。",
+    "use": "1）用 OpenCode 的团队升级前确认 Automations 的开关策略，避免 MCP 事件意外触发 agent 执行命令；2）Codex 用户可利用逐工具审批人配置，把写操作类工具交给更严格的审批；3）Claude Code 的 gen_ai.* trace 字段可以直接接入现有 OTel 看板做 token 成本统计；4）管理员注意 11/30 起插件市场默认自动更新，需要锁版本的在 extraKnownMarketplaces 里设 \"autoUpdate\": false。",
+    "links": [
+     {
+      "name": "OpenCode v2.4.0 release notes",
+      "url": "https://github.com/anomalyco/opencode/releases/tag/v2.4.0"
+     },
+     {
+      "name": "Codex rust-v0.172.0 release notes",
+      "url": "https://github.com/openai/codex/releases/tag/rust-v0.172.0"
+     },
+     {
+      "name": "Claude Code v2.1.331 release notes",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.331"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-24-08",
+   "date": "2026-11-24",
+   "type": "news",
+   "rank": 8,
+   "title": "Agent 支付两则：PayPal「Agentic Virtual Card」商户条款 11/23 生效（不享卖家保护、争议走卡组织拒付）；Natural Voice 让语音 agent 在通话中收卡款、卡号不经商户系统",
+   "summary": "一边是大平台把 agent 交易的责任边界写进合同，一边是创业公司用「转接给支付 agent」解决语音场景的 PCI 难题。",
+   "url": "https://www.pymnts.com/news/artificial-intelligence/2026/paypal-sets-virtual-card-rules-for-agentic-commerce/",
+   "tags": [
+    "支付",
+    "AI Agent",
+    "Agentic Commerce",
+    "合规"
+   ],
+   "raw_tags": [
+    "支付系统",
+    "AI Agent",
+    "Agentic Commerce",
+    "合规"
+   ],
+   "score": null,
+   "score_label": "支付行业媒体报道（PYMNTS、PR Newswire），无 HN 讨论",
+   "detail": {
+    "heat": "支付行业媒体报道（PYMNTS、PR Newswire），无 HN 讨论",
+    "highlight": false,
+    "event": "PayPal：适用于新支付类型「PayPal Checkout — Agentic Virtual Card」的商户条款于 11/23 生效（11/10 预告）。买家通过 agentic commerce 服务用 PayPal 付款时，PayPal 可能给该服务一张虚拟卡来给商户结算，卡与买家钱包里的底层支付工具不同；商户承担卡组织费用、交换费等受理成本，退款须原路退回同一张虚拟卡；这类交易不适用 PayPal 卖家保护，争议通过该虚拟卡所属卡组织的拒付流程处理。Natural（北京时间 11/24 01:30 发布）：Natural Voice 让商家的语音 agent 创建支付请求后把来电转给 Natural 的支付 agent，由它报出商家名和金额、收卡号（口述或按键）、口头授权后扣款，再转回或挂断；卡号不经过商家的 agent、模型、转写和通话日志；三次失败后短信发支付链接；每通电话以 paid/link sent/unpaid 结束并有 webhook 和打码的转写；仅接受经批准电话系统的加密呼叫，上线前会先打测试电话确认商家侧没有录下卡号。",
+    "why": "PayPal 的条款把「agent 下单」的风险分配写清楚了：对商户来说，它在结算上表现为一笔卡交易，争议规则也换成卡组织那套，而不是 PayPal 的卖家保护——接入 agent 渠道前必须理解这一点。Natural 的做法则是一个典型的范围隔离模式：把持卡数据交给专门的支付 agent，让通用 agent 和 LLM 链路完全不进 PCI 范围。",
+    "use": "1）有 PayPal 收款的商户/支付团队：确认收单配置如何处理 agentic 虚拟卡，并把这类交易的拒付处理、对账和退款路径单独标记；2）设计任何会接触卡号的 agent 流程时，借鉴「转接给支付专用组件」的思路，确保 LLM、转写和日志不落卡号，并用测试卡验证；3）把 agent 渠道交易在风控和争议统计里单独打标，便于评估真实拒付率。",
+    "links": [
+     {
+      "name": "PYMNTS：PayPal Sets Virtual Card Rules for Agentic Commerce",
+      "url": "https://www.pymnts.com/news/artificial-intelligence/2026/paypal-sets-virtual-card-rules-for-agentic-commerce/"
+     },
+     {
+      "name": "PR Newswire：Natural Launches Voice",
+      "url": "https://www.prnewswire.com/news-releases/natural-launches-voice-enabling-ai-agents-to-accept-card-payments-during-live-calls-302947981.html"
+     },
+     {
+      "name": "Natural：Introducing Natural Voice",
+      "url": "https://www.natural.com/blog/voice"
+     }
+    ]
+   }
+  }
+ ]
+}
