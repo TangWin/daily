@@ -3,13 +3,46 @@
  "type": "x",
  "date": "2026-11-24",
  "day": {
-  "digest": "今天目前只有 Matt Pocock 发了一条预告式帖子，晒出他正在做的类 Slack 人机协作应用 cookout 的截图；Karpathy 和 Dan Koe 暂无新帖。",
+  "digest": "今天只有 Matt Pocock 有动态：他晒出正在做的类 Slack 人机协作应用 cookout 的截图；被问到 sandcastle 和“软件工厂”的方向时，他说因为 SOTA 变化太快，暂时没有头绪。Karpathy 和 Dan Koe 暂无新帖。",
   "by_source": {
-   "mattpocockuk": "晒出在做的 cookout：一个让 AI Agent 以同事身份在频道和线程里协作的类 Slack 应用截图。"
+   "mattpocockuk": "晒出在做的 cookout 截图；被问到 sandcastle/“软件工厂”的方向时，表示 SOTA 变化太快，暂时没有头绪。"
   },
-  "updated_at": "2026-11-24T08:20:00+09:00"
+  "updated_at": "2026-11-24T20:25:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2125128419130421672",
+   "date": "2026-11-24",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2125128419130421672",
+   "url": "https://x.com/mattpocockuk/status/2125128419130421672",
+   "posted_at": "2026-11-24T15:24+08:00",
+   "kind": "reply",
+   "text": "I have no clue currently, SOTA is moving fast atm it feels like",
+   "article_title": null,
+   "reply_to": {
+    "handle": "pohlipit",
+    "post_id": "2125127367379316800",
+    "url": "https://x.com/pohlipit/status/2125127367379316800",
+    "text": "What's the future for sandcastle? Or whatever framework you are planning to co-ordinate a software factory?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "我现在也完全没头绪，感觉目前 SOTA 变化得太快了",
+   "analysis": {
+    "summary": "有人问 Matt：sandcastle 接下来会怎么发展，或者你打算用什么框架来协调一个“软件工厂”？他回复说目前完全没头绪，SOTA 变化太快。",
+    "points": [
+     "提问者 @pohlipit 关心 sandcastle 的未来，以及 Matt 计划用什么框架协调“软件工厂”。",
+     "Matt 表示目前还没有答案，理由是 SOTA（最前沿技术）变化太快。"
+    ],
+    "why": "信息量较低，但能看出 Matt 对 Agent 编排/“软件工厂”方向暂未定型，处于观望状态。这是他的个人感受，不是任何计划或数据；帖子里也没有解释 sandcastle 具体是什么。",
+    "tags": [
+     "Agent 工程",
+     "AI 编程"
+    ]
+   }
+  },
   {
    "id": "x-2124960763450126399",
    "date": "2026-11-24",
