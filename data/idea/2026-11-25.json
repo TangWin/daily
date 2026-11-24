@@ -1,0 +1,432 @@
+{
+ "schema_version": 1,
+ "type": "idea",
+ "date": "2026-11-25",
+ "day": {
+  "sample": "样本：主清单 141（HN42 Lobsters5 Reddit48 IH20 PH26） + Reddit 深翻页抱怨 117（5200 帖） + HN 句式评论/Ask/Show 556；未使用 X 付费 API。"
+ },
+ "items": [
+  {
+   "id": "idea-2026-11-25-01",
+   "date": "2026-11-25",
+   "type": "idea",
+   "rank": 1,
+   "title": "Mac 搜索又找不到东西：先体检 Spotlight 索引哪里坏了，一键修好；再给你一个按名字秒开 App、按内容找文件都靠谱的替代搜索",
+   "summary": "一个 Mac 菜单栏工具，分两层：①体检修复：检查各卷索引状态、被排除的目录、云盘（Google Drive/OneDrive/iCloud）文件是否进了索引、标签元数据是否丢失，只对出问题的目录做局部重建，并记录每次系统更新后的变化；②可靠的搜索入口：按你的使用频率学习排序（输入 cod 永远是 VS Code），回车必定打开第一项；文件按名字、内容、标签、来源统一搜，系统索引坏了时自动回退到自建索引。",
+   "url": "https://www.reddit.com/r/MacOS/comments/1y3dqml/text_search_must_not_be_this_difficult_to/",
+   "tags": [
+    "Mac/桌面",
+    "个人/生活"
+   ],
+   "raw_tags": [
+    "Mac/桌面工具",
+    "个人/生活"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "macOS 新版本（Tahoe/Golden Gate）后 Spotlight 频繁出问题：输入 App 名前几个字母，排第一的是别的 App 或网页建议；显示对了按回车却没反应；Finder 彩色标签点开一片空白，要手动重建索引，以前管几周，现在只管一小时；按内容找文件更难。用户只能自己搜论坛、敲命令重建索引，或者装 Alfred/Raycast 等多个工具各管一块。",
+    "target_users": "重度依赖键盘启动 App 和找文件的 Mac 用户；用 Finder 标签管理大量工作文件（尤其放在 Google Drive 等云盘里）的上班族；刚升级系统发现搜索变差的普通用户。",
+    "quotes": [
+     {
+      "text": "This is annoying to say the least. Sure I can use Alfred, Raycast, Rustcast etc. but why should the OS default be this bad?",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 帖（Text search must not be this difficult to implement in 2026，360 分，140 条评论）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y3dqml/text_search_must_not_be_this_difficult_to/"
+       }
+      ]
+     },
+     {
+      "text": "My Mac has aseprite on it, and even if I type the entire “Aseprite.app” name, it still comes in fifth place on the search, after a safari search for the term, an accidental Siri AI query about that name, 5 unrelated text messages, and 7 unrelated photos.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y3dqml/text_search_must_not_be_this_difficult_to/19t2yhgoyl2dh/"
+       }
+      ]
+     },
+     {
+      "text": "I press ENTER... nothing happens. I smash ENTER over and over in anger. Nothing happens.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 帖（Pressing ENTER in Spotlight sometimes does nothing）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y32vsp/pressing_enter_in_spotlight_sometimes_does_nothing/"
+       }
+      ]
+     },
+     {
+      "text": "This used to fix it for a couple of weeks, but currently it is only fixing it for about an hour before my tags show up as blank again.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 帖（Constantly having to rebuild spotlight index to have my colour tags work）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y4fgtw/constantly_having_to_rebuild_spotlight_index_to/"
+       }
+      ]
+     },
+     {
+      "text": "when I type \"calc\" or any other app prefix it first shows some other result (like Calendar) and I have to wait at least two seconds for it to show the Calculator. This is extremely annoying because I keep opening other apps instead of what I need.",
+      "links": [
+       {
+        "label": "Reddit r/macapps 帖（Spotlight issues since macOS Tahoe）",
+        "url": "https://www.reddit.com/r/macapps/comments/1y0hfn3/spotlight_issues_since_macos_tahoe/"
+       }
+      ]
+     },
+     {
+      "text": "I'm so sick of craplight not working so I got Opus to make an app that uses terminal commands to find things",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 帖（JFFI Search）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y38itq/jffi_search/"
+       }
+      ]
+     }
+    ],
+    "existing": "Spotlight 自带；Alfred、Raycast（启动器）；Find Any File、FoxTrot、HoudahSpot、Findy、SuperLoupe（文件/全文搜索）；终端 mdutil 重建索引",
+    "defects": "启动器主要解决「开 App」，不诊断系统索引为什么坏；全文搜索工具各自建索引，没人告诉你 Spotlight 哪个卷、哪个目录、哪类元数据坏了；Finder 标签、云盘文件依赖系统索引，第三方工具替代不了；重建索引要敲命令、全盘重建很慢",
+    "solution": "一个 Mac 菜单栏工具，分两层：①体检修复：检查各卷索引状态、被排除的目录、云盘（Google Drive/OneDrive/iCloud）文件是否进了索引、标签元数据是否丢失，只对出问题的目录做局部重建，并记录每次系统更新后的变化；②可靠的搜索入口：按你的使用频率学习排序（输入 cod 永远是 VS Code），回车必定打开第一项；文件按名字、内容、标签、来源统一搜，系统索引坏了时自动回退到自建索引。",
+    "mvp": "菜单栏 App：一键体检（调用 mdutil/mdfind 比对实际文件与索引结果，给出「哪些目录搜不到」报告）+ 局部重建按钮；一个只做 App 启动且按使用习惯排序的快捷搜索框；先免费体检、搜索增强一次性付费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-25-02",
+   "date": "2026-11-25",
+   "type": "idea",
+   "rank": 2,
+   "title": "你常用的 AI 模型要下线或悄悄变笨：用你自己的固定任务每周回测留证据，下线前找出最像它的替代模型，并把指令和风格一起搬过去",
+   "summary": "一个「我的模型体检」服务：用户把 10~30 个自己真实用过的对话或任务（含满意的旧回答）存成测试集；每周自动在当前模型上重跑，按「是否完成、是否遵守指令、是否中途停下、语气是否变化」打分并留存前后对比；收到下线公告或检测到明显退化时，把同一测试集跑在几家候选模型上，推荐最接近的替代，并自动改写自定义指令/项目说明，给出迁移清单。",
+   "url": "https://www.reddit.com/r/OpenAI/comments/1y49269/chatgpt_gives_gpt56_sol_users_one_month_before/",
+   "tags": [
+    "Coding Agent",
+    "开发者工具",
+    "支付"
+   ],
+   "raw_tags": [
+    "Agent/AI编码",
+    "开发者工具",
+    "支付/计费"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "OpenAI 通知 GPT-5.6 Sol 一个月后（12 月 23 日）停止提供，很多人认为它在探索性工作、创意和安全研究上比新的 6.x 好用；同时大量用户觉得新模型会半途停下、不遵守项目指令和自定义指令、性格变冷。用户手里只有「感觉变差了」，没有前后对比的证据，也不知道换哪家哪个模型最接近原来的体验，自定义指令、项目说明要逐个重写。",
+    "target_users": "长期用 ChatGPT/Claude/Gemini 做写作、研究、编程的付费个人用户；把某个模型接进工作流（自定义 GPT、自动化脚本、助手）的自由职业者和小团队。",
+    "quotes": [
+     {
+      "text": "Remember to update any flows that were using it",
+      "links": [
+       {
+        "label": "Reddit r/OpenAI 帖（ChatGPT gives GPT-5.6 Sol users one month before cutting off access，107 分，32 条评论）",
+        "url": "https://www.reddit.com/r/OpenAI/comments/1y49269/chatgpt_gives_gpt56_sol_users_one_month_before/"
+       }
+      ]
+     },
+     {
+      "text": "That's a shame. For me 5.6 sol is the best for exploratory work. Trying to do the same with 6 almost always leaves me a bad aftertaste...",
+      "links": [
+       {
+        "label": "Reddit r/OpenAI 评论（同帖）",
+        "url": "https://www.reddit.com/r/OpenAI/comments/1y49269/chatgpt_gives_gpt56_sol_users_one_month_before/19t4dvv02v52c/"
+       }
+      ]
+     },
+     {
+      "text": "Beyond that my projects no longer seem to follow my project instructions... they kind of do? Maybe 20% of them 20% of the time?",
+      "links": [
+       {
+        "label": "Reddit r/ChatGPT 评论（Is OpenAI intentionally degrading ChatGPT…，122 分，76 条评论）",
+        "url": "https://www.reddit.com/r/ChatGPT/comments/1y4mte6/is_openai_intentionally_degrading_chatgpt_to_push/19t4xpe4bvgwz/"
+       }
+      ]
+     },
+     {
+      "text": "it can't do what it used to do without stopping every 10 minutes even though I tell him no to stop until the work is done",
+      "links": [
+       {
+        "label": "Reddit r/ChatGPT 评论（同帖）",
+        "url": "https://www.reddit.com/r/ChatGPT/comments/1y4mte6/is_openai_intentionally_degrading_chatgpt_to_push/19t4ukr4yllk2/"
+       }
+      ]
+     },
+     {
+      "text": "I’m in the process of creating a harness to replace my assistant gpt 5.6 when it’s retired and moving all my work to Claude",
+      "links": [
+       {
+        "label": "Reddit r/OpenAI 评论（ChatGPT Work is becoming unusable…）",
+        "url": "https://www.reddit.com/r/OpenAI/comments/1y3w6p3/chatgpt_work_is_becoming_unusable_and_openais/19t3gc3mxwwp1/"
+       }
+      ]
+     },
+     {
+      "text": "yeah the 6.2 just ignores my custom instructions",
+      "links": [
+       {
+        "label": "Reddit r/ChatGPT 评论（Personality Change）",
+        "url": "https://www.reddit.com/r/ChatGPT/comments/1y3xf53/personality_change/19t43gvglt22t/"
+       }
+      ]
+     }
+    ],
+    "existing": "各家官方模型选择器和弃用公告；LMArena、Artificial Analysis 等公共榜单；promptfoo 等开发者评测框架；OpenRouter（多模型调用）",
+    "defects": "公共榜单测的是通用题，不是你的任务；promptfoo 等面向工程师，要写配置和 API key，普通付费用户用不上；官方只给下线日期，不帮你迁移；没有工具帮你把自定义指令、项目说明翻译成另一家模型的写法并验证效果",
+    "solution": "一个「我的模型体检」服务：用户把 10~30 个自己真实用过的对话或任务（含满意的旧回答）存成测试集；每周自动在当前模型上重跑，按「是否完成、是否遵守指令、是否中途停下、语气是否变化」打分并留存前后对比；收到下线公告或检测到明显退化时，把同一测试集跑在几家候选模型上，推荐最接近的替代，并自动改写自定义指令/项目说明，给出迁移清单。",
+    "mvp": "网页 + 用户自带 API key：导入 ChatGPT 导出文件挑选测试对话；支持 OpenAI、Anthropic、Google 三家各 2~3 个模型；生成对比报告（并排显示新旧回答与评分）；下线倒计时提醒。按月订阅。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-25-03",
+   "date": "2026-11-25",
+   "type": "idea",
+   "rank": 3,
+   "title": "团队里有人用 Cursor、有人用 Claude Code 和 Codex：一份规则和决策记录自动同步给所有 AI 代理，接口一改其他人的代理立刻知道",
+   "summary": "一个仓库级「代理共享记忆」：一份规范的规则+决策目录，自动生成各工具需要的文件并在 CI 里检查漂移；提供 MCP/钩子，代理在会话中改动接口、数据结构等契约时，自动起草一条决策记录写进同一个 PR；其他人的代理开工前通过 MCP 拉取最近决策；配合从 schema 生成的契约测试，旧写法直接在构建时报错；在提交里加会话标识，统计哪些会话真正产出了合并代码。",
+   "url": "https://www.reddit.com/r/cursor/comments/1y2v1km/teams_running_cursor_alongside_claude_code_or/",
+   "tags": [
+    "Coding Agent",
+    "开发者工具"
+   ],
+   "raw_tags": [
+    "Agent/AI编码",
+    "开发者工具"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "同一团队混用多个编程代理，每个代理只知道自己的会话。一个人和他的代理决定改接口返回格式，另一个人的代理还在按旧格式写代码；CLAUDE.md、AGENTS.md、.cursorrules 各写各的，改了一份忘了另一份，几天后两个代理在同一份代码上行为不一致；决策写在文档里，代理不读也没人发现。",
+    "target_users": "3~30 人、成员各用不同编程代理的软件团队和技术负责人；在多个代理之间来回切换（按额度和任务大小）的个人开发者。",
+    "quotes": [
+     {
+      "text": "Example: one engineer decides with their agent to change an endpoint's response shape. Another engineer's agent keeps writing against the old shape until someone tells it.",
+      "links": [
+       {
+        "label": "Reddit r/cursor 帖（Teams running Cursor alongside Claude Code or Codex: how do you share context between them?，33 条评论）",
+        "url": "https://www.reddit.com/r/cursor/comments/1y2v1km/teams_running_cursor_alongside_claude_code_or/"
+       }
+      ]
+     },
+     {
+      "text": "I'd fix a rule in CLAUDE.md, forget AGENTS.md, and three days later two agents behaved differently on the same code.",
+      "links": [
+       {
+        "label": "Reddit r/ChatGPTCoding 帖（I got tired of CLAUDE.md, AGENTS.md and .cursorrules drifting apart…）",
+        "url": "https://www.reddit.com/r/ChatGPTCoding/comments/1y0ebwx/i_got_tired_of_claudemd_agentsmd_and_cursorrules/"
+       }
+      ]
+     },
+     {
+      "text": "agents.md and a decisions log help but they're basically advice, an agent deep in a task will happily skip them.",
+      "links": [
+       {
+        "label": "Reddit r/cursor 评论（同帖）",
+        "url": "https://www.reddit.com/r/cursor/comments/1y2v1km/teams_running_cursor_alongside_claude_code_or/19t1zwnmtblxc/"
+       }
+      ]
+     },
+     {
+      "text": "The hard part is people actually writing that line when they decide something with their agent. So I'd tie it to the PR: if a PR changes a contract, it adds a line to the file. Otherwise it just doesn't happen.",
+      "links": [
+       {
+        "label": "Reddit r/cursor 评论（同帖）",
+        "url": "https://www.reddit.com/r/cursor/comments/1y2v1km/teams_running_cursor_alongside_claude_code_or/19t166hh8ongi/"
+       }
+      ]
+     },
+     {
+      "text": "mid-session layout calls never made it to the other tool unless they went into that file in the same pr. otherwise the next agent just rebuilds the generic card.",
+      "links": [
+       {
+        "label": "Reddit r/cursor 评论（同帖）",
+        "url": "https://www.reddit.com/r/cursor/comments/1y2v1km/teams_running_cursor_alongside_claude_code_or/19t2h7f1azpa8/"
+       }
+      ]
+     },
+     {
+      "text": "The lesson is that a rule Claude cannot open does not exist.",
+      "links": [
+       {
+        "label": "Reddit r/SaaS 帖（If the instruction only lives in a doc, the next session will ignore it）",
+        "url": "https://www.reddit.com/r/SaaS/comments/1y2aypc/if_the_instruction_only_lives_in_a_doc_the_next/"
+       }
+      ]
+     }
+    ],
+    "existing": "各工具自带规则文件（.cursor/rules、CLAUDE.md、AGENTS.md）；SyncytiumMD 等开源转换器；Concord 等本地决策记录工具；手写 DECISIONS.md + PR 模板；从 OpenAPI 生成类型",
+    "defects": "规则文件靠人记得同步；开源转换器只管文件格式，不管「会话里做的决定」写没写回去；决策记录是建议，代理可以跳过，没有检查；本地工具不跨机器，团队用不起来；看不出哪个代理会话最终产出了合并的代码",
+    "solution": "一个仓库级「代理共享记忆」：一份规范的规则+决策目录，自动生成各工具需要的文件并在 CI 里检查漂移；提供 MCP/钩子，代理在会话中改动接口、数据结构等契约时，自动起草一条决策记录写进同一个 PR；其他人的代理开工前通过 MCP 拉取最近决策；配合从 schema 生成的契约测试，旧写法直接在构建时报错；在提交里加会话标识，统计哪些会话真正产出了合并代码。",
+    "mvp": "CLI + GitHub App：init 生成 canonical 目录并转出 CLAUDE.md/AGENTS.md/.cursor/rules；CI 检查漂移和「改了 API 文件却没加决策记录」的 PR；一个只读 MCP 服务器返回最近 N 条决策。开源 CLI，团队版收费（跨仓库、看板、会话统计）。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-25-04",
+   "date": "2026-11-25",
+   "type": "idea",
+   "rank": 4,
+   "title": "客户迟迟不回复拖垮工期：把「等客户」的天数自动计时、按合同顺延交付日，并用一句话的催办让客户看见自己拖了多久",
+   "summary": "一个面向外包项目的「客户依赖时钟」：签约时把每个里程碑拆成「我方交付」和「客户应交付（素材、审批、账号）+截止日」；客户项一到期自动开始计时，交付日按合同规则实时顺延并在共享页面上显示；按设定节奏发一句话催办（缺什么、原定哪天、每晚一天上线推迟一天）；自动汇总延误天数和沟通记录，必要时一键生成变更单或追加费用说明。",
+   "url": "https://www.reddit.com/r/webdev/comments/1y4effz/fellow_web_developers_how_do_you_handle_clients/19t4h72kpf0lg/",
+   "tags": [
+    "开发者工具",
+    "支付",
+    "增长/转化"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "支付/计费",
+    "增长/转化"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "自由职业开发者和小工作室经常卡在客户不给内容、不确认设计、不给权限上。客户消失两周后仍要求原定上线日；项目越拖越久，等客户回来时自己已经排满了别的活，有人 1 年的项目被拖成 3 年。大家的办法是合同里写「客户延误一天交付顺延一天」、在邮件里手算日期、手工记录沟通证据，但执行全靠自己盯。",
+    "target_users": "做网站、App、设计的自由职业者和 2~20 人的小型外包工作室；需要等甲方素材和审批的营销、内容代理公司。",
+    "quotes": [
+     {
+      "text": "This is something I CONSTANTLY deal with. Especially working with business owners. They just don't care about us or see us as actual businesses that operate on a timeline. It's maddening. I wish there was an actual way to deal with it.",
+      "links": [
+       {
+        "label": "Reddit r/webdev 评论（Fellow web developers, how do you handle clients whose slow responses threaten project timelines?，37 条评论）",
+        "url": "https://www.reddit.com/r/webdev/comments/1y4effz/fellow_web_developers_how_do_you_handle_clients/19t4h72kpf0lg/"
+       }
+      ]
+     },
+     {
+      "text": "I recently finished a project that took 3 years to get completed due to client delays, when the original estimate was less than 1 year.",
+      "links": [
+       {
+        "label": "Reddit r/webdev 评论（同帖）",
+        "url": "https://www.reddit.com/r/webdev/comments/1y4effz/fellow_web_developers_how_do_you_handle_clients/19t4l0nibecht/"
+       }
+      ]
+     },
+     {
+      "text": "What fixed it for us was putting it in the contract up front: every milestone lists what the client owes (content, approvals, access) and by when, and if their part slips, delivery moves by the same number of days.",
+      "links": [
+       {
+        "label": "Reddit r/webdev 评论（同帖）",
+        "url": "https://www.reddit.com/r/webdev/comments/1y4effz/fellow_web_developers_how_do_you_handle_clients/19t4jlteijb9f/"
+       }
+      ]
+     },
+     {
+      "text": "Any task that is waiting for a customer response is marked as such (from In Progress to Paused/Waiting on customer) and the paused clock starts running.",
+      "links": [
+       {
+        "label": "Reddit r/webdev 评论（同帖）",
+        "url": "https://www.reddit.com/r/webdev/comments/1y4effz/fellow_web_developers_how_do_you_handle_clients/19t4ktqnyjtfp/"
+       }
+      ]
+     },
+     {
+      "text": "I keep it to one paragraph: what is missing, the date it was needed, and the one date I need it by. Then I post the same note in the project thread so it is not buried in email.",
+      "links": [
+       {
+        "label": "Reddit r/webdev 评论（同帖）",
+        "url": "https://www.reddit.com/r/webdev/comments/1y4effz/fellow_web_developers_how_do_you_handle_clients/19t4m9dna5n0l/"
+       }
+      ]
+     }
+    ],
+    "existing": "Trello、Asana、ClickUp、Basecamp 等项目管理；HoneyBook、Dubsado、Bonsai 等自由职业者客户管理；合同模板",
+    "defects": "项目管理工具能标「等待客户」，但不会自动按合同顺延交付日、不会量化延误；自由职业者 CRM 重在报价、发票，不管工期中途的依赖；催办靠手写长邮件，容易显得不客气；延误证据散落在邮件和聊天里，追加费用时说不清",
+    "solution": "一个面向外包项目的「客户依赖时钟」：签约时把每个里程碑拆成「我方交付」和「客户应交付（素材、审批、账号）+截止日」；客户项一到期自动开始计时，交付日按合同规则实时顺延并在共享页面上显示；按设定节奏发一句话催办（缺什么、原定哪天、每晚一天上线推迟一天）；自动汇总延误天数和沟通记录，必要时一键生成变更单或追加费用说明。",
+    "mvp": "网页 + 客户免登录共享链接：里程碑和客户待办清单、自动顺延的上线日、邮件/Slack 催办模板、延误报告导出 PDF；先接 Gmail 和 Google Calendar。按项目或月付费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-25-05",
+   "date": "2026-11-25",
+   "type": "idea",
+   "rank": 5,
+   "title": "「信息」附件把 Mac 塞满却不敢删：在不动 iCloud 的前提下把聊天照片视频归档到本地或外置盘，重复的只留一份，再安全地腾出空间",
+   "summary": "一个 Mac 工具：只读分析本地信息数据库，按对话、联系人、类型统计附件占用，并标出已经存在于照片图库中的重复照片；把指定对话（含附件、视频、语音）导出成可浏览、可搜索的本地归档（HTML+原文件）到外置盘或 NAS；用户确认后再按「已归档、已在相册」的条件分批删除，删前提醒同步影响；定期检查 iCloud 信息开关是否被系统更新改动。",
+   "url": "https://www.reddit.com/r/MacOS/comments/1y3u0nn/imessage_taking_up_so_much_storage/",
+   "tags": [
+    "个人/生活",
+    "Mac/桌面",
+    "安全"
+   ],
+   "raw_tags": [
+    "个人/生活",
+    "Mac/桌面工具",
+    "安全/隐私"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "开了「iCloud 中的信息」后，Mac 上的信息附件可以占到上百 GB。删掉会同步删除 iCloud 和所有设备上的副本，所以用户不敢动；同一张照片在发送者的相册、信息里，接收者的信息、相册里各存一份；系统设置只能按大附件逐个删，没有「保留云端、释放本机」的选项，有人担心改设置后系统更新又把选项改回去，导致云端被清空。",
+    "target_users": "用 iPhone 和 Mac、家庭共享 iCloud、聊天里大量收发照片视频的普通用户；Mac 硬盘小（256/512GB）的用户；想保留已故亲人聊天记录等重要对话的人。",
+    "quotes": [
+     {
+      "text": "I can delete but I'm concerned the messages and attachments will be deleted from the cloud with a sync job.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 帖（iMessage taking up so much storage，42 条评论）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y3u0nn/imessage_taking_up_so_much_storage/"
+       }
+      ]
+     },
+     {
+      "text": "With the cost of MacBook Pro storage about $0.33 to $0.50 per GB, 120GB effectively costs you $200 or more, that's more than my iCloud subscription per year.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 帖（同上）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y3u0nn/imessage_taking_up_so_much_storage/"
+       }
+      ]
+     },
+     {
+      "text": "with Messages in iCloud on, a deletion on one device propagates to the cloud and to every other device. There is no \"keep the cloud copy, free the local disk\" mode for attachments.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y3u0nn/imessage_taking_up_so_much_storage/19t4pvjx6d543/"
+       }
+      ]
+     },
+     {
+      "text": "Worst case scenario is when you send a photo to someone that shares your iCloud family plan, like your wife for example: the photo is now located in your Photo app, in your Messages app, and in your wife's Messages app. That's 1 photo taking 3 times the space.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y3u0nn/imessage_taking_up_so_much_storage/19t3683ii79cz/"
+       }
+      ]
+     },
+     {
+      "text": "So dangerous. If that option gets reverted by an update or something else, the sync would prune what's in the cloud.",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y3u0nn/imessage_taking_up_so_much_storage/19t4cqs8cvaxs/"
+       }
+      ]
+     },
+     {
+      "text": "Then on the emotional side both my parents are dead, so I haven't deleted their info...",
+      "links": [
+       {
+        "label": "Reddit r/MacOS 评论（同帖）",
+        "url": "https://www.reddit.com/r/MacOS/comments/1y3u0nn/imessage_taking_up_so_much_storage/19t4l7qs0chsx/"
+       }
+      ]
+     }
+    ],
+    "existing": "系统设置 → 储存空间 → 信息（按大附件删除）；DaisyDisk 等磁盘分析；iMazing 等 iPhone 备份导出工具；打印对话为 PDF",
+    "defects": "系统只能删，删了全设备同步消失；磁盘分析只告诉你大，不帮你安全处理；iMazing 偏向 iPhone 备份，不处理 Mac 本地信息库，也不识别已在照片图库里的重复附件；导出 PDF 一次只能一个对话，附件和视频保存不完整",
+    "solution": "一个 Mac 工具：只读分析本地信息数据库，按对话、联系人、类型统计附件占用，并标出已经存在于照片图库中的重复照片；把指定对话（含附件、视频、语音）导出成可浏览、可搜索的本地归档（HTML+原文件）到外置盘或 NAS；用户确认后再按「已归档、已在相册」的条件分批删除，删前提醒同步影响；定期检查 iCloud 信息开关是否被系统更新改动。",
+    "mvp": "菜单栏 App（需完全磁盘访问权限）：附件占用报告、与照片图库的重复比对、单个/批量对话导出为 HTML 归档；不做删除，只给「可以安全删除的清单」。一次性付费。",
+    "difficulty": null,
+    "potential": null
+   }
+  }
+ ]
+}
