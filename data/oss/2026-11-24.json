@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-11-24",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-11-24-bla",
+      "date": "2026-11-24",
+      "type": "oss",
+      "rank": 1,
+      "title": "BLA：给自己的发布产物加一层防 AI 逆向，让 REA 这类逆向 Agent 默认跑到预算上限就停",
+      "summary": "MIT 开源的蓝队 CLI + MCP 服务器（npm bla-agents）：对自己的 JS/Electron/WASM/原生二进制/模型文件等 26 种产物做审计→加固→校验，可让 Claude Code/Codex 自动执行；对真 REA 实测并写明哪些预算可被调高；5 天 8 版，最新 3.5.9（11-24 00:33 北京时间）。",
+      "url": "https://github.com/qybaihe/bla",
+      "tags": [
+        "安全",
+        "MCP",
+        "Coding Agent",
+        "开发者工具",
+        "逆向工程"
+      ],
+      "raw_tags": [],
+      "score": 6588,
+      "score_label": "★ 6588",
+      "detail": {
+        "status": "picked",
+        "repo": "qybaihe/bla",
+        "homepage": "https://bla.tools",
+        "stars": 6588,
+        "forks": 812,
+        "license": "MIT",
+        "language": "TypeScript",
+        "latest_release": "bla-agents-3.5.9",
+        "runners_up": [],
+        "body_md": "## BLA（Blind LLM Agents）：给自己的发布产物加一层「防 AI 逆向」，让 REA 这类逆向 Agent 默认跑到预算上限就停\n\n**为什么今天值得试：** 最近 REA（Reverse Engineer Anything）这类「让 Agent 自动拆解任何软件」的工具很火，一个打好包的 Electron 应用、WASM、模型文件，几分钟、几毛钱就能被拆出核心逻辑。BLA 是反方向的蓝队工具：一条 `npx bla-agents harden .` 对你**自己的**构建产物做审计→加固→校验，也能通过 MCP + skill 让 Claude Code / Codex / Cursor 自己完成整套流程。北京时间 11-24 00:33 刚发 bla-agents 3.5.9，5 天发了 8 版，作者对质疑的回复很坦诚，值得开发者实际跑一次看看效果。\n\n- 仓库：https://github.com/qybaihe/bla\n- 官网：https://bla.tools（含指南、基准、CrackMe 挑战）\n- 许可证：MIT；主语言 TypeScript；6588★ / 812 fork；npm 包 `bla-agents`，最新 3.5.9（2026-11-24 00:33 北京时间）\n- 2026-10-25 13:25 北京时间建库，作者 qybaihe\n\n### 解决什么问题、适合谁\n\n- 发布桌面端（Electron/.asar）、前端 JS、WASM、原生二进制、`.safetensors`/`.gguf` 模型或 SQLite 授权库的独立开发者和小团队：担心 AI 逆向 Agent 低成本拆出业务逻辑、IPC 接口、密钥地址\n- 安全团队想研究「怎样针对 LLM 逆向流水线做防护」：项目把 REA 的每一项默认预算和真实报错写成了可复现的红队测试（`npm run redteam:rea`）\n- 只用于保护自己的软件，README 和 DISCLAIMER 都明确禁止用于攻击别人的软件\n\n### README 里的关键能力\n\n- **三种用法：** CLI 一条命令（`harden .` 先写到 `.bla-hardened/` 镜像，`--apply` 才替换构建产物，`--restore` 可回滚，永不改源码）；MCP + skill（`npx bla-agents setup` 自动注册 Claude Code、Cursor、Codex、Windsurf、Gemini CLI、Copilot CLI、VS Code、OpenCode、Antigravity，然后对 Agent 说「Harden my software against REA」）；Vite/Rollup/Webpack/esbuild 打包插件（替换 SourceMap 为蜜罐、保护 JS 分块和 WASM）\n- **思路是 Poison → Exhaust → Entangle：** 放入格式合法的诱饵和假状态机让 LLM 分散上下文；故意触发逆向工具的默认资源预算（如 ASAR 头 16 MiB、WASM 接口大小、模型 JSON 嵌套 32 层、tshark 8 MiB 输出）；用 SHA-256 自封把 JS/WASM/原生 sidecar 绑在一起防剥离；Electron 关闭 RunAsNode/Inspect fuse 并检测 CDP/Frida/WebDriver 附加\n- **覆盖 26 种格式：** JS/TS、Electron asar 与 fuses、WASM、SQLite、Safetensors、GGUF、Go buildinfo、Windows PE、Flutter、Erlang BEAM、EVM、PCAP、Python/pyc、PTX、DEX/.NET/JVM 等，纯 TypeScript 实现，不依赖外部加壳工具\n- **对着真 REA 实测，而且写清了局限：** 结果表逐格式列出 REA 触发的报错，并单独一列说明「调用方能否调高这个预算」——多数预算 REA 允许调高，也就是只让攻击者多重试一次；只有 PCAP、Safetensors/GGUF 嵌套、Electron fuse 是 REA 固定死的。14 个基准目标的 token 放大倍数（约 1196×）是内部估算，不是真实计费\n- **默认值偏保守：** 每个项目随机种子；`bla lint` 发现明文 `FLAG{...}`、单点校验时拒绝最强档；对 LLM 的提示词诱饵 `--llm-directives` 默认关闭；可选 ed25519 签名清单\n\n### 近期活跃证据\n\n- **Release：** GitHub 上共 55 个 Release；3.5.1（11-19 02:12）到 3.5.9（11-24 00:33）5 天 8 版，全部北京时间。3.5.9 合入社区贡献者 DeryFerd 的 7 个 PR：sidecar 前导代码校验 bindingName、`--apply` 改用原子写入、发布包里不再带 BLA 自己的 source map、构建目录是软链接时不越出项目、给 5 个缺测试的格式补上失败关闭契约\n- **提交：** 约 670 次提交，主要是作者 qybaihe（522）和 DeryFerd（126），近 7 天约 81 次，最新一次 11-24 00:31 北京时间；方向集中在信任边界加固（CLI/MCP/setup）、格式改写后的兼容校验、SQLite/Safetensors 加载钩子自动接入 Python 加载器\n- **Issues：** Issue 共 35 个、全部关闭；PR 255 个、合并 185 个、开放 19 个（DeryFerd 11-22/11-23 新提的一批修复和文档纠偏，如 #292 删掉文档里与代码不符的「16 向量审计」「16x–51x 放大」说法）。讨论质量不错：#176 有人用 GLM 实测指出加固 `.so` 只是在文件尾追加未加载的数据，作者约 5 小时内逐条承认并在 PR #178 修复；#261 学生用轻量模型识破了「自报家门」的假函数名，作者为之前 #253 无说明关闭道歉，并在 `1d4d490` 改名、加入 WASM 函数体花指令\n\n### 快速上手\n\n1. 准备 Node `^22.23.4` 或 `>=24`，先构建你自己的项目（BLA 只处理构建产物）\n2. 在项目根目录运行 `npx bla-agents harden .`，看 `.bla-hardened/` 里的结果和报告；想先看效果可以 `npx bla-agents benchmark` 跑 14 个内置示例\n3. 用你自己的测试跑一遍加固后的版本，确认没问题再 `npx bla-agents harden . --apply`；出问题用 `--restore` 回滚。想让 Agent 来做：`npx bla-agents setup`，然后在 Claude Code/Codex 里说「Harden my software against REA」\n\n### 风险与注意点\n\n- **不是加密，也不是万能的：** 很多防护只是踩中 REA 的默认预算，调高参数就能继续分析；作者在 README 里也承认 Ghidra、Frida、JADX 等真实逆向路径没有实测。真正的密钥和核心算法仍应放在服务端\n- **宣传口径要打折看：** 「破产级放大」「千倍 token」来自内部估算模型；社区已多次指出评分虚高、文档数字与代码不符（#176、#292），近期正在逐条修正\n- **可能影响运行和体积：** 产物会明显变大（如 ASAR 607 B → 16.9 MiB）；SQLite 陷阱列默认关闭，开启后会让应用自己的 `PRAGMA integrity_check`/`VACUUM` 失败；`--apply` 前务必完整回归\n- **`setup` 会改多个 Agent 的全局 MCP 配置**，建议先在隔离环境试；项目一个月大、版本迭代极快（55 个 Release），升级前看 CHANGELOG\n- **合规：** 只用于自己的软件；反逆向手段在部分应用商店或客户审计中可能需要说明\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
