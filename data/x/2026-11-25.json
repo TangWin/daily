@@ -1,0 +1,48 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-25",
+ "day": {
+  "digest": "Matt Pocock 在回复中提到，用“未读消息 + 在线状态”作为把本地 agent 接入看板的简单心智模型，并表示私信开放、欢迎交流。",
+  "by_source": {
+   "mattpocockuk": "回复网友：私信已开放，认为“未读消息 + 在线状态”是把本地 agent 接入看板的超简单心智模型。"
+  },
+  "updated_at": "2026-11-25T08:25:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2125330413988303008",
+   "date": "2026-11-25",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2125330413988303008",
+   "url": "https://x.com/mattpocockuk/status/2125330413988303008",
+   "posted_at": "2026-11-25T04:47+08:00",
+   "kind": "reply",
+   "text": "DM's open! Unread messages and presence feels like a super simple mental model for hooking up local agents to board",
+   "article_title": null,
+   "reply_to": {
+    "handle": "montonenico",
+    "post_id": "2124910572064092361",
+    "url": "https://x.com/montonenico/status/2124910572064092361",
+    "text": "Thank you matt! Love the idea of \"unread messages\" - would love to talk with you and exchange ideas 🫡"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "私信已开放！“未读消息”加“在线状态”，感觉是把本地 agent 接入看板的一个超简单的心智模型",
+   "analysis": {
+    "summary": "有人（@montonenico）感谢 Matt，并说很喜欢“未读消息”这个想法，希望和他交流；Matt 回复说私信已开放，并认为“未读消息 + 在线状态”是把本地 agent 接入看板的超简单心智模型。",
+    "points": [
+     "对方喜欢“未读消息（unread messages）”这个想法，希望交流",
+     "Matt 表示私信已开放，欢迎联系",
+     "Matt 认为用“未读消息”和“在线状态（presence）”来理解本地 agent 与看板（board）的对接，是一个很简单的心智模型"
+    ],
+    "why": "这是一条社交回复，主要信息是 Matt 对本地 agent 与看板集成方式的一个观点：借用即时通讯里“未读消息/在线状态”的概念来组织 agent 协作。属于作者观点，上下文（具体是哪个看板或项目）在帖子中没有说明，不做推断。",
+    "tags": [
+     "Agent 工程",
+     "心智模型"
+    ]
+   }
+  }
+ ]
+}
