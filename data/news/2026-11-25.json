@@ -1,0 +1,373 @@
+{
+ "schema_version": 1,
+ "type": "news",
+ "date": "2026-11-25",
+ "day": {
+  "window": "11/24 08:30 – 11/25 08:30 北京时间",
+  "note": "未使用 X 付费 API",
+  "footer": "来源主要是 HN（Algolia API）、GitHub releases、官方博客和支付行业媒体；没有使用 X 付费 API。HN 前排被「2035 came early」（trynix.dev 借 unkernel 在浏览器里跑 Linux GUI 程序，HN 951 · 364 评）、纽约禁止汽车订阅费（HN 762）、Polymarket 与黄仁勋复职相关的内幕交易调查（HN 465）、Anthropic 跌破 83 美元 IPO 价（HN 321 · 640 评）等占据，与工程主题关系不大，不收录。微软因 11/12–13 的 Microsoft 365 大故障内部启动「Code Red」（HN 213 · 187 评，Reuters 引述内部备忘录：响应过程中 11 个 Teams 群聊里交换了 1.1 万多条消息、诊断数据分散，目标是全球故障一小时内恢复，并计划用 AI agent 协助诊断）属于运维事故后续，只在这里提一句。Protocolis「把网页编译成供 agent 调用的可验证操作」论文（HN 33 · 11 评）结果亮眼但为自述数据、产品「待售」，HLS（Humanity's Last System，agent 用 8×H200、最长 36 小时从零写推理引擎的基准，HN 5）热度很低，均暂不单列。Anthropic 的「Working with AI」企业访谈研究（HN 62 · 63 评）偏组织与就业话题，不单列。Coding Agent 版本方面：Claude Code 2.1.331 和 Codex 0.172 昨天已报，窗口内 Codex 只有 0.174 alpha、Gemini CLI 0.71.0 是小修，不单列；MCP 规范仓库、各语言 MCP SDK、LangChain4j、Cline、Qwen Code 窗口内没有新版本。Mesh MCP（让 coding agent 一句话接入其支付网络，只读不动资金）、新加坡 PathFin.ai agent 金融安全试点（AXS 通过 MCP 开放缴费网络）为同类延续，不单列。Reddit 今天仍无法抓取（返回页面而非 JSON），没有纳入。Ontology 方向今天没有新内容。",
+  "highlights": [
+   1,
+   3,
+   5
+  ]
+ },
+ "items": [
+  {
+   "id": "news-2026-11-25-01",
+   "date": "2026-11-25",
+   "type": "news",
+   "rank": 1,
+   "title": "Google Workspace MCP 服务器和官方 CLI 正式 GA，并宣布 2027-02-01 起 AI agent 访问 Workspace 数据必须走 MCP，不能再直接调 REST API",
+   "summary": "Gmail、Drive、Docs、Sheets、Slides、Calendar、Chat、Tasks 都有 Google 托管的 MCP 工具；agent 的 OAuth 客户端要标记 is_agentic，管理员可设人工确认规则、看 agent 审计日志；2027-04-01 起超额用量按 Scaled 档计费。",
+   "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html",
+   "tags": [
+    "MCP",
+    "新品发布",
+    "AI Agent",
+    "平台政策"
+   ],
+   "raw_tags": [
+    "MCP",
+    "新品发布",
+    "AI Agent",
+    "平台政策"
+   ],
+   "score": null,
+   "score_label": "Google Workspace 官方博客 11/24 发布（HN 未见讨论帖）",
+   "detail": {
+    "heat": "Google Workspace 官方博客 11/24 发布（HN 未见讨论帖）",
+    "highlight": true,
+    "event": "Google 11/24 宣布 Workspace MCP 服务器和官方 Workspace CLI 正式可用（两周内推给所有 Rapid / Scheduled Release 域）。MCP 服务器由 Google 托管，覆盖 Gmail、Drive、Docs、Sheets、Slides、Calendar、Chat、Tasks（Keep 即将支持）；CLI 面向终端里的 agent，自带 agent skills、动态命令发现和按范围登录。同时公布三项规则：① MCP 要求——AI agent 或类似访问工具必须通过 MCP 访问 Workspace 数据，不能直接调 Workspace REST API，2027-02-01 开始技术强制；agent 用的 OAuth 2.0 客户端要勾选「Use this client for an AI-powered agent（is_agentic）」，非 agent 功能用单独的客户端；② 用量分 Standard（免费、按公开配额限流）和 Scaled（2027-04-01 起超出每日免费额度的部分收费）两档，先从 Gmail、Drive、Calendar 开始，Google 称 99% 以上活跃开发者在 Standard 档内；③ 新的 Workspace AI Tools Addendum 禁止用 agent 长期存储部分由 API 得到的数据或抓取 Workspace API。管理员可在 Security > API Controls 管理 agent 访问、为「读取外部文件、共享数据」等敏感动作设置人工确认，用户级 DLP 规则自动作用于 agent，审计日志记录 agent 动作和用户确认。",
+    "why": "这是大型 SaaS 第一次明确规定「agent 必须走 MCP、不许走 REST」，并把 agent 身份写进 OAuth 客户端属性——MCP 从「方便的接入方式」变成了平台治理的边界：谁是 agent、能做什么、哪些动作要人确认，都由平台侧掌控。对接 Workspace 的 agent 产品有明确的迁移截止日，其他 SaaS 很可能效仿。",
+    "use": "1）盘点团队里所有用 Gmail/Drive/Calendar REST API 的 agent、脚本和内部机器人，判断哪些属于「agentic」用途，2027-02-01 前迁到 Workspace MCP；2）给 agent 单独建 OAuth 客户端并标记 is_agentic，传统集成保留原客户端，避免混用被限流或拦截；3）在 Workspace 开发者用量看板上查各项目是否超出 Standard 配额，仅内部使用的项目让管理员标为 internal；4）自家做 SaaS 的，可以参考这套「agent 身份 + MCP 入口 + 敏感动作人工确认 + 审计」的治理组合设计自己的 agent 接入规范。",
+    "links": [
+     {
+      "name": "Google Workspace Updates：MCP servers, CLI, standardized usage tiers, and admin policies",
+      "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-25-02",
+   "date": "2026-11-25",
+   "type": "news",
+   "rank": 2,
+   "title": "Claude 支持 Skills over MCP（公测）：MCP 服务器可以随工具一起下发 skill；Tasks 和 Elicitation 在 Claude 各端 GA，File Uploads 即将上线",
+   "summary": "服务器不再只暴露工具名和描述，还能附带「怎么用」的操作手册，Claude 需要时才加载；长任务放到后台跑、花钱或删数据前中途弹表单要确认。",
+   "url": "https://claude.com/resources/articles/skills-over-mcp-tasks-and-more",
+   "tags": [
+    "MCP",
+    "Context Engineering",
+    "新品发布",
+    "Claude"
+   ],
+   "raw_tags": [
+    "MCP",
+    "Context Engineering",
+    "新品发布",
+    "Claude"
+   ],
+   "score": 4,
+   "score_label": "HN 4（官方 11/24 发布）",
+   "detail": {
+    "heat": "HN 4（官方 11/24 发布）",
+    "highlight": false,
+    "event": "Anthropic 11/24 宣布：① Skills over MCP 公测——MCP 服务器可以在工具之外发布 skill（最佳实践、分步工作流、针对用户账号/组织定制的 playbook），Claude 只在需要时加载以节省上下文，skill 随服务器更新，用户无需另装；Shopify、HubSpot、Atlassian 已用上，Carta 即将支持；在 Claude 和 Claude Code 中对 Pro/Max/Ultra 默认开启，Team 需管理员启用，Enterprise 即将支持。② Tasks 和 Elicitation 在 Claude 与 Claude Code 中 GA（Pro/Max/Ultra，Team/Enterprise 陆续开放）：Tasks 让服务器在后台跑耗时操作甚至完整 agent 循环，Claude 继续工作、结果好了再取；Elicitation 让服务器中途通过表单或链接向用户要输入，例如 Supabase 创建付费项目和执行破坏性 SQL 前确认费用、Railway 删除服务前确认、GitHub 删除仓库前要求输入仓库名。③ File Uploads 扩展即将上线，可把 PDF、表格、图片直接传给 MCP 服务器而不经过上下文窗口。文中称 MCP SDK 月下载量超过 7 亿，Claude 上有 1 万多个 MCP 连接器；这些能力都属于开放的 MCP 规范及扩展，其他兼容客户端也能用。",
+    "why": "工具描述只能告诉模型「能做什么」，说不清「这个场景该怎么做」——Skills over MCP 把领域操作知识和工具绑在一起由服务端维护，是 context engineering 从客户端走向服务端的一步。Elicitation 则让「花钱/删除前要人确认」成为协议层能力，而不是每个 agent 自己实现。（Claude Code CLI 支持 Tasks/Elicitation 已在 10/25 报过，这次新增的是 Skills over MCP 和全端 GA。）",
+    "use": "1）维护内部 MCP 服务器的团队：把常见业务流程（比如退款处理、对账排查步骤）写成 skill 跟工具一起发布，减少每个使用方在 CLAUDE.md/提示词里各写一份；2）涉及资金或破坏性操作的工具改用 Elicitation 做确认，而不是靠模型自觉询问；3）耗时的查询/批处理改造成 Tasks，避免工具调用超时；4）注意 skill 会随服务器静默更新，第三方 MCP 的 skill 内容等同于注入给模型的指令，接入前要审阅并考虑版本锁定。",
+    "links": [
+     {
+      "name": "Claude：MCP servers can now ship skills, run tasks, and more with Claude",
+      "url": "https://claude.com/resources/articles/skills-over-mcp-tasks-and-more"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50632503"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-25-03",
+   "date": "2026-11-25",
+   "type": "news",
+   "rank": 3,
+   "title": "高赞争议文：「LLM agent 为它的母公司打工，而不是为你」——Claude 拒绝帮作者绕过 Bandcamp 的验证去买歌，却愿意下载 YouTube 音频",
+   "summary": "作者用 Claude Code 写了个「从 Instagram 短视频找到乐队 Bandcamp 页面去付钱买歌」的 skill，被模型以不绕过验证为由拒绝；由此担心 agent 的行为边界由厂商而非用户决定，将来还可能被广告和政策左右，打算转向本地模型。",
+   "url": "https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/",
+   "tags": [
+    "AI Agent",
+    "有争议",
+    "开放权重"
+   ],
+   "raw_tags": [
+    "AI Agent",
+    "争议观点",
+    "开放权重"
+   ],
+   "score": 882,
+   "score_label": "HN 882 · 373 评",
+   "detail": {
+    "heat": "HN 882 · 373 评",
+    "highlight": true,
+    "event": "Michael Harley 的文章（原文 11/1 发布，11/24 登上 HN 首页）讲述：他用 Claude Code 做了一个 skill，打开 Instagram reel、识别歌曲和艺人，再找艺人的 Bandcamp 页面以便付钱购买；后来 Bandcamp 在搜索 API 页加了验证，模型表示不会帮他绕过验证——但同一个 skill 的另一个分支会从 YouTube 下载歌曲，模型照做，而这条路不给乐队带来任何收入。作者认为真正的风险是「这些模型并不真正为我们工作」：其行为边界由 Anthropic、OpenAI 等决定，今天是拒绝绕过验证，明天可能是付费植入的推荐结果或按政府要求行事；因此他想在家庭实验室跑本地模型。HN 评论在「厂商有权设边界、绕过验证本就不对」和「付费工具不该替用户做价值判断、行为不一致才是问题」之间激烈争论。",
+    "why": "这条把「agent 的忠诚对象」这个抽象问题落到了一个很具体、很日常的例子上：同一个 agent 对两个请求的判断前后不一致，用户无法预测也无法配置。对在企业里推 agent 的团队来说，这意味着关键流程里模型可能因厂商策略突然拒绝执行，而且原因不透明；对做 agent 产品的人来说，「替谁做决定」会越来越成为卖点和争议点。",
+    "use": "1）关键业务流程里的 agent，把「模型拒绝执行」当成一种需要处理的失败类型：记录拒绝、设兜底路径（人工或换模型），不要假定同样的请求永远会被执行；2）评估供应商时，把拒答一致性和可配置性纳入测试集，用自己的真实任务跑；3）对必须可控的场景（内部工具、离线环境），评估开放权重模型作为备选；4）团队内部讨论时可用这篇作为案例，明确 agent 的「代理边界」由谁定义、写在哪里。",
+    "links": [
+     {
+      "name": "Michael Harley：LLM agents work for their parent companies, not for you",
+      "url": "https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50627340"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-25-04",
+   "date": "2026-11-25",
+   "type": "news",
+   "rank": 4,
+   "title": "Ask HN：Anthropic 指控我们公司在蒸馏 Claude，限 24 小时自证——当事人说只是在改 AI 配置时跑自动回归评测；同日 Goodhart Labs 也说长链数学推理评测被反蒸馏分类器中途终止",
+   "summary": "跑 eval harness、批量回归测试的团队要注意：在调用模式上，这类流量可能和蒸馏很像；而「证明自己没做」很难，还牵涉用户隐私。",
+   "url": "https://news.ycombinator.com/item?id=50630809",
+   "tags": [
+    "Harness",
+    "有争议",
+    "评测",
+    "Claude"
+   ],
+   "raw_tags": [
+    "Harness Engineering",
+    "争议观点",
+    "评测",
+    "Claude"
+   ],
+   "score": 217,
+   "score_label": "HN 217 · 163 评；Goodhart Labs 文 HN 29 · 26 评",
+   "detail": {
+    "heat": "HN 217 · 163 评；Goodhart Labs 文 HN 29 · 26 评",
+    "highlight": false,
+    "event": "11/24 一位 HN 用户发帖称，Anthropic 指控其公司用 API 做蒸馏，要求 24 小时内证明没有；发帖人说公司不训练任何自有模型，唯一可能触发的是「每次改 AI 设置时跑的自动回归基准」，并问如何在不泄露用户隐私的前提下自证（帖子未具名，身份未经核实）。评论建议拿出评测 harness 的代码和 git 历史作为证据、检查 API key 是否泄露被他人盗用，也有人批评平台「随意封禁」并建议换供应商。背景：Anthropic 在 10/12 的博客中称其两阶段反蒸馏分类器误报率低于 0.1%，并会对被拦截的请求收费；11/12 生效的使用政策写明禁止未经授权用输出训练模型，怀疑违规时可警告、限流、暂停或终止访问。同日 Goodhart Labs 发文研究 Fable 5.2 在「看得到捷径」时对困难任务投入更少（原题心算任务上工作时长只有无捷径版本的约三分之一），并顺带提到：在无工具的长链数学推理任务中有 8 次运行被一个「逆向工程分类器」中途终止，作者怀疑触发了 Anthropic 的反蒸馏保护，这些运行被排除在结果之外。",
+    "why": "harness engineering 越做越重，团队会频繁地对同一模型批量跑评测、回归和对比实验——这类流量和蒸馏在形态上相近。两件事放在一起看：一是业务可能因为合规风控被突然打断，且自证困难；二是评测结果本身可能因为运行被平台截断而产生偏差（Goodhart 就排除了被终止的运行）。",
+    "use": "1）把评测/回归流量和生产流量分到不同的 API key 或组织下，并给评测任务打上清晰的元数据（任务 ID、提交号），出问题时能快速出示；2）评测 harness 代码、运行记录和触发原因（哪次配置变更）进版本库留痕；3）评测报告里统计被平台拦截/终止的运行，不要静默丢弃，否则会抬高或扭曲分数；4）大规模评测前可以先和供应商客户经理报备；5）关键依赖单一模型供应商的，准备好切换预案。",
+    "links": [
+     {
+      "name": "Ask HN：Anthropic is accusing my company of distilling",
+      "url": "https://news.ycombinator.com/item?id=50630809"
+     },
+     {
+      "name": "Goodhart Labs：Fable 5.2 Tries Less on Some Hard Tasks When a Shortcut is Available",
+      "url": "https://goodhartlabs.com/blog/fable-5-2-tries-less-on-some-hard-tasks-when-a-shortcut-is-available"
+     },
+     {
+      "name": "Anthropic：Strengthening our defenses against distillation attacks（10/12）",
+      "url": "https://www.anthropic.com/news/distillation-defenses"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-25-05",
+   "date": "2026-11-25",
+   "type": "news",
+   "rank": 5,
+   "title": "Evil Martians 实测：静态类型并不能让 coding agent 完成更多任务；Claude Code 里 TypeScript LSP 插件几乎没被用上，直到加一个 hook 才「开口」",
+   "summary": "同难度下类型语言和动态语言的 SWE-bench 解决率都在约 65%；给 Rails 应用加 RBS/Sorbet 解决率不变，类型工具却吃掉 20–28% 的 agent 时间；agent 的时间主要花在验证（30–55%）和读代码（14–44%）。",
+   "url": "https://evilmartians.com/chronicles/type-errors-cost-our-coding-agents-under-one-percent-of-their-time",
+   "tags": [
+    "Coding Agent",
+    "Harness",
+    "工程实践",
+    "评测"
+   ],
+   "raw_tags": [
+    "Coding Agent",
+    "Harness Engineering",
+    "工程实践",
+    "评测"
+   ],
+   "score": 7,
+   "score_label": "HN 7（Evil Martians 博客 11/24）",
+   "detail": {
+    "heat": "HN 7（Evil Martians 博客 11/24）",
+    "highlight": true,
+    "event": "Evil Martians 发文检验「类型能帮 agent」的说法：① 按难度对齐后，SWE-bench Multilingual（13 个模型）与 SWE-bench Verified 里类型语言和动态语言解决率都约为 65%（Python 67%），真正差距在类型语言内部（Rust 72%、Go 53%）；② 三个基准里大量任务的语言标签与实际修改的文件不符（823 个任务中 472 个），按实际修改文件重标后，纯 JavaScript 在三个基准上都不输 TypeScript；③ 在 Claude Code + Opus 5.5 上跑 25 个 JS/TS 任务：装了官方 typescript-lsp 插件后，agent 在 75 次运行中有 70 次用 sed -i 和内联 Python 通过 shell 改文件，而插件只看得到 Edit/Write 工具的修改，所以一条类型错误都没报；加一个拒绝 shell 编辑的 PreToolUse hook 后 agent 改用 Edit，39 次 TS 运行中 23 次看到了类型错误（共 184 条），但 234 份诊断报告 agent 只看到 66 份，解决率反而没有提升（TS：无插件 92%，插件+hook 77%）；④ 在 37signals 的 Fizzy 上做对照，plain Ruby / RBS+Steep / Sorbet 解决率 58% / 61% / 57%，类型工具占 agent 时间 28%（RBS）和 20%（Sorbet），类型检查没有抓到测试漏掉的 bug，agent 常用 untyped 或强制断言把报错压下去。作者结论：选型应看 agent 实际花时间的地方——要读多少代码、测试多快、框架自带多少；已在用类型的不必退回。",
+    "why": "这是少见的把「harness 到底有没有把信号送到 agent 面前」拆开来测的工作：装了工具 ≠ agent 会用，诊断延迟、编辑通道（shell vs Edit 工具）都会让反馈回路失效。文末结论也提醒：凭直觉给 agent 加的「好东西」可能不加分甚至减分，必须用自己的任务实测。",
+    "use": "1）检查你给 coding agent 配的反馈工具（LSP、lint、类型检查）是否真的触发：看 transcript 里 agent 是否通过 shell 绕开了编辑工具；2）如果希望类型检查起作用，在 AGENTS.md 里点名要运行的检查命令，或用 hook 把编辑限定在 Edit 工具，并保持检查增量、秒级完成；3）禁止 any、@ts-ignore、非空断言等「压报错」手段，否则 agent 会选择让检查变绿而不是修问题；4）把精力优先投在快速测试套件上——数据显示 agent 时间大头在验证和读代码。",
+    "links": [
+     {
+      "name": "Evil Martians：Type errors cost our coding agents under one percent of their time",
+      "url": "https://evilmartians.com/chronicles/type-errors-cost-our-coding-agents-under-one-percent-of-their-time"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50632999"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-25-06",
+   "date": "2026-11-25",
+   "type": "news",
+   "rank": 6,
+   "title": "Spring AI 2.1 人工审批深度解读：工具标记 requiresConfirmation 即可在调用前暂停，新社区项目 Session Extensions 0.11.0 让暂停「挂」在会话日志里、换实例重启后也能续上",
+   "summary": "以银行 agent 为例：查询还款失败原因可以自动执行，「今天就扣款」必须人批准；审批可能几小时后在另一个实例上到达，暂停状态必须持久化。",
+   "url": "https://spring.io/blog/2026/11/24/spring-ai-tool-call-confirmation-park-resume/",
+   "tags": [
+    "Java",
+    "AI Agent",
+    "支付",
+    "Spring AI"
+   ],
+   "raw_tags": [
+    "Java",
+    "AI Agent",
+    "支付系统",
+    "Spring AI"
+   ],
+   "score": null,
+   "score_label": "Spring 官方博客 11/24（Christian Tzolov）",
+   "detail": {
+    "heat": "Spring 官方博客 11/24（Christian Tzolov）",
+    "highlight": false,
+    "event": "Spring 博客 11/24 详细介绍 Spring AI 2.1 的工具调用确认：在 @Tool 上设 requiresConfirmation = true，或用属性 spring.ai.tools.confirmation.tools 点名不归你管的工具（如 MCP 工具），或写 ToolCallConfirmationPolicy bean 按参数判断（如转账超过某金额），三者任一要求即需确认。模型请求被标记的工具时，该轮所有工具调用都不执行，响应带回待决的调用（ToolCallDecisions.awaitingDecision），应用收集 allow/deny 后再继续；循环在等待期间不保存任何状态。新的社区项目 Spring AI Session Extensions（0.11.0 为首个版本，API 可能变化）基于 Spring AI 2.1 的 Session API，在 append-only 会话日志里记录 turn 状态，等人审批的 turn 标为 parked 并写入问题；另一个进程只凭 session id 就能读出待审调用并带着决定续跑。演示中第一次运行在扣款前暂停退出，第二个 JVM 读到 parked 的 turn，批准后工具只执行一次。文章同时列出应用自己要负责的安全事项：暂停的回复必须从用户不可改的存储读取、校验审批人权限、续跑要幂等（turn advisor 会先记录决定，同一决定第二次提交会被拒绝）、拒绝理由会作为模型输入；已知限制是没有租约（进程死掉的 turn 会一直处于 running，需手动 interrupt），以及部分模型的工具调用没有 id 时，旧决定可能被误当成新问题的答案。",
+    "why": "「花钱的动作要人批准」是支付和金融场景接入 agent 的前提，难点不在于问，而在于等待——跨实例、跨重启、可审计、不重复执行。这篇给出了 Java/Spring 生态里一个可直接参考的实现，以及一份很实在的安全清单。",
+    "use": "1）Java 团队做涉及资金、删除、外发的 agent 工具时，用 requiresConfirmation 或策略 bean 标出来，按金额等参数做分级；2）生产环境把暂停状态落库（会话日志或自己的表），审批请求只携带 session id 和决定，绝不从客户端回传「暂停的模型回复」；3）续跑接口做幂等，确保同一批决定只执行一次；4）给 parked 的 turn 加超时清理（框架不管），超时自动以 deny 关闭；5）Session Extensions 还是 0.x，核心链路可先参考其设计自己实现。",
+    "links": [
+     {
+      "name": "Spring 博客：Human in the Loop with Spring AI 2.1: Tool Calls That Survive a Restart",
+      "url": "https://spring.io/blog/2026/11/24/spring-ai-tool-call-confirmation-park-resume/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-25-07",
+   "date": "2026-11-25",
+   "type": "news",
+   "rank": 7,
+   "title": "Hex.pm（Elixir/Erlang 包仓库）被未认证 RCE 入侵：Erlang term 反序列化放过了「伪造 struct」，经 inspect → Ecto → DBConnection 一串 gadget 执行命令；官方 20 分钟内封堵，公开了极详细的复盘",
+   "summary": "漏洞（CVE-2026-129514）源于 2016 年移除的一个安全检查；未发现包被篡改，但无法排除数据库被读取，所有用户被登出，建议改密码、重置 2FA，并在新签名系统发布前只从 repo.hex.pm 拉包。",
+   "url": "https://hex.pm/blog/security-incident-on-hexpm",
+   "tags": [
+    "供应链安全",
+    "工程实践",
+    "事故复盘"
+   ],
+   "raw_tags": [
+    "供应链安全",
+    "工程实践",
+    "事故复盘"
+   ],
+   "score": 19,
+   "score_label": "HN 19（另一帖 5）；官方博客 11/24",
+   "detail": {
+    "heat": "HN 19（另一帖 5）；官方博客 11/24",
+    "highlight": false,
+    "event": "Hex.pm 公告：UTC 11/23 18:16–18:29（北京时间 11/24 02:16–02:29），攻击者向 hex.pm 发送 69 个恶意请求，在 6 台 Web 服务器上执行了命令；18:27 加防火墙规则，18:30–18:31 全部服务器换成修复版，19:07 才收到描述同一漏洞的安全报告。攻击链：处理 application/vnd.hex+erlang 的自定义解析器在路由和鉴权之前运行，用 Plug.Crypto.non_executable_binary_to_term/2（[:safe]）解码请求体，它拒绝函数和新 atom 却不检查 map，而 Elixir struct 就是带 __struct__ 键的 map；伪造的 struct 进入 body params，Plug.MethodOverride 读取 _method 时触发 UndefinedFunctionError，错误上报（Sentry、Bandit 日志、JSON 日志格式化器）对其调用 inspect，经 Ecto.Query.DynamicExpr 的 Inspect 实现枚举 binding 字段，转到 DBConnection.Stream，最终执行请求中携带的 {module, function, args}。修复：解码器拒绝任何含 __struct__ 键的 term 并返回 400；后续还将在 plug_crypto、plug、ecto、db_connection 多层加固（CVE-2026-133555），调查中还发现 Ash 的 keyset 分页存在同类问题（CVE-2026-124283，ash 3.38.0 已修复）。官方通过把数据库恢复到攻击前快照逐行比对、核对 62 个包文件和 186 个 registry 文件的校验和，确认没有包被篡改；但数据库读取不记日志，邮箱、密码哈希、API key 哈希、2FA 密钥等可能被读，已轮换几乎所有凭据（registry 签名密钥除外，正在建支持轮换的新签名系统）。日志显示攻击者自 11/19 起反复下载 hex.pm 自身依赖，疑似在本地搭建副本测试。",
+    "why": "这是「反序列化 + gadget 链」的又一个教科书案例，Java 团队会很熟悉：所谓 safe 解码只挡了一部分类型，错误处理和日志里的 inspect/toString 成了执行入口。复盘里「怎么证明没被篡改」的做法（快照逐行比对、校验和核对、明确写出哪些无法排除）也值得借鉴。",
+    "use": "1）Elixir/Erlang 用户：改 hex.pm 密码、按文中步骤重置 2FA，新 Hex 客户端发布后执行 mix local.hex --force，期间不要用第三方镜像；用 Ash 的升级到 3.38.0；2）检查自家服务是否在鉴权前就反序列化请求体（Java 的 ObjectInputStream、XML/YAML 多态反序列化同理），把解析挪到鉴权后并使用白名单；3）审查错误上报和日志格式化是否会对攻击者可控对象调用 toString/inspect；4）事故复盘可参照这份格式：时间线、攻击链、证据清单和「无法排除」的范围。",
+    "links": [
+     {
+      "name": "Hex 博客：Security incident on hex.pm",
+      "url": "https://hex.pm/blog/security-incident-on-hexpm"
+     },
+     {
+      "name": "HN 讨论",
+      "url": "https://news.ycombinator.com/item?id=50629149"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-25-08",
+   "date": "2026-11-25",
+   "type": "news",
+   "rank": 8,
+   "title": "Launch HN：Versine（YC F26）——「带 MCP 的 Venmo」，让 agent 发钱、收钱，每笔默认要 passkey 批准，只对「可信联系人」免确认",
+   "summary": "底层是用户自托管的 Base 链 USDC 钱包，团队因此不算资金服务商（MSB）；但转出即终局、无法撤回，HN 评论追问 agent 付错人怎么办。",
+   "url": "https://news.ycombinator.com/item?id=50634426",
+   "tags": [
+    "支付",
+    "MCP",
+    "AI Agent",
+    "新品发布"
+   ],
+   "raw_tags": [
+    "支付系统",
+    "MCP",
+    "AI Agent",
+    "新品发布"
+   ],
+   "score": 60,
+   "score_label": "HN 60 · 42 评",
+   "detail": {
+    "heat": "HN 60 · 42 评",
+    "highlight": false,
+    "event": "Versine 团队（成员来自 Stripe Connect 费用处理、Databricks、Amazon）在 Launch HN 介绍：Versine 是一个挡在带余额钱包前面的 MCP，agent 可以在用户批准后转账（App 内用 passkey 或生物识别确认）、一次向最多 100 人收付款、给非 Versine 用户转账（对方 2 分钟内可提现到银行），以及对用户预先设定的「可信联系人」免确认付款（有额度限制）。每次调用会生成一次性或周期性的「常设授权」，指示钱包向指定地址转出金额。底层是用户自托管的 Base 链 USDC 钱包，团队称这是 pivot 后只有约 4 周时间的现实选择——找合作银行走法币会被合规拖慢——也使其不算 MSB；用户通过 Apple Pay/Google Pay/银行卡入金、提现到银行。已上架 iOS/Android，并作为 MCP 接入 ChatGPT 和 Claude，也提供公共 MCP 和 REST API。HN 评论中，有做过拒付业务的人指出难点从来不是发钱而是事后争议，创始人回应：钱从用户自己的钱包出，发出即终局、平台按设计无法撤回，所以默认每笔都要 passkey；未认领的转账留在发送方钱包、7 天后自动释放；P2P 本身不赚钱，计划以后接入合作银行持有法币，做「agent 优先的银行」。",
+    "why": "这是「agent 能直接动钱」的一个具体落地形态，把常见设计取舍都摆到了台面上：一次性授权 vs 常设授权、可信联系人白名单、人类在环确认，以及为了绕开合规选择稳定币带来的「不可撤销」代价——和卡组织体系下有拒付保护的 agent 支付方案形成对照。",
+    "use": "1）设计 agent 支付工具时借鉴「每笔默认强认证 + 白名单免确认 + 额度上限」的分层授权模型；2）明确写出出错时的处理路径（撤回、争议、赔付），这是用户和风控最先问的问题；3）评估稳定币通道时把「不可逆」和托管/合规身份（是否构成 MSB）一并纳入方案评审；4）MCP 工具返回需要人确认的状态时，用推送 + 设备端生物识别完成确认，而不是让模型在对话中收集确认。",
+    "links": [
+     {
+      "name": "Launch HN：Versine（YC F26）– MCP to send and receive money",
+      "url": "https://news.ycombinator.com/item?id=50634426"
+     },
+     {
+      "name": "Versine 官网",
+      "url": "https://versine.com"
+     }
+    ]
+   }
+  },
+  {
+   "id": "news-2026-11-25-09",
+   "date": "2026-11-25",
+   "type": "news",
+   "rank": 9,
+   "title": "Agent 支付三则：Visa CLI 上线 Tempo，把 Visa Trusted Agent Protocol 接进 MPP 的 402 流程；Cashfree 推出印度首个供个人 agent 付款的钱包；韩国卡组织坦言无法分辨一笔交易是不是 agent 付的",
+   "summary": "身份层（agent 是谁、谁为它负责）正在和支付层绑在一起：Visa 把 agent 签名绑定到每笔付款，Cashfree 让 agent 从预付钱包付款而看不到卡号/UPI，韩国的现状则说明卡交易报文里还没有 agent 标识。",
+   "url": "https://tempo.com/blog/visa-cli-brings-verified-agents-to-mpp-with-trusted-agent-protocol/",
+   "tags": [
+    "支付",
+    "AI Agent",
+    "MCP",
+    "身份认证"
+   ],
+   "raw_tags": [
+    "支付系统",
+    "AI Agent",
+    "MCP",
+    "身份认证"
+   ],
+   "score": null,
+   "score_label": "Tempo 博客、Business Standard、首尔经济日报 11/24 报道（HN 未见讨论帖）",
+   "detail": {
+    "heat": "Tempo 博客、Business Standard、首尔经济日报 11/24 报道（HN 未见讨论帖）",
+    "highlight": false,
+    "event": "① Tempo 11/24 宣布 Visa 的命令行 agent 钱包 Visa CLI 上线：它把 Machine Payments Protocol（MPP）和 Visa 的 Trusted Agent Protocol（TAP）结合——用户通过一次美国 Visa 卡校验验证自己的 agent，Visa 公开该 agent 的公钥（卡只用于验证，不用于支付）；每个付费请求带有覆盖 MPP 凭证本身的 TAP 签名，服务方在结算前到 Visa 公共注册表查公钥，未知、暂停或吊销的 agent 被拒绝且不扣费；结算用 Tempo 上的 OUSD，在所有者设定的额度内亚秒级完成。Visa CLI 可在 Claude Code、Codex、Grok 等 agent 应用中使用，服务方可用 mppx 的 identity 扩展接入校验。② 印度 Cashfree 推出 Cashfree Wallet（持 RBI 预付支付工具牌照）：用户通过 OTP 把钱包关联到自己的 agent，用 UPI/卡/网银充值并设预算和规则，agent 从余额付款、看不到用户的卡、UPI 或银行信息；首发已有 100 多个个人 agent 和 bot 开发者接入，开发者通过 Cashfree 的 MCP 服务器一次接入即可向其网络内任意商户付款；目前只能用于缴费账单，出行、餐饮、电商等仍在测试；Cashfree 称本财年以来其收银台上的 agent 流量增长 16 倍。③ 首尔经济日报报道：韩国 AI agent Pickle 日活接近 10 万，但它代用户付款时，到达卡公司的授权请求没有任何 agent 参与的标识，按普通非面对面交易记录，越权付款难以举证；在同日的信用金融论坛上，71 名卡公司员工的调查中「责任不清」被列为 agent 支付头号风险（严重度 4.27/5），50.7% 认为应由 agent 服务商承担主要责任，研究机构负责人建议授权请求中携带 agent 标识和委托条款（金额、期限、商户类别）。",
+    "why": "三条放在一起看清楚了 agent 支付当前的主线：先解决「这个 agent 是谁、背后谁负责、被授权做什么」，再谈付款。Visa 把身份签名绑定到具体付款，Cashfree 用预付钱包隔离凭据，而韩国的例子说明在现有卡报文体系里这些信息根本传不过去——责任认定和拒付处理会因此卡住。",
+    "use": "1）做收单/风控的：评估在交易数据里给 agent 发起的交易打标（来源渠道、agent 标识、委托范围），即使卡组织报文暂不支持，也先在自有系统里记录；2）对外提供付费 API 的：关注 MPP + TAP 这类「结算前先验身份」的模式，可参考 mppx 示例代码评估接入成本；3）给 agent 用的支付方式优先选「预付余额 + 预算规则 + 凭据不出钱包」的设计，降低越权损失上限；4）面向印度市场的团队留意 NPCI 正在制定的 UPI agent 支付标准 UAP。",
+    "links": [
+     {
+      "name": "Tempo：Visa CLI brings verified agents to MPP with Trusted Agent Protocol",
+      "url": "https://tempo.com/blog/visa-cli-brings-verified-agents-to-mpp-with-trusted-agent-protocol/"
+     },
+     {
+      "name": "Business Standard：Cashfree launches wallet that lets AI agents make payments for users",
+      "url": "https://www.business-standard.com/finance/news/cashfree-wallet-ai-agents-payments-bill-payments-agentic-commerce-126112400451_1.html"
+     },
+     {
+      "name": "首尔经济日报：Card Firms Cannot Tell Who Paid as AI Agent Use Grows",
+      "url": "https://en.sedaily.com/finance/2026/11/24/exclusive-card-firms-cannot-tell-who-paid-as-ai-agent-use"
+     }
+    ]
+   }
+  }
+ ]
+}
