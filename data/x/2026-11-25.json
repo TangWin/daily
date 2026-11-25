@@ -3,13 +3,143 @@
  "type": "x",
  "date": "2026-11-25",
  "day": {
-  "digest": "Matt Pocock 今天公开了正在开发的仓库 cookout（约 2000 次提交，尚未完成），说可以从中看到他对代码结构的最新想法；他在回复里提到，因为研究过 Vercel Board，目标清楚，所以没做专门的范围规划就直接写了，还认为“未读消息 + 在线状态”是把本地 agent 接入看板的简单心智模型。",
+  "digest": "Matt Pocock 今天公开了仍在开发的仓库 cookout，并谈到参考 Vercel Board 直接写出、用“未读消息 + 在线状态”把本地 agent 接入看板；晚些时候他关注 CI 提速，同意 agent 本地测试与 CI 之间存在大量重复劳动，还就长时运行 agent 何时过载、何时拆分发起讨论。",
   "by_source": {
-   "mattpocockuk": "公开在做的仓库 cookout（尚未完成），并在回复中谈到参考 Vercel Board 直接写出，以及用“未读消息 + 在线状态”把本地 agent 接入看板的思路。"
+   "mattpocockuk": "公开仓库 cookout，谈 agent 接入看板的思路，并讨论 CI 提速与长时运行 agent 的拆分时机。"
   },
-  "updated_at": "2026-11-25T20:20:00+09:00"
+  "updated_at": "2026-11-26T00:25:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2125603651167334546",
+   "date": "2026-11-25",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2125603651167334546",
+   "url": "https://x.com/mattpocockuk/status/2125603651167334546",
+   "posted_at": "2026-11-25T22:52+08:00",
+   "kind": "reply",
+   "text": "But you essentially have a single agent you chat with?",
+   "article_title": null,
+   "reply_to": {
+    "handle": "alexhillman",
+    "post_id": "2125590480108802128",
+    "url": "https://x.com/alexhillman/status/2125590480108802128",
+    "text": "my chief of staff agent enforces that with a mix of deterministic code (work tracking ledger to make sure we don’t drop things along the way) and judgement to route new work into either a new session or the best existing one\n\ntook some tuning upfront but haven’t thought about it in months now!"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "但你基本上就是只有一个跟你对话的 agent？",
+   "analysis": {
+    "summary": "@alexhillman 说他的“幕僚长” agent 结合确定性代码（工作追踪台账，防止遗漏事项）和判断，把新工作分派到新会话或最合适的已有会话，前期调过之后几个月没再操心；Matt 追问：那你本质上是只有一个你直接对话的 agent 吗？",
+    "points": [
+     "@alexhillman：用“chief of staff”（幕僚长）agent 管理任务分配",
+     "做法：确定性代码（工作追踪台账）+ 判断，把新工作路由到新会话或最合适的现有会话",
+     "@alexhillman：前期需要调试，之后几个月都没再操心",
+     "Matt 追问：是否本质上只有一个与用户对话的 agent"
+    ],
+    "why": "这是对 Matt 前一条提问（何时拆分 agent）的讨论延续，Matt 的回复本身只是一个追问，信息量较低；有价值的是 @alexhillman 描述的“单一入口 agent + 分派会话”模式。",
+    "tags": [
+     "Agent 工程",
+     "多 Agent"
+    ]
+   }
+  },
+  {
+   "id": "x-2125567797656977783",
+   "date": "2026-11-25",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2125567797656977783",
+   "url": "https://x.com/mattpocockuk/status/2125567797656977783",
+   "posted_at": "2026-11-25T20:30+08:00",
+   "kind": "post",
+   "text": "Folks who run long-running agents and never compact/clear them:\n\nHow do you know when an agent is overloaded? In terms of its number of tasks/responsibilities.\n\nI.e. when do you split an agent into two?",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "问问那些运行长时间 agent、而且从不 compact/clear 它们的人：\n\n你们怎么判断一个 agent 已经过载了？我指的是它承担的任务/职责数量。\n\n也就是说，什么时候该把一个 agent 拆成两个？",
+   "analysis": {
+    "summary": "Matt 向长期运行 agent 且从不压缩（compact）或清空（clear）上下文的人提问：怎么判断一个 agent 承担的任务/职责过多，什么时候该把它拆成两个。",
+    "points": [
+     "提问对象：运行长时间 agent、从不 compact/clear 的人",
+     "问题一：如何判断 agent 在任务/职责数量上已经过载",
+     "问题二：什么时候应该把一个 agent 拆分成两个"
+    ],
+    "why": "这是一个开放问题，不是结论，但点出了长时运行 agent 的设计难点：职责边界和拆分时机。同日他在回复里与 @alexhillman 继续讨论了这个话题。",
+    "tags": [
+     "Agent 工程",
+     "上下文管理"
+    ]
+   }
+  },
+  {
+   "id": "x-2125567927256846647",
+   "date": "2026-11-25",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2125567927256846647",
+   "url": "https://x.com/mattpocockuk/status/2125567927256846647",
+   "posted_at": "2026-11-25T20:30+08:00",
+   "kind": "reply",
+   "text": "Yes, exactly right. So much duplicated work in most setups.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "jonas",
+    "post_id": "2125565241412948033",
+    "url": "https://x.com/jonas/status/2125565241412948033",
+    "text": "Well yeah, once you do it the dominant factor is speed of running actual tests\n\nI guess my point was that you shouldn't think of CI as a separate system from the agents that are anyway already running tests BEFORE they propose something for merging\n\nJust use their compute and test results, let them judge which tests to run etc.. But those tests still have to be fast"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "对，完全正确。大多数配置里都有大量重复劳动。",
+   "analysis": {
+    "summary": "@jonas 说不该把 CI 看作独立于 agent 的系统——agent 在提交合并前本来就在跑测试，应直接利用它们的算力和测试结果、让它们判断该跑哪些测试，但测试本身仍得快；Matt 表示完全同意，说大多数配置里有很多重复劳动。",
+    "points": [
+     "@jonas：一旦这么做，主要因素就变成实际跑测试的速度",
+     "@jonas：agent 在提出合并前已经在跑测试，CI 不应是另一个独立系统",
+     "@jonas：直接用 agent 的算力和测试结果，让它们决定跑哪些测试，但测试仍需要快",
+     "Matt：同意，认为大多数配置存在大量重复工作"
+    ],
+    "why": "延续他关于 CI 提速的讨论：agent 本地测试与 CI 重复执行是一个可优化的点。这是双方观点，没有给出具体做法或数据。",
+    "tags": [
+     "CI",
+     "Agent 工程",
+     "开发流程"
+    ]
+   }
+  },
+  {
+   "id": "x-2125561070404428270",
+   "date": "2026-11-25",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2125561070404428270",
+   "url": "https://x.com/mattpocockuk/status/2125561070404428270",
+   "posted_at": "2026-11-25T20:03+08:00",
+   "kind": "post",
+   "text": "Might need to put together a video on speeding up CI\n\nAutomated checks are great but it's so easy to sloptimize them and slow down the whole factory",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "可能得做一期视频，讲讲怎么给 CI 提速\n\n自动化检查很好，但特别容易把它们“slop 化优化”（sloptimize），结果拖慢整个工厂",
+   "analysis": {
+    "summary": "Matt 说可能要做一期关于加速 CI 的视频：自动化检查虽好，但很容易被草率地堆砌、优化走样，反而拖慢整个开发“工厂”。",
+    "points": [
+     "考虑做一期讲 CI 提速的视频（还只是“可能”）",
+     "肯定自动化检查的价值",
+     "提醒：自动化检查很容易被搞得臃肿低效（他用了自造词 sloptimize），拖慢整条流水线"
+    ],
+    "why": "在 agent 大量产出代码的背景下，CI 速度成为瓶颈，这条帖子表达了作者对此的担忧，属于观点。sloptimize 是作者自造的说法，帖子没有展开解释具体含义，这里按字面理解为“草率地优化/堆砌”。",
+    "tags": [
+     "CI",
+     "开发流程",
+     "Agent 工程"
+    ]
+   }
+  },
   {
    "id": "x-2125543341500563631",
    "date": "2026-11-25",
