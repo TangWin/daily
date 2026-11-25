@@ -1,0 +1,43 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-26",
+ "day": {
+  "digest": "Dan Koe 发布 X 长文《改变了我人生的深度工作习惯（每天早上 1 小时）》，仅采集到标题。",
+  "by_source": {
+   "thedankoe": "发布长文《改变了我人生的深度工作习惯（每天早上 1 小时）》（仅标题）。"
+  },
+  "updated_at": "2026-11-26T08:25:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2125643815122002300",
+   "date": "2026-11-26",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2125643815122002300",
+   "url": "https://x.com/thedankoe/status/2125643815122002300",
+   "posted_at": "2026-11-26T01:32+08:00",
+   "kind": "post",
+   "text": "",
+   "article_title": "The deep work routine that changed my life (1 hour every morning)",
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "（X 长文）标题：《改变了我人生的深度工作习惯（每天早上 1 小时）》\n\n未采集到正文。",
+   "analysis": {
+    "summary": "Dan Koe 发布了一篇 X 长文，标题为《改变了我人生的深度工作习惯（每天早上 1 小时）》。",
+    "points": [
+     "形式：X 长文（Article），只取到标题",
+     "主题：每天早上 1 小时的深度工作习惯"
+    ],
+    "why": "从标题看是他一贯的个人效率/专注主题；未采集到正文，不做推断。",
+    "tags": [
+     "深度工作",
+     "个人成长",
+     "长文"
+    ]
+   }
+  }
+ ]
+}

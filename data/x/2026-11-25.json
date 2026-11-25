@@ -3,13 +3,43 @@
  "type": "x",
  "date": "2026-11-25",
  "day": {
-  "digest": "Matt Pocock 今天公开了仍在开发的仓库 cookout，并谈到参考 Vercel Board 直接写出、用“未读消息 + 在线状态”把本地 agent 接入看板；晚些时候他关注 CI 提速，同意 agent 本地测试与 CI 之间存在大量重复劳动，还就长时运行 agent 何时过载、何时拆分发起讨论。",
+  "digest": "Matt Pocock 今天公开了仍在开发的仓库 cookout，并谈到参考 Vercel Board 直接写出、用“未读消息 + 在线状态”把本地 agent 接入看板；晚些时候他关注 CI 提速，同意 agent 本地测试与 CI 之间存在大量重复劳动，还就长时运行 agent 何时过载、何时拆分发起讨论。当晚他宣布因家中将添新宝宝暂停使用 X，2027 年 1 月 1 日回归。",
   "by_source": {
-   "mattpocockuk": "公开仓库 cookout，谈 agent 接入看板的思路，并讨论 CI 提速与长时运行 agent 的拆分时机。"
+   "mattpocockuk": "公开仓库 cookout，谈 agent 接入看板、CI 提速与长时运行 agent 的拆分时机；晚间宣布暂停 X 至 2027 年 1 月 1 日。"
   },
-  "updated_at": "2026-11-26T00:25:00+09:00"
+  "updated_at": "2026-11-26T08:25:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2125619044640592189",
+   "date": "2026-11-25",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2125619044640592189",
+   "url": "https://x.com/mattpocockuk/status/2125619044640592189",
+   "posted_at": "2026-11-25T23:54+08:00",
+   "kind": "post",
+   "text": "New baby on the way, so blocking X for a while.\n\nThanks all for a wonderful year. See you back here Jan 1st, 2027.\n\nAny business enquiries, send them to team@aihero.dev",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "家里要添新宝宝了，所以我会暂时屏蔽 X 一段时间。\n\n感谢大家度过了美好的一年。2027 年 1 月 1 日再在这里见。\n\n有任何商务咨询，请发送至 team@aihero.dev",
+   "analysis": {
+    "summary": "Matt Pocock 宣布因家中即将迎来新宝宝，将暂停使用 X，预计 2027 年 1 月 1 日回归；商务咨询请联系 team@aihero.dev。",
+    "points": [
+     "家中即将迎来新宝宝，暂时屏蔽 X",
+     "感谢大家这一年的陪伴",
+     "计划 2027 年 1 月 1 日回到 X",
+     "商务咨询联系 team@aihero.dev"
+    ],
+    "why": "个人动态，技术信息量很低；但意味着该信源在 2027 年 1 月 1 日前大概率不会有新帖。",
+    "tags": [
+     "个人动态",
+     "停更通知"
+    ]
+   }
+  },
   {
    "id": "x-2125603651167334546",
    "date": "2026-11-25",
