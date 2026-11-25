@@ -3,13 +3,88 @@
  "type": "x",
  "date": "2026-11-25",
  "day": {
-  "digest": "Matt Pocock 在回复中提到，用“未读消息 + 在线状态”作为把本地 agent 接入看板的简单心智模型，并表示私信开放、欢迎交流。",
+  "digest": "Matt Pocock 今天公开了正在开发的仓库 cookout（约 2000 次提交，尚未完成），说可以从中看到他对代码结构的最新想法；他在回复里提到，因为研究过 Vercel Board，目标清楚，所以没做专门的范围规划就直接写了，还认为“未读消息 + 在线状态”是把本地 agent 接入看板的简单心智模型。",
   "by_source": {
-   "mattpocockuk": "回复网友：私信已开放，认为“未读消息 + 在线状态”是把本地 agent 接入看板的超简单心智模型。"
+   "mattpocockuk": "公开在做的仓库 cookout（尚未完成），并在回复中谈到参考 Vercel Board 直接写出，以及用“未读消息 + 在线状态”把本地 agent 接入看板的思路。"
   },
-  "updated_at": "2026-11-25T08:25:00+09:00"
+  "updated_at": "2026-11-25T20:20:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2125543341500563631",
+   "date": "2026-11-25",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2125543341500563631",
+   "url": "https://x.com/mattpocockuk/status/2125543341500563631",
+   "posted_at": "2026-11-25T18:53+08:00",
+   "kind": "reply",
+   "text": "No, just slammed it out\n\nI had a pretty good idea of what I wanted straight away thanks to studying Vercel Board, so not much fog",
+   "article_title": null,
+   "reply_to": {
+    "handle": "lonnyk",
+    "post_id": "2125542669162033334",
+    "url": "https://x.com/lonnyk/status/2125542669162033334",
+    "text": "WOW!!!\n\nDid you scope this with wayfinder? How long did the scoping take?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "没有，直接一口气写出来的\n\n多亏研究过 Vercel Board，我一开始就很清楚自己想要什么，所以没什么迷雾",
+   "analysis": {
+    "summary": "有人（@lonnyk）问 Matt 是否用 wayfinder 做过范围规划、花了多久；Matt 回复说没有，直接写出来的，因为研究过 Vercel Board，一开始就很清楚要做什么。",
+    "points": [
+     "被问是否用 wayfinder 做 scoping（范围规划）",
+     "Matt 说没有，直接写出来",
+     "原因：研究过 Vercel Board，目标很明确，“没什么迷雾”"
+    ],
+    "why": "反映了一个实践观点：需求足够清楚时（这里是参照了现成产品 Vercel Board），可以跳过正式的范围规划直接动手。wayfinder 具体是什么工具，帖子里没有说明，不做推断。",
+    "tags": [
+     "Agent 工程",
+     "开发流程"
+    ]
+   }
+  },
+  {
+   "id": "x-2125540436483711074",
+   "date": "2026-11-25",
+   "type": "x",
+   "source": "mattpocockuk",
+   "post_id": "2125540436483711074",
+   "url": "https://x.com/mattpocockuk/status/2125540436483711074",
+   "posted_at": "2026-11-25T18:41+08:00",
+   "kind": "quote",
+   "text": "2,000 commits later, still cooking:\n\nhttps://github.com/mattpocock/cookout\n\n(not ready yet, but a fun repo to look through to see my SOTA thoughts about how code should be structured)",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": {
+    "handle": "mattpocockuk",
+    "post_id": "2124960763450126399",
+    "url": "https://x.com/mattpocockuk/status/2124960763450126399",
+    "text": "I've been cooking"
+   },
+   "links": [
+    {
+     "url": "https://github.com/mattpocock/cookout",
+     "title": "GitHub - mattpocock/cookout"
+    }
+   ],
+   "translation_zh": "2000 次提交之后，还在继续折腾：\n\nhttps://github.com/mattpocock/cookout\n\n（还没准备好，但这个仓库很值得翻一翻，能看到我关于代码应该如何组织的最新（SOTA）想法）",
+   "analysis": {
+    "summary": "Matt 引用自己此前的帖子“I've been cooking”（我一直在折腾些东西），公开了仓库 mattpocock/cookout：已有约 2000 次提交，尚未完成，但可以从中看到他对代码结构的最新想法。",
+    "points": [
+     "仓库地址：github.com/mattpocock/cookout",
+     "据他说已有 2000 次提交，项目仍在进行中",
+     "他明确说“还没准备好”",
+     "推荐把它当作参考，了解他心目中代码应该怎样组织"
+    ],
+    "why": "对关注 Matt 的开发者来说，这是看他代码组织理念的一手材料。帖子没有说明 cookout 是做什么的，结合同日回复里提到 Vercel Board 和把本地 agent 接入看板，可能与看板类工具有关，但这只是推测，帖子本身没有确认。“SOTA 想法”是作者自己的说法。",
+    "tags": [
+     "代码结构",
+     "开源",
+     "TypeScript"
+    ]
+   }
+  },
   {
    "id": "x-2125330413988303008",
    "date": "2026-11-25",
