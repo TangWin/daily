@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-11-25",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-11-25-fast-anything",
+      "date": "2026-11-25",
+      "type": "oss",
+      "rank": 1,
+      "title": "fast-anything：不整站重写，只让 Coding Agent 把最慢的 5% 函数移植成 Rust，并用真实调用证明结果一致",
+      "summary": "MIT 开源的 CLI + MCP 服务器 + Claude Code/Codex 插件：先 profile 找出热点函数，让 Agent 只移植这些函数，用录下的 500 次真实调用和自动派生的边界用例验证一致后再换上，可一键撤回；支持 Python/Node/Ruby/Java/Go/PHP/C/C++/C#/R 等 12 种语言，官方示例最高 116×；4 天 15 版，最新 v0.8.7（11-24 23:50 北京时间）。",
+      "url": "https://github.com/EL4CTEO/fast-anything",
+      "tags": [
+        "开发者工具",
+        "Coding Agent",
+        "MCP",
+        "性能优化",
+        "Rust"
+      ],
+      "raw_tags": [],
+      "score": 3622,
+      "score_label": "★ 3622",
+      "detail": {
+        "status": "picked",
+        "repo": "EL4CTEO/fast-anything",
+        "homepage": "https://www.npmjs.com/package/@el4cteo/fast-anything",
+        "stars": 3622,
+        "forks": 257,
+        "license": "MIT",
+        "language": "Rust",
+        "latest_release": "v0.8.7",
+        "runners_up": [],
+        "body_md": "## fast-anything：不用整站重写成 Rust，只让 Coding Agent 把最慢的 5% 函数移植过去，并用真实调用证明结果一致\n\n**为什么今天值得试：** 整个应用改写成 Rust 动辄几个月；fast-anything 先 profile 找出最耗时、又最好移植的函数，让 Claude Code / Codex 只移植这几个函数，再用录下来的真实调用逐一对比，全部一致才换上去，随时可以一键撤回。建库才 3 天就有 3622★，4 天发了 15 版，最新 v0.8.7（11-24 23:50 北京时间）。手上有慢 Python/Node 脚本的话，值得花半小时试一下。\n\n- 仓库：https://github.com/EL4CTEO/fast-anything\n- 安装：npm `@el4cteo/fast-anything` 或 crates.io `fast-anything`\n- 许可证：MIT；主语言 Rust；3622★ / 257 fork；2026-11-21 22:40 北京时间建库，作者 EL4CTEO\n\n### 解决什么问题、适合谁\n\n- 用 Python、Node/TS、Ruby、Java/Kotlin、Go、PHP、C/C++、C#、R 写的应用，热点集中在少数纯计算函数（模糊去重、字符串处理、数值循环），想提速又不想重写、不想背上整个 Rust 工程\n- 已经在用 Claude Code / Codex，想把「性能优化」交给 Agent，但需要一套能自动验证的流程，而不是凭感觉看 Agent 改得对不对\n- 和 11-18 推过的 rust-anything 是同一类思路（录下原程序行为来验证移植），区别是 fast-anything 只移植热点函数，原代码基本不动\n\n### README 里的关键能力\n\n- **一条命令：** `fast-anything go --agent claude -- python app.py`（也支持 `node app.ts`、`bun`、`deno`、`ruby`、`java`、`mvn`/`gradle`、`go run .`、`php`、`clang`、`Rscript`）；也可以分步执行 `scan`（按耗时×可移植性排序）→ `port`（最多录 500 次真实调用，生成单函数 Rust crate 和 `TASK.md`）→ `verify` → `enable`/`disable` → `bench` → `report`（生成可贴到 PR 的 Markdown 和 SVG）\n- **用证据说话：** 除了录下的调用，还会自动派生边界用例（NaN、±∞、-0.0、非 ASCII、空输入、最多大 16 倍的输入）和缩小后的输入，交给原函数算出标准答案；浮点误差 1e-9 以内、原函数报错时移植版也要报错，全部一致才启用。如果每次调用跨进 Rust 的开销比省下的还多，也不会启用。`FAST_ANYTHING_DISABLE=1` 随时切回原实现\n- **改动可撤回：** 只在源码里插入一个有标记的代码块，`disable` 时按字节原样删掉；所有移植共用 `.fast/target` 缓存，单函数 crate 几秒就能编译完\n- **官方基准（i5-10500）：** Python 模糊去重 4.91s→42ms（116×），TS 20×，PHP 55×，Go 21×，Ruby 14×，C# 13×，Java 整体 3×，C++ 2.7×；会优先移植最外层循环，减少跨语言调用次数\n- **接入 Agent：** 仓库本身就是插件市场，Claude Code 运行 `/plugin marketplace add EL4CTEO/fast-anything`，Codex 运行 `codex plugin marketplace add EL4CTEO/fast-anything`；也可以 `claude mcp add fast-anything -- fast-anything mcp`（8 个工具），或单独用 skill\n\n### 近期活跃证据\n\n- **Release：** 11-21 23:58 的 v0.1.0 到 11-24 23:50 的 v0.8.7，一共 15 个 Release（北京时间）。v0.8.7 支持 Go 变参和 `(T, error)` 返回、Java/Kotlin varargs、Python 不用 `cls` 的 classmethod，`scan --duration 30` 扩展到所有语言，C/C++ 边界用例改为在子进程里跑，崩溃或卡住的用例会被跳过\n- **提交：** 默认分支 168 次提交，主要是作者 EL4CTEO（72）和 mohitmishra786（60），另有 Plastic-time（20）等 11 位贡献者；北京时间 11-24 一天约 85 次，最新一次 11-24 23:08，方向是补齐各语言的可移植范围和验证的严谨性\n- **Issues/PR：** Issue 65 个、开放 6 个；PR 76 个、合并 64 个、开放 9 个。维护者回复具体：#4 指出「原地修改参数的函数能骗过 verify」，当天就在 v0.6.0 修好；#30 讨论 Android 支持，Kotlin/JVM 已在 0.8.0 上线，Android 因为没有测试环境暂时搁置。11-25 凌晨又有新贡献者提了浮点相对误差比较、A/A 基准对照等 PR\n\n### 快速上手\n\n1. 安装 Rust 工具链（rustup），再 `npm i -g @el4cteo/fast-anything`；跑 `fast-anything doctor` 检查运行时和 Agent\n2. 在项目里 `fast-anything scan -- python app.py`，先看排名和每个函数「为什么不能移植」\n3. 选一个函数 `fast-anything go --agent claude -- python app.py`（或 `port` 后把 `TASK.md` 交给你自己的 Agent），`verify` 通过后用 `bench` 对比整体耗时，不满意就 `disable`\n\n### 风险与注意点\n\n- **项目很新：** 建库 3 天、4 天 15 版，接口和行为变化快，升级前看 CHANGELOG\n- **只能移植部分函数：** 必须是顶层、确定性、参数为普通数据的函数，做 I/O、有随机性、原地修改参数、依赖对象状态的函数都会被拒；Android（ART）暂不支持\n- **验证只覆盖录到和派生出的用例：** 没录到的输入路径仍然可能不一致，上线前跑一遍自己的测试\n- **会消耗 Agent 额度**，还要加一套 Rust 编译工具链；`enable` 会改动源码（虽然可以原样撤回），建议在单独的分支上试\n- 基准是作者挑选的计算密集示例，I/O 为主的应用提速有限；部分 Issue 和 PR 由同一贡献者成对提交、批量合并，代码质量还要靠 CI 和时间检验\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
