@@ -3,14 +3,50 @@
  "type": "x",
  "date": "2026-11-26",
  "day": {
-  "digest": "Dan Koe 发布 X 长文《改变了我人生的深度工作习惯（每天早上 1 小时）》（仅采集到标题）；Karpathy 分享了让 Claude（Opus 5.5）花约 7 小时、用 31 个美国公开数据源做出《文明》风格美国交互地图的业余项目，并回复说明用的是普通订阅。",
+  "digest": "Dan Koe 发布长文《改变了我人生的深度工作习惯（每天早上 1 小时）》（仅采集到标题），并回复称“大师”粉丝 99.9% 赚不到钱、自己花了一年才拿到第一个客户；Karpathy 分享了让 Claude（Opus 5.5）花约 7 小时、用 31 个美国公开数据源做出《文明》风格美国交互地图的业余项目，并回复说明用的是普通订阅。",
   "by_source": {
-   "thedankoe": "发布长文《改变了我人生的深度工作习惯（每天早上 1 小时）》（仅标题）。",
+   "thedankoe": "发布长文《改变了我人生的深度工作习惯（每天早上 1 小时）》（仅标题），并回复谈粉丝难以赚钱、自己一年才拿到首个客户。",
    "karpathy": "分享用 Claude 做的《文明》风格美国数据地图 usaciv，并回复称用的是普通订阅。"
   },
-  "updated_at": "2026-11-26T12:25:00+09:00"
+  "updated_at": "2026-11-26T16:20:00+09:00"
  },
  "items": [
+  {
+   "id": "x-2125815282493272118",
+   "date": "2026-11-26",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2125815282493272118",
+   "url": "https://x.com/thedankoe/status/2125815282493272118",
+   "posted_at": "2026-11-26T12:53+08:00",
+   "kind": "reply",
+   "text": "10% may be a bit too generous haha, I’d be very happy with that\n\nI think 99.9% of any gurus followers don’t make money for various reasons, expecting it to be as simple as 3 actionable steps and a week of effort is one of them\n\nTook me a year of having no idea what I was doing to even land my first client, most of why it took so long was self sabotage.\n\nGood hook though and I appreciate the positive message",
+   "article_title": null,
+   "reply_to": {
+    "handle": "juliafedorin",
+    "post_id": "2125407669284724905",
+    "url": "https://x.com/juliafedorin/status/2125407669284724905",
+    "text": "Why 90% of DAN KOE (@thedankoe) followers never make money."
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "10% 可能有点太慷慨了哈哈，能到这个比例我就很开心了\n\n我认为任何“大师”的粉丝里有 99.9% 都赚不到钱，原因有很多，指望它像 3 个可执行步骤加一周努力那样简单就是其中之一\n\n我花了一年时间、完全不知道自己在干什么，才拿到第一个客户，之所以花了这么久，大部分原因是自我破坏。\n\n不过这个钩子写得不错，也感谢这份积极的信息",
+   "analysis": {
+    "summary": "@juliafedorin 发帖《为什么 Dan Koe 90% 的粉丝永远赚不到钱》，Dan Koe 回复说 10% 能赚钱都算高估，99.9% 的“大师”粉丝赚不到钱，一大原因是期望太简单；他自己花了一年才拿到第一个客户。",
+    "points": [
+     "认为 10% 的比例过于乐观，能达到就很满意",
+     "观点：任何“大师”的粉丝里 99.9% 赚不到钱，原因之一是指望 3 个步骤 + 一周努力就能成功",
+     "自述：花了一年、摸不着头脑才拿到第一个客户，主要原因是自我破坏",
+     "称赞对方的钩子（标题）写得好，感谢其积极信息"
+    ],
+    "why": "这是作者的个人观点和经历，99.9% 是随口估计而非数据；对创作者/一人公司话题的读者，提醒成功需要长期投入、警惕速成预期。被回复帖附有视频，未采集视频内容，不做推断。",
+    "tags": [
+     "创作者经济",
+     "一人公司",
+     "社交回复"
+    ]
+   }
+  },
   {
    "id": "x-2125787014880702868",
    "date": "2026-11-26",
