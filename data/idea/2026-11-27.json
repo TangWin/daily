@@ -1,0 +1,349 @@
+{
+ "schema_version": 1,
+ "type": "idea",
+ "date": "2026-11-27",
+ "day": {
+  "sample": "样本：主清单 139（HN42 Lobsters3 Reddit48 IH20 PH26） + Reddit 深翻页抱怨 95（5000 帖） + HN 句式评论/Ask/Show 554；未使用 X 付费 API。"
+ },
+ "items": [
+  {
+   "id": "idea-2026-11-27-01",
+   "date": "2026-11-27",
+   "type": "idea",
+   "rank": 1,
+   "title": "修图时分清「AI 改的」和「手动改的」：每一步编辑自动标明用了哪类工具，导出一份可核对的编辑清单，投稿和发稿前自动查出不合规的生成式改动",
+   "summary": "一个「修图合规助手」：①插件实时识别每一步操作属于哪一类（全局调色、局部修饰、像素复制修补、生成式填充或移除），用颜色标在历史记录里；②机构可以配置规则（如新闻稿禁止生成式改动、比赛允许降噪但禁止增删物体），违规操作在点下去之前就提示；③导出时附一份大白话编辑清单和改动区域对比图，可随 C2PA 凭证一起提交；④对外展示「轻度修饰 / 局部 AI / 整图生成」等分级，而不是一刀切的 AI 标签。",
+   "url": "https://news.ycombinator.com/item?id=50648456",
+   "tags": [
+    "安全"
+   ],
+   "raw_tags": [
+    "安全/隐私"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "《纽约时报》提醒合作摄影师不要升级 Photoshop，原因是新版把生成式 AI 功能（如一键移除杂物）和传统修图工具放在一起，摄影师会在不知不觉中用上生成式功能，而新闻摄影规定不允许这样改图。HN 讨论里，做创意工具的人说从成品图上几乎无法区分「整张 AI 生成」和「只用 AI 调了个色、抠了个图」；还有人指出 Adobe 授权条款要求用最近两个版本，想不升级也不行。社交平台那种非黑即白的「AI 生成」标签又会误伤只做了小修的作品。",
+    "target_users": "新闻摄影师、图片编辑和通讯社；参加摄影比赛、给图库供稿的摄影师；需要遵守「是否用了 AI」披露规定的品牌、广告和出版团队；担心作品被平台误打 AI 标签的创作者。",
+    "quotes": [
+     {
+      "text": "The core problem which the Times has identified here is that photographers are using GenAI tools in Photoshop inadvertently because they are not clearly distinguished from traditional editing tools.",
+      "links": [
+       {
+        "label": "HN 评论（The New York Times warns photographers not to update Photoshop over AI features，645 分，500+ 条评论）",
+        "url": "https://news.ycombinator.com/item?id=50648456"
+       }
+      ]
+     },
+     {
+      "text": "It's nearly impossible to separate \"this image was fully generated with AI\" versus \"I made a minor edit to the colors or did a cutout or improved the layout with AI\" when the endpoint is an image.",
+      "links": [
+       {
+        "label": "HN 评论（同帖，做创意工具的从业者）",
+        "url": "https://news.ycombinator.com/item?id=50648319"
+       }
+      ]
+     },
+     {
+      "text": "You can't (legally) not update Photoshop. Adobe's licensing terms specifically require you to be on the last two versions",
+      "links": [
+       {
+        "label": "HN 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50652333"
+       }
+      ]
+     },
+     {
+      "text": "It seems we need multiple classifications or a scale rather than dreaded on/off tags.",
+      "links": [
+       {
+        "label": "HN 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50654654"
+       }
+      ]
+     }
+    ],
+    "existing": "Adobe 内容凭证（C2PA，Content Credentials）、Photoshop 历史记录面板、Lightroom/darktable 等以全局调整为主的工具、各家平台的「AI 生成」标签",
+    "defects": "C2PA 只能事后标出「用过 AI」，不能在修图时提前拦住；历史记录面板不区分哪些操作是生成式的，也不能按机构规定自动判合规；平台标签只有开和关，小修和整张生成一视同仁；摄影师没法锁定「只用传统工具」的工作模式",
+    "solution": "一个「修图合规助手」：①插件实时识别每一步操作属于哪一类（全局调色、局部修饰、像素复制修补、生成式填充或移除），用颜色标在历史记录里；②机构可以配置规则（如新闻稿禁止生成式改动、比赛允许降噪但禁止增删物体），违规操作在点下去之前就提示；③导出时附一份大白话编辑清单和改动区域对比图，可随 C2PA 凭证一起提交；④对外展示「轻度修饰 / 局部 AI / 整图生成」等分级，而不是一刀切的 AI 标签。",
+    "mvp": "先做一个 Photoshop UXP 插件：读取历史记录和图层信息，标出生成式填充、移除工具等操作，导出 PDF/JSON 编辑清单；内置「新闻摄影」「摄影比赛」两套规则模板；个人免费，机构按席位收费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-27-02",
+   "date": "2026-11-27",
+   "type": "idea",
+   "rank": 2,
+   "title": "自己动手删掉数据经纪商手里的个人信息：按你所在地区的法律自动发删除请求，记下每家的回复期限，到期没回就自动催办并升级到监管机构",
+   "summary": "一个「本地运行、全程可见」的删除助手：①在你自己的电脑或手机上保存个人信息，不上传到服务方；②按你所在州或国家（如加州、德州、欧盟 GDPR）自动选用对应法律条款生成删除请求，通过邮件或网页表单发出；③每家经纪商单独一张卡片，显示发送时间、法定回复期限、对方回复内容，到期没回自动发催办，再不回就生成给监管机构的投诉材料；④遇到要身份证照片的，给出「可以拒绝」的依据和替代验证方式；⑤每季度自动重查一遍，看信息有没有被重新收录。",
+   "url": "https://news.ycombinator.com/item?id=50660184",
+   "tags": [
+    "个人/生活",
+    "支付",
+    "Mac/桌面"
+   ],
+   "raw_tags": [
+    "个人/生活",
+    "支付/计费",
+    "Mac/桌面工具"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "数据经纪商公开出售人的住址、电话、亲属等信息。Show HN 上有人放出一个开源脚本，批量给经纪商发删除请求，评论区很热：大家受够了 Incogni、Optery 这类按月收费的删除服务，有人甚至怀疑它们本身就和经纪商是一伙的；但自己动手又很麻烦，很多网站要求上传身份证照片才肯删，回复期限各不相同，大部分人因为太麻烦根本不去行使权利。",
+    "target_users": "担心个人信息被出售、经常接到骚扰电话和垃圾短信的普通人；遭遇过跟踪骚扰的人、记者、执法和医护等需要隐藏住址的职业；不想每月付订阅费的隐私重视者。",
+    "quotes": [
+     {
+      "text": "I'm convinced that Incogni hands your data TO the brokers so they can justify their monthly subscription.",
+      "links": [
+       {
+        "label": "HN 评论（Show HN: Fuck_data_brokers.py，181 分）",
+        "url": "https://news.ycombinator.com/item?id=50660184"
+       }
+      ]
+     },
+     {
+      "text": "Since normally, approximately no one is exercising their rights on this because it's inconvenient, it sounds",
+      "links": [
+       {
+        "label": "HN 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50660686"
+       }
+      ]
+     },
+     {
+      "text": "Can’t they claim they don’t have to remove your data since you didn’t submit a form?",
+      "links": [
+       {
+        "label": "HN 评论（同帖，针对「要身份证照片就关掉网页」的建议）",
+        "url": "https://news.ycombinator.com/item?id=50659725"
+       }
+      ]
+     },
+     {
+      "text": "some people wont have the capabilities to do this every month.",
+      "links": [
+       {
+        "label": "HN 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50660221"
+       }
+      ]
+     }
+    ],
+    "existing": "Incogni、Optery、DeleteMe（按月付费的代删服务）；开源脚本 f-ck_data_brokers；加州 DROP 等官方一站式删除平台（仅限部分地区）",
+    "defects": "付费服务不透明，用户看不到发了什么、对方怎么回的，还担心把更多信息交给第三方；开源脚本要会命令行，也不负责跟进回复和过期催办；对方要求身份证照片、额外表格时没有对应的话术和法律依据；只覆盖少数州，其他地区的人不知道自己有什么权利",
+    "solution": "一个「本地运行、全程可见」的删除助手：①在你自己的电脑或手机上保存个人信息，不上传到服务方；②按你所在州或国家（如加州、德州、欧盟 GDPR）自动选用对应法律条款生成删除请求，通过邮件或网页表单发出；③每家经纪商单独一张卡片，显示发送时间、法定回复期限、对方回复内容，到期没回自动发催办，再不回就生成给监管机构的投诉材料；④遇到要身份证照片的，给出「可以拒绝」的依据和替代验证方式；⑤每季度自动重查一遍，看信息有没有被重新收录。",
+    "mvp": "一个桌面 App，内置 100 家常见经纪商的联系方式和流程，支持加州、德州和 GDPR 三套模板，用你自己的邮箱发信、自动读取回复并归档；基础功能免费，一次性付费解锁自动催办和季度复查。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-27-03",
+   "date": "2026-11-27",
+   "type": "idea",
+   "rank": 3,
+   "title": "独立开发者发布 AI 聊天 App 前的合规清单：按州列出聊天机器人新法规要你做什么，一键加上 AI 身份提示、危机求助转介和未成年人保护，并自动生成要公开的说明文件",
+   "summary": "一个「AI 聊天 App 合规套件」：①问几个问题（是否陪伴型、是否面向未成年人、是开源代码还是上架运营、在哪些州有用户），输出你适用的条款和要做的事；②提供可直接接入的开源组件：定时 AI 身份提示、危机关键词识别并转介当地求助热线、未成年人模式（休息提醒、禁止恋爱类对话）；③自动生成要公开的「危机应对方案」页面和年度转介统计报表；④法规变化时推送提醒，说明你的 App 需要改什么。",
+   "url": "https://www.reddit.com/r/LocalLLaMA/comments/1y435fu/many_states_are_regulating_chatbots_how_can_one/",
+   "tags": [
+    "开发者工具",
+    "运营/客服",
+    "个人/生活"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "运营/客服",
+    "个人/生活"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "r/LocalLLaMA 上一位开发者做好了一个能在手机上离线运行小模型的聊天 App，准备发布时才发现美国已有十几个州出台了聊天机器人法规：要定期提醒用户「我是 AI」、要有自伤自杀等危机情况的应对方案并公开发布、要向州里报告转介次数、要对未成年人做额外保护，有的州还允许用户直接起诉开发者。他自己整理了一长串清单，仍然搞不清开源发布和上架 App 是否适用、到底该做到什么程度。",
+    "target_users": "做 AI 聊天、陪伴、角色扮演或助手类 App 的独立开发者和小团队；把大模型接进自家产品的初创公司；在 GitHub 上发布本地聊天应用的开源作者。",
+    "quotes": [
+     {
+      "text": "Then I began researching the legalities around releasing this app and it's abysmal.",
+      "links": [
+       {
+        "label": "Reddit r/LocalLLaMA 帖（Many states are regulating chatbots. How can one person open-source a free local chat app?）",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1y435fu/many_states_are_regulating_chatbots_how_can_one/"
+       }
+      ]
+     },
+     {
+      "text": "Oregon, Washington, and California have laws that let users sue you directly and that require functional and working safety features to detect things like self harm and redirect to a help phone number.",
+      "links": [
+       {
+        "label": "Reddit r/LocalLLaMA 帖（同上）",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1y435fu/many_states_are_regulating_chatbots_how_can_one/"
+       }
+      ]
+     },
+     {
+      "text": "Have to tell the user it's AI - every 3 hours (or more frequent) or always visible.",
+      "links": [
+       {
+        "label": "Reddit r/LocalLLaMA 帖（同上，发帖人整理的规定清单）",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1y435fu/many_states_are_regulating_chatbots_how_can_one/"
+       }
+      ]
+     },
+     {
+      "text": "IANAL, but I'm pretty sure the onus of following those rules is upon whoever *operates* the chatbot, not the *developer* of the chatbot.",
+      "links": [
+       {
+        "label": "Reddit r/LocalLLaMA 帖评论（同帖）",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1y435fu/many_states_are_regulating_chatbots_how_can_one/"
+       }
+      ]
+     }
+    ],
+    "existing": "律师事务所的合规咨询；大厂的安全审核工具（OpenAI Moderation、Llama Guard 等）；隐私政策生成器（Termly、iubenda）",
+    "defects": "律师咨询贵，个人开发者负担不起；审核模型只解决「识别有害内容」，不覆盖定时 AI 提示、危机转介流程、公开说明和年度报告等法规要求；隐私政策生成器不涵盖聊天机器人专门法规；没有人把各州条款整理成「我这个 App 要做哪几件事」的清单",
+    "solution": "一个「AI 聊天 App 合规套件」：①问几个问题（是否陪伴型、是否面向未成年人、是开源代码还是上架运营、在哪些州有用户），输出你适用的条款和要做的事；②提供可直接接入的开源组件：定时 AI 身份提示、危机关键词识别并转介当地求助热线、未成年人模式（休息提醒、禁止恋爱类对话）；③自动生成要公开的「危机应对方案」页面和年度转介统计报表；④法规变化时推送提醒，说明你的 App 需要改什么。",
+    "mvp": "先做一个网页问卷 + 各州条款对照表（覆盖帖中列出的 16 个州），再配一个 iOS/Android/Web 通用的 SDK，内置 AI 提示和危机转介两项功能；问卷免费，SDK 开源，按月收费提供法规更新提醒和报表生成。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-27-04",
+   "date": "2026-11-27",
+   "type": "idea",
+   "rank": 4,
+   "title": "小网站到底有多少真人来过：用「有没有执行页面脚本」等信号把机器人和数据中心流量剔掉，给出真实访客数，并在 GA4 报「流量暴涨」时告诉你是不是假的",
+   "summary": "一个「真实访客」统计面板：①同时读取服务器或 CDN 日志和一个极小的前端脚本，按「有没有加载并执行脚本、停留多久、是否来自数据中心 IP 段、请求节奏」给每次访问打分；②每天输出「请求总数 / 真人访问 / 机器人 / 只抓不看」四个数，按来源渠道拆开；③GA4 或其他工具出现流量暴涨时，自动和搜索控制台点击、IP 归属地对照，告诉你「这次暴涨 90% 来自数据中心，大概率不是真人」；④可以一键导出过滤规则，回填到 GA4 或 Cloudflare。",
+   "url": "https://www.indiehackers.com/post/a-month-after-launch-98-of-my-traffic-is-still-bots-uxexY1nxeJHNTjEaTH66",
+   "tags": [
+    "开发者工具",
+    "运营/客服"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "运营/客服"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Indie Hackers 上两位独立开发者都发现：小网站的大部分访问来自机器人。一位统计了上线一个月的日志，22,351 次页面请求里只有 483 次是真人；另一位的免费工具某天在 GA4 里突然冒出 1,704 个「用户」，其中 1,177 个来自一个满是数据中心的小镇，搜索控制台显示当天来自 Google 搜索的点击是 0。GA4 把这些都算作用户，还专门发提醒，开发者据此判断产品冷热、决定要不要继续投入，结果被误导。",
+    "target_users": "刚上线产品、靠流量数据判断方向的独立开发者和小团队；个人博客和小型内容站站长；用 GA4、Plausible 等工具看数据的小网站运营者。",
+    "quotes": [
+     {
+      "text": "Since launch, my site has served 22,351 HTML requests. 483 of them were people. That's 2.2%.",
+      "links": [
+       {
+        "label": "Indie Hackers 帖（A month after launch, 98% of my traffic is still bots）",
+        "url": "https://www.indiehackers.com/post/a-month-after-launch-98-of-my-traffic-is-still-bots-uxexY1nxeJHNTjEaTH66"
+       }
+      ]
+     },
+     {
+      "text": "a real browser downloads the JavaScript within a minute; a script grabbing HTML never does.",
+      "links": [
+       {
+        "label": "Indie Hackers 帖（同上，作者自己最信任的判断方法）",
+        "url": "https://www.indiehackers.com/post/a-month-after-launch-98-of-my-traffic-is-still-bots-uxexY1nxeJHNTjEaTH66"
+       }
+      ]
+     },
+     {
+      "text": "Around 1,177 of the users were recorded from Boardman, Oregon, a small town that hosts large data centers.",
+      "links": [
+       {
+        "label": "Indie Hackers 帖（GA4 counted 1,704 users on my tiny site in one day…）",
+        "url": "https://www.indiehackers.com/post/ga4-counted-1-704-users-on-my-tiny-site-in-one-day-almost-none-of-them-stayed-a-single-second-fGQdH7VK7eUCGPufhGC7"
+       }
+      ]
+     },
+     {
+      "text": "What I do know is how GA4 counted them: as users, and as a day worth alerting me about.",
+      "links": [
+       {
+        "label": "Indie Hackers 帖（同上）",
+        "url": "https://www.indiehackers.com/post/ga4-counted-1-704-users-on-my-tiny-site-in-one-day-almost-none-of-them-stayed-a-single-second-fGQdH7VK7eUCGPufhGC7"
+       }
+      ]
+     }
+    ],
+    "existing": "GA4（自带少量机器人过滤）、Plausible、Fathom、Umami（轻量统计）、Cloudflare Bot Management（付费、偏防护）",
+    "defects": "GA4 只过滤已知爬虫，对数据中心 IP、无头浏览器基本放行，还会把异常流量当成增长提醒；轻量统计工具只统计执行了脚本的访问，看不到被机器人拿走了多少页面；Cloudflare 的机器人管理面向防护，贵且不给「真实访客」报表；没有工具把服务器日志、统计脚本、搜索控制台三方数据对起来",
+    "solution": "一个「真实访客」统计面板：①同时读取服务器或 CDN 日志和一个极小的前端脚本，按「有没有加载并执行脚本、停留多久、是否来自数据中心 IP 段、请求节奏」给每次访问打分；②每天输出「请求总数 / 真人访问 / 机器人 / 只抓不看」四个数，按来源渠道拆开；③GA4 或其他工具出现流量暴涨时，自动和搜索控制台点击、IP 归属地对照，告诉你「这次暴涨 90% 来自数据中心，大概率不是真人」；④可以一键导出过滤规则，回填到 GA4 或 Cloudflare。",
+    "mvp": "一个可自托管的小服务：上传或接入 Nginx/Cloudflare 日志，配合 1KB 的前端探针，生成每日真实访客报表并通过邮件发送；免费支持一个站点，多站点和 GA4 对照告警收费。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-27-05",
+   "date": "2026-11-27",
+   "type": "idea",
+   "rank": 5,
+   "title": "注册了却再也不回来：按获客渠道追踪「第二天、第七天还在不在」，找出用户在哪一步卡住离开，并提醒你在用户最感兴趣时请他开启通知",
+   "summary": "一个面向早期产品的「留存体检」：①装一行脚本或连上数据库，自动识别注册、首次核心操作、第 2 天和第 7 天回访；②按渠道（目录站、广告、HN、文章、Product Hunt）出一张留存对比表，直接告诉你「这个渠道花了多少钱、留下几个人」；③自动画出新用户漏斗，标出流失最多的一步，并配上录屏抽样或热力图帮你看原因（如按钮在首屏外）；④找出用户完成第一个核心操作的时刻，建议在那一刻请他开启通知或邮件，并跟踪开通率和回访率的变化。",
+   "url": "https://www.reddit.com/r/SaaS/comments/1y56if3/we_got_1618_signups_in_a_month_70_used_the/",
+   "tags": [
+    "增长/转化",
+    "支付",
+    "开发者工具"
+   ],
+   "raw_tags": [
+    "增长/转化",
+    "支付/计费",
+    "开发者工具"
+   ],
+   "score": 4,
+   "score_label": "潜力 4/5 · 难度 None/5",
+   "detail": {
+    "problem": "r/SaaS 上一个 AI 产品一个月拿到 1,618 个注册，70% 的人只用了一天；79% 的人从没开通通知或邮件，开通的人有 46% 回来了，没开通的只有 7%。付费目录推荐带来 797 个注册，一个都没留下；靠写文章和 HN 来的 65 个人，留存率是其他人的三倍。Indie Hackers 上另一个截图工具在过滤掉机器人后，漏斗是 128 次访问、14 次打开编辑器、1 次导出、0 收入，最后发现是导出按钮藏在页面下方没人看见。创始人只能自己写 SQL、翻日志去拼这些数字。",
+    "target_users": "刚上线、正在试各种获客渠道的独立开发者和早期 SaaS 团队；在 Product Hunt、目录站、广告上花了钱却看不出效果的创始人；没有专职数据分析人员的小团队。",
+    "quotes": [
+     {
+      "text": "70% of users only used Athena on one day.",
+      "links": [
+       {
+        "label": "Reddit r/SaaS 帖（We got 1,618 signups in a month. 70% used the product for one day.）",
+        "url": "https://www.reddit.com/r/SaaS/comments/1y56if3/we_got_1618_signups_in_a_month_70_used_the/"
+       }
+      ]
+     },
+     {
+      "text": "79% of users never enabled notifications or email updates. Of those who did, 46% came back. For those who didn't, it was just 7%.",
+      "links": [
+       {
+        "label": "Reddit r/SaaS 帖（同上）",
+        "url": "https://www.reddit.com/r/SaaS/comments/1y56if3/we_got_1618_signups_in_a_month_70_used_the/"
+       }
+      ]
+     },
+     {
+      "text": "A paid featured directory placement brought 797 signups. None stayed.",
+      "links": [
+       {
+        "label": "Reddit r/SaaS 帖（同上）",
+        "url": "https://www.reddit.com/r/SaaS/comments/1y56if3/we_got_1618_signups_in_a_month_70_used_the/"
+       }
+      ]
+     },
+     {
+      "text": "After filtering out bots and our own self-QA hits in edge KV telemetry, our funnel sat at 128 visits, 14 editor opens, 1 ZIP export, and $0 revenue.",
+      "links": [
+       {
+        "label": "Indie Hackers 帖（128 visits, 14 editor opens, $0…）",
+        "url": "https://www.indiehackers.com/post/128-visits-14-editor-opens-0-4-conversion-leaks-we-found-fixed-in-our-browser-only-app-store-screenshot-tool-uwEONEZjh931CZYjQw4s"
+       }
+      ]
+     }
+    ],
+    "existing": "Mixpanel、Amplitude、PostHog（产品分析）；Userpilot、Appcues（新手引导）；GA4（渠道归因）",
+    "defects": "产品分析工具功能强但要先自己埋点、搭看板，早期团队没时间也不知道该看什么；渠道数据在 GA4、留存数据在产品库里，两边对不上；新手引导工具只管弹窗，不告诉你哪个渠道来的人留不住；没有现成的「什么时候请用户开通知最有效」的建议",
+    "solution": "一个面向早期产品的「留存体检」：①装一行脚本或连上数据库，自动识别注册、首次核心操作、第 2 天和第 7 天回访；②按渠道（目录站、广告、HN、文章、Product Hunt）出一张留存对比表，直接告诉你「这个渠道花了多少钱、留下几个人」；③自动画出新用户漏斗，标出流失最多的一步，并配上录屏抽样或热力图帮你看原因（如按钮在首屏外）；④找出用户完成第一个核心操作的时刻，建议在那一刻请他开启通知或邮件，并跟踪开通率和回访率的变化。",
+    "mvp": "一个嵌入脚本 + 每周邮件报告：渠道留存对比、漏斗最大流失点、通知开通率与回访率；支持从 Stripe 读收入；月活 1,000 以内免费，超过后按量收费。",
+    "difficulty": null,
+    "potential": 4
+   }
+  }
+ ]
+}
