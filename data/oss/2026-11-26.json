@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-11-26",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-11-26-mobile-agent-testers",
+      "date": "2026-11-26",
+      "type": "oss",
+      "rank": 1,
+      "title": "mobile-agent-testers：在 GitHub 免费 runner 上，让 20 个 Claude Code 测试员同时用 20 台不同的手机找 App 的 bug",
+      "summary": "MIT 开源的 GitHub Actions 工作流 + Claude Code 插件：每个 persona（不同语言、字号、设备、RTL）在各自的 iOS 模拟器或 Android 模拟器上像新用户一样用你的 App，交回加密的截图 bug 报告，每台手机模型费约 $0.15–0.55；支持 Flutter/RN/Expo/原生/KMP/Capacitor/MAUI；v0.2.0（11-26 06:39 北京时间）新增屏幕地图和不调模型的路径重放。",
+      "url": "https://github.com/pierridotite/mobile-agent-testers",
+      "tags": [
+        "Coding Agent",
+        "开发者工具",
+        "移动端",
+        "测试"
+      ],
+      "raw_tags": [],
+      "score": 2326,
+      "score_label": "★ 2326",
+      "detail": {
+        "status": "picked",
+        "repo": "pierridotite/mobile-agent-testers",
+        "homepage": "https://pierridotite.github.io/mobile-agent-testers/",
+        "stars": 2326,
+        "forks": 239,
+        "license": "MIT",
+        "language": "Python",
+        "latest_release": "v0.2.0",
+        "runners_up": [],
+        "body_md": "## mobile-agent-testers：在 GitHub 免费 runner 上，同时让 20 个 AI 测试员用 20 台不同的手机测你的 App\n\n**为什么今天值得试：** 写 UI 自动化脚本只能测到你想到的路径。mobile-agent-testers 换了个思路：每个测试员是一个 Claude Code Agent，各自用一台 iOS 模拟器或 Android 模拟器，扮演一个用户（瑞典语 + 最大字号的 iPhone SE、200% 字体的 Pixel 7、德语 iPad、阿拉伯语从右到左……），像新用户一样用你的 App，最后交一份带截图的 bug 报告。公开仓库的 GitHub runner 免费（含 macOS），只需要付模型费，官方实测每台手机约 $0.15–0.55。北京时间今天 06:39 刚发布 v0.2.0，新增了全屏幕地图，Android 上还能把发现的 bug 路径不用模型重放成回归测试。\n\n- 仓库：https://github.com/pierridotite/mobile-agent-testers\n- 在线演示（LocalSend 的屏幕地图）：https://pierridotite.github.io/mobile-agent-testers/\n- 许可证：MIT；主语言 Python（GitHub Actions 工作流 + 脚本）；2326★ / 239 fork；2026-11-17 03:11 北京时间建库，作者 Pierre Raffalli（pierridotite）\n\n### 解决什么问题、适合谁\n\n- 做 Flutter、React Native、Expo、原生 Kotlin/Swift、KMP、Capacitor、.NET MAUI 的移动端团队或独立开发者，想在发版前覆盖多语言、大字号、平板、RTL、Android 10–15 这些平时没人测的组合\n- Maestro/Appium 只跑你写好的用例；这个项目是去找「没人想到要测」的问题，两者可以配合使用\n- 也能拿来复现用户提的 bug、出体验改进报告、对比两个版本，或者在手机浏览器里测网站（v0.2.0 新增，实验性）\n\n### README 里的关键能力\n\n- **一个工作流搞定：** 自动构建你的 App（或直接用预编译的 APK/.app），给每个 persona 分配一台模拟器。内置 20 个 persona，覆盖 14 种语言、RTL、平板、各档字号，`all` 表示全部跑\n- **用法：** 模板建仓 → `./setup.sh`（生成密钥对、写 secrets 和 Claude token）→ `gh workflow run agent-testers.yml -f source_repo=you/app -f app_id=com.you.app -f android_personas=anna,malik -f ios_personas=clara,jonas` → `bash scripts/collect.sh <run id>` 在本地解密，生成 `SUMMARY.md`。也可以在 Claude Code 里 `/plugin marketplace add pierridotite/mobile-agent-testers` 让它帮你配置\n- **结果加密：** 公开仓库的日志是公开的，所以报告、截图和录屏在离开 runner 前就用你的公钥加密；模拟器里屏蔽了统计服务的域名。每个屏幕还会自动检查无名控件和过小的点击区域（Android 48dp / iOS 44pt）\n- **屏幕地图：** `python3 scripts/dashboard.py runs/<id>` 在本地打开 App 的全部屏幕，每个测试员的路径用一种颜色，叠加点击热力图，可以按设备切换形态；v0.2.0 会把同一屏幕的不同语言、字号版本合成一张卡（LocalSend 10 种语言从 50 张合到 20 张）\n- **把 bug 变成测试（Android，实验性）：** Agent 的路径按元素名存成 `trace.json`，经作者的 Explore-Compile-Replay 格式编译成 Maestro flow；`-f replay_path=true` 会在 Agent 跑完后不调模型直接重放，加上检查点后会报告 `bug` 或 `fixed`。`map=robot` 还能不用模型自动遍历屏幕\n- **模型可换：** `model=haiku`，或者通过 `llm_base_url` 接任意兼容 Anthropic 接口的模型（OpenRouter、DeepSeek、Kimi、GLM、MiniMax、Qwen）。作者也提醒，发现的问题质量取决于模型读截图的能力\n- **真实案例：** LocalSend 用 20 台设备跑了 69 分钟，花费 $4.62，找到 46 个不同的 bug，其中一个是阻断性问题：瑞典语 + 最大字号的 iPhone SE 完全发不出文字消息；AnkiDroid 用 10 台 Android 跑了不到 10 分钟，花费 $4.69，找到 43 个问题；演示 App 埋了 11 个 bug，4 个测试员找到 9 个，花费 $0.87\n\n### 近期活跃证据\n\n- **Release：** v0.1.0 于 11-19 23:03 发布，v0.2.0 于 11-26 06:39 发布（北京时间）。v0.2.0 的更新很多：屏幕地图与合卡、重放路径、无模型的 robot 建图、复现 bug、改进报告、版本对比、支持便宜模型、`build_args`、run 页面显示每个 Agent 是怎么结束的（跑完、轮数用完、额度用完、限流……）、独立的 Agent Skill；另外还发了一个 `eval-localsend-1` 预发布版，用来存放带 SHA-256 的 APK，保证每次重放用的是同一份二进制\n- **提交：** 默认分支共 155 次提交，作者一人 146 次；北京时间 11-25 当天约 88 次，近 7 天约 116 次，最新一次在 11-26 07:14，主要在打磨重放的准确度（多行名称、清空的输入框、滑动、键盘返回）和屏幕地图\n- **Issues/PR：** Issue 14 个、开放 11 个，大多是作者 11-26 凌晨开的认领帖（OpenCode/Codex CLI 等其他 Agent CLI、GitLab CI、真机自托管 runner、色盲/弱网 persona、把发现转成 issue 等），#9 是贡献入口；PR 5 个，全部合并。维护者回应很快：#6 增加对比度/减弱动态效果的 persona 需求，15 分钟后就合并了对应的 PR #7；外部贡献者提交的网页测试平台 PR #21 约 2 小时后合并，并随 v0.2.0 发布；#14 已经有人认领做 OpenCode 支持\n\n### 快速上手\n\n1. `gh repo create my-testers --public --template pierridotite/mobile-agent-testers --clone && cd my-testers && ./setup.sh`（Windows 用 `.\\setup.ps1`），准备好 Claude 订阅或 API key\n2. `gh workflow run agent-testers.yml` 先跑演示（2 台 Android + 2 台 iOS，约 20 分钟），再用 `bash scripts/collect.sh <run id>` 解密，看 `runs/<id>/SUMMARY.md`\n3. 换成自己的 App：加上 `-f source_repo=… -f app_id=… -f android_personas=… -f ios_personas=…`，先选 2–4 个 persona，用 `python3 scripts/dashboard.py runs/<id>` 看屏幕地图\n\n### 风险与注意点\n\n- **项目很新：** 建库 9 天，几乎全是作者一人写的，一天提交 80 多次；重放、地图、网页平台都标着实验性，ECR 格式也还是早期草案\n- **免费有前提：** 只有公开仓库的 runner 免费（同时约 20 个 job，macOS 只能 5 个）。私有仓库会消耗 Actions 分钟数，macOS 分钟按 10 倍计；闭源 App 要放在私有仓库或你自己的 Mac 上跑。有 5 小时额度限制的订阅，20 个 Agent 大约 15 分钟就能用完，建议每批 6–10 个\n- **凭据要放进 GitHub secrets：** Claude token 或 API key、私有仓库的只读 token 都要放进去；App 里一律用测试账号。结果虽然加密了，但打开 `keep-apk` 后 APK 会公开，只适合开源 App\n- **结论质量取决于模型读截图的能力**，同样的设置两次跑的结果也会不一样，报告需要人工复核；Agent 默认用的是 Claude Code，其他 CLI 还在做\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
