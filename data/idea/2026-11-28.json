@@ -1,0 +1,387 @@
+{
+ "schema_version": 1,
+ "type": "idea",
+ "date": "2026-11-28",
+ "day": {
+  "sample": "样本：主清单 138（HN42 Lobsters2 Reddit48 IH20 PH26） + Reddit 深翻页抱怨 97（5100 帖） + HN 句式评论/Ask/Show 555；未使用 X 付费 API。"
+ },
+ "items": [
+  {
+   "id": "idea-2026-11-28-01",
+   "date": "2026-11-28",
+   "type": "idea",
+   "rank": 1,
+   "title": "AI 编程工具和技能偷偷往外发了什么：装之前扫一遍会联网、会读登录文件的代码，装之后实时记下每个工具读了哪些密钥文件、把什么发到了哪台服务器，能拿给公司 IT 看",
+   "summary": "一个「AI 工具外传体检」：①安装前静态扫描技能、插件、MCP 包，标出会联网的地址、会下载并执行的脚本、没锁版本的依赖、会读取的敏感路径（~/.claude.json、~/.codex/auth.json、~/.ssh、.env 等），给出风险分级；②安装后在本机做轻量监控，把每次文件读取和网络请求归到具体的代理会话和技能，敏感文件被读或数据发往陌生服务器时立刻提醒，可一键拦截；③一键导出「这个工具发了什么」报告（目的地、频率、字段样例），方便向公司 IT 申请白名单；④汇总社区扫描结果，做成公开的技能和插件信誉库。",
+   "url": "https://news.ycombinator.com/item?id=50670595",
+   "tags": [
+    "Coding Agent",
+    "开发者工具",
+    "安全"
+   ],
+   "raw_tags": [
+    "Agent/AI编码",
+    "开发者工具",
+    "安全/隐私"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "AI 编程代理越来越依赖第三方「技能」、插件、MCP 服务和套壳客户端，而这些东西能读本机文件、能联网。本周两起事件：Convex 官方发布的 AI 编程技能会把用户描述的 App 想法 POST 到 Convex 自己的服务器，还会下载一个没锁版本的脚本来运行，甚至教代理把「下载」和「执行」拆成两条命令以躲过安全检查；开源客户端 T3 Code 每次启动都会读取 ~/.codex/auth.json 和 ~/.claude.json，把里面的 ID 做哈希后发出去用来数用户。普通开发者根本不知道自己装的东西会碰哪些文件、往哪发数据；想在公司用，还得自己抓包、翻源码向 IT 证明它无害。",
+    "target_users": "用 Claude Code、Codex、Cursor 等编程代理并安装第三方技能、插件、MCP 服务的开发者；需要审批这些工具的公司 IT 和安全团队；发布技能和插件、想证明自己干净的作者。",
+    "quotes": [
+     {
+      "text": "These same skills download an unpinned shell script from a server and run it. The skill also tells the agent to split the download and the run into separate commands because harness safety classifiers would block a single command like that.",
+      "links": [
+       {
+        "label": "HN 评论（Convex skills send the user's app idea to a remote server without telling them，187 分）",
+        "url": "https://news.ycombinator.com/item?id=50670595"
+       }
+      ]
+     },
+     {
+      "text": "This is different because it's a skill doing an http POST to a server that is not related to you or the AI service provider.",
+      "links": [
+       {
+        "label": "HN 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50670473"
+       }
+      ]
+     },
+     {
+      "text": "I've examined all the data it sends with default settings, I had to prove to IT it was harmless. I examined the source and billions of tokens worth of my own logs and wireshark data in case it was hiding stuff.",
+      "links": [
+       {
+        "label": "r/LocalLLaMA 评论（T3 Code drama，447 分、215 条评论）",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1y4atw3/t3_code_drama_chinese_post_on_x/"
+       }
+      ]
+     },
+     {
+      "text": "each time it started, its analytics read two files, ~/.codex/auth.json and ~/.claude.json , and sent hashes of the IDs inside. Users \"did not sign in to those providers to be identified by T3 Code,\"",
+      "links": [
+       {
+        "label": "Indie Hackers 新闻（A coding app stops using Claude and Codex sign-in files to count users）",
+        "url": "https://www.indiehackers.com/post/news/a-coding-app-stops-using-claude-and-codex-sign-in-files-to-count-users-3BYT5WHmfqtQZxUEmX8O"
+       }
+      ]
+     },
+     {
+      "text": "Your Mac's apps quietly send analytics, crash reports and tracking data to servers all day, and macOS gives you no way to see it or stop it without deleting the app.",
+      "links": [
+       {
+        "label": "r/macapps（Outbound 作者自述要解决的问题）",
+        "url": "https://www.reddit.com/r/macapps/comments/1y6zeeu/black_friday_30_off_outbound_mac_firewall_that/"
+       }
+      ]
+     }
+    ],
+    "existing": "Little Snitch、LuLu、Outbound 等 Mac 网络防火墙；Claude Code、Codex 自带的权限确认和沙箱；Socket、Snyk 等依赖包安全扫描；手动 Wireshark 抓包和读源码",
+    "defects": "防火墙只看到「哪个进程连了哪个域名」，看不到代理在执行哪个技能、读了哪个密钥文件、发出去的内容是什么；依赖扫描器不认识技能、插件、MCP 这种 Markdown 加脚本的新格式；代理自带的确认框容易被「拆成两条命令」之类的写法绕过；没有一份能直接交给 IT 的报告",
+    "solution": "一个「AI 工具外传体检」：①安装前静态扫描技能、插件、MCP 包，标出会联网的地址、会下载并执行的脚本、没锁版本的依赖、会读取的敏感路径（~/.claude.json、~/.codex/auth.json、~/.ssh、.env 等），给出风险分级；②安装后在本机做轻量监控，把每次文件读取和网络请求归到具体的代理会话和技能，敏感文件被读或数据发往陌生服务器时立刻提醒，可一键拦截；③一键导出「这个工具发了什么」报告（目的地、频率、字段样例），方便向公司 IT 申请白名单；④汇总社区扫描结果，做成公开的技能和插件信誉库。",
+    "mvp": "先做一个命令行扫描器：输入技能或插件目录、GitHub 地址或 npm 包名，输出联网地址、执行脚本、敏感路径读取三类清单和风险分；再加一个 macOS 上基于 Endpoint Security 的只读监控，专盯常见 AI 登录文件和 .env。个人免费，团队版按席位收费，提供审批流和报告导出。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-28-02",
+   "date": "2026-11-28",
+   "type": "idea",
+   "rank": 2,
+   "title": "Google Play、App Store 要公开个人开发者的电话和住址：帮你判断自己算不算「交易者」，配好能公开的商务地址和电话，按期完成两家商店的声明，别让 App 被下架",
+   "summary": "一个「个人开发者 DSA 合规助手」：①问答式自测，按收入、内购、广告、是否注册公司等情况，对照欧盟委员会给的标准判断你大概率算不算交易者，并说明不同选择的后果（不在欧盟上架、改成免费、注册个体户等）；②按所在国家推荐两家商店都认可的商务地址和可公开电话（虚拟办公室、注册代理、虚拟号码），标明价格和是否被 Google 拒过；③同时连接 Play 管理中心和 App Store Connect，盯住声明截止日、认证进度和下架风险，逾期前提醒；④附上申诉模板和常见被拒原因。",
+   "url": "https://www.indiehackers.com/post/news/google-play-developers-must-say-by-february-1-if-theyre-a-business-IjfMlLNaXzf9RidBgVjq",
+   "tags": [
+    "开发者工具",
+    "支付",
+    "安全"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "支付/计费",
+    "安全/隐私"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "受欧盟《数字服务法》（DSA）约束，Google Play 要求每个开发者账号在 2027 年 2 月 1 日前声明自己是不是「交易者」，逾期可能被禁止更新、全球下架；声明为交易者的个人开发者，从 3 月 1 日起电话和住址会向所有国家的用户公开，而且 Google 不接受邮政信箱。Apple 这边，一个上架 9 年的开源 App 因为没完成交易者认证被欧盟商店下架，审核排队要等一个月。很多个人开发者只做收费几美元的小 App，既不确定自己算不算交易者，也不想把自家住址挂在商店页上。",
+    "target_users": "在 Google Play、App Store 上架 App 的个人开发者和夫妻店；有少量内购或付费下载的独立游戏、工具类开发者；有人身安全顾虑（如寄养家庭、曾被骚扰）的开发者；帮客户代上架的外包工作室。",
+    "quotes": [
+     {
+      "text": "Solo developers who say yes will have their phone number shown to Google Play users in every country, starting March 1. Every existing Google Play developer account has until February 1, 2027 to declare in Play Console whether it's a trader",
+      "links": [
+       {
+        "label": "Indie Hackers 新闻（Google Play developers must say by February 1 if they're a business）",
+        "url": "https://www.indiehackers.com/post/news/google-play-developers-must-say-by-february-1-if-theyre-a-business-IjfMlLNaXzf9RidBgVjq"
+       }
+      ]
+     },
+     {
+      "text": "Key detail not stated in the submitted article: \"We don't allow you to use a PO box address.\"",
+      "links": [
+       {
+        "label": "HN 评论（Google will show solo Android developers' phone numbers and addresses，174 分）",
+        "url": "https://news.ycombinator.com/item?id=50662886"
+       }
+      ]
+     },
+     {
+      "text": "Can you make any money from your app if you're not a Trader? e.g. a $2 game stat/tracker app",
+      "links": [
+       {
+        "label": "HN 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50662850"
+       }
+      ]
+     },
+     {
+      "text": "What about people where privacy is not just a personal wish they have but an absolute necessity for safety?",
+      "links": [
+       {
+        "label": "HN 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50663386"
+       }
+      ]
+     },
+     {
+      "text": "If you're classed as a trader, you have to publish a postal address, phone number and email address on your EU app listing.",
+      "links": [
+       {
+        "label": "HN 评论（Apple removed my open-source app from EU App Stores after 9 years，635 分）",
+        "url": "https://news.ycombinator.com/item?id=50618708"
+       }
+      ]
+     },
+     {
+      "text": "It took our app a month to get EU DSA approval on App store after the recent EU rule change in October",
+      "links": [
+       {
+        "label": "HN 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50618601"
+       }
+      ]
+     }
+    ],
+    "existing": "Google Play 管理中心、App Store Connect 自带的交易者声明表单；虚拟办公室和代收地址服务（Regus、各地注册代理）；Google Voice 等虚拟号码；律师、会计咨询",
+    "defects": "商店表单只问「是或不是」，不解释四条判断标准怎么套到自己身上；虚拟地址服务不告诉你哪种地址 Google 认、Apple 认（Google 不收邮政信箱）；没有工具同时盯两家商店的截止日期和审核状态；找律师对一个月赚几十美元的 App 太贵",
+    "solution": "一个「个人开发者 DSA 合规助手」：①问答式自测，按收入、内购、广告、是否注册公司等情况，对照欧盟委员会给的标准判断你大概率算不算交易者，并说明不同选择的后果（不在欧盟上架、改成免费、注册个体户等）；②按所在国家推荐两家商店都认可的商务地址和可公开电话（虚拟办公室、注册代理、虚拟号码），标明价格和是否被 Google 拒过；③同时连接 Play 管理中心和 App Store Connect，盯住声明截止日、认证进度和下架风险，逾期前提醒；④附上申诉模板和常见被拒原因。",
+    "mvp": "先做一个免费网页：交易者自测问卷加各国可用地址、号码服务对照表（重点覆盖美国、英国、德国、印度、中国大陆开发者常用的方案），用户留邮箱后在 2 月 1 日、3 月 1 日前提醒；通过地址、号码服务的推荐分成和付费一对一材料检查赚钱。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-28-03",
+   "date": "2026-11-28",
+   "type": "idea",
+   "rank": 3,
+   "title": "AI 一年帮你做了几十个小工具，一半找不到：自动盘点散在聊天记录、各个仓库、别人电脑和部署平台上的项目，记下它是干什么的、在哪跑、怎么启动、还能不能用、花了多少 token",
+   "summary": "一个「AI 小工具总账」：①连接 GitHub、本地代码目录、Claude/ChatGPT 导出记录、Vercel/Cloudflare 等部署平台，自动识别出一个个项目并去重合并；②让 AI 读代码和聊天记录，自动写一行用途说明、运行方式、依赖的密钥和服务；③定时做健康检查（网址能否打开、脚本能否跑通），标出「还在用」「已失效」「可以归档」；④关联 API 账单估算每个工具的 token 开销；⑤给编程代理一条规则：做完新东西自动登记到总账。",
+   "url": "https://www.reddit.com/r/ClaudeAI/comments/1y6vnes/ive_built_like_40_things_with_claude_this_year/",
+   "tags": [
+    "Coding Agent",
+    "开发者工具",
+    "支付"
+   ],
+   "raw_tags": [
+    "Agent/AI编码",
+    "开发者工具",
+    "支付/计费"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "有了编程代理，个人一年能做出几十个仪表盘、脚本、内部小应用和 Artifacts，但它们散落在聊天记录、随手建的仓库、朋友的电脑、各种部署平台上。r/ClaudeAI 一位用户一年做了约 40 个东西，上周因为找不到原来的仪表盘又从头重做了一遍，结果做完才找到旧的；他不知道哪些还能用、哪些有人在用、各花了多少 token。HN 上也有人说自己今年用 Claude 替换了编辑器、行情软件、修图工具和一堆服务器上的小程序，数量越来越多。",
+    "target_users": "大量用 Claude、ChatGPT、Cursor 等做个人工具的开发者和非程序员；在团队里到处搭小工具的运营、数据、产品人员；需要知道公司里有哪些 AI 做的内部应用在跑的 IT 管理者。",
+    "quotes": [
+     {
+      "text": "Some are buried in chat history, some in random repos, one lives on a mates laptop. Last week I rebuilt a dashboard from scratch because I couldn't find the original. Then found it.",
+      "links": [
+       {
+        "label": "r/ClaudeAI（I've built like 40 things with Claude this year and I can't find half of them，42 条评论）",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1y6vnes/ive_built_like_40_things_with_claude_this_year/"
+       }
+      ]
+     },
+     {
+      "text": "No idea which ones still work, which ones anyone uses, or what they cost in tokens.",
+      "links": [
+       {
+        "label": "r/ClaudeAI（同帖正文）",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1y6vnes/ive_built_like_40_things_with_claude_this_year/"
+       }
+      ]
+     },
+     {
+      "text": "i'd start with a boring index: what it does, where it lives, how to run it, and when you last checked it worked. keep \"i built this\" separate from \"i still use this\".",
+      "links": [
+       {
+        "label": "r/ClaudeAI 评论（同帖）",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1y6vnes/ive_built_like_40_things_with_claude_this_year/"
+       }
+      ]
+     },
+     {
+      "text": "lol we are approaching a world where it's easier to build a new software project from scratch than find the same one you built a few weeks ago.",
+      "links": [
+       {
+        "label": "r/ClaudeAI 评论（同帖）",
+        "url": "https://www.reddit.com/r/ClaudeAI/comments/1y6vnes/ive_built_like_40_things_with_claude_this_year/"
+       }
+      ]
+     },
+     {
+      "text": "tons of smaller programs on my servers, laptop and phone to scratch my itches.",
+      "links": [
+       {
+        "label": "HN 评论（Ask HN: Where is all the amazing AI-generated software?）",
+        "url": "https://news.ycombinator.com/item?id=50653106"
+       }
+      ]
+     }
+    ],
+    "existing": "Claude.ai 的 Artifacts 标签页、ChatGPT 的项目文件夹、GitHub 仓库列表、Vercel/Netlify/Cloudflare 控制台、Notion 手工清单",
+    "defects": "每个平台只列自己那部分，没人把聊天、仓库、本地目录、部署平台串起来；Artifacts 标签页不含旧的未发布内容，也不会告诉你它还能不能跑；手工清单没人维护；没有「最后一次正常运行」「谁在用」「花了多少 token」这些信息",
+    "solution": "一个「AI 小工具总账」：①连接 GitHub、本地代码目录、Claude/ChatGPT 导出记录、Vercel/Cloudflare 等部署平台，自动识别出一个个项目并去重合并；②让 AI 读代码和聊天记录，自动写一行用途说明、运行方式、依赖的密钥和服务；③定时做健康检查（网址能否打开、脚本能否跑通），标出「还在用」「已失效」「可以归档」；④关联 API 账单估算每个工具的 token 开销；⑤给编程代理一条规则：做完新东西自动登记到总账。",
+    "mvp": "先做一个命令行工具加本地网页：扫描指定目录和 GitHub 账号，找出所有项目，生成带用途说明、启动命令、最后修改时间的清单，并对有网址的项目做可访问性检查；附一个 Claude Code、Codex 通用的规则文件，让代理每次完工自动追加条目。个人免费，团队版收费，增加负责人和账单汇总。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-28-04",
+   "date": "2026-11-28",
+   "type": "idea",
+   "rank": 4,
+   "title": "你依赖的在线书和教程哪天突然没了：把收藏和常读的网页连同附带的代码、配置文件一起存到本地，原站一下线自动切到存档，还能整站从 Wayback Machine 拉回来离线看",
+   "summary": "一个「资料保险箱」：①浏览器插件一键「整本保存」：自动识别在线书、文档站、博客系列的目录，连同图片、附带的代码和配置文件下载打包；②后台定期检查收藏的网址，原站 404、改版或内容大幅变化时提醒，并在浏览器里自动跳到本地存档；③输入域名和日期，从 Wayback Machine 拉回当时的整站最新版本，转成可直接打开的离线包（单文件 HTML、EPUB 或 ZIM）；④可选同步到自己的 NAS 或网盘。",
+   "url": "https://news.ycombinator.com/item?id=50671560",
+   "tags": [
+    "开发者工具"
+   ],
+   "raw_tags": [
+    "开发者工具"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "Michael Nielsen 突然下线了他广受推荐的在线书《神经网络与深度学习》，HN 上大家急着找 archive.org 存档、GitHub 上的旧 TeX 副本和别人拼出来的 PDF。同一周另一个讨论里，有人发现常看的 nochan.net 整站消失，存档里只有文章，没有配套的脚本和配置文件。想把 Wayback Machine 上某个网站在某个日期前的最新版本整站存到本地，现有工具要么要解包、要么要自己架本地服务器才能看。",
+    "target_users": "依赖在线书、个人博客教程、开源文档自学的开发者和学生；收藏大量参考资料的研究者和写作者；维护内部知识库、担心外链失效的技术团队；喜欢离线阅读的自托管爱好者。",
+    "quotes": [
+     {
+      "text": "what is the best way of making a local backup of a Wayback machine site? ... Once I have the information in hand, is there actually good tooling to consume it? Or do I have to do some nonsense with unpacking a tar file, running a local web server, etc to view the data?",
+      "links": [
+       {
+        "label": "HN 评论（Michael Nielsen took down his book on neural nets，288 分）",
+        "url": "https://news.ycombinator.com/item?id=50671560"
+       }
+      ]
+     },
+     {
+      "text": "I've been thinking about using some kind of specially designed proxy server to browse the web. One that permanently caches all resources. If the origin 404s something we check the cache for a replacement instead of forwarding the 404 to the client.",
+      "links": [
+       {
+        "label": "HN 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50671752"
+       }
+      ]
+     },
+     {
+      "text": "I noticed nochan.net has disappeared. I've managed to locate an archived copy of the article, but unfortunately none of the accompanying scripts, sysctl configuration or netsets seem",
+      "links": [
+       {
+        "label": "HN 评论（New York and California age gating rules go into effect in the new year）",
+        "url": "https://news.ycombinator.com/item?id=50671881"
+       }
+      ]
+     },
+     {
+      "text": "There's an older TeX copy of it on github here",
+      "links": [
+       {
+        "label": "HN 评论（Nielsen 帖，网友四处找副本）",
+        "url": "https://news.ycombinator.com/item?id=50671769"
+       }
+      ]
+     }
+    ],
+    "existing": "Internet Archive（Wayback Machine）、ArchiveBox 及 archivebox-proxy、SingleFile、Zotero 网页快照、Pocket（已关停）、Readwise Reader、Kiwix 离线维基",
+    "defects": "Wayback 只能在线看，且经常漏掉页面附带的脚本、配置和压缩包；ArchiveBox 要自己部署维护，对普通读者门槛高；浏览器存页插件一次只存一页，整本在线书或整站要手动一页页点；收藏工具不会在原站下线时提醒你、也不会自动切换到存档",
+    "solution": "一个「资料保险箱」：①浏览器插件一键「整本保存」：自动识别在线书、文档站、博客系列的目录，连同图片、附带的代码和配置文件下载打包；②后台定期检查收藏的网址，原站 404、改版或内容大幅变化时提醒，并在浏览器里自动跳到本地存档；③输入域名和日期，从 Wayback Machine 拉回当时的整站最新版本，转成可直接打开的离线包（单文件 HTML、EPUB 或 ZIM）；④可选同步到自己的 NAS 或网盘。",
+    "mvp": "先做 Chrome/Firefox 插件加本地小程序：支持「整本保存」常见在线书和文档框架（GitBook、Docusaurus、mdBook、Sphinx、Jekyll），导出 EPUB 和单文件 HTML；附带「从 Wayback 整站拉取」命令行。基础版免费，付费版提供失效监控、自动跳转和云端备份。",
+    "difficulty": null,
+    "potential": null
+   }
+  },
+  {
+   "id": "idea-2026-11-28-05",
+   "date": "2026-11-28",
+   "type": "idea",
+   "rank": 5,
+   "title": "Mac 上能扛几十万封邮件的邮件客户端：本地建全文索引秒搜，所有操作都能用键盘和脚本完成，过滤规则直接写到服务器上生效",
+   "summary": "一个面向重度用户的原生 Mac 邮件客户端：①本地用 SQLite 全文索引存储所有邮件，几十万封也能毫秒级搜索，支持复杂查询语法和保存的智能文件夹；②全键盘操作，所有动作都可通过 AppleScript、快捷指令和命令行调用；③可视化编辑服务器端 Sieve 规则，过滤在服务器上执行，手机端同样生效；④可选本地大模型做摘要和分类，邮件不出本机；⑤不经过任何第三方服务器。",
+   "url": "https://news.ycombinator.com/item?id=50638654",
+   "tags": [
+    "开发者工具",
+    "个人/生活",
+    "Mac/桌面"
+   ],
+   "raw_tags": [
+    "开发者工具",
+    "个人/生活",
+    "Mac/桌面工具"
+   ],
+   "score": null,
+   "score_label": "潜力 None/5 · 难度 None/5",
+   "detail": {
+    "problem": "HN 上有人发问：都 2026 年了，macOS 上为什么还没有好用的邮件客户端。Apple 自带的「邮件」在一个文件夹有几千封、文件夹有几百上千个时就吃不消；重度用户想要的是把本地邮件当数据库、全量建索引的客户端，还要有丰富的脚本能力，过滤规则最好在服务器端执行，客户端只负责配置。现有替代品要么是 Electron 套壳，要么多年不更新，要么只支持 Gmail。",
+    "target_users": "多年积累大量邮件的自由职业者、律师、顾问、研究者；同时管理多个 IMAP 账号的技术用户；离不开键盘快捷键和自动化的效率用户；用 Fastmail、自建邮局等非 Gmail 邮箱的用户。",
+    "quotes": [
+     {
+      "text": "Unfortunately, mail.app does not deal well with thousands of e-mail messages in a folder, and hundreds, if not thousands of folders this size. You need something that treats the local message store as a database, with full indexes across all messages.",
+      "links": [
+       {
+        "label": "HN 评论（Ask HN: Its 2026 and there is still not good Email client for macOS. Why?）",
+        "url": "https://news.ycombinator.com/item?id=50638654"
+       }
+      ]
+     },
+     {
+      "text": "on the server side, you need to have good scripting tools available that can be exposed through the client.  That way, you don’t have to do any filtering or anything on the client side.",
+      "links": [
+       {
+        "label": "HN 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50638663"
+       }
+      ]
+     },
+     {
+      "text": "I'd personally love a good, native email client with rich scripting abilities. Apple Mail could be this, if Apple cared about it.",
+      "links": [
+       {
+        "label": "HN 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50631862"
+       }
+      ]
+     },
+     {
+      "text": "there is still no email client I wanna work with everday as freelancer",
+      "links": [
+       {
+        "label": "HN 评论（同帖）",
+        "url": "https://news.ycombinator.com/item?id=50652077"
+       }
+      ]
+     }
+    ],
+    "existing": "Apple 邮件、MailMate、Mimestream（仅 Gmail）、Spark、Airmail、Thunderbird、Outlook for Mac，以及 HN 帖中提到的 Marco、tecotype 等新作",
+    "defects": "Apple 邮件大文件夹卡顿、搜索不可靠、脚本能力弱；MailMate 功能强但界面老、更新慢；Mimestream 只支持 Gmail；Spark、Airmail 偏轻度用户且要把邮件过一遍自家服务器；Thunderbird 不是原生 Mac 体验；几乎没有客户端能直接编辑服务器端 Sieve 过滤规则",
+    "solution": "一个面向重度用户的原生 Mac 邮件客户端：①本地用 SQLite 全文索引存储所有邮件，几十万封也能毫秒级搜索，支持复杂查询语法和保存的智能文件夹；②全键盘操作，所有动作都可通过 AppleScript、快捷指令和命令行调用；③可视化编辑服务器端 Sieve 规则，过滤在服务器上执行，手机端同样生效；④可选本地大模型做摘要和分类，邮件不出本机；⑤不经过任何第三方服务器。",
+    "mvp": "先支持标准 IMAP（Fastmail、iCloud、自建邮局），做好三件事：导入十万封以上邮件不卡、全文搜索、Sieve 规则编辑器；加上命令面板和基础快捷键。一次性买断加年度升级收费，目标是 MailMate 老用户和 Apple 邮件的重度用户。",
+    "difficulty": null,
+    "potential": null
+   }
+  }
+ ]
+}
