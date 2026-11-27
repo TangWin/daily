@@ -1,0 +1,202 @@
+{
+ "schema_version": 1,
+ "type": "x",
+ "date": "2026-11-28",
+ "day": {
+  "digest": "Karpathy 回应了受 usaciv 启发的印度版 BHARAT 项目，表示他着迷于“国家级数字孪生”，并称已有至少 50 人在做类似项目；Dan Koe 发了 Eden 黑五促销串，附带 Claude 工作流链接。",
+  "by_source": {
+   "karpathy": "称赞印度版 BHARAT 项目，谈“国家级数字孪生”的想法，并称至少 50 人在做类似版本。",
+   "thedankoe": "Eden 黑五最高五折促销，并分享几个用于创作者业务的 Claude 工作流。"
+  },
+  "updated_at": "2026-11-28T08:25:00+09:00"
+ },
+ "items": [
+  {
+   "id": "x-2126378202222477807",
+   "date": "2026-11-28",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2126378202222477807",
+   "url": "https://x.com/thedankoe/status/2126378202222477807",
+   "posted_at": "2026-11-28T02:10+08:00",
+   "kind": "reply",
+   "text": "Claude workflows to research top content, schedule posts, and build your creator business:\n\nhttps://eden.so/workflows\n\nhttps://eden.so/workflows/weekly-strategist/\n\nhttps://eden.so/workflows/micro-funnel-builder",
+   "article_title": null,
+   "reply_to": {
+    "handle": "thedankoe",
+    "post_id": "2126377342075539604",
+    "url": "https://x.com/thedankoe/status/2126377342075539604",
+    "text": "Up to 50% off black friday:"
+   },
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://eden.so/workflows",
+     "title": "Free Claude workflows for creators | Eden"
+    },
+    {
+     "url": "https://eden.so/workflows/weekly-strategist/",
+     "title": "Weekly Strategist: a free Claude workflow for content strategy | Eden"
+    },
+    {
+     "url": "https://eden.so/workflows/micro-funnel-builder",
+     "title": "Micro Funnel Builder: a free Claude workflow that builds your sales funnel | Eden"
+    }
+   ],
+   "translation_zh": "用 Claude 工作流来调研热门内容、定时发帖、经营你的创作者生意：\n\nhttps://eden.so/workflows\n\nhttps://eden.so/workflows/weekly-strategist/\n\nhttps://eden.so/workflows/micro-funnel-builder",
+   "analysis": {
+    "summary": "促销串的补充：给出 Eden 提供的几个 Claude 工作流链接。",
+    "points": [
+     "Eden 工作流总页",
+     "Weekly Strategist：按链接标题是用于内容策略的免费 Claude 工作流",
+     "Micro Funnel Builder：按链接标题是搭建销售漏斗的免费 Claude 工作流"
+    ],
+    "why": "展示了创作者工具把 Claude 工作流当作获客内容的做法；只采集到链接标题，未读取工作流具体内容，不做推断。",
+    "tags": [
+     "Claude",
+     "工作流",
+     "创作者经济"
+    ]
+   }
+  },
+  {
+   "id": "x-2126377342075539604",
+   "date": "2026-11-28",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2126377342075539604",
+   "url": "https://x.com/thedankoe/status/2126377342075539604",
+   "posted_at": "2026-11-28T02:07+08:00",
+   "kind": "reply",
+   "text": "Up to 50% off black friday:\nhttps://eden.so",
+   "article_title": null,
+   "reply_to": {
+    "handle": "thedankoe",
+    "post_id": "2126377239235477689",
+    "url": "https://x.com/thedankoe/status/2126377239235477689",
+    "text": "If you're a writer, creator, or coach who uses:\n\n- A post scheduler\n- A course hosting platform\n- Research tools for viral content\n- Forms and calendar booking\n- Auto-DMs\n- Swipe files or inspiration apps\n- Sales pages and funnels\n- Drafts for newsletters or scripts\n- Email marketing and sequences\n- Claude or ChatGPT for any of the above\n\nEden is up to 50% off for black friday.\n\nWe built it because:\n\n1 - you shouldn't need 10 different subscriptions to run your business\n\n2 - most all-in-one apps are expensive, bloated, ugly, and slow\n\nPlus, if you use Claude, connect it to Eden and you can run…"
+   },
+   "quoted": null,
+   "links": [
+    {
+     "url": "https://eden.so",
+     "title": "Eden | The All-in-One Platform for Creators"
+    }
+   ],
+   "translation_zh": "黑色星期五最高五折：\nhttps://eden.so",
+   "analysis": {
+    "summary": "接上一条促销帖，给出 Eden 的链接。",
+    "points": [
+     "黑五最高五折",
+     "链接：eden.so"
+    ],
+    "why": "促销帖的补充链接，信息量很低。",
+    "tags": [
+     "Eden",
+     "产品推广"
+    ]
+   }
+  },
+  {
+   "id": "x-2126377239235477689",
+   "date": "2026-11-28",
+   "type": "x",
+   "source": "thedankoe",
+   "post_id": "2126377239235477689",
+   "url": "https://x.com/thedankoe/status/2126377239235477689",
+   "posted_at": "2026-11-28T02:06+08:00",
+   "kind": "post",
+   "text": "If you're a writer, creator, or coach who uses:\n\n- A post scheduler\n- A course hosting platform\n- Research tools for viral content\n- Forms and calendar booking\n- Auto-DMs\n- Swipe files or inspiration apps\n- Sales pages and funnels\n- Drafts for newsletters or scripts\n- Email marketing and sequences\n- Claude or ChatGPT for any of the above\n\nEden is up to 50% off for black friday.\n\nWe built it because:\n\n1 - you shouldn't need 10 different subscriptions to run your business\n\n2 - most all-in-one apps are expensive, bloated, ugly, and slow\n\nPlus, if you use Claude, connect it to Eden and you can run your entire business from it. Everything from content research to grow your audience, to setting up an entire funnel with one skill (will link workflows we've built below as a starting point), to sending emails and managing a community.\n\nWhen you sign up, you also receive the 30 day creator sprint, that walks you through finding viral ideas, teaches you how to write engaging posts, and helps you set up your first profitable product.\n\nOn yearly plans, you get access to all Renaissance Workshops.\n\nEach month, we bring on one creator to teach a skill - like newsletter writing, personal branding, or landing clients.\n\nOver the next year, we will build out an entire workshop library with everything you need to build an audience and monetize.\n\nIf interested, the deal ends Monday.\n\nLinks below.",
+   "article_title": null,
+   "reply_to": null,
+   "quoted": null,
+   "links": [],
+   "translation_zh": "如果你是写作者、创作者或教练，并且在用：\n\n- 帖子定时发布工具\n- 课程托管平台\n- 爆款内容调研工具\n- 表单和日历预约\n- 自动私信\n- 灵感素材库或灵感类应用\n- 销售页和销售漏斗\n- 通讯或脚本的草稿\n- 邮件营销和自动邮件序列\n- 用 Claude 或 ChatGPT 做上面任何一项\n\nEden 黑色星期五最高打五折。\n\n我们做它的原因是：\n\n1 - 你不应该需要 10 个不同的订阅来经营你的生意\n\n2 - 大多数一体化应用都贵、臃肿、难看、还慢\n\n另外，如果你用 Claude，把它连上 Eden，你就能在里面经营整个生意。从为了增长受众做内容调研，到用一个 skill 搭建完整的漏斗（下面会附上我们做好的工作流作为起点），再到发邮件和管理社区。\n\n注册时，你还会获得 30 天创作者冲刺计划，带你找到爆款选题、教你写出有吸引力的帖子，并帮你搭建第一个能赚钱的产品。\n\n年付方案可以访问所有 Renaissance Workshops。\n\n每个月我们会请一位创作者来教一项技能，比如写通讯、个人品牌或获取客户。\n\n接下来一年，我们会建立一个完整的工作坊库，涵盖建立受众和变现所需的一切。\n\n有兴趣的话，优惠周一结束。\n\n链接在下面。",
+   "analysis": {
+    "summary": "Dan Koe 为自己的创作者平台 Eden 发黑五促销帖：最高五折，主打把创作者常用的多种工具合并成一个，并可接入 Claude 运营业务。",
+    "points": [
+     "Eden 黑五最高五折，优惠周一结束",
+     "定位：替代定时发布、课程托管、表单预约、自动私信、销售页、邮件营销等多个订阅",
+     "可连接 Claude，用 skill 完成内容调研、搭建漏斗、发邮件、管理社区",
+     "注册附送 30 天创作者冲刺计划；年付含 Renaissance Workshops，每月请一位创作者授课"
+    ],
+    "why": "这是作者自家产品的广告，观点（如“一体化应用多半臃肿”）属于营销说法。值得关注的是创作者工具开始把 Claude 接入和 skill 工作流当作卖点。",
+    "tags": [
+     "创作者经济",
+     "Eden",
+     "Claude",
+     "产品推广"
+    ]
+   }
+  },
+  {
+   "id": "x-2126351765033689519",
+   "date": "2026-11-28",
+   "type": "x",
+   "source": "karpathy",
+   "post_id": "2126351765033689519",
+   "url": "https://x.com/karpathy/status/2126351765033689519",
+   "posted_at": "2026-11-28T00:25+08:00",
+   "kind": "reply",
+   "text": "at least 50 separate people judging by my quote tweets",
+   "article_title": null,
+   "reply_to": {
+    "handle": "harryjwang",
+    "post_id": "2126351579276021827",
+    "url": "https://x.com/harryjwang/status/2126351579276021827",
+    "text": "Anyone working on a China version?"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "根据我收到的引用推文来看，至少有 50 个不同的人在做。",
+   "analysis": {
+    "summary": "有人问“有人在做中国版吗？”，Karpathy 回复：从引用推文看，至少有 50 个不同的人在做（指类似的国家版本项目）。",
+    "points": [
+     "有人询问是否有人在做中国版",
+     "Karpathy 依据引用推文估计至少 50 人在做类似项目"
+    ],
+    "why": "侧面说明他的 usaciv 引发了大量仿作；“50 人”是他根据引用推文的粗略判断，不是统计数据。",
+    "tags": [
+     "开源项目",
+     "社区"
+    ]
+   }
+  },
+  {
+   "id": "x-2126347015198302437",
+   "date": "2026-11-28",
+   "type": "x",
+   "source": "karpathy",
+   "post_id": "2126347015198302437",
+   "url": "https://x.com/karpathy/status/2126347015198302437",
+   "posted_at": "2026-11-28T00:06+08:00",
+   "kind": "reply",
+   "text": "looks great, love the new systems you've added!\nmore generally the idea that i've been obsessed with is that of a \"digital twin\", which are dynamic virtual models of physical objects or systems (e.g. a factory), but in this case - an entire country.",
+   "article_title": null,
+   "reply_to": {
+    "handle": "shankar_aca",
+    "post_id": "2126262215124910522",
+    "url": "https://x.com/shankar_aca/status/2126262215124910522",
+    "text": "Inspired by @karpathy 's usaciv, we built BHARAT (Bharata Khandam) — all of India as a live 3D strategy game from 21 public datasets.\n\nWe pushed it a step further: \n🏔️ 3D Himalayas & extruded city skylines across 9,835 tiles (20 km hexes) \n📊 Then & Now time-slider (Census 2011 → NFHS-6) across all 640 districts \n💡 104 Indian innovations, legends & sights across all 28 states & 8 UTs \n🚄 5,140 live trains (incl. Vande Bharat & Kashmir's Chenab Bridge) + 55 flight corridors & monsoon lightning \n🎯 4 knowledge games + RPG district cards, District Twins & State Duels100% static, runs straight in the…"
+   },
+   "quoted": null,
+   "links": [],
+   "translation_zh": "看起来很棒，喜欢你们新加的这些系统！\n更宽泛地说，我一直着迷的想法是“数字孪生”（digital twin）：也就是对物理对象或系统（比如一座工厂）的动态虚拟模型，只不过这里的对象是一整个国家。",
+   "analysis": {
+    "summary": "有人受 Karpathy 的 usaciv 启发，做了把整个印度变成实时 3D 策略游戏的 BHARAT 项目；Karpathy 回复称赞，并说他真正着迷的是“国家级数字孪生”这个想法。",
+    "points": [
+     "BHARAT 项目据其作者称基于 21 个公开数据集，把印度做成可交互的 3D 策略游戏",
+     "Karpathy 称赞其新增的系统",
+     "他说自己一直着迷于“数字孪生”：物理对象或系统的动态虚拟模型",
+     "他设想的对象不是一座工厂，而是一整个国家"
+    ],
+    "why": "这透露了 Karpathy 做 usaciv 一类项目背后的兴趣方向：用公开数据构建国家级的动态模型。这是他的个人想法，并非具体发布。",
+    "tags": [
+     "数字孪生",
+     "开源项目",
+     "数据可视化"
+    ]
+   }
+  }
+ ]
+}
