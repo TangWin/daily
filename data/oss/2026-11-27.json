@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "type": "oss",
+  "date": "2026-11-27",
+  "day": {},
+  "items": [
+    {
+      "id": "oss-2026-11-27-songe",
+      "date": "2026-11-27",
+      "type": "oss",
+      "rank": 1,
+      "title": "Songe：Agent 空闲时，用你的纠正给本地模型训练 LoRA，更好才上线",
+      "summary": "Apache-2.0 开源的本地模型「夜校」：作为 OpenAI 兼容代理架在 opencode/pi 等 Agent 与 LM Studio/Ollama/vLLM/llama.cpp/mlx-lm 之间，记下你的纠正和工具报错，空闲时 Quick Dream 改指令、Deep Dream 自蒸馏训练 LoRA，在你自己的对话上明显更好才替换，可一键回滚；建库一周 200+ 提交，最新 0.1.0a15（11-22 北京时间）。",
+      "url": "https://github.com/sous-labs/songe",
+      "tags": [
+        "模型",
+        "Coding Agent",
+        "微调",
+        "本地推理"
+      ],
+      "raw_tags": [],
+      "score": 905,
+      "score_label": "★ 905",
+      "detail": {
+        "status": "picked",
+        "repo": "sous-labs/songe",
+        "homepage": "https://souslabs.ai/songe",
+        "stars": 905,
+        "forks": 74,
+        "license": "Apache-2.0",
+        "language": "Python",
+        "latest_release": "v0.1.0a15",
+        "runners_up": [],
+        "body_md": "## Songe：给你本地跑的模型装一个「夜校」，Agent 空闲时用你的纠正自己微调 LoRA\n\n**为什么今天值得试：** 本地模型最大的痛点是「教了也不长记性」：你第十次说「用 pnpm 别用 npm」，它下次照样 npm。Songe 架在 Agent 和本地模型服务之间当一个 OpenAI 兼容代理，记下每次交互的结果，等你离开电脑时「做梦」：把你的纠正、明确说过的规则、工具报错提炼成教训，再用同一个模型自蒸馏训练 LoRA，新版本只有在你自己的对话上明显更好才会替换上线，一条命令可回滚。建库一周已有 900+★、200+ 次提交、13 位贡献者，Issue 里有用户自己写基准实测「默认参数学不会」并得到维护者带数据的回应，正处于最值得早期参与的阶段。\n\n- 仓库：https://github.com/sous-labs/songe\n- 主页：https://souslabs.ai/songe\n- 许可证：Apache-2.0；主语言 Python；905★ / 74 fork；2026-11-20 19:01 北京时间建库（PyPI 上 0.1.0a2 早在 11-11 就已发布）\n\n### 解决什么问题、适合谁\n\n- 已经在用 LM Studio / Ollama / vLLM / llama.cpp / mlx-lm 跑本地模型，并配 opencode、pi 或任意 OpenAI 兼容 Agent 干活的人\n- 想让本地小模型逐渐「适应你的工作方式」（你的工具、项目习惯、偏好），又不想把对话上传云端\n- 对在线学习 / on-policy 自蒸馏 / LoRA 个性化感兴趣、想看一个完整工程化实现的研究者\n\n### README 里的关键能力\n\n- **代理 + 记录：** 默认监听 `127.0.0.1:7613`，Agent 改指向它即可，Songe 本身不执行你的工具、不碰你的文件\n- **两种 Dream：** Quick Dream 几分钟内把你的偏好写进模型指令（可看 before/after、可单条撤销）；Deep Dream 用一小时以上，根据教训生成「练习场景」，让「看得到笔记的原模型」当老师、「只看到场景的带 LoRA 模型」当学生做 on-policy 蒸馏，并复习旧技能防遗忘；你的真实对话不直接拿来训练\n- **上线闸门：** 在你当时有反应的那些时刻，让新旧版本各答一次，由评审模型比较；只有明显更好、不破坏原有能力时才采用；`songe undo MODEL` 回退\n- **不打扰：** 只在 Agent 安静、内存空闲、电量正常时训练，你一回来就停；首次训练前先测机器一次能学多少\n- **隐私：** 无账号无遥测；`songe cloud on` 可选让夜间 Dream 求助你指定的云端模型（脱敏、有预算上限）\n- **硬件：** 训练需要 Apple Silicon（MLX）或 NVIDIA/AMD GPU（PyTorch），没有 GPU 只能代理和记录；端到端验证过的是 LM Studio（macOS）和 vLLM（Linux）\n\n### 近期活跃证据\n\n- **Issues：** 共 49 个 Issue（开放 8），社区质量很高：#194 有用户自己写基准，发现默认参数下 Deep Dream 几乎学不会教训，怀疑 `vocab_clip` 是元凶；核心成员 BasilMan517 在 Qwen3.8-27B 上做对照实验给出数据，zw2700 于 11-26 17:01 北京时间回复已通过 #178/#190 修了评审，正在改训练方式；#15 是置顶的跨平台验证看板，已有 Linux/Windows/macOS 多份实测报告\n- **Release：** 没有 GitHub Release，以 PyPI 预发布为准：最新 `0.1.0a15`（tag v0.1.0a15，PyPI 上传于 11-22 18:27 北京时间），11-11 起已发约 15 个 alpha；之后 main 上又合了上百个修复，尚未发新版\n- **提交：** 建库以来 213 次提交、PR 232 个/合并 210 个；11-26 当天（北京时间）就有 50 次提交，最新一次 11-26 21:38 北京时间；方向集中在 Deep Dream 训练稳定性（FP8/GGUF/MoE 检查点、显存守卫、Linux 页缓存计算）和评审闸门；部分提交由 Claude 协作完成\n\n### 快速上手\n\n1. 先确保本地有模型服务（如 LM Studio 或 Ollama）和 opencode / pi，然后 `uv tool install songe`（或 `pipx install songe`、macOS 上 `brew tap sous-labs/tap && brew install songe`），需 Python 3.11+\n2. `songe init`：自动发现模型服务和 Agent，列出要改的配置，确认一次即可；之后在 Agent 里选 `songe/...` 开头的模型照常干活\n3. 用一阵后 `songe open` 打开面板手动按 Dream，或 `songe sleep` 立即跑 Deep Dream；不满意就 `songe undo MODEL`，彻底移除用 `songe uninstall --purge`\n\n### 风险 / 注意点\n\n- **仍是 alpha：** 版本号 0.1.0a15，PyPI 版本落后 main 很多；#194、#262（Deep Dream 只训练前 128 个答案 token）、#267（手动 Deep Dream 反复失败）都说明「训练真的有效」还在打磨，先把它当实验\n- **会改你的环境：** 安装开机自启后台服务、改写 opencode/pi 的 provider 配置（有备份）、在 LM Studio 模型目录写 `songe/` 文件夹；建议先在非主力配置上试，用 `songe uninstall` 恢复\n- **硬件门槛：** 没有 GPU / Apple Silicon 不会训练；Deep Dream 吃显存，单卡 vLLM 与训练并存曾 OOM（已修，仍需留意）\n- **对话全量落盘：** 所有经过代理的对话都会记录在本地数据目录，涉及敏感代码的要注意，`songe forget` 可清除；开启 cloud 选项时会把脱敏内容发给你选的云模型\n- **团队新、核心集中：** 提交主要来自 BasilMan517（93）和 zw2700（61），长期维护承诺未知\n",
+        "source_file": null,
+        "date_inferred": false
+      }
+    }
+  ]
+}
